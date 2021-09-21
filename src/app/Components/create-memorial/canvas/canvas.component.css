@@ -1,0 +1,327 @@
+.box1{
+   /* background-color: rebeccapurple; */
+    height: auto;
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    /* left: auto; */
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.canvas{
+    /* background-color: red; */
+    border:2px solid black;
+    /* height: auto;
+    width: 100%;
+    object-fit: contain; */
+    /* display: block; */
+    /* height: 500px !important; */
+    /* width: 500px !important;  */
+}
+
+.box2{
+    /* background-color: #f87171;  */
+   height: auto;
+   width:68%;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+
+}
+.showbackground{
+    height: 100px;
+    width: 100px;
+}
+
+.background{
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.submenu{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: aqua; */
+}
+
+.submenu .candle{
+    height: 100%;
+    width:14%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.SubmenuContent{
+    height: 65%;
+    width: 100%;
+    /* background-color: springgreen; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+   align-content: flex-start;
+}
+
+
+.carousel-indicators button{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.tambstone .carousel-item button{
+    height: 45%;
+    width: 32%;
+}
+
+.canddles{
+    height: 92px;
+    width: 70px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor:move;
+
+}
+
+.carousel-control-next {
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.carousel-item.active {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.URNS{
+    height: 6rem;
+    width: 6rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vita{
+    width: 100%;
+    height:75%;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.video{
+    width: 100%;
+    height:75%;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.video .addVideo{
+    height: 50%;
+    width: 30%;
+    border: 2px solid gray;
+    display: flex;
+}
+
+.content2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 60vw;
+}
+
+#toggleVideo{
+    visibility: hidden;
+}
+#divCanvas{
+    height: 50%;
+    width: 80%;
+}
+.btnAddText{
+    background-color:lightgray;
+}
+
+@media (max-width:480px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:100%;
+         display: inline-block;
+         flex-direction: column;
+         position: relative;
+         /* align-items: center; */
+         /* flex-wrap: wrap; */
+     }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: inline-block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    }
+    .menu{
+        width: 100%;
+        /* height: 4rem;*/
+        /* padding: 20%;  */
+        display: block;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        /* justify-content: flex-start; */
+    
+    }
+    .submenu .candle{
+        height: 100%;
+        width:18%;
+        display: inline-block;
+        text-align: center;
+        align-items: center;
+        padding-top: 4%;
+    }
+    #imgLogo{
+        margin-left: inherit;
+    }
+    
+    
+     .Mycanvas{
+         height: 50%;
+         width: 30%;
+     }
+     #rect{
+        width: 100%;
+    }
+    .background{
+        padding-top: 7%;
+    }
+    .video .addVideo{
+        height: 70%;
+        align-items: center;
+        text-align: center;
+        padding-top: 2%;
+        width: 35%;
+        border: 2px solid gray;
+        display: flex;
+    }
+     
+}
+@media (min-width:481px) and (max-width:780px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:70%;
+         display: inline-block;
+         flex-direction: column;
+         align-items: center;
+         /* flex-wrap: wrap; */
+     }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    }   
+}
+@media (min-width:781px) and (max-width:1160px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:70%;
+         display: inline-block;
+         flex-direction: column;
+         align-items: center;
+         /* flex-wrap: wrap; */
+     }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    }     
+}

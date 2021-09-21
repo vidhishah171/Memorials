@@ -1,0 +1,67 @@
+<div class="main flex-wrap p-3 mb-5">
+
+    <!-- Recent memorials -->
+    <div class="box1 h-100 p-2">
+
+        <h4 class="mb-4">
+            <strong>Recent Memorials</strong>
+        </h4> 
+
+        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" 
+        *ngFor="let memData of Memorials" >
+
+            <img src="{{memData.path}}" class="w-auto h-auto me-2 rounded">
+
+            <div class="ms-2 mt-3">
+                <h6>
+                    {{memData.fname}} {{ memData.lname}},{{memData.age}}Y Old 
+                </h6>
+                <h6>{{memData.starvetown}}</h6>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Premium Memorials -->
+    <div class="box2 ms-3  h-100 " style="background-color: white">
+
+        <div class="w-auto h-auto">
+            <h4 class="mb-3">
+                <img class="pe-2" src="../../../assets/StaticAssets/Home page/diamond (1).png">
+                <strong>Premium Memorials</strong>
+            </h4>
+        </div>
+
+
+        <div class="premium w-100 p-1">
+
+            <div class="premium-child p-2 mb-3 ms-5" *ngFor="let prememData of PremiumMemorials">
+
+                <img class="mainIMG  rounded" src="{{prememData.name}}">
+
+                <div class="name" >
+                    <h6>{{prememData.lastname}},{{prememData.firstname}}</h6>
+                    <img src="../../../assets/StaticAssets/Home page/eye.png" >
+                    <span class="me-1"><strong>{{prememData.grablog}}</strong></span> 
+                    <img src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="me-1"><strong>{{prememData.litCandle}}</strong></span>
+                    <img src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="me-1"><strong>{{prememData.Kondolenz}}</strong></span>
+                </div>
+                <!-- <div class="info w-100">
+                    <img src="../../../assets/StaticAssets/Home page/eye.png" >
+                    <span class="me-1"><strong>{{prememData.grablog}}</strong></span> 
+                    <img src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="me-1"><strong>{{prememData.litCandle}}</strong></span>
+                    <img src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="me-1"><strong>{{prememData.Kondolenz}}</strong></span>
+                </div> -->
+            </div>
+        
+
+        </div>
+
+    </div>
+
+</div>

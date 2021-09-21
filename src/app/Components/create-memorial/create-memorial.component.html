@@ -1,0 +1,472 @@
+<div class="navPadding">
+    <app-navbar></app-navbar>
+</div>
+<div class="create-memorial p-3">
+    <div class="d-flex w-100 tab justify-content-center align-items-center" style="background-color: rgb(238 230 221)">
+        <h2><strong>CREATE MEMORIAL</strong></h2>
+    </div>
+
+
+    <div id="myDiv" class="d-flex w-100 p-3 tab2 justify-content-center align-items-center">
+        <button class="steeper border border-secondary rounded-circle me-2 active" (click)="showStep(1)">
+            <!-- selectTab($event) -->
+            1
+        </button>
+        <hr style="width:4%; height: 2px; text-align:left;margin-left:0">
+        <button class="steeper border border-secondary rounded-circle  ms-2 me-2 " (click)="showStep(2)" for="I">
+            2
+        </button>
+        <hr style="width:4%; height: 2px; text-align:left;margin-left:0">
+        <button class="steeper border border-secondary rounded-circle ms-2 me-2 disabled" (click)="showStep(3)">
+            3
+        </button>
+    </div>
+
+
+
+
+    <!-- step 1  -->
+    <div class="content1 h-100 w-100 p-3" *ngIf="showMemSteps==1">
+
+        <div class="child p-3">
+
+            <div class="heading">
+                <img src=".././../../assets/StaticAssets/Create memorial/step1/stepfather.png" class="me-3">
+                <h6>Please enter details of your loved ones here</h6>
+            </div>
+
+            <div class="mt-5">
+                <form class="row g-3 needs-validation" #form1="ngForm">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstname">First name:</label>
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder="First Name"
+                            #g_firstname="ngModel" [(ngModel)]="service.createMemorial.g_firstname" name="g_firstname"
+                            required ngModel>
+                        <small class="fireError" *ngIf="g_firstname.touched && !g_firstname.valid">Please enter first
+                            name</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname">Last name:</label>
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
+                            #g_lastname="ngModel" [(ngModel)]="service.createMemorial.g_lastname" name="g_lastname"
+                            required ngModel>
+                        <small class="fireError" *ngIf="g_lastname.touched && !g_lastname.valid">Please enter last
+                            name</small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="birthplace">Birthplace:</label>
+                        <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
+                            name="birthplace" class="form-control shadow bg-body rounded" placeholder="Birthplace"
+                            ngModel>
+                        <!-- <small class="fireError" *ngIf="birthplace.touched && !birthplace.valid">Please enter birth
+                            place</small> -->
+                    </div>
+                    <div class="col-md-6">
+                        <label for="deathplace">Deathplace:</label>
+                        <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
+                            name="deathplace" class="form-control shadow bg-body rounded" placeholder="Place of Death"
+                            ngModel>
+                        <!-- required
+                        <small class="fireError" *ngIf="deathplace.touched && !deathplace.valid">Please enter death
+                            place</small> -->
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Birthdate">Date of birth:</label>
+                        <input type="date" #DOB="ngModel" [(ngModel)]="service.createMemorial.DOB" name="DOB"
+                            class="form-control shadow bg-body rounded" [max]="curruntDate" [value]="curruntDate"
+                            required ngModel>
+                        <small class="fireError" *ngIf="DOB.touched && !DOB.valid">Please enter date of birth</small>
+                        <!-- name="Birthdate" -->
+                    </div>
+                    <div class="col-md-6">
+                        <label for="birthname">Birth name:</label>
+                        <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
+                            class="form-control shadow bg-body rounded" placeholder="Birth Name" ngModel>
+                        <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
+                        required -->
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="dateOfdeth">Date of death:</label>
+                        <input type="date" #DOD="ngModel" [(ngModel)]="service.createMemorial.DOD" name="DOD"
+                            class="form-control shadow bg-body rounded" [max]="curruntDate" [value]="curruntDate"
+                            required ngModel>
+                        <small class="fireError" *ngIf="DOD.touched && !DOD.valid">Please enter date of death</small>
+                        <!-- name="dateOfdeth" -->
+                    </div>
+                    <!-- <button class="btn btn-primary " type="submit" (click)="memorialDetails(form1)">submit</button> -->
+                </form>
+            </div>
+
+        </div>
+        <div class="child2 ms-3 p-2 ">
+
+            <nav class="nav nav-pills flex-column flex-sm-row">
+                <a class="flex-sm-fill d-flex text-sm-center nav-link" aria-current="page" (click)="showCentric(1)">
+                    <img class="me-2" id="first"
+                        src="../../../assets/StaticAssets/Create memorial/step1/memorial (2).png">
+                    <h6>Memorial with Tombstone</h6>
+                </a>
+                <a class="flex-sm-fill d-flex text-sm-center nav-link" (click)="showCentric(2)">
+                    <img class="me-2" src="../../../assets/StaticAssets/Create memorial/step1/camera.png">
+                    <h6> Person centric Memorial</h6>
+                </a>
+            </nav>
+
+            <div class="tambstone" *ngIf="showTambstone">
+
+                <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+
+
+                        </div>
+                        <div class="carousel-item">
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+                        </div>
+                        <div class="carousel-item">
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+                        </div>
+                        <div class="carousel-item">
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+                        </div>
+                        <div class="carousel-item">
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+                        </div>
+                        <div class="carousel-item">
+                            <button type="button" *ngFor="let images of imagesForCaroucel"
+                                [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                                (click)="checked(images.path)">
+                                <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                                </div>
+                                <img [src]="images.path">
+                            </button>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
+                        <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"
+                            [hidden]="caroucelCount==1"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        [disabled]="caroucelCount==5" (click)="nextCarousel()" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark" aria-hidden="true"
+                            [hidden]="caroucelCount==5"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <!-- <button type="button" *ngFor="let images of imagespath"
+                    [ngClass]="{'show':images.path == changeStyle}" class="btn btn-transparent mb-2"
+                    (click)="checked(images.path)">
+                    <div class="checkimg" *ngIf="this.changeStyle==images.path">
+
+                    </div>
+                    <img [src]="images.path">
+                </button> -->
+
+
+            </div>
+
+            <div class="personCentric m-5" *ngIf="!showTambstone">
+
+                <div class="text-center">
+                    <img [src]="url" height="300px" width="300px" id="mobileRes">
+                    <p><b>Add person image here...</b></p>
+                </div>
+
+                <div class="Photo">
+                    <label for="photo" title="Add person image here..."
+                        style="text-align: center; align-items: center;"><img
+                            src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
+                    <input id="photo" type="file" (change)="onselectFile($event)">
+                </div>
+            </div>
+            <div class="nextBtn pt-5">
+                <button class="btn btn-success btn-lg" (click)="showStep(2); " [disabled]="!form1.valid">Next Step
+                    <span><img
+                            src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+            </div>
+            <!-- memorialDetails(form1) -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- step 2 -->
+    <div *ngIf="showMemSteps==2" id="comp-render">
+        <app-canvas></app-canvas>
+        <div class="nextBtn1">
+            <button class="btn btn-success btn-lg" (click)="showStep(3)">Next Step <span><img
+                        src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- step 3 -->
+
+    <div class="content3 w-100 h-100 p-3 " *ngIf="showMemSteps==3">
+        <!-- reg form -->
+        <div class="regForm p-3">
+            <h6><strong>WELCOME TO SOLIUM</strong></h6>
+            <h1><strong>REGISTER</strong></h1>
+            <small>The registration and usage is for free and done in less than 2 minutes. Please enter a valid email
+                address. You will receive an activation link to finalize your registration. Your email address will not
+                be published.</small>
+            <br>
+            <br>
+            <form class="row g-3 needs-validation" #regForm="ngForm" novalidate>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="firstname" class="form-control shadow bg-body rounded" #firstname="ngModel"
+                        [(ngModel)]="service.createMemorial.firstname" placeholder="First Name" required ngModel>
+                    <small class="fireError" *ngIf="firstname.touched && !firstname.valid">Please enter your first
+                        name</small>
+
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="service.createMemorial.lastname"
+                        class="form-control shadow bg-body rounded" placeholder="Last Name" required ngModel>
+                    <small class="fireError" *ngIf="lastname.touched && !lastname.valid">Please enter your last
+                        name</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="password" autocomplete="off" name="password" #password="ngModel"
+                        [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
+                        placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required ngModel>
+                    <small class="fireError" *ngIf="password.touched && !password.valid">Password Must contain at least
+                        one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" autocomplete="off" name="password1" #password1="ngModel"
+                        validateEqual="password" [(ngModel)]="service.createMemorial.password1"
+                        class="form-control shadow bg-body rounded" placeholder="confirm Password" required ngModel>
+
+
+
+                    <!-- <small [hidden]="password1.valid ||  (password1.pristine && !regForm.submitted)">
+                        Password mismatch
+                      </small> -->
+
+
+                    <!-- <div *ngIf="password1.touched && password1.invalid">
+                            <div *ngIf="password1.errors.required">Confirm Password is required</div>
+                            <div *ngIf="password1.errors.mustMatch">Passwords must match</div>
+                        </div> -->
+
+                    <div class="fireError" *ngIf="password1.errors &&(password1.touched || password1.dirty)">
+                        Please enter your valid password
+
+                    </div>
+                    <div class="fireError"
+                        *ngIf="service.createMemorial.password1!=service.createMemorial.password &&(password1.touched || password1.dirty)">
+                        Please match your password
+                    </div>
+
+                    <!-- <div *ngIf="password1.touched && password1.invalid" class="fireError">
+                            <div *ngIf="password1.errors.required">Password is required.</div>
+                            <div *ngIf="password1.errors.mustMatch">Password and Confirm Password must be match.</div>
+                        </div> -->
+
+
+
+                    <!-- <small class="fireError" *ngIf="password1.touched && !password1.valid">Please confirm your password</small> -->
+                    <!-- name="password" #password="ngModel" -->
+                </div>
+                <div>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="service.createMemorial.email"
+                        class="form-control shadow bg-body rounded" placeholder="Please enter your email address"
+                        required ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+                    <div class="fireError" *ngIf="email.errors &&(email.touched || email.dirty)">
+                        Please enter your valid e-mail
+                        <div class="fireError" [hidden]="!email.errors?.pattern">
+                            Email is invalid
+                        </div>
+                    </div>
+                    <p>*Note:The given email address will be your user name</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="streetname" #streetname="ngModel"
+                        [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
+                        placeholder="street and Number" required ngModel>
+                    <small class="fireError" *ngIf="streetname.touched && !streetname.valid">Please enter your street
+                        name/number</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="number" name="zipcode" #zipcode="ngModel" [(ngModel)]="service.createMemorial.zipcode"
+                        class="form-control shadow bg-body rounded" placeholder="Zip code " required ngModel>
+                    <small class="fireError" *ngIf="zipcode.touched && !zipcode.valid">Please enter zipcode</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="hometown" #hometown="ngModel" [(ngModel)]="service.createMemorial.hometown"
+                        class="form-control shadow bg-body rounded" placeholder="My hometown" required ngModel>
+                    <small class="fireError" *ngIf="hometown.touched && !hometown.valid">Please enter your
+                        hometown</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="voucher" #voucher="ngModel" [(ngModel)]="service.createMemorial.voucher"
+                        class="form-control shadow bg-body rounded" placeholder="Reedim Voucher" required ngModel>
+                    <small class="fireError" *ngIf="voucher.touched && !voucher.valid">Please enter voucher</small>
+                </div>
+                <small>Due to legal requirements, we are obliged to request your address data. This information will not
+                    be published. </small>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" name="checkedBox" #checkedBox="ngModel" type="checkbox" value=""
+                            required ngModel>
+                        <small class="fireError" *ngIf="checkedBox.touched && !checkedBox.valid"></small>
+                        <label class="form-check-label" for="invalidCheck2">
+                            <small>Terms & conditions</small>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <!-- specification and Preview -->
+        <div class="specification p-3">
+            <div class="spec mt-3 p-2 ">
+                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
+                <div class="subject lh-1">
+                    <h5><strong>24 Hours a day</strong></h5>
+                    <p><small>soulium.com is free and around the clock at your disposal</small></p>
+                </div>
+            </div>
+
+            <div class="spec mt-3 p-2 ">
+                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
+                <div class="subject lh-1">
+                    <h5><strong>Share memories</strong></h5>
+                    <p><small>Share the memorial with your friends, family, and acquaintances </small></p>
+                </div>
+            </div>
+
+            <div class="spec mt-3 p-2 ">
+                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
+                <div class="subject lh-1">
+                    <h5><strong>Free and Degnified</strong></h5>
+                    <p><small>The use and creation is completly free</small></p>
+                </div>
+            </div>
+
+            <div class="spec mt-3 p-2 ">
+                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
+                <div class="subject lh-1">
+                    <h5><strong>Remmembarance and mourning</strong></h5>
+                    <p><small>Light virtual memorial candles, leave condolences, place <br> memorial on virtual cemetry
+                            and more</small></p>
+                </div>
+            </div>
+
+            <div class="preview mt-2">
+                <h1>Preview Image</h1>
+                <div class="logo">
+                    <img width="290px" height="350px" [src]="service.saveCanvas">
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Account Button -->
+        <div class="createBtn">
+            <button routerLink="/thank-you" type="submit" (click)="register(regForm)" [disabled]="!regForm.valid"
+                class="btn btn-success btn-lg">
+                <strong>CREATE ACCOUNT</strong>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container" id="imageMemorial">
+    <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 100%;">
+    <div class="centered">"I made a memorial for my son that passed away <br> and it has been very helpful to my family
+        during this difficult time."</div>
+    <div class="bottom-right">John A, New York</div>
+</div>
+<div class="container">
+    <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png">
+    <div class="bottom-left"><span><img src="../../../assets/StaticAssets/Create memorial/step1/funeral (1).png"></span>
+        26.811 <small>memorials</small></div>
+    <div class="centered"><span><img src="../../../assets/StaticAssets/Create memorial/step3/Group 339.png"> 131.000.000
+            <small>visitors</small></span></div>
+    <div class="bottom-right1"><span><img src="../../../assets/StaticAssets/Create memorial/step1/candle.png"> 42.000
+            <small>candels</small></span></div>
+</div>
+<div class="FooterResp">
+    <app-footer></app-footer>
+</div>

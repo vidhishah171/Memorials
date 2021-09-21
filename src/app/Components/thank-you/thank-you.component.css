@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
+
+.thank{
+    width: 100%;
+    height: 52vw;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.thank img{
+    width: 30%;
+    height: 70%;
+}
+.thankYouImg img{
+    width: 310px;
+    height: 340px;
+}
+
+.thank h6{
+    color: hsl(0deg 53% 60%);
+}
+
+.createPreMem{
+    width: 100%;
+    height: 50vw;
+    background-image: url('../../../assets/StaticAssets/Create memorial/thank you page/Rectangle 267.png');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+
+}
+.box1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 25%;
+    width: 60%;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    overflow-wrap: break-word;
+    text-justify: newspaper;
+}
+.box1 h1{
+    font-size: 3.5rem;
+    letter-spacing: 0.05cm;
+}
+
+.box2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 33%;
+    padding-top: 5%;
+    flex-direction: row;
+    justify-content: flex-start;
+   
+}
+.specification{
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    height: 18%;
+    width: 50%;
+    margin-top: 30px;
+    
+}
+
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    height: 60%;
+    width: 100%;
+    background-color: brown;
+    
+}
+
+
+@media (max-width: 480px){
+    .thank{
+        width: 100%;
+        height: 90vw;
+        font-family: 'Libre Franklin', sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .thank img{
+        width: 210px;
+        height: 168px;
+    }
+    .createPreMem{
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        /* align-content: flex-start; */
+    
+    }
+    .box1{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 40%;
+        width: 100%;
+        /* align-items: center; */
+        flex-wrap: wrap;
+        color: white;
+        overflow-wrap: break-word;
+        text-justify: newspaper;
+    }
+    
+    .box1 h1{
+        font-size: 1rem;
+        letter-spacing: 0.05cm;
+        justify-content: center;
+    }
+    .box1 span{
+        font-size: 0.7rem;
+        text-align: center;
+        justify-content:center;
+    }
+
+    .box2{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        /* justify-content: flex-start; */
+       
+    }
+    .specification{
+
+        color: white;
+        display: block;
+        flex-direction: column;
+        justify-content: left;
+        align-content: flex-start;
+        overflow-wrap:inherit;
+        flex-wrap: wrap;
+        text-align: justify;
+        height: 78%;
+        width: 100%;
+        margin-top: 20px;
+
+    }
+    #m{
+        font-size: 0.58rem;
+    }
+        .specification span{
+        font-size: 0.6rem;
+    }
+    .price{
+        height: 30%;
+    }
+    
+}
+
+@media (min-width:481px) and (max-width:780px){
+        .thank{
+            width: 100%;
+            height: 90vw;
+            font-family: 'Libre Franklin', sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .thank img{
+            width: 440px;
+            height: 480px;
+        }
+        .createPreMem{
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            flex-wrap: wrap;
+            /* justify-content: center; */
+            /* align-content: flex-start; */
+        
+        }
+        .box1{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 40%;
+            width: 100%;
+            /* align-items: center; */
+            flex-wrap: wrap;
+            color: white;
+            overflow-wrap: break-word;
+            text-justify: newspaper;
+        }
+        
+        .box1 h1{
+            font-size: 1rem;
+            letter-spacing: 0.05cm;
+            justify-content: center;
+        }
+        .box1 span{
+            font-size: 0.7rem;
+            text-align: center;
+            justify-content:center;
+        }
+    
+        .box2{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            /* justify-content: flex-start; */
+           
+        }
+        .specification{
+    
+            color: white;
+            display: block;
+            flex-direction: column;
+            justify-content: left;
+            align-content: flex-start;
+            overflow-wrap:inherit;
+            flex-wrap: wrap;
+            text-align: justify;
+            height: 78%;
+            width: 100%;
+            margin-top: 20px;
+    
+        }
+        #m{
+            font-size: 1.3rem;
+        }
+       
+        .specification span{
+            font-size: 1.5rem;
+        }
+        .price{
+            height: 30%;
+        }
+}
+
+
+@media (min-width:781px) and (max-width:1160px){
+    .thank{
+        width: 100%;
+        height: 90vw;
+        font-family: 'Libre Franklin', sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .thank img{
+        width: 210px;
+        height: 168px;
+    }
+    .createPreMem{
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        /* align-content: flex-start; */
+    
+    }
+    .box1{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 40%;
+        width: 100%;
+        /* align-items: center; */
+        flex-wrap: wrap;
+        color: white;
+        overflow-wrap: break-word;
+        text-justify: newspaper;
+    }
+    
+    .box1 h1{
+        font-size: 1rem;
+        letter-spacing: 0.05cm;
+        justify-content: center;
+    }
+    .box1 span{
+        font-size: 0.7rem;
+        text-align: center;
+        justify-content:center;
+    }
+
+    .box2{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        /* justify-content: flex-start; */
+       
+    }
+    .specification{
+
+        color: white;
+        display: block;
+        flex-direction: column;
+        justify-content: left;
+        align-content: flex-start;
+        overflow-wrap:inherit;
+        flex-wrap: wrap;
+        text-align: justify;
+        height: 78%;
+        width: 100%;
+        margin-top: 20px;
+
+    }
+    #m{
+        font-size: 1.5rem;
+    }
+   
+    .specification span{
+        font-size: 1.7rem;
+    }
+    .price{
+        height: 30%;
+    }   
+}

@@ -1,0 +1,343 @@
+<div class="content2 w-100 p-3 ">
+
+    <!-- <img [src]="imgUrl" name="test" height="200px" width="200px"/>
+    <div><img src="this.service.saveCanvas" alt=""></div> -->
+
+    <div class="box1">
+
+        <!-- <img src="../../../../assets/StaticAssets/ganesh-3692779_1920.jpg"/> -->
+        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="540" width="335"
+            (drop)="DropImageToCan($event)"></canvas>
+        <!-- width="450",height="475" -->
+
+        <!-- (drop)="DropImageToCan($event)" ondragenter="dragEnter($event)" (dragover)="dragOver($event)" -->
+
+
+        <!-- <div class="name">
+            <h6><strong>Johnson Dicosta </strong> <small>22-6-1995 - 24-5-2015</small></h6>
+        </div> -->
+
+        <!-- <div class="image p-3">
+            <img src="../../../assets/StaticAssets/Create memorial/step2/portrait.png">
+            <div class="upload-btn-wrapper mt-3 ms-3">
+                <button class="btn"></button>
+                <input type="file" name="myfile" accept="image/gif, image/jpeg, image/png" />
+            </div>
+            <h3 class="mt-2">ADD PICTURE</h3>
+        </div> -->
+
+    </div>
+    <!-- second box -->
+    <div class="box2 p-2">
+        <!-- menu -->
+        <div class="menu">
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(1)">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
+                DECORATION
+            </button>
+
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(2)">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/images.png">
+                BACKGROUNG
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(3)">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/text.png">
+                VITA
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(4)">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/youtube.png">
+                VIDEO
+            </button>
+            <button data-toggle="tooltip" data-placement="bottom" title="Delete selected object" type="button"
+                class="btn btn-outline-danger btn-sm ms-2" (click)="removeSelected();">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                Delete
+            </button>
+        </div>
+
+        <!-- submenu (Decoration Button) -->
+        <div class="submenu mt-5" *ngIf="showMenuItems==1">
+            <div class="candle ms-3" (click)="showSubMenuItems(1)">
+                <div id="imgLogo"
+                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+
+                    <img src="../../../../assets/StaticAssets/Create memorial/step2/candle (2).png">
+
+                </div>
+                <small class="mt-2">
+                    <P><strong>ADD CANDDLE</strong></P>
+                </small>
+            </div>
+            <div class="candle ms-3" (click)="showSubMenuItems(2)">
+                <div id="imgLogo"
+                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/urn.png">
+                </div>
+                <small class="mt-2">
+                    <P><strong>ADD URNS</strong></P>
+                </small>
+            </div>
+            <div class="candle ms-3" (click)="showSubMenuItems(3)">
+                <div id="imgLogo"
+                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded "
+                    (click)="getFlowerImages()">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/flower-variant-with-many-petals.png">
+                </div>
+                <small class="mt-2">
+                    <P><strong>ADD FLOWER</strong></P>
+                </small>
+            </div>
+            <div class="candle ms-3" (click)="showSubMenuItems(4)">
+                <div (click)="showSubMenuItems(4)" id="imgLogo"
+                    class="h-50 w-50 image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded ">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/contract.png">
+                </div>
+                <small class="mt-2">
+                    <P><strong>ADD INSCRIPTION</strong></P>
+                </small>
+            </div>
+
+            <!-- <div class="candle ms-3" (click)="showSubMenuItems(5)">
+                <div (click)="showSubMenuItems(4)"
+                    class="h-50 w-50 image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light ">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/grave (1).png">
+                </div>
+                <small class="mt-2">
+                    <P><strong> TAMBSTONE</strong></P>
+                </small>
+            </div> -->
+
+        </div>
+
+
+        <!-- submenu  Items (ADD CANDDLE) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 && showSubMenItem==1">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="0">
+                <div class="carousel-indicators">
+
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                            (click)="addImageToCanvas(canddImage)" (dragend)="DropImageToCan(canddImage)"
+                            *ngFor="let canddImage of canddleImages">
+                            <img src="{{canddImage.path}}" id="myimage">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                            (click)="addImageToCanvas(canddImage)" *ngFor="let canddImage of canddleImages">
+                            <img src="{{canddImage.path}}">
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators"
+                    [disabled]="canddleCaroucelCount==1" data-bs-slide="prev" (click)="prevCanddle()">
+                    <span class="carousel-control-prev-icon bg-dark" [hidden]="canddleCaroucelCount==1"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextCanddle()" [disabled]="canddleCaroucelCount==2">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="canddleCaroucelCount==2"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+            <!-- <div class="canddles m-2" *ngFor="let memImages of canddleImages">
+                <img src="{{memImages.path}}">
+            </div>  -->
+        </div>
+
+
+
+        <!-- submenu  Items (ADD URNS) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==2">
+
+            <div class="URNS ms-3 bg-light" *ngFor="let URNSimg of URNSImages" (click)="addImageToCanvas(URNSimg)">
+                <img class="w-75 h-75" src="{{URNSimg.path}}">
+            </div>
+
+        </div>
+
+        <!-- submenu  Items (ADD FLOWER) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==3">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="w-25 h-25" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" (click)="prevFlower()" [hidden]="flowerCaroucelCount==1">
+                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextFlowers()" [disabled]="flowerCaroucelCount==8">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="canddleCaroucelCount==8"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- <div class="flowers m-3 bg-light" *ngFor="let flwImages of flowerImages"  >
+                <img class="w-75 h-75" src="{{flwImages.path}}">
+            </div> -->
+        </div>
+
+
+        <!-- submenu  Items (INSCRIPTION) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==4">
+            <div class="form-group row">
+                <div>
+                    <textarea class="form-control" maxlength="50" placeholder="Enter few words (maximum 50 charecters)"
+                        #textToCan [(ngModel)]="textString" rows="3"></textarea>
+                    <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
+                </div>
+                <div class="pt-4">
+                    <button class="form-control btnAddText" (click)="addText()">Add</button>
+                    <!-- <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="fill" [style.background]="fill"
+                    [value]=fill (colorPickerChange)="setFill()"> -->
+                </div>
+                <div class="pt-2">
+                    <button class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="fill"
+                        [style.background]="fill" (colorPickerChange)="setFill()">Add Color</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- submenu  Items (TAMBSTONE) -->
+        <!-- <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
+            <h1>CHANGE TAMBSTONE</h1>
+        </div> -->
+
+
+
+        <!-- menu Items (BACKGROUNG) -->
+
+        <div class="background mt-3" *ngIf="showMenuItems==2">
+            <div class="showbackground ms-2 mb-2" *ngFor="let backImage of backgroundImages"
+                (click)="setBackgImage(backImage)">
+                <img class="w-100 h-100" src="{{backImage.path}}">
+            </div>
+
+        </div>
+
+        <!-- menu Items (VITA) -->
+
+        <div class="vita mt-5" *ngIf="showMenuItems==3">
+            <!-- <div class="form-group">
+                <textarea class="form-control" id="vita" maxlength="50"
+                    placeholder="Enter few words (maximum 50 charecters)" ></textarea>
+            </div> -->
+
+
+            <div class="form-group">
+                <textarea class="form-control" maxlength="50" placeholder="Enter few words (maximum 50 charecters)"
+                    #textToCan [(ngModel)]="textString" rows="3"></textarea>
+
+                <div class="pt-4">
+                    <button class="form-control btnAddText" (click)="addText()">Add</button>
+                </div>
+                <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
+            </div>
+
+
+        </div>
+
+        <!-- menu Items (VIDEO) -->
+
+        <div class="video mt-5 " *ngIf="showMenuItems==4">
+            <small>Upload of video is possible as premium user only</small>
+            <div class="addVideo mt-3 rounded d-flex justify-content-center align-items-center flex-column">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/video-camera.png">
+                <h6>ADD VIDEO</h6>
+                <video [src]="url" style="display: none;" width="270" id="video1" autoplay loop muted>
+                    <source [src]="url">
+                </video>
+                <label for="toggleVideo"><img src="../../../../assets/StaticAssets/Create memorial/step2/add-1.png"
+                        alt=""></label>
+                <input id="toggleVideo" multiple type="file" (change)="onselectFile($event)">
+                <!-- <input #addToVideo type="file" id="video" name="myfile" accept="video/mp4,video/x-m4v,video/*" /> -->
+
+
+
+
+
+                <!-- -----Optional code for displaying videos -->
+
+                <!-- <video height="200" [src]="url" width="200" id="video1" autoplay loop muted>
+                           <source [src]="url">
+                      </video>
+                      <input multiple type="file" (change)="onselectFile($event)">-->
+
+                <!-- ----------------------- -->
+
+                <!-- <div>
+                            <canvas id="Mycanvas" width="500" height="335" style="border: 1px solid black;"></canvas>
+                        </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</div>

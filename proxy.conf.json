@@ -1,0 +1,10 @@
+{
+  "/flowerImages": {
+    "target": "https://h2913228.stratoserver.net/API/public/grab_images",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                                                                                   { "^/flowerImages": ""  }
+    
+  }
+}
+

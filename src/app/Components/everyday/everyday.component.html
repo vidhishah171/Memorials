@@ -1,0 +1,57 @@
+<div class="parent p-3">
+    <div class="box1 m-2 p-2" *ngFor="let mem of boxOneData" >
+        <img style="height:84%;width: 100%;" src="{{mem.grab_image}}" >
+        <div class="name">
+            <h5>{{mem.firstname}},{{mem.lastname}}</h5>
+           
+        </div>
+         <div class="info">
+                <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png" >
+                <span class="me-1"><strong>{{mem.grablog}}</strong></span> 
+                <img class="me-2" src="../../../assets/StaticAssets/Home page/candle.png">
+                <span class="me-1"><strong>{{mem.litCandle}}</strong></span>
+                <img class="me-2" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                <span class="me-1"><strong>{{mem.Kondolenz}}</strong></span>
+        </div> 
+    </div>
+
+
+    <div class="box2 m-2 p-1">
+        <div class="child m-2 p-1" *ngFor="let mem of boxTwoData">
+            <img src="{{mem.grab_image}}" class="mt-1" style="height:70%;width: 100%;" >
+            <div class="box2name mb-2" style="height:26%;width: 100%; background-color: white"  >
+               <h6> {{mem.firstname}},{{mem.lastname}}</h6>
+               <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png" >
+                    <span class="me-1">{{mem.grablog}}</span> 
+                    <img class="me-2" src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="me-1">{{mem.litCandle}}</span>
+                    <img class="me-2" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="me-1">{{mem.Kondolenz}}</span> 
+            </div>
+            <!-- <div class="box2info" style="height:13%;width: 100%;background-color: white">
+                     
+            </div> -->
+
+        </div>
+        <!-- <div class="child m-2">
+
+        </div>
+
+        <div class="child m-2">
+
+        </div>
+
+        <div class="child m-2">
+
+        </div>
+        <div class="child m-2">
+
+            </div>
+            <div class="child m-2">
+
+                </div>
+                 -->
+
+
+    </div>
+</div>

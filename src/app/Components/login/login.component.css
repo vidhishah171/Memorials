@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
+
+.login{
+    font-family: 'Libre Franklin', sans-serif;
+    height:auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    float: left;
+}
+input.ng-touched.ng-invalid{
+    border: 0.5px solid #FF5C5C;
+}
+
+.fireError{
+    color: tomato;
+    font-size: small;
+}
+.form{
+    height: 100%;
+    width: 50%;
+   
+}
+
+.form a{
+    text-decoration: none;
+    color: black;
+}
+
+.showCase{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    /* justify-content:space-between; */
+    flex-direction: column;
+}
+
+.image{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content:center;
+    background-image: url('../../../assets/StaticAssets/Login Page/46.png');
+}
+
+.image img{
+    height: 130%;
+    width: 84%;
+
+}
+
+.container {
+    /* position: absolute; */
+    text-align: center;
+    color: white;
+    /* background-color: yellow; */
+    margin: 2% auto;
+  }
+
+
+.centered {
+    /* position: absolute; */
+    top: 89%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    color: black;
+    /* background-color: red; */
+  }
+
+  
+.bottom-right {
+    position: absolute;
+    bottom: 30px;
+    right: 390px;
+    color: black;
+    /* background-color: green; */
+} 
+
+

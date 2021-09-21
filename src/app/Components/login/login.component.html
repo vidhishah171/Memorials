@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<div class="login p-3 mb-5">
+    <div class="form p-3" >
+        <h6 style="color:red"><strong>WELCOME TO SOLIUM</strong></h6>
+        <h1>USER LOGIN</h1>
+        <p><small>If you are already registered, you can login here with your email address and the associated password to create new memorials, maintain your existing memorials, use the forum, light candles and leave condolences.</small></p>
+        <br>
+        <div class="mb-3">
+                <form  #logForm="ngForm" (ngSubmit)="login(logForm)" method="post">
+
+                <input type="email" class="form-control form-control-lg" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required  placeholder="Your email address" name="email" ngModel  #email="ngModel" onpaste="return false">
+
+                <div class="fireError" *ngIf='email.invalid && email.touched'>Enter Proper email</div>
+
+                <br>
+
+                <input type="password" class="form-control form-control-lg " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="on" placeholder="Your password" name="password" ngModel #password="ngModel" onpaste="return false" >
+
+                <div class="fireError" *ngIf='password.invalid && password.touched'>Password Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+
+                <br>
+
+                <button type="submit" [disabled]="logForm.invalid" class="btn btn-danger ps-5 pe-5 ">LOGIN</button>
+
+                <br>
+                <br>
+                <p><a routerLink="/forgot-password">Forgot your Password?</a></p>
+                </form>
+        </div>
+    </div>
+
+    <div class="showCase ms-5 p-3">
+            <div class="d-flex justify-content-end">
+                    <button routerLink="/create-memorial" class="btn btn-lg btn-danger ps-5 pe-5">CREATE MEMORIAL</button>
+            </div>
+            <div class="image mt-5" >
+                <img class="mt-5" src="../../../assets/StaticAssets/Login Page/Group 332.png">
+            </div>
+    </div>
+</div>
+
+<!-- other components -->
+<!-- <div>
+    <div class="container" id="imageMemorial">
+        <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 100%;">
+        <div class="centered">"I made a memorial for my son that passed away <br> and it has been very helpful to my family
+            during this difficult time."</div>
+        <div class="bottom-right">John A, New York</div>
+    </div>
+    
+</div> -->
+
+
+<!-- <app-memorial-features></app-memorial-features> -->
+<app-recent></app-recent>
+<app-most-visited></app-most-visited>
+<!-- <app-platform></app-platform> -->
+<!-- <app-everyday></app-everyday> -->
+<app-grief></app-grief>
+<app-footer></app-footer>

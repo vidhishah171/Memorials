@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
+
+.platform{
+    background-image: url('../../../assets/StaticAssets/Home page/Rectangle 21.png');
+    height:40vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.box1{
+    font-family: 'Libre Franklin', sans-serif;
+    height: 100%;
+    width: 38%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    color: white;
+}
+
+.box1 h5{
+    line-height: 200%;
+}
+
+.box2{
+    background-image: url('https://h2913228.stratoserver.net/images/ipad.png');
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: right;
+}

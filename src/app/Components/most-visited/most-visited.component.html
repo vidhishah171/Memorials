@@ -1,0 +1,54 @@
+<div class="most-visited w-100 p-4">
+    <h4><strong>Most Visited Memorials</strong></h4>
+
+    <div class="child w-100 h-100 p-3">
+
+        <div class="box mb-3 ms-1 p-2" *ngFor="let mostVisMem of mostVisitMemorial ">
+
+            <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
+
+            <div class="name w-auto p-2" id="info">
+
+                <h6>{{mostVisMem.lastname}},{{mostVisMem.firstname}}</h6>
+
+                <div class="info">
+                    <img class="me-1" src="../../../assets/StaticAssets/Home page/eye.png">
+                    <span class="me-2"><strong>{{mostVisMem.grablog}}</strong></span>
+                    <img class="me-1" src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="me-2"><strong>{{mostVisMem.litCandle}}</strong></span>
+                    <img class="me-1" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="me-2"><strong>{{mostVisMem.Kondolenz}}</strong></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- next DIv of webside  -->
+
+<div class="findByName w-100">
+    <h5>Access Meorials By Country</h5>
+
+    <div class="input-group w-50 mb-3">
+        <input type="text" class="form-control input-lg" placeholder="Find memorial By country name.."
+            aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary btn-lg" type="button">
+                <img src="https://img.icons8.com/offices/20/000000/long-arrow-right.png" />
+            </button>
+        </div>
+    </div>
+</div>

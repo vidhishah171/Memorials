@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+
+
+<h5 style="text-align: center">
+    <strong>Featured Memorial</strong>
+</h5>
+<div class="container">
+    <div class="memorial" *ngFor="let data of memorialData "
+        [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
+        <div class="year">
+            <h6>
+                <p><small>{{data.age}} Y<br> old</small></p>
+            </h6>
+        </div>
+    </div>
+
+    <div class="second text-align-center pt-3 w-100">
+
+        <button type="button" class="btn btn-danger ">
+            <strong>CREATE MEMORIAL</strong>
+        </button>
+
+    </div>
+
+</div> 
+

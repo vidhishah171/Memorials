@@ -1,0 +1,73 @@
+.flex-main{
+    display: flex;
+    align-items: flex-start;
+    max-height: auto;
+    padding: 60px;
+}
+
+
+.box{
+    margin-left: 5px;
+    width: 144px;
+    height: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    text-align: center;
+    flex-direction: column;
+}
+
+img{
+    width: auto;
+    height: 54px;
+    margin-bottom: 10px;
+}
+
+span{
+    font-size: .75rem;
+    text-align: center;
+}
+
+
+
+/* css promerties of next tab */
+
+.cemetry{
+    background-image: url('https://h2913228.stratoserver.net/static/media/desktop.c844d5cf.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;    
+}
+
+.memory{
+    background-image: url('https://h2913228.stratoserver.net/static/media/testimonial.eb559490.png');
+    height: 16.6vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+    background-position: center;
+}
+
+
+
+/* ************  Responsive Content*********** */
+
+@media (max-width:992px){
+    .cemetry{
+        background-position: 40%;
+    }
+}
+
+@media (max-width:700px){
+    .cemetry{
+        background-position: 25%;
+    }
+}
+
+@media (max-width:450px){
+    .cemetry{
+        background-position: 15%;
+    }
+}
