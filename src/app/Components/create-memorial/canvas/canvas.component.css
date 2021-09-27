@@ -87,15 +87,21 @@
 }
 
 
+
+
 .carousel-indicators button{
     height: 15px;
     width: 15px;
     border-radius: 50%;
 }
 
-.tambstone .carousel-item button{
+/* .tambstone .carousel-item button{
     height: 45%;
     width: 32%;
+} */
+.tombStyle{
+    height: 180px;
+    width: 180px;
 }
 
 .canddles{
@@ -204,7 +210,7 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 60vw;
+    height: 49vw;
 }
 
 #toggleVideo{
@@ -216,6 +222,10 @@
 }
 .btnAddText{
     background-color:lightgray;
+}
+#imgLogo{
+    width: 51px;
+    height: 49px;
 }
 
 @media (max-width:480px){
@@ -251,14 +261,17 @@
     }
     .submenu .candle{
         height: 100%;
-        width:18%;
+        width:14%;
         display: inline-block;
         text-align: center;
         align-items: center;
+        font-size: 0.6rem;
         padding-top: 4%;
     }
     #imgLogo{
-        margin-left: inherit;
+        /* margin-left: inherit; */
+        width: 42px;
+        height: 42px;
     }
     
     
@@ -281,6 +294,11 @@
         border: 2px solid gray;
         display: flex;
     }
+    .tombStyle{
+        height: 70px;
+        width: 70px;
+    }
+    
      
 }
 @media (min-width:481px) and (max-width:780px){
@@ -303,6 +321,13 @@
        /* align-content: flex-start; */
     
     }   
+    .tombStyle{
+        height: 120px;
+        width: 120px;
+    }
+    .submenu .candle{
+        width:17%;
+    }
 }
 @media (min-width:781px) and (max-width:1160px){
     .box1{

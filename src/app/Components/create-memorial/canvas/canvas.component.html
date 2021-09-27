@@ -8,6 +8,8 @@
         <!-- <img src="../../../../assets/StaticAssets/ganesh-3692779_1920.jpg"/> -->
         <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="540" width="335"
             (drop)="DropImageToCan($event)"></canvas>
+
+            <!-- {{textString}} -->
         <!-- width="450",height="475" -->
 
         <!-- (drop)="DropImageToCan($event)" ondragenter="dragEnter($event)" (dragover)="dragOver($event)" -->
@@ -53,13 +55,14 @@
                 <i class="fa fa-trash" aria-hidden="true"></i>
                 Delete
             </button>
+           
         </div>
 
         <!-- submenu (Decoration Button) -->
         <div class="submenu mt-5" *ngIf="showMenuItems==1">
             <div class="candle ms-3" (click)="showSubMenuItems(1)">
                 <div id="imgLogo"
-                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
 
                     <img src="../../../../assets/StaticAssets/Create memorial/step2/candle (2).png">
 
@@ -70,16 +73,25 @@
             </div>
             <div class="candle ms-3" (click)="showSubMenuItems(2)">
                 <div id="imgLogo"
-                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
                     <img src="../../../assets/StaticAssets/Create memorial/step2/urn.png">
                 </div>
                 <small class="mt-2">
                     <P><strong>ADD URNS</strong></P>
                 </small>
             </div>
+            <div class="candle ms-3" (click)="showSubMenuItems(5)">
+                <div id="imgLogo" (click)="showSubMenuItems(5)"
+                    class="image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/grave (1).png">
+                </div>
+                <small class="mt-2">
+                    <P><strong>CHANGE TOMBSTONE</strong></P>
+                </small>
+            </div>
             <div class="candle ms-3" (click)="showSubMenuItems(3)">
                 <div id="imgLogo"
-                    class="h-50 w-50 d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded "
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded"
                     (click)="getFlowerImages()">
                     <img src="../../../assets/StaticAssets/Create memorial/step2/flower-variant-with-many-petals.png">
                 </div>
@@ -89,7 +101,7 @@
             </div>
             <div class="candle ms-3" (click)="showSubMenuItems(4)">
                 <div (click)="showSubMenuItems(4)" id="imgLogo"
-                    class="h-50 w-50 image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded ">
+                    class="image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded ">
                     <img src="../../../assets/StaticAssets/Create memorial/step2/contract.png">
                 </div>
                 <small class="mt-2">
@@ -97,15 +109,7 @@
                 </small>
             </div>
 
-            <!-- <div class="candle ms-3" (click)="showSubMenuItems(5)">
-                <div (click)="showSubMenuItems(4)"
-                    class="h-50 w-50 image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light ">
-                    <img src="../../../assets/StaticAssets/Create memorial/step2/grave (1).png">
-                </div>
-                <small class="mt-2">
-                    <P><strong> TAMBSTONE</strong></P>
-                </small>
-            </div> -->
+            
 
         </div>
 
@@ -266,11 +270,66 @@
             </div>
         </div>
 
-        <!-- submenu  Items (TAMBSTONE) -->
-        <!-- <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
-            <h1>CHANGE TAMBSTONE</h1>
-        </div> -->
+        <!-- -------------------------------- -->
 
+        <!-- submenu  Items (TAMBSTONE) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
+            <!-- <h1>CHANGE TAMBSTONE</h1> -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner"style="padding-left:95px">
+                    <div class="carousel-item active">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3 bg-light" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" (click)="prevCarousel()" [hidden]="caroucelCount==1">
+                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextCarousel()" [disabled]="caroucelCount==5">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="caroucelCount==5"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- -------------------------- -->
 
 
         <!-- menu Items (BACKGROUNG) -->
@@ -280,7 +339,6 @@
                 (click)="setBackgImage(backImage)">
                 <img class="w-100 h-100" src="{{backImage.path}}">
             </div>
-
         </div>
 
         <!-- menu Items (VITA) -->
@@ -293,12 +351,13 @@
 
 
             <div class="form-group">
-                <textarea class="form-control" maxlength="50" placeholder="Enter few words (maximum 50 charecters)"
+                <textarea class="form-control" placeholder="Enter few words"
                     #textToCan [(ngModel)]="textString" rows="3"></textarea>
 
                 <div class="pt-4">
                     <button class="form-control btnAddText" (click)="addText()">Add</button>
                 </div>
+                
                 <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
             </div>
 

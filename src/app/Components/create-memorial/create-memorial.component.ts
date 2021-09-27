@@ -78,6 +78,7 @@ export class CreateMemorialComponent implements OnInit {
 
     this.changeStyle = undefined;
     this.getTambImage();
+    this.clickShowStepBtn1();
     // this.showActive();
 
   }
@@ -280,19 +281,21 @@ export class CreateMemorialComponent implements OnInit {
   // }
 
 
+
   
   // step 1 functions
   showStep(num) {
     if (num == 1) {
       this.showMemSteps = 1;
-
+      
     }
     
     else if (num==2 && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
       this.showMemSteps = 2;
     }
     else if(num==2){
-     this.snackBar('Please fill all details on step-1','alert-success')
+     this.snackBar('Please fill all details on step-1','alert-success');
+
     }
 
    else if (num==3 && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
@@ -300,6 +303,69 @@ export class CreateMemorialComponent implements OnInit {
     }
     else if(num==3){
       this.snackBar('Please fill all details on step-1','alert-success')
+    }
+  }
+
+  clickShowStepBtn1(){
+    debugger;
+    if (1) {
+      // btn class
+      var test = document.getElementById("showStepBtn1");
+      if (test != null) {
+        test.style.backgroundColor = '#f87171';
+      }
+
+      // btn class
+      var test = document.getElementById("showStepBtn2");
+      if (test != null) {
+        test.style.backgroundColor = '';
+      }
+
+      var test=document.getElementById("showStepBtn3");
+      if(test != null){
+        test.style.backgroundColor='';
+      }
+    }
+  }
+  clickShowStepBtn2(){
+    debugger
+    if (2) {
+      // btn class
+      var test = document.getElementById("showStepBtn1");
+      if (test != null) {
+        test.style.backgroundColor = '';
+      }
+
+      // btn class
+      var test = document.getElementById("showStepBtn2");
+      if (test !== null && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
+        test.style.backgroundColor = '#f87171';
+      }
+
+      var test=document.getElementById("showStepBtn3");
+      if(test != null){
+        test.style.backgroundColor='';
+      }
+    }
+  }
+  clickShowStepBtn3(){
+    if (3) {
+      // btn class
+      var test = document.getElementById("showStepBtn1");
+      if (test != null) {
+        test.style.backgroundColor = '';
+      }
+
+      // btn class
+      var test = document.getElementById("showStepBtn2");
+      if (test != null) {
+        test.style.backgroundColor = '';
+      }
+
+      var test=document.getElementById("showStepBtn3");
+      if(test != null && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)){
+        test.style.backgroundColor='#f87171';
+      }
     }
   }
 
@@ -346,6 +412,7 @@ export class CreateMemorialComponent implements OnInit {
   
 
   showCentric(point) {
+    debugger;
     if (point == 1) {
       this.showTambstone = true;
     }
@@ -382,7 +449,7 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   getTambImage() {
-
+    debugger;
     this.service.getTambstoneImages(1)
       .subscribe(
         (tambImags: any) => {

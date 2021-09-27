@@ -7,17 +7,17 @@
     </div>
 
 
+
     <div id="myDiv" class="d-flex w-100 p-3 tab2 justify-content-center align-items-center">
-        <button class="steeper border border-secondary rounded-circle me-2 active" (click)="showStep(1)">
-            <!-- selectTab($event) -->
+        <button class="steeper border border-secondary rounded-circle me-2 active" id="showStepBtn1" (click)="showStep(1);clickShowStepBtn1()">
             1
         </button>
         <hr style="width:4%; height: 2px; text-align:left;margin-left:0">
-        <button class="steeper border border-secondary rounded-circle  ms-2 me-2 " (click)="showStep(2)" for="I">
+        <button class="steeper border border-secondary rounded-circle  ms-2 me-2" id="showStepBtn2" (click)="showStep(2);clickShowStepBtn2()" for="I">
             2
         </button>
         <hr style="width:4%; height: 2px; text-align:left;margin-left:0">
-        <button class="steeper border border-secondary rounded-circle ms-2 me-2 disabled" (click)="showStep(3)">
+        <button class="steeper border border-secondary rounded-circle ms-2 me-2" id="showStepBtn3" (click)="showStep(3);clickShowStepBtn3()">
             3
         </button>
     </div>
@@ -41,7 +41,7 @@
                         <label for="firstname">First name:</label>
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="First Name"
                             #g_firstname="ngModel" [(ngModel)]="service.createMemorial.g_firstname" name="g_firstname"
-                            required ngModel>
+                            required onkeypress="return (event.charCode>64 && event.charCode<96) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" ngModel>
                         <small class="fireError" *ngIf="g_firstname.touched && !g_firstname.valid">Please enter first
                             name</small>
                     </div>
@@ -49,7 +49,7 @@
                         <label for="lastname">Last name:</label>
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
                             #g_lastname="ngModel" [(ngModel)]="service.createMemorial.g_lastname" name="g_lastname"
-                            required ngModel>
+                            required onkeypress="return (event.charCode>64 && event.charCode<96) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" ngModel>
                         <small class="fireError" *ngIf="g_lastname.touched && !g_lastname.valid">Please enter last
                             name</small>
                     </div>
@@ -140,7 +140,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
 
 
@@ -152,7 +152,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
                         </div>
                         <div class="carousel-item">
@@ -162,7 +162,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
                         </div>
                         <div class="carousel-item">
@@ -172,7 +172,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
                         </div>
                         <div class="carousel-item">
@@ -182,7 +182,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
                         </div>
                         <div class="carousel-item">
@@ -192,7 +192,7 @@
                                 <div class="checkimg" *ngIf="this.changeStyle==images.path">
 
                                 </div>
-                                <img [src]="images.path">
+                                <img id="tombstoneSize" [src]="images.path">
                             </button>
                         </div>
                     </div>
@@ -237,7 +237,7 @@
                 </div>
             </div>
             <div class="nextBtn pt-5">
-                <button class="btn btn-success btn-lg" (click)="showStep(2); " [disabled]="!form1.valid">Next Step
+                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); " [disabled]="!form1.valid">Next Step
                     <span><img
                             src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
             </div>
@@ -259,7 +259,7 @@
     <div *ngIf="showMemSteps==2" id="comp-render">
         <app-canvas></app-canvas>
         <div class="nextBtn1">
-            <button class="btn btn-success btn-lg" (click)="showStep(3)">Next Step <span><img
+            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()">Next Step <span><img
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
         </div>
     </div>

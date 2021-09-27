@@ -10,6 +10,11 @@
     flex-direction: column;
 }
 
+/* #tombstoneSize{
+    height: 160px;
+    width: 160px;
+} */
+
 
 .tab{
     height:6rem;
@@ -34,9 +39,9 @@
       /* background-color:#f87171;   */
   /* }   */
 
- .steeper:active{
-    background-color: #f87171;
-} 
+ /* .steeper:active{
+    background-color: #f87171 !important;
+}  */
 
 
 
@@ -484,6 +489,9 @@ part 1 */
     display:flex;
     justify-content: center;
 }
+.createBtn button{
+    width: 320px;
+}
 .nextBtn{
     width: 100%;
     height:10%;
@@ -646,6 +654,7 @@ input.ng-touched.ng-invalid{
     }
     #rect{
         width: 100%;
+        height: auto;
     }
     .nextBtn{
         align-items: center;
@@ -654,7 +663,7 @@ input.ng-touched.ng-invalid{
     }
     .nextBtn1{
         /* padding-top: 500px; */
-        padding-top: 1470px;
+        padding-top: 1530px;
     }
     
     .regForm{
@@ -700,7 +709,7 @@ input.ng-touched.ng-invalid{
     }
     .nextBtn1{
         /* padding-top: 500px; */
-        padding-top: 1270px;
+        padding-top: 850px;
     }
     #imageMemorial{
         font-size: 0.7rem;
@@ -759,9 +768,53 @@ input.ng-touched.ng-invalid{
     width: 100%;
 } 
 }
- @media (min-width:781px) and (max-width:1160px){
+ @media (min-width:781px) and (max-width:1197px){
     .nextBtn1{
          /* padding-top: 500px;  */
         padding-top: 900px;
+    }
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 480px;
+        font-size: 1rem;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 480px;
+        font-size: 1rem;
+    }
+}
+@media (min-width:992px) and (max-width:1197px){
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 600px;
+        font-size: 1rem;
+    }
+    
+    .bottom-right1{
+        bottom: 25px;
+        right: 600px;
+        font-size: 1rem;
+    }
+}
+@media (min-width:1398px){
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 400px;
+        font-size: 1rem;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 400px;
+        font-size: 1rem;
     }
 }

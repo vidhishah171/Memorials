@@ -5,7 +5,8 @@ import { Canvas, Control } from 'fabric/fabric-impl';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { CreateMemorialService } from 'src/services/create-memorial.service';
-import { trace } from 'console';
+import { debug, trace } from 'console';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-canvas',
@@ -39,7 +40,14 @@ export class CanvasComponent implements OnInit,OnDestroy {
   canvasURL: any;
   imgUrl:any;
   video1:any;
-  fill:null;
+  public fill:'#000000';
+
+  showTambstone: boolean = true;
+  imagespath = [];
+  caroucelCount: number = 1;
+  imagesForCaroucel = [];
+
+  changeStyle: string;
 
 
   constructor(private service: CreateMemorialService,private _sanitizer: DomSanitizer) { }
@@ -62,6 +70,7 @@ export class CanvasComponent implements OnInit,OnDestroy {
     this.getbackgImages();
     this.canvasadd();
     this.loadCanvasFromJSON();
+    this.getTambImage();
 
   }
   public textString: string;
@@ -81,12 +90,60 @@ export class CanvasComponent implements OnInit,OnDestroy {
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
       
+      
       // newImg.opacity = 0.8;
       // newImg.bringToFront();
       // var ctx=canvas.getContext('2d');
       //  var videoContainer;
     });
+
+    
   }
+
+
+  // canvasObjectDelete(){
+  //   var canvas = new fabric.Canvas('Mycanvas');
+	// // create a rect object
+  // var deleteIcon = "data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='595.275px' height='595.275px' viewBox='200 215 230 470' xml:space='preserve'%3E%3Ccircle style='fill:%23F44336;' cx='299.76' cy='439.067' r='218.516'/%3E%3Cg%3E%3Crect x='267.162' y='307.978' transform='matrix(0.7071 -0.7071 0.7071 0.7071 -222.6202 340.6915)' style='fill:white;' width='65.545' height='262.18'/%3E%3Crect x='266.988' y='308.153' transform='matrix(0.7071 0.7071 -0.7071 0.7071 398.3889 -83.3116)' style='fill:white;' width='65.544' height='262.179'/%3E%3C/g%3E%3C/svg%3E";
+
+  // var img = document.createElement('img');
+  // img.src = deleteIcon;
+
+  
+  
+
+  // fabric.Object.prototype.controls.deleteControl = new fabric.Control({
+  //   x: 0.5,
+  //   y: -0.5,
+  //   offsetY: 16,
+  //   cursorStyle: 'pointer',
+  //   mouseUpHandler: deleteObject,
+  //   render: renderIcon,
+  //   cornerSize: 24
+  // });
+
+  // // Add();
+
+  // function deleteObject(eventData:MouseEvent, transform:fabric.Transform,x:10,y:10) {
+	// 	var target = transform.target;
+	// 	var canvas = target.canvas;
+	// 	    canvas.remove(target);
+  //       canvas.requestRenderAll();
+	// }
+
+  // function renderIcon(ctx, left, top, styleOverride, fabricObject) {
+  //   var size = this.cornerSize;
+  //   ctx.save();
+  //   ctx.translate(left, top);
+  //   ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
+  //   ctx.drawImage(img, -size/2, -size/2, size, size);
+  //   ctx.restore();
+  // }
+
+  // }
+
+
+  
   
   saveCanvasToJSON(){
       const json=JSON.stringify(this.canvas);
@@ -123,7 +180,15 @@ export class CanvasComponent implements OnInit,OnDestroy {
         });
       }
     }
-
+   
+    // removeSelected1() {
+    //   debugger;
+    //   var object=this.canvas
+    //     this.canvas.remove(object);
+    //     // this.textString = '';
+    // }
+  
+    kl:any;
 
     
 
@@ -133,7 +198,7 @@ export class CanvasComponent implements OnInit,OnDestroy {
     this.addImageToCanvas(dragImage);
   }
   addImageToCanvas(decImages: any) {
-   
+   debugger
     fabric.Image.fromURL(decImages.path, (newImg) => {
       // decImages.path
       // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
@@ -143,15 +208,49 @@ export class CanvasComponent implements OnInit,OnDestroy {
       newImg.originY = 'center';
       newImg.hasControls = true;
       newImg.bringToFront();
+      // newImg.scaleToHeight(300);
+      // newImg.scaleToWidth(300);
     },
       {
-        left: 220,
-        top: 300
+        left: 180,
+        top: 280
 
       })
   }
 
+  addImageToCanvas1(decImages1: any) {
+    debugger
+     fabric.Image.fromURL(decImages1.path, (newImg1) => {
+       // decImages.path
+       // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
+      //  this.removeSelected();
+      //  this.canvas.add(newImg1);    
+       newImg1.toCanvasElement;
+       newImg1.originX = 'center';
+       newImg1.originY = 'center';
+       newImg1.hasControls = true;
+      //  newImg1.bringToFront();
+       newImg1.sendToBack();
+       newImg1.scaleToHeight(300);
+       newImg1.scaleToWidth(300);
+      this.extend(newImg1,this.randomId());
+      // var kl=this.randomId();
+      // this.canvas.remove(kl);
+      
+      this.removeSelected();
+      this.canvas.add(newImg1);    
 
+     },
+       {
+         left: 175,
+         top: 280
+ 
+       })
+   }
+
+   
+   
+  
   showSecMenu(num) {
     if (num == 1) {
       this.showMenuItems = 1;
@@ -164,6 +263,7 @@ export class CanvasComponent implements OnInit,OnDestroy {
     }
   }
   showSubMenuItems(num) {
+    debugger;
     if (num == 1) {
       this.showSubMenItem = 1;
     } else if (num == 2) {
@@ -186,13 +286,14 @@ export class CanvasComponent implements OnInit,OnDestroy {
 
 
   addText() {
+    debugger
     if (this.textString) {
       const text = new fabric.IText(this.textString, {
         left: 100,
         top: 20,
         fontFamily: 'helvetica',
         angle: 0,
-        fill: '#000000',
+        fill: this.fill,
         scaleX: 0.5,
         scaleY: 0.5,
         fontWeight: '',
@@ -238,6 +339,7 @@ export class CanvasComponent implements OnInit,OnDestroy {
     this.fill = this.getActiveStyle('fill', null);
    }
    setFill(){
+     debugger
     this.setActiveStyle('fill', this.fill, null);
    }
 
@@ -387,6 +489,78 @@ export class CanvasComponent implements OnInit,OnDestroy {
         }
       )
   }
+
+  //show tombstone
+  showCentric() {
+    debugger;
+      this.showTambstone = true;
+    }
+
+    checked(data) {
+      debugger
+      this.changeStyle = undefined;
+      this.changeStyle = data;
+      this.service.selectedMainImg = data;
+    }
+
+    getTambImage() {
+debugger
+      this.service.getTambstoneImages(1)
+        .subscribe(
+          (tambImags: any) => {
+            this.imagespath = tambImags.images;
+            if (this.caroucelCount == 1) {
+              this.imagesForCaroucel = this.imagespath.slice(0, 6);
+            }
+          },
+          err => {
+            console.log(err);
+  
+          }
+        )
+    }
+  
+    nextCarousel() {
+      this.caroucelCount++;
+  
+      if (this.caroucelCount == 2) {
+        this.imagesForCaroucel = this.imagespath.slice(7, 13);
+      }
+      if (this.caroucelCount == 3) {
+        this.imagesForCaroucel = this.imagespath.slice(13, 19);
+      }
+      if (this.caroucelCount == 4) {
+        this.imagesForCaroucel = this.imagespath.slice(19, 25);
+      }
+      if (this.caroucelCount == 5) {
+        this.imagesForCaroucel = this.imagespath.slice(25, 29);
+      }
+      if (this.caroucelCount == null) {
+        this.imagesForCaroucel = this.imagespath.slice(7, 13);
+      }
+    }
+  
+    prevCarousel() {
+      this.caroucelCount = this.caroucelCount - 1;
+  
+      if (this.caroucelCount == 2) {
+        this.imagesForCaroucel = this.imagespath.slice(7, 13);
+      }
+      if (this.caroucelCount == 3) {
+        this.imagesForCaroucel = this.imagespath.slice(13, 19);
+      }
+      if (this.caroucelCount == 4) {
+        this.imagesForCaroucel = this.imagespath.slice(19, 25);
+      }
+      if (this.caroucelCount == 5) {
+        this.imagesForCaroucel = this.imagespath.slice(25, 29);
+      }
+      if (this.caroucelCount == 1 || null) {
+        this.imagesForCaroucel = this.imagespath.slice(0, 6);
+      }
+  
+    }
+  
 
 
   nextFlowers() {
@@ -563,4 +737,6 @@ export class CanvasComponent implements OnInit,OnDestroy {
 
     }
 }
+
+
 
