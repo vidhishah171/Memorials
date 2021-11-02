@@ -8,26 +8,27 @@ import { FearturedMemorialService } from '../../../services/feartured-memorial.s
 })
 export class FearturedMemorialComponent implements OnInit {
 
-  memorialData:any;
+  // memorialData:any;
 
   constructor(
-    private featureService : FearturedMemorialService
+    // private featureService : FearturedMemorialService
   ) { }
 
   ngOnInit(): void {
-    this.getMemorials();
+    // this.getMemorials();
   }
 
-  getMemorials(){
-      this.featureService.getMemorials().subscribe(
-      (memorial:any)=>{
-       this.memorialData= memorial.Memorials;      
-      },
-      error=>{
-        return error;
-      }
-    )
-  }
+  
+  // getMemorials(){
+  //     this.featureService.getMemorials().subscribe(
+  //     (memorial:any)=>{
+  //      this.memorialData= memorial.Memorials;      
+  //     },
+  //     error=>{
+  //       return error;
+  //     }
+  //   )
+  // }
 
 
 }

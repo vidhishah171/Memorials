@@ -4,6 +4,7 @@ import { async } from 'q';
 import { createMemorial } from 'src/app/Model/createMemorial';
 import { Observable } from 'rxjs';
 import { memorialimage } from 'src/app/Model/memorialimage';
+import { vita } from 'src/app/Model/vita';
 
 
 @Injectable({
@@ -20,8 +21,13 @@ export class CreateMemorialService {
   saveCanvas:any;
   saveCanvas1:any;
   saveCanvas3:any;
+  ImgRandomId:any;
+  saveVitaText:any;
+
   createMemorial:createMemorial=<createMemorial>{};
   memorialimage:memorialimage=<memorialimage>{};
+  // vita:vita=<vita>{}
+  vita:vita=<vita>{};
 
   // headers:any;
   httpOptions = {
@@ -65,8 +71,11 @@ export class CreateMemorialService {
 
   //  proxy config used hear
   getFlowerImages(image_type_id:any){
-    return this.http.post('/flowerImages' ,{image_type_id},this.httpOptions);
-    // return this.http.post(this.getCreMemImgAPI,{image_type_id});
+    //For local
+    // return this.http.post('/flowerImages' ,{image_type_id},this.httpOptions);
+    
+    //For server
+    return this.http.post(this.getCreMemImgAPI,{image_type_id});
   }
 
   getBackgImages(image_type_id:any){
@@ -84,7 +93,10 @@ export class CreateMemorialService {
     return this.http.post('https://h2913228.stratoserver.net/API/public/memorial_image',result);
   }
 
-
+ createvitaMemorial(result1){
+   debugger;
+  return this.http.post('https://h2913228.stratoserver.net/API/public/vita_upload',result1);
+ }
 
 
 

@@ -1,6 +1,7 @@
 ::ng-deep  .alert-success{background-color: rgb(252, 139, 10);color: black;}
-::ng-deep  .alert-danger {background-color: red;}
+::ng-deep  .alert-danger {background-color: orangered; color: black;}
 
 .data{
     margin-left: 38px;
+    /* margin-top: 250px; */
 }

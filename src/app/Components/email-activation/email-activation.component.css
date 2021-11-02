@@ -1,0 +1,44 @@
+body{
+    height: 70%;
+}
+
+.thank{
+    width: 100%;
+    height: 31vw;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 75px;
+}
+.thank h6{
+    color: hsl(0deg 53% 60%);
+}
+.fontSize{
+    font-size: 1.2rem;
+}
+
+@media (max-width: 480px){
+    .thank{
+        width: 100%;
+        height: 51vw;
+        font-family: 'Libre Franklin', sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 10px;
+    }
+    .thank h1{
+        font-size: 1rem;
+    }
+    .fontSize{
+        font-size: 0.8rem;
+    }
+    
+}

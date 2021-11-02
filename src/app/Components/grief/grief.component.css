@@ -12,7 +12,8 @@
     justify-content: flex-end;
     align-items: center;
     font-family: 'Libre Franklin', sans-serif;
-    
+    width: 100%;
+    /* margin-left: 3%; */
 }
 
 .giftImage{
@@ -54,7 +55,7 @@
 }
 
 .discuss2{
-    height: 25%;
+    height: 35%;
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -71,3 +72,60 @@
     color: rgb(169 141 141);
     text-shadow: 0 0 5px rgba(27, 24, 24, 0.5);
 }
+
+@media (max-width:480px){
+    .grief{
+        height: 100%;
+        width: 100%;
+    }
+    .discuss2{
+        height: 48%;
+        width: 100%;
+    }
+    .trendingDiscuss{
+        height: 100vw;
+        
+    }
+    .discussSub{
+        width: 23%;
+    }
+    .griefImg{
+        width: 10px;
+        height: 10px;
+    }
+    .discussSub h6{
+        margin-top: -3px;
+        font-size: 0.35rem;
+    }
+    .discussSub p {
+        font-size: 0.8rem;
+    }
+    .lineHeight{
+        font-size: 0.5rem;
+        padding-top: 10px;
+    }
+}
+@media (min-width:481px) and (max-width:780px){
+    .discussSub h6{
+        margin-top: -3px;
+        font-size: 0.7rem;
+    }
+    .discussSub p{
+        font-size: 0.8rem;
+    }
+    .trendingDiscuss{
+        height:45vw;
+    }
+    .discuss2{
+        height: 50%;
+        width: 85%;
+    }
+    .grief{
+        width: 90%;
+    }
+    .lineHeight{
+        font-size: 0.8rem;
+    }
+
+}
+@media (min-width:781px) and (max-width:1160px){}

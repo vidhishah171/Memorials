@@ -32,6 +32,11 @@ nav{
 a{
     font-size: medium;
 }
+.userName{
+    margin-top: 32px;
+    margin-left: 6px;
+    color: red;
+}
 
 @media (max-width: 514px){
     .logo{
@@ -75,6 +80,9 @@ a{
     #login{
         /* visibility: hidden; */
         display: none;
+    }
+    .navBtn{
+        margin-right: 58px;
     }
 }
 

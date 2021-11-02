@@ -4,7 +4,7 @@
     <div class="box1 h-100 p-2">
 
         <h4 class="mb-4">
-            <strong>Recent Memorials</strong>
+            <strong class="recentMem">Recent Memorials</strong>
         </h4> 
 
         <div class="d-flex child1 w-100 p-1 mt-3 mb-2" 
@@ -24,17 +24,17 @@
     </div>
 
     <!-- Premium Memorials -->
-    <div class="box2 ms-3  h-100 " style="background-color: white">
+    <div class="box2 ms-3 h-100 " style="background-color: white">
 
         <div class="w-auto h-auto">
             <h4 class="mb-3">
                 <img class="pe-2" src="../../../assets/StaticAssets/Home page/diamond (1).png">
-                <strong>Premium Memorials</strong>
+                <strong class="recentPmem">Premium Memorials</strong>
             </h4>
         </div>
 
 
-        <div class="premium w-100 p-1">
+        <div class="premium p-1">
 
             <div class="premium-child p-2 mb-3 ms-5" *ngFor="let prememData of PremiumMemorials">
 
@@ -42,12 +42,12 @@
 
                 <div class="name" >
                     <h6>{{prememData.lastname}},{{prememData.firstname}}</h6>
-                    <img src="../../../assets/StaticAssets/Home page/eye.png" >
-                    <span class="me-1"><strong>{{prememData.grablog}}</strong></span> 
-                    <img src="../../../assets/StaticAssets/Home page/candle.png">
-                    <span class="me-1"><strong>{{prememData.litCandle}}</strong></span>
-                    <img src="../../../assets/StaticAssets/Home page/google-docs.png">
-                    <span class="me-1"><strong>{{prememData.Kondolenz}}</strong></span>
+                    <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png" >
+                    <span class="me-1"><strong class="nameSml">{{prememData.grablog}}</strong></span> 
+                    <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="me-1"><strong class="nameSml">{{prememData.litCandle}}</strong></span>
+                    <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="me-1"><strong class="nameSml">{{prememData.Kondolenz}}</strong></span>
                 </div>
                 <!-- <div class="info w-100">
                     <img src="../../../assets/StaticAssets/Home page/eye.png" >

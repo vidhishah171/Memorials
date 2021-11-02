@@ -75,5 +75,28 @@ input.ng-touched.ng-invalid{
     color: black;
     /* background-color: green; */
 } 
+.btnCM{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.errorDis{
+    color: red;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+@media (max-width:480px){
+    .largInpt{
+        width: 230%;
+    }
+}
+
+@media (min-width:481px) and (max-width:780px){
+    .crtBtn{
+        margin-right: 36px;
+    }
+}
+
 
 

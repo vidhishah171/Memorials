@@ -10,6 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule } from './material/material.module';
 import { ColorPickerModule } from 'ngx-color-picker'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 
 
@@ -34,6 +38,10 @@ import { ThankYouComponent } from './Components/thank-you/thank-you.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CanvasComponent } from './Components/create-memorial/canvas/canvas.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { EmailActivationComponent } from './Components/email-activation/email-activation.component';
+import { ForgotPassPopupComponent } from './Components/forgot-password/forgot-pass-popup/forgot-pass-popup.component';
+import { ForgotPasswordActivationPopComponent } from './Components/forgot-password-activation/forgot-password-activation-pop/forgot-password-activation-pop.component';
+import { FilterPipe } from './Pipe/filter.pipe';
 
 
 
@@ -57,7 +65,11 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     CreateMemorialComponent,
     ThankYouComponent,
     CanvasComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    EmailActivationComponent,
+    ForgotPassPopupComponent,
+    ForgotPasswordActivationPopComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -70,10 +82,15 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     DragDropModule,
     ColorPickerModule,
     MatSnackBarModule,
+    MatDialogModule,
+    ScrollingModule,
+    MatSliderModule
 
+  
 
   ],
+
   providers: [SnackbarComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

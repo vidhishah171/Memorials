@@ -13,13 +13,15 @@
         <div class="child text-center w-50" id="box3">
             <p>
                 <small>
-                        <strong>soulium.com</strong> the virtual cemetery. Here, you can create memorable sites for your loved ones free of charge, which will continue to live in your memory forever. You can also mourn together with us and exchange with other people
+                    <strong>soulium.com</strong> the virtual cemetery. Here, you can create memorable sites for your
+                    loved ones free of charge, which will continue to live in your memory forever. You can also mourn
+                    together with us and exchange with other people
                 </small>
             </p>
             <!-- <h6>soulium.com the virtual cemetery. Here, you can create memorable sites for your loved ones free of charge, which will continue to live in your memory forever. You can also mourn together with us and  exchange with other people</h6> -->
         </div>
         <div class="child" id="box4">
-            <button type="button"  class="btn btn-danger btn-lg">
+            <button type="button" class="btn btn-danger btn-lg">
                 <strong><a id="color" routerLink="create-memorial">Create Memorial</a></strong>
             </button>
             <button type="button" class="btn btn-success btn-lg">
@@ -30,18 +32,25 @@
 
 
     </div>
-
-    <div class="find d-flex justify-content-center">
-        <div class="input-group w-50" style="height: 20px">
-            <input type="text" class="form-control input-lg " style="border-radius: 30px 0 0 30px" placeholder="Find a Memorial...">
-            <div class="input-group-append">
-                <button class="btn btn-lg " style="background-color: #f87171;border-radius: 0px 50% 50% 0 " type="submit">
-                    <img src="../../../assets/StaticAssets/Home page/search-1.png">
-                </button>
+    <form #myForm1="ngForm">
+        <div class="find d-flex justify-content-center">
+            <div class="input-group w-50" style="height: 20px">
+                <input type="text" class="form-control input-lg " name="searchText" ngModel #searchText="ngModel"
+                    style="border-radius: 30px 0 0 30px" placeholder="Find a Memorial...">
+                <div class="input-group-append">
+                    <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg "
+                        style="background-color: #f87171;border-radius: 0px 50% 50% 0 " type="submit">
+                        <img src="../../../assets/StaticAssets/Home page/search-1.png">
+                    </button>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </form>
+
+
+
+
 
 
 
@@ -83,6 +92,91 @@
     </div> -->
 
 </header>
+
+<br>
+<br>
+<br>
+
+<div *ngIf="!searchResult">
+    <h5 style="text-align: center">
+        <strong>Featured Memorial</strong>
+    </h5>
+    <div class="container2">
+        <div class="memorial" *ngFor="let data of memorialData "
+            [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
+            <div class="year">
+                <h6>
+                    <p><small>{{data.age}} Y<br> old</small></p>
+                </h6>
+            </div>
+        </div>
+
+        <div class="second text-align-center pt-3 w-100">
+
+            <button type="button" class="btn btn-danger ">
+                <strong routerLink="/create-memorial">CREATE MEMORIAL</strong>
+            </button>
+
+        </div>
+
+    </div>
+</div>
+<div *ngIf="searchResult" class="searchHgt mb-5">
+    <div class="row">
+        <div class="col-4" style="text-align: center; margin-top: 30px;">
+            <div>
+                <label>Age</label>
+            </div>
+            <!-- <div>
+                <input type="range" min="0" max="100"  style="width: 200px;">
+            </div>
+            <div>
+                <input type="text" [(ngModel)]="ageSearch" >
+            </div> -->
+
+
+            <span>0</span>
+            <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
+            <span>100</span>
+<!-- 
+            <mat-slider thumbLabel [displayWith]="formatLabel" [(ngModel)]="sliderValue" tickInterval="1000" step="1000" min="0" max="100000"
+                aria-label="units"></mat-slider> -->
+
+
+
+        </div>
+        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+            <div class="col-8 searchImg">
+                <div *cdkVirtualFor="let search of dataSearch1 | filter: sliderValue">{{dataSearch1.age}}
+                    <div>
+                        <img class="searchImg1" [src]="search.path" alt="">
+                    </div>
+                    <div class="searchName">
+                        <span>{{search.fname}}</span>&nbsp;<span>{{search.lname}}</span>
+                    </div>
+                    <div class="searchCandel">
+                        <span>
+                            <img src="../../../assets/StaticAssets/Home page/eye.png" alt=""><span
+                                class="searchValue">{{search.total_candles}}</span>
+                        </span>
+                        &nbsp;
+                        <span>
+                            <img src="../../../assets/StaticAssets/Home page/candle.png" alt=""><span
+                                class="searchValue">{{search.total_candles}}</span>
+                        </span>
+                        &nbsp;
+                        <span>
+                            <img src="../../../assets/StaticAssets/Home page/google-docs.png" alt=""><span
+                                class="searchValue">{{search.total_kondolenz}}</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </div>
+
+</div>
 
 
 <!-- 

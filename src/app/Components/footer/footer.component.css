@@ -1,5 +1,6 @@
 .footer{
     height:10vw;
+    width: 100%;
 
 }
 .nav{
@@ -31,7 +32,7 @@
 @media(min-width:481px) and (max-width:768px){
     .footer{
         height:20vw;
-        width: 100%;
+        width: 92%;
     }
     .logo{
         height: 50%;
@@ -45,7 +46,7 @@
 @media(min-width:769px){
     .footer{
         height:10vw;
-        width: 100%;
+        width: 90%;
     }
     /* .logo{
         height: 50%;

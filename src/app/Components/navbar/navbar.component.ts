@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/services/login.service';
 
 
 @Component({
@@ -8,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  p=this.loginservice.loginSaveData;
+  constructor(
+    public loginservice:LoginService,
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // this.p=this.loginservice.loginSaveData;
+    // this.p=this.loginservice.loginSaveData
+    // var username=this.loginservice.loginSaveData.user
+   }
 
-  point(){
-    
-  }
-
+  
 }

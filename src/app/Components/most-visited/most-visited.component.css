@@ -5,6 +5,7 @@
     display: flex;
     height: auto;
     flex-direction: column;
+    width: 100%;
 }
 
 .most-visited h4{
@@ -88,7 +89,39 @@ next tab css properties */
 /* 
 responsive content */
 
-@media (max-width:720px){
+
+@media (max-width:480px){
+    .most-visited{
+        width: 90%;
+        display: none;
+    }
+
+    .findByName{
+        height: 50vw;
+    }
+    .findByName input{
+        height: 40px;
+    }
+    .findByName button{
+        height: 40px;
+    }
+}
+@media (min-width:481px) and (max-width:780px){
+    .child{
+        width: 95%;
+    }
+    .most-visited{
+        width: 95%;
+    }
+   
+}
+@media (min-width:781px) and (max-width:1160px){}
+
+
+
+
+
+/* @media (max-width:720px){
     .most-visited{
         margin-top: 31rem;
         align-items: center;
@@ -116,4 +149,4 @@ responsive content */
         height:100%;
         
     }
-} 
+}  */

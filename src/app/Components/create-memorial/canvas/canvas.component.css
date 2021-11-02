@@ -8,6 +8,52 @@
     align-items: center;
     /* flex-wrap: wrap; */
 }
+/* .textAlign{
+    text-align: center;
+} */
+
+.textAlign1{
+    margin-left: 2%;
+}
+.flwSize{
+    width: 80px;
+    height: 105px;
+}
+.alignBgcolor{
+ border: 1px solid black;
+ background-color: white;
+ padding: 8px;
+ border-radius: 5px; 
+ margin: 2px;  
+}
+.alignBgcolor:hover{
+    background-color: lightgray;
+}
+.alignBgcolor:focus{
+    background-color: lightgray;
+}
+.colorPickerImg{
+    text-align: center;
+    cursor: pointer;
+}
+
+.vitaData{
+    margin-top: 18px;
+    width: 100%;
+    height: 10%;
+    border: none;
+
+}
+.flowers{
+    height: auto;
+    width: 6rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-block: inherit;
+}
 
 .canvas{
     /* background-color: red; */
@@ -48,14 +94,16 @@
     height: 2rem;
     display: flex;
     flex-wrap: wrap;
+    margin-left: 40px;
     flex-direction: row;
     justify-content: flex-start;
 
 }
 
+
 .submenu{
     width: 100%;
-    height: 6rem;
+    height: 7rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -161,10 +209,20 @@
 .carousel-item.active {
     display: flex;
     flex-direction: row;
+    /* width: 72%;
+    margin-left: 100px; */
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     
+}
+.itemAlign{
+    width: 72%;
+    margin-left: 100px;
+}
+.itemAlign1{
+    width: 85%;
+    margin-left: 76px;
 }
 
 .URNS{
@@ -223,6 +281,7 @@
 .btnAddText{
     background-color:lightgray;
 }
+
 #imgLogo{
     width: 51px;
     height: 49px;
@@ -248,6 +307,17 @@
        /* flex-wrap: wrap; */
        /* align-content: flex-start; */
     
+    }
+    .carousel-control-prev{
+        width: 1rem;
+    }
+    .carousel-control-next{
+        width: 1rem;
+    }
+
+    .itemAlign{
+        width: 100%;
+        margin-left: 0px;
     }
     .menu{
         width: 100%;
@@ -275,10 +345,10 @@
     }
     
     
-     .Mycanvas{
+     /* .Mycanvas{
          height: 50%;
          width: 30%;
-     }
+     } */
      #rect{
         width: 100%;
     }
@@ -305,12 +375,22 @@
     .box1{
         /* background-color: rebeccapurple; */
          height: auto;
-         width:70%;
+         width:100%;
+         /* text-align: center; */
+         padding-left: 150px;
          display: inline-block;
          flex-direction: column;
          align-items: center;
          /* flex-wrap: wrap; */
      }
+
+     .box1 button{
+        margin-left: 170px;
+        margin-bottom: 2%;
+     }
+     .menu{
+        margin-left: 117px;
+    }
      .box2{
         /* background-color: #f87171;  */
        height: auto;
@@ -320,7 +400,17 @@
        /* flex-wrap: wrap; */
        /* align-content: flex-start; */
     
-    }   
+    } 
+    .itemAlign{
+        width: 90%;
+        margin-left: 35px;
+    } 
+    .carousel-control-prev{
+        width: 1rem;
+    }
+    .carousel-control-next{
+        width: 1rem;
+    } 
     .tombStyle{
         height: 120px;
         width: 120px;
@@ -350,3 +440,31 @@
     
     }     
 }
+
+/* for big device */
+/* @media (min-width:1517px){
+    .content2{
+        height: 49vw;
+    }
+}*/
+
+@media (min-width:1517px)and (max-width:2017px){
+    .content2{
+        height: 47vw;
+    } 
+ }
+ @media (min-width:2017px)and (max-width:2049px){
+    .content2{
+        height: 38vw;
+    }
+ }
+ @media (min-width:2732px) and (max-width:4098px){
+     .content2{
+         height: 25vw;
+     }
+ }
+ @media (min-width:4098px){
+    .content2{
+        height: 25vw;
+    } 
+ }

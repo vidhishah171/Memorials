@@ -1,0 +1,21 @@
+.body{
+    background-color: whitesmoke;
+}
+
+.textPop{
+    font-size: 1.3rem;
+}
+.textPop1{
+    font-size: 0.8rem;
+    margin-left: 24px;
+    color: tomato;
+}
+
+@media (max-width:480px){
+    .textPop{
+        font-size: 1rem;
+    }
+    .textPop1{
+        font-size: 0.6rem;
+    }
+}

@@ -63,6 +63,111 @@ header {
     flex-wrap: nowrap;
 }
 
+/* featured memorial */
+
+.container2{
+        margin-top: 30px;
+        margin-bottom:50px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+}
+.memorial{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 180px;
+    width: 180px;
+    /* background-color: black; */
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+.year{
+    width: 30%;
+    height: 25%;
+    background-color: #eee5dc;
+    margin-top: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    font-weight: bolder;
+    color: #ce1414;
+    padding-top: 7px;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.year p{
+    font-size: 14px;
+}
+
+h5{
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif; 
+    font-weight: bold;
+}
+
+.second{
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchHgt{
+    height: 35vw;
+}
+.searchImg{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.searchImg1{
+    height: 150px;
+    width: 150px;
+    border: 1px solid tomato;
+    margin: 10px;
+    /* margin-left: 10%; */
+    margin-top: 31%;
+}
+
+.example-viewport {
+    height: 35vw; 
+    width: 60%;
+    /* border: 1px solid black; */
+    
+  }
+  
+.example-item {
+    height: 50px;
+  }
+.searchName{
+    text-align: center;
+}
+.searchCandel{
+    text-align: center;
+}
+.searchValue{
+    font-size: 0.8rem;
+}
+
+
+mat-slider {
+    width: 300px;
+  }
+
+
+
+
+
+
+
 
 
 @media (max-width: 992px){

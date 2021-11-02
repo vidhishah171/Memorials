@@ -21,10 +21,9 @@ export class CreateMemorialComponent implements OnInit {
   // @ViewChild('canvas', { static: true }) Canvas: ElementRef<HTMLCanvasElement>;
 
 
-  year = new Date().getFullYear();
-  month = new Date().getMonth() + 1;
-  day = new Date().getDate();
+ 
 
+  ImgRandomId = 0;
   imagespath = [];
   imagesForCaroucel = [];
   caroucelCount: number = 1;
@@ -35,8 +34,15 @@ export class CreateMemorialComponent implements OnInit {
   showSubMenItem: Number = 1;
 
   changeStyle: string;
-  curruntDate: any = `${this.year}` + "-" + `${'0' + this.month}` + "-" + `${this.day}`;
-
+  
+  year = new Date().getFullYear();
+  month = new Date().getMonth() +1;           //+1
+  day = new Date().getDate();
+  // curruntDate: any = `${this.year}` + "-" + `${this.month}` + "-" + `${this.day}`;
+  curruntDate:any = `${this.month}` + "-" + `${this.day}` + "-" + `${this.year}`;
+  // curruntDate: any = `${'0' + this.month}` + "-" + `${this.day}` + "-" + `${this.year}`;
+ searchDate:any=new Date(this.curruntDate)
+  
 
   canddleImages = [];
   newCanddleImages = [];
@@ -56,15 +62,23 @@ export class CreateMemorialComponent implements OnInit {
   Data: { grab_id: any; image: any; image_type_id: any; };
   result: Object;
 
-  flag:any=false;
+  flag: any = false;
 
 
-  
   constructor(
     public service: CreateMemorialService,
-    public snack:MatSnackBar,
-    public element:ElementRef
-  ) { }
+    public snack: MatSnackBar,
+    public element: ElementRef,
+
+
+    
+  ) { 
+    debugger;
+  //   const year = new Date().getFullYear();
+  // const month = new Date().getMonth()+1 ;
+  // const day = new Date().getDate();
+  //  `${year}` + "-" + `${'0' +month}` + "-" + `${day}`;
+  }
 
 
 
@@ -150,16 +164,29 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
   url = "";
+  hidePerson:boolean=false;
   onselectFile(e) {
-
+    debugger
+    this.service.selectedMainImg == null;
+    this.changeStyle = null;
     if (e.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
-        this.service.selectedMain = this.url;
+
+
+        if(this.url==''){
+          this.hidePerson=true;
+        }else{
+          this.hidePerson=true;
+        }
+
+        this.service.selectedMainImg = this.url;
       }
+
     }
+
   }
 
 
@@ -194,7 +221,7 @@ export class CreateMemorialComponent implements OnInit {
 
 
   register(regData: any) {
-
+    debugger;
     console.log(regData);
     this.service.memCreatePostData().subscribe((res: any) => {
       // this.msg("you have created successfully account");
@@ -202,25 +229,38 @@ export class CreateMemorialComponent implements OnInit {
 
 
 
-      var test = this.dataURItoBlob(this.service.saveCanvas);
+      var test = this.service.saveCanvas;
 
 
 
       const formData = new FormData();
 
+      debugger;
+
       formData.append('grab_id', res.grab_id);
-      formData.append('image', test);
-      formData.append('image_type_id', '3');
+      formData.append('image', 'Image');
+      formData.append('image_type_id', '7');
       formData.append('x', '100');
       formData.append('y', '120');
       formData.append('height', '200');
       formData.append('width', '300');
       formData.append('user_id', res.user_id);
-      formData.append('canvas_json', 'canvas_json')
-      formData.append('canvas_preview_base64', 'canvas_base_64')
+      formData.append('canvas_json', 'canvas_json');
+      formData.append('canvas_preview_base64', test);
 
 
+      debugger;
+      var vitaText = this.service.saveVitaText
 
+      const formData1 = new FormData();
+
+      formData1.append('grab_id', res.grab_id);
+      formData1.append('vita_html', vitaText);
+
+
+      this.service.createvitaMemorial(formData1).subscribe(result1 => {
+        console.log(formData1);
+      })
 
       // debugger;
       // this.result = {
@@ -282,32 +322,41 @@ export class CreateMemorialComponent implements OnInit {
 
 
 
-  
+
   // step 1 functions
   showStep(num) {
     if (num == 1) {
       this.showMemSteps = 1;
-      
+
     }
-    
-    else if (num==2 && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
+
+    else if (num == 2
+      && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
+      && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+       ) {
       this.showMemSteps = 2;
     }
-    else if(num==2){
-     this.snackBar('Please fill all details on step-1','alert-success');
+    else if (num == 2) {
+      this.snackBar('Please fill all details on step-1', 'alert-success');
 
     }
 
-   else if (num==3 && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
+    else if (num == 3
+      && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
+      && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+       ) {
       this.showMemSteps = 3;
     }
-    else if(num==3){
-      this.snackBar('Please fill all details on step-1','alert-success')
+    else if (num == 3) {
+      this.snackBar('Please fill all details on step-1', 'alert-success')
     }
   }
 
-  clickShowStepBtn1(){
-    debugger;
+  clickShowStepBtn1() {
     if (1) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -321,14 +370,13 @@ export class CreateMemorialComponent implements OnInit {
         test.style.backgroundColor = '';
       }
 
-      var test=document.getElementById("showStepBtn3");
-      if(test != null){
-        test.style.backgroundColor='';
+      var test = document.getElementById("showStepBtn3");
+      if (test != null) {
+        test.style.backgroundColor = '';
       }
     }
   }
-  clickShowStepBtn2(){
-    debugger
+  clickShowStepBtn2() {
     if (2) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -338,17 +386,22 @@ export class CreateMemorialComponent implements OnInit {
 
       // btn class
       var test = document.getElementById("showStepBtn2");
-      if (test !== null && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)) {
+      if (test !== null
+        && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
+        && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
+        && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+        && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+         ) {
         test.style.backgroundColor = '#f87171';
       }
 
-      var test=document.getElementById("showStepBtn3");
-      if(test != null){
-        test.style.backgroundColor='';
+      var test = document.getElementById("showStepBtn3");
+      if (test != null) {
+        test.style.backgroundColor = '';
       }
     }
   }
-  clickShowStepBtn3(){
+  clickShowStepBtn3() {
     if (3) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -362,28 +415,33 @@ export class CreateMemorialComponent implements OnInit {
         test.style.backgroundColor = '';
       }
 
-      var test=document.getElementById("showStepBtn3");
-      if(test != null && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)){
-        test.style.backgroundColor='#f87171';
+      var test = document.getElementById("showStepBtn3");
+      if (test != null
+        && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
+        && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
+        && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+        && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+        ) {
+        test.style.backgroundColor = '#f87171';
       }
     }
   }
 
-  
-  
-  snackBar(message:string,panelClass : string) {
+
+
+  snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 3000,
-      verticalPosition:'bottom',
-      horizontalPosition:'center',
-      data :message,
-      panelClass :panelClass,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
+      data: message,
+      panelClass: panelClass,
 
-    
-  })
 
-};
-  
+    })
+
+  };
+
 
 
 
@@ -401,18 +459,22 @@ export class CreateMemorialComponent implements OnInit {
   //     });
   //   }
   // }
-  
+
 
   checked(data) {
+    this.service.selectedMainImg == null;
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;
+
   }
 
-  
+
+
+
 
   showCentric(point) {
-    debugger;
+    // alert(point)
     if (point == 1) {
       this.showTambstone = true;
     }
@@ -449,7 +511,6 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   getTambImage() {
-    debugger;
     this.service.getTambstoneImages(1)
       .subscribe(
         (tambImags: any) => {
