@@ -22,7 +22,7 @@ export class ForgotPasswordActivationPopComponent implements OnInit {
     debugger;
     this.forPassword=data.value;
     var formdata= new FormData();
-    formdata.append('email_id', this.service.saveEmailId);
+    // formdata.append('email_id', this.service.saveEmailId);
     formdata.append('auth_token', this.service.saveAuthToken);
     formdata.append('pwd',this.forPassword.pwd);
      
@@ -32,4 +32,5 @@ export class ForgotPasswordActivationPopComponent implements OnInit {
     this.service.pwd='';
     this.service.pwd1='';
   }
+  
 }

@@ -12,7 +12,6 @@ export class EmailActivationService {
   ju:any;
   constructor(public http:HttpClient) { }
 
-
   emailActivation1(emailData){
     debugger;
     environment.baseUrl

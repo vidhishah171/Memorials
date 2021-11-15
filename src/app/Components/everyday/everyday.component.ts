@@ -27,7 +27,6 @@ export class EverydayComponent implements OnInit {
         this.allData = evrydayMem.Commemorate;
         this.boxOneData.push(this.allData.pop());      
         this.boxTwoData  = this.allData.splice(0,6);
-        
       },
       error=>{
         console.log(error);

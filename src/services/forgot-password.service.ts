@@ -25,3 +25,4 @@ export class ForgotPasswordService {
     return this.http.post(this.forgotAPI,forgotData);
   }
 }
+

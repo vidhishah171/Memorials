@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { debug, trace } from 'console';
 import { animate, style } from '@angular/animations';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-canvas',
@@ -81,6 +82,9 @@ data:any = {};
     const newLocal = this;
     this.service.saveVitaText=this.service.vita.textString1;
     this.service.vita.textString1;
+    this.name45='';
+
+    this.service.selectedMainImg='';
   }
 
 
@@ -92,8 +96,12 @@ data:any = {};
     this.canvasadd();
     this.loadCanvasFromJSON();
     this.getTambImage();
+    this.addText1();
 
     // this.service.vita.textString1;
+
+
+    
 
     
   }
@@ -103,6 +111,31 @@ data:any = {};
 
   // public selected: any;
 
+
+  coloro:any='tomato';
+  name45:any;
+  DOB1:any;
+  DOD1:any;
+
+  addText1() {
+    debugger;
+    this.DOB1=formatDate(this.service.createMemorial.DOB,'M.d.yyyy','en_US');
+    this.DOD1=formatDate(this.service.createMemorial.DOD,'M.d.yyyy','en_US');
+    this.name45=this.service.createMemorial.g_firstname + " " + this.service.createMemorial.g_lastname + " " + "(" + this.DOB1 + " " + "-" + " " + this.DOD1 + ")"
+      const text = new fabric.IText(this.name45, {
+        left: 172,
+        top: 20,
+        fontFamily: 'helvetica',
+        angle: 0,
+        scaleX: 0.4,
+        // fill:this.coloro,
+        scaleY: 0.4,
+        fontWeight: 'bold',
+        hasRotatingPoint: true,
+      });
+     
+      this.canvas.add(text);
+  }
 
 
   canvasadd() {
@@ -114,8 +147,8 @@ data:any = {};
       // this.service.selectedMainImg || this.service.selectedMain
       this.canvas.add(newImg);
       newImg.toCanvasElement;
-      newImg.top = 80;
-      newImg.left = 60;
+      newImg.top = 150;
+      newImg.left = 135;
      
       newImg.originX = 'left';
       newImg.originY = 'top';
@@ -157,7 +190,7 @@ data:any = {};
       render: this.renderIcon,
       x: 0.5,
       y: -0.5,
-      offsetY: 16,
+      // offsetY: 16,
       cursorStyle: 'pointer',
       
       mouseUpHandler:this.deleteObject,
@@ -316,7 +349,7 @@ data:any = {};
 
     },
       {
-        left: 210,
+        left: 280,
         top: 280
       })
   }
@@ -582,7 +615,7 @@ data:any = {};
           this.newCanddleImages = cImages.images;
 
           if (this.canddleCaroucelCount == 1) {
-            this.canddleImages = this.newCanddleImages.slice(0, 24);
+            this.canddleImages = this.newCanddleImages.slice(0, 20);
           }
         },
         error => {
@@ -595,14 +628,14 @@ data:any = {};
   nextCanddle() {
     this.canddleCaroucelCount++;
     if (this.canddleCaroucelCount >= 2) {
-      this.canddleImages = this.newCanddleImages.slice(24, 37);
+      this.canddleImages = this.newCanddleImages.slice(20, 37);
     }
   }
 
   prevCanddle() {
     this.canddleCaroucelCount--;
     if (this.canddleCaroucelCount <= 1) {
-      this.canddleImages = this.newCanddleImages.slice(0, 24);
+      this.canddleImages = this.newCanddleImages.slice(0, 20);
     }
   }
 

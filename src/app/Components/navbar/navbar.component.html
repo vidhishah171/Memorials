@@ -5,33 +5,177 @@
             <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
                 class="mt-0 img-thumbnail top-0" style='height:"80px"; background-color: aliceblue;' />
         </a>
-        <button class="navbar-toggler navBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navBtn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item" style="position:relative; display:inline-block">
+                    <button (click)="openDialogue(1)" #myButton
+                        style="position: relative; z-index: 2; top: 0px; float: right; right: 0px; background-color: rgba(207,99,99, 0.2)"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     <a class="nav-link active" aria-current="page" href="#">
                         <!-- routerLink="/home" -->
                         <strong>HOME</strong>
                     </a>
+
+
+
                 </li>
+
+                <!-- extra code -->
+
+
+                <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+
+                    <div
+                        style="border: 3px solid tomato; text-align: center; border-radius: 10px; height: auto; width: 300px; background-color: white;">
+                        <button style="float: right;" (click)="openDialogue1()">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo1.id" ></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo1.en" ></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de"  [(ngModel)]="respo1.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <!-- <app-admin-edit-example></app-admin-edit-example> -->
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-danger">Save</button>
+                    </div>
+                </li>
+                <!-- <div>
+                    <button *ngIf="isvalid">p</button>
+                    <button *ngIf="!isvalid">o</button>
+                </div> -->
                 <li class="nav-item">
+                    <button (click)="openDialogue(2)" #myButton
+                        style="position: relative; z-index: 2; top: 0px; float: right; right: 0px; background-color: rgba(207,99,99, 0.2)"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     <a class="nav-link active" aria-current="page" href="#">
                         <strong>PREMIUM</strong>
                     </a>
                 </li>
+
+                <!-- extra code -->
+
+
+                <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
+
+                    <div
+                        style="border: 3px solid tomato; text-align: center; border-radius: 10px; height: auto; width: 300px; background-color: white;">
+                        <button style="float: right;" (click)="openDialogue1()">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo2.id" ></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo2.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo2.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-danger">Save</button>
+                    </div>
+                </li>
+
                 <li class="nav-item">
+                    <button (click)="openDialogue(3)" #myButton
+                        style="position: relative; z-index: 2; top: 0px; float: right; right: 0px; background-color: rgba(207,99,99, 0.2)"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     <a class="nav-link active" aria-current="page" href="#">
                         <strong>COMMEMORATE</strong>
                     </a>
                 </li>
+
+                <!-- extra code -->
+                <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
+
+                    <div
+                        style="border: 3px solid tomato; text-align: center; border-radius: 10px; height: auto; width: 300px; background-color: white;">
+                        <button style="float: right;" (click)="openDialogue1()">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo3.id" ></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-danger">Save</button>
+                    </div>
+                </li>
+
                 <li class="nav-item">
+                    <button (click)="openDialogue(4)" #myButton
+                        style="position: relative; z-index: 2; top: 0px; float: right; right: 0px; background-color: rgba(207,99,99, 0.2)"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     <a class="nav-link active" aria-current="page" href="#">
                         <strong>GRIEF FORUM</strong>
                     </a>
+                </li>
+
+                <!-- extra code -->
+                <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
+
+                    <div
+                        style="border: 3px solid tomato; text-align: center; border-radius: 10px; height: auto; width: 300px; background-color: white;">
+                        <button style="float: right;" (click)="openDialogue1()">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo4.id" ></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo4.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo4.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo4.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-danger">Save</button>
+                    </div>
                 </li>
             </ul>
         </div>

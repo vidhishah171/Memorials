@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule,ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule } from './material/material.module';
+import { MaterialModule } from './material/material.module';
 import { ColorPickerModule } from 'ngx-color-picker'
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatSliderModule } from '@angular/material/slider';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -42,6 +47,9 @@ import { EmailActivationComponent } from './Components/email-activation/email-ac
 import { ForgotPassPopupComponent } from './Components/forgot-password/forgot-pass-popup/forgot-pass-popup.component';
 import { ForgotPasswordActivationPopComponent } from './Components/forgot-password-activation/forgot-password-activation-pop/forgot-password-activation-pop.component';
 import { FilterPipe } from './Pipe/filter.pipe';
+import { AdminEditComponent } from './Components/admin-edit/admin-edit.component';
+import { AdminEditPopupComponent } from './Components/admin-edit/admin-edit-popup/admin-edit-popup.component';
+import { AdminEditExampleComponent } from './Components/admin-edit-example/admin-edit-example.component';
 
 
 
@@ -70,6 +78,9 @@ import { FilterPipe } from './Pipe/filter.pipe';
     ForgotPassPopupComponent,
     ForgotPasswordActivationPopComponent,
     FilterPipe,
+    AdminEditComponent,
+    AdminEditPopupComponent,
+    AdminEditExampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,13 +95,18 @@ import { FilterPipe } from './Pipe/filter.pipe';
     MatSnackBarModule,
     MatDialogModule,
     ScrollingModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
 
-  
+
+
 
   ],
 
   providers: [SnackbarComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

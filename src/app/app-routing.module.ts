@@ -12,6 +12,8 @@ import {EmailActivationComponent} from './Components/email-activation/email-acti
 import { GriefComponent } from './Components/grief/grief.component';
 import { AuthGuard } from './Helper/auth.guard';
 import { ForgotPasswordActivationComponent } from './Components/forgot-password-activation/forgot-password-activation.component';
+import { AdminEditComponent } from './Components/admin-edit/admin-edit.component';
+import { AdminEditPopupComponent } from './Components/admin-edit/admin-edit-popup/admin-edit-popup.component';
 
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'email-activation',component:EmailActivationComponent},
   {path:'grief',component:GriefComponent},
   {path:'forgot-password-activation',component:ForgotPasswordActivationComponent},
+  {path:'admin-edit',component:AdminEditComponent},
+  {path:"admin-edit-popup",component:AdminEditPopupComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

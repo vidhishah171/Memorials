@@ -5,6 +5,7 @@ import { createMemorial } from 'src/app/Model/createMemorial';
 import { Observable } from 'rxjs';
 import { memorialimage } from 'src/app/Model/memorialimage';
 import { vita } from 'src/app/Model/vita';
+import { formatDate } from '@angular/common';
 
 
 @Injectable({
@@ -53,7 +54,11 @@ export class CreateMemorialService {
     }
 
     memCreatePostData(){ 
+      debugger
       var hh= this.createMemorial;
+      this.createMemorial.DOB=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
+      this.createMemorial.DOD=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
+
      // this.saveFormData = this.data;
       return this.http.post('https://h2913228.stratoserver.net/API/public/createMemorial',this.createMemorial);
     }
@@ -84,6 +89,7 @@ export class CreateMemorialService {
 
 
   createNewMemorial(newMemData:any) {
+    debugger
     return this.http.post (this.createNewMenAPI,{newMemData})
   }
 

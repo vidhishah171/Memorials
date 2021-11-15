@@ -585,6 +585,11 @@ input.ng-touched.ng-invalid{
     width:"100px" !important;
     height:"100px" !important;
 }
+.datePickerCss{
+    border: 1px solid white;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px 2px rgb(0, 0, 0, .2);
+}
 
 /* #imageMemorial{
     font-family: 'Allison', cursive;

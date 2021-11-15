@@ -77,26 +77,72 @@
                         <small class="fireError" *ngIf="deathplace.touched && !deathplace.valid">Please enter death
                             place</small> -->
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="Birthdate">Date of birth:</label>
-                        <input type="date" #DOB="ngModel" [(ngModel)]="service.createMemorial.DOB" name="DOB"
-                            class="form-control shadow bg-body rounded" [max]="curruntDate" [value]="curruntDate"
-                            required ngModel>
-                        <small class="fireError" *ngIf="DOB.touched && !DOB.valid">Please enter date of birth</small>
-                        <!-- name="Birthdate" -->
-                    </div>
-                    <div class="col-md-6">
+
+
+                    <div>
                         <label for="birthname">Birth name:</label>
                         <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
                             class="form-control shadow bg-body rounded" placeholder="Birth Name" ngModel>
                         <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
                         required -->
+
                     </div>
+
+
                     <div class="col-md-6 mb-3">
-                        <label for="dateOfdeath">Date of death:</label>
-                        <input type="date" #DOD="ngModel" [(ngModel)]="service.createMemorial.DOD" name="DOD"
-                            class="form-control shadow bg-body rounded" [min]="service.createMemorial.DOB" [max]="curruntDate" [value]="curruntDate" required ngModel>
-                        <small class="fireError" *ngIf="DOD.touched && !DOD.valid">Please enter date of death</small>
+                        <div>
+                            <label for="Birthdate">Date of birth:</label>
+                            <div  class="datePickerCss">
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker" #DOB="ngModel"
+                                    [(ngModel)]="service.createMemorial.DOB" name="DOB" [max]="maxDate"
+                                    placeholder="MM/DD/YYYY" required ngModel>
+                                <mat-datepicker-toggle matSuffix [for]="picker" style="color: tomato;"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        </div>
+
+                        <!-- <input type="date" #DOB="ngModel" [(ngModel)]="service.createMemorial.DOB" name="DOB"
+                            class="form-control shadow bg-body rounded" [max]="curruntDate" [value]="curruntDate"
+                            required ngModel> -->
+                        <div>
+                            <small class="fireError" *ngIf="DOB.touched && !DOB.valid">Please enter date of
+                                birth</small>
+                        </div>
+                        <!-- name="Birthdate" -->
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <label for="birthname">Birth name:</label>
+                        <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
+                            class="form-control shadow bg-body rounded" placeholder="Birth Name" ngModel>
+                        <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
+                        required -->
+
+                    <!-- </div>  -->
+                    <div class="col-md-6 mb-3">
+                        <div>
+                            <label for="dateOfdeath">Date of death:</label>
+                            <div  class="datePickerCss">
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker1" #DOD="ngModel"
+                                    [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
+                                    [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel>
+                                <mat-datepicker-toggle matSuffix [for]="picker1" style="color: tomato;"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                            </div>
+                        </div>
+
+
+
+                        <!-- <input type="date" #DOD="ngModel" [(ngModel)]="service.createMemorial.DOD" name="DOD"
+                            class="form-control shadow bg-body rounded" [min]="service.createMemorial.DOB"
+                            [max]="curruntDate" [value]="curruntDate" required ngModel> -->
+                        <div>
+                            <small class="fireError" *ngIf="DOD.touched && !DOD.valid">Please enter date of
+                                death</small>
+                        </div>
                         <!-- name="dateOfdeth" -->
                     </div>
                     <!-- <button class="btn btn-primary " type="submit" (click)="memorialDetails(form1)">submit</button> -->
@@ -243,11 +289,11 @@
                         <label for="photo" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
                                 src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                        <input id="photo" type="file" (change)="onselectFile($event)">
+                        <input id="photo" type="file" accept="image/*" (change)="onselectFile($event)">
                     </div>
                 </div>
 
-<!-- ------------------------------- -->
+                <!-- ------------------------------- -->
 
                 <div *ngIf="hidePerson">
                     <div class="text-center">
@@ -461,7 +507,7 @@
             </div>
         </div>
 
-        
+
         <!-- Create Account Button -->
         <div class="createBtn">
             <button routerLink="/thank-you" type="submit" (click)="register(regForm)"

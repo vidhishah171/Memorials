@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { FearturedMemorialService } from 'src/services/feartured-memorial.service';
 import { HomeService } from 'src/services/home.service';
+import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-edit-popup.component';
 
 @Component({
   selector: 'app-header',
@@ -32,13 +34,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public homeservice:HomeService,
-    public featureService : FearturedMemorialService
+    public featureService : FearturedMemorialService,
+    public dialog : MatDialog
 
   ) { }
 
   ngOnInit(): void {
     this.getMemorials()
   }
+
+  
 
    
 

@@ -9,6 +9,7 @@ import { $ } from 'protractor';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { threadId } from 'worker_threads';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -39,9 +40,13 @@ export class CreateMemorialComponent implements OnInit {
   month = new Date().getMonth() +1;           //+1
   day = new Date().getDate();
   // curruntDate: any = `${this.year}` + "-" + `${this.month}` + "-" + `${this.day}`;
-  curruntDate:any = `${this.month}` + "-" + `${this.day}` + "-" + `${this.year}`;
+  // curruntDate:any = `${this.month}` + "/" + `${this.day}` + "/" + `${this.year}`;
+  curruntDate:any = this.month + "-" + this.day + "-" + this.year;
   // curruntDate: any = `${'0' + this.month}` + "-" + `${this.day}` + "-" + `${this.year}`;
  searchDate:any=new Date(this.curruntDate)
+
+ maxDate = new Date();
+
   
 
   canddleImages = [];
@@ -63,6 +68,8 @@ export class CreateMemorialComponent implements OnInit {
   result: Object;
 
   flag: any = false;
+  DOB3: any;
+  DOB4: any;
 
 
   constructor(
@@ -118,9 +125,8 @@ export class CreateMemorialComponent implements OnInit {
       newImg.hasControls = false;
     },
       {
-        left: 220,
+        left: 440,
         top: 300
-
       })
   }
 
@@ -167,7 +173,7 @@ export class CreateMemorialComponent implements OnInit {
   hidePerson:boolean=false;
   onselectFile(e) {
     debugger
-    this.service.selectedMainImg == null;
+    this.service.selectedMainImg = "";
     this.changeStyle = null;
     if (e.target.files) {
       var reader = new FileReader();
@@ -283,6 +289,8 @@ export class CreateMemorialComponent implements OnInit {
 
 
 
+    
+
 
 
     this.service.createMemorial.g_firstname
@@ -325,6 +333,7 @@ export class CreateMemorialComponent implements OnInit {
 
   // step 1 functions
   showStep(num) {
+    debugger
     if (num == 1) {
       this.showMemSteps = 1;
 
@@ -333,8 +342,10 @@ export class CreateMemorialComponent implements OnInit {
     else if (num == 2
       && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
       && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
-      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+      // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
        ) {
       this.showMemSteps = 2;
     }
@@ -346,8 +357,10 @@ export class CreateMemorialComponent implements OnInit {
     else if (num == 3
       && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
       && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
-      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+      // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
        ) {
       this.showMemSteps = 3;
     }
@@ -389,8 +402,10 @@ export class CreateMemorialComponent implements OnInit {
       if (test !== null
         && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
         && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
-        && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-        && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+        // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+        // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
          ) {
         test.style.backgroundColor = '#f87171';
       }
@@ -419,8 +434,10 @@ export class CreateMemorialComponent implements OnInit {
       if (test != null
         && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
         && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
-        && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-        && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+        // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
+        && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+        // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
         ) {
         test.style.backgroundColor = '#f87171';
       }
@@ -462,7 +479,8 @@ export class CreateMemorialComponent implements OnInit {
 
 
   checked(data) {
-    this.service.selectedMainImg == null;
+    debugger;
+    this.service.selectedMainImg = "";
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;

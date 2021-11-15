@@ -1,8 +1,9 @@
-<div class="content2 w-100 p-3 ">
+<div class="content2 w-100 p-1 ">
 
     <!-- <img [src]="imgUrl" name="test" height="200px" width="200px"/>
     <div><img src="this.service.saveCanvas" alt=""></div> -->
 
+    <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
     <div class="box1">
         <div>
             <button data-toggle="tooltip" data-placement="bottom"  title="Delete selected object" type="button"
@@ -12,7 +13,7 @@
         </button>
         </div>
         
-        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="560" width="410"
+        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"
             (drop)="DropImageToCan($event)"></canvas>
         <!-- height="540" width="335" -->
         <!-- height="580" width="440" -->
@@ -37,7 +38,7 @@
 
     </div>
     <!-- second box -->
-    <div class="box2 p-2">
+    <div class="box2 p-1">
         <!-- menu -->
         
         <div class="menu">
@@ -89,7 +90,7 @@
                     <img src="../../../assets/StaticAssets/Create memorial/step2/grave (1).png">
                 </div>
                 <small class="mt-2">
-                    <P><strong>CHANGE TOMBSTONE</strong></P>
+                    <P><strong class="changeTombstone">CHANGE TOMBSTONE</strong></P>
                 </small>
             </div>
             <div class="candle ms-3" (click)="showSubMenuItems(3)">
@@ -124,10 +125,10 @@
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel" data-bs-interval="0">
                 <div class="carousel-indicators">
 
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
+                        aria-label="Slide 2"></button> -->
 
                 </div>
 
@@ -473,7 +474,7 @@
                 <video height="200" [src]="url1" width="200" id="video1" autoplay loop >
                            <source [src]="url1">
                       </video>
-                      <input multiple type="file" (change)="onselectFile($event)">
+                      <input multiple type="file" accept="video/*" (change)="onselectFile($event)">
 
                 <!-- ----------------------- -->
 
