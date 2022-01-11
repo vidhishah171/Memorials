@@ -1,5 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
 
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+
+#loginLabel1{
+    right: 64%;
+}
+#loginLabel2{
+    right: 54%;
+}
+#loginLabel3{
+    right: 72%;
+}
+#loginLabel4{
+    right: 65%;
+}
+
+#loginDiv1{
+    left: 67%;
+    margin-top: -15%;
+}
+#loginDiv2{
+    left: 89%;
+    margin-top: -23%;
+}
+#loginDiv3{
+    left: 108%;
+    margin-top: -30%;
+}
+#loginDiv4{
+    left: 50%;
+    margin-top: -37%;
+}
+#loginDiv5{
+    left: 66%;
+    margin-top: -17%;
+}
+#loginDiv6{
+    right: 118%;
+    margin-top: 111%;
+}
+
+
+
+
+
 .login{
     font-family: 'Libre Franklin', sans-serif;
     height:auto;
@@ -25,6 +93,11 @@ input.ng-touched.ng-invalid{
 .form a{
     text-decoration: none;
     color: black;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
 }
 
 .showCase{
@@ -75,9 +148,12 @@ input.ng-touched.ng-invalid{
     color: black;
     /* background-color: green; */
 } 
-.btnCM{
+/* .btnCM{
     padding-left: 10%;
     padding-right: 10%;
+} */
+.btnSpace{
+    right: 35%;
 }
 
 .errorDis{
@@ -96,6 +172,39 @@ input.ng-touched.ng-invalid{
     .crtBtn{
         margin-right: 36px;
     }
+    
+
+    #loginLabel1{
+        right: 26%;
+    }
+    #loginLabel2{
+        right: 22%;
+    }
+    #loginLabel3{
+        right: 39%;
+    }
+    #loginLabel4{
+        right: 30%;
+    }
+
+    #loginDiv1{
+        left: 74%;
+        margin-top: -16%;
+    }
+    #loginDiv2{
+        left: 89%;
+        margin-top: -23%;
+    }
+    #loginDiv3{
+        left: 106%;
+        margin-top: -49%;
+    }
+    
+    #loginDiv6{
+        left: -18%;
+    }
+    
+
 }
 
 

@@ -1,6 +1,6 @@
 <div class="parent p-3">
     <div class="box1 m-2 p-2" *ngFor="let mem of boxOneData" >
-        <img style="height:84%;width: 100%;" src="{{mem.grab_image}}" >
+        <img class="parentImg" src="{{mem.grab_image}}" >
         <div class="name">
             <h5>{{mem.firstname}},{{mem.lastname}}</h5>
            
@@ -18,7 +18,7 @@
 
     <div class="box2 m-2 p-1">
         <div class="child m-2 p-1" *ngFor="let mem of boxTwoData">
-            <img src="{{mem.grab_image}}" class="mt-1" style="height:70%;width: 100%;" >
+            <img src="{{mem.grab_image}}" class="mt-1" class="parentImg1" >
             <div class="box2name mb-2" style="height:26%;width: 100%; background-color: white"  >
                <h6> {{mem.firstname}},{{mem.lastname}}</h6>
                <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png" >

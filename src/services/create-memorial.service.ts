@@ -24,6 +24,7 @@ export class CreateMemorialService {
   saveCanvas3:any;
   ImgRandomId:any;
   saveVitaText:any;
+  stepNumber:any;
 
   createMemorial:createMemorial=<createMemorial>{};
   memorialimage:memorialimage=<memorialimage>{};
@@ -54,7 +55,6 @@ export class CreateMemorialService {
     }
 
     memCreatePostData(){ 
-      debugger
       var hh= this.createMemorial;
       this.createMemorial.DOB=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
       this.createMemorial.DOD=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
@@ -89,7 +89,6 @@ export class CreateMemorialService {
 
 
   createNewMemorial(newMemData:any) {
-    debugger
     return this.http.post (this.createNewMenAPI,{newMemData})
   }
 
@@ -100,8 +99,11 @@ export class CreateMemorialService {
   }
 
  createvitaMemorial(result1){
-   debugger;
   return this.http.post('https://h2913228.stratoserver.net/API/public/vita_upload',result1);
+ }
+
+ createMemorialJson(jsonData){
+   return this.http.post('https://h2913228.stratoserver.net/API/public/editMemorial',jsonData);
  }
 
 

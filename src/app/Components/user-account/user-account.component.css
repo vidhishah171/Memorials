@@ -1,0 +1,147 @@
+.userHeading{
+    background-color:#CF6363 ;
+    height: 7vw;
+}
+.userHeading h1{
+    text-align: center;
+    color: white;
+    padding-top: 2%;
+}
+/* .profileDiv{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+} */
+hr{
+    margin: 0.4rem;
+}
+.divText{
+    font-size: 0.8rem;
+}
+.profileName{
+    margin-left: 15%;
+}
+.forProfileDiv{
+    position: absolute;
+    /* float: right; */
+    margin-left: 71%;
+    cursor: pointer;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    /* text-align: center; */
+    border-radius: 10px;
+    height: auto;
+    /* margin-top: 10%; */
+    width: 260px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.userDetail{
+    color:#CF6363;
+}
+.userMemorialData{
+    color:#CF6363;
+}
+.userMemorialData1{
+    color:#CF6363;
+    font-size: 0.7rem;
+}
+.fontAppeare{
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.userImage{
+    width: 10%;
+    height: 10%;
+}
+.mainDiv{
+    width: 100%;
+    height: 25vw; 
+    background-color: lightgray;
+}
+.subDiv1{
+    color: #CF6363;
+}
+.subDiv2{
+    color: green;
+}
+.content1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* height: 20vw; */
+}
+.box1{
+    /* background-color: yellow; */
+     height: auto;
+     width:30%;
+     display: flex;
+     flex-direction: column;
+     /* left: auto; */
+     /* align-items: center; */
+     /* flex-wrap: wrap; */
+ }
+ .box2{
+    /* background-color: #f87171;  */
+   height: auto;
+   width:70%;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+
+}
+.userAccountText{
+    color: grey;
+    font-size: 1rem;
+}
+.userAccountText1{
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.userAccountText2{
+    color: black;
+    font-size: 0.8rem;
+    margin-bottom: 0%;
+}.userAccountText3{
+    color: #CF6363;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-top: 0%;
+}
+.btnDiv{
+    width: 100%; 
+    margin-top: 20%;
+}
+.btnDiv1{
+    width: 87%;
+}
+.btn1{
+    margin-right: 2%;
+} 
+.btn1:hover{
+    background-color: #CF6363;
+}
+
+@media (min-width:481px) and (max-width:780px){
+    .recentDiv{
+        margin-bottom: 15%;
+    }
+    .box2{
+        width: 55%;
+    }
+    .btnDiv{
+        display: inline-block;
+    }
+    .btn1{
+        margin-top: 2%;
+    }
+    .forProfileDiv{
+        margin-left: 60%;
+    }
+
+}

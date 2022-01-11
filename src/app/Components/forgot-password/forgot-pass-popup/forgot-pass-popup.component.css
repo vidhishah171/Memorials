@@ -1,3 +1,53 @@
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+#forgotPPopcss1{
+    margin-top: -14%;
+}
+#forgotPPopcss2{
+    margin-top: -11%;
+    right: 7%;
+}
+#forgotPPopcss3{
+    right: 79%;
+    margin-top: -124%;
+}
+#forgotPPopcss4{
+    margin-top: -124%;
+    left: 106%;
+}
+
+
+
 .body{
     background-color: whitesmoke;
 }
@@ -6,7 +56,7 @@
     font-size: 1.3rem;
 }
 .textPop1{
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin-left: 24px;
     color: tomato;
 }
@@ -18,4 +68,16 @@
     .textPop1{
         font-size: 0.6rem;
     }
+}
+
+@media(min-width:481px) and (max-width:768px){
+    #forgotPPopcss3{
+        right: -26%;
+        margin-top: -11%;
+    }
+    #forgotPPopcss4{
+        margin-top: -11%;
+    left: 6%;
+    }
+    
 }

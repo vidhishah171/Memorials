@@ -1,5 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
 
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+.findByName .forButton1{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    left: 10%;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+
+
+
 
 .most-visited{
     display: flex;
@@ -73,15 +116,16 @@ next tab css properties */
 }
 
 .findByName input{
-    background-color: rgb(29, 129, 29);
-    color: black;
+    background-color:lightgreen; 
+    /* rgb(29, 129, 29); */
+    color: white;
     height: 65px;
     border-radius: 50px 0 0 50px;
 
 }
-.findByName button{
+.findByName2{
     height: 65px;
-    background-color: rgb(29, 129, 29);
+    background-color: lightgreen;
     border-radius: 0 50px 50px 0;
     border: transparent;
     color:black;
@@ -110,6 +154,7 @@ responsive content */
     .child{
         width: 95%;
     }
+    
     .most-visited{
         width: 95%;
     }

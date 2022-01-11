@@ -1,5 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
 
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+#platformCss1{
+    left: 40%;
+    margin-top: 38%;
+}
+#platformCss2{
+    left: 62%;
+    margin-top: 68%;
+}
+#platformCss3{
+    left: 54%;
+    margin-top: 94%;
+}
+
+
+
+
+
+
+
 .platform{
     background-image: url('../../../assets/StaticAssets/Home page/Rectangle 21.png');
     height:40vw;
@@ -31,4 +81,24 @@
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-position-x: right;
+}
+
+
+
+
+@media (max-width:992px){
+
+    #platformCss1{
+        left: -8%;
+        margin-top: 0%;
+    }
+    #platformCss2{
+        left: -7%;
+        margin-top: 31%;
+    }
+    #platformCss3{
+        left: 53%;
+        margin-top: 69%;
+    }
+
 }

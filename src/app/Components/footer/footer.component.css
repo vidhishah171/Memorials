@@ -1,3 +1,56 @@
+
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+#homeId{
+    right: 83%;
+    margin-top: -108%;
+}
+#premiumId{
+    right: 57%;
+    margin-top: -108%;
+}
+#comemorateId{
+    right: 12%;
+    margin-top: -108%;
+}
+#griefId{
+    left: 16%;
+    margin-top: -108%;
+}
+
+
+
+
 .footer{
     height:10vw;
     width: 100%;
@@ -40,6 +93,25 @@
         align-items: center;
         width: 50%;
         float: left;
+    }
+   
+
+    #homeId{
+        left: 113%;
+    margin-top: 6%;
+    }
+    #premiumId{
+        left: 112%;
+        margin-top: 25%;
+    }
+    #comemorateId{
+        /* right: 12%; */
+        left: 113%;
+        margin-top: 46%;
+    }
+    #griefId{
+        left: 116%;
+        margin-top: 66%;
     }
 }
 

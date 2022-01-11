@@ -2,19 +2,24 @@
 
     <!-- Recent memorials -->
     <div class="box1 h-100 p-2">
-
+        
         <h4 class="mb-4">
-            <strong class="recentMem">Recent Memorials</strong>
-        </h4> 
+                <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                        alt=""></span></button>
+            <strong class="recentMem"  *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
+            <strong class="recentMem"  *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
+            <strong class="recentMem"  *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
+        </h4>
 
-        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" 
-        *ngFor="let memData of Memorials" >
+        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" *ngFor="let memData of Memorials">
 
             <img src="{{memData.path}}" class="w-auto h-auto me-2 rounded">
 
             <div class="ms-2 mt-3">
                 <h6>
-                    {{memData.fname}} {{ memData.lname}},{{memData.age}}Y Old 
+                    {{memData.fname}} {{ memData.lname}},{{memData.age}}Y Old
                 </h6>
                 <h6>{{memData.starvetown}}</h6>
             </div>
@@ -23,15 +28,82 @@
 
     </div>
 
+
+     <!-- Extra code for label -->
+     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo1.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo1.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo1.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
+
+
     <!-- Premium Memorials -->
     <div class="box2 ms-3 h-100 " style="background-color: white">
 
         <div class="w-auto h-auto">
+
             <h4 class="mb-3">
                 <img class="pe-2" src="../../../assets/StaticAssets/Home page/diamond (1).png">
-                <strong class="recentPmem">Premium Memorials</strong>
+                <button style="right: 65%;" (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <strong class="recentPmem">
+                    <p *ngIf="editservice.numLabel==1">{{respo2?.en}}</p>
+                    <p *ngIf="editservice.numLabel==2">{{respo2?.de}}</p>
+                    <p *ngIf="editservice.numLabel==3">{{respo2?.fr}}</p>
+
+
+                </strong>
             </h4>
         </div>
+
+
+        <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo2.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo2.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo2.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo2.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
 
 
         <div class="premium p-1">
@@ -40,10 +112,10 @@
 
                 <img class="mainIMG  rounded" src="{{prememData.name}}">
 
-                <div class="name" >
+                <div class="name">
                     <h6>{{prememData.lastname}},{{prememData.firstname}}</h6>
-                    <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png" >
-                    <span class="me-1"><strong class="nameSml">{{prememData.grablog}}</strong></span> 
+                    <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
+                    <span class="me-1"><strong class="nameSml">{{prememData.grablog}}</strong></span>
                     <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
                     <span class="me-1"><strong class="nameSml">{{prememData.litCandle}}</strong></span>
                     <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
@@ -58,7 +130,7 @@
                     <span class="me-1"><strong>{{prememData.Kondolenz}}</strong></span>
                 </div> -->
             </div>
-        
+
 
         </div>
 

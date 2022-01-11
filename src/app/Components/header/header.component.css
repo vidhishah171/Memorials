@@ -2,6 +2,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
 
+
+
+/* Edit label css */
+
+/* For button css */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+#longTextId{
+    margin-top: 99%;
+     left: 176%;
+}
+
+#headerLabel1{
+    margin-top: -15%; 
+    left: 157%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 header {
     background-image: url('../../../assets/StaticAssets/Home page/p1.png') ;
     background-image: -webkit-repeating-radial-gradient;
@@ -61,6 +117,7 @@ header {
 
 #box4{
     flex-wrap: nowrap;
+    margin-top: 25px;
 }
 
 /* featured memorial */
@@ -185,7 +242,13 @@ mat-slider {
         margin-top:50px; 
         flex-shrink: 2;
      }
-    
+     #longTextId{
+         left: 73%;
+     }
+     #headerLabel1{
+        margin-top: -15%; 
+        left: 49%;
+    }
 }
 @media (max-width: 700px){
     
@@ -233,3 +296,4 @@ mat-slider {
     /* background-position: 50%;
     background-size: auto; */
 }
+

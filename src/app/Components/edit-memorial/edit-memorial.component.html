@@ -1,0 +1,129 @@
+<div>
+    <div>
+        <app-navbar></app-navbar>
+    </div>
+    <div>
+        <div class="userHeading">
+            <!-- <h1>Welcome {{loginservice.loginAllData?.firstname}}</h1> -->
+            <h1>welcome</h1>
+            <div class="userDate">
+                <span>10.05.1945</span>&nbsp;<span>-</span>&nbsp;<span>02-10-2020</span>
+            </div>
+            <div class="userBackground">
+                <p>Add Background</p>
+            </div>
+            <div class="steeper rounded-circle p">
+                <img src="" alt="">
+                <!-- userImage1 -->
+                <!-- class="userImage" -->
+            </div>
+        </div>
+    </div>
+    <!-- Buttons -->
+    <div class="container">
+        <div class="mt-5">
+            <div class="pt-5">
+                <button class="btn btn-outline-secondary ms-2 btnColor">Life Story</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor">Photo/Video Gallery</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor">Condolences</button>
+                <button class="btn btn-outline-success ms-2 btnColor1"><img
+                        src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
+            </div>
+        </div>
+        <!-- Canvas component -->
+    </div>
+    <div style="height: 70vw;" class="pt-5">
+        <app-edit-canvas></app-edit-canvas>
+    </div>
+    <!-- Photo/video gallery -->
+    <div>
+        <div class="photoVideoGallary">
+            <div class="container">
+                <h6 class="pt-5">Photo/Video Gallery</h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- condolences -->
+    <div>
+        <div class="container">
+            <div class="editCondolences">
+                <div class="pt-5">
+                    <img src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
+                </div>
+                <div style=" height: 40vw;">
+                    <h5 style="font-weight: bold">Latest Condolonces</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="condolencesEdit">
+                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et neque ipsum molestiae iure molestias ut atque, eos maxime quidem minima. Excepturi totam adipisci harum natus?</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="condolencesEdit">
+                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum nihil dolore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary readAllCondo">READ ALL CONDOLENCES</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe -->
+    <div>
+        <div class="container">
+            <div class="subscribeImage">
+                <div>
+                    <p class="pt-5 ms-5" style="font-weight: bold;">SUBSCRIBE TO THIS MEMORIAL</p>
+                </div>
+                <div style="display: flex;">
+                    <span class="ms-5">
+                        <input class="form-control" placeholder="Your email adress" type="text">
+                    </span>
+                    <span class="ms-3">
+                        <button class="btn btn-dark">Subscribe</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent memorials -->
+    <div class="recentMemorial mt-5">
+        <div class="container">
+            <h4 class="mb-4">
+                <h5 class="recentHeading pt-5">Recent memorials</h5>
+            </h4>
+            <div class="recentMemo h-100 p-2">
+                <div *ngFor="let memData of Memorials" class="child1">
+                    <!-- <div class="mt-3 mb-2"> -->
+                    <img src="{{memData.path}}" class="me-2 rounded recentImage">
+                    <!-- </div> -->
+                    <div class="ms-2 mt-3">
+                        <h6 style="font-weight: bold;">
+                            {{memData.fname}} {{ memData.lname}}
+                        </h6>
+                        <h6 style="color: #CF6363;">
+                            {{memData.age}}Y Old,
+                            &nbsp;
+                            {{memData.starvetown}}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5">
+        <app-memory-image></app-memory-image>
+    </div>
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

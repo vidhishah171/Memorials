@@ -5,6 +5,14 @@
     height: 50vw;
     width: 100%;
 }
+.parentImg{
+    height:84%;
+    width: 100%;
+}
+.parentImg1{
+    height:70%;
+    width: 100%;
+}
 .box1{
     width:40%;
     height: 100%;
@@ -13,6 +21,7 @@
     flex-direction: row;
 
 }
+
 
 .name{
     width: 100%;
@@ -54,6 +63,16 @@
     flex-direction: column;
 }
 
-.box2name{
-
+@media (min-width:481px) and (max-width:780px){
+    .parentImg{
+        height:60%;
+        width: 70%;
+    }
+    .parentImg1{
+        height:50%;
+        width: 90%;
+    }
+    .box2{
+        height: 68%;
+    }
 }

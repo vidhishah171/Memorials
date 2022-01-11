@@ -1,7 +1,14 @@
 ::ng-deep  .alert-success{background-color: rgb(252, 139, 10);color: black;}
-::ng-deep  .alert-danger {background-color: orangered; color: black;}
+::ng-deep  .alert-danger {background-color: orangered; color: white;}
+::ng-deep  .alert-error {background-color: rgb(252, 139, 10); color: white;}
+
 
 .data{
     margin-left: 38px;
     /* margin-top: 250px; */
+    font-size: 0.85rem;
+    /* font-weight: bold; */
 }
+.mat-snack-bar-container {
+    max-width: 800px;
+ }

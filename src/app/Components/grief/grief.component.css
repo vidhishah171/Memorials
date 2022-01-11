@@ -1,5 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
 
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+#griefCss1{
+    left:67%; 
+    margin-bottom:25%;
+}
+#griefCss2{
+    right: 14%; 
+    margin-bottom: -11%;
+
+}
+#griefCss3{
+    margin-bottom: -37%; 
+    right: 6%;
+}
+#griefCss4{
+    margin-bottom: -45%; 
+    left: 155%;
+}
+
+
+
+
+
+
+
 .grief{
     height: 40vw;
     background-image: url('../../../assets/StaticAssets/Home page/Group 332.png');
@@ -110,6 +165,7 @@
         margin-top: -3px;
         font-size: 0.7rem;
     }
+    
     .discussSub p{
         font-size: 0.8rem;
     }
@@ -122,9 +178,27 @@
     }
     .grief{
         width: 90%;
+        height:52%;
     }
     .lineHeight{
         font-size: 0.8rem;
+    }
+    #griefCss1{
+        left:7%; 
+        margin-bottom:-6%;
+    }
+    #griefCss2{
+        right: 14%; 
+        margin-bottom: -31%;
+    
+    }
+    #griefCss3{
+        margin-bottom: -58%; 
+        right: 6%;
+    }
+    #griefCss4{
+        margin-bottom: -41%; 
+        left: 62%;
     }
 
 }

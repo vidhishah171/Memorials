@@ -11,15 +11,14 @@ export class AdminEditService {
   editPostApi="https://h2913228.stratoserver.net/API/public/saveLabel";
 
   constructor(public http:HttpClient) { }
-
-
+  saveLanguage:any;
+  numLabel:any=[1];
+  
   adminEdit(){
-    debugger;
     return this.http.get(this.editApi);
   }
 
   editPostData(editData:any){
-    debugger
     return this.http.post(this.editPostApi,editData);
   }
 }

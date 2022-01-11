@@ -2,6 +2,216 @@
 @import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
 
 
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+#tombstonMemoCss{
+    right: 10%;
+}
+#personMemoCss{
+    right: 10%;
+}
+#personMemoCss1{
+    right: 20%;
+}
+
+#step3LabelCss1{
+    right: 55%;
+}
+
+
+
+#createMemoDivCss1{
+    left: 168%;
+}
+#createMemoDivCss2{
+    left: 24%;
+    margin-top: -2%;
+}
+#createMemoDivCss3{
+    margin-top: -134%;
+    left: 74%;
+}
+#createMemoDivCss4{
+    left: 69%;
+    margin-top: -134%;
+}
+#createMemoDivCss5{
+    margin-top: -102%;
+    left: 74%;
+}
+#createMemoDivCss6{
+    left: 70%;
+    margin-top: -102%;
+}
+#createMemoDivCss7{
+    margin-top: -69%;
+    left: 68%;
+}
+#createMemoDivCss8{
+    margin-top: -43%;
+    left: 73%;
+}
+#createMemoDivCss9{
+    margin-top: -42%;
+    left: 68%;
+}
+#createMemoDivCss10{
+    margin-top: 7%;
+    right: 6%;
+}
+#createMemoDivCss11{
+    left: 111%;
+    margin-top: 8%;
+}
+#createMemoDivCss12{
+    margin-top: -19%;
+    right: 2%;
+}
+#createMemoDivCss13{
+    left: 88%;
+}
+#createMemoDivCss14{
+    margin-top: 46%;
+    right: 44%;
+}
+#createMemoDivCss15{
+    margin-top: -47%;
+    left: 177%;
+}
+#createMemoDivCss16{
+    margin-top: -31%;
+    left: 113%;
+}
+#createMemoDivCss17{
+    left: 49%;
+    margin-top: -131%;
+}
+#createMemoDivCss18{
+    left: 111%;
+    margin-top: -131%;
+}
+#createMemoDivCss19{
+    left: 166%;
+    margin-top: -131%;
+}
+
+/* for step-3 */
+#createMemoDivCss20{
+    left: 72%;
+    margin-top: -16%;
+}#createMemoDivCss21{
+    left: 74%;
+    margin-top: -18%;
+}#createMemoDivCss22{
+    left: 79%;
+    margin-top: -40%;
+}#createMemoDivCss23{
+    margin-top: -244%;
+    left: 80%;
+}#createMemoDivCss24{
+    left: 81%;
+    margin-top: -244%;
+}#createMemoDivCss25{
+    margin-top: -211%;
+    left: 80%;
+}#createMemoDivCss26{
+    margin-top: -211%;
+    left: 80%;
+}#createMemoDivCss27{
+    margin-top: -179%;
+    left: 80%;
+}#createMemoDivCss28{
+    margin-top: -156%;
+    left: 80%;
+}#createMemoDivCss29{
+    margin-top: -139%;
+    left: 80%;
+}#createMemoDivCss30{
+    margin-top: -139%;
+    left: 80%;
+}#createMemoDivCss31{
+    margin-top: -105%;
+    left: 80%;
+}#createMemoDivCss32{
+    margin-top: -73%;
+    left: 80%;
+
+}#createMemoDivCss33{
+    margin-top: -40%;
+    left: 80%;
+}#createMemoDivCss34{
+    margin-top: -16%;
+    left: 56%;
+}#createMemoDivCss35{
+    margin-top: 7%;
+    left: 317%;
+}#createMemoDivCss36{
+    margin-top: 18%;
+    left: 317%;
+}#createMemoDivCss37{
+    margin-top: 46%;
+    left: 317%;
+}#createMemoDivCss38{
+    margin-top: 57%;
+    left: 317%;
+}#createMemoDivCss39{
+    margin-top: 86%;
+    left: 280%;
+}#createMemoDivCss40{
+    margin-top: 95%;
+    left: 280%;
+}#createMemoDivCss41{
+    margin-top: 120%;
+    left: 316%;
+}#createMemoDivCss42{
+    margin-top: 130%;
+    left: 316%;
+}#createMemoDivCss43{
+    margin-top: 162%;
+    left: 286%;
+}#createMemoDivCss44{
+    margin-top: 204%;
+    left: 169%;
+}#createMemoDivCss45{
+    margin-top: -133%;
+    right: -146%;
+}
+
+
+
+
+
+
 .create-memorial{
     display: flex;
     width: 100%;
@@ -547,6 +757,7 @@ part 1 */
     bottom: 20px;
     right: 480px;
     color: black;
+    width: 14%;
     /* background-color: green; */
 }  
 
@@ -719,6 +930,9 @@ input.ng-touched.ng-invalid{
         height: 136px;
         width: 110px;
     }
+    .tabWidth{
+        width: 100%;
+    }
     .child{
         /* display: flex; */
         display: block;
@@ -781,6 +995,164 @@ input.ng-touched.ng-invalid{
         width: 100%;
         display: flex;
     }
+
+    #createMemoDivCss1{
+        left: 66%;
+    }
+    #createMemoDivCss2{
+        left: 8%;
+        margin-top: -2%;
+    }
+    #createMemoDivCss3{
+        margin-top: -134%;
+        left: 36%;
+    }
+
+    #createMemoDivCss4{
+        left: 85%;
+        margin-top: -134%;
+    }
+    #createMemoDivCss5{
+        margin-top: -102%;
+        left: 35%;
+    }
+    #createMemoDivCss6{
+        left: 84%;
+        margin-top: -102%;
+    }
+    #createMemoDivCss7{
+        margin-top: -69%;
+        left: 83%;
+    }
+    #createMemoDivCss8{
+        margin-top: -43%;
+        left: 36%;
+    }
+    #createMemoDivCss9{
+        margin-top: -42%;
+        left: 83%;
+    }
+    #createMemoDivCss11{
+        left: 7%;
+        margin-top: 22%;
+    }
+    #createMemoDivCss12{
+        margin-top: -24%;
+    right: 39%;
+    }
+    #createMemoDivCss13{
+        left: -7%;
+        margin-top: 32%;
+    }
+    #createMemoDivCss14{
+        margin-top: 33%;
+        right: 44%;
+    }
+    #createMemoDivCss15{
+        margin-top: -145%;
+        left: 76%;
+    }
+    #createMemoDivCss16{
+        margin-top: -31%;
+        left: 113%;
+    }
+    #createMemoDivCss17{
+        left: 125%;
+        margin-top: -131%;
+    }
+    #createMemoDivCss18{
+        left: 49%;
+        margin-top: -131%;
+    }
+    #createMemoDivCss19{
+        left: 45%;
+        margin-top: -131%;
+    }
+
+   
+
+
+    /* for step-3 */
+#createMemoDivCss20{
+    left: 92%;
+    margin-top: -16%;
+}#createMemoDivCss21{
+    left: 92%;
+    margin-top: -18%;
+}#createMemoDivCss22{
+    left: 123%;
+    margin-top: -40%;
+}#createMemoDivCss23{
+    margin-top: -244%;
+    left: 102%;
+}#createMemoDivCss24{
+    left: 120%;
+    margin-top: -244%;
+}#createMemoDivCss25{
+    margin-top: -211%;
+    left: 102%;
+}#createMemoDivCss26{
+    margin-top: -211%;
+    left: 120%;
+}#createMemoDivCss27{
+    margin-top: -179%;
+    left: 120%;
+}#createMemoDivCss28{
+    margin-top: -156%;
+    left: 120%;
+}#createMemoDivCss29{
+    margin-top: -139%;
+    left: 102%;
+}#createMemoDivCss30{
+    margin-top: -139%;
+    left: 120%;
+}#createMemoDivCss31{
+    margin-top: -105%;
+    left: 120%;
+}#createMemoDivCss32{
+    margin-top: -73%;
+    left: 120%;
+
+}#createMemoDivCss33{
+    margin-top: -40%;
+    left: 120%;
+}#createMemoDivCss35{
+    margin-top: 327%;
+    left: 62%;
+}#createMemoDivCss36{
+    margin-top: 337%;
+    left: 62%;
+}#createMemoDivCss37{
+    margin-top: 362%;
+    left: 75%;
+}#createMemoDivCss38{
+    margin-top: 369%;
+    left: 75%;
+}#createMemoDivCss39{
+    margin-top: 396%;
+    left: 117%;
+}#createMemoDivCss40{
+    margin-top: 408%;
+    left: 117%;
+}#createMemoDivCss41{
+    margin-top: 432%;
+    left: 62%;
+}#createMemoDivCss42{
+    margin-top: 440%;
+    left: 62%;
+}#createMemoDivCss43{
+    margin-top: 465%;
+    left: 80%;
+}#createMemoDivCss44{
+    margin-top: 490%;
+    left: 69%;
+}
+#createMemoDivCss45{
+    margin-top: -133%;
+    right: -46%;
+}
+
+
 }
 @media (min-width:781px){
     /* .child{ */

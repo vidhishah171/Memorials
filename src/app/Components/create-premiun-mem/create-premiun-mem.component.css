@@ -1,0 +1,297 @@
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+#thankCss4{
+    left: 246%;
+    margin-top: -198%;
+}
+#thankCss5{
+    left: 246%;
+    margin-top: -185%;
+}
+#thankCss6{
+    left: 106%;
+    margin-top: -143%;
+}
+#thankCss7{
+    left: 288%;
+    margin-top: -141%;
+}
+#thankCss8{
+    left: 78%;
+    margin-top: -122%;
+}
+#thankCss9{
+    left: 294%;
+    margin-top: -123%;
+}
+#thankCss10{
+    left: 54%;
+    margin-top: -103%;
+}
+#thankCss11{
+    left: 279%;
+    margin-top: -103%;
+}
+#thankCss12{
+    left: 13%;
+    margin-top: -85%;
+}
+#thankCss13{
+    left: 280%;
+    margin-top: -84%;
+}
+#thankCss14{
+    left: 80%;
+    margin-top: -64%;
+}
+#thankCss15{
+    left: 176%;
+    margin-top: -196%;
+}
+#thankCss16{
+    left: 169%;
+    margin-top: -180%;
+}
+
+.createPreMem{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-content: flex-start; */
+
+}
+.createPreMem{
+    width: 100%;
+    height: 50vw;
+    background-image: url('../../../assets/StaticAssets/Create memorial/thank you page/Rectangle 267.png');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+
+}
+.box1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 27%;
+    width: 60%;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    overflow-wrap: break-word;
+    text-justify: newspaper;
+}
+.box1 h1{
+    font-size: 3.5rem;
+    letter-spacing: 0.05cm;
+}
+
+.box2{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 33%;
+    padding-top: 5%;
+    flex-direction: row;
+    justify-content: flex-start;
+   
+}
+.specification{
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    overflow-wrap: break-word;
+    flex-wrap: wrap;
+    height: 18%;
+    width: 50%;
+    margin-top: 30px;
+    
+}
+
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    height: 60%;
+    width: 100%;
+    background-color: brown;
+    
+}
+
+
+@media (min-width:481px) and (max-width:780px){
+    .thank{
+        width: 100%;
+        height: 90vw;
+        font-family: 'Libre Franklin', sans-serif;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .thank img{
+        width: 440px;
+        height: 480px;
+    }
+    .createPreMem{
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        /* align-content: flex-start; */
+    
+    }
+    .box1{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 40%;
+        width: 100%;
+        /* align-items: center; */
+        flex-wrap: wrap;
+        color: white;
+        overflow-wrap: break-word;
+        text-justify: newspaper;
+    }
+    
+    .box1 h1{
+        font-size: 1rem;
+        letter-spacing: 0.05cm;
+        justify-content: center;
+    }
+    .box1 span{
+        font-size: 0.7rem;
+        text-align: center;
+        justify-content:center;
+    }
+
+    .box2{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        /* justify-content: flex-start; */
+       
+    }
+    .specification{
+
+        color: white;
+        display: block;
+        flex-direction: column;
+        justify-content: left;
+        align-content: flex-start;
+        overflow-wrap:inherit;
+        flex-wrap: wrap;
+        text-align: justify;
+        height: 78%;
+        width: 100%;
+        margin-top: 20px;
+
+    }
+    #m{
+        font-size: 1.3rem;
+    }
+   
+    .specification span{
+        font-size: 1.5rem;
+    }
+    .price{
+        height: 30%;
+    }
+
+
+    #thankCss4{
+        left: 73%;
+        margin-top: -230%;
+    }
+    #thankCss5{
+        left: 114%;
+        margin-top: -221%;
+    }
+    #thankCss6{
+        left: 149%;
+        margin-top: -176%;
+    }
+    #thankCss7{
+        left: 149%;
+        margin-top: -158%;
+    }
+    #thankCss8{
+        left: 149%;
+        margin-top: -138%;
+    }
+    #thankCss9{
+        left: 149%;
+        margin-top: -118%;
+    }
+    #thankCss10{
+        left: 149%;
+        margin-top: -100%;
+    }
+    #thankCss11{
+        left: 149%;
+        margin-top: -77%;
+    }
+    #thankCss12{
+        left: 149%;
+        margin-top: -59%;
+    }
+    #thankCss13{
+        left: 149%;
+        margin-top: -150%;
+    }
+    #thankCss14{
+        left: 149%;
+        margin-top: -130%;
+    }
+    #thankCss15{
+        left: 71%;
+        margin-top: -185%;
+    }
+    #thankCss16{
+        left: 72%;
+        margin-top: -172%;
+    }
+}

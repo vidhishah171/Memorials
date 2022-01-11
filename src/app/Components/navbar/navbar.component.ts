@@ -1,5 +1,6 @@
 import { Component,OnInit, } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-edit-popup.component';
@@ -21,10 +22,17 @@ export class NavbarComponent implements OnInit {
   showNewDiv: number;
   respo3: any;
   respo4: any;
+  respo5: any;
+  respo6: any;
+  showLabel: number;
+  isVisible: boolean;
+  respo7: any;
+  respo8: any;
   constructor(
     public loginservice:LoginService,
     public dialog:MatDialog,
-    public editservice:AdminEditService
+    public editservice:AdminEditService,
+    public router:Router
   ) { }
 
   ngOnInit(): void {
@@ -32,10 +40,28 @@ export class NavbarComponent implements OnInit {
     // this.p=this.loginservice.loginSaveData
     // var username=this.loginservice.loginSaveData.user
     this.editData();
+    this.buttonLanguage(this.editservice.numLabel);
    }
 
+  //  For logout
+  userLogout(){
+    debugger;
+    // var status=this.loginservice.loginAllData.status
+    // var loginCookie = localStorage.getItem("status");
+    // if(loginCookie == "1"){
+    //   return false;
+    // }
+    // return true;
+    localStorage.clear();
+    setTimeout(() => {
+      this.router.navigate([''])
+      .then(() => {
+        window.location.reload();
+      });
+    },1);
+  }
+
    openDialogue(num): void{
-     debugger
     // const dialogRef = this.dialog.open(AdminEditPopupComponent);
 
     // dialogRef.afterClosed().subscribe(result => {
@@ -56,7 +82,32 @@ export class NavbarComponent implements OnInit {
     }else if(num==4){
       this.showNewDiv=4;
       this.isvalid=true;
+    }else if(num==5){
+      this.showNewDiv=5;
+      this.isvalid=true;
+    }else if(num==6){
+      this.showNewDiv=6;
+      this.isvalid=true;
+    }else if(num==7){
+      this.showNewDiv=7;
+      this.isvalid=true;
+    }else if(num==8){
+      this.showNewDiv=8;
+      this.isvalid=true;
     }
+
+  }
+
+  buttonLanguage(num){
+    if(num==1){
+      this.showLabel=1;
+    }else if(num==2){
+      this.showLabel=2;
+    }else if(num==3){
+      this.showLabel=3;
+    }else{
+    }
+    this.editservice.numLabel=num;
   }
 
   openDialogue1(){
@@ -64,7 +115,6 @@ export class NavbarComponent implements OnInit {
   }
 
   editData(){
-    debugger;
     this.editservice.adminEdit().subscribe((res:any)=>{
       console.log(res);
       this.respo=res.Details;
@@ -72,11 +122,25 @@ export class NavbarComponent implements OnInit {
       this.respo2=this.respo[30];
       this.respo3=this.respo[42];
       this.respo4=this.respo[32];
+      this.respo5=this.respo[36];
+      this.respo6=this.respo[37];
+      this.respo7=this.respo[37];
+      this.respo8=this.respo[194];
+
+
     });
   }
 
+  // loginServiceData(){
+  //   if(this.loginservice.loginSaveData==undefined){
+  //     this.isVisible=false;
+  //   }else{
+  //     this.isVisible=true;
+  //   }
+  // }
+
+  
   postEditData(editDataNew:any){
-    debugger;
     var formdata=new FormData();
     formdata.append('id',editDataNew.value.id);
     formdata.append('en',editDataNew.value.en);

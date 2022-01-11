@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminEditService } from 'src/services/admin-edit.service';
+import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from '../../../services/recent-meorials.service';
 
 @Component({
@@ -10,15 +12,25 @@ export class RecentComponent implements OnInit  {
 
   Memorials:any;// Recent Memorial Variable
   PremiumMemorials:any;
+  showNewDiv: number;
+  isvalid: boolean;
+  respo: any;
+  respo1: any;
+  respo2: any;
 
   constructor(
-    private service : RecentMeorialsService
+    private service : RecentMeorialsService,
+    public editservice: AdminEditService,
+    public loginservice:LoginService,
+
+
   ) { }
 
 
   ngOnInit(): void {
     this.getrecentMemorials();
     this.getPremiumMemorial();
+    this.editData();
     
   }
 
@@ -53,6 +65,46 @@ export class RecentComponent implements OnInit  {
         
       }
     )
+  }
+
+  openDialogue(num): void{
+   
+   if(num==1){
+     this.showNewDiv=1;
+     this.isvalid=true;
+   }else if(num==2){
+     this.showNewDiv=2;
+     this.isvalid=true;
+   }
+  }
+
+  openDialogue1(){
+    this.isvalid=false;
+  }
+
+
+  editData(){
+    this.editservice.adminEdit().subscribe((res:any)=>{
+      console.log(res);
+      this.respo=res.Details;
+      this.respo1=this.respo[17]
+      this.respo2=this.respo[18]
+
+  
+    });
+  }
+
+
+  postEditData(editDataNew:any){
+    var formdata=new FormData();
+    formdata.append('id',editDataNew.value.id);
+    formdata.append('en',editDataNew.value.en);
+    formdata.append('de',editDataNew.value.de);
+    formdata.append('fr',editDataNew.value.fr);
+  
+    this.editservice.editPostData(formdata).subscribe(response=>{
+      console.log(response);
+    })
   }
 
 }

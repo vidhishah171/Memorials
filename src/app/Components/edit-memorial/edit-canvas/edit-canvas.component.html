@@ -1,0 +1,851 @@
+<div class="content2 w-100 p-1 ">
+
+    <!-- <img [src]="imgUrl" name="test" height="200px" width="200px"/>
+    <div><img src="this.service.saveCanvas" alt=""></div> -->
+
+    <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
+    <div class="box1">
+        <!-- for delete button -->
+        <!-- <div>
+            <button data-toggle="tooltip" data-placement="bottom"  title="Delete selected object" type="button"
+            class="btn btn-outline-danger btn-sm mb-1" (click)="removeSelected();">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            Delete
+        </button>
+        </div> -->
+        
+        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"
+            (drop)="DropImageToCan($event)"></canvas>
+       
+    </div>
+    <!-- second box -->
+    <div class="box2 p-1">
+        <!-- menu -->
+        
+        <div class="menu">
+            
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(1)" *ngIf="editservice.numLabel==1">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
+                {{respo1?.en}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(1)" *ngIf="editservice.numLabel==2">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
+                {{respo1?.de}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(1)" *ngIf="editservice.numLabel==3">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
+                {{respo1?.fr}}
+            </button>
+
+            <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(2)" *ngIf="editservice.numLabel==1">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/images.png">
+                {{respo2?.en}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(2)" *ngIf="editservice.numLabel==2">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/images.png">
+                {{respo2?.de}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(2)" *ngIf="editservice.numLabel==3">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/images.png">
+                {{respo2?.fr}}
+            </button>
+
+            <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(3)" *ngIf="editservice.numLabel==1">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/text.png">
+                {{respo3?.en}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(3)" *ngIf="editservice.numLabel==2">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/text.png">
+                {{respo3?.de}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(3)" *ngIf="editservice.numLabel==3">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/text.png">
+                {{respo3?.fr}}
+            </button>
+
+            <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(4)" *ngIf="editservice.numLabel==1">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/youtube.png">
+                {{respo4?.en}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(4)" *ngIf="editservice.numLabel==2">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/youtube.png">
+                {{respo4?.de}}
+            </button>
+            <button type="button" class="btn btn-light btn-sm ms-2" (click)="showSecMenu(4)" *ngIf="editservice.numLabel==3">
+                <img src="../../../assets/StaticAssets/Create memorial/step2/youtube.png">
+                {{respo4?.fr}}
+            </button>
+
+            <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+        </div>
+
+    
+
+
+
+
+
+        <!-- submenu (Decoration Button) -->
+       
+        <div class="submenu mt-5" *ngIf="showMenuItems==1">
+            <div class="candle ms-3" (click)="showSubMenuItems(1)">
+                <div id="imgLogo"
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+
+                    <img src="../../../../assets/StaticAssets/Create memorial/step2/candle (2).png">
+
+                </div>
+                <small class="mt-2">
+                    <P *ngIf="editservice.numLabel==1"><strong> {{respo5?.en}}</strong></P>
+                    <P *ngIf="editservice.numLabel==2"><strong> {{respo5?.de}}</strong></P>
+                    <P *ngIf="editservice.numLabel==3"><strong> {{respo5?.fr}}</strong></P>
+                </small>
+            </div>
+            <button (click)="openDialogue(5)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+            
+
+            <div class="candle ms-3" (click)="showSubMenuItems(2)">
+                <div id="imgLogo"
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/urn.png">
+                </div>
+                <small class="mt-2">
+                    <P *ngIf="editservice.numLabel==1"><strong>{{respo6?.en}}</strong></P>
+                    <P *ngIf="editservice.numLabel==2"><strong>{{respo6?.de}}</strong></P>
+                    <P *ngIf="editservice.numLabel==3"><strong>{{respo6?.fr}}</strong></P>
+
+                </small>
+            </div>
+
+            <button (click)="openDialogue(6)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+            <div class="candle ms-3" (click)="showSubMenuItems(5)">
+                <div id="imgLogo" (click)="showSubMenuItems(5)"
+                    class="image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/grave (1).png">
+                </div>
+                <small class="mt-2">
+                    <P *ngIf="editservice.numLabel==1"><strong class="changeTombstone">{{respo7?.en}}</strong></P>
+                    <P *ngIf="editservice.numLabel==2"><strong class="changeTombstone">{{respo7?.de}}</strong></P>
+                    <P *ngIf="editservice.numLabel==3"><strong class="changeTombstone">{{respo7?.fr}}</strong></P>
+
+                </small>
+            </div>
+
+            <button (click)="openDialogue(7)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+            <div class="candle ms-3" (click)="showSubMenuItems(3)">
+                <div id="imgLogo"
+                    class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded"
+                    (click)="getFlowerImages()">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/flower-variant-with-many-petals.png">
+                </div>
+                <small class="mt-2">
+                    <P *ngIf="editservice.numLabel==1"><strong>{{respo8?.en}}</strong></P>
+                    <P *ngIf="editservice.numLabel==2"><strong>{{respo8?.de}}</strong></P>
+                    <P *ngIf="editservice.numLabel==3"><strong>{{respo8?.fr}}</strong></P>
+
+                </small>
+            </div>
+
+            <button (click)="openDialogue(8)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+            
+            <div class="candle ms-3" (click)="showSubMenuItems(4)">
+                <div (click)="showSubMenuItems(4)" id="imgLogo"
+                    class="image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded ">
+                    <img src="../../../assets/StaticAssets/Create memorial/step2/contract.png">
+                </div>
+                <small class="mt-2">
+                    <P *ngIf="editservice.numLabel==1"><strong>{{respo9?.en}}</strong></P>
+                    <P *ngIf="editservice.numLabel==2"><strong>{{respo9?.de}}</strong></P>
+                    <P *ngIf="editservice.numLabel==3"><strong>{{respo9?.fr}}</strong></P>
+
+                </small>
+            </div>
+
+
+            <button (click)="openDialogue(9)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+
+        </div>
+
+
+        <!-- submenu  Items (ADD CANDDLE) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 && showSubMenItem==1">
+
+            <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel" data-bs-interval="0">
+                <div class="carousel-indicators">
+
+                    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button> -->
+
+                </div>
+
+                <div class="carousel-inner itemAlign">
+                    <div class="carousel-item active">
+                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                            (click)="addImageToCanvas(canddImage)" (dragend)="DropImageToCan(canddImage)"
+                            *ngFor="let canddImage of canddleImages">
+                            <img src="{{canddImage.path}}" id="myimage">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                            (click)="addImageToCanvas(canddImage)" *ngFor="let canddImage of canddleImages">
+                            <img src="{{canddImage.path}}">
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators"
+                    [disabled]="canddleCaroucelCount==1" data-bs-slide="prev" (click)="prevCanddle()">
+                    <span class="carousel-control-prev-icon bg-dark" [hidden]="canddleCaroucelCount==1"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextCanddle()" [disabled]="canddleCaroucelCount==2">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="canddleCaroucelCount==2"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+            <!-- <div class="canddles m-2" *ngFor="let memImages of canddleImages">
+                <img src="{{memImages.path}}">
+            </div>  -->
+        </div>
+
+
+
+        <!-- submenu  Items (ADD URNS) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==2">
+
+            <div class="URNS ms-3" *ngFor="let URNSimg of URNSImages" (click)="addImageToCanvas(URNSimg)">
+                <img class="w-75 h-75" src="{{URNSimg.path}}">
+            </div>
+
+        </div>
+
+        <!-- submenu  Items (ADD FLOWER) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==3">
+
+            <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+                <div class="carousel-inner itemAlign1">
+                    <div class="carousel-item active">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img  src="{{flwImages.path}}" class="flwSize">
+                            <!-- class="w-75 h-75" -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+
+                    <!-- new -->
+
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
+                            (click)="addImageToCanvas(flwImages)">
+                            <img class="flwSize" src="{{flwImages.path}}">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" (click)="prevFlower()" [hidden]="flowerCaroucelCount==1">
+                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextFlowers()" [disabled]="flowerCaroucelCount==11">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="flowerCaroucelCount==11"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+
+            <!-- <div class="flowers m-3 bg-light" *ngFor="let flwImages of flowerImages"  >
+                <img class="w-75 h-75" src="{{flwImages.path}}">
+            </div> -->
+        </div>
+
+
+        <!-- submenu  Items (INSCRIPTION) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==4">
+            <div class="form-group row col-10">
+                <div class="pt-2 textAlign pb-2">
+                    <button title="Text align left" type="button" class="btn btn-outline-dark alignBgcolor"
+                        [ngClass]="{'active':textAlign == 'left' }" (click)="setTextAlign('left')">
+                        <img src="../../../../assets/StaticAssets/justify-left.svg" alt="">
+                    </button>
+                    <button title="Text align center" type="button" class="btn btn-outline-dark alignBgcolor"
+                        [ngClass]="{'active':textAlign == 'center' }" (click)="setTextAlign('center')">
+                        <img src="../../../../assets/StaticAssets/text-center.svg">
+                    </button>
+                    <button title="Text align right" type="button" class="btn btn-outline-dark alignBgcolor"
+                        [ngClass]="{'active':textAlign == 'right' }" (click)="setTextAlign('right')">
+                        <img src="../../../../assets/StaticAssets/justify-right.svg">
+                    </button>
+                    <button title="Text align justify" type="button" class="btn btn-outline-dark alignBgcolor"
+                        [ngClass]="{'active':textAlign == 'justify' }" (click)="setTextAlign('justify')">
+                        <img src="../../../../assets/StaticAssets/justify.svg">
+                    </button>
+                    <!-- <div class="pt-2 textAlign"> -->
+                    <span class="textAlign1">
+                        <button title="Bold" type="button" class="btn btn-outline-dark alignBgcolor btn-sm"
+                            [ngClass]="{'active':fontWeight }" (click)="setBold()">
+                            <img src="../../../../assets/StaticAssets/type-bold.svg" alt="">
+                        </button>
+                        <button title="Italic" type="button" class="btn btn-outline-dark alignBgcolor btn-sm"
+                            [ngClass]="{'active':fontStyle }" (click)="setFontStyle()">
+                            <img src="../../../../assets/StaticAssets/type-italic.svg" alt="">
+                        </button>
+                        <!-- <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'active': hasTextDecoration('underline') }" (click)="setTextDecoration('underline')">
+                            <img src="../../../../assets/StaticAssets/type-underline.svg" alt="">
+                        </button> -->
+                        <!-- </div> -->
+                    </span>
+                </div>
+                <div>
+                    <textarea class="form-control" maxlength="50" placeholder="Enter few words (maximum 50 charecters)"
+                        #textToCan [(ngModel)]="textString" rows="3"></textarea>
+                    <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
+                </div>
+
+                <div class="pt-4" style="text-align: center;">
+                    <!-- <img src="../../../../assets/StaticAssets/icons8-color-wheel-48.png" alt=""> -->
+
+                    <img class="colorPickerImg" (colorPickerChange)="setFill()"  [cpPosition]="'bottom'" [(colorPicker)]="fill" src="../../../../assets/StaticAssets/icons8-color-wheel-48.png" alt="">
+                    
+
+                    <!-- <button class="form-control" style="color: white;" [cpPosition]="'bottom'" [(colorPicker)]="fill"
+                        [style.background]="fill" (colorPickerChange)="setFill()">Add Color</button> -->
+                </div>
+                <!-- <div style="text-align: center;">
+                    <small [style.color]="fill">Add Color</small>
+                </div> -->
+
+                <div class="pt-2">
+                    <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                    <button class="form-control btnAddText" (click)="addText()" *ngIf="editservice.numLabel==1">{{respo10.en}}</button>
+                    <button class="form-control btnAddText" (click)="addText()" *ngIf="editservice.numLabel==2">{{respo10.de}}</button>
+                    <button class="form-control btnAddText" (click)="addText()" *ngIf="editservice.numLabel==3">{{respo10.fr}}</button>
+
+
+                    <!-- <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="fill" [style.background]="fill"
+                    [value]=fill (colorPickerChange)="setFill()"> -->
+                </div>
+               
+
+
+            </div>
+        </div>
+
+        <!-- -------------------------------- -->
+
+        <!-- submenu  Items (TAMBSTONE) -->
+        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
+            <!-- <h1>CHANGE TAMBSTONE</h1> -->
+            <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+
+                <div class="carousel-inner" style="padding-left:90px">
+                    <div class="carousel-item active">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="m-3" *ngFor="let images of imagesForCaroucel"
+                            (click)="addImageToCanvas1(images)">
+                            <img class="tombStyle" src="{{images.path}}">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" (click)="prevCarousel()" [hidden]="caroucelCount==1">
+                    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next" (click)="nextCarousel()" [disabled]="caroucelCount==5">
+                    <span class="carousel-control-next-icon bg-dark" [hidden]="caroucelCount==5"
+                        aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- -------------------------- -->
+
+
+        <!-- menu Items (BACKGROUNG) -->
+
+        <div class="background mt-3" *ngIf="showMenuItems==2">
+            <div class="showbackground ms-2 mb-2" *ngFor="let backImage of backgroundImages"
+                (click)="setBackgImage(backImage)">
+                <img class="w-100 h-100" src="{{backImage.path}}">
+            </div>
+        </div>
+
+        <!-- menu Items (VITA) -->
+
+        <div class="vita mt-5" *ngIf="showMenuItems==3">
+            <!-- <div class="form-group">
+                <textarea class="form-control" id="vita" maxlength="50"
+                    placeholder="Enter few words (maximum 50 charecters)" ></textarea>
+            </div> -->
+
+            <form #myForm="ngForm">
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Enter few words" #textToCan name="textString1"
+                        textString1="ngModel" [(ngModel)]="service.vita.textString1" ngModel rows="3"></textarea>
+                    <div class="pt-4">
+
+                        
+                        <!-- <button type="submit" class="form-control btnAddText">Add</button> -->
+                        <!-- (click)="addVita(myForm)" -->
+                    </div>
+
+                    <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
+                </div>
+            </form>
+
+
+
+        </div>
+
+        <!-- menu Items (VIDEO) -->
+
+        <div class="video mt-5 " *ngIf="showMenuItems==4">
+            <small>Upload of video is possible as premium user only</small>
+            <div class="addVideo mt-3 rounded d-flex justify-content-center align-items-center flex-column">
+                <!-- <img src="../../../assets/StaticAssets/Create memorial/step2/video-camera.png">
+                <h6>ADD VIDEO</h6>
+                <video [src]="url1" style="display: none;" width="270" id="video1" autoplay loop muted>
+                    <source [src]="url1">
+                </video>
+                <label for="toggleVideo"><img src="../../../../assets/StaticAssets/Create memorial/step2/add-1.png"
+                        alt=""></label>
+                <input id="toggleVideo" multiple type="file" (change)="onselectFile($event)"> -->
+
+                <!-- ///////////////////// -->
+
+                <!-- <input #addToVideo type="file" id="video" name="myfile" accept="video/mp4,video/x-m4v,video/*" /> -->
+
+
+
+
+
+                <!-- -----Optional code for displaying videos -->
+
+                <video height="200" [src]="url1" width="200" id="video1" autoplay loop >
+                           <source [src]="url1">
+                      </video>
+                      <input multiple type="file" accept="video/*" (change)="onselectFile($event)">
+
+                <!-- ----------------------- -->
+
+                <!-- <div>
+                            <canvas id="Mycanvas" width="500" height="335" style="border: 1px solid black;"></canvas>
+                        </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="w-100 mt-5 pt-5" style="text-align: center;">
+        <button (click)="saveEditMemorial()" class="saveBtn btn">SAVE & PUBLISH</button>
+    </div>
+
+         <!-- Extra code for label -->
+         <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="canvasDivCss1">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo1.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo1.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo1.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+
+                 <!-- Extra code for label -->
+                 <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss2">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo2.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo2.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo2.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo2.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+
+                 <!-- Extra code for label -->
+                 <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss3">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo3.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+
+                 <!-- Extra code for label -->
+                 <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss4">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo4.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo4.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo4.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo4.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss5">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo5.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==6 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss6">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo6.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo6.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo6.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo6.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss7">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo7.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo7.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo7.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo7.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss8">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo8.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo8.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo8.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo8.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss9">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo9.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo9.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo9.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo9.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==10 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="canvasDivCss10">
+                        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo10.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo10.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo10.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo10.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+
+</div>

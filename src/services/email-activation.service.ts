@@ -13,7 +13,6 @@ export class EmailActivationService {
   constructor(public http:HttpClient) { }
 
   emailActivation1(emailData){
-    debugger;
     environment.baseUrl
     this.http.get(this.baseUrl,emailData);
   }

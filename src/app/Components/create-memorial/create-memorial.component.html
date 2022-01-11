@@ -3,8 +3,44 @@
 </div>
 <div class="create-memorial p-3">
     <div class="d-flex w-100 tab justify-content-center align-items-center" style="background-color: rgb(238 230 221)">
-        <h2><strong>CREATE MEMORIAL</strong></h2>
+        <h2>
+            <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                        alt=""></span></button>
+            <strong *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
+            <strong *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
+            <strong *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
+        </h2>
     </div>
+
+
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss1">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo1.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo1.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo1.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
 
 
 
@@ -32,36 +68,92 @@
     <div class="content1 h-100 w-100 p-3" *ngIf="showMemSteps==1">
 
         <div class="child p-3">
-
             <div class="heading">
                 <img src=".././../../assets/StaticAssets/Create memorial/step1/stepfather.png" class="me-3">
-                <h6>Please enter details of your loved ones here.</h6>
+                <h6 *ngIf="editservice.numLabel==1">{{respo2?.en}}</h6>
+                <h6 *ngIf="editservice.numLabel==2">{{respo2?.de}}</h6>
+                <h6 *ngIf="editservice.numLabel==3">{{respo2?.fr}}</h6>
+
+
+                <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
             </div>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss2">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo2.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo2.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo2.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo2.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
 
             <div class="mt-5">
                 <form class="row g-3 needs-validation" #form1="ngForm">
                     <div class="col-md-6 mb-3">
-                        <label for="firstname">First name:</label>
+                        <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <label for="firstname" *ngIf="editservice.numLabel==1">{{respo3?.en}}</label>
+                        <label for="firstname" *ngIf="editservice.numLabel==2">{{respo3?.de}}</label>
+                        <label for="firstname" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</label>
+
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="First Name"
                             #g_firstname="ngModel" [(ngModel)]="service.createMemorial.g_firstname" name="g_firstname"
                             required
-                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
                             ngModel>
                         <small class="fireError" *ngIf="g_firstname.touched && !g_firstname.valid">Please enter first
                             name</small>
                     </div>
                     <div class="col-md-6">
-                        <label for="lastname">Last name:</label>
+                        <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <label for="lastname" *ngIf="editservice.numLabel==1">{{respo4?.en}}</label>
+                        <label for="lastname" *ngIf="editservice.numLabel==2">{{respo4?.de}}</label>
+                        <label for="lastname" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</label>
+
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
                             #g_lastname="ngModel" [(ngModel)]="service.createMemorial.g_lastname" name="g_lastname"
                             required
-                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
                             ngModel>
                         <small class="fireError" *ngIf="g_lastname.touched && !g_lastname.valid">Please enter last
                             name</small>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="birthplace">Birthplace:</label>
+                        <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <label for="birthplace" *ngIf="editservice.numLabel==1">{{respo5?.en}}</label>
+                        <label for="birthplace" *ngIf="editservice.numLabel==2">{{respo5?.de}}</label>
+                        <label for="birthplace" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</label>
+
                         <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
                             name="birthplace" class="form-control shadow bg-body rounded" placeholder="Birthplace"
                             ngModel>
@@ -69,7 +161,14 @@
                             place</small> -->
                     </div>
                     <div class="col-md-6">
-                        <label for="deathplace">Deathplace:</label>
+                        <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <label for="deathplace" *ngIf="editservice.numLabel==1">{{respo6?.en}}</label>
+                        <label for="deathplace" *ngIf="editservice.numLabel==2">{{respo6?.de}}</label>
+                        <label for="deathplace" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</label>
+
                         <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
                             name="deathplace" class="form-control shadow bg-body rounded" placeholder="Place of Death"
                             ngModel>
@@ -80,8 +179,17 @@
 
 
                     <div>
-                        <label for="birthname">Birth name:</label>
+                        <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <label for="birthname" *ngIf="editservice.numLabel==1">{{respo7?.en}}</label>
+                        <label for="birthname" *ngIf="editservice.numLabel==2">{{respo7?.de}}</label>
+                        <label for="birthname" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</label>
+
+
                         <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
+                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
                             class="form-control shadow bg-body rounded" placeholder="Birth Name" ngModel>
                         <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
                         required -->
@@ -91,16 +199,24 @@
 
                     <div class="col-md-6 mb-3">
                         <div>
-                            <label for="Birthdate">Date of birth:</label>
-                            <div  class="datePickerCss">
-                            <mat-form-field>
-                                <input matInput [matDatepicker]="picker" #DOB="ngModel"
-                                    [(ngModel)]="service.createMemorial.DOB" name="DOB" [max]="maxDate"
-                                    placeholder="MM/DD/YYYY" required ngModel>
-                                <mat-datepicker-toggle matSuffix [for]="picker" style="color: tomato;"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
-                            </mat-form-field>
-                        </div>
+                            <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
+                                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                        alt=""></span></button>
+                            <label for="Birthdate" *ngIf="editservice.numLabel==1">{{respo8?.en}}</label>
+                            <label for="Birthdate" *ngIf="editservice.numLabel==2">{{respo8?.de}}</label>
+                            <label for="Birthdate" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</label>
+
+                            <div class="datePickerCss">
+                                <mat-form-field class="tabWidth">
+                                    <input matInput [matDatepicker]="picker" #DOB="ngModel"
+                                        [(ngModel)]="service.createMemorial.DOB" name="DOB" [max]="maxDate"
+                                        placeholder="MM/DD/YYYY" required ngModel readonly>
+                                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: tomato;">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
                         </div>
 
                         <!-- <input type="date" #DOB="ngModel" [(ngModel)]="service.createMemorial.DOB" name="DOB"
@@ -122,15 +238,23 @@
                     <!-- </div>  -->
                     <div class="col-md-6 mb-3">
                         <div>
-                            <label for="dateOfdeath">Date of death:</label>
-                            <div  class="datePickerCss">
-                            <mat-form-field>
-                                <input matInput [matDatepicker]="picker1" #DOD="ngModel"
-                                    [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
-                                    [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel>
-                                <mat-datepicker-toggle matSuffix [for]="picker1" style="color: tomato;"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                            </mat-form-field>
+                            <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
+                                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                        alt=""></span></button>
+                            <label for="dateOfdeath" *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
+                            <label for="dateOfdeath" *ngIf="editservice.numLabel==2">{{respo9?.de}}</label>
+                            <label for="dateOfdeath" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label>
+
+                            <div class="datePickerCss">
+                                <mat-form-field class="tabWidth">
+                                    <input matInput [matDatepicker]="picker1" #DOD="ngModel"
+                                        [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
+                                        [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel readonly>
+                                    <mat-datepicker-toggle matSuffix [for]="picker1" style="color: tomato;">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
                             </div>
                         </div>
 
@@ -147,8 +271,204 @@
                     </div>
                     <!-- <button class="btn btn-primary " type="submit" (click)="memorialDetails(form1)">submit</button> -->
                 </form>
-            </div>
 
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss3">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo3.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss4">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo4.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo4.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo4.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo4.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss5">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo5.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==6 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss6">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo6.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo6.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo6.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo6.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss7">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo7.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo7.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo7.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo7.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss8">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo8.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo8.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo8.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo8.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss9">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo9.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo9.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo9.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo9.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+            </div>
         </div>
         <div class="child2 ms-3 p-2 ">
 
@@ -156,16 +476,128 @@
                 <a class="flex-sm-fill d-flex text-sm-center nav-link" aria-current="page" (click)="showCentric(1)">
                     <img class="me-2" id="first"
                         src="../../../assets/StaticAssets/Create memorial/step1/memorial (2).png">
-                    <h6>Memorial With Tombstone</h6>
+                    <h6 *ngIf="editservice.numLabel==1">{{respo10?.en}}</h6>
+                    <h6 *ngIf="editservice.numLabel==2">{{respo10?.de}}</h6>
+                    <h6 *ngIf="editservice.numLabel==3">{{respo10?.fr}}</h6>
+
+
                 </a>
+                <button (click)="openDialogue(10)" id="tombstonMemoCss" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==10 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss10">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo10.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo10.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo10.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo10.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
                 <a class="flex-sm-fill d-flex text-sm-center nav-link" (click)="showCentric(2)">
                     <img class="me-2" src="../../../assets/StaticAssets/Create memorial/step1/camera.png">
-                    <h6> Person Centric Memorial</h6>
+                    <h6 *ngIf="editservice.numLabel==1">{{respo11?.en}}</h6>
+                    <h6 *ngIf="editservice.numLabel==2">{{respo11?.de}}</h6>
+                    <h6 *ngIf="editservice.numLabel==3">{{respo11?.fr}}</h6>
+
                 </a>
+                <button (click)="openDialogue(11)" id="personMemoCss" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv==11 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="createMemoDivCss11">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo11.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo11.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo11.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo11.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
+
             </nav>
             <div class="indicationPerTomb">
-                <small>You can select tombstone OR your loved person image</small>
+                <small *ngIf="editservice.numLabel==1">{{respo13?.en}}</small>
+                <small *ngIf="editservice.numLabel==2">{{respo13?.de}}</small>
+                <small *ngIf="editservice.numLabel==3">{{respo13?.fr}}</small>
+
+
+                <button (click)="openDialogue(13)" id="personMemoCss1" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
             </div>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==13 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss13">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo13.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo13.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo13.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo13.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+
+
 
             <div class="tambstone" *ngIf="showTambstone">
 
@@ -273,23 +705,56 @@
                     </div>
                     <img [src]="images.path">
                 </button> -->
-
-
             </div>
 
             <div class="personCentric m-5" *ngIf="!showTambstone">
                 <div *ngIf="!hidePerson">
                     <div class="text-center">
                         <img height="300px" width="300px" id="mobileRes">
-                        <p><b>Add an own image here...</b></p>
+                        <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <p *ngIf="editservice.numLabel==1"><b>{{respo12?.en}}</b></p>
+                        <p *ngIf="editservice.numLabel==2"><b>{{respo12?.de}}</b></p>
+                        <p *ngIf="editservice.numLabel==3"><b>{{respo12?.fr}}</b></p>
+
+
                     </div>
 
+                    <!-- Extra code for label -->
+                    <li *ngIf="showNewDiv==12 && isvalid" style="position: absolute; margin-top: 25px;">
+                        <div class="forDiv" id="createMemoDivCss12">
+                            <button style="float: right;" (click)="openDialogue1()"
+                                class="btn btn-outline-danger">X</button>
+                            <form class="example-form" #regForm2="ngForm">
+                                <mat-form-field class="example-full-width" style="display: none;">
+                                    <mat-label>id</mat-label>
+                                    <textarea matInput name="id" [(ngModel)]="respo12.id"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width englishLng">
+                                    <mat-label>English</mat-label>
+                                    <textarea matInput name="en" [(ngModel)]="respo12.en"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>dutch</mat-label>
+                                    <textarea matInput name="de" [(ngModel)]="respo12.de"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>french</mat-label>
+                                    <textarea matInput name="fr" [(ngModel)]="respo12.fr"></textarea>
+                                </mat-form-field>
+                            </form>
+                            <button (click)="postEditData(regForm2);openDialogue1();"
+                                class="btn btn-outline-success">Save</button>
+                        </div>
+                    </li>
 
                     <div class="Photo">
                         <label for="photo" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
                                 src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                        <input id="photo" type="file" accept="image/*" (change)="onselectFile($event)">
+                        <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile($event)">
                     </div>
                 </div>
 
@@ -298,8 +763,45 @@
                 <div *ngIf="hidePerson">
                     <div class="text-center">
                         <img [src]="url" height="300px" width="300px" id="mobileRes">
-                        <p><b>Add an own image here...</b></p>
+                        <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <p *ngIf="editservice.numLabel==1"><b>{{respo12?.en}}</b></p>
+                        <p *ngIf="editservice.numLabel==2"><b>{{respo12?.de}}</b></p>
+                        <p *ngIf="editservice.numLabel==3"><b>{{respo12?.fr}}</b></p>
+
+
                     </div>
+
+
+                    <!-- Extra code for label -->
+                    <li *ngIf="showNewDiv==12 && isvalid" style="position: absolute; margin-top: 25px;">
+                        <div class="forDiv" id="createMemoDivCss12">
+                            <button style="float: right;" (click)="openDialogue1()"
+                                class="btn btn-outline-danger">X</button>
+                            <form class="example-form" #regForm2="ngForm">
+                                <mat-form-field class="example-full-width" style="display: none;">
+                                    <mat-label>id</mat-label>
+                                    <textarea matInput name="id" [(ngModel)]="respo12.id"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width englishLng">
+                                    <mat-label>English</mat-label>
+                                    <textarea matInput name="en" [(ngModel)]="respo12.en"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>dutch</mat-label>
+                                    <textarea matInput name="de" [(ngModel)]="respo12.de"></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>french</mat-label>
+                                    <textarea matInput name="fr" [(ngModel)]="respo12.fr"></textarea>
+                                </mat-form-field>
+                            </form>
+                            <button (click)="postEditData(regForm2);openDialogue1();"
+                                class="btn btn-outline-success">Save</button>
+                        </div>
+                    </li>
 
 
                     <div class="Photo">
@@ -314,11 +816,55 @@
 
             </div>
             <div class="nextBtn pt-5">
+
                 <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
-                    [disabled]="!form1.valid">Next Step
-                    <span><img
-                            src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==1">{{respo14?.en}}
+                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                </button>
+                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
+                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==2">{{respo14?.de}}
+                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                </button>
+                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
+                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==3">{{respo14?.fr}}
+                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                </button>
+
+                <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
             </div>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==14 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss14">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo14.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo14.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo14.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo14.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+
+
             <!-- memorialDetails(form1) -->
         </div>
     </div>
@@ -337,9 +883,53 @@
     <div *ngIf="showMemSteps==2" id="comp-render">
         <app-canvas></app-canvas>
         <div class="nextBtn1">
-            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()">Next Step <span><img
+            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==1">{{respo14?.en}}<span><img
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+
+            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==2">{{respo14?.de}}<span><img
+                        src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+
+            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==3">{{respo14?.fr}}<span><img
+                        src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
+
+
+            <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                        alt=""></span></button>
         </div>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==14 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss45">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo14.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo14.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo14.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo14.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+
+
     </div>
 
 
@@ -356,34 +946,162 @@
     <div class="content3 w-100 h-100 p-3 " *ngIf="showMemSteps==3">
         <!-- reg form -->
         <div class="regForm p-3">
-            <h6><strong>WELCOME TO SOULIUM</strong></h6>
-            <h1><strong>REGISTER</strong></h1>
-            <small>The registration and usage is for free and done in less than 2 minutes. Please enter a valid email
-                address. You will receive an activation link to finalize your registration. Your email address will not
-                be published.</small>
+            <h6>
+                <button (click)="openDialogue(20)" id="step3LabelCss1" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <strong *ngIf="editservice.numLabel==1">{{respo20?.en}}</strong>
+                <strong *ngIf="editservice.numLabel==2">{{respo20?.de}}</strong>
+                <strong *ngIf="editservice.numLabel==3">{{respo20?.fr}}</strong>
+            </h6>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==20 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss20">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo20.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo20.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo20.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo20.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <h1>
+                <button (click)="openDialogue(21)" id="step3LabelCss1" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <strong *ngIf="editservice.numLabel==1">{{respo21?.en}}</strong>
+                <strong *ngIf="editservice.numLabel==2">{{respo21?.de}}</strong>
+                <strong *ngIf="editservice.numLabel==3">{{respo21?.fr}}</strong>
+            </h1>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==21 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss21">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo21.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo21.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo21.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo21.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+
+            <small>
+                <button (click)="openDialogue(22)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <p *ngIf="editservice.numLabel==1">{{respo22?.en}}</p>
+                <p *ngIf="editservice.numLabel==2">{{respo22?.de}}</p>
+                <p *ngIf="editservice.numLabel==3">{{respo22?.fr}}</p>
+            </small>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==22 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss22">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo22.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo22.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo22.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo22.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
             <br>
             <br>
             <form class="row g-3 needs-validation" #regForm="ngForm" novalidate>
                 <div class="col-md-6 mb-3">
-                    <label for="firstName">First name:</label>
+                    <button (click)="openDialogue(23)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="firstName" *ngIf="editservice.numLabel==1">{{respo23?.en}}</label>
+                    <label for="firstName" *ngIf="editservice.numLabel==2">{{respo23?.de}}</label>
+                    <label for="firstName" *ngIf="editservice.numLabel==3">{{respo23?.fr}}</label>
+
+
                     <input type="text" name="firstname" class="form-control shadow bg-body rounded" #firstname="ngModel"
                         [(ngModel)]="service.createMemorial.firstname" placeholder="First Name"
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
                         required ngModel>
                     <small class="fireError" *ngIf="firstname.touched && !firstname.valid">Please enter your first
                         name</small>
                 </div>
                 <div class="col-md-6">
-                    <label for="lastName">Last name:</label>
+                    <button (click)="openDialogue(24)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="lastName" *ngIf="editservice.numLabel==1">{{respo24?.en}}</label>
+                    <label for="lastName" *ngIf="editservice.numLabel==2">{{respo24?.de}}</label>
+                    <label for="lastName" *ngIf="editservice.numLabel==3">{{respo24?.fr}}</label>
+
                     <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="service.createMemorial.lastname"
                         class="form-control shadow bg-body rounded" placeholder="Last Name"
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
                         required ngModel>
                     <small class="fireError" *ngIf="lastname.touched && !lastname.valid">Please enter your last
                         name</small>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="Password">Password:</label>
+                    <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="Password" *ngIf="editservice.numLabel==1">{{respo25?.en}}</label>
+                    <label for="Password" *ngIf="editservice.numLabel==2">{{respo25?.de}}</label>
+                    <label for="Password" *ngIf="editservice.numLabel==3">{{respo25?.fr}}</label>
+
                     <input type="password" autocomplete="off" name="password" #password="ngModel"
                         [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
                         placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required ngModel>
@@ -391,7 +1109,14 @@
                         one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
                 </div>
                 <div class="col-md-6">
-                    <label for="confirm Password">Confirm Password:</label>
+                    <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="confirm Password" *ngIf="editservice.numLabel==1">{{respo26?.en}}</label>
+                    <label for="confirm Password" *ngIf="editservice.numLabel==2">{{respo26?.de}}</label>
+                    <label for="confirm Password" *ngIf="editservice.numLabel==3">{{respo26?.fr}}</label>
+
                     <input type="password" autocomplete="off" name="password1" #password1="ngModel"
                         validateEqual="password" [(ngModel)]="service.createMemorial.password1"
                         class="form-control shadow bg-body rounded" placeholder="Confirm Password" required ngModel>
@@ -407,7 +1132,14 @@
                     </div>
                 </div>
                 <div>
-                    <label for="email">Email:</label>
+                    <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="email" *ngIf="editservice.numLabel==1">{{respo27?.en}}</label>
+                    <label for="email" *ngIf="editservice.numLabel==2">{{respo27?.de}}</label>
+                    <label for="email" *ngIf="editservice.numLabel==3">{{respo27?.fr}}</label>
+
                     <input type="email" name="email" #email="ngModel" [(ngModel)]="service.createMemorial.email"
                         class="form-control shadow bg-body rounded" placeholder="Please enter your email address"
                         required ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
@@ -418,48 +1150,425 @@
                             Email is invalid
                         </div>
                     </div>
-                    <p>*Note:The given email address will be your user name</p>
+                    <button (click)="openDialogue(28)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <p *ngIf="editservice.numLabel==1">{{respo28?.en}}</p>
+                    <p *ngIf="editservice.numLabel==2">{{respo28?.de}}</p>
+                    <p *ngIf="editservice.numLabel==3">{{respo28?.fr}}</p>
+
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="streetname">Street and Number:</label>
+                    <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="streetname" *ngIf="editservice.numLabel==1">{{respo29?.en}}</label>
+                    <label for="streetname" *ngIf="editservice.numLabel==2">{{respo29?.de}}</label>
+                    <label for="streetname" *ngIf="editservice.numLabel==3">{{respo29?.fr}}</label>
+
                     <input type="text" name="streetname" #streetname="ngModel"
                         [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
-                        placeholder="Street and Number" required ngModel>
+                        placeholder="Street and Number" onkeypress="return (event.charCode!==32)" required ngModel>
                     <small class="fireError" *ngIf="streetname.touched && !streetname.valid">Please enter your street
                         name/number</small>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="zip code">Zip Code:</label>
+                    <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="zip code" *ngIf="editservice.numLabel==1">{{respo30?.en}}</label>
+                    <label for="zip code" *ngIf="editservice.numLabel==2">{{respo30?.de}}</label>
+                    <label for="zip code" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</label>
+
                     <input type="number" name="zipcode" #zipcode="ngModel" [(ngModel)]="service.createMemorial.zipcode"
                         class="form-control shadow bg-body rounded" placeholder="Zip code" required ngModel>
                     <small class="fireError" *ngIf="zipcode.touched && !zipcode.valid">Please enter zipcode</small>
                 </div>
                 <div class="mb-3">
-                    <label for="my hometown">My Hometown:</label>
+                    <button (click)="openDialogue(31)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="my hometown" *ngIf="editservice.numLabel==1">{{respo31?.en}}</label>
+                    <label for="my hometown" *ngIf="editservice.numLabel==2">{{respo31?.de}}</label>
+                    <label for="my hometown" *ngIf="editservice.numLabel==3">{{respo31?.fr}}</label>
+
                     <input type="text" name="hometown" #hometown="ngModel" [(ngModel)]="service.createMemorial.hometown"
-                        class="form-control shadow bg-body rounded" placeholder="My Hometown" required ngModel>
+                        class="form-control shadow bg-body rounded" placeholder="My Hometown" 
+                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
+                        required ngModel>
                     <small class="fireError" *ngIf="hometown.touched && !hometown.valid">Please enter your
                         hometown</small>
                 </div>
                 <div class="mb-3">
-                    <label for="reedim voucher">Redeem Voucher:</label>
+                    <button (click)="openDialogue(32)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <label for="reedim voucher" *ngIf="editservice.numLabel==1">{{respo32?.en}}</label>
+                    <label for="reedim voucher" *ngIf="editservice.numLabel==2">{{respo32?.de}}</label>
+                    <label for="reedim voucher" *ngIf="editservice.numLabel==3">{{respo32?.fr}}</label>
+
                     <input type="text" name="voucher" #voucher="ngModel" [(ngModel)]="service.createMemorial.voucher"
                         class="form-control shadow bg-body rounded" placeholder="Redeem Voucher" ngModel>
                     <!-- <small class="fireError" *ngIf="voucher.touched && !voucher.valid">Please enter voucher</small> -->
                 </div>
-                <small>Due to legal requirements, we are obliged to request your address data. This information will not
-                    be published. </small>
+                <small>
+                    <button (click)="openDialogue(33)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <p *ngIf="editservice.numLabel==1">{{respo33?.en}}</p>
+                    <p *ngIf="editservice.numLabel==2">{{respo33?.de}}</p>
+                    <p *ngIf="editservice.numLabel==3">{{respo33?.fr}}</p>
+
+                </small>
                 <div class="col-12">
                     <div class="form-check">
                         <input class="form-check-input" name="checkedBox" #checkedBox="ngModel" type="checkbox" value=""
                             required ngModel>
                         <small class="fireError" *ngIf="checkedBox.touched && !checkedBox.valid"></small>
                         <label class="form-check-label" for="invalidCheck2">
-                            <small>Terms & Conditions</small>
+                            <button (click)="openDialogue(34)" *ngIf="loginservice.isVisible"
+                                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                        alt=""></span></button>
+                            <small *ngIf="editservice.numLabel==1">{{respo34?.en}}</small>
+                            <small *ngIf="editservice.numLabel==2">{{respo34?.de}}</small>
+                            <small *ngIf="editservice.numLabel==3">{{respo34?.fr}}</small>
+
                         </label>
                     </div>
                 </div>
             </form>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==23 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss23">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo23.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo23.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo23.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo23.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==24 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss24">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo24.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo24.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo24.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo24.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==25 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss25">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo25.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo25.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo25.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo25.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==26 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss26">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo26.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo26.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo26.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo26.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==27 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss27">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo27.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo27.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo27.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo27.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==28 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss28">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo28.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo28.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo28.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo28.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==29 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss29">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo29.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo29.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo29.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo29.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==30 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss30">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo30.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo30.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo30.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo30.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==31 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss31">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo31.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo31.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo31.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo31.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==32 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss32">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo32.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo32.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo32.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo32.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==33 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss33">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo33.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo33.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo33.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo33.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
+            <!-- Extra code for label -->
+            <li *ngIf="showNewDiv==34 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="createMemoDivCss34">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo34.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo34.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo34.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo34.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
+
         </div>
 
 
@@ -469,38 +1578,117 @@
             <div class="spec mt-3 p-2 ">
                 <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
                 <div class="subject lh-1">
-                    <h5><strong>24 Hours a day</strong></h5>
-                    <p><small>soulium.com is free and around the clock at your disposal</small></p>
+                    <h5>
+                        <button (click)="openDialogue(35)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <strong *ngIf="editservice.numLabel==1">{{respo35?.en}}</strong>
+                        <strong *ngIf="editservice.numLabel==2">{{respo35?.de}}</strong>
+                        <strong *ngIf="editservice.numLabel==3">{{respo35?.fr}}</strong>
+
+
+                    </h5>
+                    <p>
+                        <button (click)="openDialogue(36)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <small *ngIf="editservice.numLabel==1">{{respo36?.en}}</small>
+                        <small *ngIf="editservice.numLabel==2">{{respo36?.de}}</small>
+                        <small *ngIf="editservice.numLabel==3">{{respo36?.fr}}</small>
+
+                    </p>
                 </div>
             </div>
 
             <div class="spec mt-3 p-2 ">
                 <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
                 <div class="subject lh-1">
-                    <h5><strong>Share memories</strong></h5>
-                    <p><small>Share the memorial with your friends, family, and acquaintances </small></p>
+                    <h5>
+                        <button (click)="openDialogue(37)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <strong *ngIf="editservice.numLabel==1">{{respo37?.en}}</strong>
+                        <strong *ngIf="editservice.numLabel==2">{{respo37?.de}}</strong>
+                        <strong *ngIf="editservice.numLabel==3">{{respo37?.fr}}</strong>
+
+                    </h5>
+                    <p>
+                        <button (click)="openDialogue(38)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <small *ngIf="editservice.numLabel==1">{{respo38?.en}}</small>
+                        <small *ngIf="editservice.numLabel==2">{{respo38?.de}}</small>
+                        <small *ngIf="editservice.numLabel==3">{{respo38?.fr}}</small>
+
+                    </p>
                 </div>
             </div>
 
             <div class="spec mt-3 p-2 ">
                 <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
                 <div class="subject lh-1">
-                    <h5><strong>Free and Dignified</strong></h5>
-                    <p><small>The use and creation is completely free</small></p>
+                    <h5>
+                        <button (click)="openDialogue(39)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <strong *ngIf="editservice.numLabel==1">{{respo39?.en}}</strong>
+                        <strong *ngIf="editservice.numLabel==2">{{respo39?.de}}</strong>
+                        <strong *ngIf="editservice.numLabel==3">{{respo39?.fr}}</strong>
+
+                    </h5>
+                    <p>
+                        <button (click)="openDialogue(40)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <small *ngIf="editservice.numLabel==1">{{respo40?.en}}</small>
+                        <small *ngIf="editservice.numLabel==2">{{respo40?.de}}</small>
+                        <small *ngIf="editservice.numLabel==3">{{respo40?.fr}}</small>
+
+                    </p>
                 </div>
             </div>
 
             <div class="spec mt-3 p-2 ">
                 <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
                 <div class="subject lh-1">
-                    <h5><strong>Remembrance and mourning</strong></h5>
-                    <p><small>Light virtual memorial candles, leave condolences, place <br> memorial on virtual cemetry
-                            and more</small></p>
+                    <h5>
+                        <button (click)="openDialogue(41)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <strong *ngIf="editservice.numLabel==1">{{respo41?.en}}</strong>
+                        <strong *ngIf="editservice.numLabel==2">{{respo41?.de}}</strong>
+                        <strong *ngIf="editservice.numLabel==3">{{respo41?.fr}}</strong>
+
+                    </h5>
+                    <p>
+                        <button (click)="openDialogue(42)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <small *ngIf="editservice.numLabel==1">{{respo42?.en}}</small>
+                        <small *ngIf="editservice.numLabel==2">{{respo42?.de}}</small>
+                        <small *ngIf="editservice.numLabel==3">{{respo42?.fr}}</small>
+
+                    </p>
                 </div>
             </div>
 
             <div class="preview mt-2">
-                <h1>Preview Image</h1>
+                <button (click)="openDialogue(43)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <h1 *ngIf="editservice.numLabel==1">{{respo43?.en}}</h1>
+                <h1 *ngIf="editservice.numLabel==2">{{respo43?.de}}</h1>
+                <h1 *ngIf="editservice.numLabel==3">{{respo43?.fr}}</h1>
+
                 <div class="logo">
                     <img width="290px" height="350px" [src]="service.saveCanvas">
                 </div>
@@ -510,12 +1698,282 @@
 
         <!-- Create Account Button -->
         <div class="createBtn">
-            <button routerLink="/thank-you" type="submit" (click)="register(regForm)"
+            <!-- routerLink="/thank-you" -->
+            <button  type="submit" (click)="register(regForm)"
                 [disabled]="!regForm.valid || service.createMemorial.password1!=service.createMemorial.password"
                 class="btn btn-success btn-lg">
-                <strong>CREATE ACCOUNT</strong>
+                <strong *ngIf="editservice.numLabel==1">{{respo44?.en}}</strong>
+                <strong *ngIf="editservice.numLabel==2">{{respo44?.de}}</strong>
+                <strong *ngIf="editservice.numLabel==3">{{respo44?.fr}}</strong>
+
             </button>
+            <button (click)="openDialogue(44)" style="width: 30px; height: 28px;" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                        alt=""></span></button>
         </div>
+
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==35 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss35">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo35.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo35.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo35.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo35.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==36 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss36">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo36.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo36.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo36.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo36.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==37 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss37">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo37.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo37.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo37.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo37.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==38 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss38">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo38.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo38.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo38.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo38.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==39 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss39">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo39.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo39.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo39.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo39.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==40 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss40">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo40.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo40.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo40.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo40.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==41 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss41">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo41.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo41.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo41.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo41.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==42 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss42">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo42.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo42.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo42.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo42.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==43 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss43">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo43.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo43.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo43.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo43.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <!-- Extra code for label -->
+        <li *ngIf="showNewDiv==44 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="createMemoDivCss44">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo44.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo44.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo44.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo44.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
     </div>
 </div>
 
@@ -525,18 +1983,197 @@
 
 <div class="container" id="imageMemorial">
     <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 100%;">
-    <div class="centered">"I made a memorial for my son that passed away <br> and it has been very helpful to my family
-        during this difficult time."</div>
-    <div class="bottom-right">John A, New York</div>
+    <div class="centered">
+        <button (click)="openDialogue(15)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+        <p *ngIf="editservice.numLabel==1">{{respo15?.en}}</p>
+        <p *ngIf="editservice.numLabel==2">{{respo15?.de}}</p>
+        <p *ngIf="editservice.numLabel==3">{{respo15?.fr}}</p>
+    </div>
+
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==15 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss15">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo15.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo15.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo15.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo15.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
+
+
+    <div class="bottom-right">
+        <button (click)="openDialogue(16)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+        <p *ngIf="editservice.numLabel==1">{{respo16?.en}}</p>
+        <p *ngIf="editservice.numLabel==2">{{respo16?.de}}</p>
+        <p *ngIf="editservice.numLabel==3">{{respo16?.fr}}</p>
+    </div>
+
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==16 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss16">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo16.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo16.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo16.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo16.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
 </div>
 <div class="container">
     <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png">
     <div class="bottom-left"><span><img src="../../../assets/StaticAssets/Create memorial/step1/funeral (1).png"></span>
-        26.811 <small>memorials</small></div>
-    <div class="centered"><span><img src="../../../assets/StaticAssets/Create memorial/step3/Group 339.png"> 131.000.000
-            <small>visitors</small></span></div>
-    <div class="bottom-right1"><span><img src="../../../assets/StaticAssets/Create memorial/step1/candle.png"> 42.000
-            <small>candels</small></span></div>
+        <small *ngIf="editservice.numLabel==1">{{respo17?.en}}</small>
+        <small *ngIf="editservice.numLabel==2">{{respo17?.de}}</small>
+        <small *ngIf="editservice.numLabel==3">{{respo17?.fr}}</small>
+
+        <button (click)="openDialogue(17)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+    </div>
+
+    <li *ngIf="showNewDiv==17 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss17">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo17.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo17.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo17.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo17.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
+    <div class="centered">
+        <span>
+            <img src="../../../assets/StaticAssets/Create memorial/step3/Group 339.png">
+            <small *ngIf="editservice.numLabel==1">{{respo18?.en}}</small>
+            <small *ngIf="editservice.numLabel==2">{{respo18?.de}}</small>
+            <small *ngIf="editservice.numLabel==3">{{respo18?.fr}}</small>
+        </span>
+
+        <button (click)="openDialogue(18)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+    </div>
+
+    <li *ngIf="showNewDiv==18 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss18">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo18.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo18.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo18.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo18.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
+    <div class="bottom-right1"><span><img src="../../../assets/StaticAssets/Create memorial/step1/candle.png">
+            <small *ngIf="editservice.numLabel==1">{{respo19?.en}}</small>
+            <small *ngIf="editservice.numLabel==2">{{respo19?.de}}</small>
+            <small *ngIf="editservice.numLabel==3">{{respo19?.fr}}</small>
+        </span>
+
+        <button (click)="openDialogue(19)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+    </div>
+
+    <li *ngIf="showNewDiv==19 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss19">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo19.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo19.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo19.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo19.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
+
 </div>
 <div class="FooterResp">
     <app-footer></app-footer>

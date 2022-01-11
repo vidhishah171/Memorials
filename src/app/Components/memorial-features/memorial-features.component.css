@@ -1,3 +1,70 @@
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+#featureMemorialLabel1{
+    margin-top: -17%;
+    left: 160%;
+}
+#featureMemorialLabel2{
+    right: 130%;
+    margin-top: 112%;
+}#featureMemorialLabel3{
+    right: 78%;
+    margin-top: 112%;
+}#featureMemorialLabel4{
+    right: 29%; 
+    margin-top: 112%;
+}#featureMemorialLabel5{
+    left: 20%; 
+    margin-top: 112%;
+}#featureMemorialLabel6{
+    left: 73%; 
+    margin-top: 112%;
+}
+#featureMemorialLabel7{
+    left: 167%; 
+    margin-top: -21%;
+}#featureMemorialLabel8{
+    left: 326%; 
+    margin-top: -11%;
+}
+#featureMemorialLabel9{
+    left: 318%;
+    margin-top:0%; 
+}
+
+
+
+
+
+
+
 .flex-main{
     display: flex;
     align-items: flex-start;
@@ -175,7 +242,44 @@ span{
     .cemetry{
         background-position: 40%;
     }
+
+    /* css for labels */
+
+    #featureMemorialLabel1{
+        margin-top: -17%;
+        left: 47%;
+    }
+    #featureMemorialLabel2{
+        right: 76%;
+        margin-top: 80%;
+    }#featureMemorialLabel3{
+        right: 26%;
+        margin-top: 78%;
+    }#featureMemorialLabel4{
+        left: 22%; 
+        margin-top: 78%;
+    }#featureMemorialLabel5{
+        left: -55%; 
+        margin-top: 140%;
+    }#featureMemorialLabel6{
+        left: -3%; 
+        margin-top: 140%;
+    }
+    #featureMemorialLabel7{
+        left: 7%; 
+        margin-top: -21%;
+    }#featureMemorialLabel8{
+        left: 144%; 
+        margin-top: -11%;
+    }
+    #featureMemorialLabel9{
+        left: 136%;
+        margin-top:0%; 
+    }
+    
+    
 }
+
 
 @media (max-width:700px){
     .cemetry{

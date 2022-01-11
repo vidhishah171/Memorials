@@ -15,7 +15,6 @@ export class HomeService {
 
   
    get(result2){
-     debugger
      return this.http.post("https://h2913228.stratoserver.net/API/public/search_memorial",result2);
    }
 }

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,11 +47,19 @@ import { CanvasComponent } from './Components/create-memorial/canvas/canvas.comp
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { EmailActivationComponent } from './Components/email-activation/email-activation.component';
 import { ForgotPassPopupComponent } from './Components/forgot-password/forgot-pass-popup/forgot-pass-popup.component';
-import { ForgotPasswordActivationPopComponent } from './Components/forgot-password-activation/forgot-password-activation-pop/forgot-password-activation-pop.component';
 import { FilterPipe } from './Pipe/filter.pipe';
 import { AdminEditComponent } from './Components/admin-edit/admin-edit.component';
 import { AdminEditPopupComponent } from './Components/admin-edit/admin-edit-popup/admin-edit-popup.component';
 import { AdminEditExampleComponent } from './Components/admin-edit-example/admin-edit-example.component';
+import { EditMemorialComponent } from './Components/edit-memorial/edit-memorial.component';
+import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { MemoryImageComponent } from './Components/memory-image/memory-image.component';
+import { UserProfilePopComponent } from './Components/user-profile/user-profile-pop/user-profile-pop.component';
+import { UserAccountComponent } from './Components/user-account/user-account.component';
+import { CreatePremiunMemComponent } from './Components/create-premiun-mem/create-premiun-mem.component';
+import { EditCanvasComponent } from './Components/edit-memorial/edit-canvas/edit-canvas.component';
+import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
+import { ForgotPassActivePopComponent } from './Components/forgot-pass-acitve/forgot-pass-active-pop/forgot-pass-active-pop.component';
 
 
 
@@ -76,11 +86,19 @@ import { AdminEditExampleComponent } from './Components/admin-edit-example/admin
     SnackbarComponent,
     EmailActivationComponent,
     ForgotPassPopupComponent,
-    ForgotPasswordActivationPopComponent,
     FilterPipe,
     AdminEditComponent,
     AdminEditPopupComponent,
     AdminEditExampleComponent,
+    EditMemorialComponent,
+    UserProfileComponent,
+    MemoryImageComponent,
+    UserProfilePopComponent,
+    UserAccountComponent,
+    CreatePremiunMemComponent,
+    EditCanvasComponent,
+    ForgotPassAcitveComponent,
+    ForgotPassActivePopComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +117,11 @@ import { AdminEditExampleComponent } from './Components/admin-edit-example/admin
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyDs2Vdbr8b2MpY5iV9Ss4iIdV3gbTZcpSs',
+      libraries: ['places'],
+    }),
 
 
 

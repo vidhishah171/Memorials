@@ -1,0 +1,361 @@
+<div>
+    <div>
+        <div class="container-fluid">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    <div class="userHeading">
+        <h1>Welcome {{loginservice.loginAllData?.firstname}}</h1>
+        <!-- <h1>welcome</h1> -->
+    </div>
+
+    <div class="container">
+        <div>
+            <div class="userDetail pt-4">
+                <span><img src="../../../assets/StaticAssets/profile page/chat.png"> SEND ME MESSAGE</span>
+                <span style="float: right; cursor: pointer;" (click)="openDiv(0)"><img
+                        src="../../../assets/StaticAssets/profile page/user (2).png"> MY
+                    PROFILE</span>
+            </div>
+        </div>
+
+        <!-- DropDown div -->
+        <div *ngIf="showDiv==0.1 && isShow" class="forProfileDiv">
+            <div class="userDetail">
+                <span (click)="openDiv1()" class="profileName"><img
+                        src="../../../assets/StaticAssets/profile page/user (2).png">&nbsp;<span> MY
+                        PROFILE</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName" routerLink="/user-account"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">User Account</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">Change Password</span></span>
+            </div>
+            <div class="userDetail pt-3">
+                <span class="profileName"><img style="width: 15px; height: 15px;"
+                        src="../../../assets/StaticAssets/sharing.png">&nbsp;<span>SOCIAL NETWORK</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">Message History</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">User Search</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Condolonces</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My candles</span></span>
+            </div>
+            <div class="userDetail pt-3">
+                <span class="profileName"><img
+                        src="../../../assets/StaticAssets/My account/funeral (1).png">&nbsp;<span>MY MEMORIAL
+                        GRAPHS</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Backgrounds</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Decorations</span></span>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="content1 mt-5">
+            <div class="box1">
+                <div class="content2">
+                    <div class="box3">
+                        <div class="userImage" *ngIf="isDisplay">
+                            <img style="width: 100%; height: auto;" src="{{loginservice.loginAllData?.userpic}}" alt="">
+                        </div>
+                        <div class="userImage" *ngIf="isDisplay1">
+                            <img style="width: 100%; height: auto;" [src]="url" alt="">
+                        </div>
+
+                        <div class="Photo">
+                            <label for="photo" title="Add an own image here..."><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
+                            <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile($event)">
+                        </div>
+                        <!-- <button (click)="userData2(regForm3)">Click me</button> -->
+                    </div>
+                    <div class="box4">
+                        <div class="content3">
+                            <div class="box5">
+                                <div class="mt-5 userLable">
+                                    <h6>FIRSTNAME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                            (click)="openUser(1)"></h6>
+                                </div>
+
+                                <!-- code for div of update data -->
+                                <div class="forDiv" *ngIf="showNewDiv==1 && isvalid"
+                                    style="position: absolute; margin-top: 25px;">
+                                    <div>
+                                        <button style="float: right;" (click)="openUser1()"
+                                            class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <form class="example-form" #regForm3="ngForm">
+                                        <div style="margin-top: 15%;display: none;">
+                                            <label>Id :</label>
+                                            <input type="text" autocomplete="off"
+                                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
+                                                class="form-control shadow bg-body rounded" placeholder="id"
+                                                [(ngModel)]="loginservice.loginAllData.id" name="id">
+                                        </div>
+                                        <div style="margin-top: 15%;">
+                                            <label>First Name :</label>
+                                            <input type="text" autocomplete="off"
+                                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
+                                                class="form-control shadow bg-body rounded" placeholder="First Name"
+                                                [(ngModel)]="loginservice.loginAllData.firstname" name="firstname">
+                                        </div>
+                                    </form>
+                                    <div class="mt-3" style="float: right;">
+                                        <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
+                                        &nbsp;
+                                        <button (click)="userData(regForm3);openUser1();"
+                                            class="btn btn-outline-success">Save</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5>{{loginservice.loginAllData?.firstname}}</h5>
+                                    <!-- <h5>padmakar</h5> -->
+                                </div>
+                                <div class="mt-5 userLable">
+                                    <h6>LASTNAME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                            (click)="openUser(2)"></h6>
+                                </div>
+
+                                <!-- code for div of update data -->
+                                <div class="forDiv" *ngIf="showNewDiv==2 && isvalid"
+                                    style="position: absolute; margin-top: 25px;">
+                                    <div>
+                                        <button style="float: right;" (click)="openUser1()"
+                                            class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <form class="example-form" #regForm3="ngForm">
+                                        <div style="margin-top: 15%;display: none;">
+                                            <label>Id :</label>
+                                            <input type="text" autocomplete="off"
+                                                class="form-control shadow bg-body rounded" placeholder="id"
+                                                [(ngModel)]="loginservice.loginAllData.id" name="id">
+                                        </div>
+                                        <div style="margin-top: 15%;">
+                                            <label>Last Name :</label>
+                                            <input type="text" autocomplete="off"
+                                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
+                                                class="form-control shadow bg-body rounded" placeholder="Last Name"
+                                                [(ngModel)]="loginservice.loginAllData.lastname" name="lastname">
+                                        </div>
+                                    </form>
+                                    <div class="mt-3" style="float: right;">
+                                        <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
+                                        &nbsp;
+                                        <button (click)="userData(regForm3);openUser1();"
+                                            class="btn btn-outline-success">Save</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5>{{loginservice.loginAllData?.lastname}}</h5>
+                                    <!-- <h5>gayake</h5> -->
+                                </div>
+                            </div>
+                            <div class="box6">
+                                <div class="mt-5 userLable">
+                                    <h6>HOMETOWN <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                            (click)="openUser(3)"></h6>
+                                </div>
+
+                                <!-- code for div of update data -->
+                                <div class="forDiv" *ngIf="showNewDiv==3 && isvalid"
+                                    style="position: absolute; margin-top: 25px;">
+                                    <div>
+                                        <button style="float: right;" (click)="openUser1()"
+                                            class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <form class="example-form" #regForm3="ngForm">
+                                        <div style="margin-top: 15%;display: none;">
+                                            <label>Id :</label>
+                                            <input type="text" autocomplete="off"
+                                                class="form-control shadow bg-body rounded" placeholder="id"
+                                                [(ngModel)]="loginservice.loginAllData.id" name="id">
+                                        </div>
+                                        <div style="margin-top: 15%;">
+                                            <label>Hometown :</label>
+                                            <input type="text" autocomplete="off"
+                                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)"
+                                                class="form-control shadow bg-body rounded" placeholder="Hometown"
+                                                [(ngModel)]="loginservice.loginAllData.hometown" name="hometown">
+                                        </div>
+                                    </form>
+                                    <div class="mt-3" style="float: right;">
+                                        <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
+                                        &nbsp;
+                                        <button (click)="userData(regForm3);openUser1();"
+                                            class="btn btn-outline-success">Save</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5>{{loginservice.loginAllData?.hometown}}</h5>
+                                    <!-- <h5>wakadi</h5> -->
+                                </div>
+                                <div class="mt-5 userLable">
+                                    <h6>BIRTHDATE <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                            (click)="openUser(4)"></h6>
+                                </div>
+
+                                <!-- code for div of update data -->
+                                <div class="forDiv" *ngIf="showNewDiv==4 && isvalid"
+                                    style="position: absolute; margin-top: 25px;">
+                                    <div>
+                                        <button style="float: right;" (click)="openUser1()"
+                                            class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <form class="example-form" #regForm3="ngForm">
+                                        <div style="margin-top: 15%;display: none;">
+                                            <label>Id :</label>
+                                            <input type="datetime" autocomplete="off"
+                                                class="form-control shadow bg-body rounded" placeholder="id"
+                                                [(ngModel)]="loginservice.loginAllData.id" name="id">
+                                        </div>
+                                        <!-- <div style="margin-top: 15%;">
+                                         <label>Birthdate :</label>
+                                         <input type="text" autocomplete="off"
+                                             class="form-control shadow bg-body rounded" placeholder="Birthdate"
+                                             [(ngModel)]="loginservice.loginAllData.birthdate" name="birthdate">
+                                     </div> -->
+
+                                        <mat-form-field>
+                                            <input matInput [matDatepicker]="picker" [max]="maxDate"
+                                                [(ngModel)]="loginservice.loginAllData.birthdate" name="birthdate"
+                                                placeholder="MM/DD/YYYY" required readonly>
+                                            <mat-datepicker-toggle matSuffix [for]="picker" style="color: tomato;">
+                                            </mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+
+
+                                    </form>
+                                    <div class="mt-3" style="float: right;">
+                                        <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
+                                        &nbsp;
+                                        <button (click)="userData1(regForm3);openUser1();"
+                                            class="btn btn-outline-success">Save</button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h5 *ngIf="isDisplay3">{{loginservice.loginAllData?.birthdate}}</h5>
+                                    <h5 *ngIf="isDisplay4">{{userDate}}</h5>
+                                    <!-- <h5>22/02/1994</h5> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 userAbout">
+                    <div>
+                        <p class="userAbout1">ABOUT ME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                (click)="openUser(5)"></p>
+                    </div>
+
+                    <!-- code for div of update data -->
+                    <div class="forDiv" *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
+                        <div>
+                            <button style="float: right;" (click)="openUser1()"
+                                class="btn btn-outline-danger">X</button>
+                        </div>
+                        <form class="example-form" #regForm3="ngForm">
+                            <div style="margin-top: 15%;display: none;">
+                                <label>Id :</label>
+                                <input type="text" autocomplete="off" class="form-control shadow bg-body rounded"
+                                    placeholder="id" [(ngModel)]="loginservice.loginAllData.id" name="id">
+                            </div>
+                            <div style="margin-top: 15%;">
+                                <label>About Me :</label>
+                                <textarea type="text" autocomplete="off" class="form-control shadow bg-body rounded"
+                                onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)"
+                                    placeholder="About Me" [(ngModel)]="loginservice.loginAllData.comment"
+                                    name="comment"></textarea>
+                            </div>
+                        </form>
+                        <div class="mt-3" style="float: right;">
+                            <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
+                            &nbsp;
+                            <button (click)="userData(regForm3);openUser1();"
+                                class="btn btn-outline-success">Save</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>{{loginservice.loginAllData?.comment}}</p>
+                        <!-- <p>Hello this is padmakar gayake</p> -->
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div>
+                        <input id="address" type="textbox" value="" [(ngModel)]="userHometown" style="display: none;">
+                        <!-- <input type="button" value="Encode" (click)="codeAddress()"> -->
+                        <button (click)="codeAddress()" style="display: none;">user</button>
+                    </div>
+                    <div id="map" style="height: 300px;"></div>
+
+                </div>
+            </div>
+            <div class="box2 h-100 p-2">
+                <p>Following memorials where created by current user:</p>
+
+
+                <div (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"
+                    class="d-flex child1 w-100 p-1 mt-3 mb-2" style="cursor: pointer;"
+                    *ngFor="let userData of getUserMemoData">
+                    <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                    <!-- src="{{memData.path}}" -->
+                    <div class="ms-2 mt-3">
+                        <h6>
+                            {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;Y Old
+                        </h6>
+                        <h6>
+                            {{userData.starvetown}}
+                        </h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="mt-4">
+        <app-memory-image></app-memory-image>
+    </div>
+    <div class="mt-4">
+        <app-footer></app-footer>
+    </div>

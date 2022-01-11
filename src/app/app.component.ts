@@ -14,6 +14,6 @@ export class AppComponent {
   title = 'Soulium';
 
   ngOnInit() {
-    this.router.navigate([''])
+    this.router?.navigate([''])
   }
 }

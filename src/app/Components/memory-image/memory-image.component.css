@@ -1,0 +1,181 @@
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    /* background-color: yellow; */
+    margin: 2% auto;
+  }
+
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    /* background-color: red; */
+  }
+
+  
+.bottom-right {
+    position: absolute;
+    bottom: 20px;
+    right: 480px;
+    color: black;
+    width: 14%;
+    /* background-color: green; */
+}  
+
+/* .visitors{
+    position: relative;
+    text-align: center;
+    margin-bottom: 2% auto;
+} */
+
+.bottom-left {
+    position: absolute;
+    bottom: 20px;
+    left: 310px;
+    color: black;
+    /* background-color: purple; */
+}    
+.bottom-right1 {
+    position: absolute;
+    bottom: 20px;
+    right: 320px;
+    color: black;
+    /* background-color: green; */
+}
+
+
+#createMemoDivCss15{
+    margin-top: -47%;
+    left: 177%;
+}
+#createMemoDivCss16{
+    margin-top: -31%;
+    left: 113%;
+}
+#createMemoDivCss17{
+    left: 49%;
+    margin-top: -131%;
+}
+#createMemoDivCss18{
+    left: 111%;
+    margin-top: -131%;
+}
+#createMemoDivCss19{
+    left: 166%;
+    margin-top: -131%;
+}
+
+
+@media (min-width:481px) and (max-width:979px){
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 540px;
+        font-size: 1rem;
+    }
+    #rect{
+        width: 100%;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 550px;
+        font-size: 1rem;
+    }
+    #imageMemorial{
+        font-size: 0.7rem;
+    }
+    
+}
+
+@media (min-width:980px) and (max-width:1197px){
+    .nextBtn1{
+         /* padding-top: 500px;  */
+        padding-top: 900px;
+    }
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 480px;
+        font-size: 1rem;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 480px;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width:992px) and (max-width:1197px){
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 600px;
+        font-size: 1rem;
+    }
+    
+    .bottom-right1{
+        bottom: 25px;
+        right: 600px;
+        font-size: 1rem;
+    }
+    
+}
+@media (min-width:1398px){
+    /* 1398px */
+    .centered {
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 400px;
+        font-size: 1rem;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 400px;
+        font-size: 1rem;
+    }
+    
+}

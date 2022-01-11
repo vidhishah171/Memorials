@@ -1,3 +1,143 @@
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+
+#canvasDivCss1{
+    left: 178%;
+    margin-top: -2%;
+}
+#canvasDivCss2{
+    left: 233%;
+    margin-top: -2%;
+}
+#canvasDivCss3{
+    left: 268%;
+    margin-top: -2%;
+}
+#canvasDivCss4{
+    left: 305%;
+    margin-top: -2%;
+}
+#canvasDivCss5{
+    left: 151%;
+    margin-top: 42%;
+}
+#canvasDivCss6{
+    left: 199%;
+    margin-top: 42%;
+}
+#canvasDivCss7{
+    left: 245%;
+    margin-top: 42%;
+}
+#canvasDivCss8{
+    left: 287%;
+    margin-top: 42%;
+}
+#canvasDivCss9{
+    left: 334%;
+    margin-top: 42%;
+}
+#canvasDivCss10{
+    margin-top: 34%;
+    left: 284%;
+}
+
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+
+
+
+
+/* for person image */
+.tambstone{
+    height: 100%;
+    width: 100%;
+    /* background-color: aquamarine */
+}
+
+.tambstone .carousel-item button{
+    height: 45%;
+    width: 32%;
+}
+.tambstone button img{
+    height: 100%;
+    width: 100%;
+}
+#tombstoneSize{
+    height: 160px;
+    width: 160px;
+}
+
+.personCentric{
+    height: 320px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-image: url('../../../../assets/StaticAssets/Create memorial/step1/user-portrait.png'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: #aba4a4; */
+    /* text-align: center; */
+
+}
+.personImageSize{
+    margin-left: 20%;
+}
+.personNav{
+    width: 100%;
+}
+#photo{
+    display: none;
+}
+.Photo{
+    text-align: center;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .box1{
    /* background-color: rebeccapurple; */
     height: auto;
@@ -16,7 +156,7 @@
     margin-left: 2%;
 }
 .changeTombstone{
-    font-size: 0.57rem;
+    font-size: 0.52rem;
     font-weight: bold;
 }
 .flwSize{
@@ -124,7 +264,8 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
+    font-size: 0.65rem; 
     cursor: pointer;
 }
 
@@ -157,8 +298,10 @@
 }
 
 .canddles{
-    height: 92px;
-    width: 70px;
+    /* height: 92px;
+    width: 70px; */
+    height: 95px;
+    width: 58px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -302,6 +445,18 @@
          /* align-items: center; */
          /* flex-wrap: wrap; */
      }
+     #tombstoneSize{
+        height: 95px;
+        width: 74px;
+    }
+    /* .changeTombstone{
+        font-size: 0.57rem;
+        font-weight: bold;
+    } */
+    .personCentric{
+        height: 198px;
+        width: 71%;
+    }
      .box2{
         /* background-color: #f87171;  */
        height: auto;
@@ -387,6 +542,23 @@
          align-items: center;
          /* flex-wrap: wrap; */
      }
+     #mobileRes{
+        height: 170px; 
+        width: 180px; 
+        align-items: center;
+   } 
+   /* .changeTombstone{
+    font-size: 0.57rem;
+    font-weight: bold;
+} */
+     #tombstoneSize{
+        height: 136px;
+        width: 110px;
+    }
+    .personCentric{
+        height: 167px;
+        width: 100%;
+    }
 
      .box1 button{
         margin-left: 265px;
@@ -395,6 +567,7 @@
      .menu{
         margin-left: 117px;
     }
+    
      .box2{
         /* background-color: #f87171;  */
        height: auto;
@@ -420,8 +593,56 @@
         width: 120px;
     }
     .submenu .candle{
-        width:17%;
+        width:13%;
     }
+
+    #canvasDivCss1{
+        left: 76%;
+        margin-top: 214%;
+    }
+    #canvasDivCss2{
+        left: 135%;
+        margin-top: 212%;
+    }
+    #canvasDivCss3{
+        left: 69%;
+        margin-top: 212%;
+    }
+    #canvasDivCss4{
+        left: 106%;
+        margin-top: 212%;
+    }
+    #canvasDivCss5{
+        left: 32%;
+        margin-top: 255%;
+    }
+    #canvasDivCss6{
+        left: 79%;
+        margin-top: 254%;
+    }
+    #canvasDivCss7{
+        left: 125%;
+        margin-top: 256%;
+    }
+    #canvasDivCss8{
+        left: 75%;
+        margin-top: 253%;
+    }
+    #canvasDivCss9{
+        left: 112%;
+        margin-top: 259%;
+    }
+    #canvasDivCss10{
+        margin-top: 365%;
+        left: 91%;
+    }
+    .submenu{
+        margin-left: 66px;
+    }
+    .personImageSize{
+        margin-left: 23%;
+    }
+
 }
 @media (min-width:781px) and (max-width:1160px){
     .box1{
@@ -452,23 +673,46 @@
     }
 }*/
 
+@media (min-width:1398px){
+    .personCentric{
+        width: 20%;
+    }
+}
+
 @media (min-width:1517px)and (max-width:2017px){
     .content2{
-        height: 47vw;
+        height: 38vw;
+    } 
+    .personCentric{
+        width: 32%;
     } 
  }
  @media (min-width:2017px)and (max-width:2049px){
     .content2{
-        height: 38vw;
+        height: 32vw;
     }
+    .personCentric{
+        width: 27%;
+    } 
+ 
  }
+ @media (min-width:2050px)and (max-width:2561px){
+    .content2{
+        height: 25vw;
+    }
+}
+
  @media (min-width:2732px) and (max-width:4098px){
      .content2{
          height: 25vw;
      }
+     .personCentric{
+        width: 13%;
+    } 
+ 
  }
  @media (min-width:4098px){
     .content2{
-        height: 25vw;
+        height: 14vw;
     } 
  }

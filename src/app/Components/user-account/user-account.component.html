@@ -1,0 +1,195 @@
+<div>
+    <div>
+        <div class="container-fluid">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    <div class="userHeading">
+        <h1>Welcome {{loginservice.loginAllData?.firstname}}</h1>
+        <!-- <h1>welcome</h1> -->
+    </div>
+    <div class="container">
+        <div>
+            <div class="userDetail pt-4">
+                <span style="float: right; cursor: pointer;" (click)="openDiv(0)"><img
+                        src="../../../assets/StaticAssets/profile page/user (2).png"> MY
+                    PROFILE</span>
+            </div>
+        </div>
+
+        <!-- DropDown div -->
+        <div *ngIf="showDiv==0.1 && isShow" class="forProfileDiv">
+            <div class="userDetail">
+                <span (click)="openDiv1()" class="profileName"><img
+                        src="../../../assets/StaticAssets/profile page/user (2).png">&nbsp;<span> MY
+                        PROFILE</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName" routerLink="/user-profile"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">Update Profile</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">Change Password</span></span>
+            </div>
+            <div class="userDetail pt-3">
+                <span class="profileName"><img style="width: 15px; height: 15px;"
+                        src="../../../assets/StaticAssets/sharing.png">&nbsp;<span>SOCIAL NETWORK</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">Message History</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">User Search</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Condolonces</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My candles</span></span>
+            </div>
+            <div class="userDetail pt-3">
+                <span class="profileName"><img
+                        src="../../../assets/StaticAssets/My account/funeral (1).png">&nbsp;<span>MY MEMORIAL
+                        GRAPHS</span></span>
+            </div>
+            <div class="pt-3">
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Backgrounds</span></span>
+            </div>
+            <hr>
+            <div>
+                <span class="profileName"><img style="width: 10px; height: 10px;"
+                        src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
+                        class="divText">My Decorations</span></span>
+            </div>
+        </div>
+
+
+
+        <div class="content1 mt-5">
+            <div class="box1">
+                <div>
+                    <h5 class="userAccountText">WELCOME TO SOULIUM</h5>
+                </div>
+                <div>
+                    <h3 class="userAccountText1">CREDITS</h3>
+                </div>
+                <div>
+                    <p class="userAccountText2">Your current account balance is: </p>
+                </div>
+                <div>
+                    <h4 class="userAccountText3">200 CREDITS</h4>
+                </div>
+                <div>
+                    <img src="../../../assets/StaticAssets/My account/coins.png">
+                </div>
+            </div>
+            <div class="box2">
+                <div class="btnDiv">
+                    <span><button class="btn btn-outline-dark btn1">BUY 110 CREDITS</button></span>
+                    <span><button class="btn btn-outline-dark btn1">BUY 220 CREDITS</button></span>
+                    <span><button class="btn btn-outline-dark btn1">ACCOUNT SUMMARY</button></span>
+                    <span><button class="btn btn-outline-dark btn1">ABOUT CREDITS</button></span>
+                </div>
+                <div class="mt-1 btnDiv1">
+                    <button class="btn btn-danger" style="width: 100%;" routerLink="/create-memorial">CREATS A NEW
+                        MEMORIAL</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mt-5">
+                <h5 class="userAccountText">EDIT MEMORIAL</h5>
+            </div>
+            <div>
+                <h3 class="userAccountText1">My Memorials</h3>
+            </div>
+            <div style="width: 100%; height: 15vw;">
+                <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
+                <div *ngFor="let userData of getUserMemoData">
+                    <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
+                        <img src="{{userData.path}}" class="userImage me-2 rounded">
+                        <!-- src="{{memData.path}}" -->
+                        <div class="ms-2 mt-4">
+                            <h6 class="userMemorialData">
+                                <img src="../../../assets/StaticAssets/my account premium/grave-1.png" alt="">
+                                {{userData.grab_name}} {{ userData.firstname}}
+                            </h6>
+                            <p class="userMemorialData1">
+                                {{userData.birthdate}} - {{userData.starvedate}} &nbsp;{{userData.age}}&nbsp;Y Old
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span class="fontAppeare">
+                                <img src="../../../assets/StaticAssets/my account premium/settings.png" alt="">
+                                SETTINGS &nbsp; | &nbsp;
+                            </span>
+                            <span class="fontAppeare">
+                                <img src="../../../assets/StaticAssets/my account premium/email (1).png" alt="">
+                                MAIL DISTRIBUTION LIST
+                            </span>
+                        </div>
+                        <div>
+                            <span class="fontAppeare" (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)">
+                                <img src="../../../assets/StaticAssets/my account premium/stats.png" alt="">
+                                EDIT &nbsp; | &nbsp;
+                            </span>
+                            <span class="fontAppeare">
+                                <img src="../../../assets/StaticAssets/my account premium/stats.png" alt="">
+                                VISITOR STATISTICS
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sent message -->
+    <div class="mt-5 mainDiv">
+        <div class="container pt-5">
+            <span class="subDiv1"><img style="width: 20px; height: 20px;"
+                    src="../../../assets/StaticAssets/My account/sent.png">&nbsp;<span>Recent sent
+                    messages</span></span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="subDiv2"><img style="width: 20px; height: 20px;"
+                    src="../../../assets/StaticAssets/My account/recept.png">&nbsp;<span>Recent received
+                    messages</span></span>
+        </div>
+    </div>
+
+
+
+    <!-- other component -->
+    <div>
+        <app-create-premiun-mem></app-create-premiun-mem>
+    </div>
+    <div class="mt-4 recentDiv">
+        <app-recent></app-recent>
+    </div>
+    <div class="mt-5">
+        <app-memory-image></app-memory-image>
+    </div>
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

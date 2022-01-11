@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { clear } from 'console';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
+import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from '../../../services/login.service';
 
@@ -17,9 +18,20 @@ export class LoginComponent implements OnInit {
   ol: any;
   loginData: any;
   condition: boolean;
+  respo: any;
+  respo1: any;
+  showNewDiv: number;
+  isvalid: boolean;
+  respo2: any;
+  respo3: any;
+  respo4: any;
+  respo5: any;
+  respo6: any;
   constructor(
-    private service: LoginService,
+    public service: LoginService,
     private service1: CreateMemorialService,
+    public editservice: AdminEditService,
+
 
     private route: ActivatedRoute,
     private router: Router,
@@ -49,17 +61,20 @@ export class LoginComponent implements OnInit {
     this.service1.createMemorial.hometown = '';
     this.service1.createMemorial.voucher = '';
     this.service1.saveCanvas1 = '';
+
+    this.editData();
+
   }
 
   
   login(logData: any) {
-    debugger
-    this.service.userLogin(logData.value)
+    
+    this.service.userLogin( logData.value)
+    // logData.value
       .subscribe(responce => {
-        debugger;
         this.data = responce;
         console.log(this.data);
-
+        
         // console.log(this.data.user[0].firstname);
         // console.log(JSON.stringify(this.data));
         // this.ol=JSON.stringify(this.data);
@@ -69,12 +84,22 @@ export class LoginComponent implements OnInit {
         if (this.data.status === "success") {
           this.loginData = this.data.user[0].firstname;
           this.service.loginSaveData = this.loginData;
-          this.router.navigate(['']);
+          this.service.loginAllData =this.data.user[0];
+          this.router.navigate(['/user-account']);
+          // /user-account
           this.service.islogin = true;
         } else {
           this.router.navigate(['/login']);
           this.condition=true;
           // this.snackBar("Please check Email and password", "alert-danger");
+        }
+
+
+        // For is-admin Login
+        if(this.data.user[0].is_admin==0){
+          this.service.isVisible=false;
+        }else{
+          this.service.isVisible=true;
         }
 
         // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -101,4 +126,60 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
+
+  // Code for labels
+
+  openDialogue(num): void{
+   
+   if(num==1){
+     this.showNewDiv=1;
+     this.isvalid=true;
+   }else if(num==2){
+     this.showNewDiv=2;
+     this.isvalid=true;
+   }else if(num==3){
+    this.showNewDiv=3;
+    this.isvalid=true;
+  }else if(num==4){
+    this.showNewDiv=4;
+    this.isvalid=true;
+  }else if(num==5){
+    this.showNewDiv=5;
+    this.isvalid=true;
+  }else if(num==6){
+    this.showNewDiv=6;
+    this.isvalid=true;
+  }
+
+  }
+
+  openDialogue1(){
+    this.isvalid=false;
+  }
+
+  editData(){
+    this.editservice.adminEdit().subscribe((res:any)=>{
+      console.log(res);
+      this.respo=res.Details;
+      this.respo1=this.respo[44];
+      this.respo2=this.respo[45];
+      this.respo3=this.respo[46];
+      this.respo4=this.respo[49];
+      this.respo5=this.respo[50];
+      this.respo6=this.respo[192];
+    });
+  }
+
+  postEditData(editDataNew:any){
+    var formdata=new FormData();
+    formdata.append('id',editDataNew.value.id);
+    formdata.append('en',editDataNew.value.en);
+    formdata.append('de',editDataNew.value.de);
+    formdata.append('fr',editDataNew.value.fr);
+  
+    this.editservice.editPostData(formdata).subscribe(response=>{
+      console.log(response);
+    })
+  }
 }

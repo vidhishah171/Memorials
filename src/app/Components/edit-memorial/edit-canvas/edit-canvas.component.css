@@ -1,0 +1,606 @@
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    border: 1px dotted tomato;
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+#canvasDivCss1{
+    left: 178%;
+    margin-top: -2%;
+}
+#canvasDivCss2{
+    left: 233%;
+    margin-top: -2%;
+}
+#canvasDivCss3{
+    left: 268%;
+    margin-top: -2%;
+}
+#canvasDivCss4{
+    left: 305%;
+    margin-top: -2%;
+}
+#canvasDivCss5{
+    left: 151%;
+    margin-top: 42%;
+}
+#canvasDivCss6{
+    left: 199%;
+    margin-top: 42%;
+}
+#canvasDivCss7{
+    left: 245%;
+    margin-top: 42%;
+}
+#canvasDivCss8{
+    left: 287%;
+    margin-top: 42%;
+}
+#canvasDivCss9{
+    left: 334%;
+    margin-top: 42%;
+}
+#canvasDivCss10{
+    margin-top: 34%;
+    left: 284%;
+}
+
+
+
+
+
+
+
+
+
+
+.box1{
+   /* background-color: rebeccapurple; */
+    height: auto;
+    width:47%;
+    display: flex;
+    flex-direction: column;
+    /* left: auto; */
+    align-items: center;
+    /* flex-wrap: wrap; */
+}
+
+.saveBtn{
+    background-color: #4BC252;
+    color: white;
+    padding: 1%;
+    padding-left: 7%;
+    padding-right: 7%;
+    text-align: center;
+    border: none;
+}
+/* .textAlign{
+    text-align: center;
+} */
+
+.textAlign1{
+    margin-left: 2%;
+}
+.changeTombstone{
+    font-size: 0.52rem;
+    font-weight: bold;
+}
+.flwSize{
+    width: 80px;
+    height: 105px;
+}
+.alignBgcolor{
+ border: 1px solid black;
+ background-color: white;
+ padding: 8px;
+ border-radius: 5px; 
+ margin: 2px;  
+}
+.alignBgcolor:hover{
+    background-color: lightgray;
+}
+.alignBgcolor:focus{
+    background-color: lightgray;
+}
+.colorPickerImg{
+    text-align: center;
+    cursor: pointer;
+}
+
+.vitaData{
+    margin-top: 18px;
+    width: 100%;
+    height: 10%;
+    border: none;
+
+}
+.flowers{
+    height: auto;
+    width: 6rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-block: inherit;
+}
+
+.canvas{
+    /* background-color: red; */
+    border:2px solid black;
+    /* height: auto;
+    width: 100%;
+    object-fit: contain; */
+    /* display: block; */
+    /* height: 500px !important; */
+    /* width: 500px !important;  */
+}
+
+.box2{
+    /* background-color: #f87171;  */
+   height: auto;
+   width:52%;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+
+}
+.showbackground{
+    height: 100px;
+    width: 100px;
+}
+
+.background{
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+
+.submenu{
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: aqua; */
+}
+
+.submenu .candle{
+    height: 100%;
+    width:14%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+
+.SubmenuContent{
+    height: 65%;
+    width: 100%;
+    /* background-color: springgreen; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+   align-content: flex-start;
+}
+
+
+
+
+.carousel-indicators button{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+/* .tambstone .carousel-item button{
+    height: 45%;
+    width: 32%;
+} */
+.tombStyle{
+    height: 130px;
+    width: 130px;
+}
+
+.canddles{
+    height: 92px;
+    width: 70px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor:move;
+
+}
+
+.carousel-control-next {
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.carousel-control-prev{
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.carousel-item.active {
+    display: flex;
+    flex-direction: row;
+    /* width: 72%;
+    margin-left: 100px; */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.itemAlign{
+    width: 72%;
+    margin-left: 100px;
+}
+.itemAlign1{
+    width: 85%;
+    margin-left: 76px;
+}
+
+.URNS{
+    height: 6rem;
+    width: 6rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vita{
+    width: 100%;
+    height:75%;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.video{
+    width: 100%;
+    height:75%;
+    font-family: 'Libre Franklin', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.video .addVideo{
+    height: 50%;
+    width: 30%;
+    border: 2px solid gray;
+    display: flex;
+}
+
+.content2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 49vw;
+}
+
+#toggleVideo{
+    visibility: hidden;
+}
+#divCanvas{
+    height: 50%;
+    width: 80%;
+}
+.btnAddText{
+    background-color:lightgray;
+}
+
+#imgLogo{
+    width: 51px;
+    height: 49px;
+}
+
+@media (max-width:480px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:100%;
+         display: inline-block;
+         flex-direction: column;
+         position: relative;
+         /* align-items: center; */
+         /* flex-wrap: wrap; */
+     }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: inline-block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    }
+    .carousel-control-prev{
+        width: 1rem;
+    }
+    .carousel-control-next{
+        width: 1rem;
+    }
+
+    .itemAlign{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .menu{
+        width: 100%;
+        /* height: 4rem;*/
+        /* padding: 20%;  */
+        display: block;
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        /* justify-content: flex-start; */
+    
+    }
+    .submenu .candle{
+        height: 100%;
+        width:14%;
+        display: inline-block;
+        text-align: center;
+        align-items: center;
+        font-size: 0.6rem;
+        padding-top: 4%;
+    }
+    #imgLogo{
+        /* margin-left: inherit; */
+        width: 42px;
+        height: 42px;
+    }
+    
+    
+     /* .Mycanvas{
+         height: 50%;
+         width: 30%;
+     } */
+     #rect{
+        width: 100%;
+    }
+    .background{
+        padding-top: 7%;
+    }
+    .video .addVideo{
+        height: 70%;
+        align-items: center;
+        text-align: center;
+        padding-top: 2%;
+        width: 35%;
+        border: 2px solid gray;
+        display: flex;
+    }
+    .tombStyle{
+        height: 70px;
+        width: 70px;
+    }
+    
+     
+}
+@media (min-width:481px) and (max-width:780px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:100%;
+         /* text-align: center; */
+         padding-left: 68px;
+         display: inline-block;
+         flex-direction: column;
+         align-items: center;
+         /* flex-wrap: wrap; */
+     }
+
+     .box1 button{
+        margin-left: 265px;
+        margin-bottom: 2%;
+     }
+     .menu{
+        margin-left: 117px;
+    }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    } 
+    .itemAlign{
+        width: 90%;
+        margin-left: 35px;
+    } 
+    .carousel-control-prev{
+        width: 1rem;
+    }
+    .carousel-control-next{
+        width: 1rem;
+    } 
+    .tombStyle{
+        height: 120px;
+        width: 120px;
+    }
+    .submenu{
+        margin-left: 66px;
+    }
+    .submenu .candle{
+        width:13%;
+    }
+
+    #canvasDivCss1{
+        left: 76%;
+        margin-top: 214%;
+    }
+    #canvasDivCss2{
+        left: 135%;
+        margin-top: 212%;
+    }
+    #canvasDivCss3{
+        left: 69%;
+        margin-top: 212%;
+    }
+    #canvasDivCss4{
+        left: 106%;
+        margin-top: 212%;
+    }
+    #canvasDivCss5{
+        left: 32%;
+        margin-top: 255%;
+    }
+    #canvasDivCss6{
+        left: 79%;
+        margin-top: 254%;
+    }
+    #canvasDivCss7{
+        left: 125%;
+        margin-top: 256%;
+    }
+    #canvasDivCss8{
+        left: 75%;
+        margin-top: 253%;
+    }
+    #canvasDivCss9{
+        left: 112%;
+        margin-top: 259%;
+    }
+    #canvasDivCss10{
+        margin-top: 365%;
+        left: 91%;
+    }
+
+}
+@media (min-width:781px) and (max-width:1160px){
+    .box1{
+        /* background-color: rebeccapurple; */
+         height: auto;
+         width:70%;
+         display: inline-block;
+         flex-direction: column;
+         align-items: center;
+         /* flex-wrap: wrap; */
+     }
+     .box2{
+        /* background-color: #f87171;  */
+       height: auto;
+       width:100%;
+       display: block;
+       flex-direction: column;
+       /* flex-wrap: wrap; */
+       /* align-content: flex-start; */
+    
+    }     
+}
+
+/* for big device */
+/* @media (min-width:1517px){
+    .content2{
+        height: 49vw;
+    }
+}*/
+
+@media (min-width:1517px)and (max-width:2017px){
+    .content2{
+        height: 47vw;
+    } 
+ }
+ @media (min-width:2017px)and (max-width:2049px){
+    .content2{
+        height: 38vw;
+    }
+ }
+ @media (min-width:2732px) and (max-width:4098px){
+     .content2{
+         height: 25vw;
+     }
+ }
+ @media (min-width:4098px){
+    .content2{
+        height: 25vw;
+    } 
+ }

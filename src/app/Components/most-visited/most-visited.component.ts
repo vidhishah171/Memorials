@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminEditService } from 'src/services/admin-edit.service';
+import { LoginService } from 'src/services/login.service';
 import { MostVisitedService } from '../../../services/most-visited.service';
 
 
@@ -10,13 +12,23 @@ import { MostVisitedService } from '../../../services/most-visited.service';
 export class MostVisitedComponent implements OnInit {
 
   mostVisitMemorial:any;
+  showNewDiv: number;
+  isvalid: boolean;
+  respo1: any;
+  respo: any;
+  respo2: any;
 
   constructor(
-    private service : MostVisitedService
+    private service : MostVisitedService,
+    public editservice: AdminEditService,
+    public loginservice:LoginService,
+
+
   ) { }
 
   ngOnInit(): void {
     this.getData();
+    this.editData();
 
   }
 
@@ -32,5 +44,48 @@ export class MostVisitedComponent implements OnInit {
         
       }
     )}
+
+
+    // Code for labels
+
+    openDialogue(num): void{
+     
+     if(num==1){
+       this.showNewDiv=1;
+       this.isvalid=true;
+     }else if(num==2){
+       this.showNewDiv=2;
+       this.isvalid=true;
+     }
+    }
+  
+    openDialogue1(){
+      this.isvalid=false;
+    }
+  
+    editData(){
+      this.editservice.adminEdit().subscribe((res:any)=>{
+        console.log(res);
+        this.respo=res.Details;
+        this.respo1=this.respo[19]
+        this.respo2=this.respo[20]
+  
+    
+      });
+    }
+  
+  
+    postEditData(editDataNew:any){
+      var formdata=new FormData();
+      formdata.append('id',editDataNew.value.id);
+      formdata.append('en',editDataNew.value.en);
+      formdata.append('de',editDataNew.value.de);
+      formdata.append('fr',editDataNew.value.fr);
+    
+      this.editservice.editPostData(formdata).subscribe(response=>{
+        console.log(response);
+      })
+    }
+  
 
 }

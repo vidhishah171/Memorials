@@ -5,6 +5,12 @@
     "changeOrigin": true,
     "pathRewrite":                                                                                   { "^/flowerImages": ""  }
     
+  },
+    "/loginApi": {
+      "target": "https://h2913228.stratoserver.net/API/public/login",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite":                        {"^/loginApi": ""}
+    }
   }
-}
 

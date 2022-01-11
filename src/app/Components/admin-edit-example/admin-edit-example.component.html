@@ -1,14 +1,9 @@
-<form class="example-form">
-    <mat-form-field class="example-full-width" >
-        <mat-label>English</mat-label>
-        <textarea matInput>{{respo1.en}}</textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>dutch</mat-label>
-        <textarea matInput>{{respo1.de}}</textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>french</mat-label>
-        <textarea matInput>{{respo1.fr}}</textarea>
-    </mat-form-field>
-</form>
+<div>
+    <h1>You have to re-arrange all the things again on canvas...</h1>
+
+    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2" *ngIf="editservice.numLabel==1" >cancel</button>
+
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial *ngIf="editservice.numLabel==1"
+        class="btn btn-outline-dark m-2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>Ok<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </button>
+</div>

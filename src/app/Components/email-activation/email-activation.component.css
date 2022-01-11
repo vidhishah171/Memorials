@@ -1,3 +1,48 @@
+
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+
+#emailCss1{
+    right: 14%;
+    margin-top: -5%;
+}
+#emailCss2{
+    left: 88%;
+    margin-top: 13%;
+}
+#emailCss3{
+    
+    left: 185%;
+    margin-top: -85%;
+}
+
+
+
+
+
 body{
     height: 70%;
 }
@@ -14,6 +59,12 @@ body{
     align-items: center;
     padding-top: 75px;
 }
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
 .thank h6{
     color: hsl(0deg 53% 60%);
 }
@@ -40,5 +91,8 @@ body{
     .fontSize{
         font-size: 0.8rem;
     }
+    
+}
+@media (min-width:481px) and (max-width:780px){
     
 }
