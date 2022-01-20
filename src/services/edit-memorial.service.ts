@@ -10,6 +10,7 @@ export class EditMemorialService {
   memorialDetails="https://h2913228.stratoserver.net/API/public/memorialDetails";
   editMemorialApi="https://h2913228.stratoserver.net/API/public/editMemorial";
 
+  lovedPersonData:any;
 
   constructor(
     private http:HttpClient

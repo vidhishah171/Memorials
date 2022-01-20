@@ -57,7 +57,7 @@ export class CreateMemorialService {
     memCreatePostData(){ 
       var hh= this.createMemorial;
       this.createMemorial.DOB=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
-      this.createMemorial.DOD=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
+      this.createMemorial.DOD=formatDate(this.createMemorial.DOD,'yyyy-M-d h:mm:ss','en_US');
 
      // this.saveFormData = this.data;
       return this.http.post('https://h2913228.stratoserver.net/API/public/createMemorial',this.createMemorial);

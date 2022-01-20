@@ -20,6 +20,7 @@ import { UserAccountComponent } from './Components/user-account/user-account.com
 import { CreatePremiunMemComponent } from './Components/create-premiun-mem/create-premiun-mem.component';
 import { CanvasComponent } from './Components/create-memorial/canvas/canvas.component';
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
+import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path:"create-premium-mem",component:CreatePremiunMemComponent},
   {path:"canvas",component:CanvasComponent},
   {path:"forgot-pass-active",component:ForgotPassAcitveComponent},
+  {path:"user-profile-forgot-pass",component:ForgotPassComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

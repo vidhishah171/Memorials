@@ -60,6 +60,7 @@ import { CreatePremiunMemComponent } from './Components/create-premiun-mem/creat
 import { EditCanvasComponent } from './Components/edit-memorial/edit-canvas/edit-canvas.component';
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
 import { ForgotPassActivePopComponent } from './Components/forgot-pass-acitve/forgot-pass-active-pop/forgot-pass-active-pop.component';
+import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
 
 
 
@@ -99,6 +100,7 @@ import { ForgotPassActivePopComponent } from './Components/forgot-pass-acitve/fo
     EditCanvasComponent,
     ForgotPassAcitveComponent,
     ForgotPassActivePopComponent,
+    ForgotPassComponent,
   ],
   imports: [
     BrowserModule,

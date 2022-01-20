@@ -1093,7 +1093,9 @@ postGrabId(){
 
   this.editCanvas.fetchJson(formdata).subscribe((Response:any)=>{
     console.log(Response);
+    this.editCanvas.lovedPersonData=Response;
     if(Response){
+      debugger
       var jsonData1=Response.Details[0].canvas_json;
       this.canvas.loadFromJSON(jsonData1, () => {
 

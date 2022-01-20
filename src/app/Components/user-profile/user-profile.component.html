@@ -33,7 +33,7 @@
             </div>
             <hr>
             <div>
-                <span class="profileName"><img style="width: 10px; height: 10px;"
+                <span class="profileName" routerLink="/user-profile-forgot-pass"><img style="width: 10px; height: 10px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">Change Password</span></span>
             </div>
@@ -108,13 +108,13 @@
                         <div class="content3">
                             <div class="box5">
                                 <div class="mt-5 userLable">
-                                    <h6>FIRSTNAME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                    <h6>FIRSTNAME <img src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
                                             (click)="openUser(1)"></h6>
                                 </div>
 
                                 <!-- code for div of update data -->
                                 <div class="forDiv" *ngIf="showNewDiv==1 && isvalid"
-                                    style="position: absolute; margin-top: 25px;">
+                                    style="position: absolute; margin-top: 10px;">
                                     <div>
                                         <button style="float: right;" (click)="openUser1()"
                                             class="btn btn-outline-danger">X</button>
@@ -148,13 +148,13 @@
                                     <!-- <h5>padmakar</h5> -->
                                 </div>
                                 <div class="mt-5 userLable">
-                                    <h6>LASTNAME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                    <h6>LASTNAME <img src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
                                             (click)="openUser(2)"></h6>
                                 </div>
 
                                 <!-- code for div of update data -->
                                 <div class="forDiv" *ngIf="showNewDiv==2 && isvalid"
-                                    style="position: absolute; margin-top: 25px;">
+                                    style="position: absolute; margin-top: 10px;">
                                     <div>
                                         <button style="float: right;" (click)="openUser1()"
                                             class="btn btn-outline-danger">X</button>
@@ -189,13 +189,13 @@
                             </div>
                             <div class="box6">
                                 <div class="mt-5 userLable">
-                                    <h6>HOMETOWN <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                    <h6>HOMETOWN <img src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
                                             (click)="openUser(3)"></h6>
                                 </div>
 
                                 <!-- code for div of update data -->
                                 <div class="forDiv" *ngIf="showNewDiv==3 && isvalid"
-                                    style="position: absolute; margin-top: 25px;">
+                                    style="position: absolute; margin-top: 10px;">
                                     <div>
                                         <button style="float: right;" (click)="openUser1()"
                                             class="btn btn-outline-danger">X</button>
@@ -218,7 +218,7 @@
                                     <div class="mt-3" style="float: right;">
                                         <button (click)="openUser1();" class="btn btn-outline-danger">Cancel</button>
                                         &nbsp;
-                                        <button (click)="userData(regForm3);openUser1();"
+                                        <button (click)="userData(regForm3);openUser1();geoMap()"
                                             class="btn btn-outline-success">Save</button>
                                     </div>
                                 </div>
@@ -228,13 +228,13 @@
                                     <!-- <h5>wakadi</h5> -->
                                 </div>
                                 <div class="mt-5 userLable">
-                                    <h6>BIRTHDATE <img src="../../../assets/StaticAssets/profile page/edit.png"
+                                    <h6>BIRTHDATE <img src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
                                             (click)="openUser(4)"></h6>
                                 </div>
 
                                 <!-- code for div of update data -->
                                 <div class="forDiv" *ngIf="showNewDiv==4 && isvalid"
-                                    style="position: absolute; margin-top: 25px;">
+                                    style="position: absolute; margin-top: 10px;">
                                     <div>
                                         <button style="float: right;" (click)="openUser1()"
                                             class="btn btn-outline-danger">X</button>
@@ -283,23 +283,23 @@
                 </div>
                 <div class="mt-3 userAbout">
                     <div>
-                        <p class="userAbout1">ABOUT ME <img src="../../../assets/StaticAssets/profile page/edit.png"
+                        <p class="userAbout1">ABOUT ME <img src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
                                 (click)="openUser(5)"></p>
                     </div>
 
                     <!-- code for div of update data -->
-                    <div class="forDiv" *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 10px; width: 54%;">
                         <div>
                             <button style="float: right;" (click)="openUser1()"
                                 class="btn btn-outline-danger">X</button>
                         </div>
                         <form class="example-form" #regForm3="ngForm">
-                            <div style="margin-top: 15%;display: none;">
+                            <div style="margin-top: 5%;display: none;">
                                 <label>Id :</label>
                                 <input type="text" autocomplete="off" class="form-control shadow bg-body rounded"
                                     placeholder="id" [(ngModel)]="loginservice.loginAllData.id" name="id">
                             </div>
-                            <div style="margin-top: 15%;">
+                            <div style="margin-top: 5%;">
                                 <label>About Me :</label>
                                 <textarea type="text" autocomplete="off" class="form-control shadow bg-body rounded"
                                 onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)"
@@ -313,7 +313,7 @@
                             <button (click)="userData(regForm3);openUser1();"
                                 class="btn btn-outline-success">Save</button>
                         </div>
-                    </div>
+                    </div> 
 
                     <div>
                         <p>{{loginservice.loginAllData?.comment}}</p>
@@ -322,7 +322,7 @@
                 </div>
                 <div class="mt-3">
                     <div>
-                        <input id="address" type="textbox" value="" [(ngModel)]="userHometown" style="display: none;">
+                        <input id="address" type="textbox" value="" [(ngModel)]="loginservice.loginAllData.hometown" style="display: none;" >
                         <!-- <input type="button" value="Encode" (click)="codeAddress()"> -->
                         <button (click)="codeAddress()" style="display: none;">user</button>
                     </div>

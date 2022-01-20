@@ -1,0 +1,97 @@
+/* css for labels */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    margin-top: 10%;
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+#loginDiv1{
+    left: 67%;
+    margin-top: -15%;
+}
+
+.fireError{
+    color: tomato;
+    font-size: small;
+}
+.forButtonSlide{
+    right: 62%;
+}
+.forButtonSlide1{
+    right: 27%;
+}
+#forDivText{
+    left: 70%;
+    margin-top: -14%;
+}
+#forDivText1{
+    left: 144%;
+    margin-top: -22%;
+}
+
+
+.login{
+    font-family: 'Libre Franklin', sans-serif;
+    height:auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    float: left;
+}
+.form{
+    height: 100%;
+    width: 50%;
+   
+}
+#loginLabel1{
+    right: 64%;
+}
+
+.image{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content:center;
+    /* background-image: url('../../../assets/StaticAssets/Login Page/46.png'); */
+    background-image: url('../../../../assets/StaticAssets/Login Page/46.png');
+
+}
+.image img{
+    height: 130%;
+    width: 84%;
+
+}
+.showCase{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    /* justify-content:space-between; */
+    flex-direction: column;
+}
+
+@media (min-width:481px) and (max-width:780px){
+   
+}

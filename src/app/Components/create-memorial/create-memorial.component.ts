@@ -261,6 +261,7 @@ export class CreateMemorialComponent implements OnInit {
 
 
   register(regData: any) {
+    debugger;
     console.log(regData);
     this.service.memCreatePostData().subscribe((res: any) => {
       // this.msg("you have created successfully account");

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-pass-active-pop',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPassActivePopComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  changePassword(){
+    localStorage.clear();
+    setTimeout(() => {
+          this.router.navigate(['/login'])
+            .then(() => {
+              window.location.reload();
+            });
+        }, 1000);
+    // this.router.navigate(['/login'])
+  }
 }

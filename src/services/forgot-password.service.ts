@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ForgotPasswordService {
 
   forgotAPI = "https://h2913228.stratoserver.net/API/public/updatePassword";
+  changePasswordAPI="https://h2913228.stratoserver.net/API/public/changePassword"
 
   saveEmailId:any;
   saveAuthToken:any;
@@ -22,6 +23,10 @@ export class ForgotPasswordService {
 
   forgotPassword(forgotData:any){
     return this.http.post(this.forgotAPI,forgotData);
+  }
+  ChangePassword(forgotData1:any){
+    debugger
+    return this.http.post(this.changePasswordAPI,forgotData1)
   }
 }
 

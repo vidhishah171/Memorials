@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
   isVisible: boolean;
   respo7: any;
   respo8: any;
+  loginData: any;
+  condition: boolean;
   constructor(
     public loginservice:LoginService,
     public dialog:MatDialog,
@@ -39,19 +41,32 @@ export class NavbarComponent implements OnInit {
     // this.p=this.loginservice.loginSaveData;
     // this.p=this.loginservice.loginSaveData
     // var username=this.loginservice.loginSaveData.user
+    debugger
+    this.getData();
     this.editData();
     this.buttonLanguage(this.editservice.numLabel);
    }
+   getData() {
+     debugger
+    var userLoginData = localStorage.getItem('myData')
+    var loginAfterRefresh = JSON.parse(userLoginData);
+
+    if (loginAfterRefresh) {
+      debugger
+      this.loginData = loginAfterRefresh.user[0].firstname;
+      this.loginservice.loginSaveData = this.loginData;
+      this.loginservice.loginAllData = loginAfterRefresh.user[0];
+      this.loginservice.islogin = true;
+    } else {
+      // this.router.navigate(['/login']);
+      this.condition = true;
+      // this.snackBar("Please check Email and password", "alert-danger");
+    }
+  }
 
   //  For logout
   userLogout(){
     debugger;
-    // var status=this.loginservice.loginAllData.status
-    // var loginCookie = localStorage.getItem("status");
-    // if(loginCookie == "1"){
-    //   return false;
-    // }
-    // return true;
     localStorage.clear();
     setTimeout(() => {
       this.router.navigate([''])

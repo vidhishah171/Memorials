@@ -45,6 +45,8 @@ export class UserProfileComponent implements OnInit {
   isDisplay4: boolean;
 
   maxDate = new Date();
+  loginData: any;
+  condition: boolean;
 
 
   constructor(
@@ -65,7 +67,7 @@ export class UserProfileComponent implements OnInit {
     setTimeout(() => {
       this.codeAddress();
       this.initialize();
-    }, 2000);
+    }, 1000);
 
     this.initialize();
   }
@@ -73,10 +75,29 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
 
     // this.initAutocomplete();
+    this.getData();
     this.initialize();
     this.getUserMemorial();
     this.userProfile();
     this.userProfileDate();
+  }
+
+  // for user after the login
+  getData() {
+    var userLoginData = localStorage.getItem('myData')
+    var loginAfterRefresh = JSON.parse(userLoginData);
+
+    if (loginAfterRefresh) {
+      debugger
+      this.loginData = loginAfterRefresh.user[0].firstname;
+      this.loginservice.loginSaveData = this.loginData;
+      this.loginservice.loginAllData = loginAfterRefresh.user[0];
+      this.loginservice.islogin = true;
+    } else {
+      this.router.navigate(['/login']);
+      this.condition = true;
+      // this.snackBar("Please check Email and password", "alert-danger");
+    }
   }
 
   // New code for map
@@ -226,6 +247,16 @@ export class UserProfileComponent implements OnInit {
     this.profileService.userProfile(userData).subscribe(responce => {
       console.log(responce);
     })
+  }
+
+  geoMap(){
+    debugger
+    setTimeout(() => {
+      this.codeAddress();
+      this.initialize();
+    }, 1000);
+
+    this.initialize();
   }
 
 
