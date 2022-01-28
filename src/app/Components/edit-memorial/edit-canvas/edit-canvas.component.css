@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+
+.vertical-menu {
+    width: 80%;
+    height: 150px;
+    overflow-y: auto;
+  }
 
 /* css for labels */
 .forButton{
@@ -24,6 +32,22 @@
     font-size: 1rem;
     background-color: white;
 }
+.forVitaDiv{
+    position: absolute;
+    z-index: 10;
+    color: black;
+    border: 1px dotted tomato;
+    /* text-align: center; */
+    border-radius: 10px;
+    height: auto;
+    margin-top: 50%;
+    margin-left: 4%;
+    width: 39%;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+    /* style="position: absolute; margin-top: 10px;" */
+}
+
 
 #canvasDivCss1{
     left: 178%;
@@ -155,6 +179,22 @@
     /* display: block; */
     /* height: 500px !important; */
     /* width: 500px !important;  */
+}
+
+.vitaFetch{
+    margin-left: 3%;
+    margin-top: 5%;
+    font-family: 'Noto Sans KR', sans-serif; 
+    font-size: 0.9rem;
+}
+.vitaImage{
+    width: 79.666667%;
+}
+.vitaImage1{
+    margin-left: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
 }
 
 .box2{
@@ -474,6 +514,11 @@
          align-items: center;
          /* flex-wrap: wrap; */
      }
+     .forVitaDiv{
+        margin-top: 90%;
+        margin-left: 13%;
+        width: 74%;
+    }
 
      .box1 button{
         margin-left: 265px;
@@ -555,6 +600,7 @@
     }
 
 }
+
 @media (min-width:781px) and (max-width:1160px){
     .box1{
         /* background-color: rebeccapurple; */
@@ -565,6 +611,11 @@
          align-items: center;
          /* flex-wrap: wrap; */
      }
+     .forVitaDiv{
+        margin-top: 84%;
+        margin-left: 5%;
+        width: 70%;
+    }
      .box2{
         /* background-color: #f87171;  */
        height: auto;

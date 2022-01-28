@@ -84,7 +84,7 @@ export class UserProfileComponent implements OnInit {
 
   // for user after the login
   getData() {
-    var userLoginData = localStorage.getItem('myData')
+    var userLoginData = sessionStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {

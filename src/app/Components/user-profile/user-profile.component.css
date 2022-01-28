@@ -184,10 +184,12 @@ agm-map {
         margin-left: 60%;
     }
 } */
-@media (min-width:820px){
+@media (min-width:781px) and (max-width:821px){
     .forProfileDiv{
-        margin-left: 60%;
+        margin-left: 66%;
+        width: 216px;
     }
+
 }
 @media (min-width:1398px) and (max-width:1520px){
     .forProfileDiv{

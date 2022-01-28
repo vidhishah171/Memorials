@@ -7,29 +7,15 @@
     color: white;
     padding-top: 2%;
 }
+.userDate{
+    text-align: center;
+    color: white;
+}
 .userBackground{
     text-align: center;
     color: white;
     padding-top: 1%;
     font-size: 0.6rem;
-}
-.userDate{
-    text-align: center;
-    color: white;
-}
-.userImage{
-    /* width: 100%;
-    height: auto; */
-    text-align: center;
-    width: 5%;
-    height: auto;
-    /* border: 2px solid black; */
-}
-.userImage1{
-    border: 2px solid black;
-    width: 5%;
-    text-align: center;
-    height: auto;
 }
 .circleImage{
     width: 11%;
@@ -39,18 +25,6 @@
     border: 5px solid white;
     background-color: gray;
 }
-.btnColor{
-    color: black;
-}
-.btnColor:hover{
-    color: white;
-}
-.btnColor1{
-    color: green;
-}
-.btnColor1:hover{
-    color: white;
-}
 .photoVideoGallary{
     height: 25vw;
     background-color: #F8F4EF;
@@ -58,6 +32,20 @@
 .editCondolences{
     text-align: center;
 }
+/* For editCondolences */
+.condolencesEdit{
+    /* border: 1px solid black;  */
+    background-color: #CF6363;
+    border-radius: 10px;
+    width: 100%; 
+    height: auto;
+    display: flex;
+}
+.readAllCondo{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
 .subscribeImage{
     /* background-image: "../../../assets/StaticAssets/Visitor Mode/112.png"; */
     background-image: url('../../../assets/StaticAssets/Visitor Mode/112.png');
@@ -71,6 +59,10 @@
 }
 .recentMemorial{
     background-color: #F8F4EF;
+}
+.recentHeading{
+    font-weight: bold;
+    text-align: center;
 }
 .recentMemo{
     /* width:30%; */
@@ -87,10 +79,6 @@
     padding: 0%;
    
 }
-.recentHeading{
-    font-weight: bold;
-    text-align: center;
-}
 .recentImage{
     width: 83%;
     height: auto;
@@ -98,20 +86,28 @@
     text-align: center;
 
 }
-.readAllCondo{
-    padding-left: 3%;
-    padding-right: 3%;
-}
 
-/* For editCondolences */
-.condolencesEdit{
-    /* border: 1px solid black;  */
-    background-color: #CF6363;
-    border-radius: 10px;
-    width: 100%; 
-    height: auto;
-    display: flex;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width:481px) and (max-width:979px){
     .photoVideoGallary{

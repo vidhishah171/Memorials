@@ -294,7 +294,7 @@
                     </div>
                 </li>
                 <li *ngIf="loginservice.islogin" class="userName">
-                    <span>Hii {{loginservice.loginSaveData}}</span>
+                    <span routerLink="/user-account" style="cursor: pointer;">Hii {{loginservice.loginSaveData}}</span>
                 </li>
                 <li class="navbarButtons">
                     <!-- *ngIf="isVisible" -->

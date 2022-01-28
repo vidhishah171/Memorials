@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 // import * as fabric from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
@@ -8,6 +9,7 @@ import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { UserProfileService } from 'src/services/user-profile.service';
+import { EditConfirmationPopupComponent } from '../edit-confirmation-popup/edit-confirmation-popup.component';
 
 @Component({
   selector: 'app-edit-canvas',
@@ -16,9 +18,9 @@ import { UserProfileService } from 'src/services/user-profile.service';
 })
 export class EditCanvasComponent implements OnInit {
 
-  vitaData:any;
-  data:any = {};
-  ImgRandomId =0;
+  vitaData: any;
+  data: any = {};
+  ImgRandomId = 0;
   newCanddleImages = [];
   canddleCaroucelCount: number = 1;
   canddleImages = [];
@@ -28,7 +30,7 @@ export class EditCanvasComponent implements OnInit {
   newFlowerImages = [];
   backgroundImages = [];
   canvas: fabric.Canvas;
-  canvas1:fabric.Canvas;
+  canvas1: fabric.Canvas;
   // canvas:any;
   showMenuItems: Number = 1;
   showSubMenItem: Number = 1;
@@ -42,8 +44,8 @@ export class EditCanvasComponent implements OnInit {
   imgUrl: any;
   // video1: any;
   public fill = '#000000';
-  
-  public selected:any;
+
+  public selected: any;
 
   removeId: any;
 
@@ -57,7 +59,7 @@ export class EditCanvasComponent implements OnInit {
   fontWeight: any;
   fontStyle: any;
   TextDecoration: '';
-  textAlign:any;
+  textAlign: any;
   Rate: any;
   p: any;
   paused: any;
@@ -85,9 +87,11 @@ export class EditCanvasComponent implements OnInit {
     public service: CreateMemorialService,
     private _sanitizer: DomSanitizer,
     public editservice: AdminEditService,
-    public loginservice:LoginService,
-    public editCanvas:EditMemorialService,
+    public loginservice: LoginService,
+    public editCanvas: EditMemorialService,
     public profileService: UserProfileService,
+    public dialog:MatDialog,
+
 
 
   ) { }
@@ -114,54 +118,88 @@ export class EditCanvasComponent implements OnInit {
     this.editData();
 
     this.postGrabId();
+    debugger
+    this.displayVitaText();
   }
 
   public textString: string;
-  public textString1:string;
+  public textString1: string;
 
 
   // public selected: any;
 
 
-  coloro:any='tomato';
-  name45:any;
-  DOB1:any;
-  DOD1:any;
+  coloro: any = 'tomato';
+  name45: any;
+  DOB1: any;
+  DOD1: any;
 
 
 
   // For display vita text
-  displayVitaText(displayVita){
-  this.editCanvas.fetchVita(displayVita).subscribe(response => {
+  displayVitaText() {
+    debugger
+    var fetchData = { "grab_id": this.profileService.userDetail }
+    this.editCanvas.fetchVita(fetchData).subscribe((response:any) => {
+      console.log(response);
+      if(response.details.vita_html !== "undefined"){
+        this.vitaData = response.details.vita_html;
+      }
+    })
+  }
+
+  // Open vita text input
+ 
+ openUser(num): void {
+
+  if (num == 100) {
+    this.showNewDiv = 100;
+    this.isvalid = true;
+  }
+}
+openUser1() {
+  this.isvalid = false;
+}
+
+userVitaData(data){
+  debugger;
+  console.log(data.value);
+  var vitaData = { "grab_id": this.profileService.userDetail,"vita_html":data.value.vita_html };
+
+  // const formData3 = new FormData();
+
+  //     formData3.append('grab_id', this.profileService.userDetail);
+  //     formData3.append('vita_html', data.value.vita_html);
+
+  this.editCanvas.vitaUpload(vitaData).subscribe((response:any) => {
     console.log(response);
-    this.vitaData=response;
-  })
+  });
 }
 
   addText1() {
-    this.DOB1=formatDate(this.service.createMemorial.DOB,'M.d.yyyy','en_US');
-    this.DOD1=formatDate(this.service.createMemorial.DOD,'M.d.yyyy','en_US');
-    this.name45=this.service.createMemorial.g_firstname + " " + this.service.createMemorial.g_lastname + " " + "(" + this.DOB1 + " " + "-" + " " + this.DOD1 + ")"
-      const text = new fabric.IText(this.name45, {
-        left: 172,
-        top: 20,
-        fontFamily: 'helvetica',
-        angle: 0,
-        scaleX: 0.4,
-        // fill:this.coloro,
-        scaleY: 0.4,
-        fontWeight: 'bold',
-        hasRotatingPoint: true,
-      });
-     
-      this.canvas.add(text);
+    this.DOB1 = formatDate(this.service.createMemorial.DOB, 'M.d.yyyy', 'en_US');
+    this.DOD1 = formatDate(this.service.createMemorial.DOD, 'M.d.yyyy', 'en_US');
+    this.name45 = this.service.createMemorial.g_firstname + " " + this.service.createMemorial.g_lastname + " " + "(" + this.DOB1 + " " + "-" + " " + this.DOD1 + ")"
+    const text = new fabric.IText(this.name45, {
+      left: 172,
+      top: 20,
+      fontFamily: 'helvetica',
+      angle: 0,
+      scaleX: 0.4,
+      // fill:this.coloro,
+      scaleY: 0.4,
+      fontWeight: 'bold',
+      hasRotatingPoint: true,
+    });
+
+    this.canvas.add(text);
   }
 
 
   canvasadd() {
     this.canvas = new fabric.Canvas('Mycanvas');
-    
-    
+
+
     this.removeSelected1();
     fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
       // this.service.selectedMainImg || this.service.selectedMain
@@ -169,69 +207,69 @@ export class EditCanvasComponent implements OnInit {
       newImg.toCanvasElement;
       newImg.top = 150;
       newImg.left = 135;
-     
+
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
 
-  // this.removeSelected1();
+      // this.removeSelected1();
 
-  
+
       this.extend(newImg, this.ImgRandomId);
 
       // alert("created random id is:-"+this.service.ImgRandomId);
-   
+
 
       // this.canvas.setActiveObject(newImg);
     });
     this.canvas.renderAll();
 
-    
+
     this.canvas.on('object:moving', function (e) {
       movingRotatingWithinBounds(e);
     });
 
-    this.canvas.on('object:scaling',function(e){
+    this.canvas.on('object:scaling', function (e) {
       scalling(e);
     })
-    
 
-  
 
-    
+
+
+
 
 
     //Delete object
 
- 
-    var Obj= new fabric.Control({
+
+    var Obj = new fabric.Control({
 
       render: this.renderIcon,
       x: 0.5,
       y: -0.5,
       // offsetY: 16,
       cursorStyle: 'pointer',
-      
-      mouseUpHandler:this.deleteObject,
-      // cornerSize:30
-  });
 
-  Obj['cornerSize']=36;
-  fabric.Object.prototype.controls.deleteControl  =Obj;
+      mouseUpHandler: this.deleteObject,
+      // cornerSize:30
+    });
+
+    Obj['cornerSize'] = 36;
+    fabric.Object.prototype.controls.deleteControl = Obj;
   }
 
-  deleteObject(eventData, transform):boolean {
+  deleteObject(eventData, transform): boolean {
     var target = transform.target;
     var canvas = target.canvas;
     canvas.remove(target);
     canvas.requestRenderAll();
     return true;
-    
+
   }
-  renderIcon(ctx, left, top, styleOverride, fabricObject):boolean {
+  renderIcon(ctx, left, top, styleOverride, fabricObject): boolean {
     // var deleteIcon="../../../../assets/StaticAssets/trash 3.svg";
-    var deleteIcon="../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
+    var deleteIcon = "../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
     var img = document.createElement('img');
     img.src = deleteIcon;
 
@@ -239,7 +277,7 @@ export class EditCanvasComponent implements OnInit {
     var size = 20;
     ctx.translate(left, top);
     ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
-    ctx.drawImage(img,-size/2, -size/2, size, size);
+    ctx.drawImage(img, -size / 2, -size / 2, size, size);
     ctx.restore();
     ctx.save();
     return true;
@@ -265,12 +303,12 @@ export class EditCanvasComponent implements OnInit {
     })
   }
 
-  
+
 
   removeSelected() {
     const activeObject = this.canvas.getActiveObject();
     const activeGroup = this.canvas.getActiveObjects();
-    
+
     if (activeObject) {
       this.canvas.remove(activeObject);
       // this.textString = '';
@@ -300,10 +338,10 @@ export class EditCanvasComponent implements OnInit {
 
 
 
-  
+
   //------------------------------
   DropImageToCan(dragImage: any) {
-    
+
     this.addImageToCanvas(dragImage);
   }
   addImageToCanvas(decImages: any) {
@@ -314,7 +352,7 @@ export class EditCanvasComponent implements OnInit {
     //   self.canvas.renderAll();
     //   fabric.util.requestAnimFrame(render);
     // });
-    
+
 
     fabric.Image.fromURL(decImages.path, (newImg) => {
       // decImages.path
@@ -322,7 +360,7 @@ export class EditCanvasComponent implements OnInit {
 
       this.canvas.add(newImg);
       let self = this;
-      
+
       newImg.toCanvasElement;
       newImg.originX = 'center';
       newImg.originY = 'center';
@@ -330,14 +368,14 @@ export class EditCanvasComponent implements OnInit {
       newImg.bringToFront();
       // newImg.scaleToHeight(300);
       // newImg.scaleToWidth(300);
-      this.canvas.setActiveObject(newImg); 
-      
-   
+      this.canvas.setActiveObject(newImg);
+
+
     },
       {
         // left: 180,
         // top: 280
-        
+
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
       })
@@ -345,7 +383,7 @@ export class EditCanvasComponent implements OnInit {
 
   addImageToCanvas1(decImages1: any) {
     this.removeSelected1();
-    
+
     fabric.Image.fromURL(decImages1.path, (newImg1) => {
       // decImages.path
       // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
@@ -359,7 +397,7 @@ export class EditCanvasComponent implements OnInit {
       newImg1.scaleToWidth(300);
       newImg1.sendToBack();
 
-    //  this.removeSelected1();
+      //  this.removeSelected1();
       this.ImgRandomId = this.randomId();
 
       this.extend(newImg1, this.ImgRandomId);
@@ -381,7 +419,7 @@ export class EditCanvasComponent implements OnInit {
     } else if (num == 4) {
       this.showMenuItems = 4;
     }
-    
+
   }
   showSubMenuItems(num) {
     if (num == 1) {
@@ -422,10 +460,10 @@ export class EditCanvasComponent implements OnInit {
         hasRotatingPoint: true,
         // textAlign:this.textAlign,
       });
-      
+
       // this.context.textAlign='center';
 
-      
+
 
       this.extend(text, this.randomId());
       this.canvas.add(text);
@@ -433,12 +471,12 @@ export class EditCanvasComponent implements OnInit {
       this.textString = '';
 
 
-      
-      
+
+
     }
-    
+
   }
-  
+
 
   extend(obj, id) {
     obj.toObject = ((toObject) => {
@@ -480,7 +518,7 @@ export class EditCanvasComponent implements OnInit {
     this.textAlign = value;
     this.setActiveProp('textAlign', this.textAlign);
   }
-  
+
 
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
@@ -605,16 +643,16 @@ export class EditCanvasComponent implements OnInit {
   setBackgImage(backImage: any) {
     // this.canvas.setBackgroundImage(backImage.path, this.canvas.renderAll.bind(this.canvas));
 
-    fabric.Image.fromURL(backImage.path,(img)=>{
+    fabric.Image.fromURL(backImage.path, (img) => {
       img.set({
         scaleX: this.canvas.width / img.width,
         scaleY: this.canvas.height / img.height
       });
-      this.canvas.setBackgroundImage(img,this.canvas.renderAll.bind(this.canvas));
+      this.canvas.setBackgroundImage(img, this.canvas.renderAll.bind(this.canvas));
     });
     this.canvas.renderAll();
   }
-  
+
 
   //---------------------
 
@@ -872,7 +910,8 @@ export class EditCanvasComponent implements OnInit {
   }
 
   // addVita(redata:any){
-  //   console.log(redata);
+    // debugger
+    // console.log(redata);
   //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
 
   //   })
@@ -896,7 +935,7 @@ export class EditCanvasComponent implements OnInit {
   }
 
 
-   play(){
+  play() {
     var $this = this; //cache
     (function loop() {
       if (!$this.paused && !$this.ended) {
@@ -921,59 +960,59 @@ export class EditCanvasComponent implements OnInit {
 
         //-------Optional code for displaying videos---------
 
-              // setTimeout(() => {
-        
-              var canvas =<HTMLCanvasElement> document.getElementById('Mycanvas');
-              var ctx= canvas.getContext("2d");
-              var video1E1 =<HTMLImageElement> document.getElementById('video1');
+        // setTimeout(() => {
 
-              var video2  = new fabric.Image(video1E1, {
-                left: 200,
-                top: 300,
-                // scaleX: this.canvas.width / this.video1.width,
-                // scaleY: this.canvas.height / this.video1.height,
-                statefullCache: false,
-                originX: 'center',
-                originY: 'center',
-                objectCaching: false,
-                hasControls:true,
-                
+        var canvas = <HTMLCanvasElement>document.getElementById('Mycanvas');
+        var ctx = canvas.getContext("2d");
+        var video1E1 = <HTMLImageElement>document.getElementById('video1');
 
-              })
-              this.canvas.setActiveObject(video2);
-              video2.scaleToHeight(200);
-              video2.scaleToWidth(200);
-
-              video2.bringToFront();
-              this.canvas.add(video2);
-              // video2.getElement().play();
+        var video2 = new fabric.Image(video1E1, {
+          left: 200,
+          top: 300,
+          // scaleX: this.canvas.width / this.video1.width,
+          // scaleY: this.canvas.height / this.video1.height,
+          statefullCache: false,
+          originX: 'center',
+          originY: 'center',
+          objectCaching: false,
+          hasControls: true,
 
 
-              fabric.util.requestAnimFrame(function render() {
-                this.canvas.renderAll();
+        })
+        this.canvas.setActiveObject(video2);
+        video2.scaleToHeight(200);
+        video2.scaleToWidth(200);
 
-                fabric.util.requestAnimFrame(render);
-              });
+        video2.bringToFront();
+        this.canvas.add(video2);
+        // video2.getElement().play();
 
 
+        fabric.util.requestAnimFrame(function render() {
+          this.canvas.renderAll();
+
+          fabric.util.requestAnimFrame(render);
+        });
 
 
 
-              // --------------------------------------
-
-              // this.canvas.add(video1)
-              // ctx.drawImage(video1E1 ,5,5,100,30)
-              // this.canvas.renderAll();
-              
-
-              
-
-              
 
 
-            // }, 2);
+        // --------------------------------------
 
-          // }
+        // this.canvas.add(video1)
+        // ctx.drawImage(video1E1 ,5,5,100,30)
+        // this.canvas.renderAll();
+
+
+
+
+
+
+
+        // }, 2);
+
+        // }
         // }
 
 
@@ -1034,16 +1073,16 @@ export class EditCanvasComponent implements OnInit {
     } else if (num == 6) {
       this.showNewDiv = 6;
       this.isvalid = true;
-    }else if (num == 7) {
+    } else if (num == 7) {
       this.showNewDiv = 7;
       this.isvalid = true;
-    }else if (num == 8) {
+    } else if (num == 8) {
       this.showNewDiv = 8;
       this.isvalid = true;
-    }else if (num == 9) {
+    } else if (num == 9) {
       this.showNewDiv = 9;
       this.isvalid = true;
-    }else if (num == 10) {
+    } else if (num == 10) {
       this.showNewDiv = 10;
       this.isvalid = true;
     }
@@ -1083,71 +1122,77 @@ export class EditCanvasComponent implements OnInit {
     })
   }
 
- 
-
-postGrabId(){
-  var jsonData=this.profileService.userDetail
-
-  var formdata=new FormData();
-  formdata.append('grab_id',jsonData);
-
-  this.editCanvas.fetchJson(formdata).subscribe((Response:any)=>{
-    console.log(Response);
-    this.editCanvas.lovedPersonData=Response;
-    if(Response){
-      debugger
-      var jsonData1=Response.Details[0].canvas_json;
-      this.canvas.loadFromJSON(jsonData1, () => {
-
-        // making sure to render canvas at the end
-        this.canvas.renderAll();
-      })
-    }
-  })
-}
-
-// Save json from edit memorial
-saveEditMemorial(){
-  var userId = this.profileService.userDetailUserId;
-  var grabId = this.profileService.userDetail;
-  var json = JSON.stringify(this.canvas);
-
-  // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
-
-  // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
-  //   console.log(Response);
-  // });
 
 
-  // For preview Image
+  postGrabId() {
+    debugger
+    var jsonData = this.profileService.userDetail
 
-  const image = new Image();
+    var formdata = new FormData();
+    formdata.append('grab_id', jsonData);
+
+    this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
+      console.log(Response);
+      this.editCanvas.lovedPersonData = Response;
+      if (Response) {
+        debugger
+        var jsonData1 = Response.Details[0].canvas_json;
+        this.canvas.loadFromJSON(jsonData1, () => {
+
+          // making sure to render canvas at the end
+          this.canvas.renderAll();
+        })
+      }
+    })
+  }
+
+  // Save json from edit memorial
+  saveEditMemorial() {
+    debugger;
+    var userId = this.profileService.userDetailUserId;
+    var grabId = this.profileService.userDetail;
+    var json = JSON.stringify(this.canvas);
+
+    // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
+
+    // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
+    //   console.log(Response);
+    // });
+
+
+    // For preview Image
+
+    const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });
     this.service.saveCanvas = image.src;
 
-      var test = this.service.saveCanvas;
+    var test = this.service.saveCanvas;
 
 
 
-      const formData = new FormData();
+    const formData = new FormData();
 
 
-      formData.append('grab_id', grabId);
-      formData.append('image', 'Image');
-      formData.append('image_type_id', '7');
-      formData.append('x', '100');
-      formData.append('y', '120');
-      formData.append('height', '200');
-      formData.append('width', '300');
-      formData.append('user_id', userId);
-      formData.append('canvas_json', json);
-      formData.append('canvas_preview_base64', test);
+    formData.append('grab_id', grabId);
+    formData.append('image', 'Image');
+    formData.append('image_type_id', '7');
+    formData.append('x', '100');
+    formData.append('y', '120');
+    formData.append('height', '200');
+    formData.append('width', '300');
+    formData.append('user_id', userId);
+    formData.append('canvas_json', json);
+    formData.append('canvas_preview_base64', test);
 
-      this.service.memCreateImageData(formData).subscribe(result => {
-      })
+    this.service.memCreateImageData(formData).subscribe((result:any) => {
+      console.log(result);
+      if(result.status == "success"){
+      this.dialog.open(EditConfirmationPopupComponent);
+    }
+    })
 
-}
+  }
 
 
 }
@@ -1172,34 +1217,34 @@ function movingRotatingWithinBounds(e: fabric.IEvent) {
 }
 
 var left1 = 0;
-    var top1 = 0 ;
-    var scale1x = 0 ;    
-    var scale1y = 0 ;    
-    var width1 = 0 ;    
-    var height1 = 0 ;
+var top1 = 0;
+var scale1x = 0;
+var scale1y = 0;
+var width1 = 0;
+var height1 = 0;
 
 
-function scalling(e:fabric.IEvent){
+function scalling(e: fabric.IEvent) {
   var obj = e.target;
-    obj.setCoords();
-    var brNew = obj.getBoundingRect();
-    
-    if (((brNew.width+brNew.left)>=obj.canvas.width) || ((brNew.height+brNew.top)>=obj.canvas.height) || ((brNew.left<0) || (brNew.top<0))) {
+  obj.setCoords();
+  var brNew = obj.getBoundingRect();
+
+  if (((brNew.width + brNew.left) >= obj.canvas.width) || ((brNew.height + brNew.top) >= obj.canvas.height) || ((brNew.left < 0) || (brNew.top < 0))) {
     obj.left = left1;
-    obj.top=top1;
-    obj.scaleX=scale1x;
-    obj.scaleY=scale1y;
-    obj.width=width1;
-    obj.height=height1;
+    obj.top = top1;
+    obj.scaleX = scale1x;
+    obj.scaleY = scale1y;
+    obj.width = width1;
+    obj.height = height1;
   }
-    else{    
-      left1 =obj.left;
-      top1 =obj.top;
-      scale1x = obj.scaleX;
-      scale1y=obj.scaleY;
-      width1=obj.width;
-      height1=obj.height;
-    }
+  else {
+    left1 = obj.left;
+    top1 = obj.top;
+    scale1x = obj.scaleX;
+    scale1y = obj.scaleY;
+    width1 = obj.width;
+    height1 = obj.height;
+  }
 
 
 

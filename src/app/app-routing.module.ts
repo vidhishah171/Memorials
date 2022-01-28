@@ -21,6 +21,7 @@ import { CreatePremiunMemComponent } from './Components/create-premiun-mem/creat
 import { CanvasComponent } from './Components/create-memorial/canvas/canvas.component';
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
 import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
+import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path:"canvas",component:CanvasComponent},
   {path:"forgot-pass-active",component:ForgotPassAcitveComponent},
   {path:"user-profile-forgot-pass",component:ForgotPassComponent},
+  {path:"visitor-mode",component:VisitorModeComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

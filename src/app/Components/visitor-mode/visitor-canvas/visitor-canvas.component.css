@@ -1,0 +1,41 @@
+.vitaImage{
+    width: 79.666667%;
+}
+.vitaImage1{
+    margin-left: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+.canvas{
+    /* background-color: red; */
+    border:2px solid black;
+    /* height: auto;
+    width: 100%;
+    object-fit: contain; */
+    /* display: block; */
+    /* height: 500px !important; */
+    /* width: 500px !important;  */
+}
+.vitaFetch{
+    margin-left: 15%;
+    margin-top: 5%;
+    font-family: 'Noto Sans KR', sans-serif; 
+    font-size: 0.9rem;
+}
+.vertical-menu {
+    width: 80%;
+    height: 150px;
+    overflow-y: auto;
+}
+.box1{
+    /* background-color: rebeccapurple; */
+     height: auto;
+     width:47%;
+     display: flex;
+     flex-direction: column;
+     /* left: auto; */
+     align-items: center;
+     /* flex-wrap: wrap; */
+ }
+  

@@ -61,6 +61,9 @@ import { EditCanvasComponent } from './Components/edit-memorial/edit-canvas/edit
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
 import { ForgotPassActivePopComponent } from './Components/forgot-pass-acitve/forgot-pass-active-pop/forgot-pass-active-pop.component';
 import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
+import { EditConfirmationPopupComponent } from './Components/edit-memorial/edit-confirmation-popup/edit-confirmation-popup.component';
+import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
+import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas/visitor-canvas.component';
 
 
 
@@ -101,6 +104,9 @@ import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgo
     ForgotPassAcitveComponent,
     ForgotPassActivePopComponent,
     ForgotPassComponent,
+    EditConfirmationPopupComponent,
+    VisitorModeComponent,
+    VisitorCanvasComponent,
   ],
   imports: [
     BrowserModule,

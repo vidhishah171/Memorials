@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/services/login.service';
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 
 @Component({
@@ -21,6 +22,8 @@ export class UserAccountComponent implements OnInit {
     public loginservice: LoginService,
     public profileService: UserProfileService,
     private router: Router,
+    public service : RecentMeorialsService,
+
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +32,7 @@ export class UserAccountComponent implements OnInit {
   }
   // for user after the login
   getData() {
-    var userLoginData = localStorage.getItem('myData')
+    var userLoginData = sessionStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -63,6 +66,8 @@ export class UserAccountComponent implements OnInit {
       .subscribe(userRes => {
         console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
+        this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
+
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
 

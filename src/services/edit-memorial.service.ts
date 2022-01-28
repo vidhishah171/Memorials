@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class EditMemorialService {
 
   fetchVitaApi="https://h2913228.stratoserver.net/API/public/fetch_vita";
+  vitaUploadAPI="https://h2913228.stratoserver.net/API/public/vita_upload";
   memorialDetails="https://h2913228.stratoserver.net/API/public/memorialDetails";
   editMemorialApi="https://h2913228.stratoserver.net/API/public/editMemorial";
 
@@ -20,7 +21,12 @@ export class EditMemorialService {
 
 
   fetchVita(result){
+    debugger;
     return this.http.post(this.fetchVitaApi,result);
+  }
+  vitaUpload(result1){
+    debugger
+    return this.http.post(this.vitaUploadAPI,result1);
   }
 
   fetchJson(data){

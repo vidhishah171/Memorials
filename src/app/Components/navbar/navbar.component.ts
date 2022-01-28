@@ -48,7 +48,7 @@ export class NavbarComponent implements OnInit {
    }
    getData() {
      debugger
-    var userLoginData = localStorage.getItem('myData')
+    var userLoginData = sessionStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -67,7 +67,7 @@ export class NavbarComponent implements OnInit {
   //  For logout
   userLogout(){
     debugger;
-    localStorage.clear();
+    sessionStorage.clear();
     setTimeout(() => {
       this.router.navigate([''])
       .then(() => {

@@ -1,7 +1,9 @@
 <div>
+    <!-- Navbar -->
     <div>
         <app-navbar></app-navbar>
     </div>
+    <!-- Heading -->
     <div>
         <div class="userHeading">
             <h1>{{lovedPersonData?.fname}}&nbsp;{{lovedPersonData?.lname}}</h1>
@@ -19,6 +21,7 @@
             </div>
         </div>
     </div>
+
     <!-- Buttons -->
     <div class="container">
         <div class="mt-5">
@@ -31,10 +34,12 @@
             </div>
         </div>
     </div>
+
     <!-- Canvas component -->
     <div style="height: 70vw;" class="pt-5">
-        <app-edit-canvas></app-edit-canvas>
+        <app-visitor-canvas></app-visitor-canvas>
     </div>
+
     <!-- Photo/video gallery -->
     <div>
         <div class="photoVideoGallary">
@@ -56,14 +61,21 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="condolencesEdit">
-                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et neque ipsum molestiae iure molestias ut atque, eos maxime quidem minima. Excepturi totam adipisci harum natus?</p>
+                                <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum,
+                                    dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus
+                                    repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et
+                                    neque ipsum molestiae iure molestias ut atque,</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="condolencesEdit">
-                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum nihil dolore.</p>
+                                <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum
+                                    dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam
+                                    vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam
+                                    perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum
+                                    nihil dolore.</p>
                             </div>
                         </div>
                     </div>
@@ -95,8 +107,8 @@
         </div>
     </div>
 
-    <!-- Recent memorials -->
-    <div class="recentMemorial mt-5">
+     <!-- Recent memorials -->
+     <div class="recentMemorial mt-5">
         <div class="container">
             <h4 class="mb-4">
                 <h5 class="recentHeading pt-5">Recent memorials</h5>
@@ -120,10 +132,17 @@
             </div>
         </div>
     </div>
+
+    <!-- For memorial Image -->
     <div class="mt-5">
         <app-memory-image></app-memory-image>
     </div>
+
+    <!-- For footer -->
     <div>
         <app-footer></app-footer>
     </div>
+
+
+
 </div>

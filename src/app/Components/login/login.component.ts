@@ -120,7 +120,7 @@ export class LoginComponent implements OnInit {
   setData() {
     debugger
     const jsonData = JSON.stringify(this.data)
-    localStorage.setItem('myData', jsonData)
+    sessionStorage.setItem('myData', jsonData)
   }
  
  
