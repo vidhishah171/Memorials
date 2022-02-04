@@ -13,46 +13,83 @@ import { UserProfileService } from 'src/services/user-profile.service';
 })
 export class EditMemorialComponent implements OnInit {
 
-  Memorials:any;// Recent Memorial Variable
+  Memorials: any;// Recent Memorial Variable
 
   canvas: fabric.Canvas;
   lovedPersonData: any;
+  getUserMemoData: any;
 
 
 
   constructor(
-    public service : RecentMeorialsService,
+    public service: RecentMeorialsService,
     public createService: CreateMemorialService,
     public loginService: LoginService,
-    public editMemorial:EditMemorialService,
+    public editMemorial: EditMemorialService,
     public profileService: UserProfileService,
-    public editCanvas:EditMemorialService,
+    public editCanvas: EditMemorialService,
 
 
-  ) { }
+  ) {
+    // this.getUserMemorial();
+    // var p=this.service.userGrabIdData;
+    // var q=this.profileService.userDetailUserId;
+  }
 
   ngOnInit(): void {
     debugger
+    this.getData();
+    // this.getUserMemorial();
     this.getrecentMemorials();
     this.postGrabId();
   }
 
-  postGrabId(){
+  ngOnDestroy() {
     debugger
-    var jsonData=this.profileService.userDetail
-  
-    var formdata=new FormData();
-    formdata.append('grab_id',jsonData);
-  
-    this.editCanvas.fetchJson(formdata).subscribe((Response:any)=>{
+    window.location.reload();
+  }
+
+  getData() {
+    debugger
+    var userLoginData = sessionStorage.getItem('myData')
+    var loginAfterRefresh = JSON.parse(userLoginData);
+
+    this.loginService.loginAllData = loginAfterRefresh.user[0].id;
+    this.getUserMemorial();
+  }
+
+  // Get user Memorials for refresh user
+  getUserMemorial() {
+    debugger;
+    var data = { "user_id": this.loginService.loginAllData }
+    this.profileService.userCreatedMemorial(data)
+      .subscribe(userRes => {
+        console.log(userRes);
+        this.getUserMemoData = userRes["User Memorials"];
+        this.service.userGrabIdData = userRes["User Memorials"][0].grab_id;
+
+        this.getrecentMemorials();
+        this.postGrabId();
+        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
+      })
+  }
+
+  postGrabId() {
+    debugger
+    var jsonData = this.service.userGrabIdData
+
+    var formdata = new FormData();
+    formdata.append('grab_id', jsonData);
+
+    this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
       console.log(Response);
       debugger
-      this.lovedPersonData=Response.Details[0];
+      this.lovedPersonData = Response.Details[0];
       // if(Response){
       //   debugger
       //   var jsonData1=Response.Details[0].canvas_json;
       //   this.canvas.loadFromJSON(jsonData1, () => {
-  
+
       //     // making sure to render canvas at the end
       //     this.canvas.renderAll();
       //   })
@@ -61,19 +98,19 @@ export class EditMemorialComponent implements OnInit {
   }
 
 
-  getrecentMemorials(){
+  getrecentMemorials() {
     this.service.getRecentmemorials()
-    .subscribe(
-      (recentMemorial :any ) =>{
-       if (recentMemorial) {
-          this.Memorials = recentMemorial.Memorials;
-       }
-      },
-      error=>{
-        if (error) {
-          console.log(error);
-        }
+      .subscribe(
+        (recentMemorial: any) => {
+          if (recentMemorial) {
+            this.Memorials = recentMemorial.Memorials;
+          }
+        },
+        error => {
+          if (error) {
+            console.log(error);
+          }
 
-      })
+        })
   }
 }

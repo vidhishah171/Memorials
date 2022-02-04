@@ -1,3 +1,172 @@
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+/* For div css */
+.forDiv1{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    /* margin-top: 10%; */
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+/* user Div css */
+.userProfileDiv2{
+    left: 268%;
+    margin-top: -14%;
+}
+.userProfileDiv3{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv4{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv5{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv6{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv7{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv8{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv9{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv10{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv11{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv12{
+    margin-top: -19%;
+    right: 27%;
+}
+.userProfileDiv13{
+    margin-top: -6%;
+}
+.userProfileDiv14{
+    margin-top: 4%;
+}
+.userProfileDiv15{
+    margin-top: 18%;
+}
+.userProfileDiv16{
+    margin-top: 29%;
+}
+.userProfileDiv17{
+    left: 62%;
+    margin-top: 38%;
+}
+.userProfileDiv18{
+    left: 119%;
+    margin-top: 38%;
+}
+.userProfileDiv19{
+    left: 184%;
+    margin-top: 38%;
+}
+.userProfileDiv20{
+    left: 233%;
+    margin-top: 38%;
+}
+.userProfileDiv21{
+    left: 229%;
+    margin-top: -57%;
+}
+.userProfileDiv22{
+    margin-top: -28%;
+}
+.userProfileDiv23{
+    margin-top: -17%;
+    left: 11%;
+}
+.userProfileDiv24{
+    margin-top: -21%;
+}
+.userProfileDiv25{
+    left: 102%;
+    margin-top: -22%;
+}
+.userProfileDiv26{
+    margin-top: -13%;
+    left: 12%;
+}
+.userProfileDiv27{
+    left: 91%;
+    margin-top: -13%;
+}
+.userProfileDiv28{
+    margin-top: -102%;
+    left: 43%;
+}
+.userProfileDiv29{
+    left: 203%;
+    margin-top: -103%;
+}
+
+
+
+
+.creditButton1{
+    right: 79%;
+    margin-top: -3%;
+}
+.creditButton2{
+    right: 55%;
+    margin-top: -3%;
+}
+.creditButton3{
+    right: 27%;
+    margin-top: -3%;
+}
+.creditButton4{
+    right: 2%;
+    margin-top: -3%;
+}
+.forUserCreatedMemo1{
+    right: 70%;
+}
+.forUserCreatedMemo2{
+    right: 70%;
+}
+.messageCss{
+    right: 54%;
+}
+
+
+
 .userHeading{
     background-color:#CF6363 ;
     height: 7vw;
@@ -35,7 +204,7 @@ hr{
     height: auto;
     /* margin-top: 10%; */
     width: 260px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: #F8F8F8;
 }
 .userDetail{
@@ -121,7 +290,9 @@ hr{
     width: 87%;
 }
 .btn1{
-    margin-right: 2%;
+    margin-right: 0%;
+    padding-left: 2%;
+    padding-right: 2%;
 } 
 .btn1:hover{
     background-color: #CF6363;
@@ -138,17 +309,315 @@ hr{
         display: inline-block;
     }
     .btn1{
-        margin-top: 2%;
+        margin-top: 1%;
+        margin-right: 0%;
+        padding-left: 8%;
+        padding-right: 6%;
     }
     .forProfileDiv{
         margin-left: 60%;
     }
 
+
+
+    /* user Div css */
+    .userProfileDiv2{
+        left: 123%;
+        margin-top: -14%;
+      }
+      .userProfileDiv3{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv4{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv5{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv6{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv7{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv8{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv9{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv10{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv11{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv12{
+        margin-top: -18%;
+    left: -27%;
+    }
+.userProfileDiv13{
+    margin-top: -6%;
 }
-@media (min-width:820px){
+.userProfileDiv14{
+    margin-top: 4%;
+}
+.userProfileDiv15{
+    margin-top: 18%;
+}
+.userProfileDiv16{
+    margin-top: 29%;
+}
+.userProfileDiv17{
+    left: 75%;
+    margin-top: 20%;
+}
+.userProfileDiv18{
+    left: 74%;
+    margin-top: 37%;
+}
+.userProfileDiv19{
+    left: 89%;
+    margin-top: 49%;
+}
+.userProfileDiv20{
+    left: 72%;
+    margin-top: 67%;
+}
+.userProfileDiv21{
+    left: 111%;
+    margin-top: 92%;
+}
+.userProfileDiv22{
+    margin-top: -28%;
+}
+.userProfileDiv23{
+    margin-top: -17%;
+    left: 11%;
+}
+.userProfileDiv24{
+    margin-top: -21%;
+}
+.userProfileDiv25{
+    left: 102%;
+    margin-top: -22%;
+}
+.userProfileDiv26{
+    margin-top: -13%;
+    left: 12%;
+}
+.userProfileDiv27{
+    left: 91%;
+    margin-top: -13%;
+}
+.userProfileDiv28{
+    margin-top: -51%;
+    left: 15%;
+}
+.userProfileDiv29{
+    left: 73%;
+    margin-top: -50%;
+}
+
+
+
+
+.creditButton1{
+    right: 42%;
+    margin-top: -3%;
+}
+.creditButton2{
+    right: 35%;
+    margin-top: 12%;
+}
+.creditButton3{
+    right: 17%;
+    margin-top: 11%;
+}
+.creditButton4{
+    margin-top: 14%;
+    right: 19%;
+}
+.forUserCreatedMemo1{
+    right: 51%;
+}
+.forUserCreatedMemo2{
+    right: 52%;
+}
+.messageCss{
+    right: 26%;
+}
+
+
+
+
+
+
+
+}
+@media (min-width:781px) and (max-width:821px){
+
     .forProfileDiv{
         margin-left: 66%;
     }
+
+       /* user Div css */
+       .userProfileDiv2{
+        left: 123%;
+        margin-top: -14%;
+      }
+      .userProfileDiv3{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv4{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv5{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv6{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv7{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv8{
+        right: 28%;
+        margin-top: -15%;
+      }
+      .userProfileDiv9{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv10{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv11{
+        right: 28%;
+        margin-top: -15%;
+    }
+    .userProfileDiv12{
+        margin-top: -18%;
+    left: -27%;
+    }
+.userProfileDiv13{
+    margin-top: -6%;
+}
+.userProfileDiv14{
+    margin-top: 4%;
+}
+.userProfileDiv15{
+    margin-top: 18%;
+}
+.userProfileDiv16{
+    margin-top: 29%;
+}
+.userProfileDiv17{
+    left: 75%;
+    margin-top: 20%;
+}
+.userProfileDiv18{
+    left: 74%;
+    margin-top: 37%;
+}
+.userProfileDiv19{
+    left: 89%;
+    margin-top: 49%;
+}
+.userProfileDiv20{
+    left: 72%;
+    margin-top: 67%;
+}
+.userProfileDiv21{
+    left: 111%;
+    margin-top: 92%;
+}
+.userProfileDiv22{
+    margin-top: -28%;
+}
+.userProfileDiv23{
+    margin-top: -17%;
+    left: 11%;
+}
+.userProfileDiv24{
+    margin-top: -21%;
+}
+.userProfileDiv25{
+    left: 102%;
+    margin-top: -22%;
+}
+.userProfileDiv26{
+    margin-top: -13%;
+    left: 12%;
+}
+.userProfileDiv27{
+    left: 91%;
+    margin-top: -13%;
+}
+.userProfileDiv28{
+    margin-top: -51%;
+    left: 15%;
+}
+.userProfileDiv29{
+    left: 86%;
+    margin-top: -54%;
+}
+
+
+
+
+.creditButton1{
+    right: 28%;
+    margin-top: 0%;
+}
+.creditButton2{
+    right: 20%;
+    margin-top: 11%;
+}
+.creditButton3{
+    right: 9%;
+    margin-top: 11%;
+}
+.creditButton4{
+    margin-top: 11%;
+    right: 9%;
+}
+.forUserCreatedMemo1{
+    right: 51%;
+}
+.forUserCreatedMemo2{
+    right: 52%;
+}
+.messageCss{
+    right: 26%;
+}
+.btn1{
+    margin-top: 1%;
+    margin-right: 5%;
+    padding-left: 8%;
+    padding-right: 6%;
+    margin-left: 24%;
+}
+.btnDiv1{
+    margin-left: 18%;
+}
+
+
 }
 @media (min-width:1398px) and (max-width:1520px){
     .forProfileDiv{

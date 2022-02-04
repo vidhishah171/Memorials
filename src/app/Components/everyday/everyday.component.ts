@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { EveryDayMeorialsService } from '../../../services/every-day-meorials.service';
 
 @Component({
@@ -13,7 +15,9 @@ export class EverydayComponent implements OnInit {
   allData:any;
 
   constructor(
-    private evrydayMemService: EveryDayMeorialsService
+    private evrydayMemService: EveryDayMeorialsService,
+    private recentService : RecentMeorialsService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +39,17 @@ export class EverydayComponent implements OnInit {
     )
   }
 
+
+  // For visitor-mode page
+  recentMemorialGrabId(data){
+    debugger
+    console.log(data);
+
+    if(data){
+      this.recentService.userGrabIdData=data;
+      this.router.navigate(['/visitor-mode']);
+    }
+  }
 
 
 }

@@ -86,6 +86,11 @@
     text-align: center;
 
 }
+.photoVideoCss{
+    border: 1px solid black;
+    width: 12%;
+    height: 20%;
+}
 
 
 

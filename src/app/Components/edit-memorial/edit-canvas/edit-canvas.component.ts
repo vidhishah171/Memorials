@@ -8,6 +8,7 @@ import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 import { EditConfirmationPopupComponent } from '../edit-confirmation-popup/edit-confirmation-popup.component';
 
@@ -79,6 +80,7 @@ export class EditCanvasComponent implements OnInit {
   respo9: any;
   respo10: any;
   jsonData1: any;
+  getUserMemoData: any;
 
 
 
@@ -90,6 +92,7 @@ export class EditCanvasComponent implements OnInit {
     public loginservice: LoginService,
     public editCanvas: EditMemorialService,
     public profileService: UserProfileService,
+    public recentService : RecentMeorialsService,
     public dialog:MatDialog,
 
 
@@ -117,6 +120,8 @@ export class EditCanvasComponent implements OnInit {
     // this.addText1();
     this.editData();
 
+    this.getData();
+
     this.postGrabId();
     debugger
     this.displayVitaText();
@@ -135,11 +140,38 @@ export class EditCanvasComponent implements OnInit {
   DOD1: any;
 
 
+  // For refresh user
+
+  getData() {
+    debugger
+    var userLoginData = sessionStorage.getItem('myData')
+    var loginAfterRefresh = JSON.parse(userLoginData);
+
+    this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
+    this.getUserMemorial();
+  }
+
+   // Get user Memorials for refresh user
+   getUserMemorial() {
+    debugger;
+    var data = { "user_id": this.loginservice.loginAllData }
+    this.profileService.userCreatedMemorial(data)
+      .subscribe(userRes => {
+        console.log(userRes);
+        this.getUserMemoData = userRes["User Memorials"];
+        this.recentService.userGrabIdData = userRes["User Memorials"][0].grab_id;
+
+        this.displayVitaText();
+        this.postGrabId();
+        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
+      })
+  }
+
 
   // For display vita text
   displayVitaText() {
     debugger
-    var fetchData = { "grab_id": this.profileService.userDetail }
+    var fetchData = { "grab_id": this.recentService.userGrabIdData }
     this.editCanvas.fetchVita(fetchData).subscribe((response:any) => {
       console.log(response);
       if(response.details.vita_html !== "undefined"){
@@ -1124,9 +1156,11 @@ userVitaData(data){
 
 
 
+
+
   postGrabId() {
     debugger
-    var jsonData = this.profileService.userDetail
+    var jsonData = this.recentService.userGrabIdData;
 
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
@@ -1249,4 +1283,5 @@ function scalling(e: fabric.IEvent) {
 
 
 
+   
 }

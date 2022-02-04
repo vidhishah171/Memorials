@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { MostVisitedService } from '../../../services/most-visited.service';
 
 
@@ -22,6 +24,8 @@ export class MostVisitedComponent implements OnInit {
     private service : MostVisitedService,
     public editservice: AdminEditService,
     public loginservice:LoginService,
+    private recentService : RecentMeorialsService,
+    private router: Router,
 
 
   ) { }
@@ -85,6 +89,17 @@ export class MostVisitedComponent implements OnInit {
       this.editservice.editPostData(formdata).subscribe(response=>{
         console.log(response);
       })
+    }
+  
+    // For Visitor mode page
+    recentMemorialGrabId(data){
+      debugger
+      console.log(data);
+  
+      if(data){
+        this.recentService.userGrabIdData=data;
+        this.router.navigate(['/visitor-mode']);
+      }
     }
   
 

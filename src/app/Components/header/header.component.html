@@ -315,7 +315,7 @@
         </div>
     </li>
     <div class="container2">
-        <div class="memorial" *ngFor="let data of memorialData "
+        <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id)" *ngFor="let data of memorialData "
             [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
             <div class="year">
                 <h6>

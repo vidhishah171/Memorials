@@ -4,6 +4,7 @@ import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 import { fabric } from 'fabric';
+import { Router } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ export class VisitorCanvasComponent implements OnInit {
   vitaData: any;
   canvas: fabric.Canvas;
   getUserMemoData: any;
+  jsonData1: any;
 
 
 
@@ -25,6 +27,8 @@ export class VisitorCanvasComponent implements OnInit {
     public profileService: UserProfileService,
     public editCanvas: EditMemorialService,
     public service : RecentMeorialsService,
+    private router: Router,
+
 
   ) { }
 
@@ -78,16 +82,24 @@ export class VisitorCanvasComponent implements OnInit {
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
         debugger
-        var jsonData1 = Response.Details[0].canvas_json;
-        this.canvas.loadFromJSON(jsonData1, () => {
+        // var jsonData1 = Response.Details[0].canvas_json;
+        this.jsonData1 = Response.Details[0].path;
+        
+        // this.canvas.loadFromJSON(jsonData1, () => {
 
-          // making sure to render canvas at the end
-          this.canvas.renderAll();
-        })
+        //   // making sure to render canvas at the end
+        //   this.canvas.renderAll();
+        // })
       }
     })
   }
 
+
+  goesToEditMemo() {
+    debugger
+    this.profileService.userDetail = this.service.userGrabIdData;
+    // this.router.navigate(['/edit-memorial']);
+  }
 
  
   

@@ -27,8 +27,8 @@
         <div class="mt-5">
             <div class="pt-5">
                 <button class="btn btn-outline-secondary ms-2 btnColor">Life Story</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor">Photo/Video Gallery</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor">Condolences</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video Gallery</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="condolenceScroll(target1)">Condolences</button>
                 <button class="btn btn-outline-success ms-2 btnColor1"><img
                         src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
             </div>
@@ -36,22 +36,27 @@
     </div>
 
     <!-- Canvas component -->
-    <div style="height: 70vw;" class="pt-5">
+    <div style="height: 70vw;" class="container pt-5">
         <app-visitor-canvas></app-visitor-canvas>
     </div>
 
     <!-- Photo/video gallery -->
     <div>
-        <div class="photoVideoGallary">
+        <div class="photoVideoGallary" #target>
             <div class="container">
                 <h6 class="pt-5">Photo/Video Gallery</h6>
+                <div >
+                    <span class="photoVideoCss">
+                        jhghhgjh
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- condolences -->
     <div>
-        <div class="container">
+        <div class="container" #target1>
             <div class="editCondolences">
                 <div class="pt-5">
                     <img src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">

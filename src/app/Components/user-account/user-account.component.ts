@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
@@ -15,6 +16,37 @@ export class UserAccountComponent implements OnInit {
   getUserMemoData: any;
   condition: boolean;
   loginData: any;
+  respo: any;
+  respo2: any;
+  respo3: any;
+  respo4: any;
+  respo5: any;
+  respo6: any;
+  respo7: any;
+  respo8: any;
+  respo9: any;
+  respo10: any;
+  respo11: any;
+  respo12: any;
+  showNewDiv1: number;
+  isvalid1: boolean;
+  respo13: any;
+  respo14: any;
+  respo15: any;
+  respo16: any;
+  respo17: any;
+  respo18: any;
+  respo19: any;
+  respo20: any;
+  respo21: any;
+  respo22: any;
+  respo23: any;
+  respo24: any;
+  respo25: any;
+  respo26: any;
+  respo27: any;
+  respo28: any;
+  respo29: any;
 
 
 
@@ -23,12 +55,15 @@ export class UserAccountComponent implements OnInit {
     public profileService: UserProfileService,
     private router: Router,
     public service : RecentMeorialsService,
+    public editservice: AdminEditService,
+
 
   ) { }
 
   ngOnInit(): void {
     this.getData()
     this.getUserMemorial();
+    this.editData();
   }
   // for user after the login
   getData() {
@@ -49,11 +84,13 @@ export class UserAccountComponent implements OnInit {
   }
 
   goesToEditMemo(data) {
+    debugger
     this.profileService.userDetail = data;
     this.router.navigate(['/edit-memorial']);
 
   }
   goesToEditMemo1(data1) {
+    debugger
     this.profileService.userDetailUserId = data1;
   }
 
@@ -61,6 +98,7 @@ export class UserAccountComponent implements OnInit {
 
 
   getUserMemorial() {
+    debugger;
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
@@ -70,6 +108,7 @@ export class UserAccountComponent implements OnInit {
 
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
+
 
   }
 
@@ -83,4 +122,157 @@ export class UserAccountComponent implements OnInit {
   openDiv1() {
     this.isShow = false;
   }
+
+
+
+
+  // Code for labels
+  openDialogue(num): void {
+
+    if (num == 1) {
+      this.showNewDiv1 = 1;
+      this.isvalid1 = true;
+    } else if (num == 2) {
+      this.showNewDiv1 = 2;
+      this.isvalid1 = true;
+    }else if (num == 3) {
+      this.showNewDiv1 = 3;
+      this.isvalid1 = true;
+    }else if (num == 4) {
+      this.showNewDiv1 = 4;
+      this.isvalid1 = true;
+    }else if (num == 5) {
+      this.showNewDiv1 = 5;
+      this.isvalid1 = true;
+    }else if (num == 6) {
+      this.showNewDiv1 = 6;
+      this.isvalid1 = true;
+    }else if (num == 7) {
+      this.showNewDiv1 = 7;
+      this.isvalid1 = true;
+    }else if (num == 8) {
+      this.showNewDiv1 = 8;
+      this.isvalid1 = true;
+    }else if (num == 9) {
+      this.showNewDiv1 = 9;
+      this.isvalid1 = true;
+    }else if (num == 10) {
+      this.showNewDiv1 = 10;
+      this.isvalid1 = true;
+    }else if (num == 11) {
+      this.showNewDiv1 = 11;
+      this.isvalid1 = true;
+    }else if (num == 12) {
+      this.showNewDiv1 = 12;
+      this.isvalid1 = true;
+    }else if (num == 13) {
+      this.showNewDiv1 = 13;
+      this.isvalid1 = true;
+    }else if (num == 14) {
+      this.showNewDiv1 = 14;
+      this.isvalid1 = true;
+    }else if (num == 15) {
+      this.showNewDiv1 = 15;
+      this.isvalid1 = true;
+    }else if (num == 16) {
+      this.showNewDiv1 = 16;
+      this.isvalid1 = true;
+    }else if (num == 17) {
+      this.showNewDiv1 = 17;
+      this.isvalid1 = true;
+    }else if (num == 18) {
+      this.showNewDiv1 = 18;
+      this.isvalid1 = true;
+    }else if (num == 19) {
+      this.showNewDiv1 = 19;
+      this.isvalid1 = true;
+    }else if (num == 20) {
+      this.showNewDiv1 = 20;
+      this.isvalid1 = true;
+    }else if (num == 21) {
+      this.showNewDiv1 = 21;
+      this.isvalid1 = true;
+    }else if (num == 22) {
+      this.showNewDiv1 = 22;
+      this.isvalid1 = true;
+    }else if (num == 23) {
+      this.showNewDiv1 = 23;
+      this.isvalid1 = true;
+    }else if (num == 24) {
+      this.showNewDiv1 = 24;
+      this.isvalid1 = true;
+    }else if (num == 25) {
+      this.showNewDiv1 = 25;
+      this.isvalid1 = true;
+    }else if (num == 26) {
+      this.showNewDiv1 = 26;
+      this.isvalid1 = true;
+    }else if (num == 27) {
+      this.showNewDiv1 = 27;
+      this.isvalid1 = true;
+    }else if (num == 28) {
+      this.showNewDiv1 = 28;
+      this.isvalid1 = true;
+    }else if (num == 29) {
+      this.showNewDiv1 = 29;
+      this.isvalid1 = true;
+    }
+    
+  }
+
+
+  openDialogue1() {
+    this.isvalid1 = false;
+  }
+
+
+  editData() {
+    this.editservice.adminEdit().subscribe((res: any) => {
+      console.log(res);
+      this.respo = res.Details;
+      // this.respo1 = this.respo[195];
+      this.respo2 = this.respo[196];
+      this.respo3 = this.respo[230];
+      this.respo4 = this.respo[198];
+      this.respo5 = this.respo[199];
+      this.respo6 = this.respo[200];
+      this.respo7 = this.respo[201];
+      this.respo8 = this.respo[202];
+      this.respo9 = this.respo[203];
+      this.respo10 = this.respo[204];
+      this.respo11 = this.respo[205];
+      this.respo12 = this.respo[206];
+      this.respo13 = this.respo[213];
+      this.respo14 = this.respo[214];
+      this.respo15 = this.respo[215];
+      this.respo16 = this.respo[216];
+      this.respo17 = this.respo[217];
+      this.respo18 = this.respo[218];
+      this.respo19 = this.respo[219];
+      this.respo20 = this.respo[220];
+      this.respo21 = this.respo[221];
+      this.respo22 = this.respo[222];
+      this.respo23 = this.respo[223];
+      this.respo24 = this.respo[224];
+      this.respo25 = this.respo[225];
+      this.respo26 = this.respo[226];
+      this.respo27 = this.respo[227];
+      this.respo28 = this.respo[228];
+      this.respo29 = this.respo[229];
+      // 231
+    });
+  }
+
+  postEditData(editDataNew: any) {
+    var formdata = new FormData();
+    formdata.append('id', editDataNew.value.id);
+    formdata.append('en', editDataNew.value.en);
+    formdata.append('de', editDataNew.value.de);
+    formdata.append('fr', editDataNew.value.fr);
+  
+    this.editservice.editPostData(formdata).subscribe(response => {
+      console.log(response);
+    })
+  }
+  
 }

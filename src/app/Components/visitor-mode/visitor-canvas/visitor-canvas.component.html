@@ -2,8 +2,10 @@
     <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
 
     <div class="box1">
-        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"></canvas>
+        <!-- <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"></canvas> -->
             <!-- (drop)="DropImageToCan($event)" -->
+
+        <img [src]="jsonData1" alt="" style="width: 100%; height: auto;">
 
         <!-- For vita text -->
         <div class="row">
@@ -12,6 +14,10 @@
             <span class="col-11 vertical-menu">
                 <p class="vitaFetch">{{vitaData}}</p>
             </span>
+        </div>
+        <!-- Edit memorial page -->
+        <div>
+            <button class="btn btn-outline-danger" (click)="goesToEditMemo()">Edit Memorial</button>
         </div>
     </div>
 </div>

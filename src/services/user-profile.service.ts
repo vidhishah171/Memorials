@@ -25,6 +25,7 @@ export class UserProfileService {
   }
 
   userCreatedMemorial=(userDetail:any)=>{
+    debugger
     return this.http.post(this.userProfileApi,userDetail);
   }
 

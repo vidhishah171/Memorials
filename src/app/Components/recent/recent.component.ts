@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from '../../../services/recent-meorials.service';
@@ -22,7 +23,7 @@ export class RecentComponent implements OnInit  {
     private service : RecentMeorialsService,
     public editservice: AdminEditService,
     public loginservice:LoginService,
-
+    private router: Router,
 
   ) { }
 
@@ -107,4 +108,14 @@ export class RecentComponent implements OnInit  {
     })
   }
 
+
+  recentMemorialGrabId(data){
+    debugger
+    console.log(data);
+
+    if(data){
+      this.service.userGrabIdData=data;
+      this.router.navigate(['/visitor-mode']);
+    }
+  }
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { FearturedMemorialService } from 'src/services/feartured-memorial.service';
 import { HomeService } from 'src/services/home.service';
 import { LoginService } from 'src/services/login.service';
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-edit-popup.component';
 
 @Component({
@@ -51,6 +53,8 @@ export class HeaderComponent implements OnInit {
     public dialog : MatDialog,
     public editservice: AdminEditService,
     public loginservice:LoginService,
+    private service : RecentMeorialsService,
+    private router: Router,
 
   ) { }
 
@@ -94,6 +98,19 @@ export class HeaderComponent implements OnInit {
       return error;
     })
 }
+
+// for visitor mode page
+recentMemorialGrabId(data){
+  debugger
+  console.log(data);
+
+  if(data){
+    this.service.userGrabIdData=data;
+    this.router.navigate(['/visitor-mode']);
+  }
+}
+
+
 
 openDialogue(num): void{
  

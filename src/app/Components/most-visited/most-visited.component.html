@@ -40,7 +40,7 @@
 
     <div class="child w-100 h-100 p-3">
 
-        <div class="box mb-3 ms-1 p-2" *ngFor="let mostVisMem of mostVisitMemorial ">
+        <div class="box mb-3 ms-1 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mostVisMem.grab_id)" *ngFor="let mostVisMem of mostVisitMemorial ">
 
             <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
 

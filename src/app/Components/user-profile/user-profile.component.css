@@ -11,6 +11,118 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
+/* For div css */
+.forDiv1{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    /* margin-top: 10%; */
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+/* user Div css */
+.userProfileDiv1{
+    margin-top: -13%;
+    left: 3%;
+}
+.userProfileDiv2{
+    left: 268%;
+    margin-top: -14%;
+}
+.userProfileDiv3{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv4{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv5{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv6{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv7{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv8{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv9{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv10{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv11{
+    right: 27%;
+    margin-top: -15%;
+}
+.userProfileDiv12{
+    margin-top: 124%;
+    left: 293%;
+}
+.userProfileDiv13{
+    margin-top: -15%;
+}
+.userProfileDiv14{
+    margin-top: -15%;
+}
+.userProfileDiv15{
+    margin-top: -15%;
+}
+.userProfileDiv16{
+    margin-top: -15%;
+}
+.userProfileDiv17{
+    margin-top: -15%;
+}
+.userProfileDiv18{
+    margin-top: -2%;
+}
+
+
+
+
+
+
+
+
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+
+
+.vertical-menu {
+    width: 80%;
+    height: 150px;
+    overflow-y: auto;
+  }
+
 
 /* For map key */
 agm-map {
@@ -162,11 +274,84 @@ agm-map {
     display: none;
 }
 
+
+
+
+
 @media (min-width:481px) and (max-width:780px){
     
     .forProfileDiv{
         margin-left: 60%;
     }
+
+
+    /* user Div css */
+  .userProfileDiv1{
+    margin-top: -13%;
+    left: 3%;
+  }
+  .userProfileDiv2{
+    left: 123%;
+    margin-top: -14%;
+  }
+  .userProfileDiv3{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv4{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv5{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv6{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv7{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv8{
+    right: 41%;
+    margin-top: -15%;
+  }
+  .userProfileDiv9{
+    right: 41%;
+    margin-top: -15%;
+}
+.userProfileDiv10{
+    right: 41%;
+    margin-top: -15%;
+}
+.userProfileDiv11{
+    right: 41%;
+    margin-top: -15%;
+}
+.userProfileDiv12{
+    margin-top: 123%;
+    left: 125%;
+}
+.userProfileDiv13{
+    margin-top: -15%;
+}
+.userProfileDiv14{
+    margin-top: -15%;
+}
+.userProfileDiv15{
+    margin-top: -15%;
+}
+.userProfileDiv16{
+    margin-top: -15%;
+}
+.userProfileDiv17{
+    margin-top: -15%;
+}
+.userProfileDiv18{
+    margin-top: -2%;
+}
 
 }
 /* @media (min-width:780px) and (max-width:1197px){
@@ -188,6 +373,57 @@ agm-map {
     .forProfileDiv{
         margin-left: 66%;
         width: 216px;
+    }
+
+    .userProfileDiv2{
+        left: 123%;
+        margin-top: -14%;
+      }
+      .userProfileDiv3{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv4{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv5{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv6{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv7{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv8{
+        right: 41%;
+        margin-top: -15%;
+      }
+      .userProfileDiv9{
+        right: 41%;
+        margin-top: -15%;
+    }
+    .userProfileDiv10{
+        right: 41%;
+        margin-top: -15%;
+    }
+    .userProfileDiv11{
+        right: 41%;
+        margin-top: -15%;
+    }
+    .userProfileDiv12{
+        margin-top: 123%;
+        left: 125%;
+    }
+    .userProfileDiv13{
+        margin-top: -15%;
+    }
+    .userProfileDiv14{
+        margin-top: -15%;
     }
 
 }

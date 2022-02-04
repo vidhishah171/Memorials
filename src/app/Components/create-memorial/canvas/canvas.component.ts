@@ -104,6 +104,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
+    debugger
     const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });

@@ -53,6 +53,10 @@ export class NavbarComponent implements OnInit {
 
     if (loginAfterRefresh) {
       debugger
+      if(loginAfterRefresh.user[0].is_admin == 1){
+        this.loginservice.isVisible = true;
+      }
+      // this.loginservice.isVisible = loginAfterRefresh.user[0].is_admin == 1;
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
