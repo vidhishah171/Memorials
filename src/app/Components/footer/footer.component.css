@@ -48,12 +48,24 @@
     margin-top: -108%;
 }
 
-
-
+.footerText{
+    font-size: 0.8rem;
+}
+.Tearms{
+    background-color: #4E4E4E;
+    width: 100%;
+    text-align: center;
+    color: #7E7575;
+    font-size: 0.7rem;
+    padding-top: 0.6%;
+    height: 35px;
+    /* padding-bottom: 0.7%; */
+}
 
 .footer{
     height:10vw;
     width: 100%;
+    background-color: #373737;
 
 }
 .nav{

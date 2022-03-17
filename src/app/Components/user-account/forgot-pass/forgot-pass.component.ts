@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Subscription } from 'rxjs';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { environment } from 'src/environments/environment';
@@ -48,6 +49,8 @@ export class ForgotPassComponent implements OnInit {
     private router: Router,
     public snack: MatSnackBar,
     public dialog: MatDialog,
+    private spiner: NgxSpinnerService,
+
 
   ) { }
 
@@ -70,6 +73,7 @@ export class ForgotPassComponent implements OnInit {
 
   register(data: any) {
     debugger;
+    this.spiner.show();
     this.forPassword = data.value;
     // var formdata = new FormData();
     // // formdata.append('email_id', this.service.saveEmailId);
@@ -80,13 +84,21 @@ export class ForgotPassComponent implements OnInit {
 
     this.service2.ChangePassword(changePasswordData).subscribe(responce => {
       console.log(responce);
+      this.spiner.hide();
       debugger;
-      var changePassworData:any=responce
+      var changePassworData: any = responce
       if (changePassworData.status === "success") {
-        this.dialog.open(ForgotPassActivePopComponent);
+        // this.dialog.open(ForgotPassActivePopComponent);
+        localStorage.clear();
+        setTimeout(() => {
+          this.router.navigate(['/login'])
+            .then(() => {
+              window.location.reload();
+            });
+        }, 4000);
+        this.snackBar("Your password has been reset, Please check your email and login again", "alert-danger");
+
       }
-
-
     })
     // this.service2.pwd='';
     // this.service2.pwd1='';
@@ -95,7 +107,7 @@ export class ForgotPassComponent implements OnInit {
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 3000,
-      verticalPosition: 'bottom',
+      verticalPosition: 'top',
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,

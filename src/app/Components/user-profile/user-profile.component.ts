@@ -9,6 +9,8 @@ import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 import { UserProfilePopComponent } from './user-profile-pop/user-profile-pop.component';
+import { NgxSpinnerService } from "ngx-spinner";
+import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 
 
 @Component({
@@ -35,6 +37,8 @@ export class UserProfileComponent implements OnInit {
   address: any;
   public geoCoder: any;
   userHometown: any = this.loginservice.loginAllData?.hometown;
+
+  caroucelCount: number = 1;
 
 
   @ViewChild('pac-input')
@@ -71,6 +75,14 @@ export class UserProfileComponent implements OnInit {
   respo16: any;
   respo17: any;
   respo18: any;
+  userpic: any;
+  birthdate: any;
+  comment: any;
+  firstname: any;
+  hometown: any;
+  lastname: any;
+  imagesForCaroucelUser: any;
+  birthdate1: string;
 
 
   constructor(
@@ -78,6 +90,9 @@ export class UserProfileComponent implements OnInit {
     public dialog: MatDialog,
     public profileService: UserProfileService,
     public editservice: AdminEditService,
+    private spiner: NgxSpinnerService,
+    public service: RecentMeorialsService,
+
 
 
     private mapsAPILoader: MapsAPILoader,
@@ -88,7 +103,11 @@ export class UserProfileComponent implements OnInit {
 
 
 
-  ) { }
+  ) { 
+    this.loginservice.otherPage = false; 
+    this.loginservice.goPremiumLabel = true;
+    this.loginservice.hideMemorialImage = true;
+  }
 
   ngAfterViewInit() {
     debugger
@@ -98,6 +117,9 @@ export class UserProfileComponent implements OnInit {
     }, 1000);
 
     this.initialize();
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
   }
 
   ngOnInit(): void {
@@ -106,14 +128,25 @@ export class UserProfileComponent implements OnInit {
     this.getData();
     this.initialize();
     this.getUserMemorial();
-    this.userProfile();
-    this.userProfileDate();
     this.editData();
+    this.myProfileData();
+    this.userProfileDate();
+    // this.userProfile();
+  }
+
+  clickDiv(){
+    debugger
+    var test = document.getElementById("navDiv");
+      if (test != null) {
+        test.style.position = 'absolute';
+      }
+
   }
 
   // for user after the login
   getData() {
-    var userLoginData = sessionStorage.getItem('myData')
+    debugger
+    var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -169,17 +202,75 @@ export class UserProfileComponent implements OnInit {
       .subscribe(userRes => {
         console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
+
+        if (this.caroucelCount == 1) {
+          this.imagesForCaroucelUser = this.getUserMemoData.slice(0, 5);
+        }
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
 
   }
 
+
+  nextCarousel() {
+    this.caroucelCount++;
+
+    if (this.caroucelCount == 2) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(5, 10);
+
+    }
+    if (this.caroucelCount == 3) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(10, 15);
+    }
+    if (this.caroucelCount == 4) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(15, 20);
+    }
+    if (this.caroucelCount == 5) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(20, 25);
+    }
+    if (this.caroucelCount == null) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(25, 30);
+    }
+
+  }
+
+  prevCarousel() {
+    debugger
+    this.caroucelCount = this.caroucelCount - 1;
+
+    if (this.caroucelCount == 2) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(5, 10);
+    }
+    if (this.caroucelCount == 3) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(10, 15);
+    }
+    if (this.caroucelCount == 4) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(15, 20);
+    }
+    if (this.caroucelCount == 5) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(20, 25);
+    }
+    if (this.caroucelCount == 1 || null) {
+      this.imagesForCaroucelUser = this.getUserMemoData.slice(0, 5);
+    }
+
+  }
+
+
+
+
+
+
   goesToEditMemo(data) {
+    debugger
     this.profileService.userDetail = data;
+    this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
   }
   goesToEditMemo1(data1) {
-    this.profileService.userDetailUserId = data1;
+    debugger
+    // this.profileService.userDetailUserId = data1;
+    this.service.userGrabIdData = data1
   }
 
 
@@ -216,19 +307,22 @@ export class UserProfileComponent implements OnInit {
   }
   userData1(data) {
     debugger;
+    this.spiner.show();
     var userDateData = { id: data.form.value.id, birthdate: formatDate(data.form.value.birthdate, 'yyyy-MM-dd h:mm:ss', 'en_US') };
-    var userDateData1 = { id: data.form.value.id, birthdate: formatDate(data.form.value.birthdate, 'yyyy-MM-dd', 'en_US') };
+    var userDateData1 = { id: data.form.value.id, birthdate: formatDate(data.form.value.birthdate,'dd.MM.yyyy', 'en_US') };
     this.userDate = userDateData1.birthdate;
     this.isDisplay3 = false;
     this.isDisplay4 = true;
     // this.userDateData[1]=data.form.value.id;
     this.profileService.userProfile(userDateData).subscribe(responce => {
       console.log(responce);
+      this.spiner.hide();
     })
   }
 
   userProfileDate() {
-    if (this.loginservice.loginAllData.birthdate) {
+    debugger
+    if (this.birthdate !== '') {
       this.isDisplay3 = true;
       this.isDisplay4 = false;
     }
@@ -236,14 +330,17 @@ export class UserProfileComponent implements OnInit {
 
   userData(data) {
     debugger
+    this.loginservice.mapData = data.value.hometown;
+    this.spiner.show();
     this.profileService.userProfile(data.form.value).subscribe(responce => {
+      this.spiner.hide();
       console.log(responce);
     })
   }
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2500,
-      verticalPosition: 'bottom',
+      verticalPosition: 'top',
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
@@ -258,38 +355,59 @@ export class UserProfileComponent implements OnInit {
     // this.service.selectedMainImg = "";
     // this.changeStyle = null;
     debugger
-
-    if (e.target.files[0].size > 5242880) {
-      this.snackBar("Please check your image size", "alert-danger");
-    }else{
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload = (event: any) => {
-      this.url = event.target.result;
-      this.isDisplay = false;
-      this.isDisplay1 = true;
-      this.userData2();
-      // var userData={id:this.loginservice.loginAllData.id,userpic:this.url}
-      // this.profileService.userProfile(userData).subscribe(responce=>{
-      // console.log(responce);
-      // })
+    // && e.target.files[0].size > 5242880
+    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    }
+    // else if(e.target.files[0].size > 5242880){
+    // this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    // }
+    else {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+        this.isDisplay = false;
+        this.isDisplay1 = true;
+        this.userData2();
+        // var userData={id:this.loginservice.loginAllData.id,userpic:this.url}
+        // this.profileService.userProfile(userData).subscribe(responce=>{
+        // console.log(responce);
+        // })
       }
     }
   }
 
-  userProfile() {
-    if (this.loginservice.loginAllData.userpic) {
-      this.isDisplay1 = false;
-      this.isDisplay = true;
-    }
+  // userProfile() {
+  //   debugger
+  //   if (this.userpic) {
+  //     this.isDisplay1 = false;
+  //     this.isDisplay = true;
+  //   }
+  // }
+  returnValue(value){
+    debugger
+   return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123);
+
+  }
+  returnValue1(value){
+    debugger
+    return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123) || (value.charCode == 32);
+  }
+  returnValue2(value){
+    debugger
+    return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123) || (value.charCode > 47 && value.charCode < 58) || (value.charCode == 32);
   }
 
   userData2() {
     debugger;
+    this.spiner.show();
     var userData = { id: this.loginservice.loginAllData.id, userpic: this.url }
 
-    this.profileService.userProfile(userData).subscribe(responce => {
+    this.profileService.userProfile(userData).subscribe((responce: any) => {
+      this.spiner.hide();
       console.log(responce);
+
     })
   }
 
@@ -335,52 +453,52 @@ export class UserProfileComponent implements OnInit {
     } else if (num == 2) {
       this.showNewDiv1 = 2;
       this.isvalid1 = true;
-    }else if (num == 3) {
+    } else if (num == 3) {
       this.showNewDiv1 = 3;
       this.isvalid1 = true;
-    }else if (num == 4) {
+    } else if (num == 4) {
       this.showNewDiv1 = 4;
       this.isvalid1 = true;
-    }else if (num == 5) {
+    } else if (num == 5) {
       this.showNewDiv1 = 5;
       this.isvalid1 = true;
-    }else if (num == 6) {
+    } else if (num == 6) {
       this.showNewDiv1 = 6;
       this.isvalid1 = true;
-    }else if (num == 7) {
+    } else if (num == 7) {
       this.showNewDiv1 = 7;
       this.isvalid1 = true;
-    }else if (num == 8) {
+    } else if (num == 8) {
       this.showNewDiv1 = 8;
       this.isvalid1 = true;
-    }else if (num == 9) {
+    } else if (num == 9) {
       this.showNewDiv1 = 9;
       this.isvalid1 = true;
-    }else if (num == 10) {
+    } else if (num == 10) {
       this.showNewDiv1 = 10;
       this.isvalid1 = true;
-    }else if (num == 11) {
+    } else if (num == 11) {
       this.showNewDiv1 = 11;
       this.isvalid1 = true;
-    }else if (num == 12) {
+    } else if (num == 12) {
       this.showNewDiv1 = 12;
       this.isvalid1 = true;
-    }else if (num == 13) {
+    } else if (num == 13) {
       this.showNewDiv1 = 13;
       this.isvalid1 = true;
-    }else if (num == 14) {
+    } else if (num == 14) {
       this.showNewDiv1 = 14;
       this.isvalid1 = true;
-    }else if (num == 15) {
+    } else if (num == 15) {
       this.showNewDiv1 = 15;
       this.isvalid1 = true;
-    }else if (num == 16) {
+    } else if (num == 16) {
       this.showNewDiv1 = 16;
       this.isvalid1 = true;
-    }else if (num == 17) {
+    } else if (num == 17) {
       this.showNewDiv1 = 17;
       this.isvalid1 = true;
-    }else if (num == 18) {
+    } else if (num == 18) {
       this.showNewDiv1 = 18;
       this.isvalid1 = true;
     }
@@ -424,12 +542,38 @@ export class UserProfileComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-  
+
     this.editservice.editPostData(formdata).subscribe(response => {
       console.log(response);
     })
   }
-  
+
+
+  myProfileData() {
+    debugger
+    this.spiner.show();
+    var ProfileId = { "user_id": this.loginservice.loginAllData.id }
+    this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
+      console.log(data);
+      this.userpic = data.user_data[0].userpic;
+      this.birthdate = data.user_data[0].birthdate;
+      this.birthdate1 = formatDate(this.birthdate,'dd.MM.yyyy', 'en_US');
+      this.comment = data.user_data[0].comment;
+      this.firstname = data.user_data[0].firstname;
+      this.loginservice.loginSaveData = this.firstname;
+      this.hometown = data.user_data[0].hometown;
+      this.loginservice.mapData = this.hometown;
+      this.lastname = data.user_data[0].lastname;
+      this.spiner.hide();
+      if (this.userpic !== '') {
+        this.isDisplay1 = false;
+        this.isDisplay = true;
+      }
+    })
+  }
+
+
+
 }
 
 

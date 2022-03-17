@@ -1,10 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-transprant">
+<div id="navDiv">
+    <!-- style="background-color: #424347; position: fixed; width: 100%; margin-top: 0.7%; padding-top: 0.5%;" -->
+    <div class="container">
+        <span style="color: green;" class="onlineUser">57</span>&nbsp;
+        <span *ngIf="loginservice.otherPage" style="color: whitesmoke;" class="onlineUser">User Online</span>
+        <span *ngIf="!loginservice.otherPage" style="color:  #6a6a6a;" class="onlineUser">User Online</span>
 
+        <span *ngIf="!loginservice.islogin" class="registerButtonNav" routerLink="/create-memorial">&nbsp;Register</span><span style="float: right;"><img *ngIf="!loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/Home page/user.png" alt=""></span>
+        <span *ngIf="loginservice.islogin" routerLink="/user-account" class="registerButtonNav" style="cursor: pointer;">Hi {{loginservice.loginSaveData}} > </span>&nbsp;
+        <span *ngIf="loginservice.otherPage" style="float: right;"><img *ngIf="loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/my account premium/user.png" alt=""></span>
+        <span *ngIf="!loginservice.otherPage" style="float: right; margin-right: 6px;"><img *ngIf="loginservice.islogin" class="registerImage1" src="../../../assets/StaticAssets/Home page/user (1).png" alt=""></span>
+
+
+    </div>
+    <!-- <li *ngIf="loginservice.islogin" class="userName">
+        <span routerLink="/user-account" style="cursor: pointer;">Hi {{loginservice.loginSaveData}}</span>
+    </li> -->
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-transprant" style="width: 100%;">
+    
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <!-- <a class="navbar-brand" href="#" style="margin-top: 2%;">
             <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
-                class="mt-0 img-thumbnail top-0" style='height:"80px"; background-color: aliceblue;' />
+                class="mt-0 top-0" style='height:"80px"; width: 93%; opacity: 0.8; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; background-color: white;' />
+        </a> -->
+        <a class="navbar-brand" href="#" style="margin-top: 2%;" *ngIf="!loginservice.logoDisplay">
+            <img src="../../../assets/StaticAssets/Home page/LogoSoulium1.png" alt="soulium-logo"
+                class="mt-0 top-0" style='height:"80px"; width: 83%; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;' />
         </a>
+
+        <a class="navbar-brand" href="#" style="margin-top: 2%;" *ngIf="loginservice.logoDisplay">
+            <img src="../../../assets/StaticAssets/Create memorial/step1/LogoSoulium_com.png" alt="soulium-logo"
+                class="mt-0 top-0" style='height:"80px"; width: 100%; margin-left: 10%; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;' />
+        </a>
+
         <button class="navbar-toggler navBtn" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -13,23 +41,23 @@
 
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0" style="margin-top: 5%;">
                 <li class="nav-item" style="position:relative; display:inline-block">
                     <!-- *ngIf="loginservice.isVisible" -->
                     <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     &nbsp;
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
 
                         <!-- routerLink="/home" -->
                         <!-- *ngIf="showLabel==1" -->
                         <strong>{{respo1?.en}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                         <strong>{{respo1?.de}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                         <strong>{{respo1?.fr}}</strong>
                     </a>
                 </li>
@@ -63,20 +91,68 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="!loginservice.goPremiumLabel" class="nav-item"  style="text-align: center;">
+                    <img src="../../../assets/StaticAssets/Home page/diamond (-1.png" alt="">
                     <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     &nbsp;
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                         <strong>{{respo2?.en}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                         <strong>{{respo2?.de}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                         <strong>{{respo2?.fr}}</strong>
                     </a>
+                </li>
+
+
+                <!-- for go premium -->
+                <li *ngIf="loginservice.goPremiumLabel" class="nav-item"  style="text-align: center;">
+                    <img src="../../../assets/StaticAssets/Home page/diamond (-1.png" alt="">
+                    <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                    &nbsp;
+                    <a class="nav-link active fontNav1" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <strong class="labelPage">{{respo10?.en}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav1" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <strong class="labelPage">{{respo10?.de}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav1" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <strong class="labelPage">{{respo10?.fr}}</strong>
+                    </a>
+                </li>
+
+                <!-- extra code for label -->
+                <li *ngIf="showNewDiv==10 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="premiumId">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo10.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo10.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo10.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo10.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
                 </li>
 
                 <!-- extra code for label -->
@@ -111,13 +187,13 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     &nbsp;
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                         <strong>{{respo3?.en}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                         <strong>{{respo3?.de}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                         <strong>{{respo3?.fr}}</strong>
                     </a>
                 </li>
@@ -155,13 +231,13 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     &nbsp;
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                         <strong>{{respo4?.en}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                         <strong>{{respo4?.de}}</strong>
                     </a>
-                    <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                         <strong>{{respo4?.fr}}</strong>
                     </a>
                 </li>
@@ -193,6 +269,51 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                    &nbsp;
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1 && !loginservice.isUser">
+                        <strong>{{respo9?.en}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2 && !loginservice.isUser">
+                        <strong>{{respo9?.de}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3 && !loginservice.isUser">
+                        <strong>{{respo9?.fr}}</strong>
+                    </a>
+                </li>
+
+                <!-- extra code label -->
+                <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
+                    <div class="forDiv" id="griefId">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo9.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo9.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>dutch</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo9.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>french</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo9.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
+
             </ul>
 
 
@@ -294,7 +415,7 @@
                     </div>
                 </li>
                 <li *ngIf="loginservice.islogin" class="userName">
-                    <span routerLink="/user-account" style="cursor: pointer;">Hii {{loginservice.loginSaveData}}</span>
+                    <span routerLink="/user-account" style="cursor: pointer;">Hi {{loginservice.loginSaveData}}</span>
                 </li>
                 <li class="navbarButtons">
                     <!-- *ngIf="isVisible" -->
@@ -310,9 +431,12 @@
                     <button (click)="openDialogue(7)"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1" class="navbarButtons2" routerLink="/login"><u><a>{{respo7?.en}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==2" class="navbarButtons2" routerLink="/login"><u><a>{{respo7?.de}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==3" class="navbarButtons2" routerLink="/login"><u><a>{{respo7?.fr}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==1" class="navbarButtons2" routerLink="/login">
+                        <u><a>{{respo7?.en}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==2" class="navbarButtons2" routerLink="/login">
+                        <u><a>{{respo7?.de}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==3" class="navbarButtons2" routerLink="/login">
+                        <u><a>{{respo7?.fr}}</a></u></p>
                 </li>
 
 
@@ -348,9 +472,12 @@
                     <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1" class="navbarButtons1" (click)="userLogout()"><u><a>{{respo8?.en}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==2" class="navbarButtons1" (click)="userLogout()"><u><a>{{respo8?.de}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==3" class="navbarButtons1" (click)="userLogout()"><u><a>{{respo8?.fr}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==1" class="navbarButtons1" (click)="userLogout()">
+                        <u><a>{{respo8?.en}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==2" class="navbarButtons1" (click)="userLogout()">
+                        <u><a>{{respo8?.de}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==3" class="navbarButtons1" (click)="userLogout()">
+                        <u><a>{{respo8?.fr}}</a></u></p>
                 </li>
 
                 <!-- extra code label -->
@@ -384,6 +511,10 @@
         </div>
     </div>
 </nav>
+<!-- For spinner -->
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>
 
 
 

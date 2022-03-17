@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Allison&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
 
 
 
@@ -207,13 +215,30 @@
     right: -146%;
 }
 
-
+.navPadding{
+    background-color: #F8F8F8;
+    height: 21%;
+}
+.createMemorialText{
+    font-size: 2.4rem;
+    margin-top: 1.5%;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+}
+.freeAndDigni{
+    float: right;
+    margin-top: -4%;
+    margin-right: 18%;
+    color: #5D5959;
+    font-size: 0.95rem;
+}
 
 
 
 
 .create-memorial{
-    display: flex;
+    /* display: flex; */
     width: 100%;
     height: auto;
     justify-content: flex-start ;
@@ -221,8 +246,8 @@
 }
 
 #tombstoneSize{
-    height: 160px;
-    width: 160px;
+    height: 147px;
+    width: 153px;
 }
 .indicationPerTomb{
     text-align: center;
@@ -236,22 +261,24 @@
 
 
 .tab{
-    height:6rem;
+    height:5rem;
     float: left;
-    color: #f87171;
+    color: #CF6363;
+    background-color: #EEE6DD;
+    padding-bottom: 1%;
 }
 .tab2{
     height:auto;
     float: left;
 }
 .steeper{
-    height: 58px;
-    width: 55px;
+    height: 53px;
+    width: 54px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    /* background-color: #f87171; */
+    background-color: white;
 }
   /* .activep, .steeper:active{ */
 /* .steeper:active{ */
@@ -281,8 +308,8 @@ part 1 */
 }
 
 .child img{
-    height: 30px;
-    width: 20px;
+    height: 27px;
+    width: 18px;
 }
 
 .child .heading{
@@ -307,14 +334,20 @@ part 1 */
     cursor: pointer;
 }
 
+
 .nav-link img{
-    height: 25px;
-    width: 25px;
+    height: 23px;
+    width: 23px;
 }
+.nav-link{
+    padding-top: 1%;
+}
+
 
 .tambstone{
     height: 100%;
     width: 100%;
+    margin-top: 7%;
     /* background-color: aquamarine */
 }
 /* .bh{
@@ -374,7 +407,7 @@ part 1 */
     width: 5%;
 }
 .show{
-    border: 2px solid red ;
+    border: 2px solid #CF6363 ;
 }
 .tambstone .carousel-item button{
     height: 45%;
@@ -387,19 +420,22 @@ part 1 */
 }
 
 .checkimg{
-    height: 30px;
-    width: 30px;
+    height: 17px;
+    width: 17px;
     display: flex;
     justify-content: center;
-    position: absolute;
+    /* position: absolute; */
     background-repeat: no-repeat;
-    background-image: url('https://img.icons8.com/metro/26/fa314a/checked.png');
+    background-image: url("../../../assets/StaticAssets/Create memorial/step1/check (2).png");
+    background-size: 17px;
     z-index: 9999;
+    color: #CF6363;
+    float: right;
 }
 
 .personCentric{
     height: 320px;
-    width: 42%;
+    width: 49%;
     display: flex;
     flex-wrap: wrap;
     background-image: url('../../../assets/StaticAssets/Create memorial/step1/user-portrait.png');
@@ -422,9 +458,60 @@ part 1 */
     font-size: larger;
 }
 
+.userHeadingLogo{
+    margin-bottom: 2.7%;
+}
+::placeholder{
+    font-size: 0.75rem;
+    color: black;
+    opacity: 0.9;
+}
+.tombstoneText{
+    margin-top: 3%;
+    font-size: 0.9rem;
+    /* color: #4BC252; */
+}
+.tombstoneText1{
+    margin-top: 0%;
+    font-size: 0.9rem;
+    /* color: black; */
+}
+.personCentricMemo{
+    height: 23px;
+    width: 23px;
+}
 
 
+.lovedPersonText{
+    font-size: 0.9rem;
+}
 
+.emailText{
+    font-size: 0.75rem;
+    color: #B5B5B5;
+    margin-top: 2%;
+    margin-left: 4%;
+}
+.emailText1{
+    font-size: 0.7rem;
+    color: #B5B5B5;
+    margin-top: 1%;
+    /* margin-left: 4%; */
+}
+.emailMarginText{
+    margin-bottom: -3%;
+}
+.tearmMargin{
+    font-size: 0.7rem;
+    color: #5D5959;
+    margin-top: -1%;
+    opacity: 0.9;
+}
+.columnTwoHeaderText{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #CF6363;
+}
 
 
 
@@ -696,7 +783,7 @@ part 1 */
 }
 
 .subject h5{
-    color: #f87171;
+    margin-bottom: 0%;
 }
 .preview{
     /* background-color: yellow; */
@@ -713,7 +800,13 @@ part 1 */
     justify-content: center;
 }
 .createBtn button{
-    width: 320px;
+    width: 297px;
+    
+}
+.registerBtnThirdStep{
+    font-size: 1.2rem;
+    background-color: #09AA13;
+    color: white;
 }
 .nextBtn{
     width: 100%;
@@ -722,6 +815,15 @@ part 1 */
     /* align-self: center; */
     display:flex;
     /* justify-content: center; */
+}
+.nextBtnStepFirst{
+    background-color: #09AA13;
+    color: white;
+    font-size: 0.8rem;
+    padding-top: 0.9%;
+    padding-bottom: 0.9%;
+    padding-left: 4%;
+    padding-right: 3%;
 }
 
 .nextBtn1{
@@ -733,11 +835,10 @@ part 1 */
     display:flex;
     justify-content: center;
 }
-.container {
+.container1 {
     position: relative;
     text-align: center;
     color: white;
-    /* background-color: yellow; */
     margin: 2% auto;
   }
 
@@ -795,20 +896,78 @@ input.ng-touched.ng-invalid{
 #logo{
     width:"100px" !important;
     height:"100px" !important;
+    margin-top: 3%;
 }
 .datePickerCss{
     border: 1px solid white;
     border-radius: 7px;
     box-shadow: 5px 5px 10px 2px rgb(0, 0, 0, .2);
+    font-size: 0.8rem;
+    /* padding-left: 5%; */
 }
+
+.buttonNone{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 2%;
+}
+.buttonNone1{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 2%;
+    margin-left:26%;    
+}
+.buttonNoneDiv{
+    width: 14%;
+}
+.stepThreeName{
+    font-size: 0.85rem;
+    color: #CF6363;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.stepThreeHeading{
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #6A6A6A;
+}
+.stepThreePara{
+    margin-top: 4%;
+    font-size: 0.8rem;
+    color: #000000;
+}
+.formMargin{
+    margin-top: -11%;
+}
+.columnTwoText{
+    font-size: 0.75rem;
+    color: #000000;
+}
+.columnTwoImageSize{
+    height: 37px;
+    margin-top: -7%;
+    width: 38px;
+}
+.previewImage{
+    width: 92%;
+    height: 40%;
+}
+
+
+
 
 /* #imageMemorial{
     font-family: 'Allison', cursive;
     font-size: 1rem;
     } */
     
+/* #mobileRes{
+
     
-    
+} */
+
     
     
     

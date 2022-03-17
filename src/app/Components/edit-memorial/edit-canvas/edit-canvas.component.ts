@@ -1,16 +1,19 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 // import * as fabric from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
-import { EditConfirmationPopupComponent } from '../edit-confirmation-popup/edit-confirmation-popup.component';
 
 @Component({
   selector: 'app-edit-canvas',
@@ -81,6 +84,8 @@ export class EditCanvasComponent implements OnInit {
   respo10: any;
   jsonData1: any;
   getUserMemoData: any;
+  vitaData1: any;
+  saveVita: boolean=true;
 
 
 
@@ -92,12 +97,17 @@ export class EditCanvasComponent implements OnInit {
     public loginservice: LoginService,
     public editCanvas: EditMemorialService,
     public profileService: UserProfileService,
-    public recentService : RecentMeorialsService,
-    public dialog:MatDialog,
+    public recentService: RecentMeorialsService,
+    public dialog: MatDialog,
+    private spiner: NgxSpinnerService,
+    public snack: MatSnackBar,
+    private router: Router,
 
 
 
-  ) { }
+
+
+  ) { this.loginservice.otherPage = true;}
 
 
   // ngOnDestroy() {
@@ -144,22 +154,22 @@ export class EditCanvasComponent implements OnInit {
 
   getData() {
     debugger
-    var userLoginData = sessionStorage.getItem('myData')
+    var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
     this.getUserMemorial();
   }
 
-   // Get user Memorials for refresh user
-   getUserMemorial() {
+  // Get user Memorials for refresh user
+  getUserMemorial() {
     debugger;
     var data = { "user_id": this.loginservice.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
         console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
-        this.recentService.userGrabIdData = userRes["User Memorials"][0].grab_id;
+        // this.recentService.userGrabIdData = userRes["User Memorials"][0].grab_id;
 
         this.displayVitaText();
         this.postGrabId();
@@ -171,42 +181,49 @@ export class EditCanvasComponent implements OnInit {
   // For display vita text
   displayVitaText() {
     debugger
+    // this.spiner.show();
     var fetchData = { "grab_id": this.recentService.userGrabIdData }
-    this.editCanvas.fetchVita(fetchData).subscribe((response:any) => {
+    this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
       console.log(response);
-      if(response.details.vita_html !== "undefined"){
+      if (response.details.vita_html !== "undefined") {
         this.vitaData = response.details.vita_html;
+        // this.spiner.hide();
       }
     })
   }
 
   // Open vita text input
- 
- openUser(num): void {
 
-  if (num == 100) {
-    this.showNewDiv = 100;
-    this.isvalid = true;
+  openUser(num): void {
+
+    if (num == 100) {
+      this.showNewDiv = 100;
+      this.isvalid = true;
+    }
   }
-}
-openUser1() {
-  this.isvalid = false;
-}
+  openUser1() {
+    debugger
+    this.isvalid = false;
+    this.displayVitaText();
+  }
 
-userVitaData(data){
-  debugger;
-  console.log(data.value);
-  var vitaData = { "grab_id": this.profileService.userDetail,"vita_html":data.value.vita_html };
+  userVitaData(data) {
+    debugger;
+    console.log(data.value);
+    this.spiner.show();
+    var vitaData = { "grab_id": this.profileService.userDetail, "vita_html": data.value.vita_html };
 
-  // const formData3 = new FormData();
+    // const formData3 = new FormData();
 
-  //     formData3.append('grab_id', this.profileService.userDetail);
-  //     formData3.append('vita_html', data.value.vita_html);
+    //     formData3.append('grab_id', this.profileService.userDetail);
+    //     formData3.append('vita_html', data.value.vita_html);
 
-  this.editCanvas.vitaUpload(vitaData).subscribe((response:any) => {
-    console.log(response);
-  });
-}
+    this.editCanvas.vitaUpload(vitaData).subscribe((response: any) => {
+      console.log(response);
+      this.spiner.hide();
+      this.displayVitaText();
+    });
+  }
 
   addText1() {
     this.DOB1 = formatDate(this.service.createMemorial.DOB, 'M.d.yyyy', 'en_US');
@@ -942,8 +959,8 @@ userVitaData(data){
   }
 
   // addVita(redata:any){
-    // debugger
-    // console.log(redata);
+  // debugger
+  // console.log(redata);
   //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
 
   //   })
@@ -1161,7 +1178,7 @@ userVitaData(data){
   postGrabId() {
     debugger
     var jsonData = this.recentService.userGrabIdData;
-
+    // this.spiner.show();
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
 
@@ -1175,6 +1192,7 @@ userVitaData(data){
 
           // making sure to render canvas at the end
           this.canvas.renderAll();
+          // this.spiner.hide();
         })
       }
     })
@@ -1183,6 +1201,7 @@ userVitaData(data){
   // Save json from edit memorial
   saveEditMemorial() {
     debugger;
+    this.spiner.show();
     var userId = this.profileService.userDetailUserId;
     var grabId = this.profileService.userDetail;
     var json = JSON.stringify(this.canvas);
@@ -1219,15 +1238,32 @@ userVitaData(data){
     formData.append('canvas_json', json);
     formData.append('canvas_preview_base64', test);
 
-    this.service.memCreateImageData(formData).subscribe((result:any) => {
+    this.service.memCreateImageData(formData).subscribe((result: any) => {
       console.log(result);
-      if(result.status == "success"){
-      this.dialog.open(EditConfirmationPopupComponent);
-    }
+      debugger
+      this.spiner.hide();
+      if (result.status == "success") {
+        this.snackBar('Your memory has been successfully updated', 'alert-green');
+      this.router.navigate(['/user-account']);
+        
+      }
     })
 
   }
 
+
+  snackBar(message: string, panelClass: string) {
+    this.snack.openFromComponent(SnackbarComponent, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      data: message,
+      panelClass: panelClass,
+
+
+    })
+
+  };
 
 }
 
@@ -1283,5 +1319,5 @@ function scalling(e: fabric.IEvent) {
 
 
 
-   
+
 }

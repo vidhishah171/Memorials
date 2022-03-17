@@ -1,3 +1,30 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+.ourFeatured{
+    text-align: center;
+    margin: 0;
+    padding-top: 32px;
+    background-color: #F8F5F0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    opacity: 0.9;
+}
+.ourFeaturedText{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.ourFeaturedTextImg{
+    height: 71px;
+    width: auto;
+}
+
+
 /* css for labels */
 .forButton{
     position: relative;
@@ -74,9 +101,11 @@
 
 
 .box{
-    margin-left: 5px;
+    /* margin-left: 90px; */
+    margin-left: 59px;
+    margin-right: 33px;
     width: 144px;
-    height: 90px;
+    height: 111px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -107,7 +136,7 @@ span{
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 30px;    
-    height:40vw;
+    height:53vw;
     
 }
 
@@ -132,10 +161,11 @@ span{
     flex-wrap: wrap; */
 } 
 .virtualHeading{
-    padding-top: 6%;
+    padding-top: 4%;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding-left: 21%;
 }
 .virtualText{
     text-align: center;
@@ -145,22 +175,31 @@ span{
 }
 .virtualPara{
     margin-bottom: 0rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
+}
+.virtualPara1{
+    margin-bottom: 0rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 21%;
 }
 .virtualLabel{
     float: right;
-    color: tomato;
-    font-weight: bold;
+    color: #C16869;
+    font-weight: 600;
     background-color: white; 
     border: 1px solid white; 
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
-    margin-top: 10px; 
+    margin-top: 57px; 
     margin-right: 20px;
     padding: 0.4%;
     padding-right: 5%;
     padding-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 
@@ -290,5 +329,13 @@ span{
 @media (max-width:450px){
     .cemetry{
         background-position: 15%;
+    }
+}
+@media (min-width:1398px){
+    .virtualPara1{
+        margin-bottom: 0rem;
+        font-size: 0.95rem;
+        font-weight: 400;
+        padding-left: 0%;
     }
 }

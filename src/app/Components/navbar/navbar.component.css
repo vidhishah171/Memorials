@@ -23,11 +23,32 @@ nav{
 nav{
    margin-top: -11px;
 }
+#navDiv{
+   background-color: #424347; 
+   position: fixed; 
+   width: 100%; 
+   margin-top: 0.7%; 
+   padding-top: 0.5%;
+   z-index: 500;
+}
 .navbar-brand{
     margin-left:3rem; 
     display: block;
     top:0px;
 
+}
+.fontNav{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.fontNav1{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #CF6363;
+}
+.lablePage{
+    color: #CF6363;
+    opacity: 0.9;
 }
 a{
     font-size: medium;
@@ -64,6 +85,9 @@ a{
     width: 300px;
     background-color: #F8F8F8;
 }
+.labelPage{
+    color: #CF6363;
+}
 
 .navbarButtons{
     margin-left: 40px;
@@ -82,6 +106,24 @@ a{
     color: blue;
 }
 
+.registerButtonNav{
+    float: right; 
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.3%;
+}
+.onlineUser{
+    font-size: 0.8rem;
+    /* margin-top: 0.7rem; */
+}
+.registerImage{
+    width: 85%;
+}
+.registerImage1{
+    width: 18px;
+    height: 18px;
+}
 #homeId{
     right: 83%;
 }

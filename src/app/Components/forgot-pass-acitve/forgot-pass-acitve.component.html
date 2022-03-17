@@ -16,8 +16,7 @@
             <!-- extra code for label -->
             <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" id="forDivText">
-                    <button style="float: right;" (click)="openDialogue1()"
-                        class="btn btn-outline-danger">X</button>
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
                     <form class="example-form" #regForm2="ngForm">
                         <mat-form-field class="example-full-width" style="display: none;">
                             <mat-label>id</mat-label>
@@ -43,8 +42,8 @@
 
             <div>
                 <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonSlide1"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonSlide1"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
                 <h1 *ngIf="editservice.numLabel==1">{{respo5?.en}}</h1>
                 <h1 *ngIf="editservice.numLabel==2">{{respo5?.de}}</h1>
@@ -52,33 +51,32 @@
 
             </div>
 
-                        <!-- extra code for label -->
-                        <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
-                            <div class="forDiv" id="forDivText1">
-                                <button style="float: right;" (click)="openDialogue1()"
-                                    class="btn btn-outline-danger">X</button>
-                                <form class="example-form" #regForm2="ngForm">
-                                    <mat-form-field class="example-full-width" style="display: none;">
-                                        <mat-label>id</mat-label>
-                                        <textarea matInput name="id" [(ngModel)]="respo5.id"></textarea>
-                                    </mat-form-field>
-                                    <mat-form-field class="example-full-width englishLng">
-                                        <mat-label>English</mat-label>
-                                        <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
-                                    </mat-form-field>
-                                    <mat-form-field class="example-full-width">
-                                        <mat-label>dutch</mat-label>
-                                        <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
-                                    </mat-form-field>
-                                    <mat-form-field class="example-full-width">
-                                        <mat-label>french</mat-label>
-                                        <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
-                                    </mat-form-field>
-                                </form>
-                                <button (click)="postEditData(regForm2);openDialogue1();"
-                                    class="btn btn-outline-success">Save</button>
-                            </div>
-                        </li>
+            <!-- extra code for label -->
+            <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" id="forDivText1">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo5.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
 
 
             <br>
@@ -142,8 +140,7 @@
                         <div>
                             <mat-dialog-actions align="end">
                                 <!-- routerLink="/login" -->
-                                <button mat-button type="submit"
-                                    (click)="register(regForm1)"
+                                <button mat-button type="submit" (click)="register(regForm1)"
                                     [disabled]="!regForm1.valid || service2.pwd1 != service2.pwd"
                                     class="btn btn-success btn-lg">
                                     <strong *ngIf="editservice.numLabel==1">{{respo3?.en}}</strong>
@@ -256,6 +253,11 @@
             </div>
         </div>
     </div>
+
+    <!-- For spinner -->
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: white">Please Wait. </p>
+    </ngx-spinner>
 
     <app-recent></app-recent>
     <app-most-visited></app-most-visited>

@@ -1,39 +1,51 @@
-<div class="parent p-3">
-    <div class="box1 m-2 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id)" *ngFor="let mem of boxOneData" >
-        <img class="parentImg" src="{{mem.grab_image}}" >
-        <div class="name">
-            <h5>{{mem.firstname}},{{mem.lastname}}</h5>
-           
-        </div>
-         <div class="info">
-                <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png" >
-                <span class="me-1"><strong>{{mem.grablog}}</strong></span> 
-                <img class="me-2" src="../../../assets/StaticAssets/Home page/candle.png">
-                <span class="me-1"><strong>{{mem.litCandle}}</strong></span>
-                <img class="me-2" src="../../../assets/StaticAssets/Home page/google-docs.png">
-                <span class="me-1"><strong>{{mem.Kondolenz}}</strong></span>
-        </div> 
-    </div>
+<div class="mainDiv">
+    <div class="parent container">
+        <div class="box1 m-2 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id,mem.user_id)"
+            *ngFor="let mem of boxOneData">
+            <img class="parentImg" src="{{mem.grab_image}}">
+            <div class="name">
+                <span>
+                    <h5>{{mem.firstname}},{{mem.lastname}}</h5>
 
-
-    <div class="box2 m-2 p-1">
-        <div class="child m-2 p-1" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id)" *ngFor="let mem of boxTwoData">
-            <img src="{{mem.grab_image}}" class="mt-1" class="parentImg1" >
-            <div class="box2name mb-2" style="height:26%;width: 100%; background-color: white"  >
-               <h6> {{mem.firstname}},{{mem.lastname}}</h6>
-               <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png" >
-                    <span class="me-1">{{mem.grablog}}</span> 
+                </span>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <span>
+                    <img class="me-2" src="../../../assets/StaticAssets/Home page/eye.png">
+                    <span class="me-1 candleViewsEveryDay"><strong>{{mem.grablog}}</strong></span>
                     <img class="me-2" src="../../../assets/StaticAssets/Home page/candle.png">
-                    <span class="me-1">{{mem.litCandle}}</span>
+                    <span class="me-1 candleViewsEveryDay"><strong>{{mem.litCandle}}</strong></span>
                     <img class="me-2" src="../../../assets/StaticAssets/Home page/google-docs.png">
-                    <span class="me-1">{{mem.Kondolenz}}</span> 
+                    <span class="me-1 candleViewsEveryDay"><strong>{{mem.Kondolenz}}</strong></span>
+                </span>
+
             </div>
-            <!-- <div class="box2info" style="height:13%;width: 100%;background-color: white">
+
+        </div>
+
+
+        <div class="box2 p-1">
+            <div class="child m-2 p-1" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id,mem.user_id)"
+                *ngFor="let mem of boxTwoData">
+                <img src="{{mem.grab_image}}" class="mt-1" class="parentImg1">
+                <div class="box2name mb-2 mt-3">
+                    <h6 class="mb-0"> {{mem.firstname}},{{mem.lastname}}</h6>
+                    <img src="../../../assets/StaticAssets/Home page/eye.png">
+                    <span class="everydayMemBox2">{{mem.grablog}}</span>
+                    &nbsp;
+                    <img src="../../../assets/StaticAssets/Home page/candle.png">
+                    <span class="everydayMemBox2">{{mem.litCandle}}</span>
+                    &nbsp;
+                    <img src="../../../assets/StaticAssets/Home page/google-docs.png">
+                    <span class="everydayMemBox2">{{mem.Kondolenz}}</span>
+                </div>
+                <!-- <div class="box2info" style="height:13%;width: 100%;background-color: white">
                      
             </div> -->
 
-        </div>
-        <!-- <div class="child m-2">
+            </div>
+            <!-- <div class="child m-2">
 
         </div>
 
@@ -53,5 +65,6 @@
                  -->
 
 
+        </div>
     </div>
 </div>

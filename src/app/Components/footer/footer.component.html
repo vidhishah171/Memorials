@@ -1,10 +1,14 @@
-<div class="w-100 footer bg-dark ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-transprant">
+<div class="w-100 footer">
+    <nav class="container navbar navbar-expand-lg navbar-light bg-transprant">
 
         <div class="container-fluid ms-5">
-            <a class="navbar-brand logo" href="#">
+            <a *ngIf="!loginservice.isFooterLogin" class="navbar-brand logo" href="#">
                 <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
-                    class="mt-0 img-thumbnail top-0" style='height:"80px"; background-color: aliceblue;' />
+                    class="mt-0 top-0" style='height:"80px";' />
+            </a>
+            <a *ngIf="loginservice.isFooterLogin" class="navbar-brand logo" href="#">
+                <img src="../../../assets/StaticAssets/Home page/LogoSoulium_com-1.png" alt="soulium-logo"
+                    class="mt-0 top-0" style='height:"80px";' />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -19,16 +23,16 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
 
                             <!-- routerLink="/home" -->
                             <!-- *ngIf="showLabel==1" -->
                             <strong>{{respo1?.en}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                             <strong>{{respo1?.de}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                             <strong>{{respo1?.fr}}</strong>
                         </a>
 
@@ -68,13 +72,13 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                             <strong>{{respo2?.en}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                             <strong>{{respo2?.de}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                             <strong>{{respo2?.fr}}</strong>
                         </a>
                     </li>
@@ -115,13 +119,13 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                             <strong>{{respo3?.en}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                             <strong>{{respo3?.de}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                             <strong>{{respo3?.fr}}</strong>
                         </a>
                     </li>
@@ -162,13 +166,13 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
                             <strong>{{respo4?.en}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
                             <strong>{{respo4?.de}}</strong>
                         </a>
-                        <a class="nav-link active" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
                             <strong>{{respo4?.fr}}</strong>
                         </a>
                     </li>
@@ -208,4 +212,7 @@
 
         </div>
     </nav>
+</div>
+<div class="Tearms">
+    <p>Impressum & Terms & Conditions</p>
 </div>

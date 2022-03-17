@@ -1,6 +1,7 @@
 import { Component,OnInit, } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-edit-popup.component';
@@ -30,12 +31,20 @@ export class NavbarComponent implements OnInit {
   respo8: any;
   loginData: any;
   condition: boolean;
+  respo9: any;
+  respo10: any;
   constructor(
     public loginservice:LoginService,
     public dialog:MatDialog,
     public editservice:AdminEditService,
-    public router:Router
+    public router:Router,
+    private spiner: NgxSpinnerService,
+
   ) { }
+
+  ngAfterViewInit(): void{
+    // this.clickDiv();
+  }
 
   ngOnInit(): void {
     // this.p=this.loginservice.loginSaveData;
@@ -45,10 +54,22 @@ export class NavbarComponent implements OnInit {
     this.getData();
     this.editData();
     this.buttonLanguage(this.editservice.numLabel);
+
+
+    // this.userColor();
+  
+    
    }
+  //  otherPage:boolean =false;
+  //  userColor(){
+  //    if(!this.router.navigate(['/home'])){
+  //     this.otherPage = true;
+  //    }
+  //  }
+   
    getData() {
      debugger
-    var userLoginData = sessionStorage.getItem('myData')
+    var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -66,19 +87,45 @@ export class NavbarComponent implements OnInit {
       this.condition = true;
       // this.snackBar("Please check Email and password", "alert-danger");
     }
+
+
+    if(loginAfterRefresh == null){
+      this.loginservice.isUser = false;
+    } else 
+    if (loginAfterRefresh.user[0].status == 0) {
+      this.loginservice.isUser = false;
+    } else {
+      this.loginservice.isUser = true;
+
+    }
+
+
   }
 
   //  For logout
   userLogout(){
     debugger;
-    sessionStorage.clear();
+    this.spiner.show();
+    localStorage.clear();
     setTimeout(() => {
       this.router.navigate([''])
       .then(() => {
+      this.spiner.hide()
         window.location.reload();
       });
     },1);
   }
+
+  // clickDiv(){
+  //   debugger
+  //   var test = document.getElementById("navDiv");
+  //     if (test != null && this.loginservice.divPosition == true) {
+  //       test.style.position = 'fixed';
+  //     }else{
+  //       test.style.position = '';
+  //     }
+
+  // }
 
    openDialogue(num): void{
     // const dialogRef = this.dialog.open(AdminEditPopupComponent);
@@ -113,6 +160,12 @@ export class NavbarComponent implements OnInit {
     }else if(num==8){
       this.showNewDiv=8;
       this.isvalid=true;
+    }else if(num==9){
+      this.showNewDiv=9;
+      this.isvalid=true;
+    }else if(num==10){
+      this.showNewDiv=10;
+      this.isvalid=true;
     }
 
   }
@@ -145,6 +198,9 @@ export class NavbarComponent implements OnInit {
       this.respo6=this.respo[37];
       this.respo7=this.respo[37];
       this.respo8=this.respo[194];
+      this.respo9=this.respo[242];
+      this.respo10=this.respo[247];
+
 
 
     });

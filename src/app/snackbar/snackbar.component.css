@@ -1,6 +1,8 @@
 ::ng-deep  .alert-success{background-color: rgb(252, 139, 10);color: black;}
 ::ng-deep  .alert-danger {background-color: orangered; color: white;}
 ::ng-deep  .alert-error {background-color: rgb(252, 139, 10); color: white;}
+::ng-deep  .alert-green {background-color: rgb(91, 192, 145); color: white;}
+
 
 
 .data{
@@ -10,5 +12,5 @@
     /* font-weight: bold; */
 }
 .mat-snack-bar-container {
-    max-width: 800px;
+    max-width: 100%;
  }

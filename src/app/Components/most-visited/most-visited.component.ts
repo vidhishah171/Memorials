@@ -13,94 +13,105 @@ import { MostVisitedService } from '../../../services/most-visited.service';
 })
 export class MostVisitedComponent implements OnInit {
 
-  mostVisitMemorial:any;
+  mostVisitMemorial: any;
   showNewDiv: number;
   isvalid: boolean;
   respo1: any;
   respo: any;
   respo2: any;
+  mostVisitMemorialLast: any;
+  mostVisitMemorialfirst: any;
+  firstname: any;
+  lastname: any;
 
   constructor(
-    private service : MostVisitedService,
+    private service: MostVisitedService,
     public editservice: AdminEditService,
-    public loginservice:LoginService,
-    private recentService : RecentMeorialsService,
+    public loginservice: LoginService,
+    private recentService: RecentMeorialsService,
     private router: Router,
 
 
   ) { }
 
   ngOnInit(): void {
+    debugger
     this.getData();
     this.editData();
 
   }
 
-  getData(){
+  getData() {
+    debugger
     this.service.getMostVisMemorial().subscribe(
-      (memorials:any)=>{
-        
+      (memorials: any) => {
+
         this.mostVisitMemorial = memorials.Memorials;
-        
+         this.mostVisitMemorial.map(function(item){return item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "")});
+         this.mostVisitMemorial.map(function(item){return item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "")});
+
       },
-      errors=>{
+      errors => {
         console.log(errors);
-        
+
       }
-    )}
+    )
+  }
 
 
-    // Code for labels
+  // Code for labels
 
-    openDialogue(num): void{
-     
-     if(num==1){
-       this.showNewDiv=1;
-       this.isvalid=true;
-     }else if(num==2){
-       this.showNewDiv=2;
-       this.isvalid=true;
-     }
+  openDialogue(num): void {
+
+    if (num == 1) {
+      this.showNewDiv = 1;
+      this.isvalid = true;
+    } else if (num == 2) {
+      this.showNewDiv = 2;
+      this.isvalid = true;
     }
-  
-    openDialogue1(){
-      this.isvalid=false;
+  }
+
+  openDialogue1() {
+    this.isvalid = false;
+  }
+
+  editData() {
+    this.editservice.adminEdit().subscribe((res: any) => {
+      console.log(res);
+      this.respo = res.Details;
+      this.respo1 = this.respo[19]
+      this.respo2 = this.respo[20]
+
+
+    });
+  }
+
+
+  postEditData(editDataNew: any) {
+    var formdata = new FormData();
+    formdata.append('id', editDataNew.value.id);
+    formdata.append('en', editDataNew.value.en);
+    formdata.append('de', editDataNew.value.de);
+    formdata.append('fr', editDataNew.value.fr);
+
+    this.editservice.editPostData(formdata).subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  // For Visitor mode page
+  recentMemorialGrabId(data, data1) {
+    debugger
+    console.log(data);
+
+    if (data) {
+      this.recentService.userGrabIdData2 = data;
+      this.recentService.userUserIdData = data1;
+
+      this.router.navigate(['/visitor-mode']);
     }
-  
-    editData(){
-      this.editservice.adminEdit().subscribe((res:any)=>{
-        console.log(res);
-        this.respo=res.Details;
-        this.respo1=this.respo[19]
-        this.respo2=this.respo[20]
-  
-    
-      });
-    }
-  
-  
-    postEditData(editDataNew:any){
-      var formdata=new FormData();
-      formdata.append('id',editDataNew.value.id);
-      formdata.append('en',editDataNew.value.en);
-      formdata.append('de',editDataNew.value.de);
-      formdata.append('fr',editDataNew.value.fr);
-    
-      this.editservice.editPostData(formdata).subscribe(response=>{
-        console.log(response);
-      })
-    }
-  
-    // For Visitor mode page
-    recentMemorialGrabId(data){
-      debugger
-      console.log(data);
-  
-      if(data){
-        this.recentService.userGrabIdData=data;
-        this.router.navigate(['/visitor-mode']);
-      }
-    }
-  
+  }
+
 
 }

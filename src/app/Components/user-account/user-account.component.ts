@@ -49,6 +49,10 @@ export class UserAccountComponent implements OnInit {
   respo29: any;
 
 
+  caroucelCount: number = 1;
+  getUserMemoDataUser: any;
+  Memorials: any;
+
 
   constructor(
     public loginservice: LoginService,
@@ -58,16 +62,38 @@ export class UserAccountComponent implements OnInit {
     public editservice: AdminEditService,
 
 
-  ) { }
+
+  ) {
+     this.loginservice.otherPage = false;
+     this.loginservice.hideMemorialImage = false;
+     this.loginservice.goPremiumLabel = true;
+  }
+  ngAfterViewInit():void{
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+    this.clickShowStepBtn1();
+
+  }
 
   ngOnInit(): void {
     this.getData()
     this.getUserMemorial();
     this.editData();
+    this.getrecentMemorials();
   }
+
+  clickDiv(){
+      debugger
+      var test = document.getElementById("navDiv");
+        if (test != null) {
+          test.style.position = 'absolute';
+        }
+  
+    }
   // for user after the login
   getData() {
-    var userLoginData = sessionStorage.getItem('myData')
+    var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -86,12 +112,14 @@ export class UserAccountComponent implements OnInit {
   goesToEditMemo(data) {
     debugger
     this.profileService.userDetail = data;
+    this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
 
   }
   goesToEditMemo1(data1) {
     debugger
-    this.profileService.userDetailUserId = data1;
+    // this.profileService.userDetailUserId = data1;
+    this.service.userGrabIdData = data1
   }
 
 
@@ -106,11 +134,84 @@ export class UserAccountComponent implements OnInit {
         this.getUserMemoData = userRes["User Memorials"];
         this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
 
+        if (this.caroucelCount == 1) {
+          this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
+        }
+
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
 
 
   }
+
+
+  getrecentMemorials() {
+    this.service.getRecentmemorials()
+      .subscribe(
+        (recentMemorial: any) => {
+          if (recentMemorial) {
+            this.Memorials = recentMemorial.Memorials;
+          }
+        },
+        error => {
+          if (error) {
+            console.log(error);
+          }
+
+        })
+  }
+
+
+
+
+  nextCarousel() {
+    debugger
+    this.caroucelCount++;
+
+    if (this.caroucelCount == 2) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(3, 6);
+
+    }
+    if (this.caroucelCount == 3) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(6, 9);
+    }
+    if (this.caroucelCount == 4) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(9, 12);
+    }
+    if (this.caroucelCount == 5) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(12, 15);
+    }
+    if (this.caroucelCount == null) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(15, 18);
+    }
+
+  }
+
+  prevCarousel() {
+    debugger
+    this.caroucelCount = this.caroucelCount - 1;
+
+    if (this.caroucelCount == 2) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(3, 6);
+    }
+    if (this.caroucelCount == 3) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(6, 9);
+    }
+    if (this.caroucelCount == 4) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(9, 12);
+    }
+    if (this.caroucelCount == 5) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(12, 15);
+    }
+    if (this.caroucelCount == 1 || null) {
+      this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
+    }
+
+  }
+
+
+
+
 
 
   openDiv(num) {
@@ -274,5 +375,132 @@ export class UserAccountComponent implements OnInit {
       console.log(response);
     })
   }
+
+
+
+  clickShowStepBtn1() {
+    debugger
+    if (1) {
+      // btn class
+      var test = document.getElementById("btn1");
+      if (test != null) {
+        test.style.backgroundColor = '#CF6363';
+        test.style.color = 'white';
+        
+      }
+
+      // btn class
+      var test = document.getElementById("btn2");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn3");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn4");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+    }
+  }
+  clickShowStepBtn2() {
+    debugger
+    if (1) {
+      // btn class
+      var test = document.getElementById("btn1");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959'; 
+      }
+
+      // btn class
+      var test = document.getElementById("btn2");
+      if (test != null) {
+        test.style.backgroundColor = '#CF6363';
+        test.style.color = 'white';
+      }
+
+      var test = document.getElementById("btn3");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn4");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+    }
+  }
+  
+  clickShowStepBtn3() {
+    debugger
+    if (1) {
+      // btn class
+      var test = document.getElementById("btn1");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      // btn class
+      var test = document.getElementById("btn2");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn3");
+      if (test != null) {
+        test.style.backgroundColor = '#CF6363';
+        test.style.color = 'white';
+      }
+
+      var test = document.getElementById("btn4");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+    }
+  }
+
+  clickShowStepBtn4() {
+    debugger
+    if (1) {
+      // btn class
+      var test = document.getElementById("btn1");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      // btn class
+      var test = document.getElementById("btn2");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn3");
+      if (test != null) {
+        test.style.backgroundColor = '';
+        test.style.color = '#5D5959';
+      }
+
+      var test = document.getElementById("btn4");
+      if (test != null) {
+        test.style.backgroundColor = '#CF6363';
+        test.style.color = 'white';
+      }
+    }
+  }
+
   
 }

@@ -9,6 +9,7 @@ export class UserProfileService {
 
   userApi="https://h2913228.stratoserver.net/API/public/update_profile";
   userProfileApi="https://h2913228.stratoserver.net/API/public/user_created_memorial";
+  myProfile="https://h2913228.stratoserver.net/API/public/user_profile";
 
 
   userDetail:any;
@@ -29,6 +30,15 @@ export class UserProfileService {
     return this.http.post(this.userProfileApi,userDetail);
   }
 
+  myProfileDetails(profileDetails){
+    debugger
+    // For server
+    // return this.http.post(this.myProfile,profileDetails);
+    
+
+    // For Local
+    return this.http.post('/userProfile',profileDetails);
+  }
 
 
 }

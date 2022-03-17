@@ -16,6 +16,7 @@ export class MemoryImageComponent implements OnInit {
   respo19: any;
   isvalid: boolean;
   showNewDiv: number;
+  respo20: any;
 
   constructor(
     public editservice: AdminEditService,
@@ -47,6 +48,9 @@ export class MemoryImageComponent implements OnInit {
       }else if (num == 19) {
         this.showNewDiv = 19;
         this.isvalid = true;
+      }else if (num == 20) {
+        this.showNewDiv = 20;
+        this.isvalid = true;
       }
     }
   
@@ -65,6 +69,8 @@ export class MemoryImageComponent implements OnInit {
         this.respo17 = this.respo[166];
         this.respo18 = this.respo[167];
         this.respo19 = this.respo[168];
+        this.respo20 = this.respo[246];
+
   
       });
     }

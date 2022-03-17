@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -61,9 +61,9 @@ import { EditCanvasComponent } from './Components/edit-memorial/edit-canvas/edit
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
 import { ForgotPassActivePopComponent } from './Components/forgot-pass-acitve/forgot-pass-active-pop/forgot-pass-active-pop.component';
 import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
-import { EditConfirmationPopupComponent } from './Components/edit-memorial/edit-confirmation-popup/edit-confirmation-popup.component';
 import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
 import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas/visitor-canvas.component';
+import { MemoryImagesComponent } from './Components/memory-images/memory-images.component';
 
 
 
@@ -104,9 +104,9 @@ import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas
     ForgotPassAcitveComponent,
     ForgotPassActivePopComponent,
     ForgotPassComponent,
-    EditConfirmationPopupComponent,
     VisitorModeComponent,
     VisitorCanvasComponent,
+    MemoryImagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -126,11 +126,12 @@ import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    NgxSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDs2Vdbr8b2MpY5iV9Ss4iIdV3gbTZcpSs',
       libraries: ['places'],
     }),
-
+    
 
 
 

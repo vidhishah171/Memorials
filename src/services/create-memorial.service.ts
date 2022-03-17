@@ -15,6 +15,8 @@ export class CreateMemorialService {
 
   getCreMemImgAPI="https://h2913228.stratoserver.net/API/public/grab_images";
   createNewMenAPI="http://127.0.0.1:8000/createMemorial";
+  newMemorial="https://h2913228.stratoserver.net/API/public/newMemorial";
+
   selectedMainImg:any;
   selectedMain:any;
   saveFormData:any;
@@ -25,6 +27,7 @@ export class CreateMemorialService {
   ImgRandomId:any;
   saveVitaText:any;
   stepNumber:any;
+  vitaData:any;
 
   createMemorial:createMemorial=<createMemorial>{};
   memorialimage:memorialimage=<memorialimage>{};
@@ -63,6 +66,16 @@ export class CreateMemorialService {
       return this.http.post('https://h2913228.stratoserver.net/API/public/createMemorial',this.createMemorial);
     }
 
+
+    newMemorialAgain(data){ 
+      debugger
+      var hh= data;
+      // this.createMemorial.DOB=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
+      // this.createMemorial.DOD=formatDate(this.createMemorial.DOD,'yyyy-M-d h:mm:ss','en_US');
+
+     // this.saveFormData = this.data;
+      return this.http.post(this.newMemorial,data);
+    }
 
   // step 2 services
 

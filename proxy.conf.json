@@ -11,6 +11,20 @@
       "secure": false,
       "changeOrigin": true,
       "pathRewrite":                        {"^/loginApi": ""}
-    }
+  },
+    "/getImage": {
+      "target": "https://h2913228.stratoserver.net/API/public/getImages",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite":                        {"^/getImage": ""}
+  },
+  "/userProfile": {
+    "target": "https://h2913228.stratoserver.net/API/public/user_profile",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                        {"^/userProfile": ""}
+  }
+
+
   }
 

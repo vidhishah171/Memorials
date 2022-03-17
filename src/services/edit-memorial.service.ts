@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class EditMemorialService {
   vitaUploadAPI="https://h2913228.stratoserver.net/API/public/vita_upload";
   memorialDetails="https://h2913228.stratoserver.net/API/public/memorialDetails";
   editMemorialApi="https://h2913228.stratoserver.net/API/public/editMemorial";
+  photoAPI="https://h2913228.stratoserver.net/API/public/imgUpload";
+  photoAPI1="https://h2913228.stratoserver.net/API/public/getImages";
 
   lovedPersonData:any;
 
@@ -17,6 +19,14 @@ export class EditMemorialService {
     private http:HttpClient
   ) { }
 
+  httpOptions = {
+    headers: new HttpHeaders({ 
+         'Content-Type': 'application/json',
+         'Access-Control-Allow-Origin':'*',
+         'Access-Control-Allow-Methods':'POST DELETE PUT GET',
+         'Access-Control-Allow-Headers':'*',
+    })
+  }
 
 
 
@@ -35,5 +45,18 @@ export class EditMemorialService {
 
   SaveJsonFromEditMemorial(editData){
     return this.http.post(this.editMemorialApi,editData);
+  }
+
+  photoVideo(photoData){
+    return this.http.post(this.photoAPI,photoData);
+  }
+
+  getPhotoVideo(photoData1){
+  
+    // For server
+    // return this.http.post(this.photoAPI1,photoData1);
+
+    // For local
+    return this.http.post('/getImage',photoData1);
   }
 }

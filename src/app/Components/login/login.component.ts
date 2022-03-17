@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { clear } from 'console';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
@@ -35,11 +36,21 @@ export class LoginComponent implements OnInit {
 
     private route: ActivatedRoute,
     private router: Router,
-    public snack: MatSnackBar
+    public snack: MatSnackBar,
+    private spiner : NgxSpinnerService,
 
-  ) { }
+
+  ) { this.service.otherPage = true;}
+
 
   data: any = [];
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+  }
+
   ngOnInit(): void {
 
     // For clear create memorial page after goes to another page
@@ -66,11 +77,23 @@ export class LoginComponent implements OnInit {
   }
 
 
+  clickDiv(){
+    debugger
+    var test = document.getElementById("navDiv");
+      if (test != null) {
+        test.style.position = 'absolute';
+      }
+
+  }
+
   login(logData: any) {
     debugger
+    this.spiner.show();
     this.service.userLogin(logData.value)
       // logData.value
       .subscribe(responce => {
+      this.spiner.hide();
+
         this.data = responce;
         console.log(this.data);
 
@@ -85,6 +108,7 @@ export class LoginComponent implements OnInit {
           this.loginData = this.data.user[0].firstname;
           this.service.loginSaveData = this.loginData;
           this.service.loginAllData = this.data.user[0];
+          this.service.mapData = this.service.loginAllData.hometown
           this.setData();
           this.router.navigate(['/user-account']);
           // /user-account
@@ -103,6 +127,15 @@ export class LoginComponent implements OnInit {
           this.service.isVisible = true;
         }
 
+        // For user login
+        debugger;
+        if(this.data.user[0].status == 0){
+          this.service.isUser = false;
+        }else{
+          this.service.isUser = true;
+        }
+
+
         // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         // this.router.navigateByUrl(returnUrl);
 
@@ -120,7 +153,7 @@ export class LoginComponent implements OnInit {
   setData() {
     debugger
     const jsonData = JSON.stringify(this.data)
-    sessionStorage.setItem('myData', jsonData)
+    localStorage.setItem('myData', jsonData)
   }
  
  
@@ -128,7 +161,7 @@ export class LoginComponent implements OnInit {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2000,
       verticalPosition: 'top',
-      horizontalPosition: 'left',
+      horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
 

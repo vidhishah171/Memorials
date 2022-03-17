@@ -1,11 +1,11 @@
 <div class="most-visited p-4">
-    <h4>
+    <h4 class="container">
         <button (click)="openDialogue(1)" style="right: 72%;" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
-        <strong *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
-        <strong *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
-        <strong *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
+        <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
+        <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
+        <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
 
 
     </h4>
@@ -38,23 +38,23 @@
 
 
 
-    <div class="child w-100 h-100 p-3">
+    <div class="child container w-100 h-100 p-3">
 
-        <div class="box mb-3 ms-1 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mostVisMem.grab_id)" *ngFor="let mostVisMem of mostVisitMemorial ">
+        <div class="box mb-3 ms-1 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mostVisMem.grab_id,mostVisMem.user_id)" *ngFor="let mostVisMem of mostVisitMemorial ">
 
             <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
 
             <div class="name w-auto p-2" id="info">
 
-                <h6>{{mostVisMem.lastname}},{{mostVisMem.firstname}}</h6>
+                <h6>{{mostVisMem.firstname}},{{mostVisMem.lastname}}</h6>
 
                 <div class="info">
                     <img class="me-1" src="../../../assets/StaticAssets/Home page/eye.png">
-                    <span class="me-2"><strong>{{mostVisMem.grablog}}</strong></span>
+                    <span class="me-2 viewColors"><strong>{{mostVisMem.grablog}}</strong></span>
                     <img class="me-1" src="../../../assets/StaticAssets/Home page/candle.png">
-                    <span class="me-2"><strong>{{mostVisMem.litCandle}}</strong></span>
+                    <span class="me-2 viewColors"><strong>{{mostVisMem.litCandle}}</strong></span>
                     <img class="me-1" src="../../../assets/StaticAssets/Home page/google-docs.png">
-                    <span class="me-2"><strong>{{mostVisMem.Kondolenz}}</strong></span>
+                    <span class="me-2 viewColors"><strong>{{mostVisMem.Kondolenz}}</strong></span>
                 </div>
             </div>
         </div>
@@ -81,9 +81,9 @@
     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton1"><span><img
             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
     <h5>
-        <p *ngIf="editservice.numLabel==1"> {{respo2?.en}}</p>
-        <p *ngIf="editservice.numLabel==2"> {{respo2?.de}}</p>
-        <p *ngIf="editservice.numLabel==3"> {{respo2?.fr}}</p>
+        <p class="findByLabel" *ngIf="editservice.numLabel==1"> {{respo2?.en}}</p>
+        <p class="findByLabel" *ngIf="editservice.numLabel==2"> {{respo2?.de}}</p>
+        <p class="findByLabel" *ngIf="editservice.numLabel==3"> {{respo2?.fr}}</p>
 
     </h5>
 
@@ -114,9 +114,8 @@
         </div>
     </li>
 
-
-    <div class="input-group w-50 mb-3">
-        <input type="text" class="form-control input-lg" placeholder="Find memorial By country name.."
+    <div class="input-group mb-3" style="width: 38%;">
+        <input type="text" id="search" class="form-control input-lg" style="color: white;" placeholder="Type your country name: ex. Brazil"
             aria-label="Recipient's username" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary btn-lg findByName2" type="button">

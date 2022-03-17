@@ -12,6 +12,9 @@ import { threadId } from 'worker_threads';
 import { formatDate } from '@angular/common';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Console } from 'console';
+import { CanvasComponent } from './canvas/canvas.component';
 
 
 @Component({
@@ -25,6 +28,7 @@ export class CreateMemorialComponent implements OnInit {
 
 
 
+  @ViewChild(CanvasComponent) child: CanvasComponent;
 
   ImgRandomId = 0;
   imagespath = [];
@@ -49,7 +53,7 @@ export class CreateMemorialComponent implements OnInit {
   flowerCaroucelCount: number = 1;
 
   backgroundImages = [];
-  canvas: any;
+  canvas: fabric.Canvas;
   memory: any = {};
   data: any;
   msg: any;
@@ -60,6 +64,8 @@ export class CreateMemorialComponent implements OnInit {
   DOB3: any;
   DOB4: any;
 
+  tomb: any;
+  person: any;
 
   // For labels
   respo: any;
@@ -109,6 +115,11 @@ export class CreateMemorialComponent implements OnInit {
   respo41: any;
   respo43: any;
   respo44: any;
+  errors: any;
+  loginData: any;
+  condition: boolean;
+  json: string;
+  isDisplaySmallImage: boolean;
 
 
   constructor(
@@ -118,13 +129,23 @@ export class CreateMemorialComponent implements OnInit {
     public editservice: AdminEditService,
     public loginservice: LoginService,
     private router: Router,
+    private spiner: NgxSpinnerService,
 
 
   ) {
-    //   const year = new Date().getFullYear();
-    // const month = new Date().getMonth()+1 ;
-    // const day = new Date().getDate();
-    //  `${year}` + "-" + `${'0' +month}` + "-" + `${day}`;
+    this.loginservice.otherPage = false;
+    this.loginservice.logoDisplay = true;
+    this.loginservice.isFooterLogin = true;
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+
+    this.showCentric(1)
+    // alert(point)
+
   }
 
   ngOnInit() {
@@ -133,6 +154,20 @@ export class CreateMemorialComponent implements OnInit {
     this.clickShowStepBtn1();
     this.editData();
   }
+
+  clickDiv() {
+    debugger
+    var test = document.getElementById("navDiv");
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
+
+  }
+
+  personNavColor() {
+
+  }
+
 
   /// --------------------------------------------------
 
@@ -209,7 +244,10 @@ export class CreateMemorialComponent implements OnInit {
   onselectFile(e) {
     this.service.selectedMainImg = "";
     this.changeStyle = null;
-    if (e.target.files) {
+    // if (e.target.files) {
+    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    } else {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
@@ -262,10 +300,11 @@ export class CreateMemorialComponent implements OnInit {
 
   register(regData: any) {
     debugger;
+    this.spiner.show();
     console.log(regData);
     this.service.memCreatePostData().subscribe((res: any) => {
-      // this.msg("you have created successfully account");
-      // if(res == 1){
+      this.spiner.hide();
+
       if (res.status == 'success') {
         this.router.navigate(['/thank-you']);
       } else {
@@ -303,6 +342,7 @@ export class CreateMemorialComponent implements OnInit {
 
       this.service.createvitaMemorial(formData1).subscribe(result1 => {
         console.log(formData1);
+        this.spiner.hide();
       })
 
 
@@ -328,7 +368,7 @@ export class CreateMemorialComponent implements OnInit {
       //   'canvas_preview_base64': 'canvas_base_64'
       // }
       this.service.memCreateImageData(formData).subscribe(result => {
-
+        this.spiner.hide();
       })
       // }
     })
@@ -381,6 +421,7 @@ export class CreateMemorialComponent implements OnInit {
 
   // step 1 functions
   showStep(num) {
+    debugger
     this.service.stepNumber = num;
     if (num == 1) {
       this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
@@ -394,9 +435,9 @@ export class CreateMemorialComponent implements OnInit {
       && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
       && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
       // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null && this.service.createMemorial.DOB != "")
       // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
-      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null && this.service.createMemorial.DOD != "")
     ) {
       this.showMemSteps = 2;
     }
@@ -409,9 +450,9 @@ export class CreateMemorialComponent implements OnInit {
       && (this.service.createMemorial.g_firstname != undefined && this.service.createMemorial.g_firstname.length > 0)
       && (this.service.createMemorial.g_lastname != undefined && this.service.createMemorial.g_lastname.length > 0)
       // && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB.length > 0)
-      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null)
+      && (this.service.createMemorial.DOB != undefined && this.service.createMemorial.DOB != null && this.service.createMemorial.DOB != "")
       // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
-      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
+      && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null && this.service.createMemorial.DOB != "")
     ) {
       this.showMemSteps = 3;
     }
@@ -425,7 +466,7 @@ export class CreateMemorialComponent implements OnInit {
       // btn class
       var test = document.getElementById("showStepBtn1");
       if (test != null) {
-        test.style.backgroundColor = '#f87171';
+        test.style.backgroundColor = '#CF6363';
       }
 
       // btn class
@@ -441,6 +482,7 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
   clickShowStepBtn2() {
+    debugger
     if (2) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -458,7 +500,7 @@ export class CreateMemorialComponent implements OnInit {
         // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
         && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
       ) {
-        test.style.backgroundColor = '#f87171';
+        test.style.backgroundColor = '#CF6363';
       }
 
       var test = document.getElementById("showStepBtn3");
@@ -490,17 +532,20 @@ export class CreateMemorialComponent implements OnInit {
         // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
         && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null)
       ) {
-        test.style.backgroundColor = '#f87171';
+        test.style.backgroundColor = '#CF6363';
       }
     }
   }
 
 
 
+
+
+
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2500,
-      verticalPosition: 'bottom',
+      verticalPosition: 'top',
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
@@ -513,7 +558,7 @@ export class CreateMemorialComponent implements OnInit {
   snackBar1(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 3000,
-      verticalPosition: 'bottom',
+      verticalPosition: 'top',
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
@@ -555,11 +600,20 @@ export class CreateMemorialComponent implements OnInit {
 
   showCentric(point) {
     // alert(point)
+    debugger
+    this.tomb = document.getElementById("tomb");
+    this.person = document.getElementById("person");
     if (point == 1) {
       this.showTambstone = true;
+      this.tomb.style.color = '#09AA13';
+      this.person.style.color = 'black';
+      this.isDisplaySmallImage = true;
     }
     if (point == 2) {
       this.showTambstone = false;
+      this.tomb.style.color = 'black';
+      this.person.style.color = '#09AA13'
+      this.isDisplaySmallImage = false;
     }
   }
 
@@ -873,14 +927,103 @@ export class CreateMemorialComponent implements OnInit {
     })
   }
 
+  saveCanvasToJSON() {
+    debugger
+    // const json = JSON.stringify(this.canvas);
+    this.json = JSON.stringify(this.canvas);
+
+
+    // localStorage.setItem('Kanvas',json);
+    // console.log(json);
+
+    // save canvas json to the service
+    this.service.saveCanvas1 = this.json;
+  }
+
+
+
+  createMemorialAgain() {
+    debugger
+    this.child.GetData();
+
+    console.log();
+    this.spiner.show()
+    const formDataAgain = new FormData();
+    this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
+    this.service.createMemorial.DOD = formatDate(this.service.createMemorial.DOD, 'yyyy-M-d h:mm:ss', 'en_US');
+
+    formDataAgain.append('user_id', this.loginservice.loginAllData.id);
+    formDataAgain.append('g_firstname', this.service.createMemorial.g_firstname);
+    formDataAgain.append('g_lastname', this.service.createMemorial.g_lastname);
+    formDataAgain.append('birthplace', this.service.createMemorial.birthplace);
+    formDataAgain.append('DOB', this.service.createMemorial.DOB);
+    formDataAgain.append('DOD', this.service.createMemorial.DOD);
+    formDataAgain.append('deathplace', this.service.createMemorial.deathplace);
+    formDataAgain.append('birthname', this.service.createMemorial.birthname);
+
+    this.service.newMemorialAgain(formDataAgain).subscribe((res: any) => {
+      this.spiner.hide();
+      console.log(res);
+
+
+
+      var test = this.service.saveCanvas;
+
+
+
+      const formData = new FormData();
+
+
+      formData.append('grab_id', res.grab_id);
+      formData.append('image', 'Image');
+      formData.append('image_type_id', '7');
+      formData.append('x', '100');
+      formData.append('y', '120');
+      formData.append('height', '200');
+      formData.append('width', '300');
+      formData.append('user_id', res.user_id);
+      formData.append('canvas_json', this.service.saveCanvas1);
+      formData.append('canvas_preview_base64', test);
+
+
+      var vitaText = this.service.saveVitaText
+
+      const formData1 = new FormData();
+
+      formData1.append('grab_id', res.grab_id);
+      formData1.append('vita_html', vitaText);
+
+
+      this.service.createvitaMemorial(formData1).subscribe((result1: any) => {
+        console.log(formData1);
+        this.spiner.hide();
+        if (result1.status == 'success') {
+          this.router.navigate(['/thank-you']);
+        }
+      })
+
+
+      this.service.memCreateImageData(formData).subscribe(result => {
+        this.spiner.hide();
+
+      })
 
 
 
 
 
 
+    })
 
 
+  }
+
+  returnValue(event) {
+    return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
+  }
+  returnValue1(event) {
+    return (event.charCode > 47 && event.charCode < 58)
+  }
 
 
 

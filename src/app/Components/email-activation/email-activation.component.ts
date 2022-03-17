@@ -34,7 +34,7 @@ export class EmailActivationComponent implements OnInit {
     public editservice: AdminEditService,
     public loginservice:LoginService,
     
-    ) { }
+    ) {  this.loginservice.otherPage = false; }
 
   ngOnInit(): void {
     this.emailActivation();

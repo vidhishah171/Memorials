@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
 
 /* css for labels */
 .forButton{
@@ -25,6 +31,24 @@
     width: 300px;
     font-size: 1rem;
     background-color: #F8F8F8;
+}
+.platformText{
+    font-weight: 800; 
+    line-height: 0%;
+    font-size: 1rem;
+    color: whitesmoke;
+    /* opacity: 0.8; */
+}
+.platformText1{
+    font-weight: 800; 
+    font-size: 1rem;
+    color: whitesmoke;
+    /* opacity: 0.8; */
+}
+.platformText2{
+    font-size: 0.8rem;
+    color: whitesmoke;
+    opacity: 0.8;
 }
 .englishLng{
     padding-top: 15%; 
@@ -52,7 +76,7 @@
 
 .platform{
     background-image: url('../../../assets/StaticAssets/Home page/Rectangle 21.png');
-    height:40vw;
+    height:32vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -60,14 +84,29 @@
 }
 
 .box1{
-    font-family: 'Libre Franklin', sans-serif;
+    /* font-family: 'Libre Franklin', sans-serif; */
     height: 100%;
     width: 38%;
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
     color: white;
+    margin-top: 12%;
+}
+.createBtnPlatform{
+    background-color: #4CC252;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    opacity: 0.9;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.imgBox2{
+    margin-top: 10.2%;
+    width: 73%;
+    margin-left: 8%;
 }
 
 .box1 h5{
@@ -101,4 +140,11 @@
         margin-top: 69%;
     }
 
+}
+@media (min-width:1398px){
+    .imgBox2{
+        margin-top: 8.2%;
+        width: 73%;
+        margin-left: 8%;
+    }
 }

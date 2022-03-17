@@ -12,6 +12,9 @@ export class RecentMeorialsService {
   premiumMemorialAPI="https://h2913228.stratoserver.net/API/public/premium_memorial";
 
   userGrabIdData:any;
+  userGrabIdData1:any;
+  userGrabIdData2:any;
+  userUserIdData:any;
 
   constructor(
     private http : HttpClient

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { FearturedMemorialService } from 'src/services/feartured-memorial.service';
 import { HomeService } from 'src/services/home.service';
@@ -46,6 +49,7 @@ export class HeaderComponent implements OnInit {
   respo5: any;
   respo6: any;
   respo7: any;
+  respo8: any;
 
   constructor(
     public homeservice:HomeService,
@@ -55,6 +59,10 @@ export class HeaderComponent implements OnInit {
     public loginservice:LoginService,
     private service : RecentMeorialsService,
     private router: Router,
+    public snack: MatSnackBar,
+    private spiner : NgxSpinnerService,
+
+
 
   ) { }
 
@@ -64,25 +72,35 @@ export class HeaderComponent implements OnInit {
   }
 
   
-
+divHide(){
+  debugger
+  this.searchResult = false;
+}
    
 
   searchMemorialCity(searchText:any){
+    this.spiner.show();
+
     var searchCity=searchText.value.searchText;
     const formData2=new FormData();
     formData2.append('search_text',searchCity)
 
     this.homeservice.get(formData2).subscribe((res:any)=>{
       // JSON.parse(res);
+      this.spiner.hide();
+
       this.dataSearch = res;
       this.dataSearch1=res.Memorials;
 
      console.log(res);
-
-     if(res.Memorials === ''){
+      debugger
+     if(res.Memorials.length > 0){
        this.searchResult=true;
+      
      }else{
-       this.searchResult=true;
+      this.snackBar('Memorial not available', 'alert-danger');
+      this.searchResult=false;
+
      }
     })
   }
@@ -100,12 +118,14 @@ export class HeaderComponent implements OnInit {
 }
 
 // for visitor mode page
-recentMemorialGrabId(data){
+recentMemorialGrabId(data,data1){
   debugger
   console.log(data);
 
   if(data){
-    this.service.userGrabIdData=data;
+    this.service.userGrabIdData2=data;
+    this.service.userUserIdData = data1;
+
     this.router.navigate(['/visitor-mode']);
   }
 }
@@ -135,6 +155,9 @@ openDialogue(num): void{
 }else if(num==7){
   this.showNewDiv=7;
   this.isvalid=true;
+}else if(num==8){
+  this.showNewDiv=8;
+  this.isvalid=true;
 }
 }
 
@@ -154,6 +177,8 @@ editData(){
     this.respo5=this.respo[4];
     this.respo6=this.respo[5];
     this.respo7=this.respo[2];
+    this.respo8=this.respo[243];
+
 
   });
 }
@@ -169,4 +194,17 @@ postEditData(editDataNew:any){
     console.log(response);
   })
 }
+
+snackBar(message: string, panelClass: string) {
+  this.snack.openFromComponent(SnackbarComponent, {
+    duration: 2500,
+    verticalPosition: 'top',
+    horizontalPosition: 'center',
+    data: message,
+    panelClass: panelClass,
+
+
+  })
+
+};
 }

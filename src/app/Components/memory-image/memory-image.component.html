@@ -1,14 +1,24 @@
-<div class="container" id="imageMemorial">
-    <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 100%;">
+<div class="container" id="imageMemorial" *ngIf="loginservice.hideMemorialImage">
+    <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 111%;">
+    <div class="centered1">
+        <button (click)="openDialogue(20)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+
+        <p *ngIf="editservice.numLabel==1">{{respo20?.en}}</p>
+        <p *ngIf="editservice.numLabel==2">{{respo20?.de}}</p>
+        <p *ngIf="editservice.numLabel==3">{{respo20?.fr}}</p>
+    </div>
     <div class="centered">
         <button (click)="openDialogue(15)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
 
-        <p *ngIf="editservice.numLabel==1">{{respo15?.en}}</p>
-        <p *ngIf="editservice.numLabel==2">{{respo15?.de}}</p>
-        <p *ngIf="editservice.numLabel==3">{{respo15?.fr}}</p>
+        <p class="userText" *ngIf="editservice.numLabel==1">{{respo15?.en}}</p>
+        <p class="userText" *ngIf="editservice.numLabel==2">{{respo15?.de}}</p>
+        <p class="userText" *ngIf="editservice.numLabel==3">{{respo15?.fr}}</p>
     </div>
 
     <!-- Extra code for label -->
@@ -31,6 +41,31 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>french</mat-label>
                     <textarea matInput name="fr" [(ngModel)]="respo15.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+     <!-- Extra code for label -->
+     <li *ngIf="showNewDiv==20 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCss15">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo20.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo20.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo20.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo20.fr"></textarea>
                 </mat-form-field>
             </form>
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
@@ -77,8 +112,8 @@
     </li>
 </div>
 <div class="container">
-    <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png">
-    <div class="bottom-left"><span><img src="../../../assets/StaticAssets/Create memorial/step1/funeral (1).png"></span>
+    <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png" style="width: 42%;">
+    <div class="bottom-left"><span><img class="memoImg" src="../../../assets/StaticAssets/Create memorial/step1/funeral (1).png">&nbsp;</span>
         <small *ngIf="editservice.numLabel==1">{{respo17?.en}}</small>
         <small *ngIf="editservice.numLabel==2">{{respo17?.de}}</small>
         <small *ngIf="editservice.numLabel==3">{{respo17?.fr}}</small>
@@ -114,9 +149,9 @@
         </div>
     </li>
 
-    <div class="centered">
+    <div class="centered2 fontCenter">
         <span>
-            <img src="../../../assets/StaticAssets/Create memorial/step3/Group 339.png">
+            <img class="memoImg" src="../../../assets/StaticAssets/Create memorial/step3/Group 339.png">&nbsp;
             <small *ngIf="editservice.numLabel==1">{{respo18?.en}}</small>
             <small *ngIf="editservice.numLabel==2">{{respo18?.de}}</small>
             <small *ngIf="editservice.numLabel==3">{{respo18?.fr}}</small>
@@ -153,7 +188,7 @@
         </div>
     </li>
 
-    <div class="bottom-right1"><span><img src="../../../assets/StaticAssets/Create memorial/step1/candle.png">
+    <div class="bottom-right1"><span><img class="memoImg" src="../../../assets/StaticAssets/Create memorial/step1/candle.png">&nbsp;
             <small *ngIf="editservice.numLabel==1">{{respo19?.en}}</small>
             <small *ngIf="editservice.numLabel==2">{{respo19?.de}}</small>
             <small *ngIf="editservice.numLabel==3">{{respo19?.fr}}</small>

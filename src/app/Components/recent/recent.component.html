@@ -1,27 +1,28 @@
-<div class="main flex-wrap p-3 mb-5">
+<div class="main container flex-wrap p-3 mb-5">
 
     <!-- Recent memorials -->
     <div class="box1 h-100 p-2">
-        
+
         <h4 class="mb-4">
-                <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
+            <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-            <strong class="recentMem"  *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
-            <strong class="recentMem"  *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
-            <strong class="recentMem"  *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
+            <strong class="recentMem" *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
+            <strong class="recentMem" *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
+            <strong class="recentMem" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
         </h4>
 
-        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" style="cursor: pointer;" (click)="recentMemorialGrabId(memData.grab_id)" *ngFor="let memData of Memorials">
+        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" style="cursor: pointer;"
+            (click)="recentMemorialGrabId(memData.grab_id,memData.user_id)" *ngFor="let memData of Memorials">
 
             <img src="{{memData.path}}" class="w-auto h-auto me-2 rounded">
 
             <div class="ms-2 mt-3">
-                <h6>
-                    {{memData.fname}} {{ memData.lname}},{{memData.age}}Y Old
+                <h6 class="userName">
+                    {{memData.fname}} {{ memData.lname}}, {{memData.age}}Y Old
                 </h6>
-                <h6>{{memData.starvetown}}</h6>
+                <h6 class="userName1">{{memData.starvetown}}</h6>
             </div>
 
         </div>
@@ -29,8 +30,8 @@
     </div>
 
 
-     <!-- Extra code for label -->
-     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
@@ -62,17 +63,27 @@
 
         <div class="w-auto h-auto">
 
-            <h4 class="mb-3">
-                <img class="pe-2" src="../../../assets/StaticAssets/Home page/diamond (1).png">
+            <h4>
                 <button style="right: 65%;" (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <strong class="recentPmem">
-                    <p *ngIf="editservice.numLabel==1">{{respo2?.en}}</p>
-                    <p *ngIf="editservice.numLabel==2">{{respo2?.de}}</p>
-                    <p *ngIf="editservice.numLabel==3">{{respo2?.fr}}</p>
 
+
+                <strong class="recentPmem">
+
+                    <span>
+                        <p style="margin-left: 6%;" *ngIf="editservice.numLabel==1"><img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.en}} <button
+                                class="btn btn-lg premiumButton">CREATE PREMIUM MEMORIAL</button></p>
+                        <p style="margin-left: 6%;" *ngIf="editservice.numLabel==2"><img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.de}} <button
+                                class="btn btn-lg">CREATE PREMIUM MEMORIAL</button></p>
+                        <p style="margin-left: 6%;" *ngIf="editservice.numLabel==3"><img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.fr}} <button
+                                class="btn btn-lg">CREATE PREMIUM MEMORIAL</button></p>
+
+                    </span>
 
                 </strong>
             </h4>
@@ -108,18 +119,22 @@
 
         <div class="premium p-1">
 
-            <div class="premium-child p-2 mb-3 ms-5"  style="cursor: pointer;" (click)="recentMemorialGrabId(prememData.grab_id)" *ngFor="let prememData of PremiumMemorials">
+            <div class="premium-child mb-3 ms-4" style="cursor: pointer;"
+                (click)="recentMemorialGrabId(prememData.grab_id,prememData.user_id)"
+                *ngFor="let prememData of PremiumMemorials">
 
                 <img class="mainIMG  rounded" src="{{prememData.name}}">
 
                 <div class="name">
-                    <h6>{{prememData.lastname}},{{prememData.firstname}}</h6>
+                    <h6 class="userName2">{{prememData.lastname}},{{prememData.firstname}}</h6>
                     <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
-                    <span class="me-1"><strong class="nameSml">{{prememData.grablog}}</strong></span>
+                    <span class="me-1 nameSml">{{prememData.grablog}}</span>
+                    
                     <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
-                    <span class="me-1"><strong class="nameSml">{{prememData.litCandle}}</strong></span>
+                    <span class="me-1 nameSml">{{prememData.litCandle}}</span>
+                  
                     <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
-                    <span class="me-1"><strong class="nameSml">{{prememData.Kondolenz}}</strong></span>
+                    <span class="me-1 nameSml">{{prememData.Kondolenz}}</span>
                 </div>
                 <!-- <div class="info w-100">
                     <img src="../../../assets/StaticAssets/Home page/eye.png" >

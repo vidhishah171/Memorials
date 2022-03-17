@@ -14,6 +14,23 @@
             <div class="userBackground">
                 <p>Add Background</p>
             </div>
+            <div style="float: right; margin-right: 10%;" class="pt-4" *ngFor="let item of lovedPersonData1">
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt="" style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
+                </span>
+            </div>
             <div class="steeper rounded-circle circleImage">
                 <img src="" alt="">
                 <!-- userImage1 -->
@@ -27,8 +44,10 @@
         <div class="mt-5">
             <div class="pt-5">
                 <button class="btn btn-outline-secondary ms-2 btnColor">Life Story</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video Gallery</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="condolenceScroll(target1)">Condolences</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video
+                    Gallery</button>
+                <button class="btn btn-outline-secondary ms-2 btnColor"
+                    (click)="condolenceScroll(target1)">Condolences</button>
                 <button class="btn btn-outline-success ms-2 btnColor1"><img
                         src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
             </div>
@@ -45,11 +64,72 @@
         <div class="photoVideoGallary" #target>
             <div class="container">
                 <h6 class="pt-5">Photo/Video Gallery</h6>
-                <div >
-                    <span class="photoVideoCss">
-                        jhghhgjh
-                    </span>
-                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage1" *ngIf="getPhotoVideoImage1" alt="" class="imageButton">
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
+                           
+                        </span>
+                    </div>
+                    <div class="col-12">
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage7" *ngIf="getPhotoVideoImage7" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage8" *ngIf="getPhotoVideoImage8" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage9" *ngIf="getPhotoVideoImage9" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage10" *ngIf="getPhotoVideoImage10" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage11" *ngIf="getPhotoVideoImage11" alt="" class="imageButton">
+                           
+                        </span>
+                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                            <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
+                        </span>
+                    </div>
+                    <!-- <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"> -->
+                    <!-- (change)="onselectFile($event)" -->
+                <!-- </div>
             </div>
         </div>
     </div>
@@ -112,8 +192,8 @@
         </div>
     </div>
 
-     <!-- Recent memorials -->
-     <div class="recentMemorial mt-5">
+    <!-- Recent memorials -->
+    <div class="recentMemorial mt-5">
         <div class="container">
             <h4 class="mb-4">
                 <h5 class="recentHeading pt-5">Recent memorials</h5>

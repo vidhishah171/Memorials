@@ -9,10 +9,10 @@ import { RecentMeorialsService } from '../../../services/recent-meorials.service
   templateUrl: './recent.component.html',
   styleUrls: ['./recent.component.css']
 })
-export class RecentComponent implements OnInit  {
+export class RecentComponent implements OnInit {
 
-  Memorials:any;// Recent Memorial Variable
-  PremiumMemorials:any;
+  Memorials: any;// Recent Memorial Variable
+  PremiumMemorials: any;
   showNewDiv: number;
   isvalid: boolean;
   respo: any;
@@ -20,9 +20,9 @@ export class RecentComponent implements OnInit  {
   respo2: any;
 
   constructor(
-    private service : RecentMeorialsService,
+    private service: RecentMeorialsService,
     public editservice: AdminEditService,
-    public loginservice:LoginService,
+    public loginservice: LoginService,
     private router: Router,
 
   ) { }
@@ -32,89 +32,103 @@ export class RecentComponent implements OnInit  {
     this.getrecentMemorials();
     this.getPremiumMemorial();
     this.editData();
-    
+
   }
 
-  getrecentMemorials(){
+  getrecentMemorials() {
     this.service.getRecentmemorials()
-    .subscribe(
-      (recentMemorial :any ) =>{
-       if (recentMemorial) {
-          this.Memorials = recentMemorial.Memorials;
-       }
-      },
-      error=>{
-        if (error) {
-          console.log(error);
-        }
+      .subscribe(
+        (recentMemorial: any) => {
+          if (recentMemorial) {
+            this.Memorials = recentMemorial.Memorials;
 
-      }
+            this.Memorials.map(function (item) { return item.fname = item.fname.replace(/[^a-zA-Z-.]/g, "") });
+            this.Memorials.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
+
+          }
+        },
+        error => {
+          if (error) {
+            console.log(error);
+          }
+
+        }
       )
   }
 
 
-  getPremiumMemorial(){
+  getPremiumMemorial() {
     this.service.getPremiumMemorials()
-    .subscribe(
-      (premiumMemorials:any)=>{
-       if (premiumMemorials) {
-         this.PremiumMemorials = premiumMemorials.Memorials;
-       }
-      },
-      error=>{
-        console.log(error);
-        
-      }
-    )
+      .subscribe(
+        (premiumMemorials: any) => {
+          if (premiumMemorials) {
+            this.PremiumMemorials = premiumMemorials.Memorials;
+
+            this.PremiumMemorials.map(function (item) { return item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "") });
+            this.PremiumMemorials.map(function (item) { return item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "") });
+          }
+        },
+        error => {
+          console.log(error);
+
+        }
+      )
   }
 
-  openDialogue(num): void{
-   
-   if(num==1){
-     this.showNewDiv=1;
-     this.isvalid=true;
-   }else if(num==2){
-     this.showNewDiv=2;
-     this.isvalid=true;
-   }
+  openDialogue(num): void {
+
+    if (num == 1) {
+      this.showNewDiv = 1;
+      this.isvalid = true;
+    } else if (num == 2) {
+      this.showNewDiv = 2;
+      this.isvalid = true;
+    }
   }
 
-  openDialogue1(){
-    this.isvalid=false;
+  openDialogue1() {
+    this.isvalid = false;
   }
 
 
-  editData(){
-    this.editservice.adminEdit().subscribe((res:any)=>{
+  editData() {
+    this.editservice.adminEdit().subscribe((res: any) => {
       console.log(res);
-      this.respo=res.Details;
-      this.respo1=this.respo[17]
-      this.respo2=this.respo[18]
+      this.respo = res.Details;
+      this.respo1 = this.respo[17]
+      this.respo2 = this.respo[18]
 
-  
+
     });
   }
 
 
-  postEditData(editDataNew:any){
-    var formdata=new FormData();
-    formdata.append('id',editDataNew.value.id);
-    formdata.append('en',editDataNew.value.en);
-    formdata.append('de',editDataNew.value.de);
-    formdata.append('fr',editDataNew.value.fr);
-  
-    this.editservice.editPostData(formdata).subscribe(response=>{
+  postEditData(editDataNew: any) {
+    var formdata = new FormData();
+    formdata.append('id', editDataNew.value.id);
+    formdata.append('en', editDataNew.value.en);
+    formdata.append('de', editDataNew.value.de);
+    formdata.append('fr', editDataNew.value.fr);
+
+    this.editservice.editPostData(formdata).subscribe(response => {
       console.log(response);
     })
   }
 
+  // recentMemorialUserId(data1){
+  //   debugger
+  //   this.service.userUserIdData = data1;
+  //   this.router.navigate(['/visitor-mode']);
+  // }
 
-  recentMemorialGrabId(data){
+  recentMemorialGrabId(data, data1) {
     debugger
     console.log(data);
 
-    if(data){
-      this.service.userGrabIdData=data;
+    if (data) {
+      this.service.userGrabIdData2 = data;
+      this.service.userUserIdData = data1;
+
       this.router.navigate(['/visitor-mode']);
     }
   }

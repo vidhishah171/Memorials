@@ -20,6 +20,19 @@ export class VisitorModeComponent implements OnInit {
   loginData: any;
   condition: boolean;
   showPhotoVideoDiv: number;
+  getPhotoVideoImage1: any;
+  getPhotoVideoImage2: any;
+  getPhotoVideoImage3: any;
+  getPhotoVideoImage4: any;
+  getPhotoVideoImage5: any;
+  getPhotoVideoImage6: any;
+  getPhotoVideoImage7: any;
+  getPhotoVideoImage8: any;
+  getPhotoVideoImage9: any;
+  getPhotoVideoImage10: any;
+  getPhotoVideoImage11: any;
+  getPhotoVideoImage12: any;
+  lovedPersonData1: any;
 
 
   constructor(
@@ -30,17 +43,18 @@ export class VisitorModeComponent implements OnInit {
     private router: Router,
 
 
-  ) { }
+  ) { this.loginservice.otherPage = false; }
 
   ngOnInit(): void {
     this.getrecentMemorials();
     this.postGrabId();
     this.getData();
+    this.getPhotoVideo();
   }
 
   // for user after the login
   getData() {
-    var userLoginData = sessionStorage.getItem('myData')
+    var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
@@ -56,6 +70,12 @@ export class VisitorModeComponent implements OnInit {
     }
   }
 
+
+  setData() {
+    debugger
+    const jsonData = JSON.stringify(this.service.userUserIdData,this.service.userGrabIdData2)
+    sessionStorage.setItem('myData', jsonData)
+  }
 
 
 
@@ -77,7 +97,7 @@ export class VisitorModeComponent implements OnInit {
   // For user data retrive
   postGrabId() {
     debugger
-    var jsonData = this.service.userGrabIdData
+    var jsonData = this.service.userGrabIdData2
 
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
@@ -86,6 +106,7 @@ export class VisitorModeComponent implements OnInit {
       console.log(Response);
       debugger
       this.lovedPersonData = Response.Details[0];
+      this.lovedPersonData1 = Response.Details;
       // if(Response){
       //   debugger
       //   var jsonData1=Response.Details[0].canvas_json;
@@ -114,6 +135,35 @@ export class VisitorModeComponent implements OnInit {
         })
   }
 
+
+  
+
+  //  For Get Photo/Video gallery image
+  getPhotoVideo() {
+    debugger;
+
+    var photoFormData1 = new FormData();
+    photoFormData1.append('user_id', this.service.userUserIdData);
+
+    this.editCanvas.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
+      debugger;
+      console.log(userRes1);
+      this.getPhotoVideoImage1 = userRes1.Data[0].image;
+      this.getPhotoVideoImage2 = userRes1.Data[1].image;
+      this.getPhotoVideoImage3 = userRes1.Data[2].image;
+      this.getPhotoVideoImage4 = userRes1.Data[3].image;
+      this.getPhotoVideoImage5 = userRes1.Data[4].image;
+      this.getPhotoVideoImage6 = userRes1.Data[5].image;
+      this.getPhotoVideoImage7 = userRes1.Data[6].image;
+      this.getPhotoVideoImage8 = userRes1.Data[7].image;
+      this.getPhotoVideoImage9 = userRes1.Data[8].image;
+      this.getPhotoVideoImage10 = userRes1.Data[9].image;
+      this.getPhotoVideoImage11 = userRes1.Data[10].image;
+      this.getPhotoVideoImage12 = userRes1.Data[11].image;
+
+      // var photoData = userRes1
+    })
+  }
 
 
   photoVideoScroll(el: HTMLElement) {

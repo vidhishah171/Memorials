@@ -2,16 +2,16 @@
     <app-navbar></app-navbar>
 
     <div class="container">
-        <div class="child h-auto">
-            <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible" style="float: right;" 
+        <div class="child h-auto" style="margin-bottom: -23px;">
+            <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible" style="float: right;"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-            <h5 style="color:#ce1414">
-                <p *ngIf="editservice.numLabel==1"><strong>{{respo1?.en}}</strong></p>
-                <p *ngIf="editservice.numLabel==2"><strong>{{respo1?.de}}</strong></p>
-                <p *ngIf="editservice.numLabel==3"><strong>{{respo1?.fr}}</strong></p>
+            <h3 class="headerLabel">
+                <p  *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
+                <p  *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
+                <p  *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>
 
-            </h5>
+            </h3>
 
             <!-- Extra code for div -->
             <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
@@ -46,13 +46,13 @@
 
 
         </div>
-        <div class="child text-center text-secondary">
+        <div class="child text-center text-secondary mt-0">
             <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-            <h1 *ngIf="editservice.numLabel==1"><strong>{{respo2?.en}}</strong></h1>
-            <h1 *ngIf="editservice.numLabel==2"><strong>{{respo2?.de}}</strong></h1>
-            <h1 *ngIf="editservice.numLabel==3"><strong>{{respo2?.fr}}</strong></h1>
+            <h1 class="keepingAlive" *ngIf="editservice.numLabel==1"><strong>{{respo2?.en}}</strong></h1>
+            <h1 class="keepingAlive" *ngIf="editservice.numLabel==2"><strong>{{respo2?.de}}</strong></h1>
+            <h1 class="keepingAlive" *ngIf="editservice.numLabel==3"><strong>{{respo2?.fr}}</strong></h1>
 
         </div>
 
@@ -83,16 +83,38 @@
         </li>
 
 
-        <div class="child text-center w-50" id="box3">
+        <div class="child text-center" id="box3">
             <p>
+                <!-- <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton5"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button> -->
                 <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <small *ngIf="editservice.numLabel==1"><strong>{{respo3?.en}}</strong></small>
-                <small *ngIf="editservice.numLabel==2"><strong>{{respo3?.de}}</strong></small>
-                <small *ngIf="editservice.numLabel==3"><strong>{{respo3?.fr}}</strong></small>
+                            <!-- <small *ngIf="editservice.numLabel==1"><strong style="font-weight: bolder;">{{respo8?.en}}</strong></small> -->
+                            <!-- <span>
+                                <strong style="font-weight: bolder;" *ngIf="editservice.numLabel==1">{{respo8?.en}}</strong>
+                            </span> -->
+                            
+                            <span>
+                                <small class="headerText" *ngIf="editservice.numLabel==1">{{respo3?.en}}</small>
+                            </span>
+                            <!-- <span>
+                                <small style="font-weight: bolder;" *ngIf="editservice.numLabel==2">{{respo8?.de}}</small>
+                            </span>
+                            &nbsp; -->
+                            <span>
+                                <small class="headerText" *ngIf="editservice.numLabel==2">{{respo3?.de}}</small>
+                            </span>
+                            <!-- <span>
+                                <small style="font-weight: bolder;" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</small>
+                            </span>
+                            &nbsp; -->
+                            <span>
+                                <small class="headerText" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</small>
+                            </span>
             </p>
-            <!-- soulium.com</strong> the virtual cemetery. Here, you can create memorable sites for your
+            <!-- soulium.com the virtual cemetery. Here, you can create memorable sites for your
                     loved ones free of charge, which will continue to live in your memory forever. You can also mourn
                     together with us and exchange with other people -->
             <!-- <h6>soulium.com the virtual cemetery. Here, you can create memorable sites for your loved ones free of charge, which will continue to live in your memory forever. You can also mourn together with us and  exchange with other people</h6> -->
@@ -123,6 +145,31 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
+         <!-- Extra code for div -->
+         <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
+            <div class="forDiv" id="longTextId">
+                <button style="float: right;" (click)="openDialogue1()" class="btn bt btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo8.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo8.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo8.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo8.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
 
 
 
@@ -131,7 +178,7 @@
             <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-            <button type="button" class="btn btn-danger btn-lg">
+            <button type="button" class="btn btn-lg viewText">
                 <strong *ngIf="editservice.numLabel==1"><a id="color"
                         routerLink="create-memorial">{{respo4?.en}}</a></strong>
                 <strong *ngIf="editservice.numLabel==2"><a id="color"
@@ -169,10 +216,10 @@
 
 
 
-            <button type="button" class="btn btn-success btn-lg">
-                <strong *ngIf="editservice.numLabel==1">{{respo5?.en}}</strong>
-                <strong *ngIf="editservice.numLabel==2">{{respo5?.de}}</strong>
-                <strong *ngIf="editservice.numLabel==3">{{respo5?.fr}}</strong>
+            <button type="button" class="btn btn-lg ml-2 viewText1">
+                <strong *ngIf="editservice.numLabel==1"><a id="color">{{respo5?.en}}</a></strong>
+                <strong *ngIf="editservice.numLabel==2"><a id="color">{{respo5?.de}}</a></strong>
+                <strong *ngIf="editservice.numLabel==3"><a id="color">{{respo5?.fr}}</a></strong>
             </button>
             <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -212,12 +259,12 @@
     </div>
     <form #myForm1="ngForm">
         <div class="find d-flex justify-content-center">
-            <div class="input-group w-50" style="height: 20px">
-                <input type="text" class="form-control input-lg " name="searchText" ngModel #searchText="ngModel"
-                    style="border-radius: 30px 0 0 30px" placeholder="Find a Memorial...">
+            <div class="input-group" style="height: 31px; width: 42%;">
+                <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel #searchText="ngModel"
+                     placeholder="Find a memorial...">
                 <div class="input-group-append">
-                    <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg "
-                        style="background-color: #f87171;border-radius: 0px 50% 50% 0 " type="submit">
+                    <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg cityBtn"
+                         type="submit">
                         <img src="../../../assets/StaticAssets/Home page/search-1.png">
                     </button>
                 </div>
@@ -282,16 +329,16 @@
         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
     <h5 style="text-align: center">
-        <strong *ngIf="editservice.numLabel==1">{{respo6?.en}}</strong>
-        <strong *ngIf="editservice.numLabel==2">{{respo6?.de}}</strong>
-        <strong *ngIf="editservice.numLabel==3">{{respo6?.fr}}</strong>
+        <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==1">{{respo6?.en}}</strong>
+        <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==2">{{respo6?.de}}</strong>
+        <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</strong>
 
     </h5>
 
 
     <!-- Extra code for div -->
     <li *ngIf="showNewDiv==6 && isvalid" style="position: absolute; margin-top: 25px;">
-        <div class="forDiv"  id="headerLabel1">
+        <div class="forDiv" id="headerLabel1">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
                 <mat-form-field class="example-full-width" style="display: none;">
@@ -315,7 +362,8 @@
         </div>
     </li>
     <div class="container2">
-        <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id)" *ngFor="let data of memorialData "
+        <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
+            *ngFor="let data of memorialData "
             [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
             <div class="year">
                 <h6>
@@ -324,52 +372,56 @@
             </div>
         </div>
 
-        <div class="second text-align-center pt-3 w-100">
-            
-            <button type="button" class="btn btn-danger ">
+        <div class="second text-align-center w-100">
+
+            <button type="button" class="btn btn-lg mb-5 createBtnNew">
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==1">{{respo7?.en}}</strong>
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==2">{{respo7?.de}}</strong>
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</strong>
             </button>
-            <button  (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
-        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+            <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
 
-                <!-- Extra code for div -->
-    <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
-        <div class="forDiv" style="right: 25%; margin-top: 100%;">
-            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
-            <form class="example-form" #regForm2="ngForm">
-                <mat-form-field class="example-full-width" style="display: none;">
-                    <mat-label>id</mat-label>
-                    <textarea matInput name="id" [(ngModel)]="respo7.id"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width englishLng">
-                    <mat-label>English</mat-label>
-                    <textarea matInput name="en" [(ngModel)]="respo7.en"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>dutch</mat-label>
-                    <textarea matInput name="de" [(ngModel)]="respo7.de"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>french</mat-label>
-                    <textarea matInput name="fr" [(ngModel)]="respo7.fr"></textarea>
-                </mat-form-field>
-            </form>
-            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
-        </div>
-    </li>
+            <!-- Extra code for div -->
+            <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
+                <div class="forDiv" style="right: 25%; margin-top: 100%;">
+                    <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                    <form class="example-form" #regForm2="ngForm">
+                        <mat-form-field class="example-full-width" style="display: none;">
+                            <mat-label>id</mat-label>
+                            <textarea matInput name="id" [(ngModel)]="respo7.id"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width englishLng">
+                            <mat-label>English</mat-label>
+                            <textarea matInput name="en" [(ngModel)]="respo7.en"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>dutch</mat-label>
+                            <textarea matInput name="de" [(ngModel)]="respo7.de"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>french</mat-label>
+                            <textarea matInput name="fr" [(ngModel)]="respo7.fr"></textarea>
+                        </mat-form-field>
+                    </form>
+                    <button (click)="postEditData(regForm2);openDialogue1();"
+                        class="btn btn-outline-success">Save</button>
+                </div>
+            </li>
 
         </div>
 
     </div>
 </div>
-<div *ngIf="searchResult" class="searchHgt mb-5">
+<div *ngIf="searchResult" class="searchHgt mb-5 container">
+    <div style="float: right;" (click)="divHide()" class="btn btn-outline-danger align-self-end mb-1">X</div>
     <div class="row">
-        <div class="col-4" style="text-align: center; margin-top: 30px;">
-            <div>
+
+        <div class="col-3" style="text-align: center; margin-top: 30px; background-color: #F8F8F8;">
+            <div style="float: left;"><strong>&nbsp;&nbsp;FILTER</strong></div>
+            <div class="pt-5">
                 <label>Age</label>
             </div>
             <!-- <div>
@@ -380,9 +432,9 @@
             </div> -->
 
 
-            <span>0</span>
-            <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
-            <span>100</span>
+            <span style="color: red;">0</span>
+            <input type="range" min="0" max="100" [(ngModel)]="sliderValue"/>
+            <span style="color: red;">100</span>
             <!-- 
             <mat-slider thumbLabel [displayWith]="formatLabel" [(ngModel)]="sliderValue" tickInterval="1000" step="1000" min="0" max="100000"
                 aria-label="units"></mat-slider> -->
@@ -390,8 +442,9 @@
 
 
         </div>
+
         <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <div class="col-8 searchImg">
+            <div class="col-9 searchImg">
                 <div *cdkVirtualFor="let search of dataSearch1 | filter: sliderValue">{{dataSearch1.age}}
                     <div>
                         <img class="searchImg1" [src]="search.path" alt="">
@@ -420,6 +473,10 @@
             </div>
         </cdk-virtual-scroll-viewport>
     </div>
+
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: white">Please Wait. </p>
+    </ngx-spinner>
 
 </div>
 

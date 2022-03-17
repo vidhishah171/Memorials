@@ -99,9 +99,25 @@ export class CanvasComponent implements OnInit, OnDestroy {
     public snack: MatSnackBar,
 
 
-  ) { }
+  ) { this.loginservice.otherPage = false;}
+
+public GetData()
+{
+  const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.src = this.canvas.toDataURL({ format: 'png' });
+    this.service.saveCanvas = image.src;
+    const newLocal = this;
+    this.service.saveVitaText = this.service.vita.textString1;
+    this.service.vita.textString1;
+    this.name45 = '';
+
+    this.service.selectedMainImg = '';
+
+    this.saveCanvasToJSON();
 
 
+}
 
   ngOnDestroy() {
     debugger
@@ -165,7 +181,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 3000,
-      verticalPosition: 'bottom',
+      verticalPosition: 'top',
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,

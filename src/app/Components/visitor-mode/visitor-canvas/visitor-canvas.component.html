@@ -17,7 +17,7 @@
         </div>
         <!-- Edit memorial page -->
         <div>
-            <button class="btn btn-outline-danger" (click)="goesToEditMemo()">Edit Memorial</button>
+            <button class="btn btn-outline-danger" *ngIf="loginService.isUser" (click)="goesToEditMemo()">Edit Memorial</button>
         </div>
     </div>
 </div>

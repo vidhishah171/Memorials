@@ -1,11 +1,14 @@
 <div class="w-90">
+    <div>
+        <div class="navbarBackImg w-100">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
 
 
-    <app-navbar></app-navbar>
-
-    <div class="login p-3 mb-5">
+    <div class="login container">
         <div class="form p-3">
-            <h6 style="color:red">
+            <h6>
                 <button id="loginLabel1" (click)="openDialogue(1)" *ngIf="service.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -47,9 +50,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <h1 *ngIf="editservice.numLabel==1">{{respo2?.en}}</h1>
-                <h1 *ngIf="editservice.numLabel==2">{{respo2?.de}}</h1>
-                <h1 *ngIf="editservice.numLabel==3">{{respo2?.fr}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==1">{{respo2?.en}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==2">{{respo2?.de}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</h1>
             </div>
 
 
@@ -85,9 +88,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <p *ngIf="editservice.numLabel==1"><small>{{respo3?.en}}</small></p>
-                <p *ngIf="editservice.numLabel==2"><small>{{respo3?.de}}</small></p>
-                <p *ngIf="editservice.numLabel==3"><small>{{respo3?.fr}}</small></p>
+                <p class="userLoginText1" *ngIf="editservice.numLabel==1"><small>{{respo3?.en}}</small></p>
+                <p class="userLoginText1" *ngIf="editservice.numLabel==2"><small>{{respo3?.de}}</small></p>
+                <p class="userLoginText1" *ngIf="editservice.numLabel==3"><small>{{respo3?.fr}}</small></p>
             </div>
 
             <!-- Extra code for label -->
@@ -127,7 +130,7 @@
 
                     <input type="email" class="form-control form-control-lg largInpt"
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder="Your email address"
-                        name="username" ngModel #username="ngModel" onpaste="return false">
+                        name="username" ngModel #username="ngModel">
 
                     <div class="fireError" *ngIf='username.invalid && username.touched'>Enter Proper email</div>
 
@@ -135,7 +138,7 @@
 
                     <input type="password" class="form-control form-control-lg largInpt"
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="on"
-                        placeholder="Your password" name="password" ngModel #password="ngModel" onpaste="return false">
+                        placeholder="Your password" name="password" ngModel #password="ngModel">
 
                     <div class="fireError" *ngIf='password.invalid && password.touched'>Password Must contain at least
                         one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
@@ -146,23 +149,23 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn btn-danger ps-5 pe-5 largInpt" (click)="login(logForm)"
-                        *ngIf="editservice.numLabel==1">{{respo4?.en}}</button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn btn-danger ps-5 pe-5 largInpt" (click)="login(logForm)"
-                        *ngIf="editservice.numLabel==2">{{respo4?.de}}</button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn btn-danger ps-5 pe-5 largInpt" (click)="login(logForm)"
-                        *ngIf="editservice.numLabel==3">{{respo4?.fr}}</button>
+                    <button [disabled]="logForm.invalid" type="submit" class="btn fontSizeBtn largInpt loginBtn"
+                        (click)="login(logForm)" *ngIf="editservice.numLabel==1">{{respo4?.en}}</button>
+                    <button [disabled]="logForm.invalid" type="submit" class="btn largInpt loginBtn"
+                        (click)="login(logForm)" *ngIf="editservice.numLabel==2">{{respo4?.de}}</button>
+                    <button [disabled]="logForm.invalid" type="submit" class="btn largInpt loginBtn"
+                        (click)="login(logForm)" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</button>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <!-- For create memorial button -->
-                        <button routerLink="/create-memorial" class="btn btn-danger btnCM"
+                    <!-- For create memorial button -->
+                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
                         *ngIf="editservice.numLabel==1">{{respo6?.en}}</button>
-                    <button routerLink="/create-memorial" class="btn btn-danger btnCM"
+                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
                         *ngIf="editservice.numLabel==2">{{respo6?.de}}</button>
-                    <button routerLink="/create-memorial" class="btn btn-danger btnCM"
+                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
                         *ngIf="editservice.numLabel==3">{{respo6?.fr}}</button>
-    
+
                     <button (click)="openDialogue(6)" *ngIf="service.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton btnSpace"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -178,9 +181,15 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1"><u><a style="color: blue;" routerLink="/forgot-password">{{respo5?.en}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==2"><u><a style="color: blue;" routerLink="/forgot-password">{{respo5?.de}}</a></u></p>
-                    <p *ngIf="editservice.numLabel==3"><u><a style="color: blue;" routerLink="/forgot-password">{{respo5?.fr}}</a></u></p>
+                    <p *ngIf="editservice.numLabel==1"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.en}}</a></p>
+                                <hr *ngIf="editservice.numLabel==1" class="forgotHr">
+                    <p *ngIf="editservice.numLabel==2"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.de}}</a></p>
+                                <hr *ngIf="editservice.numLabel==2" class="forgotHr">
+                    <p *ngIf="editservice.numLabel==3"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.fr}}</a></p>
+                                <hr *ngIf="editservice.numLabel==3" class="forgotHr">
                 </form>
 
                 <!-- Extra code for label -->
@@ -287,10 +296,14 @@
 
 
             <div class="image mt-5">
-                <img class="mt-5" src="../../../assets/StaticAssets/Login Page/Group 332.png">
+                <img src="../../../assets/StaticAssets/Login Page/Group 332.png">
             </div>
         </div>
     </div>
+
+    <div class="marginImg">
+      <app-memory-images></app-memory-images>
+  </div>
 
     <!-- other components -->
     <!-- <div>
@@ -304,11 +317,17 @@
 </div> -->
 
 
+    <!-- For spinner -->
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+        <p style="color: white">Please Wait. </p>
+    </ngx-spinner>
+
     <!-- <app-memorial-features></app-memorial-features> -->
     <app-recent></app-recent>
-    <app-most-visited></app-most-visited>
+    <!-- <app-most-visited></app-most-visited> -->
     <!-- <app-platform></app-platform> -->
     <!-- <app-everyday></app-everyday> -->
     <app-grief></app-grief>
     <app-footer></app-footer>
+
 </div>

@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+
 /* css for labels */
 .forButton{
     position: relative;
@@ -39,7 +47,12 @@
     background-color: rgba(207,99,99, 0.2);
     opacity: 0.7;
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: whitesmoke;
+    opacity: 0.8; /* Firefox */
+    font-size: 0.8rem;
+    font-weight: 100;
+  }
 
 
 
@@ -49,10 +62,20 @@
     height: auto;
     flex-direction: column;
     width: 100%;
+    background-color: #F8F4EF;
+}
+.viewColors{
+    color: #4BC252;
+}
+.findByLabel{
+    font-size: 1.1rem;
+    font-weight: 1000;
+    padding-bottom: 10%;
 }
 
 .most-visited h4{
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 4%;
 }
 
 .child{
@@ -75,7 +98,7 @@
 
 .mainIMG{
     border-radius: 10px;
-    border:3px solid green;
+    border:3px solid #4BC252;
 }
 
 .box .name{
@@ -87,7 +110,9 @@
 }
 
 .name h6{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-top: 6%;
 }
 
 .info{
@@ -96,16 +121,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: baseline;
-    font-size: 80%;
+    font-size: 52%;
 }
-
+.mostVisitedMemo{
+    font-size: 1.1rem;
+    margin-left: 2%;
+    font-weight: 1000;
+}
 /* 
 next tab css properties */
 
 .findByName{
     font-family: 'Libre Franklin', sans-serif;
     height: 22vw;
-    background-image: url('../../../assets/StaticAssets/Home page/map.png');
+    background-image: url('../../../assets/StaticAssets/Home page/Map(1).PNG');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;
@@ -116,19 +145,28 @@ next tab css properties */
 }
 
 .findByName input{
-    background-color:lightgreen; 
+    background-color:#4CC252; 
     /* rgb(29, 129, 29); */
-    color: white;
-    height: 65px;
+    color: #00000029;
+    height: 60px;
     border-radius: 50px 0 0 50px;
 
 }
+#search {
+    background-image: url('../../../assets/StaticAssets/Home page/company.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10%;
+    padding-left: 17%;
+    background-size: 25px;
+    height: 55px;
+}
 .findByName2{
-    height: 65px;
-    background-color: lightgreen;
+    height: 55px;
+    background-color: #4CC252;
     border-radius: 0 50px 50px 0;
     border: transparent;
-    color:black;
+    color:white;
 }
 /* 
 responsive content */

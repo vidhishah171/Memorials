@@ -91,19 +91,19 @@ export class CreatePremiunMemComponent implements OnInit {
     this.editservice.adminEdit().subscribe((res: any) => {
       console.log(res);
       this.respo = res.Details;
-      this.respo4 = this.respo[104];
-      this.respo5 = this.respo[105];
-      this.respo6 = this.respo[106];
-      this.respo7 = this.respo[106];
-      this.respo8 = this.respo[106];
-      this.respo9 = this.respo[106];
-      this.respo10 = this.respo[106];
-      this.respo11 = this.respo[106];
-      this.respo12 = this.respo[106];
-      this.respo13 = this.respo[106];
-      this.respo14 = this.respo[106];
-      this.respo15 = this.respo[106];
-      this.respo16 = this.respo[106];
+      this.respo4 = this.respo[179];
+      this.respo5 = this.respo[180];
+      this.respo6 = this.respo[181];
+      this.respo7 = this.respo[182];
+      this.respo8 = this.respo[183];
+      this.respo9 = this.respo[184];
+      this.respo10 = this.respo[185];
+      this.respo11 = this.respo[186];
+      this.respo12 = this.respo[187];
+      this.respo13 = this.respo[188];
+      this.respo14 = this.respo[189];
+      this.respo15 = this.respo[190];
+      this.respo16 = this.respo[191];
     });
   }
 

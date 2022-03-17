@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+
 .forButton{
     position: relative;
     /* z-index: 10; */
@@ -27,6 +36,63 @@
     padding-left: 2%;
     margin-left: 12%;
 }
+
+.carousel-indicators button{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    /* color: black; */
+    background-color: black;
+}
+.carousel-control-next {
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 6%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.carousel-control-prev{
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 6%;
+    height: 10%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.carousel-item button{
+    height: 45%;
+    width: 32%;
+}
+
+
+
 
 /* user Div css */
 .userProfileDiv2{
@@ -136,7 +202,28 @@
     margin-top: -103%;
 }
 
+.profileOption{
+    float: right;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+    cursor: pointer;
+}
+.profileImg{
+    height: 22px;
+}
+.profileUserName{
+    font-size:0.9; 
+    font-weight: 600;
+    opacity: 0.9;
+}
 
+.vertical-menu {
+    width: 80%;
+    height: 150px;
+    overflow-x: auto;
+  }
 
 
 .creditButton1{
@@ -164,17 +251,47 @@
 .messageCss{
     right: 54%;
 }
+.recentHeading{
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.recentMemo{
+    /* width:30%; */
+    /* font-size: 0.5rem; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-content: flex-start;
+    /* flex-direction: row; */
+    margin-left: 12%;
+}
+.recentMemo .child1{
+    /* height: 20%; */
+    font-style: normal;
+    margin: 0%;
+    padding: 0%;
+   
+}
+.recentImage{
+    width: 50%;
+    height: auto;
+    border: 2px solid #CF6363;
+    text-align: center;
 
+}
 
 
 .userHeading{
     background-color:#CF6363 ;
-    height: 7vw;
+    height: 6vw;
 }
 .userHeading h1{
     text-align: center;
     color: white;
-    padding-top: 2%;
+    padding-top: 1.3%;
+    font-weight: 600;
+    font-size: 2.4rem;
+    font-family:'Rubik', sans-serif;
 }
 /* .profileDiv{
     margin-top: 0%;
@@ -186,7 +303,12 @@ hr{
     margin: 0.4rem;
 }
 .divText{
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.imgWidth{
+    width: 9%;
 }
 .profileName{
     margin-left: 15%;
@@ -214,28 +336,52 @@ hr{
     color:#CF6363;
 }
 .userMemorialData1{
-    color:#CF6363;
-    font-size: 0.7rem;
+   color: #CF6363;
+    font-size: 0.75rem;
+    font-weight: 500;
+    /* margin-left: 7%; */
+    /* display: flex; */
 }
 .fontAppeare{
-    font-size: 0.8rem;
-    font-weight: bold;
+    font-size: 0.7rem;
+    font-weight: 800;
     cursor: pointer;
+    opacity: 0.8;
+    color: #303030;
+}
+.myMemorialImg{
+    width: 12px;
+    height: 12px;
+}
+.recentMemorial{
+    background-color: #F8F4EF;
+    height: 25vw;
+}
+.recentMargin{
+    margin-bottom: -2%;
+}
+.recentName{
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.messageText{
+    font-weight: 600;
+    font-size: 1.4rem;
 }
 .userImage{
-    width: 10%;
+    width: 25%;
     height: 10%;
 }
 .mainDiv{
     width: 100%;
     height: 25vw; 
-    background-color: lightgray;
+    background-color: #00000029;
 }
 .subDiv1{
     color: #CF6363;
 }
 .subDiv2{
-    color: green;
+    color: #4BC252;
 }
 .content1{
     display: flex;
@@ -264,39 +410,79 @@ hr{
 
 }
 .userAccountText{
-    color: grey;
-    font-size: 1rem;
+    color: #B5B5B5;
+    font-size: 0.75rem;
+    font-weight: 600;
 }
 .userAccountText1{
-    color: black;
+    color: #000000;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.3rem;
 }
 .userAccountText2{
-    color: black;
+    color: #000000;
     font-size: 0.8rem;
     margin-bottom: 0%;
-}.userAccountText3{
+    opacity: 0.9;
+}
+.userAccountText3{
     color: #CF6363;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     margin-top: 0%;
+}
+.userAccountImg{
+    width: 65%;
+    height: auto;
 }
 .btnDiv{
     width: 100%; 
-    margin-top: 20%;
+    margin-top: 16%;
 }
 .btnDiv1{
-    width: 87%;
+    width: 100%;
+}
+.myMemorialDiv{
+    margin-top: 9%;
 }
 .btn1{
     margin-right: 0%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    /* opacity: 0.9; */
+    border: 1px solid #5D5959;
+    color: #5D5959;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+
 } 
-.btn1:hover{
+.btn4{
+    width: 100%; 
+    border: 1px solid #5D5959;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 6px;
+    color: #5D5959;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.btn:hover{
+    color: white;
     background-color: #CF6363;
 }
+.userAccountBtn{
+    width: 18%;
+    margin-left: 4.7%;
+}
+/* .btn1:hover{
+    background-color: #CF6363;
+    color: white;
+} */
 
 @media (min-width:481px) and (max-width:780px){
     .recentDiv{
@@ -623,6 +809,7 @@ hr{
     .forProfileDiv{
         margin-left: 76%;
     }
+    
 }
 @media (min-width:1520px)and (max-width:1820px){
     .forProfileDiv{

@@ -20,6 +20,7 @@ export class MemorialFeaturesComponent implements OnInit {
   respo7: any;
   respo8: any;
   respo9: any;
+  respo10: any;
 
   constructor(
     public editservice: AdminEditService,
@@ -60,6 +61,9 @@ export class MemorialFeaturesComponent implements OnInit {
   }else if(num==9){
     this.showNewDiv=9;
     this.isvalid=true;
+  }else if(num==10){
+    this.showNewDiv=10;
+    this.isvalid=true;
   }
   }
 
@@ -81,6 +85,8 @@ export class MemorialFeaturesComponent implements OnInit {
       this.respo7=this.respo[13]
       this.respo8=this.respo[14]
       this.respo9=this.respo[15]
+      this.respo10=this.respo[244]
+
   
     });
   }

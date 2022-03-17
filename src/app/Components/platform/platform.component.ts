@@ -14,6 +14,7 @@ export class PlatformComponent implements OnInit {
   respo1: any;
   respo2: any;
   respo3: any;
+  respo4: any;
 
   constructor(
     public editservice: AdminEditService,
@@ -40,9 +41,11 @@ export class PlatformComponent implements OnInit {
    }else if(num==3){
     this.showNewDiv=3;
     this.isvalid=true;
+   }else if(num==4){
+    this.showNewDiv=4;
+    this.isvalid=true;
+   }
   }
-  }
-
   openDialogue1(){
     this.isvalid=false;
   }
@@ -54,6 +57,8 @@ export class PlatformComponent implements OnInit {
       this.respo1=this.respo[22]
       this.respo2=this.respo[23]
       this.respo3=this.respo[2]
+      this.respo4=this.respo[245]
+
 
 
   

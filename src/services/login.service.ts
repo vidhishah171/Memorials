@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { style } from '@angular/animations';
 
 
 @Injectable({
@@ -12,7 +13,17 @@ export class LoginService {
   loginSaveData:any;
   public islogin:boolean=false;
   isVisible:boolean;
+  isUser:boolean;
   eitpo:any;
+  mapData:any;
+
+  otherPage:boolean=false;
+  hideMemorialImage:boolean=true;
+  goPremiumLabel:boolean=false;
+  divPosition:boolean=false;
+  logoDisplay:boolean=false;
+  isFooterLogin:boolean=true;
+  
 
   // loginAPI="https://h2913228.stratoserver.net/API/public/login";
   loginAPI="https://h2913228.stratoserver.net/API/public/login";

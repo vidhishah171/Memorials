@@ -16,7 +16,7 @@ export class ForgotPassActivePopComponent implements OnInit {
   }
 
   changePassword(){
-    sessionStorage.clear();
+    localStorage.clear();
     setTimeout(() => {
           this.router.navigate(['/login'])
             .then(() => {

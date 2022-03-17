@@ -1,18 +1,20 @@
 <div class="navPadding">
     <app-navbar></app-navbar>
 </div>
-<div class="create-memorial p-3">
-    <div class="d-flex w-100 tab justify-content-center align-items-center" style="background-color: rgb(238 230 221)">
-        <h2>
+<div class="create-memorial">
+    <div class="d-flex w-100 tab justify-content-center align-items-center">
+        <h2 class="createMemorialText">
             <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-            <strong *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
-            <strong *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
-            <strong *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
+            <span *ngIf="editservice.numLabel==1">{{respo1?.en}}</span>
+            <span *ngIf="editservice.numLabel==2">{{respo1?.de}}</span>
+            <span *ngIf="editservice.numLabel==3">{{respo1?.fr}}</span>
         </h2>
     </div>
+    <span class="freeAndDigni">Free and Dignified</span>
+
 
 
     <!-- Extra code for label -->
@@ -44,7 +46,7 @@
 
 
 
-    <div id="myDiv" class="d-flex w-100 p-3 tab2 justify-content-center align-items-center">
+    <div id="myDiv" class="d-flex w-100 p-4 tab2 justify-content-center align-items-center">
         <button class="steeper border border-secondary rounded-circle me-2 active" id="showStepBtn1"
             (click)="showStep(1);clickShowStepBtn1()">
             1
@@ -54,9 +56,9 @@
             (click)="showStep(2);clickShowStepBtn2()" for="I">
             2
         </button>
-        <hr style="width:4%; height: 2px; text-align:left;margin-left:0">
-        <button class="steeper border border-secondary rounded-circle ms-2 me-2" id="showStepBtn3"
-            (click)="showStep(3);clickShowStepBtn3()">
+        <hr *ngIf="!loginservice.isUser" style="width:4%; height: 2px; text-align:left;margin-left:0">
+        <button *ngIf="!loginservice.isUser" class="steeper border border-secondary rounded-circle ms-2 me-2"
+            id="showStepBtn3" (click)="showStep(3);clickShowStepBtn3()">
             3
         </button>
     </div>
@@ -65,14 +67,14 @@
 
 
     <!-- step 1  -->
-    <div class="content1 h-100 w-100 p-3" *ngIf="showMemSteps==1">
+    <div class=" container h-100 w-100 p-3" style="display: flex;" *ngIf="showMemSteps==1">
 
         <div class="child p-3">
             <div class="heading">
-                <img src=".././../../assets/StaticAssets/Create memorial/step1/stepfather.png" class="me-3">
-                <h6 *ngIf="editservice.numLabel==1">{{respo2?.en}}</h6>
-                <h6 *ngIf="editservice.numLabel==2">{{respo2?.de}}</h6>
-                <h6 *ngIf="editservice.numLabel==3">{{respo2?.fr}}</h6>
+                <img src=".././../../assets/StaticAssets/Create memorial/step1/stepfather.png" class="me-2 mb-3">
+                <h6 class="userHeadingLogo" *ngIf="editservice.numLabel==1">{{respo2?.en}}</h6>
+                <h6 class="userHeadingLogo" *ngIf="editservice.numLabel==2">{{respo2?.de}}</h6>
+                <h6 class="userHeadingLogo" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</h6>
 
 
                 <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
@@ -109,39 +111,41 @@
             </li>
 
 
-            <div class="mt-5">
+            <div class="mt-4">
                 <form class="row g-3 needs-validation" #form1="ngForm">
                     <div class="col-md-6 mb-3">
                         <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <label for="firstname" *ngIf="editservice.numLabel==1">{{respo3?.en}}</label>
+                        <!-- <label for="firstname" *ngIf="editservice.numLabel==1">{{respo3?.en}}</label>
                         <label for="firstname" *ngIf="editservice.numLabel==2">{{respo3?.de}}</label>
-                        <label for="firstname" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</label>
+                        <label for="firstname" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</label> -->
 
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="First Name"
                             #g_firstname="ngModel" [(ngModel)]="service.createMemorial.g_firstname" name="g_firstname"
-                            required
-                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                            ngModel>
+                            required maxlength="25" (keypress)="returnValue($event)" ngModel>
+                        <!-- onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)" -->
                         <small class="fireError" *ngIf="g_firstname.touched && !g_firstname.valid">Please enter first
                             name</small>
+                        <!-- <small class="fireError" [hidden]="!g_firstname.errors?.onkeypress">Please enter characters -->
+                        <!-- only</small> -->
+                        <!-- <small class="fireError" [hidden]="!g_firstname.errors?.maxlength">Please enter 25 characters -->
+                        <!-- only</small> -->
+
                     </div>
                     <div class="col-md-6">
                         <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <label for="lastname" *ngIf="editservice.numLabel==1">{{respo4?.en}}</label>
+                        <!-- <label for="lastname" *ngIf="editservice.numLabel==1">{{respo4?.en}}</label>
                         <label for="lastname" *ngIf="editservice.numLabel==2">{{respo4?.de}}</label>
-                        <label for="lastname" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</label>
+                        <label for="lastname" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</label> -->
 
                         <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
                             #g_lastname="ngModel" [(ngModel)]="service.createMemorial.g_lastname" name="g_lastname"
-                            required
-                            onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                            ngModel>
+                            required maxlength="25" (keypress)="returnValue($event)" ngModel>
                         <small class="fireError" *ngIf="g_lastname.touched && !g_lastname.valid">Please enter last
                             name</small>
                     </div>
@@ -150,13 +154,13 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <label for="birthplace" *ngIf="editservice.numLabel==1">{{respo5?.en}}</label>
+                        <!-- <label for="birthplace" *ngIf="editservice.numLabel==1">{{respo5?.en}}</label>
                         <label for="birthplace" *ngIf="editservice.numLabel==2">{{respo5?.de}}</label>
-                        <label for="birthplace" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</label>
+                        <label for="birthplace" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</label> -->
 
                         <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
                             name="birthplace" class="form-control shadow bg-body rounded" placeholder="Birthplace"
-                            ngModel>
+                            maxlength="25" ngModel>
                         <!-- <small class="fireError" *ngIf="birthplace.touched && !birthplace.valid">Please enter birth
                             place</small> -->
                     </div>
@@ -165,13 +169,13 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <label for="deathplace" *ngIf="editservice.numLabel==1">{{respo6?.en}}</label>
+                        <!-- <label for="deathplace" *ngIf="editservice.numLabel==1">{{respo6?.en}}</label>
                         <label for="deathplace" *ngIf="editservice.numLabel==2">{{respo6?.de}}</label>
-                        <label for="deathplace" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</label>
+                        <label for="deathplace" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</label> -->
 
                         <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
                             name="deathplace" class="form-control shadow bg-body rounded" placeholder="Place of Death"
-                            ngModel>
+                            maxlength="25" ngModel>
                         <!-- required
                         <small class="fireError" *ngIf="deathplace.touched && !deathplace.valid">Please enter death
                             place</small> -->
@@ -183,14 +187,14 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <label for="birthname" *ngIf="editservice.numLabel==1">{{respo7?.en}}</label>
+                        <!-- <label for="birthname" *ngIf="editservice.numLabel==1">{{respo7?.en}}</label>
                         <label for="birthname" *ngIf="editservice.numLabel==2">{{respo7?.de}}</label>
-                        <label for="birthname" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</label>
+                        <label for="birthname" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</label> -->
 
 
                         <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                            class="form-control shadow bg-body rounded" placeholder="Birth Name" ngModel>
+                            (keypress)="returnValue($event)" maxlength="25" class="form-control shadow bg-body rounded"
+                            placeholder="Birth Name" ngModel>
                         <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
                         required -->
 
@@ -203,9 +207,9 @@
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                         alt=""></span></button>
-                            <label for="Birthdate" *ngIf="editservice.numLabel==1">{{respo8?.en}}</label>
+                            <!-- <label for="Birthdate" *ngIf="editservice.numLabel==1">{{respo8?.en}}</label>
                             <label for="Birthdate" *ngIf="editservice.numLabel==2">{{respo8?.de}}</label>
-                            <label for="Birthdate" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</label>
+                            <label for="Birthdate" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</label> -->
 
                             <div class="datePickerCss">
                                 <mat-form-field class="tabWidth">
@@ -242,15 +246,16 @@
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                         alt=""></span></button>
-                            <label for="dateOfdeath" *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
+                            <!-- <label for="dateOfdeath" *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
                             <label for="dateOfdeath" *ngIf="editservice.numLabel==2">{{respo9?.de}}</label>
-                            <label for="dateOfdeath" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label>
+                            <label for="dateOfdeath" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label> -->
 
                             <div class="datePickerCss">
                                 <mat-form-field class="tabWidth">
                                     <input matInput [matDatepicker]="picker1" #DOD="ngModel"
                                         [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
-                                        [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel readonly>
+                                        [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel
+                                        readonly>
                                     <mat-datepicker-toggle matSuffix [for]="picker1" style="color: tomato;">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #picker1></mat-datepicker>
@@ -473,12 +478,15 @@
         <div class="child2 ms-3 p-2 ">
 
             <nav class="nav nav-pills flex-column flex-sm-row">
-                <a class="flex-sm-fill d-flex text-sm-center nav-link" aria-current="page" (click)="showCentric(1)">
-                    <img class="me-2" id="first"
+                <a class="flex-sm-fill d-flex text-sm-center nav-link" aria-current="page" id="tomb"
+                    (click)="showCentric(1)">
+                    <img *ngIf="isDisplaySmallImage" class="me-2 mb-3" id="first"
                         src="../../../assets/StaticAssets/Create memorial/step1/memorial (2).png">
-                    <h6 *ngIf="editservice.numLabel==1">{{respo10?.en}}</h6>
-                    <h6 *ngIf="editservice.numLabel==2">{{respo10?.de}}</h6>
-                    <h6 *ngIf="editservice.numLabel==3">{{respo10?.fr}}</h6>
+                    <img *ngIf="!isDisplaySmallImage" class="me-2 mb-3" id="first"
+                        src="../../../assets/StaticAssets/Create memorial/step1/memorial (3).png">
+                    <h6 class="tombstoneText" *ngIf="editservice.numLabel==1">{{respo10?.en}}</h6>
+                    <h6 class="tombstoneText" *ngIf="editservice.numLabel==2">{{respo10?.de}}</h6>
+                    <h6 class="tombstoneText" *ngIf="editservice.numLabel==3">{{respo10?.fr}}</h6>
 
 
                 </a>
@@ -515,17 +523,40 @@
                     </div>
                 </li>
 
-                <a class="flex-sm-fill d-flex text-sm-center nav-link" (click)="showCentric(2)">
-                    <img class="me-2" src="../../../assets/StaticAssets/Create memorial/step1/camera.png">
-                    <h6 *ngIf="editservice.numLabel==1">{{respo11?.en}}</h6>
-                    <h6 *ngIf="editservice.numLabel==2">{{respo11?.de}}</h6>
-                    <h6 *ngIf="editservice.numLabel==3">{{respo11?.fr}}</h6>
+                <a class="flex-sm-fill d-flex text-sm-center nav-link pt-2" id="person" (click)="showCentric(2)">
+                    <img *ngIf="isDisplaySmallImage" class="me-2 mb-3 personCentricMemo"
+                        style="height: 19px; width: 19px;"
+                        src="../../../assets/StaticAssets/Create memorial/step1/camera.png">
+                    <img *ngIf="!isDisplaySmallImage" class="me-2 mb-3 personCentricMemo"
+                        style="height: 19px; width: 19px;"
+                        src="../../../assets/StaticAssets/Create memorial/step1/camera (new).png">
+                    <h6 class="tombstoneText1" *ngIf="editservice.numLabel==1">{{respo11?.en}}</h6>
+                    <h6 class="tombstoneText1" *ngIf="editservice.numLabel==2">{{respo11?.de}}</h6>
+                    <h6 class="tombstoneText1" *ngIf="editservice.numLabel==3">{{respo11?.fr}}</h6>
 
                 </a>
                 <button (click)="openDialogue(11)" id="personMemoCss" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
+
+
+                <div class="buttonNoneDiv">
+                    <button class="buttonNone" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"
+                        (click)="prevCarousel()" [disabled]="caroucelCount==1">
+                        <span aria-hidden="true"><img src="../../../assets/StaticAssets/Create memorial/step1/baack.png"
+                                alt=""></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="buttonNone1" type="button" data-bs-target="#carouselExampleIndicators" [disabled]="caroucelCount==5"
+                        (click)="nextCarousel()" data-bs-slide="next">
+                        <span aria-hidden="true"><img src="../../../assets/StaticAssets/Create memorial/step1/front.png"
+                                alt=""></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+
 
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv==11 && isvalid" style="position: absolute; margin-top: 25px;">
@@ -558,9 +589,9 @@
 
             </nav>
             <div class="indicationPerTomb">
-                <small *ngIf="editservice.numLabel==1">{{respo13?.en}}</small>
+                <!-- <small *ngIf="editservice.numLabel==1">{{respo13?.en}}</small>
                 <small *ngIf="editservice.numLabel==2">{{respo13?.de}}</small>
-                <small *ngIf="editservice.numLabel==3">{{respo13?.fr}}</small>
+                <small *ngIf="editservice.numLabel==3">{{respo13?.fr}}</small> -->
 
 
                 <button (click)="openDialogue(13)" id="personMemoCss1" *ngIf="loginservice.isVisible"
@@ -683,7 +714,7 @@
                             </button>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
                         <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"
                             [hidden]="caroucelCount==1"></span>
@@ -694,7 +725,7 @@
                         <span class="carousel-control-next-icon bg-dark" aria-hidden="true"
                             [hidden]="caroucelCount==5"></span>
                         <span class="visually-hidden">Next</span>
-                    </button>
+                    </button> -->
                 </div>
 
                 <!-- <button type="button" *ngFor="let images of imagespath"
@@ -715,9 +746,9 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <p *ngIf="editservice.numLabel==1"><b>{{respo12?.en}}</b></p>
-                        <p *ngIf="editservice.numLabel==2"><b>{{respo12?.de}}</b></p>
-                        <p *ngIf="editservice.numLabel==3"><b>{{respo12?.fr}}</b></p>
+                        <p class="lovedPersonText" *ngIf="editservice.numLabel==1"><b>{{respo12?.en}}</b></p>
+                        <p class="lovedPersonText" *ngIf="editservice.numLabel==2"><b>{{respo12?.de}}</b></p>
+                        <p class="lovedPersonText" *ngIf="editservice.numLabel==3"><b>{{respo12?.fr}}</b></p>
 
 
                     </div>
@@ -808,7 +839,7 @@
                         <label for="photo" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
                                 src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                        <input id="photo" type="file" (change)="onselectFile($event)">
+                        <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile($event)">
                     </div>
                 </div>
 
@@ -817,17 +848,20 @@
             </div>
             <div class="nextBtn pt-5">
 
-                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
+                <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
                     [disabled]="!form1.valid" *ngIf="editservice.numLabel==1">{{respo14?.en}}
-                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                    <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
+                            style="width: 25%;"></span>
                 </button>
-                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
+                <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
                     [disabled]="!form1.valid" *ngIf="editservice.numLabel==2">{{respo14?.de}}
-                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                    <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
+                            style="width: 25%;"></span>
                 </button>
-                <button class="btn btn-success btn-lg" (click)="showStep(2);clickShowStepBtn2(); "
+                <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
                     [disabled]="!form1.valid" *ngIf="editservice.numLabel==3">{{respo14?.fr}}
-                    <span><img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span>
+                    <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
+                            style="width: 25%;"></span>
                 </button>
 
                 <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
@@ -882,7 +916,7 @@
     <!-- step 2 -->
     <div *ngIf="showMemSteps==2" id="comp-render">
         <app-canvas></app-canvas>
-        <div class="nextBtn1">
+        <div class="nextBtn1" *ngIf="!loginservice.isUser">
             <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
                 *ngIf="editservice.numLabel==1">{{respo14?.en}}<span><img
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
@@ -901,6 +935,14 @@
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
         </div>
+        <!-- *ngIf="loginservice.isUser" -->
+        <div class="nextBtn1" *ngIf="loginservice.isUser">
+            <button type="submit" (click)="createMemorialAgain()" class="btn btn-success btn-lg">Create
+                Memorial</button>
+        </div>
+
+
+
 
         <!-- Extra code for label -->
         <li *ngIf="showNewDiv==14 && isvalid" style="position: absolute; margin-top: 25px;">
@@ -943,7 +985,7 @@
 
     <!-- step 3 -->
 
-    <div class="content3 w-100 h-100 p-3 " *ngIf="showMemSteps==3">
+    <div class="content3 container w-100 h-100 p-3 " *ngIf="showMemSteps==3">
         <!-- reg form -->
         <div class="regForm p-3">
             <h6>
@@ -951,9 +993,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <strong *ngIf="editservice.numLabel==1">{{respo20?.en}}</strong>
-                <strong *ngIf="editservice.numLabel==2">{{respo20?.de}}</strong>
-                <strong *ngIf="editservice.numLabel==3">{{respo20?.fr}}</strong>
+                <span class="stepThreeName" *ngIf="editservice.numLabel==1">{{respo20?.en}}</span>
+                <span class="stepThreeName" *ngIf="editservice.numLabel==2">{{respo20?.de}}</span>
+                <span class="stepThreeName" *ngIf="editservice.numLabel==3">{{respo20?.fr}}</span>
             </h6>
 
             <!-- Extra code for label -->
@@ -988,9 +1030,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <strong *ngIf="editservice.numLabel==1">{{respo21?.en}}</strong>
-                <strong *ngIf="editservice.numLabel==2">{{respo21?.de}}</strong>
-                <strong *ngIf="editservice.numLabel==3">{{respo21?.fr}}</strong>
+                <span class="stepThreeHeading" *ngIf="editservice.numLabel==1">{{respo21?.en}}</span>
+                <span class="stepThreeHeading" *ngIf="editservice.numLabel==2">{{respo21?.de}}</span>
+                <span class="stepThreeHeading" *ngIf="editservice.numLabel==3">{{respo21?.fr}}</span>
             </h1>
 
             <!-- Extra code for label -->
@@ -1026,9 +1068,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-                <p *ngIf="editservice.numLabel==1">{{respo22?.en}}</p>
-                <p *ngIf="editservice.numLabel==2">{{respo22?.de}}</p>
-                <p *ngIf="editservice.numLabel==3">{{respo22?.fr}}</p>
+                <p class="stepThreePara" *ngIf="editservice.numLabel==1">{{respo22?.en}}</p>
+                <p class="stepThreePara" *ngIf="editservice.numLabel==2">{{respo22?.de}}</p>
+                <p class="stepThreePara" *ngIf="editservice.numLabel==3">{{respo22?.fr}}</p>
             </small>
 
             <!-- Extra code for label -->
@@ -1059,48 +1101,46 @@
             </li>
             <br>
             <br>
-            <form class="row g-3 needs-validation" #regForm="ngForm" novalidate>
-                <div class="col-md-6 mb-3">
-                    <button (click)="openDialogue(23)" *ngIf="loginservice.isVisible"
+            <form class="row g-3 needs-validation formMargin" #regForm="ngForm" novalidate>
+                <div class="col-md-6 mb-2">
+                    <!-- <button (click)="openDialogue(23)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="firstName" *ngIf="editservice.numLabel==1">{{respo23?.en}}</label>
                     <label for="firstName" *ngIf="editservice.numLabel==2">{{respo23?.de}}</label>
-                    <label for="firstName" *ngIf="editservice.numLabel==3">{{respo23?.fr}}</label>
+                    <label for="firstName" *ngIf="editservice.numLabel==3">{{respo23?.fr}}</label> -->
 
 
                     <input type="text" name="firstname" class="form-control shadow bg-body rounded" #firstname="ngModel"
-                        [(ngModel)]="service.createMemorial.firstname" placeholder="First Name"
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                        required ngModel>
+                        [(ngModel)]="service.createMemorial.firstname" placeholder="Please enter your firstname" maxlength="25"
+                        (keypress)="returnValue($event)" required ngModel>
                     <small class="fireError" *ngIf="firstname.touched && !firstname.valid">Please enter your first
                         name</small>
                 </div>
                 <div class="col-md-6">
-                    <button (click)="openDialogue(24)" *ngIf="loginservice.isVisible"
+                    <!-- <button (click)="openDialogue(24)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="lastName" *ngIf="editservice.numLabel==1">{{respo24?.en}}</label>
                     <label for="lastName" *ngIf="editservice.numLabel==2">{{respo24?.de}}</label>
-                    <label for="lastName" *ngIf="editservice.numLabel==3">{{respo24?.fr}}</label>
+                    <label for="lastName" *ngIf="editservice.numLabel==3">{{respo24?.fr}}</label> -->
 
                     <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="service.createMemorial.lastname"
-                        class="form-control shadow bg-body rounded" placeholder="Last Name"
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                        required ngModel>
+                        class="form-control shadow bg-body rounded" placeholder="Please enter your lastname" maxlength="25"
+                        (keypress)="returnValue($event)" required ngModel>
                     <small class="fireError" *ngIf="lastname.touched && !lastname.valid">Please enter your last
                         name</small>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
+                <div class="col-md-6 mb-2">
+                    <!-- <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="Password" *ngIf="editservice.numLabel==1">{{respo25?.en}}</label>
                     <label for="Password" *ngIf="editservice.numLabel==2">{{respo25?.de}}</label>
-                    <label for="Password" *ngIf="editservice.numLabel==3">{{respo25?.fr}}</label>
+                    <label for="Password" *ngIf="editservice.numLabel==3">{{respo25?.fr}}</label> -->
 
                     <input type="password" autocomplete="off" name="password" #password="ngModel"
                         [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
@@ -1109,17 +1149,17 @@
                         one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
                 </div>
                 <div class="col-md-6">
-                    <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"
+                    <!-- <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="confirm Password" *ngIf="editservice.numLabel==1">{{respo26?.en}}</label>
                     <label for="confirm Password" *ngIf="editservice.numLabel==2">{{respo26?.de}}</label>
-                    <label for="confirm Password" *ngIf="editservice.numLabel==3">{{respo26?.fr}}</label>
+                    <label for="confirm Password" *ngIf="editservice.numLabel==3">{{respo26?.fr}}</label> -->
 
                     <input type="password" autocomplete="off" name="password1" #password1="ngModel"
                         validateEqual="password" [(ngModel)]="service.createMemorial.password1"
-                        class="form-control shadow bg-body rounded" placeholder="Confirm Password" required ngModel>
+                        class="form-control shadow bg-body rounded" placeholder="Repeat password" required ngModel>
 
 
 
@@ -1131,18 +1171,18 @@
                         Please match your password
                     </div>
                 </div>
-                <div>
-                    <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
+                <div class="emailMarginText">
+                    <!-- <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="email" *ngIf="editservice.numLabel==1">{{respo27?.en}}</label>
                     <label for="email" *ngIf="editservice.numLabel==2">{{respo27?.de}}</label>
-                    <label for="email" *ngIf="editservice.numLabel==3">{{respo27?.fr}}</label>
+                    <label for="email" *ngIf="editservice.numLabel==3">{{respo27?.fr}}</label> -->
 
                     <input type="email" name="email" #email="ngModel" [(ngModel)]="service.createMemorial.email"
-                        class="form-control shadow bg-body rounded" placeholder="Please enter your email address"
-                        required ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        class="form-control shadow bg-body rounded" placeholder="Please enter your email address:"
+                        required maxlength="75" ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
                     <div class="fireError" *ngIf="email.errors &&(email.touched || email.dirty)">
                         Please enter your valid e-mail
@@ -1154,68 +1194,66 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1">{{respo28?.en}}</p>
-                    <p *ngIf="editservice.numLabel==2">{{respo28?.de}}</p>
-                    <p *ngIf="editservice.numLabel==3">{{respo28?.fr}}</p>
+                    <p class="emailText" *ngIf="editservice.numLabel==1">*{{respo28?.en}}</p>
+                    <p class="emailText" *ngIf="editservice.numLabel==2">*{{respo28?.de}}</p>
+                    <p class="emailText" *ngIf="editservice.numLabel==3">*{{respo28?.fr}}</p>
 
                 </div>
-                <div class="col-md-6 mb-3">
-                    <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
+                <div class="col-md-6 mb-2">
+                    <!-- <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="streetname" *ngIf="editservice.numLabel==1">{{respo29?.en}}</label>
                     <label for="streetname" *ngIf="editservice.numLabel==2">{{respo29?.de}}</label>
-                    <label for="streetname" *ngIf="editservice.numLabel==3">{{respo29?.fr}}</label>
+                    <label for="streetname" *ngIf="editservice.numLabel==3">{{respo29?.fr}}</label> -->
 
                     <input type="text" name="streetname" #streetname="ngModel"
                         [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
-                        placeholder="Street and Number" required ngModel>
+                        placeholder="Street and number" maxlength="25" required ngModel>
                     <small class="fireError" *ngIf="streetname.touched && !streetname.valid">Please enter your street
                         name/number</small>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
+                <div class="col-md-6 mb-2">
+                    <!-- <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="zip code" *ngIf="editservice.numLabel==1">{{respo30?.en}}</label>
                     <label for="zip code" *ngIf="editservice.numLabel==2">{{respo30?.de}}</label>
-                    <label for="zip code" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</label>
+                    <label for="zip code" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</label> -->
 
-                    <input type="number" name="zipcode" #zipcode="ngModel" [(ngModel)]="service.createMemorial.zipcode"
-                        class="form-control shadow bg-body rounded" placeholder="Zip code"
-                        onkeypress="return (event.charCode>47 && event.charCode<58)"
-                        required ngModel>
+                    <input type="number" maxlength="10" name="zipcode" #zipcode="ngModel"
+                        [(ngModel)]="service.createMemorial.zipcode" class="form-control shadow bg-body rounded"
+                        placeholder="Zip code" (keypress)="returnValue1($event)" required ngModel>
                     <small class="fireError" *ngIf="zipcode.touched && !zipcode.valid">Please enter zipcode</small>
                 </div>
-                <div class="mb-3">
-                    <button (click)="openDialogue(31)" *ngIf="loginservice.isVisible"
+                <div class="col-md-6 mb-1">
+                    <!-- <button (click)="openDialogue(31)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="my hometown" *ngIf="editservice.numLabel==1">{{respo31?.en}}</label>
                     <label for="my hometown" *ngIf="editservice.numLabel==2">{{respo31?.de}}</label>
-                    <label for="my hometown" *ngIf="editservice.numLabel==3">{{respo31?.fr}}</label>
+                    <label for="my hometown" *ngIf="editservice.numLabel==3">{{respo31?.fr}}</label> -->
 
                     <input type="text" name="hometown" #hometown="ngModel" [(ngModel)]="service.createMemorial.hometown"
-                        class="form-control shadow bg-body rounded" placeholder="My Hometown" 
-                        onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)"
-                        required ngModel>
+                        class="form-control shadow bg-body rounded" placeholder="My hometown" maxlength="25"
+                        (keypress)="returnValue($event)" required ngModel>
                     <small class="fireError" *ngIf="hometown.touched && !hometown.valid">Please enter your
                         hometown</small>
                 </div>
-                <div class="mb-3">
-                    <button (click)="openDialogue(32)" *ngIf="loginservice.isVisible"
+                <div class="col-md-6 mb-1">
+                    <!-- <button (click)="openDialogue(32)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <label for="reedim voucher" *ngIf="editservice.numLabel==1">{{respo32?.en}}</label>
                     <label for="reedim voucher" *ngIf="editservice.numLabel==2">{{respo32?.de}}</label>
-                    <label for="reedim voucher" *ngIf="editservice.numLabel==3">{{respo32?.fr}}</label>
+                    <label for="reedim voucher" *ngIf="editservice.numLabel==3">{{respo32?.fr}}</label> -->
 
                     <input type="text" name="voucher" #voucher="ngModel" [(ngModel)]="service.createMemorial.voucher"
-                        class="form-control shadow bg-body rounded" placeholder="Redeem Voucher" ngModel>
+                        class="form-control shadow bg-body rounded" placeholder="Redeem voucher" maxlength="25" ngModel>
                     <!-- <small class="fireError" *ngIf="voucher.touched && !voucher.valid">Please enter voucher</small> -->
                 </div>
                 <small>
@@ -1223,12 +1261,12 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1">{{respo33?.en}}</p>
-                    <p *ngIf="editservice.numLabel==2">{{respo33?.de}}</p>
-                    <p *ngIf="editservice.numLabel==3">{{respo33?.fr}}</p>
+                    <p class="emailText1" *ngIf="editservice.numLabel==1">*{{respo33?.en}}</p>
+                    <p class="emailText1" *ngIf="editservice.numLabel==2">*{{respo33?.de}}</p>
+                    <p class="emailText1" *ngIf="editservice.numLabel==3">*{{respo33?.fr}}</p>
 
                 </small>
-                <div class="col-12">
+                <div class="col-12 tearmMargin">
                     <div class="form-check">
                         <input class="form-check-input" name="checkedBox" #checkedBox="ngModel" type="checkbox" value=""
                             required ngModel>
@@ -1238,9 +1276,9 @@
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                         alt=""></span></button>
-                            <small *ngIf="editservice.numLabel==1">{{respo34?.en}}</small>
-                            <small *ngIf="editservice.numLabel==2">{{respo34?.de}}</small>
-                            <small *ngIf="editservice.numLabel==3">{{respo34?.fr}}</small>
+                            <small class="emailText2" *ngIf="editservice.numLabel==1">{{respo34?.en}}</small>
+                            <small class="emailText2" *ngIf="editservice.numLabel==2">{{respo34?.de}}</small>
+                            <small class="emailText2" *ngIf="editservice.numLabel==3">{{respo34?.fr}}</small>
 
                         </label>
                     </div>
@@ -1577,17 +1615,17 @@
 
         <!-- specification and Preview -->
         <div class="specification p-3">
-            <div class="spec mt-3 p-2 ">
-                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
+            <div class="spec">
+                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(35)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <strong *ngIf="editservice.numLabel==1">{{respo35?.en}}</strong>
-                        <strong *ngIf="editservice.numLabel==2">{{respo35?.de}}</strong>
-                        <strong *ngIf="editservice.numLabel==3">{{respo35?.fr}}</strong>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==1">{{respo35?.en}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==2">{{respo35?.de}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==3">{{respo35?.fr}}</span>
 
 
                     </h5>
@@ -1596,25 +1634,25 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <small *ngIf="editservice.numLabel==1">{{respo36?.en}}</small>
-                        <small *ngIf="editservice.numLabel==2">{{respo36?.de}}</small>
-                        <small *ngIf="editservice.numLabel==3">{{respo36?.fr}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==1">{{respo36?.en}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==2">{{respo36?.de}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==3">{{respo36?.fr}}</small>
 
                     </p>
                 </div>
             </div>
 
-            <div class="spec mt-3 p-2 ">
-                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
+            <div class="spec">
+                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(37)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <strong *ngIf="editservice.numLabel==1">{{respo37?.en}}</strong>
-                        <strong *ngIf="editservice.numLabel==2">{{respo37?.de}}</strong>
-                        <strong *ngIf="editservice.numLabel==3">{{respo37?.fr}}</strong>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==1">{{respo37?.en}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==2">{{respo37?.de}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==3">{{respo37?.fr}}</span>
 
                     </h5>
                     <p>
@@ -1622,25 +1660,25 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <small *ngIf="editservice.numLabel==1">{{respo38?.en}}</small>
-                        <small *ngIf="editservice.numLabel==2">{{respo38?.de}}</small>
-                        <small *ngIf="editservice.numLabel==3">{{respo38?.fr}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==1">{{respo38?.en}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==2">{{respo38?.de}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==3">{{respo38?.fr}}</small>
 
                     </p>
                 </div>
             </div>
 
-            <div class="spec mt-3 p-2 ">
-                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
+            <div class="spec">
+                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/free.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(39)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <strong *ngIf="editservice.numLabel==1">{{respo39?.en}}</strong>
-                        <strong *ngIf="editservice.numLabel==2">{{respo39?.de}}</strong>
-                        <strong *ngIf="editservice.numLabel==3">{{respo39?.fr}}</strong>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==1">{{respo39?.en}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==2">{{respo39?.de}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==3">{{respo39?.fr}}</span>
 
                     </h5>
                     <p>
@@ -1648,25 +1686,25 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <small *ngIf="editservice.numLabel==1">{{respo40?.en}}</small>
-                        <small *ngIf="editservice.numLabel==2">{{respo40?.de}}</small>
-                        <small *ngIf="editservice.numLabel==3">{{respo40?.fr}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==1">{{respo40?.en}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==2">{{respo40?.de}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==3">{{respo40?.fr}}</small>
 
                     </p>
                 </div>
             </div>
 
-            <div class="spec mt-3 p-2 ">
-                <img class="me-3" src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
+            <div class="spec">
+                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(41)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <strong *ngIf="editservice.numLabel==1">{{respo41?.en}}</strong>
-                        <strong *ngIf="editservice.numLabel==2">{{respo41?.de}}</strong>
-                        <strong *ngIf="editservice.numLabel==3">{{respo41?.fr}}</strong>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==1">{{respo41?.en}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==2">{{respo41?.de}}</span>
+                        <span class="columnTwoHeaderText" *ngIf="editservice.numLabel==3">{{respo41?.fr}}</span>
 
                     </h5>
                     <p>
@@ -1674,15 +1712,15 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
-                        <small *ngIf="editservice.numLabel==1">{{respo42?.en}}</small>
-                        <small *ngIf="editservice.numLabel==2">{{respo42?.de}}</small>
-                        <small *ngIf="editservice.numLabel==3">{{respo42?.fr}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==1">{{respo42?.en}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==2">{{respo42?.de}}</small>
+                        <small class="columnTwoText" *ngIf="editservice.numLabel==3">{{respo42?.fr}}</small>
 
                     </p>
                 </div>
             </div>
 
-            <div class="preview mt-2">
+            <!-- <div class="preview mt-2">
                 <button (click)="openDialogue(43)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -1694,19 +1732,22 @@
                 <div class="logo">
                     <img width="290px" height="350px" [src]="service.saveCanvas">
                 </div>
+            </div> -->
+            <div class="logo">
+                <img class="previewImage" width="290px" height="500px" [src]="service.saveCanvas">
             </div>
         </div>
 
 
         <!-- Create Account Button -->
-        <div class="createBtn">
+        <div class="createBtn mt-5">
             <!-- routerLink="/thank-you" -->
-            <button  type="submit" (click)="register(regForm)"
+            <button type="submit" (click)="register(regForm)"
                 [disabled]="!regForm.valid || service.createMemorial.password1!=service.createMemorial.password"
-                class="btn btn-success btn-lg">
-                <strong *ngIf="editservice.numLabel==1">{{respo44?.en}}</strong>
-                <strong *ngIf="editservice.numLabel==2">{{respo44?.de}}</strong>
-                <strong *ngIf="editservice.numLabel==3">{{respo44?.fr}}</strong>
+                class="btn btn-lg registerBtnThirdStep">
+                <span *ngIf="editservice.numLabel==1">{{respo44?.en}}</span>
+                <span *ngIf="editservice.numLabel==2">{{respo44?.de}}</span>
+                <span *ngIf="editservice.numLabel==3">{{respo44?.fr}}</span>
 
             </button>
             <button (click)="openDialogue(44)" style="width: 30px; height: 28px;" *ngIf="loginservice.isVisible"
@@ -1980,10 +2021,12 @@
 </div>
 
 
+<div>
+    <app-memory-image></app-memory-image>
+</div>
 
-
-
-<div class="container" id="imageMemorial">
+<!-- 
+<div class="container1" id="imageMemorial">
     <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 100%;">
     <div class="centered">
         <button (click)="openDialogue(15)" *ngIf="loginservice.isVisible"
@@ -1996,7 +2039,6 @@
         <p *ngIf="editservice.numLabel==3">{{respo15?.fr}}</p>
     </div>
 
-    <!-- Extra code for label -->
     <li *ngIf="showNewDiv==15 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="createMemoDivCss15">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
@@ -2035,7 +2077,6 @@
         <p *ngIf="editservice.numLabel==3">{{respo16?.fr}}</p>
     </div>
 
-    <!-- Extra code for label -->
     <li *ngIf="showNewDiv==16 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="createMemoDivCss16">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
@@ -2061,7 +2102,7 @@
         </div>
     </li>
 </div>
-<div class="container">
+<div class="container1 container">
     <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png">
     <div class="bottom-left"><span><img src="../../../assets/StaticAssets/Create memorial/step1/funeral (1).png"></span>
         <small *ngIf="editservice.numLabel==1">{{respo17?.en}}</small>
@@ -2176,7 +2217,13 @@
     </li>
 
 
-</div>
+</div> -->
+
+<!-- For spinner -->
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>
+
 <div class="FooterResp">
     <app-footer></app-footer>
 </div>

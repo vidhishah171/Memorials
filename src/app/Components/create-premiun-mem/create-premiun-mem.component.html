@@ -1,99 +1,148 @@
 <!-- second part -->
 
 <div class="createPreMem p-2">
-    <div class="box1">
-        <img src="../../../assets/StaticAssets/Create memorial/thank you page/diamond.png">
-        <h1>
-            <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
-            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                    alt=""></span></button>
-            <strong>Create Premium Memorial</strong>
-        </h1>
-        <div>
-            <span>Beside our free basic acess,we offer you a so-called premium membership with extended capabilities</span>
-            <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
+    <div class="container">
+        <div class="box1">
+            <img src="../../../assets/StaticAssets/Create memorial/thank you page/diamond.png">
+            <h1>
+                <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+                <strong *ngIf="editservice.numLabel==1">{{respo4?.en}}</strong>
+                <strong *ngIf="editservice.numLabel==2">{{respo4?.de}}</strong>
+                <strong *ngIf="editservice.numLabel==3">{{respo4?.fr}}</strong>
+
+            </h1>
+            <div>
+                <span class="premiumText" *ngIf="editservice.numLabel==1">{{respo5?.en}}</span>
+                <span class="premiumText" *ngIf="editservice.numLabel==2">{{respo5?.de}}</span>
+                <span class="premiumText" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</span>
+                
+
+                <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+        </div>
+
+        <div class="box2">
+            <div class="specification">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span id="m" class="premiumText1" *ngIf="editservice.numLabel==1">{{respo6?.en}}</span>
+                <span id="m" class="premiumText1" *ngIf="editservice.numLabel==2">{{respo6?.de}}</span>
+                <span id="m" class="premiumText1" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</span>
+
+                <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification divPadding">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo7?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo7?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</span>
+
+                <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo8?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo8?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</span>
+
+                <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification divPadding">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo9?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo9?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</span>
+
+                <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo10?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo10?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo10?.fr}}</span>
+
+                <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification divPadding">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo11?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo11?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo11?.fr}}</span>
+
+                <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo12?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo12?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo12?.fr}}</span>
+
+                <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification divPadding">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo13?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo13?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo13?.fr}}</span>
+
+                <button (click)="openDialogue(13)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
+            <div class="specification">
+                <div style="display: none;">
+                    <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                    <span *ngIf="editservice.numLabel==1">{{respo14?.en}}</span>
+                    <span *ngIf="editservice.numLabel==2">{{respo14?.de}}</span>
+                    <span *ngIf="editservice.numLabel==3">{{respo14?.fr}}</span>
+    
+                    <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                </div>
+            </div>
+            <div class="specification divPadding">
+                <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
+                <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo14?.en}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo14?.de}}</span>
+                <span class="premiumText1" *ngIf="editservice.numLabel==3">{{respo14?.fr}}</span>
+
+                <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
+            </div>
         </div>
     </div>
 
-    <div class="box2">
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span id="m">All your memorial pages are free of advertising,for you and all your guests, <br> when you are
-                looged in!</span>
-                <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>More memorial canddles and recive message of condolence.</span>
-            <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>Vertually none size limitation while providing your own photos.</span>
-            <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>Use up to 400 seperate images when desinging your memorial!!</span>
-            <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>use p to 400 images when designing your mwmorial</span>
-            <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>All guests visit your memorial also without advertisement</span>
-            <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>No advertisement at all after login </span>
-            <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>Almost no size limitation while providing your own images</span>
-            <button (click)="openDialogue(13)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-        <div class="specification">
-            <img class="me-2" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
-            <span>Automatic Benifit of extensions which we impleent in the future</span>
-            <button (click)="openDialogue(14)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        </div>
-    </div>
 
 </div>
 
@@ -388,21 +437,26 @@
 <div class="price">
     <h1>
         <button (click)="openDialogue(15)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        <strong>23,99&#x20AC; each year </strong>
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+        <strong *ngIf="editservice.numLabel==1">{{respo15?.en}}</strong>
+        <strong *ngIf="editservice.numLabel==2">{{respo15?.de}}</strong>
+        <strong *ngIf="editservice.numLabel==3">{{respo15?.fr}}</strong>
+
+
     </h1>
     <div>
         <button (click)="openDialogue(16)" *ngIf="loginservice.isVisible"
-                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                        alt=""></span></button>
-        <button class="btn btn-success btn-lg ps-5 pe-5 pt-3 pb-3"><strong>
-                <h4>BUY PREMIUM</h4>
-            </strong></button>
-    </div>
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
+        <button class="btn btn-lg buyPremium" *ngIf="editservice.numLabel==1">{{respo16?.en}}</button>
+        <button class="btn btn-lg buyPremium" *ngIf="editservice.numLabel==2">{{respo16?.de}}</button>
+        <button class="btn btn-lg buyPremium" *ngIf="editservice.numLabel==3">{{respo16?.fr}}</button>
         
+    </div>
+
 </div>
 
 <!-- Extra code for label -->
