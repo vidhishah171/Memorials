@@ -11,181 +11,285 @@
             <div class="userDate">
                 <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
             </div>
-            <div class="userBackground">
-                <p>Add Background</p>
+
+            <div class="share" *ngFor="let item of lovedPersonData1">
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
+                </span>
+                &nbsp;
+                <span>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt=""
+                        style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
+                </span>
             </div>
-            <div style="float: right; margin-right: 10%;" class="pt-4" *ngFor="let item of lovedPersonData1">
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt="" style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
-                </span>
-            </div>
+            <!-- 
+            <div class="share1">
+               
+            </div> -->
             <div class="steeper rounded-circle circleImage">
-                <img src="" alt="">
-                <!-- userImage1 -->
-                <!-- class="userImage" -->
+                <img src="{{userpic}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="leave">
+        <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row fullDiv">
+                        <div class="col-4">
+                            <div class="candleAlign">
+                                <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 446.png"
+                                    alt="">
+                                <p class="candleFontColor">LIGHT A CANDLE</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="candleAlign">
+                                <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 447.png"
+                                    alt="">
+                                <p class="candleFontColor">LEAVE A GIFT</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="candleAlign">
+                                <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 448.png"
+                                    alt="">
+                                <p class="candleFontColorNew">LEAVE CONDOLONCES</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev prevButton" type="button"
+                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span aria-hidden="true">
+                        <img class="backImg" src="../../../assets/StaticAssets/Create memorial/step1/baack.png" alt="">
+                    </span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next nextButton" type="button"
+                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span aria-hidden="true">
+                        <img class="backImg" src="../../../assets/StaticAssets/Create memorial/step1/front.png" alt="">
+                    </span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
 
     <!-- Buttons -->
-    <div class="container">
-        <div class="mt-5">
-            <div class="pt-5">
-                <button class="btn btn-outline-secondary ms-2 btnColor">Life Story</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video
-                    Gallery</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor"
-                    (click)="condolenceScroll(target1)">Condolences</button>
-                <button class="btn btn-outline-success ms-2 btnColor1"><img
-                        src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
+    <div class="container content2">
+        <div class="box1">
+            <div class="mt-5">
+                <div class="pt-5">
+                    <button class="btn btn-outline-secondary ms-2 btnColor ">Life Story</button>
+                    <button class="btn btn-outline-secondary ms-2 btnColor"
+                        (click)="photoVideoScroll(target)">Photo/Video
+                        Gallery</button>
+                    <button class="btn btn-outline-secondary ms-2 btnColor"
+                        (click)="condolenceScroll(target1)">Condolences</button>
+                    <button class="btn btn-outline-success ms-2 btnColor1"><img
+                            src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
+                </div>
+            </div>
+
+            <!-- Canvas component -->
+            <div style="height: 70vw; width: 100%;" class="container pt-5">
+                <app-visitor-canvas></app-visitor-canvas>
             </div>
         </div>
-    </div>
+        <div class="box2">
+            <div class="mt-5">
+                <div class="recentCsndleSectionMain">
+                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg"
+                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt=""> Recent Candles</span>
+                    <span class="recentCsndleSectionShow">Show all <img class="frontImage"
+                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
 
-    <!-- Canvas component -->
-    <div style="height: 70vw;" class="container pt-5">
-        <app-visitor-canvas></app-visitor-canvas>
-    </div>
+                    </div>
+                </div>
+                <div class="recentCsndleSectionMain1">
+                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg1"
+                            src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
+                        Recent Gifts</span>
+                    <span class="recentCsndleSectionShow1">Show all <img class="frontImage"
+                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <!-- Photo/video gallery -->
     <div>
         <div class="photoVideoGallary" #target>
             <div class="container">
-                <h6 class="pt-5">Photo/Video Gallery</h6>
+                <h6 class="pt-5 photoVideoGalleryText">Photo/Video Gallery</h6>
                 <div class="row">
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage1" *ngIf="getPhotoVideoImage1" alt="" class="imageButton">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
-                           
+
                         </span>
                     </div>
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage7" *ngIf="getPhotoVideoImage7" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage8" *ngIf="getPhotoVideoImage8" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage9" *ngIf="getPhotoVideoImage9" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage10" *ngIf="getPhotoVideoImage10" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage11" *ngIf="getPhotoVideoImage11" alt="" class="imageButton">
-                           
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
                         </span>
                     </div>
                     <!-- <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"> -->
                     <!-- (change)="onselectFile($event)" -->
-                <!-- </div>
+                    <!--  </div> -->
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container" #target1>
+                <div class="editCondolences">
+                    <div class="pt-5">
+                        <img class="crossImg" src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
+                    </div>
+                    <div class="condolenceDiv">
+                        <h5 class="pt-3 condolencesText">Latest Condolonces</h5>
+                        <div class="row pt-5">
+                            <div class="col-6 condolenceMain" id="condolencesMain" [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}" *ngFor="let item of memorialDetails">
+                                <div class="condolencesEdit row" id="condolencesEdit" [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
+                                    <div class="col-3">
+                                        <span>
+                                            <img class="qotesImg"
+                                                src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png"
+                                                alt="">
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <div>
+                                            <span>
+                                                <img class="condolenceImg me-2"
+                                                    src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
+                                                    alt="">
+                                            </span>
+                                            
+                                            <span
+                                                class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
+                                        </div>
+                                        <div class="condolencesComment" [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}" id="condolencesComment">
+                                            {{item.comment}}
+                                        </div>
+                                        <div class="viewEntireDiv">
+                                            <span class="viewEntire" (click)="condolencesComment(item)">View Entire Memory&nbsp;&nbsp;<img class="rightImg" src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png" alt=""></span>
+                                            <span style="float: right;"><img class="deletrImg"
+                                                    src="../../../assets/StaticAssets/Visitor Mode/delete.png"
+                                                    alt=""></span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn readAllCondo" (click)="readAllCondo()">READ ALL
+                                CONDOLENCES</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- condolences -->
-    <div>
-        <div class="container" #target1>
-            <div class="editCondolences">
-                <div class="pt-5">
-                    <img src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
-                </div>
-                <div style=" height: 40vw;">
-                    <h5 style="font-weight: bold">Latest Condolonces</h5>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="condolencesEdit">
-                                <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum,
-                                    dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus
-                                    repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et
-                                    neque ipsum molestiae iure molestias ut atque,</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="condolencesEdit">
-                                <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum
-                                    dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam
-                                    vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam
-                                    perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum
-                                    nihil dolore.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-secondary readAllCondo">READ ALL CONDOLENCES</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- Subscribe -->
     <div>
         <div class="container">
             <div class="subscribeImage">
                 <div>
-                    <p class="pt-5 ms-5" style="font-weight: bold;">SUBSCRIBE TO THIS MEMORIAL</p>
+                    <p class="pt-5 ms-5 subscribeText" style="font-weight: bold;">SUBSCRIBE TO THIS
+                        MEMORIAL</p>
                 </div>
                 <div style="display: flex;">
-                    <span class="ms-5">
-                        <input class="form-control" placeholder="Your email adress" type="text">
+                    <span class="ms-5 subInputBox">
+                        <input class="form-control subInputBox1" placeholder="Your email adress" type="text">
                     </span>
                     <span class="ms-3">
-                        <button class="btn btn-dark">Subscribe</button>
+                        <button class="btn btn-dark subscribeBtn">Subscribe</button>
                     </span>
                 </div>
             </div>
@@ -204,7 +308,7 @@
                     <img src="{{memData.path}}" class="me-2 rounded recentImage">
                     <!-- </div> -->
                     <div class="ms-2 mt-3">
-                        <h6 style="font-weight: bold;">
+                        <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
                         </h6>
                         <h6 style="color: #CF6363;">
@@ -227,7 +331,3 @@
     <div>
         <app-footer></app-footer>
     </div>
-
-
-
-</div>

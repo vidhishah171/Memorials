@@ -40,7 +40,10 @@ export class ForgotPasswordComponent implements OnInit {
     private spiner: NgxSpinnerService,
 
 
-  ) { this.service.otherPage = true; }
+  ) { this.service.otherPage = true; 
+  
+    this.service.isFooterLogin = false;
+  }
 
   ngAfterViewInit() {
     setTimeout(() => {

@@ -52,11 +52,28 @@ export class ForgotPassAcitveComponent implements OnInit {
 
 
 
-  ) { this.loginservice.otherPage = false;}
+  ) { this.loginservice.otherPage = false;
+    this.loginservice.isFooterLogin = false;
+    
+  }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+  }
 
   ngOnInit(): void {
     this.forgotPasswordActivation();
     this.editData();
+
+  }
+
+  clickDiv() {
+    debugger
+    var test = document.getElementById("navDiv");
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
 
   }
 

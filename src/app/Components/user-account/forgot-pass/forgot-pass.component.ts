@@ -52,11 +52,29 @@ export class ForgotPassComponent implements OnInit {
     private spiner: NgxSpinnerService,
 
 
-  ) { }
+  ) { 
+    this.loginservice.isFooterLogin = false;
+    
+  }
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+  }
 
   ngOnInit(): void {
     this.editData();
   }
+
+  clickDiv() {
+    debugger
+    var test = document.getElementById("navDiv");
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
+
+  }
+
 
   // forgotPasswordActivation(){
   //   this.subscription =this.route.queryParamMap.subscribe(queryParams=>{

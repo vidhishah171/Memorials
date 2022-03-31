@@ -107,6 +107,8 @@ export class UserProfileComponent implements OnInit {
     this.loginservice.otherPage = false; 
     this.loginservice.goPremiumLabel = true;
     this.loginservice.hideMemorialImage = true;
+    this.loginservice.isFooterLogin = true;
+    
   }
 
   ngAfterViewInit() {
@@ -152,7 +154,7 @@ export class UserProfileComponent implements OnInit {
     if (loginAfterRefresh) {
       debugger
       this.loginData = loginAfterRefresh.user[0].firstname;
-      this.loginservice.loginSaveData = this.loginData;
+      // this.loginservice.loginSaveData = this.loginData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
       this.loginservice.islogin = true;
     } else {
@@ -161,6 +163,7 @@ export class UserProfileComponent implements OnInit {
       // this.snackBar("Please check Email and password", "alert-danger");
     }
   }
+ 
 
   // New code for map
   initialize() {
@@ -304,6 +307,7 @@ export class UserProfileComponent implements OnInit {
 
   openUser1() {
     this.isvalid = false;
+    this.myProfileData();
   }
   userData1(data) {
     debugger;
@@ -327,12 +331,27 @@ export class UserProfileComponent implements OnInit {
       this.isDisplay4 = false;
     }
   }
+  firstnameDisplay:boolean=false;
+
+  userDataName(data) {
+    debugger
+    this.firstnameDisplay=true;
+
+    this.spiner.show();
+    this.loginservice.loginSaveData = data.form.value.firstname;
+    this.profileService.userProfile(data.form.value).subscribe((responce:any) => {
+      this.spiner.hide();
+      console.log(responce);
+      this.firstnameDisplay=false;
+    })
+  }
+
 
   userData(data) {
     debugger
     this.loginservice.mapData = data.value.hometown;
     this.spiner.show();
-    this.profileService.userProfile(data.form.value).subscribe(responce => {
+    this.profileService.userProfile(data.form.value).subscribe((responce:any) => {
       this.spiner.hide();
       console.log(responce);
     })
@@ -359,6 +378,9 @@ export class UserProfileComponent implements OnInit {
     if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
       this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
     }
+    else if((!this.ValidateFile(e.target.files[0].name))){
+      this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
+    }
     // else if(e.target.files[0].size > 5242880){
     // this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
     // }
@@ -376,6 +398,14 @@ export class UserProfileComponent implements OnInit {
         // })
       }
     }
+  }
+  ValidateFile(name:string){
+    var ext=name.substring(name.lastIndexOf('.')+1);
+    if(ext.toLowerCase()=='png' || ext.toLowerCase()=='jpeg' || ext.toLowerCase()=='jpg'){
+      return true;
+    }
+    else
+    return false;
   }
 
   // userProfile() {
@@ -551,7 +581,7 @@ export class UserProfileComponent implements OnInit {
 
   myProfileData() {
     debugger
-    this.spiner.show();
+    // this.spiner.show();
     var ProfileId = { "user_id": this.loginservice.loginAllData.id }
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
       console.log(data);
@@ -564,7 +594,7 @@ export class UserProfileComponent implements OnInit {
       this.hometown = data.user_data[0].hometown;
       this.loginservice.mapData = this.hometown;
       this.lastname = data.user_data[0].lastname;
-      this.spiner.hide();
+      // this.spiner.hide();
       if (this.userpic !== '') {
         this.isDisplay1 = false;
         this.isDisplay = true;

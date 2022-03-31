@@ -2,7 +2,8 @@
     <h4 class="container">
         <button (click)="openDialogue(1)" style="right: 72%;" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
@@ -10,7 +11,7 @@
 
     </h4>
 
-<!-- Extra code for label -->
+    <!-- Extra code for label -->
     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" style="margin-top: -3%; left: 21%;">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
@@ -40,7 +41,9 @@
 
     <div class="child container w-100 h-100 p-3">
 
-        <div class="box mb-3 ms-1 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mostVisMem.grab_id,mostVisMem.user_id)" *ngFor="let mostVisMem of mostVisitMemorial ">
+        <div class="box mb-3 ms-1 p-2" style="cursor: pointer;"
+            (click)="recentMemorialGrabId(mostVisMem.grab_id,mostVisMem.user_id)"
+            *ngFor="let mostVisMem of mostVisitMemorial ">
 
             <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
 
@@ -78,8 +81,8 @@
 
 <div class="findByName w-100">
     <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
-    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton1"><span><img
-            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
+        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton1"><span><img
+                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
     <h5>
         <p class="findByLabel" *ngIf="editservice.numLabel==1"> {{respo2?.en}}</p>
         <p class="findByLabel" *ngIf="editservice.numLabel==2"> {{respo2?.de}}</p>
@@ -113,14 +116,60 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
+    <form #myForm1="ngForm" style="width: 38%;">
 
-    <div class="input-group mb-3" style="width: 38%;">
-        <input type="text" id="search" class="form-control input-lg" style="color: white;" placeholder="Type your country name: ex. Brazil"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary btn-lg findByName2" type="button">
-                <img src="https://img.icons8.com/offices/20/000000/long-arrow-right.png" />
-            </button>
+        <div class="input-group mb-3">
+            <input type="text" id="search" class="form-control input-lg" style="color: white;"
+                placeholder="Type your country name: ex. Brazil" name="searchText" ngModel [(ngModel)]="searchText"
+                aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary btn-lg findByName2" (click)="searchMemorialCity(myForm1)"
+                    type="submit">
+                    <img src="https://img.icons8.com/offices/20/000000/long-arrow-right.png" />
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div *ngIf="searchResult" class="searchHgt mb-5 container-fluid">
+    <div class="row mb-5 searchMemories">
+
+        <div class="col-9 example-viewport1">
+            <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg"
+                    src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
+            <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+                <div class="searchImg">
+                    <div *cdkVirtualFor="let search of dataSearch2"
+                        (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
+                        <!-- {{dataSearch2.length}} -->
+                        <div>
+                            <img class="searchImg1" [src]="search.path" alt="">
+                        </div>
+                        <div class="searchName">
+                            <span>{{search.fname}}</span>&nbsp;<span>{{search.lname}}</span>
+                        </div>
+                        <div class="searchCandel">
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/eye.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_candles}}</span>
+                            </span>
+                            &nbsp;
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/candle.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_candles}}</span>
+                            </span>
+                            &nbsp;
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/google-docs.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_kondolenz}}</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </cdk-virtual-scroll-viewport>
         </div>
     </div>
 </div>

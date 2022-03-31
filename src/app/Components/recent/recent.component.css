@@ -76,7 +76,7 @@
     font-size: 0.7rem;
     font-weight: 800;
     color: #FFF8F8;
-    margin-right: 13%;
+    margin-right: 12%;
 }
 .recentMem{
     font-weight: 800;
@@ -106,6 +106,7 @@
     width: 68%;
     display: flex;
     flex-direction: column;   
+    margin-top: 1%
 }
 
 .box2 .premium{

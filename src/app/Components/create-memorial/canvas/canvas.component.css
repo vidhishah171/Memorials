@@ -1,4 +1,13 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+
 /* css for labels */
 .forButton{
     position: relative;
@@ -91,11 +100,22 @@
     height: 100%;
     width: 100%;
 }
-#tombstoneSize{
+#tombstoneSizeBack{
     height: 160px;
     width: 160px;
+    padding: 6%;
 }
-
+.backWidth{
+    width: 90%;
+    margin-top: 6%;
+    margin-left: 3%;
+}
+.imgCorouselRight{
+    margin-left: 50%;
+}
+.imgCorouselLeft{
+    margin-right: 50%;
+}
 .personCentric{
     height: 320px;
     width: 100%;
@@ -125,9 +145,53 @@
     margin-right: auto;
     font-size: larger;
 }
-
-
-
+.decorationImg{
+    width: 14px;
+    margin-top: -6%;
+}
+.headerCanvasTxt{
+    font-size: 0.7rem;
+    color: #6A6A6A;
+}
+.btnColorHeading{
+    border: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.verticalRow{
+    margin-top: 1%;
+    color: #F2F2F2;
+    margin-left: -1%;
+    margin-right: -2%;
+}
+.headerCanvasTxt2{
+    font-size: 0.6rem;
+    color: #6A6A6A;
+    font-weight: 600;
+}
+.candleImgSize{
+    width: 23px;
+}
+#tombstoneWidth{
+    width: 17%;
+}
+.candleImgSize1{
+    width: 30%;
+}
+.candleImgSize2{
+    width: 35%;
+}
+.candleImgSize3{
+    width: 45%;
+}
+.candleImgSize4{
+    width: 35%;
+}
+.candleDarkImgSize{
+    width: 63px;
+    margin-bottom: -17%;
+}
 
 
 
@@ -232,13 +296,22 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
+.background1{
+    height: 100%;
+    width: 100%;
+    margin-top: 7%;
+    /* background-color: aquamarine */
+}
+.background1 .carousel-item button{
+    height: 45%;
+    width: 32%;
+}
 .menu{
     width: 100%;
     height: 2rem;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 40px;
+    margin-left: 15px;
     flex-direction: row;
     justify-content: flex-start;
 
@@ -277,6 +350,7 @@
     flex-wrap: wrap;
     flex-direction: row;
    align-content: flex-start;
+   margin-left: 3%;
 }
 
 
@@ -308,6 +382,11 @@
     align-items: center;
     cursor:move;
 
+}
+::placeholder{
+    font-size: 0.75rem;
+    color: black;
+    opacity: 0.9;
 }
 
 .carousel-control-next {
@@ -361,7 +440,15 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    /* padding-left: 9%; */
     
+}
+.backMargin{
+    padding-left: 9%;
+}
+#tombstoneSize{
+    height: 147px;
+    width: 153px;
 }
 .itemAlign{
     width: 72%;
@@ -369,9 +456,33 @@
 }
 .itemAlign1{
     width: 85%;
-    margin-left: 76px;
+    margin-left: 55px;
 }
-
+.personImageSizeNew{
+    margin-left: 0%;
+    font-size: 0.7rem;
+}
+.nav-link img{
+    height: 23px;
+    width: 23px;
+}
+.nav-link{
+    padding-top: 1%;
+}
+.tombstoneText{
+    margin-top: 3%;
+    font-size: 0.9rem;
+    /* color: #4BC252; */
+}
+.tombstoneText1{
+    margin-top: 0%;
+    font-size: 0.9rem;
+    /* color: black; */
+}
+.personCentricMemo{
+    height: 23px;
+    width: 23px;
+}
 .URNS{
     height: 6rem;
     width: 6rem;
@@ -383,13 +494,14 @@
 }
 
 .vita{
-    width: 100%;
-    height:75%;
+    width: 71%;
+    height: 97%;
     font-family: 'Libre Franklin', sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
     justify-content: flex-start;
+    margin-left: 5%;
 }
 
 .video{
@@ -427,6 +539,7 @@
 }
 .btnAddText{
     background-color:lightgray;
+    color: white;
 }
 
 #imgLogo{

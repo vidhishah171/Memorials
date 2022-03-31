@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+.photoGalleryImg{
+    height: 45%;
+    opacity: 0.6;
+}
+.photoPlusImage{
+    height: 32%;
+    opacity: 0.6;
+}
+.photoBackText{
+    padding-top: 0.5%;
+    opacity: 0.6;
+}
+.imgMargin{
+    margin-right: -13px;
+}
 .userHeading{
     background-color:#CF6363 ;
     height: 16vw;
@@ -6,16 +29,23 @@
     text-align: center;
     color: white;
     padding-top: 2%;
+    font-size: 2rem;
 }
 .userBackground{
-    text-align: center;
     color: white;
-    padding-top: 1%;
+    padding-top: 2%;
     font-size: 0.6rem;
+    display: flex;
+    text-align: center;
+    /* align-items: center; */
+    justify-content: center;
 }
 .userDate{
     text-align: center;
-    color: white;
+    color: whitesmoke;
+    font-size: 0.85rem;
+    opacity: 0.9;
+
 }
 .userImage{
     /* width: 100%;
@@ -33,27 +63,57 @@
 }
 .circleImage{
     width: 11%;
-    height: 61%;
+    height: 66%;
     margin-left: 45%;
-    margin-top: 2%;
+    margin-top: -2%;
     border: 5px solid white;
-    background-color: gray;
+    background-color: #5D5959;
+
+    border-radius: 50%;
+    overflow: hidden;
+    display:inline-block;
+    vertical-align:middle;
 }
+.circleImage img{
+    width:100%;
+  }
 .btnColor{
     color: black;
+    font-size: 0.85rem;
+    border: 1.5px solid black;
+    font-weight: 590;
 }
 .btnColor:hover{
     color: white;
+    background-color: #B5B5B5;
 }
 .btnColor1{
-    color: green;
+    color: #4Bc252;
+    border: 1px solid #4Bc252;
 }
 .btnColor1:hover{
-    color: white;
+    color: #4Bc252;
+    background-color: #B5B5B5;
 }
 .photoVideoGallary{
     height: 35vw;
     background-color: #F8F4EF;
+    margin-top: -1%;
+}
+.photoVideoGalleryText{
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 1%;
+}
+.crossImg{
+    height: 63px;
+}
+.condolencesText{
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.qotesImg{
+    width: 68px;
 }
 .pVGallery{
     box-sizing: border-box;
@@ -76,9 +136,10 @@
     /* z-index: 10; */
 }
 .shareEdit{
-    font-size: 0.7rem; 
-    color: white;
+    font-size: 0.6rem;
+    color: whitesmoke;
     cursor: pointer;
+    opacity: 0.7;
 }
 .shareEdit1{
     font-size: 0.7rem; 
@@ -92,16 +153,48 @@
 .subscribeImage{
     /* background-image: "../../../assets/StaticAssets/Visitor Mode/112.png"; */
     background-image: url('../../../assets/StaticAssets/Visitor Mode/112.png');
+    background-size: 100%;
     border-radius: 20px;
-    height: 16vw;
+    height: 14vw;
     width: 100%;
     /* display: flex; */
     flex-wrap: wrap;
     background-repeat: no-repeat;
     background-position: center;
 }
+.subscribeText{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.subInputBox{
+    width: 29%;
+    height: 45px;
+    border-radius: 0px;
+}
+.subInputBox1{
+    height: 45px;
+    border-radius: 0px;
+}
+.subscribeBtn{
+    height: 45px;
+    font-size: 0.9rem;
+    padding-left: 30%;
+    padding-right: 30%;
+    border-radius: 0;
+}
+::placeholder{
+    font-size: 0.9rem;
+    padding-left: 3%;
+    color: #B5B5B5;
+}
 .recentMemorial{
     background-color: #F8F4EF;
+    height: 25vw;
+}
+.recentHeading{
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.1rem;
 }
 .recentMemo{
     /* width:30%; */
@@ -110,6 +203,7 @@
     /* flex-wrap: wrap; */
     align-content: flex-start;
     /* flex-direction: row; */
+    margin-left: 12%;
 }
 .recentMemo .child1{
     /* height: 20%; */
@@ -123,15 +217,32 @@
     text-align: center;
 }
 .recentImage{
-    width: 83%;
+    width: 50%;
     height: auto;
     border: 2px solid #CF6363;
     text-align: center;
 
 }
+.recentName{
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.condolenceDiv{
+    height: 31vw;
+}
 .readAllCondo{
     padding-left: 3%;
     padding-right: 3%;
+    border: 2px solid black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.readAllCondo:hover{
+    background-color: #B5B5B5;
+    color: white;
+    border: none;
 }
 
 /* For editCondolences */
@@ -142,6 +253,18 @@
     width: 100%; 
     height: auto;
     display: flex;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-bottom: 11%;
+}
+.plusImageOnHeader{
+      /* float: right; */
+      margin-top: 1.5%;
+      /* border: 1px solid white; */
+      z-index: 500;
+      color: white;
+      width: 2%;
+      margin-left: -2%;
 }
 
 @media (min-width:481px) and (max-width:979px){

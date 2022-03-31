@@ -39,6 +39,7 @@
     width: 100%; 
     /* background-color: white; */
     font-weight: 500;
+    overflow-wrap: anywhere;
 }
 .box2name h6{
     font-size: 0.9rem;

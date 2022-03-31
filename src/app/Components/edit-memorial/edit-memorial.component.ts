@@ -36,6 +36,10 @@ export class EditMemorialComponent implements OnInit {
   getPhotoVideoImage12: any;
   buttonDisplay: boolean = true;
   lovedPersonData1: any;
+  userpic: any;
+  url: any;
+  isDisplay: boolean;
+  isDisplay1: boolean;
 
 
 
@@ -52,15 +56,26 @@ export class EditMemorialComponent implements OnInit {
 
 
 
-  ) {this.loginService.otherPage = false;  }
+  ) {
+    this.loginService.otherPage = false; 
+    this.loginService.hideMemorialImage = false;
+    this.loginService.isFooterLogin = true;
 
+
+   }
+
+   ngAfterViewInit() {
+    setTimeout(() => {
+      this.clickDiv();
+    }, 1000);
+  }
   ngOnInit(): void {
     debugger
+    this.myProfileData();
     this.getData();
     // this.getUserMemorial();
     this.getrecentMemorials();
     this.postGrabId();
-
     this.getPhotoVideo();
   }
 
@@ -68,6 +83,33 @@ export class EditMemorialComponent implements OnInit {
     debugger
     window.location.reload();
   }
+
+  clickDiv() {
+    debugger
+    var test = document.getElementById("navDiv");
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
+
+  }
+
+  // Get user profile image
+  myProfileData() {
+    debugger
+    // this.spiner.show();
+    var ProfileId = { "user_id": this.loginService.loginAllData?.id }
+    this.loginService.userId = this.loginService.loginAllData?.id;
+    this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
+      console.log(data);
+      this.userpic = data.user_data[0].userpic;
+      if (this.userpic !== '') {
+        this.isDisplay1 = false;
+        this.isDisplay = true;
+      }
+    });
+  }
+
+
 
   getData() {
     debugger
@@ -154,6 +196,58 @@ export class EditMemorialComponent implements OnInit {
     }
   }
 
+  onselectFile1(e) {
+    // this.service.selectedMainImg = "";
+    // this.changeStyle = null;
+    debugger
+    // && e.target.files[0].size > 5242880
+    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    }
+    else if((!this.ValidateFile(e.target.files[0].name))){
+      this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
+    }
+    // else if(e.target.files[0].size > 5242880){
+    // this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    // }
+    else {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+        this.isDisplay = false;
+        this.isDisplay1 = true;
+        this.userData2();
+        // var userData={id:this.loginservice.loginAllData.id,userpic:this.url}
+        // this.profileService.userProfile(userData).subscribe(responce=>{
+        // console.log(responce);
+        // })
+      }
+    }
+  }
+  ValidateFile(name:string){
+    var ext=name.substring(name.lastIndexOf('.')+1);
+    if(ext.toLowerCase()=='png' || ext.toLowerCase()=='jpeg' || ext.toLowerCase()=='jpg'){
+      return true;
+    }
+    else
+    return false;
+  }
+  userData2() {
+    debugger;
+    this.spiner.show();
+    var userData = { id: this.loginService?.userId, userpic: this.url }
+
+    this.profileService.userProfile(userData).subscribe((responce: any) => {
+      this.spiner.hide();
+      console.log(responce);
+
+    })
+  }
+
+
+
+
 
   // For photo/gallery image 
   photoVideoGallery() {
@@ -215,4 +309,14 @@ export class EditMemorialComponent implements OnInit {
     })
 
   };
+
+  vitaScroll(el:HTMLElement){
+    el.scrollIntoView();
+  }
+  photoVideoScroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
+  condolenceScroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
 }

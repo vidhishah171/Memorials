@@ -216,7 +216,7 @@
                                     <input matInput [matDatepicker]="picker" #DOB="ngModel"
                                         [(ngModel)]="service.createMemorial.DOB" name="DOB" [max]="maxDate"
                                         placeholder="MM/DD/YYYY" required ngModel readonly>
-                                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: tomato;">
+                                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
                                 </mat-form-field>
@@ -256,7 +256,7 @@
                                         [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
                                         [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel
                                         readonly>
-                                    <mat-datepicker-toggle matSuffix [for]="picker1" style="color: tomato;">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1" style="color:#CF6363;">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #picker1></mat-datepicker>
                                 </mat-form-field>
@@ -917,16 +917,16 @@
     <div *ngIf="showMemSteps==2" id="comp-render">
         <app-canvas></app-canvas>
         <div class="nextBtn1" *ngIf="!loginservice.isUser">
-            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
-                *ngIf="editservice.numLabel==1">{{respo14?.en}}<span><img
+            <button class="btn nextBtnNew" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==1">{{respo14?.en}}<span>&nbsp;&nbsp;<img style="width: 25%;"
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
 
-            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
-                *ngIf="editservice.numLabel==2">{{respo14?.de}}<span><img
+            <button class="btn nextBtnNew" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==2">{{respo14?.de}}<span>&nbsp;&nbsp;<img style="width: 25%;"
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
 
-            <button class="btn btn-success btn-lg" (click)="showStep(3);clickShowStepBtn3()"
-                *ngIf="editservice.numLabel==3">{{respo14?.fr}}<span><img
+            <button class="btn nextBtnNew" (click)="showStep(3);clickShowStepBtn3()"
+                *ngIf="editservice.numLabel==3">{{respo14?.fr}}<span>&nbsp;&nbsp;<img style="width: 25%;"
                         src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"></span></button>
 
 
@@ -937,7 +937,7 @@
         </div>
         <!-- *ngIf="loginservice.isUser" -->
         <div class="nextBtn1" *ngIf="loginservice.isUser">
-            <button type="submit" (click)="createMemorialAgain()" class="btn btn-success btn-lg">Create
+            <button type="submit" (click)="createMemorialAgain()" class="btn nextBtnNew1">Create
                 Memorial</button>
         </div>
 
@@ -1144,9 +1144,9 @@
 
                     <input type="password" autocomplete="off" name="password" #password="ngModel"
                         [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
-                        placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required ngModel>
+                        placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required ngModel>
                     <small class="fireError" *ngIf="password.touched && !password.valid">Password Must contain at least
-                        one number and one uppercase and lowercase letter, and at least 8 or more characters</small>
+                        one number and one uppercase and lowercase letter and special characters, and at least 8 or more characters</small>
                 </div>
                 <div class="col-md-6">
                     <!-- <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"

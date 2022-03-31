@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
     private spiner : NgxSpinnerService,
 
 
-  ) { this.service.otherPage = true;}
+  ) { this.service.otherPage = true;
+    this.service.isFooterLogin = false;
+    
+  }
 
 
   data: any = [];
@@ -174,7 +177,7 @@ export class LoginComponent implements OnInit {
   // Code for labels
 
   openDialogue(num): void {
-
+debugger
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;

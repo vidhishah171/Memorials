@@ -24,6 +24,7 @@ export class LoginService {
   logoDisplay:boolean=false;
   isFooterLogin:boolean=true;
   
+  userId:any;
 
   // loginAPI="https://h2913228.stratoserver.net/API/public/login";
   loginAPI="https://h2913228.stratoserver.net/API/public/login";

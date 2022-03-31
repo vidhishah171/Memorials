@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
 /* css for labels */
 .forButton{
     position: relative;
@@ -53,35 +63,43 @@
 }
 
 
-.login{
+/* .login{
     font-family: 'Libre Franklin', sans-serif;
     height:auto;
     width: 100%;
     display: flex;
     flex-direction: row;
     float: left;
-}
-.form{
+} */
+/* .form{
     height: 100%;
     width: 50%;
    
-}
+} */
 #loginLabel1{
     right: 64%;
 }
 
 .image{
-    width: 70%;
+    width: 80%;
     height: 50%;
     display: flex;
     justify-content:center;
     background-image: url('../../../assets/StaticAssets/Login Page/46.png');
+    background-repeat: no-repeat;
 }
+
 .image img{
     height: 130%;
-    width: 84%;
+    width: 100%;
+
+    margin-top: -11%;
 
 }
+.marginImg{
+    margin-top: -6%;
+}
+
 .showCase{
     height: 100%;
     width: 45%;
@@ -89,7 +107,41 @@
     /* justify-content:space-between; */
     flex-direction: column;
 }
-
+.navbarBackImg{
+    background-image: url('../../../assets/StaticAssets/Login Page/header.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 211px;
+}
+.login{
+    font-family: 'Libre Franklin', sans-serif;
+    height:auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -1%;
+    /* float: left; */
+}
+.form{
+    height: 100%;
+    width: 50%;
+   
+}
+.form h6{
+    color: #CF6363;
+    opacity: 0.9;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.userLoginText{
+    font-weight: 600;
+    color: #5D5959;
+}
+::placeholder{
+    font-size: 0.8rem;
+    padding-left: 2%;
+}
 @media (min-width:481px) and (max-width:780px){
    
 }

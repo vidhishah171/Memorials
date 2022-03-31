@@ -86,6 +86,13 @@ export class EditCanvasComponent implements OnInit {
   getUserMemoData: any;
   vitaData1: any;
   saveVita: boolean=true;
+  tomb: HTMLElement;
+  person: HTMLElement;
+  isDisplaySmallImage: boolean;
+  respo11: any;
+  respo12: any;
+  respo13: any;
+  imgBack: any[];
 
 
 
@@ -116,6 +123,10 @@ export class EditCanvasComponent implements OnInit {
   //   image.src = this.canvas.toDataURL({ format: 'png' });
   //   this.service.saveCanvas = image.src;
   // }
+  ngAfterViewInit() {
+    this.showSecMenu(1);
+    this.showSubMenuItems(1);
+  }
 
 
 
@@ -188,6 +199,8 @@ export class EditCanvasComponent implements OnInit {
       if (response.details.vita_html !== "undefined") {
         this.vitaData = response.details.vita_html;
         // this.spiner.hide();
+      }else if(response.details.vita_html == "undefined"){
+        this.vitaData = '';
       }
     })
   }
@@ -459,28 +472,110 @@ export class EditCanvasComponent implements OnInit {
   }
 
   showSecMenu(num) {
+    var decoration = document.getElementById('Decoration');
+    var background = document.getElementById('Background');
+    var vita = document.getElementById('Vita');
+
     if (num == 1) {
       this.showMenuItems = 1;
+      decoration.style.backgroundColor = '#F2F2F2';
+      background.style.backgroundColor = 'white';
+      vita.style.backgroundColor = 'white';
     } else if (num == 2) {
       this.showMenuItems = 2;
+      decoration.style.backgroundColor = 'white';
+      background.style.backgroundColor = '#F2F2F2';
+      vita.style.backgroundColor = 'white';
     } else if (num == 3) {
       this.showMenuItems = 3;
+      decoration.style.backgroundColor = 'white';
+      background.style.backgroundColor = 'white';
+      vita.style.backgroundColor = '#F2F2F2';
     } else if (num == 4) {
       this.showMenuItems = 4;
     }
 
   }
+
+  urnSM1:boolean;
+  urnSM2:boolean;
+  candleSM1:boolean;
+  candleSM2:boolean;
+  changetombSM1:boolean;
+  changetombSM2:boolean;
+  flowerSM1:boolean;
+  flowerSM2:boolean;
+  incriptionSM1:boolean;
+  incriptionSM2:boolean;
+
+
   showSubMenuItems(num) {
     if (num == 1) {
       this.showSubMenItem = 1;
+      this.candleSM1 = false;
+      this.candleSM2 =true;
+      this.urnSM1 = true;
+      this.urnSM2 = false;
+      this.changetombSM1 = true;
+      this.changetombSM2 = false;
+      this.flowerSM1 = true;
+      this.flowerSM2 = false;
+      this.incriptionSM1 = true;
+      this.incriptionSM2 = false;
+
     } else if (num == 2) {
       this.showSubMenItem = 2;
+      this.candleSM1 = true;
+      this.candleSM2 = false;
+      this.urnSM1 = false;
+      this.urnSM2 = true;
+      this.changetombSM1 = true;
+      this.changetombSM2 = false;
+      this.flowerSM1 = true;
+      this.flowerSM2 = false;
+      this.incriptionSM1 = true;
+      this.incriptionSM2 = false;
+
     } else if (num == 3) {
       this.showSubMenItem = 3;
+      this.candleSM1 = true;
+      this.candleSM2 = false;
+      this.urnSM1 = true;
+      this.urnSM2 = false;
+      this.changetombSM1 = true;
+      this.changetombSM2 = false;
+      this.flowerSM1 = false;
+      this.flowerSM2 = true;
+      this.incriptionSM1 = true;
+      this.incriptionSM2 = false;
+
     } else if (num == 4) {
       this.showSubMenItem = 4;
+      this.candleSM1 = true;
+      this.candleSM2 = false;
+      this.urnSM1 = true;
+      this.urnSM2 = false;
+      this.changetombSM1 = true;
+      this.changetombSM2 = false;
+      this.flowerSM1 = true;
+      this.flowerSM2 = false;
+      this.incriptionSM1 = false;
+      this.incriptionSM2 = true;
+
     } else if (num == 5) {
       this.showSubMenItem = 5;
+      this.candleSM1 = true;
+      this.candleSM2 = false;
+      this.urnSM1 = true;
+      this.urnSM2 = false;
+      this.changetombSM1 = false;
+      this.changetombSM2 = true;
+      this.flowerSM1 = true;
+      this.flowerSM2 = false;
+      this.incriptionSM1 = true;
+      this.incriptionSM2 = false;
+      this.showCentric1(1);
+
     }
   }
 
@@ -771,8 +866,21 @@ export class EditCanvasComponent implements OnInit {
   }
 
   //show tombstone
-  showCentric() {
-    this.showTambstone = true;
+  showCentric1(point) {
+    this.tomb = document.getElementById("tomb");
+    this.person = document.getElementById("person");
+    if (point == 1) {
+      this.showTambstone = true;
+      this.tomb.style.color = '#09AA13';
+      this.person.style.color = 'black';
+      this.isDisplaySmallImage = true;
+    }
+    if (point == 2) {
+      this.showTambstone = false;
+      this.tomb.style.color = 'black';
+      this.person.style.color = '#09AA13'
+      this.isDisplaySmallImage = false;
+    }
   }
 
   checked(data) {
@@ -973,6 +1081,9 @@ export class EditCanvasComponent implements OnInit {
       .subscribe(
         (backImages: any) => {
           this.backgroundImages = backImages.images;
+          if (this.caroucelCount == 1) {
+            this.imgBack = this.backgroundImages.slice(0, 6);
+          }
 
         },
         error => {
@@ -981,6 +1092,37 @@ export class EditCanvasComponent implements OnInit {
 
         }
       )
+  }
+
+  nextCarousel1() {
+    this.caroucelCount++;
+
+    if (this.caroucelCount == 2) {
+      this.imgBack = this.backgroundImages.slice(7, 13);
+    }
+    if (this.caroucelCount == 3) {
+      this.imgBack = this.backgroundImages.slice(13, 19);
+    }if (this.caroucelCount == 4) {
+      this.imgBack = this.backgroundImages.slice(19, 25);
+    }
+  }
+
+  prevCarousel1() {
+    this.caroucelCount = this.caroucelCount - 1;
+
+    if (this.caroucelCount == 2) {
+      this.imgBack = this.backgroundImages.slice(7, 13);
+    }
+    if (this.caroucelCount == 3) {
+      this.imgBack = this.backgroundImages.slice(13, 19);
+    }
+    if (this.caroucelCount == 4) {
+      this.imgBack = this.backgroundImages.slice(19, 25);
+    }
+    if (this.caroucelCount == 1 || null) {
+      this.imgBack = this.backgroundImages.slice(0, 6);
+    }
+
   }
 
 
@@ -1099,6 +1241,61 @@ export class EditCanvasComponent implements OnInit {
 
   }
 
+  url = '';
+  hidePerson: boolean = false;
+  onselectFile1(e) {
+    this.service.selectedMainImg = "";
+    this.changeStyle = null;
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+
+
+        if (this.url == '') {
+          this.hidePerson = true;
+        } else {
+          this.hidePerson = true;
+        }
+
+        // this.service.selectedMainImg = this.url;
+
+
+
+        this.removeSelected1();
+        fabric.Image.fromURL(this.url, newImg => {
+          // this.service.selectedMainImg || this.service.selectedMain
+          this.canvas.add(newImg);
+          newImg.toCanvasElement;
+          newImg.top = 150;
+          newImg.left = 135;
+          newImg.hasControls = true;
+          newImg.hasBorders = true;
+          newImg.originX = 'left';
+          newImg.originY = 'top';
+          newImg.scaleToHeight(250);
+          newImg.scaleToWidth(250);
+          newImg.sendToBack();
+
+
+          // this.removeSelected1();
+
+
+          this.extend(newImg, this.ImgRandomId);
+
+          // alert("created random id is:-"+this.service.ImgRandomId);
+
+
+          // this.canvas.setActiveObject(newImg);
+        });
+        this.canvas.renderAll();
+      }
+
+    }
+  }
+
+
 
   // Code for labels
 
@@ -1134,6 +1331,15 @@ export class EditCanvasComponent implements OnInit {
     } else if (num == 10) {
       this.showNewDiv = 10;
       this.isvalid = true;
+    }else if (num == 11) {
+      this.showNewDiv = 11;
+      this.isvalid = true;
+    } else if (num == 12) {
+      this.showNewDiv = 12;
+      this.isvalid = true;
+    } else if (num == 13) {
+      this.showNewDiv = 13;
+      this.isvalid = true;
     }
   }
 
@@ -1156,6 +1362,9 @@ export class EditCanvasComponent implements OnInit {
       this.respo8 = this.respo[107];
       this.respo9 = this.respo[109];
       this.respo10 = this.respo[169];
+      this.respo11 = this.respo[94];
+      this.respo12 = this.respo[95];
+      this.respo13 = this.respo[96];
     });
   }
 

@@ -7,9 +7,9 @@
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
             <h3 class="headerLabel">
-                <p  *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
-                <p  *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
-                <p  *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>
+                <p *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
+                <p *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
+                <p *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>
 
             </h3>
 
@@ -91,28 +91,28 @@
                 <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                            <!-- <small *ngIf="editservice.numLabel==1"><strong style="font-weight: bolder;">{{respo8?.en}}</strong></small> -->
-                            <!-- <span>
+                <!-- <small *ngIf="editservice.numLabel==1"><strong style="font-weight: bolder;">{{respo8?.en}}</strong></small> -->
+                <!-- <span>
                                 <strong style="font-weight: bolder;" *ngIf="editservice.numLabel==1">{{respo8?.en}}</strong>
                             </span> -->
-                            
-                            <span>
-                                <small class="headerText" *ngIf="editservice.numLabel==1">{{respo3?.en}}</small>
-                            </span>
-                            <!-- <span>
+
+                <span>
+                    <small class="headerText" *ngIf="editservice.numLabel==1">{{respo3?.en}}</small>
+                </span>
+                <!-- <span>
                                 <small style="font-weight: bolder;" *ngIf="editservice.numLabel==2">{{respo8?.de}}</small>
                             </span>
                             &nbsp; -->
-                            <span>
-                                <small class="headerText" *ngIf="editservice.numLabel==2">{{respo3?.de}}</small>
-                            </span>
-                            <!-- <span>
+                <span>
+                    <small class="headerText" *ngIf="editservice.numLabel==2">{{respo3?.de}}</small>
+                </span>
+                <!-- <span>
                                 <small style="font-weight: bolder;" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</small>
                             </span>
                             &nbsp; -->
-                            <span>
-                                <small class="headerText" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</small>
-                            </span>
+                <span>
+                    <small class="headerText" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</small>
+                </span>
             </p>
             <!-- soulium.com the virtual cemetery. Here, you can create memorable sites for your
                     loved ones free of charge, which will continue to live in your memory forever. You can also mourn
@@ -145,8 +145,8 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-         <!-- Extra code for div -->
-         <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
+        <!-- Extra code for div -->
+        <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" id="longTextId">
                 <button style="float: right;" (click)="openDialogue1()" class="btn bt btn-outline-danger">X</button>
                 <form class="example-form" #regForm2="ngForm">
@@ -260,11 +260,10 @@
     <form #myForm1="ngForm">
         <div class="find d-flex justify-content-center">
             <div class="input-group" style="height: 31px; width: 42%;">
-                <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel #searchText="ngModel"
-                     placeholder="Find a memorial...">
+                <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel
+                     [(ngModel)]="searchText" placeholder="Find a memorial...">
                 <div class="input-group-append">
-                    <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg cityBtn"
-                         type="submit">
+                    <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg cityBtn" type="submit">
                         <img src="../../../assets/StaticAssets/Home page/search-1.png">
                     </button>
                 </div>
@@ -415,26 +414,72 @@
 
     </div>
 </div>
-<div *ngIf="searchResult" class="searchHgt mb-5 container">
-    <div style="float: right;" (click)="divHide()" class="btn btn-outline-danger align-self-end mb-1">X</div>
-    <div class="row">
+<div *ngIf="searchResult" class="searchHgt mb-5 container-fluid">
+    <!-- <div style="float: right;"  class="btn btn-outline-danger align-self-end mb-1">X</div> -->
+    <div class="row mb-5 searchMemories">
 
-        <div class="col-3" style="text-align: center; margin-top: 30px; background-color: #F8F8F8;">
-            <div style="float: left;"><strong>&nbsp;&nbsp;FILTER</strong></div>
-            <div class="pt-5">
-                <label>Age</label>
+        <div class="col-3 filterDiv">
+            <div class="filterText">FILTER</div>
+            <div class="pt-4">
+                <label class="ageLable">AGE</label>
             </div>
-            <!-- <div>
-                <input type="range" min="0" max="100"  style="width: 200px;">
+            <div class="custom-slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event)" [options]="options"></ngx-slider>
+            </div>
+
+
+            <!-- original slider -->
+            <!-- <div class="ageLableSlider">
+                <span style="color: #CF6363;">0</span>&nbsp;
+                <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />&nbsp;
+                <span style="color: #CF6363;">100</span>
+            </div> -->
+            <div class="pt-4">
+                <label class="ageLable">YEAR FILTER</label>
             </div>
             <div>
-                <input type="text" [(ngModel)]="ageSearch" >
-            </div> -->
-
-
-            <span style="color: red;">0</span>
-            <input type="range" min="0" max="100" [(ngModel)]="sliderValue"/>
-            <span style="color: red;">100</span>
+                <div class="custom-slider">
+                    <ngx-slider [(value)]="value1" [(highValue)]="highValue1" (userChange)="getEvent1($event)" [options]="options1"></ngx-slider>
+                </div>
+            </div>
+            <div class="pt-4">
+                <label class="ageLable">BIRTHDATE</label>
+            </div>
+            <div class="datePickerCss">
+                <mat-form-field class="tabWidth">
+                    <input matInput [matDatepicker]="picker" [max]="maxDate" name="DOB" #DOB="ngModel" placeholder="MM/DD/YYYY" required 
+                    [(ngModel)]="dateSlider" (ngModelChange)="getEvent2($event)" ngModel readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="pt-4">
+                <label class="ageLable">DEATHDATE</label>
+            </div>
+            <div class="datePickerCss">
+                <mat-form-field class="tabWidth">
+                    <input matInput [matDatepicker]="picker1" [max]="maxDate" name="DOD" #DOD="ngModel" placeholder="MM/DD/YYYY" required 
+                    [(ngModel)]="dateSlider1" (ngModelChange)="getEvent3($event)" ngModel readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker1" style="color: #CF6363;">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="pt-4">
+                <label class="ageLable">BIRTH LOCATION</label>
+            </div>
+            <div class="inputWidth">
+                <input type="text" maxlength="25" [(ngModel)]="userBirthLocation" (ngModelChange)="getEvent4($event)" class="form-control shadow bg-body rounded" placeholder="Birth Location"
+                ngModel>
+            </div>
+            <div class="pt-4">
+                <label class="ageLable">DEATH LOCATION</label>
+            </div>
+            <div class="inputWidth">
+                <input type="text" maxlength="25" [(ngModel)]="userDeathLocation" (ngModelChange)="getEvent5($event)" class="form-control shadow bg-body rounded" placeholder="Birth Location"
+                ngModel>
+            </div>
             <!-- 
             <mat-slider thumbLabel [displayWith]="formatLabel" [(ngModel)]="sliderValue" tickInterval="1000" step="1000" min="0" max="100000"
                 aria-label="units"></mat-slider> -->
@@ -442,36 +487,39 @@
 
 
         </div>
+        <div class="col-9 example-viewport1">
+            <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg" src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
+            <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+                <div class="searchImg">
+                    <div *cdkVirtualFor="let search of dataSearch2" (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
+                        <!-- {{dataSearch2.length}} -->
+                        <div>
+                            <img class="searchImg1" [src]="search.path" alt="">
+                        </div>
+                        <div class="searchName">
+                            <span>{{search.fname}}</span>&nbsp;<span>{{search.lname}}</span>
+                        </div>
+                        <div class="searchCandel">
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/eye.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_candles}}</span>
+                            </span>
+                            &nbsp;
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/candle.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_candles}}</span>
+                            </span>
+                            &nbsp;
+                            <span>
+                                <img src="../../../assets/StaticAssets/Home page/google-docs.png" alt="">&nbsp;<span
+                                    class="searchValue">{{search.total_kondolenz}}</span>
+                            </span>
+                        </div>
+                    </div>
 
-        <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-            <div class="col-9 searchImg">
-                <div *cdkVirtualFor="let search of dataSearch1 | filter: sliderValue">{{dataSearch1.age}}
-                    <div>
-                        <img class="searchImg1" [src]="search.path" alt="">
-                    </div>
-                    <div class="searchName">
-                        <span>{{search.fname}}</span>&nbsp;<span>{{search.lname}}</span>
-                    </div>
-                    <div class="searchCandel">
-                        <span>
-                            <img src="../../../assets/StaticAssets/Home page/eye.png" alt=""><span
-                                class="searchValue">{{search.total_candles}}</span>
-                        </span>
-                        &nbsp;
-                        <span>
-                            <img src="../../../assets/StaticAssets/Home page/candle.png" alt=""><span
-                                class="searchValue">{{search.total_candles}}</span>
-                        </span>
-                        &nbsp;
-                        <span>
-                            <img src="../../../assets/StaticAssets/Home page/google-docs.png" alt=""><span
-                                class="searchValue">{{search.total_kondolenz}}</span>
-                        </span>
-                    </div>
                 </div>
-
-            </div>
-        </cdk-virtual-scroll-viewport>
+            </cdk-virtual-scroll-viewport>
+        </div>
     </div>
 
     <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">

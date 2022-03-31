@@ -10,6 +10,7 @@ export class UserProfileService {
   userApi="https://h2913228.stratoserver.net/API/public/update_profile";
   userProfileApi="https://h2913228.stratoserver.net/API/public/user_created_memorial";
   myProfile="https://h2913228.stratoserver.net/API/public/user_profile";
+  getMemorialDetailsApi="https://h2913228.stratoserver.net/API/public/memorialDetails";
 
 
   userDetail:any;
@@ -40,5 +41,9 @@ export class UserProfileService {
     return this.http.post('/userProfile',profileDetails);
   }
 
+  getMemorialDetails(grabId){
+    debugger
+    return this.http.post(this.getMemorialDetailsApi,grabId)
+  }
 
 }

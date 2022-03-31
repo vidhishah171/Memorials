@@ -1,9 +1,12 @@
 <div class="w-90">
-    <app-navbar></app-navbar>
-
-    <div class="login p-3 mb-5">
-        <div class="form p-3">
-            <h6 style="color:red">
+    <div>
+        <div class="navbarBackImg w-100">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    <div class="container login">
+        <div class="form p-3 mt-5">
+            <h6>
                 <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonSlide"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -45,9 +48,9 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonSlide1"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
-                <h1 *ngIf="editservice.numLabel==1">{{respo5?.en}}</h1>
-                <h1 *ngIf="editservice.numLabel==2">{{respo5?.de}}</h1>
-                <h1 *ngIf="editservice.numLabel==3">{{respo5?.fr}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==1">{{respo5?.en}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==2">{{respo5?.de}}</h1>
+                <h1 class="userLoginText" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</h1>
 
             </div>
 
@@ -86,20 +89,20 @@
 
                 <div>
                     <form class="row g-3 needs-validation" #regForm1="ngForm" novalidate>
-                        <div>
+                        <div class="mb-4">
                             <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                            <label for="Password" *ngIf="editservice.numLabel==1">{{respo1?.en}}</label>
+                            <!-- <label for="Password" *ngIf="editservice.numLabel==1">{{respo1?.en}}</label>
                             <label for="Password" *ngIf="editservice.numLabel==2">{{respo1?.de}}</label>
-                            <label for="Password" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</label>
+                            <label for="Password" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</label> -->
 
 
                             <input type="password" autocomplete="off" name="pwd" #pwd="ngModel" ngModel
                                 [(ngModel)]="service2.pwd" class="form-control shadow bg-body rounded"
-                                placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required>
                             <small class="fireError" *ngIf="pwd.touched && !pwd.valid">Password Must contain at least
-                                one number and one uppercase and lowercase letter, and at least 8 or more
+                                one number and one uppercase and lowercase letter and special characters, and at least 8 or more
                                 characters</small>
                         </div>
 
@@ -109,13 +112,13 @@
                         ngModel -->
 
 
-                        <div>
+                        <div class="mb-2">
                             <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                            <label for="Password" *ngIf="editservice.numLabel==1">{{respo2?.en}}</label>
+                            <!-- <label for="Password" *ngIf="editservice.numLabel==1">{{respo2?.en}}</label>
                             <label for="Password" *ngIf="editservice.numLabel==2">{{respo2?.de}}</label>
-                            <label for="Password" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</label>
+                            <label for="Password" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</label> -->
                             <input type="password" autocomplete="off" name="pwd1" #pwd1="ngModel"
                                 [(ngModel)]="service2.pwd1" ngModel validateEqual="pwd"
                                 class="form-control shadow bg-body rounded" placeholder="Confirm Password" required>
@@ -249,10 +252,15 @@
         </div>
         <div class="showCase ms-5 p-3">
             <div class="image mt-5">
-                <img class="mt-5" src="../../../assets/StaticAssets/Login Page/Group 332.png">
+                <img src="../../../assets/StaticAssets/Login Page/Group 332.png">
             </div>
         </div>
     </div>
+
+    <div class="marginImg">
+        <app-memory-images></app-memory-images>
+    </div>
+  
 
     <!-- For spinner -->
     <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
@@ -260,7 +268,7 @@
     </ngx-spinner>
 
     <app-recent></app-recent>
-    <app-most-visited></app-most-visited>
+    <!-- <app-most-visited></app-most-visited> -->
     <app-grief></app-grief>
     <app-footer></app-footer>
 </div>

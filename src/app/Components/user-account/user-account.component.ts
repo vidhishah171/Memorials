@@ -67,6 +67,8 @@ export class UserAccountComponent implements OnInit {
      this.loginservice.otherPage = false;
      this.loginservice.hideMemorialImage = false;
      this.loginservice.goPremiumLabel = true;
+    this.loginservice.isFooterLogin = true;
+
   }
   ngAfterViewInit():void{
     setTimeout(() => {
@@ -99,8 +101,8 @@ export class UserAccountComponent implements OnInit {
     if (loginAfterRefresh) {
       debugger
       this.loginData = loginAfterRefresh.user[0].firstname;
-      this.loginservice.loginSaveData = this.loginData;
-      this.loginservice.loginAllData = loginAfterRefresh.user[0];
+      this.loginservice.loginSaveData = this.loginservice.loginSaveData;
+      // this.loginservice.loginAllData = loginAfterRefresh.user[0];
       this.loginservice.islogin = true;
     } else {
       this.router.navigate(['/login']);

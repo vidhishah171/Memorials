@@ -83,11 +83,11 @@
                 </div>
             </li>
 
+            <button (click)="openDialogue(3)" *ngIf="service.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                        alt=""></span></button>
             <div>
-                <button (click)="openDialogue(3)" *ngIf="service.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                            alt=""></span></button>
                 <p class="userLoginText1" *ngIf="editservice.numLabel==1"><small>{{respo3?.en}}</small></p>
                 <p class="userLoginText1" *ngIf="editservice.numLabel==2"><small>{{respo3?.de}}</small></p>
                 <p class="userLoginText1" *ngIf="editservice.numLabel==3"><small>{{respo3?.fr}}</small></p>

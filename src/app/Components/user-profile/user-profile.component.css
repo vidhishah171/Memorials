@@ -109,8 +109,24 @@
     width: 80%;
     height: 150px;
     overflow-y: auto;
-  }
-
+}
+.userDetailPopupSave{
+    font-size: 0.9rem;
+    border: 1px solid #4BC252;
+}
+.userDetailPopupSave:hover{
+    background-color: #4BC252;
+    color: white;
+}
+.userDetailPopupCancel{
+    font-size: 0.9rem;
+    border: 1px solid #CF6363;
+    color: black;
+}
+.userDetailPopupCancel:hover{
+    background-color: #CF6363;
+    color: white;
+}
 
 
 
@@ -287,7 +303,7 @@ agm-map {
 }
 .memorialText{
     color: #B7B7B7;
-    font-size: 0.8rem;
+    font-size: 0.777rem;
     font-weight: 600;
     margin-left: 14%;
 }
@@ -306,6 +322,7 @@ agm-map {
     margin-top: 1.3%;
     font-weight: 100;
     opacity: 0.9;
+    cursor: pointer;
 }
 .onlineUser2{
     font-size: 2rem; 
@@ -343,7 +360,7 @@ agm-map {
    align-content: flex-start;
    /* font-size: 0.5rem; */
    flex-direction: row;
-   margin-top: 3%;
+   margin-top: 2.2%;
 }
 
 .box2 .child1{
@@ -402,6 +419,7 @@ agm-map {
     width: 233px;
     height: 180px;
     border: 1px solid black;
+    object-fit: fill;
 }
 .Photo{
     text-align: center;

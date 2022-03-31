@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
 
 .vertical-menu {
     width: 80%;
@@ -89,10 +95,109 @@
     margin-top: 34%;
     left: 284%;
 }
+.btnColorHeading{
+    border: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.headerCanvasTxt{
+    font-size: 0.7rem;
+    color: #6A6A6A;
+}
+.decorationImg{
+    width: 14px;
+    margin-top: -6%;
+}
+.verticalRow{
+    margin-top: 1%;
+    color: #F2F2F2;
+    margin-left: -1%;
+    margin-right: -2%;
+}
+.btnColorHeading{
+    border: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.candleImgSize{
+    width: 23px;
+}
+.candleDarkImgSize{
+    width: 63px;
+    margin-bottom: -17%;
+}
+.headerCanvasTxt2{
+    font-size: 0.6rem;
+    color: #6A6A6A;
+    font-weight: 600;
+}
+.candleImgSize1{
+    width: 30%;
+}
+.candleImgSize2{
+    width: 35%;
+}
+.candleImgSize3{
+    width: 45%;
+}
+.candleImgSize4{
+    width: 35%;
+}
+#tombstoneWidth{
+    width: 17%;
+}
+.personNav{
+    width: 100%;
+}
+.tombstoneText{
+    margin-top: 3%;
+    font-size: 0.9rem;
+    /* color: #4BC252; */
+}
+.tombstoneText1{
+    margin-top: 0%;
+    font-size: 0.9rem;
+    /* color: black; */
+}
+.personCentricMemo{
+    height: 23px;
+    width: 23px;
+}
+.tambstone{
+    height: 100%;
+    width: 100%;
+    /* background-color: aquamarine */
+}
 
-
-
-
+.tambstone .carousel-item button{
+    height: 45%;
+    width: 32%;
+}
+.tambstone button img{
+    height: 100%;
+    width: 100%;
+}
+.personImageSize{
+    width: 100%;
+    margin-left: 67%;
+}
+.personImageSizeNew{
+    margin-left: 0%;
+    font-size: 0.7rem;
+}
+.Photo{
+    text-align: center;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: larger;
+}
+#photo{
+    display: none;
+}
 
 
 
@@ -114,10 +219,14 @@
     background-color: #4BC252;
     color: white;
     padding: 1%;
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 6%;
+    padding-right: 6%;
     text-align: center;
     border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    /* opacity: 0.9; */
+    color: white;
 }
 /* .textAlign{
     text-align: center;
@@ -225,7 +334,7 @@
     height: 2rem;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 40px;
+    margin-left: 15px;
     flex-direction: row;
     justify-content: flex-start;
 
@@ -263,6 +372,7 @@
     flex-wrap: wrap;
     flex-direction: row;
    align-content: flex-start;
+   margin-left: 4%;
 }
 
 
@@ -347,6 +457,35 @@
     align-items: center;
     
 }
+.background1{
+    height: 100%;
+    width: 100%;
+    margin-top: 7%;
+    /* background-color: aquamarine */
+}
+.background1 .carousel-item button{
+    height: 45%;
+    width: 32%;
+}
+.backWidth{
+    width: 90%;
+    margin-top: 6%;
+    margin-left: 3%;
+}
+.backMargin{
+    padding-left: 9%;
+}
+#tombstoneSizeBack{
+    height: 160px;
+    width: 160px;
+    padding: 6%;
+}
+.imgCorouselRight{
+    margin-left: 50%;
+}
+.imgCorouselLeft{
+    margin-right: 50%;
+}
 .itemAlign{
     width: 72%;
     margin-left: 100px;
@@ -367,13 +506,24 @@
 }
 
 .vita{
-    width: 100%;
-    height:75%;
+    width: 80%;
+    height: 75%;
     font-family: 'Libre Franklin', sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
     justify-content: flex-start;
+    margin-left: 5%;
+}
+.vitaBtnColor{
+    border: 1px solid black;
+    background-color: #4BC252;
+    color: white;
+}
+.vitaBtnColor:hover{
+    border: none;
+    background-color: #4BC252;
+    color: white;
 }
 
 .video{
@@ -411,6 +561,11 @@
 }
 .btnAddText{
     background-color:lightgray;
+    color: white;
+}
+::placeholder{
+    font-size: 0.8rem;
+    padding-left: 3%;
 }
 
 #imgLogo{
@@ -429,6 +584,10 @@
          /* align-items: center; */
          /* flex-wrap: wrap; */
      }
+     .personCentric{
+        height: 198px;
+        width: 71%;
+    }
      .box2{
         /* background-color: #f87171;  */
        height: auto;
@@ -514,6 +673,14 @@
          align-items: center;
          /* flex-wrap: wrap; */
      }
+     #mobileRes{
+        height: 170px; 
+        width: 180px; 
+        align-items: center;
+    } 
+     .personImageSize{
+        margin-left: 23%;
+    }
      .forVitaDiv{
         margin-top: 90%;
         margin-left: 13%;

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
+import { HomeService } from 'src/services/home.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { MostVisitedService } from '../../../services/most-visited.service';
@@ -23,13 +27,23 @@ export class MostVisitedComponent implements OnInit {
   mostVisitMemorialfirst: any;
   firstname: any;
   lastname: any;
+  searchText: any;
+  dataSearch: any;
+  dataSearch1: any;
+  dataSearch2: any;
+  searchResult: boolean;
 
   constructor(
     private service: MostVisitedService,
     public editservice: AdminEditService,
     public loginservice: LoginService,
     private recentService: RecentMeorialsService,
+    public homeservice: HomeService,
     private router: Router,
+    private spiner: NgxSpinnerService,
+    public snack: MatSnackBar,
+
+
 
 
   ) { }
@@ -58,6 +72,68 @@ export class MostVisitedComponent implements OnInit {
     )
   }
 
+  searchMemorialCity(searchText: any) {
+    debugger
+    if(searchText.form.value.searchText != ''){
+    this.spiner.show();
+    this.searchText = searchText.value.searchText;
+    var searchCity = searchText.value.searchText;
+    const formData2 = new FormData();
+    formData2.append('search_text', searchCity)
+
+    this.homeservice.get(formData2).subscribe((res: any) => {
+      // JSON.parse(res);
+      this.spiner.hide();
+
+      this.dataSearch = res;
+      this.dataSearch1 = res.Memorials;
+      this.dataSearch2 = res.Memorials;
+
+
+      this.dataSearch1.map(function (item) { return item.fname = item.fname.replace(/[^a-zA-Z-.]/g, "") });
+      this.dataSearch1.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
+
+      console.log(res);
+      debugger
+      if (res.Memorials.length > 0) {
+        this.searchResult = true;
+      }else {
+        this.snackBar('Please enter valid Person Name or Location to search.', 'alert-danger');
+        this.searchResult = false;
+
+      }
+    });
+  }else{
+    this.snackBar('Please enter Person Name or Location to search.', 'alert-danger');
+
+  }
+  }
+  divHide() {
+    debugger
+    this.searchResult = false;
+    this.searchText ='';
+  }
+  seachByCityMemorial(data,data1){
+    if (data) {
+      this.recentService.userGrabIdData2 = data;
+      this.recentService.userUserIdData = data1;
+
+      this.router.navigate(['/visitor-mode']);
+    }
+  }
+
+  snackBar(message: string, panelClass: string) {
+    this.snack.openFromComponent(SnackbarComponent, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      data: message,
+      panelClass: panelClass,
+
+
+    })
+
+  };
 
   // Code for labels
 

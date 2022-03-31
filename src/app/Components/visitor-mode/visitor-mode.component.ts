@@ -1,5 +1,9 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
@@ -33,6 +37,11 @@ export class VisitorModeComponent implements OnInit {
   getPhotoVideoImage11: any;
   getPhotoVideoImage12: any;
   lovedPersonData1: any;
+  url: any;
+  isDisplay: boolean;
+  userpic: any;
+  memorialDetails: any;
+  memorialDetails1: any;
 
 
   constructor(
@@ -41,6 +50,10 @@ export class VisitorModeComponent implements OnInit {
     public service: RecentMeorialsService,
     public loginservice: LoginService,
     private router: Router,
+    public snack: MatSnackBar,
+    private spiner: NgxSpinnerService,
+
+
 
 
   ) { this.loginservice.otherPage = false; }
@@ -50,6 +63,8 @@ export class VisitorModeComponent implements OnInit {
     this.postGrabId();
     this.getData();
     this.getPhotoVideo();
+    this.myProfileData();
+    this.getMeorialDetail();
   }
 
   // for user after the login
@@ -71,9 +86,35 @@ export class VisitorModeComponent implements OnInit {
   }
 
 
+  // Get user profile image
+  myProfileData() {
+    debugger
+    // this.spiner.show();
+    var ProfileId = { "user_id": this.service.userUserIdData }
+    // this.loginservice.userId = this.loginservice.loginAllData?.id;
+    this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
+      console.log(data);
+      this.userpic = data.user_data[0].userpic;
+
+    });
+  }
+
+  snackBar(message: string, panelClass: string) {
+    this.snack.openFromComponent(SnackbarComponent, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      data: message,
+      panelClass: panelClass,
+
+
+    })
+
+  };
+
   setData() {
     debugger
-    const jsonData = JSON.stringify(this.service.userUserIdData,this.service.userGrabIdData2)
+    const jsonData = JSON.stringify(this.service.userUserIdData, this.service.userGrabIdData2)
     sessionStorage.setItem('myData', jsonData)
   }
 
@@ -93,6 +134,50 @@ export class VisitorModeComponent implements OnInit {
       })
 
   }
+
+  getMeorialDetail() {
+    debugger
+    var data = { "grab_id": this.service.userGrabIdData2 }
+    this.profileService.getMemorialDetails(data).subscribe((response: any) => {
+      console.log(response);
+      this.memorialDetails1 = response.Details[0].comments;
+      this.memorialDetails = this.memorialDetails1.slice(0,8);
+      for (let item of this.memorialDetails) {
+        if (item.firstname != null) {
+          item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "");
+        } else {
+          item.firstname = '';
+        } 
+        if (item.lastname != null) {
+          item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "");
+        }else{
+          item.lastname = '';
+        }
+        if(item.created != null){
+          item.created = formatDate(item.created, "M/d/yyyy 'at' h:mm aa", 'en_US');
+        }else{
+          item.created = '';
+        }
+      }
+
+      // this.memorialDetails.map(function (item) { return item.fname = item.created.replace(/[^a-zA-Z-.]/g, "") });
+      // this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
+
+    })
+  }
+  readAllCondo(){
+    debugger
+    this.memorialDetails = this.memorialDetails1.slice();
+  }
+
+  condolencesComment(item:any){
+    debugger
+   if(item.showFull)
+   item.showFull=undefined;
+   else
+   item.showFull=true;
+}
+
 
   // For user data retrive
   postGrabId() {
@@ -136,7 +221,7 @@ export class VisitorModeComponent implements OnInit {
   }
 
 
-  
+
 
   //  For Get Photo/Video gallery image
   getPhotoVideo() {

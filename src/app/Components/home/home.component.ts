@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private service1: CreateMemorialService,private loginservice: LoginService) { 
     this.loginservice.otherPage = true;
     this.loginservice.divPosition = true;
+    this.loginservice.isFooterLogin = false;
   }
 
   ngOnInit(): void {

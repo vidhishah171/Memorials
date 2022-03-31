@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSliderModule } from '@angular/material/slider';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -127,6 +127,7 @@ import { MemoryImagesComponent } from './Components/memory-images/memory-images.
     MatFormFieldModule,
     MatInputModule,
     NgxSpinnerModule,
+    NgxSliderModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDs2Vdbr8b2MpY5iV9Ss4iIdV3gbTZcpSs',
       libraries: ['places'],

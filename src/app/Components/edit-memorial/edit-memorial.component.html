@@ -10,9 +10,9 @@
                 <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
             </div>
             <div class="userBackground">
-                <p>Add Background</p>
+                <span class="imgMargin"><img class="photoGalleryImg" src="../../../assets/StaticAssets/Create memorial/step2/PhotoGAllery.png" alt=""></span><span class="photoBackText"><p>ADD BACKGROUND</p></span>&nbsp;<span><img class="photoPlusImage" src="../../../assets/StaticAssets/Create memorial/step2/add-3.png" alt=""></span>
             </div>
-            <div style="float: right; margin-right: 10%;" class="pt-4" *ngFor="let item of lovedPersonData1">
+            <div style="float: right; margin-right: 10%;" class="pt-2" *ngFor="let item of lovedPersonData1">
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
                 </span>
@@ -29,11 +29,23 @@
                     <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt="" style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
                 </span>
             </div>
-            <div class="steeper rounded-circle circleImage">
-                <img src="" alt="">
+            <div *ngIf="isDisplay" class="steeper rounded-circle circleImage">
+                <img src="{{userpic}}" alt="">
                 <!-- userImage1 -->
                 <!-- class="userImage" -->
             </div>
+            <div *ngIf="isDisplay1" class="steeper rounded-circle circleImage">
+                <img [src]="url" alt="">
+                <!-- userImage1 -->
+                <!-- class="userImage" -->
+            </div>
+            <!-- <div class="Photo">
+                <label for="photo" title="Add an own image here..."><img class="steeper rounded-circle plusImageOnHeader" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
+                <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;">
+            </div> -->
+            <label for="photo" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
+            <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;" (change)="onselectFile1($event)">
+
             
         </div>
     </div>
@@ -41,9 +53,9 @@
     <div class="container">
         <div class="mt-5">
             <div class="pt-5">
-                <button class="btn btn-outline-secondary ms-2 btnColor">Life Story</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor">Photo/Video Gallery</button>
-                <button class="btn btn-outline-secondary ms-2 btnColor">Condolences</button>
+                <button class="btn ms-2 btnColor" (click)="vitaScroll(target2)">Life Story</button>
+                <button class="btn ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video Gallery</button>
+                <button class="btn ms-2 btnColor" (click)="condolenceScroll(target1)">Condolences</button>
                 <button class="btn btn-outline-success ms-2 btnColor1"><img
                         src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
             </div>
@@ -52,12 +64,13 @@
     <!-- Canvas component -->
     <div style="height: 70vw;" class="pt-5">
         <app-edit-canvas></app-edit-canvas>
+        <div #target2></div>
     </div>
     <!-- Photo/video gallery -->
     <div>
         <div class="photoVideoGallary" #target>
             <div class="container">
-                <h6 class="pt-5">Photo/Video Gallery</h6>
+                <h6 class="pt-5 photoVideoGalleryText">Photo/Video Gallery</h6>
                 <div class="row">
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
@@ -144,29 +157,29 @@
 
     <!-- condolences -->
     <div>
-        <div class="container">
+        <div class="container" #target1>
             <div class="editCondolences">
                 <div class="pt-5">
-                    <img src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
+                    <img class="crossImg" src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
                 </div>
-                <div style=" height: 40vw;">
-                    <h5 style="font-weight: bold">Latest Condolonces</h5>
-                    <div class="row">
+                <div class="condolenceDiv">
+                    <h5 class="pt-3 condolencesText">Latest Condolences</h5>
+                    <div class="row pt-5">
                         <div class="col-6">
                             <div class="condolencesEdit">
-                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et neque ipsum molestiae iure molestias ut atque, eos maxime quidem minima. Excepturi totam adipisci harum natus?</p>
+                                    <img class="qotesImg" src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                    <!-- <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et neque ipsum molestiae iure molestias ut atque, eos maxime quidem minima. Excepturi totam adipisci harum natus?</p> -->
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="condolencesEdit">
-                                    <img src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum nihil dolore.</p>
+                                    <img class="qotesImg" src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                    <!-- <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum nihil dolore.</p> -->
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn btn-outline-secondary readAllCondo">READ ALL CONDOLENCES</button>
+                        <button class="btn readAllCondo">READ ALL CONDOLENCES</button>
                     </div>
                 </div>
 
@@ -179,14 +192,14 @@
         <div class="container">
             <div class="subscribeImage">
                 <div>
-                    <p class="pt-5 ms-5" style="font-weight: bold;">SUBSCRIBE TO THIS MEMORIAL</p>
+                    <p class="pt-5 ms-5 subscribeText">SUBSCRIBE TO THIS MEMORIAL</p>
                 </div>
                 <div style="display: flex;">
-                    <span class="ms-5">
-                        <input class="form-control" placeholder="Your email adress" type="text">
+                    <span class="ms-5 subInputBox">
+                        <input class="form-control subInputBox1" placeholder="Your email address" type="text">
                     </span>
                     <span class="ms-3">
-                        <button class="btn btn-dark">Subscribe</button>
+                        <button class="btn btn-dark subscribeBtn">Subscribe</button>
                     </span>
                 </div>
             </div>
@@ -197,22 +210,22 @@
     <div class="recentMemorial mt-5">
         <div class="container">
             <h4 class="mb-4">
-                <h5 class="recentHeading pt-5">Recent memorials</h5>
+                <h5 class="recentHeading pt-5">Recent Memorials</h5>
             </h4>
-            <div class="recentMemo h-100 p-2">
+            <div class="recentMemo h-100 p-5">
                 <div *ngFor="let memData of Memorials" class="child1">
                     <!-- <div class="mt-3 mb-2"> -->
                     <img src="{{memData.path}}" class="me-2 rounded recentImage">
                     <!-- </div> -->
-                    <div class="ms-2 mt-3">
-                        <h6 style="font-weight: bold;">
+                    <div class="mt-2">
+                        <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
                         </h6>
-                        <h6 style="color: #CF6363;">
+                        <!-- <h6 style="color: #CF6363;">
                             {{memData.age}}Y Old,
                             &nbsp;
                             {{memData.starvetown}}
-                        </h6>
+                        </h6> -->
                     </div>
                 </div>
             </div>

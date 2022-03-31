@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="userHeading">
-        <h1>Welcome {{loginservice.loginAllData?.firstname}}</h1>
+        <h1>Welcome {{loginservice.loginSaveData}}</h1>
         <!-- <h1>welcome</h1> -->
     </div>
     <div class="container">
@@ -1519,8 +1519,8 @@
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        [disabled]="caroucelCount==5" (click)="nextCarousel()" data-bs-slide="next">
-                        <span aria-hidden="true" [hidden]="caroucelCount==5">
+                        [disabled]="caroucelCount==5 || getUserMemoDataUser.length != 3" (click)="nextCarousel()" data-bs-slide="next">
+                        <span aria-hidden="true" [hidden]="caroucelCount==5 || getUserMemoDataUser.length != 3">
                             <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
                         </span>
                         <!-- || getUserMemoDataUser.length != 3" -->

@@ -136,6 +136,7 @@ export class CreateMemorialComponent implements OnInit {
     this.loginservice.otherPage = false;
     this.loginservice.logoDisplay = true;
     this.loginservice.isFooterLogin = true;
+    this.loginservice.hideMemorialImage =true;
   }
 
   ngAfterViewInit() {
