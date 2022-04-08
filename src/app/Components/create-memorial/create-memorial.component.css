@@ -1412,21 +1412,21 @@ input.ng-touched.ng-invalid{
         font-size: 1.5rem;
     }
     .personCentric{
-        width: 20%;
+        width: 42%;
     }
 }
 @media (min-width:1517px)and (max-width:2017px){
     .personCentric{
-        width: 32%;
+        width: 42%;
     } 
  }
  @media (min-width:2017px)and (max-width:2049px){
     .personCentric{
-        width: 27%;
+        width: 42%;
     } 
  }
  @media (min-width:4098px){
     .personCentric{
-        width: 13%;
+        width: 42%;
     } 
  }

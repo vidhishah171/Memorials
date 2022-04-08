@@ -114,6 +114,16 @@
 }
 .qotesImg{
     width: 68px;
+    margin-top: 19%;
+    opacity: 0.9;
+}
+.condolenceMain{
+    height: 15vw; 
+    margin-bottom: 2%;
+}
+.condolenceMain1{
+    height: auto; 
+    margin-bottom: 2%;
 }
 .pVGallery{
     box-sizing: border-box;
@@ -124,10 +134,63 @@
     margin: 1%;
     border-radius: 7px;
 }
+.condolenceImg{
+    width: 6%;
+    float: left;
+    margin-left: -1%;
+}
 .imageButton{
     position: relative;
     width: 100%; 
     height: 100%;
+}
+.condolenceText{
+    font-size: 0.7rem;
+    color: #FFFFFF;
+    opacity: 0.8;
+    float: left;
+    padding-top: 1%;
+}
+.condolencesComment{
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    text-align: justify;
+    float: left;
+    padding-top: 2%;
+    width: 90%;
+    opacity: 0.9;
+    margin-left: -7%;
+    height: 8vw;
+    /* border: 1px solid black; */
+    overflow: hidden;
+}
+.condolencesComment1{
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    text-align: justify;
+    float: left;
+    padding-top: 2%;
+    width: 90%;
+    opacity: 0.9;
+    margin-left: -7%;
+    height: auto;
+    /* border: 1px solid black; */
+    overflow: hidden;
+}
+.viewEntireDiv{
+    padding-top: 20%;
+}
+.viewEntire{
+    float: left;
+    font-size: 0.7rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.rightImg{
+    width: 12%;
+}
+deletrImg{
+    width: 20px;
 }
 .plusButton{
     position: absolute;
@@ -228,8 +291,34 @@
     font-size: 0.9rem;
 }
 .condolenceDiv{
-    height: 31vw;
+    height: auto;
 }
+
+
+/* For editCondolences */
+.condolencesEdit{
+    /* border: 1px solid black;  */
+    background-color: #CF6363;
+    border-radius: 20px;
+    width: 100%; 
+    height: 15vw;
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+}
+.condolencesEdit1{
+      /* border: 1px solid black;  */
+    background-color: #CF6363;
+    border-radius: 10px;
+    width: 100%; 
+    height: auto;
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+}
+
 .readAllCondo{
     padding-left: 3%;
     padding-right: 3%;
@@ -245,18 +334,6 @@
     border: none;
 }
 
-/* For editCondolences */
-.condolencesEdit{
-    /* border: 1px solid black;  */
-    background-color: #CF6363;
-    border-radius: 10px;
-    width: 100%; 
-    height: auto;
-    display: flex;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    margin-bottom: 11%;
-}
 .plusImageOnHeader{
       /* float: right; */
       margin-top: 1.5%;

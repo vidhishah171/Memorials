@@ -124,7 +124,6 @@ public GetData()
 }
 
   ngOnDestroy() {
-    debugger
     const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });
@@ -162,6 +161,7 @@ public GetData()
     this.getTambImage();
     this.addText1();
     this.editData();
+    this.setBackgImage(null);
 
     // this.service.vita.textString1;
     
@@ -211,6 +211,7 @@ public GetData()
       angle: 0,
       scaleX: 0.4,
       // fill:this.coloro,
+      fill:"#CF6363",
       scaleY: 0.4,
       fontWeight: 'bold',
       hasRotatingPoint: true,
@@ -753,7 +754,18 @@ public GetData()
 
   setBackgImage(backImage: any) {
     // this.canvas.setBackgroundImage(backImage.path, this.canvas.renderAll.bind(this.canvas));
+    if(backImage == null){
+      fabric.Image.fromURL(backImage.path, (img) => {
+        img.set({
+          backgroundColor:"grey",
+          scaleX: this.canvas.width / img.width,
+          scaleY: this.canvas.height / img.height
+        });
+        this.canvas.setBackgroundImage(img, this.canvas.renderAll.bind(this.canvas));
+      });
+    this.canvas.renderAll();
 
+    }
     fabric.Image.fromURL(backImage.path, (img) => {
       img.set({
         scaleX: this.canvas.width / img.width,

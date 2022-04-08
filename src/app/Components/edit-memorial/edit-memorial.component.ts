@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Console } from 'console';
@@ -40,6 +41,8 @@ export class EditMemorialComponent implements OnInit {
   url: any;
   isDisplay: boolean;
   isDisplay1: boolean;
+  memorialDetails1: any;
+  memorialDetails: any;
 
 
 
@@ -70,7 +73,7 @@ export class EditMemorialComponent implements OnInit {
     }, 1000);
   }
   ngOnInit(): void {
-    debugger
+    
     this.myProfileData();
     this.getData();
     // this.getUserMemorial();
@@ -80,12 +83,12 @@ export class EditMemorialComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    debugger
-    window.location.reload();
+    
+    // window.location.reload();
   }
 
   clickDiv() {
-    debugger
+    
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
@@ -95,7 +98,7 @@ export class EditMemorialComponent implements OnInit {
 
   // Get user profile image
   myProfileData() {
-    debugger
+    
     // this.spiner.show();
     var ProfileId = { "user_id": this.loginService.loginAllData?.id }
     this.loginService.userId = this.loginService.loginAllData?.id;
@@ -109,10 +112,53 @@ export class EditMemorialComponent implements OnInit {
     });
   }
 
+  getMeorialDetail() {
+    
+    var data = { "grab_id": this.service.userGrabIdData2 }
+    this.profileService.getMemorialDetails(data).subscribe((response: any) => {
+      console.log(response);
+      this.memorialDetails1 = response.Details[0].comments;
+      this.memorialDetails = this.memorialDetails1.slice(0,8);
+      for (let item of this.memorialDetails) {
+        if (item.firstname != null) {
+          item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "");
+        } else {
+          item.firstname = '';
+        } 
+        if (item.lastname != null) {
+          item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "");
+        }else{
+          item.lastname = '';
+        }
+        if(item.created != null){
+          item.created = formatDate(item.created, "M/d/yyyy 'at' h:mm aa", 'en_US');
+        }else{
+          item.created = '';
+        }
+      }
+
+      // this.memorialDetails.map(function (item) { return item.fname = item.created.replace(/[^a-zA-Z-.]/g, "") });
+      // this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
+
+    })
+  }
+  readAllCondo(){
+    
+    this.memorialDetails = this.memorialDetails1.slice();
+  }
+
+  condolencesComment(item:any){
+    
+   if(item.showFull)
+   item.showFull=undefined;
+   else
+   item.showFull=true;
+}
+
 
 
   getData() {
-    debugger
+    
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
@@ -122,7 +168,7 @@ export class EditMemorialComponent implements OnInit {
 
   // Get user Memorials for refresh user
   getUserMemorial() {
-    debugger;
+    
     this.spiner.show();
     var data = { "user_id": this.loginService.loginAllData }
     this.profileService.userCreatedMemorial(data)
@@ -141,7 +187,7 @@ export class EditMemorialComponent implements OnInit {
   }
 
   postGrabId() {
-    debugger
+    
     var jsonData = this.service.userGrabIdData
 
     var formdata = new FormData();
@@ -149,12 +195,12 @@ export class EditMemorialComponent implements OnInit {
 
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
       console.log(Response);
-      debugger
+      
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
 
       // if(Response){
-      //   debugger
+      //   
       //   var jsonData1=Response.Details[0].canvas_json;
       //   this.canvas.loadFromJSON(jsonData1, () => {
 
@@ -185,7 +231,7 @@ export class EditMemorialComponent implements OnInit {
   photoUrl: any;
 
   onselectFile(e) {
-    debugger;
+    
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = (event: any) => {
@@ -199,10 +245,10 @@ export class EditMemorialComponent implements OnInit {
   onselectFile1(e) {
     // this.service.selectedMainImg = "";
     // this.changeStyle = null;
-    debugger
+    
     // && e.target.files[0].size > 5242880
-    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
-      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
     }
     else if((!this.ValidateFile(e.target.files[0].name))){
       this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
@@ -234,7 +280,7 @@ export class EditMemorialComponent implements OnInit {
     return false;
   }
   userData2() {
-    debugger;
+    
     this.spiner.show();
     var userData = { id: this.loginService?.userId, userpic: this.url }
 
@@ -251,7 +297,7 @@ export class EditMemorialComponent implements OnInit {
 
   // For photo/gallery image 
   photoVideoGallery() {
-    debugger;
+    
     var photoFormData = new FormData();
     photoFormData.append('user_id', this.loginService.loginAllData);
     photoFormData.append('image', this.photoUrl);
@@ -272,13 +318,13 @@ export class EditMemorialComponent implements OnInit {
 
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
-    debugger;
+    
 
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.loginService.loginAllData);
 
     this.editMemorial.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-      debugger;
+      
       console.log(userRes1);
       
       this.getPhotoVideoImage1 = userRes1.Data[0]?.image;

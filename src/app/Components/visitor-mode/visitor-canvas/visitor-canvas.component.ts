@@ -48,7 +48,7 @@ export class VisitorCanvasComponent implements OnInit {
 
    // For display vita text
    displayVitaText() {
-    debugger
+    
     var fetchData = { "grab_id": this.service.userGrabIdData2}
     this.editCanvas.fetchVita(fetchData).subscribe((response:any) => {
       console.log(response);
@@ -73,7 +73,7 @@ export class VisitorCanvasComponent implements OnInit {
 
 
   postGrabId() {
-    debugger
+    
     var jsonData = this.service.userGrabIdData2;
 
     var formdata = new FormData();
@@ -83,7 +83,7 @@ export class VisitorCanvasComponent implements OnInit {
       console.log(Response);
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
-        debugger
+        
         // var jsonData1 = Response.Details[0].canvas_json;
         this.jsonData1 = Response.Details[0].path;
         
@@ -98,7 +98,7 @@ export class VisitorCanvasComponent implements OnInit {
 
 
   goesToEditMemo() {
-    debugger
+    
     this.profileService.userDetail = this.service.userGrabIdData1;
     this.router.navigate(['/edit-memorial']);
   }

@@ -116,6 +116,14 @@
 .imgCorouselLeft{
     margin-right: 50%;
 }
+.backgroundText{
+    font-size: 0.65rem;
+    text-align: center;
+    margin-bottom: -6%;
+    margin-top: 5%;
+    color: #B5B5B5;
+    opacity: 0.9;
+}
 .personCentric{
     height: 320px;
     width: 100%;

@@ -27,22 +27,22 @@ export class UserProfileService {
   }
 
   userCreatedMemorial=(userDetail:any)=>{
-    debugger
+    
     return this.http.post(this.userProfileApi,userDetail);
   }
 
   myProfileDetails(profileDetails){
-    debugger
+    
     // For server
-    // return this.http.post(this.myProfile,profileDetails);
+    return this.http.post(this.myProfile,profileDetails);
     
 
     // For Local
-    return this.http.post('/userProfile',profileDetails);
+    // return this.http.post('/userProfile',profileDetails);
   }
 
   getMemorialDetails(grabId){
-    debugger
+    
     return this.http.post(this.getMemorialDetailsApi,grabId)
   }
 

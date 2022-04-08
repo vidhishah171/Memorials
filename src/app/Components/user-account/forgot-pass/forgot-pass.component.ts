@@ -67,7 +67,6 @@ export class ForgotPassComponent implements OnInit {
   }
 
   clickDiv() {
-    debugger
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
@@ -90,7 +89,6 @@ export class ForgotPassComponent implements OnInit {
 
 
   register(data: any) {
-    debugger;
     this.spiner.show();
     this.forPassword = data.value;
     // var formdata = new FormData();
@@ -103,7 +101,6 @@ export class ForgotPassComponent implements OnInit {
     this.service2.ChangePassword(changePasswordData).subscribe(responce => {
       console.log(responce);
       this.spiner.hide();
-      debugger;
       var changePassworData: any = responce
       if (changePassworData.status === "success") {
         // this.dialog.open(ForgotPassActivePopComponent);

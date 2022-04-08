@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
 
 
   clickDiv(){
-    debugger
+    
     var test = document.getElementById("navDiv");
       if (test != null) {
         test.style.position = 'absolute';
@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(logData: any) {
-    debugger
+    
     this.spiner.show();
     this.service.userLogin(logData.value)
       // logData.value
@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
         // this.service.sendUserData(true,this.data.firstname);        
 
         if (this.data.status === "success") {
-          debugger
+          
           this.loginData = this.data.user[0].firstname;
           this.service.loginSaveData = this.loginData;
           this.service.loginAllData = this.data.user[0];
@@ -131,7 +131,6 @@ export class LoginComponent implements OnInit {
         }
 
         // For user login
-        debugger;
         if(this.data.user[0].status == 0){
           this.service.isUser = false;
         }else{
@@ -154,7 +153,7 @@ export class LoginComponent implements OnInit {
 
   // for logout
   setData() {
-    debugger
+    
     const jsonData = JSON.stringify(this.data)
     localStorage.setItem('myData', jsonData)
   }
@@ -177,7 +176,7 @@ export class LoginComponent implements OnInit {
   // Code for labels
 
   openDialogue(num): void {
-debugger
+
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;

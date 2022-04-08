@@ -25,7 +25,6 @@ export class ForgotPasswordService {
     return this.http.post(this.forgotAPI,forgotData);
   }
   ChangePassword(forgotData1:any){
-    debugger
     return this.http.post(this.changePasswordAPI,forgotData1)
   }
 }

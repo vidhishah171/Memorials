@@ -727,10 +727,10 @@
                     </li>
 
                     <div class="Photo">
-                        <label for="photo" title="Add an own image here..."
+                        <label for="photoNew" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
                                 src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                        <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile1($event)">
+                        <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile3($event)">
                     </div>
                 </div>
 
@@ -781,10 +781,11 @@
 
 
                     <div class="Photo">
-                        <label for="photo" title="Add an own image here..."
-                            style="text-align: center; align-items: center;"><img
+                        <label for="photoNew" title="Add an own image here..."
+                            style="text-align: center; align-items: center;">
+                            <img
                                 src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                        <input id="photo" type="file" (change)="onselectFile1($event)">
+                        <input id="photoNew" type="file" (change)="onselectFile3($event)">
                     </div>
                 </div>
             </div>
@@ -797,6 +798,7 @@
 
         <!-- menu Items (BACKGROUNG) -->
         <div class="background1 mt-3" *ngIf="showMenuItems==2">
+            <p class="backgroundText">Upload of an own background image is possible as premium user only</p>
             <div id="carouselExampleIndicators" class="carousel backWidth" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active backMargin">

@@ -56,7 +56,11 @@ export class VisitorModeComponent implements OnInit {
 
 
 
-  ) { this.loginservice.otherPage = false; }
+  ) { this.loginservice.otherPage = false;
+    this.loginservice.isFooterLogin = true;
+    this.loginservice.hideMemorialImage = false;
+    
+  }
 
   ngOnInit(): void {
     this.getrecentMemorials();
@@ -73,7 +77,7 @@ export class VisitorModeComponent implements OnInit {
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
-      debugger
+      
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
@@ -88,7 +92,7 @@ export class VisitorModeComponent implements OnInit {
 
   // Get user profile image
   myProfileData() {
-    debugger
+    
     // this.spiner.show();
     var ProfileId = { "user_id": this.service.userUserIdData }
     // this.loginservice.userId = this.loginservice.loginAllData?.id;
@@ -113,7 +117,7 @@ export class VisitorModeComponent implements OnInit {
   };
 
   setData() {
-    debugger
+    
     const jsonData = JSON.stringify(this.service.userUserIdData, this.service.userGrabIdData2)
     sessionStorage.setItem('myData', jsonData)
   }
@@ -123,7 +127,6 @@ export class VisitorModeComponent implements OnInit {
 
   // for user details
   getUserMemorial() {
-    debugger;
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
@@ -136,7 +139,7 @@ export class VisitorModeComponent implements OnInit {
   }
 
   getMeorialDetail() {
-    debugger
+    
     var data = { "grab_id": this.service.userGrabIdData2 }
     this.profileService.getMemorialDetails(data).subscribe((response: any) => {
       console.log(response);
@@ -166,12 +169,12 @@ export class VisitorModeComponent implements OnInit {
     })
   }
   readAllCondo(){
-    debugger
+    
     this.memorialDetails = this.memorialDetails1.slice();
   }
 
   condolencesComment(item:any){
-    debugger
+    
    if(item.showFull)
    item.showFull=undefined;
    else
@@ -181,7 +184,7 @@ export class VisitorModeComponent implements OnInit {
 
   // For user data retrive
   postGrabId() {
-    debugger
+    
     var jsonData = this.service.userGrabIdData2
 
     var formdata = new FormData();
@@ -189,11 +192,11 @@ export class VisitorModeComponent implements OnInit {
 
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
       console.log(Response);
-      debugger
+      
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
       // if(Response){
-      //   debugger
+      //   
       //   var jsonData1=Response.Details[0].canvas_json;
       //   this.canvas.loadFromJSON(jsonData1, () => {
 
@@ -225,13 +228,11 @@ export class VisitorModeComponent implements OnInit {
 
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
-    debugger;
 
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.service.userUserIdData);
 
     this.editCanvas.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-      debugger;
       console.log(userRes1);
       this.getPhotoVideoImage1 = userRes1.Data[0].image;
       this.getPhotoVideoImage2 = userRes1.Data[1].image;

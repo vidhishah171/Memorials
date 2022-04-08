@@ -85,7 +85,7 @@ export class EditCanvasComponent implements OnInit {
   jsonData1: any;
   getUserMemoData: any;
   vitaData1: any;
-  saveVita: boolean=true;
+  saveVita: boolean = true;
   tomb: HTMLElement;
   person: HTMLElement;
   isDisplaySmallImage: boolean;
@@ -114,7 +114,7 @@ export class EditCanvasComponent implements OnInit {
 
 
 
-  ) { this.loginservice.otherPage = true;}
+  ) { this.loginservice.otherPage = true; }
 
 
   // ngOnDestroy() {
@@ -144,7 +144,6 @@ export class EditCanvasComponent implements OnInit {
     this.getData();
 
     this.postGrabId();
-    debugger
     this.displayVitaText();
   }
 
@@ -164,7 +163,6 @@ export class EditCanvasComponent implements OnInit {
   // For refresh user
 
   getData() {
-    debugger
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
@@ -174,7 +172,6 @@ export class EditCanvasComponent implements OnInit {
 
   // Get user Memorials for refresh user
   getUserMemorial() {
-    debugger;
     var data = { "user_id": this.loginservice.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
@@ -191,7 +188,6 @@ export class EditCanvasComponent implements OnInit {
 
   // For display vita text
   displayVitaText() {
-    debugger
     // this.spiner.show();
     var fetchData = { "grab_id": this.recentService.userGrabIdData }
     this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
@@ -199,7 +195,7 @@ export class EditCanvasComponent implements OnInit {
       if (response.details.vita_html !== "undefined") {
         this.vitaData = response.details.vita_html;
         // this.spiner.hide();
-      }else if(response.details.vita_html == "undefined"){
+      } else if (response.details.vita_html == "undefined") {
         this.vitaData = '';
       }
     })
@@ -215,13 +211,11 @@ export class EditCanvasComponent implements OnInit {
     }
   }
   openUser1() {
-    debugger
     this.isvalid = false;
     this.displayVitaText();
   }
 
   userVitaData(data) {
-    debugger;
     console.log(data.value);
     this.spiner.show();
     var vitaData = { "grab_id": this.profileService.userDetail, "vita_html": data.value.vita_html };
@@ -497,23 +491,23 @@ export class EditCanvasComponent implements OnInit {
 
   }
 
-  urnSM1:boolean;
-  urnSM2:boolean;
-  candleSM1:boolean;
-  candleSM2:boolean;
-  changetombSM1:boolean;
-  changetombSM2:boolean;
-  flowerSM1:boolean;
-  flowerSM2:boolean;
-  incriptionSM1:boolean;
-  incriptionSM2:boolean;
+  urnSM1: boolean;
+  urnSM2: boolean;
+  candleSM1: boolean;
+  candleSM2: boolean;
+  changetombSM1: boolean;
+  changetombSM2: boolean;
+  flowerSM1: boolean;
+  flowerSM2: boolean;
+  incriptionSM1: boolean;
+  incriptionSM2: boolean;
 
 
   showSubMenuItems(num) {
     if (num == 1) {
       this.showSubMenItem = 1;
       this.candleSM1 = false;
-      this.candleSM2 =true;
+      this.candleSM2 = true;
       this.urnSM1 = true;
       this.urnSM2 = false;
       this.changetombSM1 = true;
@@ -1067,7 +1061,6 @@ export class EditCanvasComponent implements OnInit {
   }
 
   // addVita(redata:any){
-  // debugger
   // console.log(redata);
   //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
 
@@ -1102,7 +1095,7 @@ export class EditCanvasComponent implements OnInit {
     }
     if (this.caroucelCount == 3) {
       this.imgBack = this.backgroundImages.slice(13, 19);
-    }if (this.caroucelCount == 4) {
+    } if (this.caroucelCount == 4) {
       this.imgBack = this.backgroundImages.slice(19, 25);
     }
   }
@@ -1243,10 +1236,15 @@ export class EditCanvasComponent implements OnInit {
 
   url = '';
   hidePerson: boolean = false;
-  onselectFile1(e) {
+  onselectFile3(e) {
     this.service.selectedMainImg = "";
     this.changeStyle = null;
-    if (e.target.files) {
+    // if (e.target.files) {
+    if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
+    } else if ((!this.ValidateFile(e.target.files[0].name))) {
+      this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
+    } else {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
@@ -1258,221 +1256,227 @@ export class EditCanvasComponent implements OnInit {
         } else {
           this.hidePerson = true;
         }
-
-        // this.service.selectedMainImg = this.url;
-
-
-
-        this.removeSelected1();
-        fabric.Image.fromURL(this.url, newImg => {
-          // this.service.selectedMainImg || this.service.selectedMain
-          this.canvas.add(newImg);
-          newImg.toCanvasElement;
-          newImg.top = 150;
-          newImg.left = 135;
-          newImg.hasControls = true;
-          newImg.hasBorders = true;
-          newImg.originX = 'left';
-          newImg.originY = 'top';
-          newImg.scaleToHeight(250);
-          newImg.scaleToWidth(250);
-          newImg.sendToBack();
+      // }
+      // this.service.selectedMainImg = this.url;
 
 
-          // this.removeSelected1();
+
+      this.removeSelected1();
+      fabric.Image.fromURL(this.url, newImg => {
+        // this.service.selectedMainImg || this.service.selectedMain
+        this.canvas.add(newImg);
+        newImg.toCanvasElement;
+        newImg.top = 150;
+        newImg.left = 135;
+        newImg.hasControls = true;
+        newImg.hasBorders = true;
+        newImg.originX = 'left';
+        newImg.originY = 'top';
+        newImg.scaleToHeight(250);
+        newImg.scaleToWidth(250);
+        newImg.sendToBack();
 
 
-          this.extend(newImg, this.ImgRandomId);
-
-          // alert("created random id is:-"+this.service.ImgRandomId);
+        // this.removeSelected1();
 
 
-          // this.canvas.setActiveObject(newImg);
-        });
+        this.extend(newImg, this.ImgRandomId);
+
+        // alert("created random id is:-"+this.service.ImgRandomId);
+
+
+        // this.canvas.setActiveObject(newImg);
+      });
+      this.canvas.renderAll();
+    }
+
+  }
+}
+
+ValidateFile(name:string){
+  var ext=name.substring(name.lastIndexOf('.')+1);
+  if(ext.toLowerCase()=='png' || ext.toLowerCase()=='jpeg' || ext.toLowerCase()=='jpg'){
+    return true;
+  }
+  else
+  return false;
+}
+
+
+// Code for labels
+
+openDialogue(num): void {
+
+  if(num == 1) {
+  this.showNewDiv = 1;
+  this.isvalid = true;
+} else if (num == 2) {
+  this.showNewDiv = 2;
+  this.isvalid = true;
+} else if (num == 3) {
+  this.showNewDiv = 3;
+  this.isvalid = true;
+} else if (num == 4) {
+  this.showNewDiv = 4;
+  this.isvalid = true;
+} else if (num == 5) {
+  this.showNewDiv = 5;
+  this.isvalid = true;
+} else if (num == 6) {
+  this.showNewDiv = 6;
+  this.isvalid = true;
+} else if (num == 7) {
+  this.showNewDiv = 7;
+  this.isvalid = true;
+} else if (num == 8) {
+  this.showNewDiv = 8;
+  this.isvalid = true;
+} else if (num == 9) {
+  this.showNewDiv = 9;
+  this.isvalid = true;
+} else if (num == 10) {
+  this.showNewDiv = 10;
+  this.isvalid = true;
+} else if (num == 11) {
+  this.showNewDiv = 11;
+  this.isvalid = true;
+} else if (num == 12) {
+  this.showNewDiv = 12;
+  this.isvalid = true;
+} else if (num == 13) {
+  this.showNewDiv = 13;
+  this.isvalid = true;
+}
+  }
+
+openDialogue1() {
+  this.isvalid = false;
+}
+
+editData() {
+  this.editservice.adminEdit().subscribe((res: any) => {
+    console.log(res);
+    this.respo = res.Details;
+    // For step-2 label
+    this.respo1 = this.respo[101];
+    this.respo2 = this.respo[102];
+    this.respo3 = this.respo[103];
+    this.respo4 = this.respo[104];
+    this.respo5 = this.respo[105];
+    this.respo6 = this.respo[106];
+    this.respo7 = this.respo[108];
+    this.respo8 = this.respo[107];
+    this.respo9 = this.respo[109];
+    this.respo10 = this.respo[169];
+    this.respo11 = this.respo[94];
+    this.respo12 = this.respo[95];
+    this.respo13 = this.respo[96];
+  });
+}
+
+postEditData(editDataNew: any) {
+  var formdata = new FormData();
+  formdata.append('id', editDataNew.value.id);
+  formdata.append('en', editDataNew.value.en);
+  formdata.append('de', editDataNew.value.de);
+  formdata.append('fr', editDataNew.value.fr);
+
+  this.editservice.editPostData(formdata).subscribe(response => {
+    console.log(response);
+  })
+}
+
+
+
+
+
+postGrabId() {
+  var jsonData = this.recentService.userGrabIdData;
+  // this.spiner.show();
+  var formdata = new FormData();
+  formdata.append('grab_id', jsonData);
+
+  this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
+    console.log(Response);
+    this.editCanvas.lovedPersonData = Response;
+    if (Response) {
+      var jsonData1 = Response.Details[0].canvas_json;
+      this.canvas.loadFromJSON(jsonData1, () => {
+
+        // making sure to render canvas at the end
         this.canvas.renderAll();
-      }
+        // this.spiner.hide();
+      })
+    }
+  })
+}
+
+// Save json from edit memorial
+saveEditMemorial() {
+  this.spiner.show();
+  var userId = this.profileService.userDetailUserId;
+  var grabId = this.profileService.userDetail;
+  var json = JSON.stringify(this.canvas);
+
+  // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
+
+  // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
+  //   console.log(Response);
+  // });
+
+
+  // For preview Image
+
+  const image = new Image();
+  image.crossOrigin = "anonymous";
+  image.src = this.canvas.toDataURL({ format: 'png' });
+  this.service.saveCanvas = image.src;
+
+  var test = this.service.saveCanvas;
+
+
+
+  const formData = new FormData();
+
+
+  formData.append('grab_id', grabId);
+  formData.append('image', 'Image');
+  formData.append('image_type_id', '7');
+  formData.append('x', '100');
+  formData.append('y', '120');
+  formData.append('height', '200');
+  formData.append('width', '300');
+  formData.append('user_id', userId);
+  formData.append('canvas_json', json);
+  formData.append('canvas_preview_base64', test);
+
+  this.service.memCreateImageData(formData).subscribe((result: any) => {
+    console.log(result);
+    this.spiner.hide();
+    if (result.status == "success") {
+      this.snackBar('Your memory has been successfully updated', 'alert-green');
+      setTimeout(() => {
+        this.router.navigate(['/user-account']);
+      }, 2500);
 
     }
-  }
+  })
+
+}
 
 
-
-  // Code for labels
-
-  openDialogue(num): void {
-
-    if (num == 1) {
-      this.showNewDiv = 1;
-      this.isvalid = true;
-    } else if (num == 2) {
-      this.showNewDiv = 2;
-      this.isvalid = true;
-    } else if (num == 3) {
-      this.showNewDiv = 3;
-      this.isvalid = true;
-    } else if (num == 4) {
-      this.showNewDiv = 4;
-      this.isvalid = true;
-    } else if (num == 5) {
-      this.showNewDiv = 5;
-      this.isvalid = true;
-    } else if (num == 6) {
-      this.showNewDiv = 6;
-      this.isvalid = true;
-    } else if (num == 7) {
-      this.showNewDiv = 7;
-      this.isvalid = true;
-    } else if (num == 8) {
-      this.showNewDiv = 8;
-      this.isvalid = true;
-    } else if (num == 9) {
-      this.showNewDiv = 9;
-      this.isvalid = true;
-    } else if (num == 10) {
-      this.showNewDiv = 10;
-      this.isvalid = true;
-    }else if (num == 11) {
-      this.showNewDiv = 11;
-      this.isvalid = true;
-    } else if (num == 12) {
-      this.showNewDiv = 12;
-      this.isvalid = true;
-    } else if (num == 13) {
-      this.showNewDiv = 13;
-      this.isvalid = true;
-    }
-  }
-
-  openDialogue1() {
-    this.isvalid = false;
-  }
-
-  editData() {
-    this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
-      this.respo = res.Details;
-      // For step-2 label
-      this.respo1 = this.respo[101];
-      this.respo2 = this.respo[102];
-      this.respo3 = this.respo[103];
-      this.respo4 = this.respo[104];
-      this.respo5 = this.respo[105];
-      this.respo6 = this.respo[106];
-      this.respo7 = this.respo[108];
-      this.respo8 = this.respo[107];
-      this.respo9 = this.respo[109];
-      this.respo10 = this.respo[169];
-      this.respo11 = this.respo[94];
-      this.respo12 = this.respo[95];
-      this.respo13 = this.respo[96];
-    });
-  }
-
-  postEditData(editDataNew: any) {
-    var formdata = new FormData();
-    formdata.append('id', editDataNew.value.id);
-    formdata.append('en', editDataNew.value.en);
-    formdata.append('de', editDataNew.value.de);
-    formdata.append('fr', editDataNew.value.fr);
-
-    this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
-    })
-  }
+snackBar(message: string, panelClass: string) {
+  this.snack.openFromComponent(SnackbarComponent, {
+    duration: 2500,
+    verticalPosition: 'top',
+    horizontalPosition: 'center',
+    data: message,
+    panelClass: panelClass,
 
 
+  })
 
-
-
-  postGrabId() {
-    debugger
-    var jsonData = this.recentService.userGrabIdData;
-    // this.spiner.show();
-    var formdata = new FormData();
-    formdata.append('grab_id', jsonData);
-
-    this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      console.log(Response);
-      this.editCanvas.lovedPersonData = Response;
-      if (Response) {
-        debugger
-        var jsonData1 = Response.Details[0].canvas_json;
-        this.canvas.loadFromJSON(jsonData1, () => {
-
-          // making sure to render canvas at the end
-          this.canvas.renderAll();
-          // this.spiner.hide();
-        })
-      }
-    })
-  }
-
-  // Save json from edit memorial
-  saveEditMemorial() {
-    debugger;
-    this.spiner.show();
-    var userId = this.profileService.userDetailUserId;
-    var grabId = this.profileService.userDetail;
-    var json = JSON.stringify(this.canvas);
-
-    // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
-
-    // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
-    //   console.log(Response);
-    // });
-
-
-    // For preview Image
-
-    const image = new Image();
-    image.crossOrigin = "anonymous";
-    image.src = this.canvas.toDataURL({ format: 'png' });
-    this.service.saveCanvas = image.src;
-
-    var test = this.service.saveCanvas;
-
-
-
-    const formData = new FormData();
-
-
-    formData.append('grab_id', grabId);
-    formData.append('image', 'Image');
-    formData.append('image_type_id', '7');
-    formData.append('x', '100');
-    formData.append('y', '120');
-    formData.append('height', '200');
-    formData.append('width', '300');
-    formData.append('user_id', userId);
-    formData.append('canvas_json', json);
-    formData.append('canvas_preview_base64', test);
-
-    this.service.memCreateImageData(formData).subscribe((result: any) => {
-      console.log(result);
-      debugger
-      this.spiner.hide();
-      if (result.status == "success") {
-        this.snackBar('Your memory has been successfully updated', 'alert-green');
-      this.router.navigate(['/user-account']);
-        
-      }
-    })
-
-  }
-
-
-  snackBar(message: string, panelClass: string) {
-    this.snack.openFromComponent(SnackbarComponent, {
-      duration: 2500,
-      verticalPosition: 'top',
-      horizontalPosition: 'center',
-      data: message,
-      panelClass: panelClass,
-
-
-    })
-
-  };
+};
 
 }
 

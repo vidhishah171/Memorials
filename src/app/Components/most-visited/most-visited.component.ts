@@ -49,14 +49,14 @@ export class MostVisitedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    debugger
+    
     this.getData();
     this.editData();
 
   }
 
   getData() {
-    debugger
+    
     this.service.getMostVisMemorial().subscribe(
       (memorials: any) => {
 
@@ -73,7 +73,7 @@ export class MostVisitedComponent implements OnInit {
   }
 
   searchMemorialCity(searchText: any) {
-    debugger
+    
     if(searchText.form.value.searchText != ''){
     this.spiner.show();
     this.searchText = searchText.value.searchText;
@@ -94,7 +94,7 @@ export class MostVisitedComponent implements OnInit {
       this.dataSearch1.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
 
       console.log(res);
-      debugger
+      
       if (res.Memorials.length > 0) {
         this.searchResult = true;
       }else {
@@ -109,7 +109,7 @@ export class MostVisitedComponent implements OnInit {
   }
   }
   divHide() {
-    debugger
+    
     this.searchResult = false;
     this.searchText ='';
   }
@@ -178,7 +178,7 @@ export class MostVisitedComponent implements OnInit {
 
   // For Visitor mode page
   recentMemorialGrabId(data, data1) {
-    debugger
+    
     console.log(data);
 
     if (data) {

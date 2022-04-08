@@ -31,7 +31,6 @@ export class ForgotPassPopupComponent implements OnInit {
   // Code for labels
 
   openDialogue(num): void{
-    debugger
    
    if(num==1){
      this.showNewDiv=1;
@@ -55,7 +54,6 @@ export class ForgotPassPopupComponent implements OnInit {
 
 
   editData(){
-    debugger;
     this.editservice.adminEdit().subscribe((res:any)=>{
       console.log(res);
       this.respo=res.Details;
@@ -67,7 +65,6 @@ export class ForgotPassPopupComponent implements OnInit {
   }
 
   postEditData(editDataNew:any){
-    debugger;
     var formdata=new FormData();
     formdata.append('id',editDataNew.value.id);
     formdata.append('en',editDataNew.value.en);

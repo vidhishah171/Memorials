@@ -31,11 +31,9 @@ export class EditMemorialService {
 
 
   fetchVita(result){
-    debugger;
     return this.http.post(this.fetchVitaApi,result);
   }
   vitaUpload(result1){
-    debugger
     return this.http.post(this.vitaUploadAPI,result1);
   }
 
@@ -54,9 +52,9 @@ export class EditMemorialService {
   getPhotoVideo(photoData1){
   
     // For server
-    // return this.http.post(this.photoAPI1,photoData1);
+    return this.http.post(this.photoAPI1,photoData1);
 
     // For local
-    return this.http.post('/getImage',photoData1);
+    // return this.http.post('/getImage',photoData1);
   }
 }

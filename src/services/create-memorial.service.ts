@@ -68,7 +68,6 @@ export class CreateMemorialService {
 
 
     newMemorialAgain(data){ 
-      debugger
       var hh= data;
       // this.createMemorial.DOB=formatDate(this.createMemorial.DOB,'yyyy-M-d h:mm:ss','en_US');
       // this.createMemorial.DOD=formatDate(this.createMemorial.DOD,'yyyy-M-d h:mm:ss','en_US');

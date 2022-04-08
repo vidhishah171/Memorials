@@ -112,7 +112,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    debugger
+    
     setTimeout(() => {
       this.codeAddress();
       this.initialize();
@@ -137,7 +137,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   clickDiv(){
-    debugger
+    
     var test = document.getElementById("navDiv");
       if (test != null) {
         test.style.position = 'absolute';
@@ -147,12 +147,12 @@ export class UserProfileComponent implements OnInit {
 
   // for user after the login
   getData() {
-    debugger
+    
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
-      debugger
+      
       this.loginData = loginAfterRefresh.user[0].firstname;
       // this.loginservice.loginSaveData = this.loginData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
@@ -167,7 +167,7 @@ export class UserProfileComponent implements OnInit {
 
   // New code for map
   initialize() {
-    debugger
+    
     const geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(-34.397, 150.644);
     var mapOptions = {
@@ -176,7 +176,7 @@ export class UserProfileComponent implements OnInit {
     }
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
     // codeAddress() {
-    debugger
+    
     this.address = (<HTMLInputElement>document.getElementById('address')).value;
     geocoder.geocode({ 'address': this.address }, function (results, status) {
       if (status == 'OK') {
@@ -192,14 +192,14 @@ export class UserProfileComponent implements OnInit {
     // }
   }
   codeAddress() {
-    debugger;
+    
     this.address = (<HTMLInputElement>document.getElementById('address')).value;
     this.initialize();
   }
 
 
   getUserMemorial() {
-    debugger
+    
     var data = { "user_id": this.loginservice.loginAllData.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
@@ -238,7 +238,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   prevCarousel() {
-    debugger
+    
     this.caroucelCount = this.caroucelCount - 1;
 
     if (this.caroucelCount == 2) {
@@ -265,13 +265,13 @@ export class UserProfileComponent implements OnInit {
 
 
   goesToEditMemo(data) {
-    debugger
+    
     this.profileService.userDetail = data;
     this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
   }
   goesToEditMemo1(data1) {
-    debugger
+    
     // this.profileService.userDetailUserId = data1;
     this.service.userGrabIdData = data1
   }
@@ -310,7 +310,7 @@ export class UserProfileComponent implements OnInit {
     this.myProfileData();
   }
   userData1(data) {
-    debugger;
+    
     this.spiner.show();
     var userDateData = { id: data.form.value.id, birthdate: formatDate(data.form.value.birthdate, 'yyyy-MM-dd h:mm:ss', 'en_US') };
     var userDateData1 = { id: data.form.value.id, birthdate: formatDate(data.form.value.birthdate,'dd.MM.yyyy', 'en_US') };
@@ -325,7 +325,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   userProfileDate() {
-    debugger
+    
     if (this.birthdate !== '') {
       this.isDisplay3 = true;
       this.isDisplay4 = false;
@@ -334,7 +334,7 @@ export class UserProfileComponent implements OnInit {
   firstnameDisplay:boolean=false;
 
   userDataName(data) {
-    debugger
+    
     this.firstnameDisplay=true;
 
     this.spiner.show();
@@ -348,7 +348,7 @@ export class UserProfileComponent implements OnInit {
 
 
   userData(data) {
-    debugger
+    
     this.loginservice.mapData = data.value.hometown;
     this.spiner.show();
     this.profileService.userProfile(data.form.value).subscribe((responce:any) => {
@@ -373,10 +373,10 @@ export class UserProfileComponent implements OnInit {
   onselectFile(e) {
     // this.service.selectedMainImg = "";
     // this.changeStyle = null;
-    debugger
+    
     // && e.target.files[0].size > 5242880
-    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
-      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
+    if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
     }
     else if((!this.ValidateFile(e.target.files[0].name))){
       this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
@@ -409,28 +409,29 @@ export class UserProfileComponent implements OnInit {
   }
 
   // userProfile() {
-  //   debugger
+  //   
   //   if (this.userpic) {
   //     this.isDisplay1 = false;
   //     this.isDisplay = true;
   //   }
   // }
   returnValue(value){
-    debugger
+    
    return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123);
 
   }
   returnValue1(value){
-    debugger
+    
     return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123) || (value.charCode == 32);
   }
   returnValue2(value){
-    debugger
-    return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123) || (value.charCode > 47 && value.charCode < 58) || (value.charCode == 32);
+    
+    // return (value.charCode>64 && value.charCode<91) || (value.charCode > 96 && value.charCode < 123) || (value.charCode > 47 && value.charCode < 58) || (value.charCode == 32);
+    return (value.charCode > 32 && value.charCode < 127) || (value.charCode == 32);
   }
 
   userData2() {
-    debugger;
+    
     this.spiner.show();
     var userData = { id: this.loginservice.loginAllData.id, userpic: this.url }
 
@@ -442,7 +443,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   geoMap() {
-    debugger
+    
     setTimeout(() => {
       this.codeAddress();
       this.initialize();
@@ -580,7 +581,7 @@ export class UserProfileComponent implements OnInit {
 
 
   myProfileData() {
-    debugger
+    
     // this.spiner.show();
     var ProfileId = { "user_id": this.loginservice.loginAllData.id }
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {

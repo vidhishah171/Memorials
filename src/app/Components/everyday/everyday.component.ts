@@ -50,7 +50,6 @@ export class EverydayComponent implements OnInit {
 
   // For visitor-mode page
   recentMemorialGrabId(data,data1){
-    debugger
     console.log(data);
 
     if(data){

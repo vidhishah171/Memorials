@@ -53,7 +53,6 @@ export class ThankYouComponent implements OnInit {
   }
 
   clickDiv() {
-    debugger
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';

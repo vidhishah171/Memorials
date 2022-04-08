@@ -163,23 +163,45 @@
                     <img class="crossImg" src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
                 </div>
                 <div class="condolenceDiv">
-                    <h5 class="pt-3 condolencesText">Latest Condolences</h5>
+                    <h5 class="pt-3 condolencesText">Latest Condolonces</h5>
                     <div class="row pt-5">
-                        <div class="col-6">
-                            <div class="condolencesEdit">
-                                    <img class="qotesImg" src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <!-- <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ducimus temporibus repudiandae deleniti neque quibusdam porro at, dolor eos omnis! Cumque mollitia et neque ipsum molestiae iure molestias ut atque, eos maxime quidem minima. Excepturi totam adipisci harum natus?</p> -->
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="condolencesEdit">
-                                    <img class="qotesImg" src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    <!-- <p style="padding: 4%; padding-left: 30%; color: white; text-align: left;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum animi et sapiente eveniet, ipsam vitae adipisci corrupti. Nisi facilis, quisquam officia fugit eveniet nam perspiciatis, praesentium atque deserunt eaque exercitationem libero soluta, laborum nihil dolore.</p> -->
+                        <div class="col-6 condolenceMain" id="condolencesMain" [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}" *ngFor="let item of memorialDetails">
+                            <div class="condolencesEdit row" id="condolencesEdit" [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
+                                <div class="col-3">
+                                    <span>
+                                        <img class="qotesImg"
+                                            src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png"
+                                            alt="">
+                                    </span>
+                                </div>
+                                <div class="col-9">
+                                    <div>
+                                        <span>
+                                            <img class="condolenceImg me-2"
+                                                src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
+                                                alt="">
+                                        </span>
+                                        
+                                        <span
+                                            class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
+                                    </div>
+                                    <div class="condolencesComment" [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}" id="condolencesComment">
+                                        {{item.comment}}
+                                    </div>
+                                    <div class="viewEntireDiv">
+                                        <span class="viewEntire" (click)="condolencesComment(item)">View Entire Memory&nbsp;&nbsp;<img class="rightImg" src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png" alt=""></span>
+                                        <span style="float: right;"><img class="deletrImg"
+                                                src="../../../assets/StaticAssets/Visitor Mode/delete.png"
+                                                alt=""></span>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button class="btn readAllCondo">READ ALL CONDOLENCES</button>
+                        <button class="btn readAllCondo" (click)="readAllCondo()">READ ALL
+                            CONDOLENCES</button>
                     </div>
                 </div>
 

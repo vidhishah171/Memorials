@@ -50,10 +50,10 @@ export class LoginService {
 
   userLogin(loginData:any){
     // For server
-    // return this.http.post(this.loginAPI,loginData);
+    return this.http.post(this.loginAPI,loginData);
 
     // For Local    
-    return this.http.post('/loginApi' ,loginData,this.httpOptions);
+    // return this.http.post('/loginApi' ,loginData,this.httpOptions);
   }
 
   forgotPassword(forgotCredencial:any){

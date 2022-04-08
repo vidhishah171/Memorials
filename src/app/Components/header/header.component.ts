@@ -100,14 +100,14 @@ export class HeaderComponent implements OnInit {
 
 
   divHide() {
-    debugger
+    
     this.searchText = "";
     this.searchResult = false;
   }
   
 
   searchMemorialCity(searchText: any) {
-    debugger
+    
     if(searchText.form.value.searchText != ''){
     this.spiner.show();
     this.searchText = searchText.value.searchText;
@@ -128,7 +128,7 @@ export class HeaderComponent implements OnInit {
       this.dataSearch1.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
 
       console.log(res);
-      debugger
+      
       if (res.Memorials.length > 0) {
         this.searchResult = true;
       }else {
@@ -165,7 +165,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent1(dataBirt) {
-    debugger
+    
     if(dataBirt != ''){
     this.dataSearch2 = this.dataSearch1.filter(item => dataBirt.value <= Number(item.birthdate.split('.')[2]) && dataBirt.highValue >= Number(item.birthdate.split('.')[2]))
      this.value = 0;
@@ -179,7 +179,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent2(birthDate) {
-    debugger
+    
     if(birthDate != ''){
     var birthdate = formatDate(birthDate, 'dd.MM.yyyy', 'en_US');
 
@@ -196,7 +196,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent3(deathDate) {
-    debugger
+    
     if(deathDate != ''){
     var deathdate = formatDate(deathDate, 'dd.MM.yyyy', 'en_US');
 
@@ -214,7 +214,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent4(birthLocation) {
-    debugger
+    
     if(birthLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.birthtown === birthLocation);
     this.value = 0;
@@ -229,7 +229,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent5(deathLocation) {
-    debugger
+    
     if(deathLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.starvetown === deathLocation);
     this.value = 0;
@@ -283,7 +283,7 @@ export class HeaderComponent implements OnInit {
 
   // for visitor mode page
   recentMemorialGrabId(data, data1) {
-    debugger
+    
     console.log(data);
 
     if (data) {

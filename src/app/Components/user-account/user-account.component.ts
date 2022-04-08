@@ -86,7 +86,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   clickDiv(){
-      debugger
+      
       var test = document.getElementById("navDiv");
         if (test != null) {
           test.style.position = 'absolute';
@@ -99,10 +99,10 @@ export class UserAccountComponent implements OnInit {
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
-      debugger
+      
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginservice.loginSaveData;
-      // this.loginservice.loginAllData = loginAfterRefresh.user[0];
+      this.loginservice.loginAllData = loginAfterRefresh.user[0];
       this.loginservice.islogin = true;
     } else {
       this.router.navigate(['/login']);
@@ -112,14 +112,14 @@ export class UserAccountComponent implements OnInit {
   }
 
   goesToEditMemo(data) {
-    debugger
+    
     this.profileService.userDetail = data;
     this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
 
   }
   goesToEditMemo1(data1) {
-    debugger
+    
     // this.profileService.userDetailUserId = data1;
     this.service.userGrabIdData = data1
   }
@@ -128,7 +128,6 @@ export class UserAccountComponent implements OnInit {
 
 
   getUserMemorial() {
-    debugger;
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
@@ -167,7 +166,7 @@ export class UserAccountComponent implements OnInit {
 
 
   nextCarousel() {
-    debugger
+    
     this.caroucelCount++;
 
     if (this.caroucelCount == 2) {
@@ -190,7 +189,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   prevCarousel() {
-    debugger
+    
     this.caroucelCount = this.caroucelCount - 1;
 
     if (this.caroucelCount == 2) {
@@ -381,7 +380,7 @@ export class UserAccountComponent implements OnInit {
 
 
   clickShowStepBtn1() {
-    debugger
+    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
@@ -412,7 +411,7 @@ export class UserAccountComponent implements OnInit {
     }
   }
   clickShowStepBtn2() {
-    debugger
+    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
@@ -443,7 +442,7 @@ export class UserAccountComponent implements OnInit {
   }
   
   clickShowStepBtn3() {
-    debugger
+    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
@@ -474,7 +473,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   clickShowStepBtn4() {
-    debugger
+    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");

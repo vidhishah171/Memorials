@@ -116,13 +116,11 @@ export class RecentComponent implements OnInit {
   }
 
   // recentMemorialUserId(data1){
-  //   debugger
   //   this.service.userUserIdData = data1;
   //   this.router.navigate(['/visitor-mode']);
   // }
 
   recentMemorialGrabId(data, data1) {
-    debugger
     console.log(data);
 
     if (data) {

@@ -136,7 +136,7 @@ export class CreateMemorialComponent implements OnInit {
     this.loginservice.otherPage = false;
     this.loginservice.logoDisplay = true;
     this.loginservice.isFooterLogin = true;
-    this.loginservice.hideMemorialImage =true;
+    this.loginservice.hideMemorialImage = true;
   }
 
   ngAfterViewInit() {
@@ -156,8 +156,8 @@ export class CreateMemorialComponent implements OnInit {
     this.editData();
   }
 
+
   clickDiv() {
-    debugger
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
@@ -246,9 +246,11 @@ export class CreateMemorialComponent implements OnInit {
     this.service.selectedMainImg = "";
     this.changeStyle = null;
     // if (e.target.files) {
-    if (e.target.files[0].size < 20000 || e.target.files[0].size > 5242880) {
-      this.snackBar("Please check your image size (Size should be 20KB to 5MB)", "alert-danger");
-    } else {
+    if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
+      this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
+    } else if ((!this.ValidateFile(e.target.files[0].name))) {
+      this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
+    }else {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
@@ -268,6 +270,14 @@ export class CreateMemorialComponent implements OnInit {
 
   }
 
+  ValidateFile(name:string){
+    var ext=name.substring(name.lastIndexOf('.')+1);
+    if(ext.toLowerCase()=='png' || ext.toLowerCase()=='jpeg' || ext.toLowerCase()=='jpg'){
+      return true;
+    }
+    else
+    return false;
+  }
 
 
 
@@ -300,7 +310,6 @@ export class CreateMemorialComponent implements OnInit {
 
 
   register(regData: any) {
-    debugger;
     this.spiner.show();
     console.log(regData);
     this.service.memCreatePostData().subscribe((res: any) => {
@@ -309,7 +318,7 @@ export class CreateMemorialComponent implements OnInit {
       if (res.status == 'success') {
         this.router.navigate(['/thank-you']);
       } else {
-        this.snackBar1('User is already registered, Please login and created Memorial', 'alert-error');
+        this.snackBar1('User is already registered, Please login and create Memorial', 'alert-error');
 
       }
 
@@ -422,7 +431,6 @@ export class CreateMemorialComponent implements OnInit {
 
   // step 1 functions
   showStep(num) {
-    debugger
     this.service.stepNumber = num;
     if (num == 1) {
       this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
@@ -483,7 +491,6 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
   clickShowStepBtn2() {
-    debugger
     if (2) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -601,7 +608,6 @@ export class CreateMemorialComponent implements OnInit {
 
   showCentric(point) {
     // alert(point)
-    debugger
     this.tomb = document.getElementById("tomb");
     this.person = document.getElementById("person");
     if (point == 1) {
@@ -929,7 +935,6 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   saveCanvasToJSON() {
-    debugger
     // const json = JSON.stringify(this.canvas);
     this.json = JSON.stringify(this.canvas);
 
@@ -944,7 +949,6 @@ export class CreateMemorialComponent implements OnInit {
 
 
   createMemorialAgain() {
-    debugger
     this.child.GetData();
 
     console.log();
@@ -1023,6 +1027,9 @@ export class CreateMemorialComponent implements OnInit {
     return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)
   }
   returnValue1(event) {
+    if (event.target.value.length == 10) {
+      return false;
+    }
     return (event.charCode > 47 && event.charCode < 58)
   }
 

@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
     // this.p=this.loginservice.loginSaveData;
     // this.p=this.loginservice.loginSaveData
     // var username=this.loginservice.loginSaveData.user
-    debugger
+    
     this.getData();
     this.editData();
     this.buttonLanguage(this.editservice.numLabel);
@@ -71,12 +71,12 @@ export class NavbarComponent implements OnInit {
   //  }
 
   getData() {
-    debugger
+    
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
 
     if (loginAfterRefresh) {
-      debugger
+      
       if (loginAfterRefresh.user[0].is_admin == 1) {
         this.loginservice.isVisible = true;
       }
@@ -109,7 +109,7 @@ export class NavbarComponent implements OnInit {
   }
 
   myProfileData() {
-    debugger
+    
     // this.spiner.show();
     var ProfileId = { "user_id": this.loginservice.loginAllData.id }
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
@@ -121,7 +121,6 @@ export class NavbarComponent implements OnInit {
 
   //  For logout
   userLogout() {
-    debugger;
     this.spiner.show();
     localStorage.clear();
     setTimeout(() => {
@@ -134,7 +133,7 @@ export class NavbarComponent implements OnInit {
   }
 
   // clickDiv(){
-  //   debugger
+  //   
   //   var test = document.getElementById("navDiv");
   //     if (test != null && this.loginservice.divPosition == true) {
   //       test.style.position = 'fixed';

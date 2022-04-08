@@ -1144,7 +1144,7 @@
 
                     <input type="password" autocomplete="off" name="password" #password="ngModel"
                         [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
-                        placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required ngModel>
+                        placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}" required ngModel>
                     <small class="fireError" *ngIf="password.touched && !password.valid">Password Must contain at least
                         one number and one uppercase and lowercase letter and special characters, and at least 8 or more characters</small>
                 </div>
@@ -1223,9 +1223,9 @@
                     <label for="zip code" *ngIf="editservice.numLabel==2">{{respo30?.de}}</label>
                     <label for="zip code" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</label> -->
 
-                    <input type="number" maxlength="10" name="zipcode" #zipcode="ngModel"
+                    <input type="number" name="zipcode" #zipcode="ngModel"
                         [(ngModel)]="service.createMemorial.zipcode" class="form-control shadow bg-body rounded"
-                        placeholder="Zip code" (keypress)="returnValue1($event)" required ngModel>
+                        placeholder="Zip code" (keypress)="returnValue1($event)" required ngModel maxlength="10">
                     <small class="fireError" *ngIf="zipcode.touched && !zipcode.valid">Please enter zipcode</small>
                 </div>
                 <div class="col-md-6 mb-1">
@@ -1253,9 +1253,10 @@
                     <label for="reedim voucher" *ngIf="editservice.numLabel==3">{{respo32?.fr}}</label> -->
 
                     <input type="text" name="voucher" #voucher="ngModel" [(ngModel)]="service.createMemorial.voucher"
-                        class="form-control shadow bg-body rounded" placeholder="Redeem voucher" maxlength="25" ngModel>
+                        class="form-control shadow rounded" style="background-color: #E9E9E9;" placeholder="Redeem voucher" maxlength="25" ngModel>
                     <!-- <small class="fireError" *ngIf="voucher.touched && !voucher.valid">Please enter voucher</small> -->
                 </div>
+               
                 <small>
                     <button (click)="openDialogue(33)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
