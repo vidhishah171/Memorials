@@ -2,14 +2,49 @@
     <!-- style="background-color: #424347; position: fixed; width: 100%; margin-top: 0.7%; padding-top: 0.5%;" -->
     <div class="container">
         <span style="color: green;" class="onlineUser">57</span>&nbsp;
-        <span *ngIf="loginservice.otherPage" style="color: whitesmoke;" class="onlineUser">User Online</span>
-        <span *ngIf="!loginservice.otherPage" style="color:  #6a6a6a;" class="onlineUser">User Online</span>
+        <span *ngIf="loginservice.otherPage" style="color: whitesmoke;" class="onlineUser"><span *ngIf="editservice.numLabel==1">{{respo11?.en}}</span></span>
+        <span *ngIf="loginservice.otherPage" style="color: whitesmoke;" class="onlineUser"><span *ngIf="editservice.numLabel==2">{{respo11?.de}}</span></span>
+        <span *ngIf="loginservice.otherPage" style="color: whitesmoke;" class="onlineUser"><span *ngIf="editservice.numLabel==3">{{respo11?.fr}}</span></span>
 
+        <span *ngIf="!loginservice.otherPage" style="color:  #6a6a6a;" class="onlineUser"><span *ngIf="editservice.numLabel==1">{{respo11?.en}}</span></span>
+        <span *ngIf="!loginservice.otherPage" style="color:  #6a6a6a;" class="onlineUser"><span *ngIf="editservice.numLabel==2">{{respo11?.de}}</span></span>
+        <span *ngIf="!loginservice.otherPage" style="color:  #6a6a6a;" class="onlineUser"><span *ngIf="editservice.numLabel==3">{{respo11?.fr}}</span></span>
+
+        <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton" style="float: left;"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                                
         <span *ngIf="!loginservice.islogin" class="registerButtonNav" routerLink="/create-memorial">&nbsp;Register</span><span style="float: right;"><img *ngIf="!loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/Home page/user.png" alt=""></span>
         <span *ngIf="loginservice.islogin" routerLink="/user-account" class="registerButtonNav" style="cursor: pointer;">Hi {{loginservice.loginSaveData}} > </span>&nbsp;
         <span *ngIf="loginservice.otherPage" style="float: right;"><img *ngIf="loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/my account premium/user.png" alt=""></span>
         <span *ngIf="!loginservice.otherPage" style="float: right; margin-right: 6px;"><img *ngIf="loginservice.islogin" class="registerImage1" src="../../../assets/StaticAssets/Home page/user (1).png" alt=""></span>
 
+        <li *ngIf="showNewDiv==11 && isvalid" style="position: absolute; margin-top: -47px;">
+            <div class="forDiv" id="homeId">
+                <button style="float: right;" (click)="openDialogue1()"
+                    class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo11.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo11.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo11.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo11.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();"
+                    class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
 
     </div>
     <!-- <li *ngIf="loginservice.islogin" class="userName">

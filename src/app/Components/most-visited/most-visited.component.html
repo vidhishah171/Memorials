@@ -120,17 +120,57 @@
 
         <div class="input-group mb-3">
             <input type="text" id="search" class="form-control input-lg" style="color: white;"
-                placeholder="Type your country name: ex. Brazil" name="searchText" ngModel [(ngModel)]="searchText"
-                aria-label="Recipient's username" aria-describedby="basic-addon2" autocomplete="off">
+                *ngIf="editservice.numLabel==1" placeholder={{respo3?.en}} name="searchText" ngModel
+                [(ngModel)]="searchText" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                autocomplete="off">
+            <input type="text" id="search" class="form-control input-lg" style="color: white;"
+                *ngIf="editservice.numLabel==2" placeholder={{respo3?.de}} name="searchText" ngModel
+                [(ngModel)]="searchText" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                autocomplete="off">
+            <input type="text" id="search" class="form-control input-lg" style="color: white;"
+                *ngIf="editservice.numLabel==3" placeholder={{respo3?.fr}} name="searchText" ngModel
+                [(ngModel)]="searchText" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary btn-lg findByName2" (click)="searchMemorialCity(myForm1)"
                     type="submit">
                     <img src="https://img.icons8.com/offices/20/000000/long-arrow-right.png" />
                 </button>
+
             </div>
+            <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
         </div>
     </form>
 </div>
+
+<!-- Extra code for label -->
+<li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
+    <div class="forDiv" style="margin-top: -46%; left: 207%;">
+        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+        <form class="example-form" #regForm2="ngForm">
+            <mat-form-field class="example-full-width" style="display: none;">
+                <mat-label>id</mat-label>
+                <textarea matInput name="id" [(ngModel)]="respo3.id"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width englishLng">
+                <mat-label>English</mat-label>
+                <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>dutch</mat-label>
+                <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>french</mat-label>
+                <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
+            </mat-form-field>
+        </form>
+        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+    </div>
+</li>
+
 
 
 <div *ngIf="searchResult" class="searchHgt mb-5 container-fluid">

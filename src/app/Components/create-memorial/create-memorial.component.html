@@ -13,8 +13,41 @@
             <span *ngIf="editservice.numLabel==3">{{respo1?.fr}}</span>
         </h2>
     </div>
-    <span class="freeAndDigni">Free and Dignified</span>
+    <button (click)="openDialogue(45)" *ngIf="loginservice.isVisible"
+    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton freeAndDignified"><span><img
+            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+            alt=""></span></button>
+    <span class="freeAndDigni" *ngIf="editservice.numLabel==1">{{respo45?.en}}</span>
+    <span class="freeAndDigni" *ngIf="editservice.numLabel==2">{{respo45?.de}}</span>
+    <span class="freeAndDigni" *ngIf="editservice.numLabel==3">{{respo45?.fr}}</span>
 
+
+
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==45 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="createMemoDivCssNew">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo45.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo45.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo45.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo45.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
 
 
     <!-- Extra code for label -->
@@ -160,7 +193,7 @@
 
                         <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
                             name="birthplace" class="form-control shadow bg-body rounded" placeholder="Birthplace"
-                            maxlength="25" ngModel>
+                            maxlength="25" (keypress)="returnValueNew($event)" ngModel>
                         <!-- <small class="fireError" *ngIf="birthplace.touched && !birthplace.valid">Please enter birth
                             place</small> -->
                     </div>
@@ -175,7 +208,7 @@
 
                         <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
                             name="deathplace" class="form-control shadow bg-body rounded" placeholder="Place of Death"
-                            maxlength="25" ngModel>
+                            maxlength="25" (keypress)="returnValueNew($event)" ngModel>
                         <!-- required
                         <small class="fireError" *ngIf="deathplace.touched && !deathplace.valid">Please enter death
                             place</small> -->

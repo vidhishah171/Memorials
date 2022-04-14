@@ -213,6 +213,40 @@
         </div>
     </nav>
 </div>
+
+<li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: -38px; left: 31%;">
+    <div class="forDiv" id="griefId">
+        <button style="float: right;" (click)="openDialogue1()"
+            class="btn btn-outline-danger">X</button>
+        <form class="example-form" #regForm2="ngForm">
+            <mat-form-field class="example-full-width" style="display: none;">
+                <mat-label>id</mat-label>
+                <textarea matInput name="id" [(ngModel)]="respo5.id"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width englishLng">
+                <mat-label>English</mat-label>
+                <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>dutch</mat-label>
+                <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>french</mat-label>
+                <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
+            </mat-form-field>
+        </form>
+        <button (click)="postEditData(regForm2);openDialogue1();"
+            class="btn btn-outline-success">Save</button>
+    </div>
+</li>
+
 <div class="Tearms">
-    <p>Impressum & Terms & Conditions</p>
+    <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible" 
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton" style="right: 42%;"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+    <p *ngIf="editservice.numLabel==1">{{respo5?.en}}</p>
+    <p *ngIf="editservice.numLabel==2">{{respo5?.de}}</p>
+    <p *ngIf="editservice.numLabel==3">{{respo5?.fr}}</p>
+
 </div>

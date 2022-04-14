@@ -84,7 +84,7 @@
 
 
         <small class="mb-3">
-            <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+            <button (click)="openDialogue(2)" style="z-index: 500;" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
@@ -123,7 +123,7 @@
         </div>
     </li>
 
-
+    
         <div>
             <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img

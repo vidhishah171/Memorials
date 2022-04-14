@@ -305,7 +305,11 @@ agm-map {
     color: #B7B7B7;
     font-size: 0.777rem;
     font-weight: 600;
-    margin-left: 14%;
+    margin-left: 12%;
+}
+.forProfileMemory{
+    top: 24px;
+    left: 3%;
 }
 .onlineImg{
     height: 16px;
@@ -441,7 +445,23 @@ agm-map {
 #photo{
     display: none;
 }
-
+.userProfileDivNew{
+    margin-top: -18%;
+    left: 42%;
+}
+.userProfileDivNew1{
+    margin-top: -19%;
+    left: 156%;
+}
+.userProfileDivNew2{
+    margin-top: -19%;
+    left: 288%;
+}
+.forButtonAlign{
+    float: left;
+    left: 34%;
+    top: 30%;
+}
 
 
 

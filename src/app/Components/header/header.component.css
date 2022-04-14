@@ -262,6 +262,10 @@ h5{
     margin-top: -6%;
     margin-left: 1%;
 }
+#headerLabelNew{
+    margin-top: -5%;
+    left: 215%;
+}
 .searchImg{
     display: flex;
     flex-direction: row;

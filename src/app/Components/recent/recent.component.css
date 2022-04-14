@@ -78,6 +78,10 @@
     color: #FFF8F8;
     margin-right: 12%;
 }
+.forButtonNew{
+    right: 6%;
+    margin-top: -6%;
+}
 .recentMem{
     font-weight: 800;
     font-size: 1.3rem;

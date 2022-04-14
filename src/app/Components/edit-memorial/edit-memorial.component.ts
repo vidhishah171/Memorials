@@ -83,8 +83,7 @@ export class EditMemorialComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    
-    // window.location.reload();
+    window.location.reload();
   }
 
   clickDiv() {
@@ -231,7 +230,7 @@ export class EditMemorialComponent implements OnInit {
   photoUrl: any;
 
   onselectFile(e) {
-    
+    debugger
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = (event: any) => {
@@ -297,7 +296,7 @@ export class EditMemorialComponent implements OnInit {
 
   // For photo/gallery image 
   photoVideoGallery() {
-    
+    debugger
     var photoFormData = new FormData();
     photoFormData.append('user_id', this.loginService.loginAllData);
     photoFormData.append('image', this.photoUrl);
@@ -319,6 +318,7 @@ export class EditMemorialComponent implements OnInit {
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
     
+    debugger
 
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.loginService.loginAllData);

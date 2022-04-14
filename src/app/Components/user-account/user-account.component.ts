@@ -52,6 +52,7 @@ export class UserAccountComponent implements OnInit {
   caroucelCount: number = 1;
   getUserMemoDataUser: any;
   Memorials: any;
+  respo30: any;
 
 
   constructor(
@@ -68,6 +69,7 @@ export class UserAccountComponent implements OnInit {
      this.loginservice.hideMemorialImage = false;
      this.loginservice.goPremiumLabel = true;
     this.loginservice.isFooterLogin = true;
+    
 
   }
   ngAfterViewInit():void{
@@ -75,6 +77,8 @@ export class UserAccountComponent implements OnInit {
       this.clickDiv();
     }, 1000);
     this.clickShowStepBtn1();
+    debugger
+    this.getUserMemorial();
 
   }
 
@@ -126,7 +130,7 @@ export class UserAccountComponent implements OnInit {
 
 
 
-
+  poi:any;
   getUserMemorial() {
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
@@ -134,9 +138,12 @@ export class UserAccountComponent implements OnInit {
         console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
         this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
-
+        // for(let item of this.getUserMemoData){
+        //   this.poi = item.path
+        // }
         if (this.caroucelCount == 1) {
           this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
+          // this.getUserMemoDataUser.map(function(item){return item.path});
         }
 
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
@@ -318,6 +325,9 @@ export class UserAccountComponent implements OnInit {
     }else if (num == 29) {
       this.showNewDiv1 = 29;
       this.isvalid1 = true;
+    }else if (num == 30) {
+      this.showNewDiv1 = 30;
+      this.isvalid1 = true;
     }
     
   }
@@ -361,6 +371,8 @@ export class UserAccountComponent implements OnInit {
       this.respo27 = this.respo[227];
       this.respo28 = this.respo[228];
       this.respo29 = this.respo[229];
+      this.respo30 = this.respo[17];
+
       // 231
     });
   }

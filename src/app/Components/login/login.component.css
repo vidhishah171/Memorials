@@ -37,10 +37,10 @@
     right: 64%;
 }
 #loginLabel2{
-    right: 54%;
+    right: 45%;
 }
 #loginLabel3{
-    right: 72%;
+    right: 63%;
 }
 #loginLabel4{
     right: 65%;
@@ -55,7 +55,7 @@
     margin-top: -23%;
 }
 #loginDiv3{
-    left: 108%;
+    left: 71%;
     margin-top: -30%;
 }
 #loginDiv4{
@@ -67,10 +67,17 @@
     margin-top: -17%;
 }
 #loginDiv6{
-    right: 118%;
-    margin-top: 111%;
+    right: 156%;
+    margin-top: 117%;
 }
-
+#loginDiv7{
+    margin-top: -76%;
+    left: 72%;
+}
+#loginDiv8{
+    margin-top: -49%;
+    left: 71%;
+}
 
 
 .navbarBackImg{
@@ -208,7 +215,7 @@ input.ng-touched.ng-invalid{
     padding-right: 10%;
 } */
 .btnSpace{
-    right: 35%;
+    right: 1%;
 }
 
 .errorDis{

@@ -32,6 +32,7 @@ export class MostVisitedComponent implements OnInit {
   dataSearch1: any;
   dataSearch2: any;
   searchResult: boolean;
+  respo3: any;
 
   constructor(
     private service: MostVisitedService,
@@ -145,6 +146,9 @@ export class MostVisitedComponent implements OnInit {
     } else if (num == 2) {
       this.showNewDiv = 2;
       this.isvalid = true;
+    }else if (num == 3) {
+      this.showNewDiv = 3;
+      this.isvalid = true;
     }
   }
 
@@ -156,8 +160,10 @@ export class MostVisitedComponent implements OnInit {
     this.editservice.adminEdit().subscribe((res: any) => {
       console.log(res);
       this.respo = res.Details;
-      this.respo1 = this.respo[19]
-      this.respo2 = this.respo[20]
+      this.respo1 = this.respo[19];
+      this.respo2 = this.respo[20];
+      this.respo3 = this.respo[256];
+
 
 
     });

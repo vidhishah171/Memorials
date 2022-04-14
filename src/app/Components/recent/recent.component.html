@@ -64,7 +64,7 @@
         <div class="w-auto h-auto">
 
             <h4>
-                <button style="right: 65%;" (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+                <button style="right: 57%;" (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
@@ -75,17 +75,21 @@
                     <span>
                         <p style="margin-left: 3%;" *ngIf="editservice.numLabel==1"><img
                                 src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.en}} <button
-                                class="btn btn-lg premiumButton">CREATE PREMIUM MEMORIAL</button></p>
+                                class="btn btn-lg premiumButton" *ngIf="editservice.numLabel==1">{{respo3?.en}}</button></p>
                         <p style="margin-left: 3%;" *ngIf="editservice.numLabel==2"><img
                                 src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.de}} <button
-                                class="btn btn-lg  premiumButton">CREATE PREMIUM MEMORIAL</button></p>
+                                class="btn btn-lg  premiumButton" *ngIf="editservice.numLabel==2">{{respo3?.de}}</button></p>
                         <p style="margin-left: 3%;" *ngIf="editservice.numLabel==3"><img
                                 src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.fr}} <button
-                                class="btn btn-lg  premiumButton">CREATE PREMIUM MEMORIAL</button></p>
+                                class="btn btn-lg  premiumButton" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</button></p>
 
                     </span>
 
                 </strong>
+                <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonNew"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                            alt=""></span></button>
             </h4>
         </div>
 
@@ -109,6 +113,31 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>french</mat-label>
                         <textarea matInput name="fr" [(ngModel)]="respo2.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
+        <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 5px; left: 64%;">
+            <div class="forDiv">
+                <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo3.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
                     </mat-form-field>
                 </form>
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>

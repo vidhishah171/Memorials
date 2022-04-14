@@ -83,6 +83,9 @@ export class UserProfileComponent implements OnInit {
   lastname: any;
   imagesForCaroucelUser: any;
   birthdate1: string;
+  respo19: any;
+  respo20: any;
+  respo21: any;
 
 
   constructor(
@@ -532,6 +535,15 @@ export class UserProfileComponent implements OnInit {
     } else if (num == 18) {
       this.showNewDiv1 = 18;
       this.isvalid1 = true;
+    }else if (num == 19) {
+      this.showNewDiv1 = 19;
+      this.isvalid1 = true;
+    }else if (num == 20) {
+      this.showNewDiv1 = 20;
+      this.isvalid1 = true;
+    }else if (num == 21) {
+      this.showNewDiv1 = 21;
+      this.isvalid1 = true;
     }
   }
 
@@ -563,6 +575,10 @@ export class UserProfileComponent implements OnInit {
       this.respo16 = this.respo[210];
       this.respo17 = this.respo[211];
       this.respo18 = this.respo[212];
+      this.respo19 = this.respo[252];
+      this.respo20 = this.respo[251];
+      this.respo21 = this.respo[253];
+
       //213
     });
   }

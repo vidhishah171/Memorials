@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
   respo2: any;
   respo3: any;
   respo4: any;
+  respo5: any;
   constructor(
     public editservice: AdminEditService,
     public loginservice:LoginService,
@@ -42,6 +43,9 @@ export class FooterComponent implements OnInit {
   }else if(num==4){
     this.showNewDiv=4;
     this.isvalid=true;
+  }else if(num==5){
+    this.showNewDiv=5;
+    this.isvalid=true;
   }
 
   }
@@ -58,6 +62,8 @@ export class FooterComponent implements OnInit {
       this.respo2=this.respo[30];
       this.respo3=this.respo[42];
       this.respo4=this.respo[32];
+      this.respo5=this.respo[250];
+
     });
   }
 

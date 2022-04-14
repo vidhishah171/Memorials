@@ -77,6 +77,7 @@ export class HeaderComponent implements OnInit {
   dataSearch2: any;
 
   maxDate = new Date();
+  respo9: any;
 
 
   constructor(
@@ -322,6 +323,9 @@ export class HeaderComponent implements OnInit {
     } else if (num == 8) {
       this.showNewDiv = 8;
       this.isvalid = true;
+    }else if (num == 9) {
+      this.showNewDiv = 9;
+      this.isvalid = true;
     }
   }
 
@@ -342,6 +346,8 @@ export class HeaderComponent implements OnInit {
       this.respo6 = this.respo[5];
       this.respo7 = this.respo[2];
       this.respo8 = this.respo[243];
+      this.respo9 = this.respo[255];
+
 
 
     });

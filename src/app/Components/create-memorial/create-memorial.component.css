@@ -213,6 +213,9 @@
 }#createMemoDivCss45{
     margin-top: -133%;
     right: -146%;
+}#createMemoDivCssNew{
+    left: 272%;
+    top: -10px;
 }
 
 .navPadding{
@@ -232,6 +235,10 @@
     margin-right: 18%;
     color: #5D5959;
     font-size: 0.95rem;
+}
+.freeAndDignified{
+    top: -60px;
+    right: 17%;
 }
 
 

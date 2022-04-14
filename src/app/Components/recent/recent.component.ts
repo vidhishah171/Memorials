@@ -18,6 +18,7 @@ export class RecentComponent implements OnInit {
   respo: any;
   respo1: any;
   respo2: any;
+  respo3: any;
 
   constructor(
     private service: RecentMeorialsService,
@@ -83,6 +84,9 @@ export class RecentComponent implements OnInit {
     } else if (num == 2) {
       this.showNewDiv = 2;
       this.isvalid = true;
+    } else if (num == 3) {
+      this.showNewDiv = 3;
+      this.isvalid = true;
     }
   }
 
@@ -95,8 +99,11 @@ export class RecentComponent implements OnInit {
     this.editservice.adminEdit().subscribe((res: any) => {
       console.log(res);
       this.respo = res.Details;
-      this.respo1 = this.respo[17]
-      this.respo2 = this.respo[18]
+      this.respo1 = this.respo[17];
+      this.respo2 = this.respo[18];
+      this.respo3 = this.respo[249];
+
+
 
 
     });

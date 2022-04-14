@@ -120,6 +120,7 @@ export class CreateMemorialComponent implements OnInit {
   condition: boolean;
   json: string;
   isDisplaySmallImage: boolean;
+  respo45: any;
 
 
   constructor(
@@ -848,6 +849,9 @@ export class CreateMemorialComponent implements OnInit {
     } else if (num == 44) {
       this.showNewDiv = 44;
       this.isvalid = true;
+    }else if (num == 45) {
+      this.showNewDiv = 45;
+      this.isvalid = true;
     }
 
   }
@@ -911,6 +915,8 @@ export class CreateMemorialComponent implements OnInit {
       this.respo42 = this.respo[142];
       this.respo43 = this.respo[143];
       this.respo44 = this.respo[144];
+      this.respo45 = this.respo[254];
+
 
 
 
@@ -1031,6 +1037,9 @@ export class CreateMemorialComponent implements OnInit {
       return false;
     }
     return (event.charCode > 47 && event.charCode < 58)
+  }
+  returnValueNew(event) {
+    return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32);
   }
 
 

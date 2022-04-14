@@ -1,3 +1,4 @@
+import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,6 +29,10 @@ export class LoginComponent implements OnInit {
   respo4: any;
   respo5: any;
   respo6: any;
+  respo7: any;
+  respo8: any;
+  // username: any;
+  // password:any;
   constructor(
     public service: LoginService,
     private service1: CreateMemorialService,
@@ -53,6 +58,7 @@ export class LoginComponent implements OnInit {
       this.clickDiv();
     }, 1000);
   }
+  
 
   ngOnInit(): void {
 
@@ -78,8 +84,24 @@ export class LoginComponent implements OnInit {
 
     this.editData();
   }
+  errorDisplay:boolean=false;
+   errorValue(event){
+    debugger
+    // if(event.target.value.length <= 0){
+    //   this.errorDisplay = false;
+    // }
+    if(event.target.value.length < 0){
+      this.errorDisplay = true;
+    }
+    else if(event.target.value != "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"){
+      this.errorDisplay = true;
 
-
+    }
+    else{
+      this.errorDisplay=false;
+    }
+  }
+  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
   clickDiv(){
     
     var test = document.getElementById("navDiv");
@@ -89,8 +111,9 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   login(logData: any) {
-    
+    debugger
     this.spiner.show();
     this.service.userLogin(logData.value)
       // logData.value
@@ -195,6 +218,12 @@ export class LoginComponent implements OnInit {
     } else if (num == 6) {
       this.showNewDiv = 6;
       this.isvalid = true;
+    }else if (num == 7) {
+      this.showNewDiv = 7;
+      this.isvalid = true;
+    }else if (num == 8) {
+      this.showNewDiv = 8;
+      this.isvalid = true;
     }
 
   }
@@ -213,6 +242,9 @@ export class LoginComponent implements OnInit {
       this.respo4 = this.respo[49];
       this.respo5 = this.respo[50];
       this.respo6 = this.respo[192];
+      this.respo7 = this.respo[257];
+      this.respo8 = this.respo[258];
+
     });
   }
 

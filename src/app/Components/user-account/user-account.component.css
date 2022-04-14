@@ -249,7 +249,11 @@
     right: 70%;
 }
 .messageCss{
-    right: 54%;
+    right: 38%;
+}
+.messageCss1{
+    right: 39%;
+    top: 39px;
 }
 .recentHeading{
     font-weight: 800;
@@ -369,8 +373,8 @@ hr{
     font-size: 1.4rem;
 }
 .userImage{
-    width: 25%;
-    height: 10%;
+    width: 100px;
+    height: 100px;
 }
 .mainDiv{
     width: 100%;
@@ -462,7 +466,7 @@ hr{
 
 } 
 .btn4{
-    width: 100%; 
+    width: 84%; 
     border: 1px solid #5D5959;
     cursor: pointer;
     background-color: white;
@@ -476,8 +480,8 @@ hr{
     background-color: #CF6363;
 }
 .userAccountBtn{
-    width: 18%;
-    margin-left: 4.7%;
+    width: 25%;
+    margin-left: 0.7%;
 }
 /* .btn1:hover{
     background-color: #CF6363;
@@ -808,6 +812,9 @@ hr{
 @media (min-width:1398px) and (max-width:1520px){
     .forProfileDiv{
         margin-left: 76%;
+    }
+    .userAccountBtn{
+        margin-left: 3.7%;
     }
     
 }

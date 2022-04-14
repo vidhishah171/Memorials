@@ -255,22 +255,57 @@
         </div>
 
 
+        
 
     </div>
     <form #myForm1="ngForm">
         <div class="find d-flex justify-content-center">
             <div class="input-group" style="height: 31px; width: 42%;">
                 <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel
-                     [(ngModel)]="searchText" placeholder="Find a memorial...">
+                    [(ngModel)]="searchText" *ngIf="editservice.numLabel==1" placeholder={{respo9?.en}}>
+                <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel
+                    [(ngModel)]="searchText" *ngIf="editservice.numLabel==2" placeholder={{respo9?.de}}>
+                <input type="text" class="form-control input-lg cityInput" name="searchText" ngModel
+                    [(ngModel)]="searchText" *ngIf="editservice.numLabel==3" placeholder={{respo9?.fr}}>
+
                 <div class="input-group-append">
                     <button (click)="searchMemorialCity(myForm1)" class="btn btn-lg cityBtn" type="submit">
                         <img src="../../../assets/StaticAssets/Home page/search-1.png">
                     </button>
                 </div>
+                <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
+                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
             </div>
 
         </div>
     </form>
+
+    <!-- Extra code for div -->
+    <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="headerLabelNew">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo9.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo9.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>dutch</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo9.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>french</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo9.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
 
 
 
@@ -424,7 +459,8 @@
                 <label class="ageLable">AGE</label>
             </div>
             <div class="custom-slider">
-                <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event)" [options]="options"></ngx-slider>
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event)"
+                    [options]="options"></ngx-slider>
             </div>
 
 
@@ -439,7 +475,8 @@
             </div>
             <div>
                 <div class="custom-slider">
-                    <ngx-slider [(value)]="value1" [(highValue)]="highValue1" (userChange)="getEvent1($event)" [options]="options1"></ngx-slider>
+                    <ngx-slider [(value)]="value1" [(highValue)]="highValue1" (userChange)="getEvent1($event)"
+                        [options]="options1"></ngx-slider>
                 </div>
             </div>
             <div class="pt-4">
@@ -447,8 +484,9 @@
             </div>
             <div class="datePickerCss">
                 <mat-form-field class="tabWidth">
-                    <input matInput [matDatepicker]="picker" [max]="maxDate" name="DOB" #DOB="ngModel" placeholder="MM/DD/YYYY" required 
-                    [(ngModel)]="dateSlider" (ngModelChange)="getEvent2($event)" ngModel readonly>
+                    <input matInput [matDatepicker]="picker" [max]="maxDate" name="DOB" #DOB="ngModel"
+                        placeholder="MM/DD/YYYY" required [(ngModel)]="dateSlider" (ngModelChange)="getEvent2($event)"
+                        ngModel readonly>
                     <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
                     </mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -459,8 +497,9 @@
             </div>
             <div class="datePickerCss">
                 <mat-form-field class="tabWidth">
-                    <input matInput [matDatepicker]="picker1" [max]="maxDate" name="DOD" #DOD="ngModel" placeholder="MM/DD/YYYY" required 
-                    [(ngModel)]="dateSlider1" (ngModelChange)="getEvent3($event)" ngModel readonly>
+                    <input matInput [matDatepicker]="picker1" [max]="maxDate" name="DOD" #DOD="ngModel"
+                        placeholder="MM/DD/YYYY" required [(ngModel)]="dateSlider1" (ngModelChange)="getEvent3($event)"
+                        ngModel readonly>
                     <mat-datepicker-toggle matSuffix [for]="picker1" style="color: #CF6363;">
                     </mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
@@ -470,15 +509,15 @@
                 <label class="ageLable">BIRTH LOCATION</label>
             </div>
             <div class="inputWidth">
-                <input type="text" maxlength="25" [(ngModel)]="userBirthLocation" (ngModelChange)="getEvent4($event)" class="form-control shadow bg-body rounded" placeholder="Birth Location"
-                ngModel>
+                <input type="text" maxlength="25" [(ngModel)]="userBirthLocation" (ngModelChange)="getEvent4($event)"
+                    class="form-control shadow bg-body rounded" placeholder="Birth Location" ngModel>
             </div>
             <div class="pt-4">
                 <label class="ageLable">DEATH LOCATION</label>
             </div>
             <div class="inputWidth">
-                <input type="text" maxlength="25" [(ngModel)]="userDeathLocation" (ngModelChange)="getEvent5($event)" class="form-control shadow bg-body rounded" placeholder="Birth Location"
-                ngModel>
+                <input type="text" maxlength="25" [(ngModel)]="userDeathLocation" (ngModelChange)="getEvent5($event)"
+                    class="form-control shadow bg-body rounded" placeholder="Birth Location" ngModel>
             </div>
             <!-- 
             <mat-slider thumbLabel [displayWith]="formatLabel" [(ngModel)]="sliderValue" tickInterval="1000" step="1000" min="0" max="100000"
@@ -488,10 +527,12 @@
 
         </div>
         <div class="col-9 example-viewport1">
-            <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg" src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
+            <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg"
+                    src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
             <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
                 <div class="searchImg">
-                    <div *cdkVirtualFor="let search of dataSearch2" (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
+                    <div *cdkVirtualFor="let search of dataSearch2"
+                        (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
                         <!-- {{dataSearch2.length}} -->
                         <div>
                             <img class="searchImg1" [src]="search.path" alt="">
