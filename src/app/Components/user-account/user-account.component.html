@@ -959,7 +959,7 @@
                     <div class="carousel-item active">
                         <div style="width: 100%; padding-left: 7%; height: 15vw; display: flex;">
                             <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
-                            <div *ngFor="let userData of getUserMemoDataUser">
+                            <div *ngFor="let userData of getUserMemoDataUser;">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
                                     <!-- src="{{memData.path}}" -->
@@ -1790,6 +1790,16 @@
                                 &nbsp;
                                 {{memData.starvetown}}
                             </h6> -->
+                        </div>
+                        <div class="viewsCss">
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
+                            <span class="me-1 nameSml">0</span>
+    
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
+                            <span class="me-1 nameSml">{{memData.litCandle}}</span>
+    
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                            <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
                         </div>
                     </div>
                 </div>

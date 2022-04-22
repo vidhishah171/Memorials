@@ -42,6 +42,9 @@ export class RecentComponent implements OnInit {
         (recentMemorial: any) => {
           if (recentMemorial) {
             this.Memorials = recentMemorial.Memorials;
+            for(let item of this.Memorials){
+              item.path= item.path+'?v='+this.service.indexNew++;
+            }
 
             this.Memorials.map(function (item) { return item.fname = item.fname.replace(/[^a-zA-Z-.]/g, "") });
             this.Memorials.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
@@ -135,6 +138,10 @@ export class RecentComponent implements OnInit {
       this.service.userUserIdData = data1;
 
       this.router.navigate(['/visitor-mode']);
+
+      const jsonData = JSON.stringify(data)
+      localStorage.setItem('myData1', jsonData)
+
     }
   }
 }

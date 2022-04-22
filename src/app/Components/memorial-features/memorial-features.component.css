@@ -20,6 +20,14 @@
     font-size: 0.9rem;
     font-weight: 500;
 }
+.ourFeaturedText1{
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+.ourFeaturedText2{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
 .ourFeaturedTextImg{
     height: 71px;
     width: auto;
@@ -179,9 +187,20 @@ span{
     font-size: 1rem;
     font-weight: 400;
 }
+.virtualParaNew2{
+    margin-bottom: 0rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+}
 .virtualPara1{
     margin-bottom: 0rem;
     font-size: 1rem;
+    font-weight: 400;
+    padding-left: 21%;
+}
+.virtualPara2{
+    margin-bottom: 0rem;
+    font-size: 0.92rem;
     font-weight: 400;
     padding-left: 21%;
 }
@@ -201,6 +220,40 @@ span{
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 1.2rem;
+}
+.virtualLabel1{
+    float: right;
+    color: #C16869;
+    font-weight: 600;
+    background-color: white; 
+    border: 1px solid white; 
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-top: 57px; 
+    margin-right: 20px;
+    padding: 0.4%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.86rem;
+}
+.virtualLabel2{
+    float: right;
+    color: #C16869;
+    font-weight: 600;
+    background-color: white; 
+    border: 1px solid white; 
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-top: 57px; 
+    margin-right: 20px;
+    padding: 0.4%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1rem;
 }
 
 

@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
   respo10: any;
   firstname: any;
   respo11: any;
+  respo12: any;
   constructor(
     public loginservice: LoginService,
     public dialog: MatDialog,
@@ -186,6 +187,9 @@ export class NavbarComponent implements OnInit {
     } else if (num == 11) {
       this.showNewDiv = 11;
       this.isvalid = true;
+    } else if (num == 12) {
+      this.showNewDiv = 12;
+      this.isvalid = true;
     }
 
   }
@@ -221,6 +225,8 @@ export class NavbarComponent implements OnInit {
       this.respo9 = this.respo[242];
       this.respo10 = this.respo[247];
       this.respo11 = this.respo[248];
+      this.respo12 = this.respo[259];
+
 
 
 

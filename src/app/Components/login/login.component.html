@@ -120,106 +120,97 @@
                 </div>
             </li>
 
-
             <br>
             <div class="mb-3">
                 <div class="errorDis" *ngIf="condition==true">
                     <span> Please check your email and password</span>
                 </div>
-                <form #logForm="ngForm" method="post">
-                    <!-- (keypress)="errorValue($event)" -->
-                    <input type="email" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==1"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder={{respo7?.en}}
-                        name="username" ngModel #username="ngModel">
-                    <input type="email" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==2"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder={{respo7?.de}}
-                        name="username" ngModel #username="ngModel">
-                    <input type="email" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==3"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder={{respo7?.fr}}
-                        name="username" ngModel #username="ngModel">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <input placeholder={{respo7?.en}} type="email" class="form-control form-control-lg largInpt"
+                            *ngIf="editservice.numLabel==1" formControlName="username">
+                        <input placeholder={{respo7?.de}} type="email" class="form-control form-control-lg largInpt"
+                            *ngIf="editservice.numLabel==2" formControlName="username">
+                        <input placeholder={{respo7?.fr}} type="email" class="form-control form-control-lg largInpt"
+                            *ngIf="editservice.numLabel==3" formControlName="username">
 
 
-                    <button (click)="openDialogue(7)" *ngIf="service.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                                alt=""></span></button>
-                    <!-- <div *ngIf="editservice.numLabel==1"> -->
-                        <!-- <div class="fireError" *ngIf='username.invalid && username.touched'>Enter Proper email</div> -->
-                    <!-- </div> -->
+                        <button (click)="openDialogue(7)" *ngIf="service.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
 
-                        <!-- <div class="fireError" *ngIf='errorDisplay'>Enter Proper email</div> -->
+                        <div class="fireError" *ngIf='email?.invalid && email?.touched'>Enter Proper email</div>
 
 
-                    <br>
 
-                    <input type="password" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==1"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="on"
-                        placeholder={{respo8?.en}} name="password" ngModel #password="ngModel">
-                    <input type="password" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==2"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="on"
-                        placeholder={{respo8?.de}} name="password" ngModel #password="ngModel">
-                    <input type="password" class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==3"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="on"
-                        placeholder={{respo8?.fr}} name="password" ngModel #password="ngModel">
+                        <br>
 
-                    <button (click)="openDialogue(8)" *ngIf="service.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                                alt=""></span></button>
+                        <input placeholder={{respo8?.en}} formControlName="password" type="password" maxlength="20"
+                            class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==1">
+                        <input placeholder={{respo8?.de}} formControlName="password" type="password" maxlength="20"
+                            class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==2">
+                        <input placeholder={{respo8?.fr}} formControlName="password" type="password" maxlength="20"
+                            class="form-control form-control-lg largInpt" *ngIf="editservice.numLabel==3">
 
-                    <!-- <div *ngIf="!service.isVisible"> -->
-                        <!-- <div class="fireError" *ngIf='password?.invalid && password?.touched'>Password Must contain at
+                        <button (click)="openDialogue(8)" *ngIf="service.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+
+                        <div class="fireError" *ngIf='password.invalid && password?.touched'>Password Must contain at
                             least
-                            one number and one uppercase and lowercase letter, and at least 8 or more characters</div> -->
-                    <!-- </div> -->
-                    <br>
+                            one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+                        <br>
 
-                    <button id="loginLabel3" (click)="openDialogue(4)" *ngIf="service.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                                alt=""></span></button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn fontSizeBtn largInpt loginBtn"
-                        (click)="login(logForm)" *ngIf="editservice.numLabel==1">{{respo4?.en}}</button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn largInpt loginBtn"
-                        (click)="login(logForm)" *ngIf="editservice.numLabel==2">{{respo4?.de}}</button>
-                    <button [disabled]="logForm.invalid" type="submit" class="btn largInpt loginBtn"
-                        (click)="login(logForm)" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</button>
+                        <button id="loginLabel3" (click)="openDialogue(4)" *ngIf="service.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <button type="submit" class="btn fontSizeBtn largInpt loginBtn" [disabled]="loginForm.invalid"
+                            *ngIf="editservice.numLabel==1">{{respo4?.en}}</button>
+                        <button type="submit" class="btn largInpt loginBtn" [disabled]="loginForm.invalid"
+                            *ngIf="editservice.numLabel==2">{{respo4?.de}}</button>
+                        <button type="submit" class="btn largInpt loginBtn" [disabled]="loginForm.invalid"
+                            *ngIf="editservice.numLabel==3">{{respo4?.fr}}</button>
 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <!-- For create memorial button -->
-                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
-                        *ngIf="editservice.numLabel==1">{{respo6?.en}}</button>
-                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
-                        *ngIf="editservice.numLabel==2">{{respo6?.de}}</button>
-                    <button routerLink="/create-memorial" class="btn btnCM loginBtn"
-                        *ngIf="editservice.numLabel==3">{{respo6?.fr}}</button>
+                        <!-- For create memorial button -->
+                        <button routerLink="/create-memorial" class="btn btnCM loginBtn"
+                            *ngIf="editservice.numLabel==1">{{respo6?.en}}</button>
+                        <button routerLink="/create-memorial" class="btn btnCM loginBtn"
+                            *ngIf="editservice.numLabel==2">{{respo6?.de}}</button>
+                        <button routerLink="/create-memorial" class="btn btnCM loginBtn"
+                            *ngIf="editservice.numLabel==3">{{respo6?.fr}}</button>
 
-                    <button (click)="openDialogue(6)" *ngIf="service.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton btnSpace"><span><img
-                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                                alt=""></span></button>
-
+                        <button (click)="openDialogue(6)" *ngIf="service.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton btnSpace"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
 
 
-                    <br>
-                    <!-- [disabled]="logForm.invalid" -->
-                    <br>
 
-                    <button id="loginLabel4" (click)="openDialogue(5)" *ngIf="service.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                                alt=""></span></button>
-                    <p *ngIf="editservice.numLabel==1"><a class="forgotLink"
-                            routerLink="/forgot-password">{{respo5?.en}}</a></p>
-                    <hr *ngIf="editservice.numLabel==1" class="forgotHr">
-                    <p *ngIf="editservice.numLabel==2"><a class="forgotLink"
-                            routerLink="/forgot-password">{{respo5?.de}}</a></p>
-                    <hr *ngIf="editservice.numLabel==2" class="forgotHr">
-                    <p *ngIf="editservice.numLabel==3"><a class="forgotLink"
-                            routerLink="/forgot-password">{{respo5?.fr}}</a></p>
-                    <hr *ngIf="editservice.numLabel==3" class="forgotHr">
+                        <br>
+                        <br>
+
+                        <button id="loginLabel4" (click)="openDialogue(5)" *ngIf="service.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt=""></span></button>
+                        <p *ngIf="editservice.numLabel==1"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.en}}</a></p>
+                        <hr *ngIf="editservice.numLabel==1" class="forgotHr">
+                        <p *ngIf="editservice.numLabel==2"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.de}}</a></p>
+                        <hr *ngIf="editservice.numLabel==2" class="forgotHr">
+                        <p *ngIf="editservice.numLabel==3"><a class="forgotLink"
+                                routerLink="/forgot-password">{{respo5?.fr}}</a></p>
+                        <hr *ngIf="editservice.numLabel==3" class="forgotHr">
+                    </div>
                 </form>
+
+
 
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">

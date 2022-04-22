@@ -284,7 +284,6 @@ export class CreateMemorialComponent implements OnInit {
 
   //  memorialDetails(memDetails: any) {
   //   
-  //    console.log(memDetails.value);
   //    this.service.memCreatePostData(memDetails.value).subscribe(res=>{
   //    })
 
@@ -312,7 +311,6 @@ export class CreateMemorialComponent implements OnInit {
 
   register(regData: any) {
     this.spiner.show();
-    console.log(regData);
     this.service.memCreatePostData().subscribe((res: any) => {
       this.spiner.hide();
 
@@ -352,7 +350,6 @@ export class CreateMemorialComponent implements OnInit {
 
 
       this.service.createvitaMemorial(formData1).subscribe(result1 => {
-        console.log(formData1);
         this.spiner.hide();
       })
 
@@ -362,7 +359,6 @@ export class CreateMemorialComponent implements OnInit {
       // var dataJson = { user_id: res.user_id, grab_id: res.grab_id, canvas_json: this.service.saveCanvas1 }
 
       // this.service.createMemorialJson(dataJson).subscribe(result1 => {
-      //   console.log(result1);
       // })
 
 
@@ -862,7 +858,6 @@ export class CreateMemorialComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       // For step-1 id
       this.respo1 = this.respo[85];
@@ -936,7 +931,6 @@ export class CreateMemorialComponent implements OnInit {
     formdata.append('fr', editDataNew.value.fr);
 
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
     })
   }
 
@@ -946,7 +940,6 @@ export class CreateMemorialComponent implements OnInit {
 
 
     // localStorage.setItem('Kanvas',json);
-    // console.log(json);
 
     // save canvas json to the service
     this.service.saveCanvas1 = this.json;
@@ -957,7 +950,6 @@ export class CreateMemorialComponent implements OnInit {
   createMemorialAgain() {
     this.child.GetData();
 
-    console.log();
     this.spiner.show()
     const formDataAgain = new FormData();
     this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
@@ -974,7 +966,6 @@ export class CreateMemorialComponent implements OnInit {
 
     this.service.newMemorialAgain(formDataAgain).subscribe((res: any) => {
       this.spiner.hide();
-      console.log(res);
 
 
 
@@ -1006,7 +997,6 @@ export class CreateMemorialComponent implements OnInit {
 
 
       this.service.createvitaMemorial(formData1).subscribe((result1: any) => {
-        console.log(formData1);
         this.spiner.hide();
         if (result1.status == 'success') {
           this.router.navigate(['/thank-you']);

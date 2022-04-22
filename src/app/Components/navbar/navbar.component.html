@@ -14,10 +14,44 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton" style="float: left;"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                                 
-        <span *ngIf="!loginservice.islogin" class="registerButtonNav" routerLink="/create-memorial">&nbsp;Register</span><span style="float: right;"><img *ngIf="!loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/Home page/user.png" alt=""></span>
+        <span *ngIf="!loginservice.islogin && editservice.numLabel==1" class="registerButtonNav" routerLink="/create-memorial">&nbsp;{{respo12?.en}}</span>
+        <span *ngIf="!loginservice.islogin && editservice.numLabel==2" class="registerButtonNav" routerLink="/create-memorial">&nbsp;{{respo12?.de}}</span>
+        <span *ngIf="!loginservice.islogin && editservice.numLabel==3" class="registerButtonNav" routerLink="/create-memorial">&nbsp;{{respo12?.fr}}</span>
+        <span style="float: right;"><img *ngIf="!loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/Home page/user.png" alt=""></span>
+        <button (click)="openDialogue(12)" style="float: right;" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
         <span *ngIf="loginservice.islogin" routerLink="/user-account" class="registerButtonNav" style="cursor: pointer;">Hi {{loginservice.loginSaveData}} > </span>&nbsp;
         <span *ngIf="loginservice.otherPage" style="float: right;"><img *ngIf="loginservice.islogin" class="registerImage" src="../../../assets/StaticAssets/my account premium/user.png" alt=""></span>
         <span *ngIf="!loginservice.otherPage" style="float: right; margin-right: 6px;"><img *ngIf="loginservice.islogin" class="registerImage1" src="../../../assets/StaticAssets/Home page/user (1).png" alt=""></span>
+
+        <li *ngIf="showNewDiv==12 && isvalid" style="position: absolute; margin-top: -47px;">
+            <div class="forDiv" id="homeIdNew">
+                <button style="float: right;" (click)="openDialogue1()"
+                    class="btn btn-outline-danger">X</button>
+                <form class="example-form" #regForm2="ngForm">
+                    <mat-form-field class="example-full-width" style="display: none;">
+                        <mat-label>id</mat-label>
+                        <textarea matInput name="id" [(ngModel)]="respo12.id"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width englishLng">
+                        <mat-label>English</mat-label>
+                        <textarea matInput name="en" [(ngModel)]="respo12.en"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>dutch</mat-label>
+                        <textarea matInput name="de" [(ngModel)]="respo12.de"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>french</mat-label>
+                        <textarea matInput name="fr" [(ngModel)]="respo12.fr"></textarea>
+                    </mat-form-field>
+                </form>
+                <button (click)="postEditData(regForm2);openDialogue1();"
+                    class="btn btn-outline-success">Save</button>
+            </div>
+        </li>
+
 
         <li *ngIf="showNewDiv==11 && isvalid" style="position: absolute; margin-top: -47px;">
             <div class="forDiv" id="homeId">

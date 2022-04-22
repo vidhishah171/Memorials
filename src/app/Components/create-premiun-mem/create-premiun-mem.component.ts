@@ -89,7 +89,6 @@ export class CreatePremiunMemComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo4 = this.respo[179];
       this.respo5 = this.respo[180];
@@ -115,7 +114,6 @@ export class CreatePremiunMemComponent implements OnInit {
     formdata.append('fr', editDataNew.value.fr);
 
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
     })
   }
 

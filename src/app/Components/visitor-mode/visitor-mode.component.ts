@@ -64,11 +64,19 @@ export class VisitorModeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getrecentMemorials();
-    this.postGrabId();
+    this.getData1();
     this.getData();
+    this.postGrabId();
     this.getPhotoVideo();
     this.myProfileData();
     this.getMeorialDetail();
+  }
+  getData1() {
+    var userLoginDataNew = localStorage.getItem('myData1')
+    var loginAfterRefreshNew = JSON.parse(userLoginDataNew);
+
+    this.service.userGrabIdData2 = loginAfterRefreshNew;
+    // this.getUserMemorial();
   }
 
   // for user after the login
@@ -80,7 +88,7 @@ export class VisitorModeComponent implements OnInit {
       
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginData;
-      this.loginservice.loginAllData = loginAfterRefresh.user[0];
+      this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
       this.loginservice.islogin = true;
     } else {
       // this.router.navigate(['/login']);
@@ -92,12 +100,10 @@ export class VisitorModeComponent implements OnInit {
 
   // Get user profile image
   myProfileData() {
-    
     // this.spiner.show();
     var ProfileId = { "user_id": this.service.userUserIdData }
     // this.loginservice.userId = this.loginservice.loginAllData?.id;
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
-      console.log(data);
       this.userpic = data.user_data[0].userpic;
 
     });
@@ -116,33 +122,25 @@ export class VisitorModeComponent implements OnInit {
 
   };
 
-  setData() {
-    
-    const jsonData = JSON.stringify(this.service.userUserIdData, this.service.userGrabIdData2)
-    sessionStorage.setItem('myData', jsonData)
-  }
 
 
 
 
   // for user details
   getUserMemorial() {
-    var data = { "user_id": this.loginservice.loginAllData?.id }
+    var data = { "user_id": this.loginservice.loginAllData}
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
-        this.service.userGrabIdData = userRes["User Memorials"][0].grab_id;
+        this.service.userGrabIdData2 = userRes["User Memorials"][0].grab_id;
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
 
   }
 
   getMeorialDetail() {
-    
     var data = { "grab_id": this.service.userGrabIdData2 }
     this.profileService.getMemorialDetails(data).subscribe((response: any) => {
-      console.log(response);
       this.memorialDetails1 = response.Details[0].comments;
       this.memorialDetails = this.memorialDetails1.slice(0,8);
       for (let item of this.memorialDetails) {
@@ -184,14 +182,12 @@ export class VisitorModeComponent implements OnInit {
 
   // For user data retrive
   postGrabId() {
-    
     var jsonData = this.service.userGrabIdData2
 
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
 
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      console.log(Response);
       
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
@@ -233,7 +229,6 @@ export class VisitorModeComponent implements OnInit {
     photoFormData1.append('user_id', this.service.userUserIdData);
 
     this.editCanvas.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-      console.log(userRes1);
       this.getPhotoVideoImage1 = userRes1.Data[0].image;
       this.getPhotoVideoImage2 = userRes1.Data[1].image;
       this.getPhotoVideoImage3 = userRes1.Data[2].image;

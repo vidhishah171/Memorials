@@ -8,30 +8,47 @@
         <app-navbar></app-navbar>
     </div>
     <div>
-        <div class="userHeading">
+        <div class="userHeading" id="userHeading">
+            <img *ngIf="isDisplayBack" id="backgroundimage" src={{userpicBack}} alt="">
+            <img *ngIf="isDisplayBack1" id="backgroundimage" [src]=urlBackground alt="">
+
             <h1>{{lovedPersonData?.fname}}&nbsp;{{lovedPersonData?.lname}}</h1>
             <!-- <h1>welcome</h1> -->
             <div class="userDate">
                 <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
             </div>
             <div class="userBackground">
-                <span class="imgMargin"><img class="photoGalleryImg" src="../../../assets/StaticAssets/Create memorial/step2/PhotoGAllery.png" alt=""></span><span class="photoBackText"><p>ADD BACKGROUND</p></span>&nbsp;<span><img class="photoPlusImage" src="../../../assets/StaticAssets/Create memorial/step2/add-3.png" alt=""></span>
+                <span class="imgMargin"><img class="photoGalleryImg"
+                        src="../../../assets/StaticAssets/Create memorial/step2/PhotoGAllery.png" alt=""></span>
+                <span class="photoBackText">
+                    <p>ADD BACKGROUND</p>
+                </span>&nbsp;
+                <label for="photoBackground"><img class="photoPlusImage"
+                        src="../../../assets/StaticAssets/Create memorial/step2/add-3.png" alt=""></label>
+
+                <!-- <label for="photoBackground" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label> -->
+                <input id="photoBackground" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                    (change)="onselectFileBackground($event)">
             </div>
             <div style="float: right; margin-right: 10%;" class="pt-2" *ngFor="let item of lovedPersonData1">
                 <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
                 </span>
                 &nbsp;
                 <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
                 </span>
                 &nbsp;
                 <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt="" style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt=""
+                        style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
                 </span>
                 &nbsp;
                 <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt="" style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
+                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt=""
+                        style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
                 </span>
             </div>
             <div *ngIf="isDisplay" class="steeper rounded-circle circleImage">
@@ -48,10 +65,12 @@
                 <label for="photo" title="Add an own image here..."><img class="steeper rounded-circle plusImageOnHeader" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
                 <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;">
             </div> -->
-            <label for="photo" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-            <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;" (change)="onselectFile1($event)">
+            <label for="photo" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;"
+                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
+            <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                (change)="onselectFile1($event)">
 
-            
+
         </div>
     </div>
     <!-- Buttons -->
@@ -79,81 +98,119 @@
                 <div class="row">
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage1" *ngIf="getPhotoVideoImage1" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage1" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage1"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage2" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage2"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage3" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage3"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage4" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage4"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage5" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage5"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage6" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage6"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                     </div>
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage7" *ngIf="getPhotoVideoImage7" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage7" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage7"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage8" *ngIf="getPhotoVideoImage8" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage8" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage8"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage9" *ngIf="getPhotoVideoImage9" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage9" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage9"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage10" *ngIf="getPhotoVideoImage10" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage10" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage10"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11"
+                                onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage11" *ngIf="getPhotoVideoImage11" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage11" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage11"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12" onerror="this.style.display='none'" onerror="this.style.display='none'" alt="" class="imageButton">
+                            <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12"
+                                onerror="this.style.display='none'" onerror="this.style.display='none'" alt=""
+                                class="imageButton">
                             <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage12" class="plusButton"><img
-                                src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt="" style="width: 65%; height: auto;"></label>
+                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage12"
+                                class="plusButton"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
                         </span>
                     </div>
-                    <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" style="display: none;" (change)="onselectFile($event)">
+                    <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                        (change)="onselectFile($event)">
                     <!-- (change)="onselectFile($event)" -->
                 </div>
             </div>
@@ -170,37 +227,43 @@
                 <div class="condolenceDiv">
                     <h5 class="pt-3 condolencesText">Latest Condolonces</h5>
                     <div class="row pt-5">
-                        <div class="col-6 condolenceMain" id="condolencesMain" [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}" *ngFor="let item of memorialDetails">
-                            <div class="condolencesEdit row" id="condolencesEdit" [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
+                        <div class="col-6 condolenceMain" id="condolencesMain"
+                            [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}"
+                            *ngFor="let item of memorialDetails">
+                            <div class="condolencesEdit row" id="condolencesEdit"
+                                [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
                                 <div class="col-3">
                                     <span>
                                         <img class="qotesImg"
-                                            src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png"
-                                            alt="">
+                                            src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
                                     </span>
                                 </div>
                                 <div class="col-9">
                                     <div>
                                         <span>
                                             <img class="condolenceImg me-2"
-                                                src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
-                                                alt="">
+                                                src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png" alt="">
                                         </span>
-                                        
+
                                         <span
                                             class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
                                     </div>
-                                    <div class="condolencesComment" [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}" id="condolencesComment">
+                                    <div class="condolencesComment"
+                                        [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}"
+                                        id="condolencesComment">
                                         {{item.comment}}
                                     </div>
                                     <div class="viewEntireDiv">
-                                        <span class="viewEntire" (click)="condolencesComment(item)">View Entire Memory&nbsp;&nbsp;<img class="rightImg" src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png" alt=""></span>
+                                        <span class="viewEntire" (click)="condolencesComment(item)">View Entire
+                                            Memory&nbsp;&nbsp;<img class="rightImg"
+                                                src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png"
+                                                alt=""></span>
                                         <span style="float: right;"><img class="deletrImg"
                                                 src="../../../assets/StaticAssets/Visitor Mode/delete.png"
                                                 alt=""></span>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -248,11 +311,23 @@
                         <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
                         </h6>
+                        
+
                         <!-- <h6 style="color: #CF6363;">
                             {{memData.age}}Y Old,
                             &nbsp;
                             {{memData.starvetown}}
                         </h6> -->
+                    </div>
+                    <div class="viewsCss">
+                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
+                        <span class="me-1 nameSml">0</span>
+
+                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
+                        <span class="me-1 nameSml">{{memData.litCandle}}</span>
+
+                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                        <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
                     </div>
                 </div>
             </div>

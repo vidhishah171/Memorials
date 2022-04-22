@@ -1258,9 +1258,9 @@
                             <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            [disabled]="caroucelCount==5 || imagesForCaroucelUser.length != 5" (click)="nextCarousel()"
+                            [disabled]="caroucelCount==5 || imagesForCaroucelUser?.length != 5" (click)="nextCarousel()"
                             data-bs-slide="next">
-                            <span aria-hidden="true" [hidden]="caroucelCount==5 || imagesForCaroucelUser.length != 5">
+                            <span aria-hidden="true" [hidden]="caroucelCount==5 || imagesForCaroucelUser?.length != 5">
                                 <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
                             </span>
                             <span class="visually-hidden">Next</span>

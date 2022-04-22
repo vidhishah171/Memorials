@@ -483,6 +483,15 @@ hr{
     width: 25%;
     margin-left: 0.7%;
 }
+
+.viewsCss{
+    margin-top: -4%;
+}
+.nameSml{
+    font-size: 0.55rem;
+    color: #CF6363;
+    padding-top: 2%;
+}
 /* .btn1:hover{
     background-color: #CF6363;
     color: white;
@@ -806,6 +815,7 @@ hr{
 .btnDiv1{
     margin-left: 18%;
 }
+
 
 
 }

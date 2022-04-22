@@ -314,7 +314,6 @@ public GetData()
 
 
     // localStorage.setItem('Kanvas',json);
-    // console.log(json);
 
     // save canvas json to the service
     this.service.saveCanvas1 = this.json;
@@ -1055,7 +1054,6 @@ public GetData()
   }
 
   // addVita(redata:any){
-  //   console.log(redata);
   //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
 
   //   })
@@ -1333,7 +1331,6 @@ public GetData()
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       // For step-2 label
       this.respo1 = this.respo[101];
@@ -1362,7 +1359,6 @@ public GetData()
     formdata.append('fr', editDataNew.value.fr);
 
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
     })
   }
 

@@ -77,7 +77,6 @@ export class UserAccountComponent implements OnInit {
       this.clickDiv();
     }, 1000);
     this.clickShowStepBtn1();
-    debugger
     this.getUserMemorial();
 
   }
@@ -125,7 +124,10 @@ export class UserAccountComponent implements OnInit {
   goesToEditMemo1(data1) {
     
     // this.profileService.userDetailUserId = data1;
-    this.service.userGrabIdData = data1
+    this.service.userGrabIdData = data1;
+
+      const jsonData = JSON.stringify(data1)
+      localStorage.setItem('myData1', jsonData)
   }
 
 
@@ -135,12 +137,11 @@ export class UserAccountComponent implements OnInit {
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
         this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
-        // for(let item of this.getUserMemoData){
-        //   this.poi = item.path
-        // }
+        for(let item of this.getUserMemoData){
+          item.path= item.path +'?v='+this.service.index++;
+        }
         if (this.caroucelCount == 1) {
           this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
           // this.getUserMemoDataUser.map(function(item){return item.path});
@@ -148,10 +149,7 @@ export class UserAccountComponent implements OnInit {
 
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
-
-
   }
-
 
   getrecentMemorials() {
     this.service.getRecentmemorials()
@@ -159,6 +157,9 @@ export class UserAccountComponent implements OnInit {
         (recentMemorial: any) => {
           if (recentMemorial) {
             this.Memorials = recentMemorial.Memorials;
+            for(let item of this.Memorials){
+              item.path= item.path+'?v='+this.service.indexNew++;
+            }
           }
         },
         error => {

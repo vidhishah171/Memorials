@@ -120,6 +120,9 @@ export class MostVisitedComponent implements OnInit {
       this.recentService.userUserIdData = data1;
 
       this.router.navigate(['/visitor-mode']);
+
+      const jsonData = JSON.stringify(data)
+      localStorage.setItem('myData1', jsonData)
     }
   }
 
@@ -192,6 +195,10 @@ export class MostVisitedComponent implements OnInit {
       this.recentService.userUserIdData = data1;
 
       this.router.navigate(['/visitor-mode']);
+
+      const jsonData = JSON.stringify(data)
+      localStorage.setItem('myData1', jsonData)
+      
     }
   }
 

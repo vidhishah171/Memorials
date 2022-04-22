@@ -8,6 +8,7 @@ import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from '../../../services/login.service';
+import { FormGroup,FormControl,Validator, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,19 @@ import { LoginService } from '../../../services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  loginForm = new FormGroup({
+    username:new FormControl('',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")]),
+    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")])
+    password:new FormControl('',[Validators.required,Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}")])
+
+    // password:new FormControl('',Validators.required)
+    
+  })
+
+  get email(){return this.loginForm.get('username')}
+  get password(){return this.loginForm.get('password')}
+
 
   public userName: string;
   ol: any;
@@ -50,6 +64,7 @@ export class LoginComponent implements OnInit {
     
   }
 
+  
 
   data: any = [];
 
@@ -84,9 +99,10 @@ export class LoginComponent implements OnInit {
 
     this.editData();
   }
+
+ 
   errorDisplay:boolean=false;
    errorValue(event){
-    debugger
     // if(event.target.value.length <= 0){
     //   this.errorDisplay = false;
     // }
@@ -112,10 +128,9 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(logData: any) {
-    debugger
+  login() {
     this.spiner.show();
-    this.service.userLogin(logData.value)
+    this.service.userLogin(this.loginForm.value)
       // logData.value
       .subscribe(responce => {
       this.spiner.hide();

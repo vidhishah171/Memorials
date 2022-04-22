@@ -40,8 +40,8 @@
         <div class="box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/death.png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo2?.en}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==2">{{respo2?.de}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</span>
+            <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{respo2?.de}}</span>
+            <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</span>
 
             <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -78,8 +78,8 @@
         <div class="box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/mesage.png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo3?.en}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==2">{{respo3?.de}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</span>
+            <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{respo3?.de}}</span>
+            <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</span>
 
             <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -115,8 +115,8 @@
         <div class=" box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/funeral (2).png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo4?.en}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==2">{{respo4?.de}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</span>
+            <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{respo4?.de}}</span>
+            <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</span>
             <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -152,8 +152,8 @@
         <div class=" box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/funeral (3).png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo5?.en}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==2">{{respo5?.de}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</span>
+            <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{respo5?.de}}</span>
+            <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</span>
             <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -190,8 +190,8 @@
         <div class=" box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/death (1).png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo6?.en}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==2">{{respo6?.de}}</span>
-            <span class="ourFeaturedText" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</span>
+            <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{respo6?.de}}</span>
+            <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</span>
             <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -233,14 +233,14 @@
 <div class="cemetry w-100">
     <div>
 
-        <div class="virtualLabel">
+        <div>
             <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-            <label *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
-            <label *ngIf="editservice.numLabel==2">{{respo9?.de}}</label>
-            <label *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label>
+            <label class="virtualLabel" *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
+            <label class="virtualLabel1" *ngIf="editservice.numLabel==2">{{respo9?.de}}</label>
+            <label class="virtualLabel2" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label>
 
         </div>
 
@@ -320,7 +320,7 @@
                                 alt=""></span></button>
                     <small>
                         <p class="virtualPara1" *ngIf="editservice.numLabel==1">{{respo10?.en}}</p>
-                        <p class="virtualPara1" *ngIf="editservice.numLabel==2">{{respo10?.de}}</p>
+                        <p class="virtualPara2" *ngIf="editservice.numLabel==2">{{respo10?.de}}</p>
                         <p class="virtualPara1" *ngIf="editservice.numLabel==3">{{respo10?.fr}}</p>
                     </small>
                 </div>
@@ -332,7 +332,7 @@
                     <small class="mb-1">
     
                         <p class="virtualPara" *ngIf="editservice.numLabel==1">{{respo8?.en}}</p>
-                        <p class="virtualPara" *ngIf="editservice.numLabel==2">{{respo8?.de}}</p>
+                        <p class="virtualParaNew2" *ngIf="editservice.numLabel==2">{{respo8?.de}}</p>
                         <p class="virtualPara" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</p>
     
                     </small>

@@ -16,6 +16,9 @@ export class RecentMeorialsService {
   userGrabIdData2:any;
   userUserIdData:any;
 
+index=1;
+indexNew=1;
+
   constructor(
     private http : HttpClient
   ) {}
