@@ -93,6 +93,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
   tomb: HTMLElement;
   isDisplaySmallImage: boolean;
   imgBack: any[];
+  respo14: any;
 
   constructor(
     public service: CreateMemorialService,
@@ -1322,6 +1323,9 @@ public GetData()
     } else if (num == 13) {
       this.showNewDiv = 13;
       this.isvalid = true;
+    }else if (num == 14) {
+      this.showNewDiv = 14;
+      this.isvalid = true;
     }
   }
 
@@ -1346,6 +1350,8 @@ public GetData()
       this.respo11 = this.respo[94];
       this.respo12 = this.respo[95];
       this.respo13 = this.respo[96];
+      this.respo14 = this.respo[261];
+
 
 
     });

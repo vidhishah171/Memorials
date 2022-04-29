@@ -219,15 +219,12 @@ export class EditMemorialComponent implements OnInit {
   }
 
   postGrabId() {
-
     var jsonData = this.service.userGrabIdData
 
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
 
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      console.log(Response);
-
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
 

@@ -28,6 +28,7 @@ export class ThankYouComponent implements OnInit {
   respo14: any;
   respo15: any;
   respo16: any;
+  respo17: any;
 
   constructor(
     public service: CreateMemorialService,
@@ -112,6 +113,9 @@ export class ThankYouComponent implements OnInit {
     } else if (num == 16) {
       this.showNewDiv = 16;
       this.isvalid = true;
+    }else if (num == 17) {
+      this.showNewDiv = 17;
+      this.isvalid = true;
     }
   }
 
@@ -139,7 +143,7 @@ export class ThankYouComponent implements OnInit {
       this.respo14 = this.respo[189];
       this.respo15 = this.respo[190];
       this.respo16 = this.respo[191];
-      //191
+      this.respo17 = this.respo[260];
     });
   }
 

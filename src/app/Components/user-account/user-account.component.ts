@@ -115,14 +115,12 @@ export class UserAccountComponent implements OnInit {
   }
 
   goesToEditMemo(data) {
-    
     this.profileService.userDetail = data;
     this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
 
   }
   goesToEditMemo1(data1) {
-    
     // this.profileService.userDetailUserId = data1;
     this.service.userGrabIdData = data1;
 

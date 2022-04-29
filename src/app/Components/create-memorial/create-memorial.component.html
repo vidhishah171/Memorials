@@ -14,9 +14,8 @@
         </h2>
     </div>
     <button (click)="openDialogue(45)" *ngIf="loginservice.isVisible"
-    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton freeAndDignified"><span><img
-            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-            alt=""></span></button>
+        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton freeAndDignified"><span><img
+                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
     <span class="freeAndDigni" *ngIf="editservice.numLabel==1">{{respo45?.en}}</span>
     <span class="freeAndDigni" *ngIf="editservice.numLabel==2">{{respo45?.de}}</span>
     <span class="freeAndDigni" *ngIf="editservice.numLabel==3">{{respo45?.fr}}</span>
@@ -145,7 +144,7 @@
 
 
             <div class="mt-4">
-                <form class="row g-3 needs-validation" #form1="ngForm">
+                <form class="row g-3 needs-validation" [formGroup]="createForm">
                     <div class="col-md-6 mb-3">
                         <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -155,16 +154,30 @@
                         <label for="firstname" *ngIf="editservice.numLabel==2">{{respo3?.de}}</label>
                         <label for="firstname" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</label> -->
 
-                        <input type="text" class="form-control shadow bg-body rounded" placeholder="First Name"
+                        <!-- [(ngModel)]="service.createMemorial.g_firstname" -->
+
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder="First name"
+                            formControlName="g_firstname" [(ngModel)]="service.createMemorial.g_firstname"
+                            *ngIf="editservice.numLabel==1" required maxlength="25" placeholder="{{respo3?.en}}"
+                            (keypress)="returnValue($event)">
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder="First name"
+                            formControlName="g_firstname" [(ngModel)]="service.createMemorial.g_firstname"
+                            *ngIf="editservice.numLabel==2" required maxlength="25" placeholder="{{respo3?.de}}"
+                            (keypress)="returnValue($event)">
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder="First name"
+                            formControlName="g_firstname" [(ngModel)]="service.createMemorial.g_firstname"
+                            *ngIf="editservice.numLabel==3" required maxlength="25" placeholder="{{respo3?.fr}}"
+                            (keypress)="returnValue($event)">
+
+                        <!-- <input type="text" class="form-control shadow bg-body rounded" placeholder="First name"
                             #g_firstname="ngModel" [(ngModel)]="service.createMemorial.g_firstname" name="g_firstname"
-                            required maxlength="25" (keypress)="returnValue($event)" ngModel>
+                            required maxlength="25" (keypress)="returnValue($event)" ngModel> -->
+
+
                         <!-- onkeypress="return (event.charCode>64 && event.charCode<91) || (event.charCode > 96 && event.charCode < 123)" -->
-                        <small class="fireError" *ngIf="g_firstname.touched && !g_firstname.valid">Please enter first
+                        <small class="fireError" *ngIf="g_firstnameNew.touched && !g_firstnameNew.valid">Please enter
+                            first
                             name</small>
-                        <!-- <small class="fireError" [hidden]="!g_firstname.errors?.onkeypress">Please enter characters -->
-                        <!-- only</small> -->
-                        <!-- <small class="fireError" [hidden]="!g_firstname.errors?.maxlength">Please enter 25 characters -->
-                        <!-- only</small> -->
 
                     </div>
                     <div class="col-md-6">
@@ -176,10 +189,22 @@
                         <label for="lastname" *ngIf="editservice.numLabel==2">{{respo4?.de}}</label>
                         <label for="lastname" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</label> -->
 
-                        <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder={{respo4?.en}}
+                            [(ngModel)]="service.createMemorial.g_lastname" formControlName="g_lastname"
+                            *ngIf="editservice.numLabel==1" required maxlength="25" (keypress)="returnValue($event)">
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder={{respo4?.de}}
+                            [(ngModel)]="service.createMemorial.g_lastname" formControlName="g_lastname"
+                            *ngIf="editservice.numLabel==2" required maxlength="25" (keypress)="returnValue($event)">
+                        <input type="text" class="form-control shadow bg-body rounded" placeholder={{respo4?.fr}}
+                            [(ngModel)]="service.createMemorial.g_lastname" formControlName="g_lastname"
+                            *ngIf="editservice.numLabel==3" required maxlength="25" (keypress)="returnValue($event)">
+
+                        <!-- <input type="text" class="form-control shadow bg-body rounded" placeholder="Last Name"
                             #g_lastname="ngModel" [(ngModel)]="service.createMemorial.g_lastname" name="g_lastname"
-                            required maxlength="25" (keypress)="returnValue($event)" ngModel>
-                        <small class="fireError" *ngIf="g_lastname.touched && !g_lastname.valid">Please enter last
+                            required maxlength="25" (keypress)="returnValue($event)" ngModel> -->
+
+
+                        <small class="fireError" *ngIf="g_lastnameNew.touched && !g_lastnameNew.valid">Please enter last
                             name</small>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -191,9 +216,24 @@
                         <label for="birthplace" *ngIf="editservice.numLabel==2">{{respo5?.de}}</label>
                         <label for="birthplace" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</label> -->
 
-                        <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.birthplace" placeholder={{respo5?.en}} maxlength="25"
+                            formControlName="birthplace" *ngIf="editservice.numLabel==1"
+                            (keypress)="returnValueNew($event)">
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.birthplace" placeholder={{respo5?.de}} maxlength="25"
+                            formControlName="birthplace" *ngIf="editservice.numLabel==2"
+                            (keypress)="returnValueNew($event)">
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.birthplace" placeholder={{respo5?.fr}} maxlength="25"
+                            formControlName="birthplace" *ngIf="editservice.numLabel==3"
+                            (keypress)="returnValueNew($event)">
+
+                        <!-- <input type="text" #birthplace="ngModel" [(ngModel)]="service.createMemorial.birthplace"
                             name="birthplace" class="form-control shadow bg-body rounded" placeholder="Birthplace"
-                            maxlength="25" (keypress)="returnValueNew($event)" ngModel>
+                            maxlength="25" (keypress)="returnValueNew($event)" ngModel> -->
+
+
                         <!-- <small class="fireError" *ngIf="birthplace.touched && !birthplace.valid">Please enter birth
                             place</small> -->
                     </div>
@@ -206,9 +246,23 @@
                         <label for="deathplace" *ngIf="editservice.numLabel==2">{{respo6?.de}}</label>
                         <label for="deathplace" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</label> -->
 
-                        <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.deathplace" placeholder={{respo6?.en}}
+                            formControlName="deathplace" *ngIf="editservice.numLabel==1" maxlength="25"
+                            (keypress)="returnValueNew($event)">
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.deathplace" placeholder={{respo6?.de}}
+                            formControlName="deathplace" *ngIf="editservice.numLabel==2" maxlength="25"
+                            (keypress)="returnValueNew($event)">
+                        <input type="text" class="form-control shadow bg-body rounded"
+                            [(ngModel)]="service.createMemorial.deathplace" placeholder={{respo6?.fr}}
+                            formControlName="deathplace" *ngIf="editservice.numLabel==3" maxlength="25"
+                            (keypress)="returnValueNew($event)">
+
+                        <!-- <input type="text" #deathplace="ngModel" [(ngModel)]="service.createMemorial.deathplace"
                             name="deathplace" class="form-control shadow bg-body rounded" placeholder="Place of Death"
-                            maxlength="25" (keypress)="returnValueNew($event)" ngModel>
+                            maxlength="25" (keypress)="returnValueNew($event)" ngModel> -->
+
                         <!-- required
                         <small class="fireError" *ngIf="deathplace.touched && !deathplace.valid">Please enter death
                             place</small> -->
@@ -224,10 +278,22 @@
                         <label for="birthname" *ngIf="editservice.numLabel==2">{{respo7?.de}}</label>
                         <label for="birthname" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</label> -->
 
+                        <input type="text" class="form-control shadow bg-body rounded" formControlName="birthname"
+                            *ngIf="editservice.numLabel==1" [(ngModel)]="service.createMemorial.birthname"
+                            (keypress)="returnValue($event)" maxlength="25" placeholder={{respo7?.en}}>
+                        <input type="text" class="form-control shadow bg-body rounded" formControlName="birthname"
+                            *ngIf="editservice.numLabel==2" [(ngModel)]="service.createMemorial.birthname"
+                            (keypress)="returnValue($event)" maxlength="25" placeholder={{respo7?.de}}>
+                        <input type="text" class="form-control shadow bg-body rounded" formControlName="birthname"
+                            *ngIf="editservice.numLabel==3" [(ngModel)]="service.createMemorial.birthname"
+                            (keypress)="returnValue($event)" maxlength="25" placeholder={{respo7?.fr}}>
 
-                        <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
+
+                        <!-- <input type="text" #bName="ngModel" [(ngModel)]="service.createMemorial.birthname" name="bName"
                             (keypress)="returnValue($event)" maxlength="25" class="form-control shadow bg-body rounded"
-                            placeholder="Birth Name" ngModel>
+                            placeholder="Birth Name" ngModel> -->
+
+
                         <!-- <small class="fireError" *ngIf="bName.touched && !bName.valid">Please enter birth name</small>
                         required -->
 
@@ -246,21 +312,32 @@
 
                             <div class="datePickerCss">
                                 <mat-form-field class="tabWidth">
-                                    <input matInput [matDatepicker]="picker" #DOB="ngModel"
-                                        [(ngModel)]="service.createMemorial.DOB" name="DOB" [max]="maxDate"
-                                        placeholder="MM/DD/YYYY" required ngModel readonly>
+                                    <input matInput [matDatepicker]="picker" [(ngModel)]="service.createMemorial.DOB"
+                                        formControl [max]="maxDate" formControlName="DOB" placeholder="MM/DD/YYYY"
+                                        required readonly>
                                     <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
                                 </mat-form-field>
                             </div>
+
+                            <!-- <div class="datePickerCss">
+                                <mat-form-field class="tabWidth">
+                                    <input matInput [matDatepicker]="picker" #DOB="ngModel"
+                                        [(ngModel)]="service.createMemorial.DOB" name="DOB" formControl [max]="maxDate"
+                                        placeholder="MM/DD/YYYY" required ngModel readonly>
+                                    <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div> -->
                         </div>
 
                         <!-- <input type="date" #DOB="ngModel" [(ngModel)]="service.createMemorial.DOB" name="DOB"
                             class="form-control shadow bg-body rounded" [max]="curruntDate" [value]="curruntDate"
                             required ngModel> -->
                         <div>
-                            <small class="fireError" *ngIf="DOB.touched && !DOB.valid">Please enter date of
+                            <small class="fireError" *ngIf="DOBNew.touched && !DOBNew.valid">Please enter date of
                                 birth</small>
                         </div>
                         <!-- name="Birthdate" -->
@@ -285,6 +362,17 @@
 
                             <div class="datePickerCss">
                                 <mat-form-field class="tabWidth">
+                                    <input matInput [matDatepicker]="picker1" [(ngModel)]="service.createMemorial.DOD"
+                                        [max]="maxDate" [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY"
+                                        required readonly formControlName="DOD">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1" style="color:#CF6363;">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- <div class="datePickerCss">
+                                <mat-form-field class="tabWidth">
                                     <input matInput [matDatepicker]="picker1" #DOD="ngModel"
                                         [(ngModel)]="service.createMemorial.DOD" name="DOD" [max]="maxDate"
                                         [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required ngModel
@@ -293,7 +381,7 @@
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #picker1></mat-datepicker>
                                 </mat-form-field>
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -302,7 +390,7 @@
                             class="form-control shadow bg-body rounded" [min]="service.createMemorial.DOB"
                             [max]="curruntDate" [value]="curruntDate" required ngModel> -->
                         <div>
-                            <small class="fireError" *ngIf="DOD.touched && !DOD.valid">Please enter date of
+                            <small class="fireError" *ngIf="DODNew.touched && !DODNew.valid">Please enter date of
                                 death</small>
                         </div>
                         <!-- name="dateOfdeth" -->
@@ -575,14 +663,14 @@
 
 
                 <div class="buttonNoneDiv">
-                    <button class="buttonNone" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"
-                        (click)="prevCarousel()" [disabled]="caroucelCount==1">
+                    <button class="buttonNone" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
                         <span aria-hidden="true"><img src="../../../assets/StaticAssets/Create memorial/step1/baack.png"
                                 alt=""></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="buttonNone1" type="button" data-bs-target="#carouselExampleIndicators" [disabled]="caroucelCount==5"
-                        (click)="nextCarousel()" data-bs-slide="next">
+                    <button class="buttonNone1" type="button" data-bs-target="#carouselExampleIndicators"
+                        [disabled]="caroucelCount==5" (click)="nextCarousel()" data-bs-slide="next">
                         <span aria-hidden="true"><img src="../../../assets/StaticAssets/Create memorial/step1/front.png"
                                 alt=""></span>
                         <span class="visually-hidden">Next</span>
@@ -880,19 +968,19 @@
 
             </div>
             <div class="nextBtn pt-5">
-
-                <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
-                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==1">{{respo14?.en}}
+                <!-- [disabled]="!createForm.valid" -->
+                <button class="btn btn-lg nextBtnStepFirst" [disabled]="!createForm.valid"
+                    (click)="showStep(2);clickShowStepBtn2(); " *ngIf="editservice.numLabel==1">{{respo14?.en}}
                     <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
                             style="width: 25%;"></span>
                 </button>
                 <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
-                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==2">{{respo14?.de}}
+                    *ngIf="editservice.numLabel==2">{{respo14?.de}}
                     <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
                             style="width: 25%;"></span>
                 </button>
                 <button class="btn btn-lg nextBtnStepFirst" (click)="showStep(2);clickShowStepBtn2(); "
-                    [disabled]="!form1.valid" *ngIf="editservice.numLabel==3">{{respo14?.fr}}
+                    *ngIf="editservice.numLabel==3">{{respo14?.fr}}
                     <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
                             style="width: 25%;"></span>
                 </button>
@@ -1134,92 +1222,131 @@
             </li>
             <br>
             <br>
-            <form class="row g-3 needs-validation formMargin" #regForm="ngForm" novalidate>
+            <form class="row g-3 needs-validation formMargin" [formGroup]="createFormNew">
                 <div class="col-md-6 mb-2">
-                    <!-- <button (click)="openDialogue(23)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(23)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="firstName" *ngIf="editservice.numLabel==1">{{respo23?.en}}</label>
+                    <!-- <label for="firstName" *ngIf="editservice.numLabel==1">{{respo23?.en}}</label>
                     <label for="firstName" *ngIf="editservice.numLabel==2">{{respo23?.de}}</label>
                     <label for="firstName" *ngIf="editservice.numLabel==3">{{respo23?.fr}}</label> -->
 
+                    <input type="text" *ngIf="editservice.numLabel==1" formControlName="firstname"
+                        class="form-control shadow bg-body rounded" [(ngModel)]="service.createMemorial.firstname"
+                        placeholder={{respo23?.en}} maxlength="25" (keypress)="returnValue($event)" required>
+                    <input type="text" *ngIf="editservice.numLabel==2" formControlName="firstname"
+                        class="form-control shadow bg-body rounded" [(ngModel)]="service.createMemorial.firstname"
+                        placeholder={{respo23?.de}} maxlength="25" (keypress)="returnValue($event)" required>
+                    <input type="text" *ngIf="editservice.numLabel==3" formControlName="firstname"
+                        class="form-control shadow bg-body rounded" [(ngModel)]="service.createMemorial.firstname"
+                        placeholder={{respo23?.fr}} maxlength="25" (keypress)="returnValue($event)" required>
 
-                    <input type="text" name="firstname" class="form-control shadow bg-body rounded" #firstname="ngModel"
-                        [(ngModel)]="service.createMemorial.firstname" placeholder="Please enter your firstname" maxlength="25"
-                        (keypress)="returnValue($event)" required ngModel>
-                    <small class="fireError" *ngIf="firstname.touched && !firstname.valid">Please enter your first
+                    <small class="fireError" *ngIf="firstnameNew?.touched && !firstnameNew?.valid">Please enter your
+                        first
                         name</small>
                 </div>
                 <div class="col-md-6">
-                    <!-- <button (click)="openDialogue(24)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(24)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="lastName" *ngIf="editservice.numLabel==1">{{respo24?.en}}</label>
+                    <!-- <label for="lastName" *ngIf="editservice.numLabel==1">{{respo24?.en}}</label>
                     <label for="lastName" *ngIf="editservice.numLabel==2">{{respo24?.de}}</label>
                     <label for="lastName" *ngIf="editservice.numLabel==3">{{respo24?.fr}}</label> -->
 
-                    <input type="text" name="lastname" #lastname="ngModel" [(ngModel)]="service.createMemorial.lastname"
-                        class="form-control shadow bg-body rounded" placeholder="Please enter your lastname" maxlength="25"
-                        (keypress)="returnValue($event)" required ngModel>
-                    <small class="fireError" *ngIf="lastname.touched && !lastname.valid">Please enter your last
+                    <input type="text" [(ngModel)]="service.createMemorial.lastname"
+                        class="form-control shadow bg-body rounded" placeholder={{respo24?.en}}
+                        *ngIf="editservice.numLabel==1" formControlName="lastname" maxlength="25"
+                        (keypress)="returnValue($event)" required>
+                    <input type="text" [(ngModel)]="service.createMemorial.lastname"
+                        class="form-control shadow bg-body rounded" placeholder={{respo24?.de}}
+                        *ngIf="editservice.numLabel==2" formControlName="lastname" maxlength="25"
+                        (keypress)="returnValue($event)" required>
+                    <input type="text" [(ngModel)]="service.createMemorial.lastname"
+                        class="form-control shadow bg-body rounded" placeholder={{respo24?.fr}}
+                        *ngIf="editservice.numLabel==3" formControlName="lastname" maxlength="25"
+                        (keypress)="returnValue($event)" required>
+
+                    <small class="fireError" *ngIf="lastnameNew?.touched && !lastnameNew?.valid">Please enter your last
                         name</small>
                 </div>
                 <div class="col-md-6 mb-2">
-                    <!-- <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="Password" *ngIf="editservice.numLabel==1">{{respo25?.en}}</label>
+                    <!-- <label for="Password" *ngIf="editservice.numLabel==1">{{respo25?.en}}</label>
                     <label for="Password" *ngIf="editservice.numLabel==2">{{respo25?.de}}</label>
                     <label for="Password" *ngIf="editservice.numLabel==3">{{respo25?.fr}}</label> -->
 
-                    <input type="password" autocomplete="off" name="password" #password="ngModel"
+                    <input type="password" *ngIf="editservice.numLabel==1" autocomplete="off"
                         [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
-                        placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}" required ngModel>
-                    <small class="fireError" *ngIf="password.touched && !password.valid">Password Must contain at least
-                        one number and one uppercase and lowercase letter and special characters, and at least 8 or more characters</small>
+                        placeholder={{respo25?.en}} required formControlName="password">
+                    <input type="password" *ngIf="editservice.numLabel==2" autocomplete="off"
+                        [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
+                        placeholder={{respo25?.de}} required formControlName="password">
+                    <input type="password" *ngIf="editservice.numLabel==3" autocomplete="off"
+                        [(ngModel)]="service.createMemorial.password" class="form-control shadow bg-body rounded"
+                        placeholder={{respo25?.fr}} required formControlName="password">
+
+                    <small class="fireError" *ngIf="passwordNew?.touched && !passwordNew?.valid">Password Must contain
+                        at least
+                        one number and one uppercase and lowercase letter and special characters, and at least 8 or more
+                        characters</small>
                 </div>
                 <div class="col-md-6">
-                    <!-- <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(26)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="confirm Password" *ngIf="editservice.numLabel==1">{{respo26?.en}}</label>
+                    <!-- <label for="confirm Password" *ngIf="editservice.numLabel==1">{{respo26?.en}}</label>
                     <label for="confirm Password" *ngIf="editservice.numLabel==2">{{respo26?.de}}</label>
                     <label for="confirm Password" *ngIf="editservice.numLabel==3">{{respo26?.fr}}</label> -->
 
-                    <input type="password" autocomplete="off" name="password1" #password1="ngModel"
-                        validateEqual="password" [(ngModel)]="service.createMemorial.password1"
-                        class="form-control shadow bg-body rounded" placeholder="Repeat password" required ngModel>
+                    <input type="password" autocomplete="off" *ngIf="editservice.numLabel==1" validateEqual="password"
+                        [(ngModel)]="service.createMemorial.password1" formControlName="password1"
+                        class="form-control shadow bg-body rounded" placeholder={{respo26?.en}} required>
+                    <input type="password" autocomplete="off" *ngIf="editservice.numLabel==2" validateEqual="password"
+                        [(ngModel)]="service.createMemorial.password1" formControlName="password1"
+                        class="form-control shadow bg-body rounded" placeholder={{respo26?.de}} required>
+                    <input type="password" autocomplete="off" *ngIf="editservice.numLabel==3" validateEqual="password"
+                        [(ngModel)]="service.createMemorial.password1" formControlName="password1"
+                        class="form-control shadow bg-body rounded" placeholder={{respo26?.fr}} required>
 
 
 
-                    <div class="fireError" *ngIf="password1.errors && (password1.touched || password1.dirty)">
+                    <div class="fireError"
+                        *ngIf="password1New?.errors && (password1New?.touched || password1New?.dirty)">
                         Please enter your valid password
                     </div>
                     <div class="fireError"
-                        *ngIf="service.createMemorial.password1!=service.createMemorial.password && (password1.touched || password1.dirty)">
+                        *ngIf="service.createMemorial.password1!=service.createMemorial.password && (password1New?.touched || password1New?.dirty)">
                         Please match your password
                     </div>
                 </div>
                 <div class="emailMarginText">
-                    <!-- <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="email" *ngIf="editservice.numLabel==1">{{respo27?.en}}</label>
+                    <!-- <label for="email" *ngIf="editservice.numLabel==1">{{respo27?.en}}</label>
                     <label for="email" *ngIf="editservice.numLabel==2">{{respo27?.de}}</label>
                     <label for="email" *ngIf="editservice.numLabel==3">{{respo27?.fr}}</label> -->
 
-                    <input type="email" name="email" #email="ngModel" [(ngModel)]="service.createMemorial.email"
-                        class="form-control shadow bg-body rounded" placeholder="Please enter your email address:"
-                        required maxlength="75" ngModel pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==1"
+                        formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.en}}
+                        required maxlength="75">
+                    <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==2"
+                        formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.de}}
+                        required maxlength="75">
+                    <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==3"
+                        formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.fr}}
+                        required maxlength="75">
 
-                    <div class="fireError" *ngIf="email.errors &&(email.touched || email.dirty)">
+                    <div class="fireError" *ngIf="emailNew?.errors &&(emailNew?.touched || emailNew?.dirty)">
                         Please enter your valid e-mail
-                        <div class="fireError" [hidden]="!email.errors?.pattern">
+                        <div class="fireError" [hidden]="!emailNew.errors?.pattern">
                             Email is invalid
                         </div>
                     </div>
@@ -1233,63 +1360,94 @@
 
                 </div>
                 <div class="col-md-6 mb-2">
-                    <!-- <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="streetname" *ngIf="editservice.numLabel==1">{{respo29?.en}}</label>
+                    <!-- <label for="streetname" *ngIf="editservice.numLabel==1">{{respo29?.en}}</label>
                     <label for="streetname" *ngIf="editservice.numLabel==2">{{respo29?.de}}</label>
                     <label for="streetname" *ngIf="editservice.numLabel==3">{{respo29?.fr}}</label> -->
 
-                    <input type="text" name="streetname" #streetname="ngModel"
+                    <input type="text" formControlName="streetname" *ngIf="editservice.numLabel==1"
                         [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
-                        placeholder="Street and number" maxlength="25" required ngModel>
-                    <small class="fireError" *ngIf="streetname.touched && !streetname.valid">Please enter your street
+                        placeholder={{respo29?.en}} maxlength="25" required>
+                    <input type="text" formControlName="streetname" *ngIf="editservice.numLabel==2"
+                        [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
+                        placeholder={{respo29?.de}} maxlength="25" required>
+                    <input type="text" formControlName="streetname" *ngIf="editservice.numLabel==3"
+                        [(ngModel)]="service.createMemorial.streetname" class="form-control shadow bg-body rounded"
+                        placeholder={{respo29?.fr}} maxlength="25" required>
+
+                    <small class="fireError" *ngIf="streetnameNew?.touched && !streetnameNew?.valid">Please enter your
+                        street
                         name/number</small>
                 </div>
                 <div class="col-md-6 mb-2">
-                    <!-- <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="zip code" *ngIf="editservice.numLabel==1">{{respo30?.en}}</label>
+                    <!-- <label for="zip code" *ngIf="editservice.numLabel==1">{{respo30?.en}}</label>
                     <label for="zip code" *ngIf="editservice.numLabel==2">{{respo30?.de}}</label>
                     <label for="zip code" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</label> -->
 
-                    <input type="number" name="zipcode" #zipcode="ngModel"
+                    <input type="number" formControlName="zipcode" *ngIf="editservice.numLabel==1"
                         [(ngModel)]="service.createMemorial.zipcode" class="form-control shadow bg-body rounded"
-                        placeholder="Zip code" (keypress)="returnValue1($event)" required ngModel maxlength="10">
-                    <small class="fireError" *ngIf="zipcode.touched && !zipcode.valid">Please enter zipcode</small>
+                        placeholder={{respo30?.en}} (keypress)="returnValue1($event)" required maxlength="10">
+                    <input type="number" formControlName="zipcode" *ngIf="editservice.numLabel==2"
+                        [(ngModel)]="service.createMemorial.zipcode" class="form-control shadow bg-body rounded"
+                        placeholder={{respo30?.de}} (keypress)="returnValue1($event)" required maxlength="10">
+                    <input type="number" formControlName="zipcode" *ngIf="editservice.numLabel==3"
+                        [(ngModel)]="service.createMemorial.zipcode" class="form-control shadow bg-body rounded"
+                        placeholder={{respo30?.fr}} (keypress)="returnValue1($event)" required maxlength="10">
+
+                    <small class="fireError" *ngIf="zipcodeNew?.touched && !zipcodeNew?.valid">Please enter
+                        zipcode</small>
                 </div>
                 <div class="col-md-6 mb-1">
-                    <!-- <button (click)="openDialogue(31)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(31)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="my hometown" *ngIf="editservice.numLabel==1">{{respo31?.en}}</label>
+                    <!-- <label for="my hometown" *ngIf="editservice.numLabel==1">{{respo31?.en}}</label>
                     <label for="my hometown" *ngIf="editservice.numLabel==2">{{respo31?.de}}</label>
                     <label for="my hometown" *ngIf="editservice.numLabel==3">{{respo31?.fr}}</label> -->
 
-                    <input type="text" name="hometown" #hometown="ngModel" [(ngModel)]="service.createMemorial.hometown"
-                        class="form-control shadow bg-body rounded" placeholder="My hometown" maxlength="25"
-                        (keypress)="returnValue($event)" required ngModel>
-                    <small class="fireError" *ngIf="hometown.touched && !hometown.valid">Please enter your
+                    <input type="text" [(ngModel)]="service.createMemorial.hometown" *ngIf="editservice.numLabel==1"
+                        formControlName="hometown" class="form-control shadow bg-body rounded"
+                        placeholder={{respo31?.en}} maxlength="25" (keypress)="returnValue($event)" required>
+                    <input type="text" [(ngModel)]="service.createMemorial.hometown" *ngIf="editservice.numLabel==2"
+                        formControlName="hometown" class="form-control shadow bg-body rounded"
+                        placeholder={{respo31?.de}} maxlength="25" (keypress)="returnValue($event)" required>
+                    <input type="text" [(ngModel)]="service.createMemorial.hometown" *ngIf="editservice.numLabel==3"
+                        formControlName="hometown" class="form-control shadow bg-body rounded"
+                        placeholder={{respo31?.fr}} maxlength="25" (keypress)="returnValue($event)" required>
+
+                    <small class="fireError" *ngIf="hometownNew?.touched && !hometownNew?.valid">Please enter your
                         hometown</small>
                 </div>
                 <div class="col-md-6 mb-1">
-                    <!-- <button (click)="openDialogue(32)" *ngIf="loginservice.isVisible"
+                    <button (click)="openDialogue(32)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <label for="reedim voucher" *ngIf="editservice.numLabel==1">{{respo32?.en}}</label>
+                    <!-- <label for="reedim voucher" *ngIf="editservice.numLabel==1">{{respo32?.en}}</label>
                     <label for="reedim voucher" *ngIf="editservice.numLabel==2">{{respo32?.de}}</label>
                     <label for="reedim voucher" *ngIf="editservice.numLabel==3">{{respo32?.fr}}</label> -->
 
-                    <input type="text" name="voucher" #voucher="ngModel" [(ngModel)]="service.createMemorial.voucher"
-                        class="form-control shadow rounded" style="background-color: #E9E9E9;" placeholder="Redeem voucher" maxlength="25" ngModel>
+                    <input type="text" formControlName="voucher" *ngIf="editservice.numLabel==1"
+                        [(ngModel)]="service.createMemorial.voucher" class="form-control shadow rounded"
+                        style="background-color: #E9E9E9;" placeholder={{respo32?.en}} maxlength="25">
+                    <input type="text" formControlName="voucher" *ngIf="editservice.numLabel==2"
+                        [(ngModel)]="service.createMemorial.voucher" class="form-control shadow rounded"
+                        style="background-color: #E9E9E9;" placeholder={{respo32?.de}} maxlength="25">
+                    <input type="text" formControlName="voucher" *ngIf="editservice.numLabel==3"
+                        [(ngModel)]="service.createMemorial.voucher" class="form-control shadow rounded"
+                        style="background-color: #E9E9E9;" placeholder={{respo32?.fr}} maxlength="25">
+
                     <!-- <small class="fireError" *ngIf="voucher.touched && !voucher.valid">Please enter voucher</small> -->
                 </div>
-               
+
                 <small>
                     <button (click)="openDialogue(33)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -1302,9 +1460,8 @@
                 </small>
                 <div class="col-12 tearmMargin">
                     <div class="form-check">
-                        <input class="form-check-input" name="checkedBox" #checkedBox="ngModel" type="checkbox" value=""
-                            required ngModel>
-                        <small class="fireError" *ngIf="checkedBox.touched && !checkedBox.valid"></small>
+                        <input class="form-check-input" formControlName="checkbox" type="checkbox" value="" required>
+                        <small class="fireError" *ngIf="checkedBoxNew?.touched && !checkedBoxNew?.valid"></small>
                         <label class="form-check-label" for="invalidCheck2">
                             <button (click)="openDialogue(34)" *ngIf="loginservice.isVisible"
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -1650,7 +1807,8 @@
         <!-- specification and Preview -->
         <div class="specification p-3">
             <div class="spec">
-                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
+                <img class="me-3 columnTwoImageSize"
+                    src="../../../assets/StaticAssets/Create memorial/step3/Group 333.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(35)" *ngIf="loginservice.isVisible"
@@ -1677,7 +1835,8 @@
             </div>
 
             <div class="spec">
-                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
+                <img class="me-3 columnTwoImageSize"
+                    src="../../../assets/StaticAssets/Create memorial/step3/Group 334.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(37)" *ngIf="loginservice.isVisible"
@@ -1729,7 +1888,8 @@
             </div>
 
             <div class="spec">
-                <img class="me-3 columnTwoImageSize" src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
+                <img class="me-3 columnTwoImageSize"
+                    src="../../../assets/StaticAssets/Create memorial/step3/Group 336.png">
                 <div class="subject lh-1">
                     <h5>
                         <button (click)="openDialogue(41)" *ngIf="loginservice.isVisible"
@@ -1772,12 +1932,14 @@
             </div>
         </div>
 
+        <!-- [disabled]="!createFormNew.valid || service.createMemorial.password1!=service.createMemorial.password" -->
+        <!-- (click)="register(regForm)" -->
 
         <!-- Create Account Button -->
         <div class="createBtn mt-5">
             <!-- routerLink="/thank-you" -->
-            <button type="submit" (click)="register(regForm)"
-                [disabled]="!regForm.valid || service.createMemorial.password1!=service.createMemorial.password"
+            <button type="submit" (click)="register()"
+                [disabled]="!createFormNew.valid || service.createMemorial.password1!=service.createMemorial.password"
                 class="btn btn-lg registerBtnThirdStep">
                 <span *ngIf="editservice.numLabel==1">{{respo44?.en}}</span>
                 <span *ngIf="editservice.numLabel==2">{{respo44?.de}}</span>

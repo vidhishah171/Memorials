@@ -15,6 +15,7 @@ import { LoginService } from 'src/services/login.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Console } from 'console';
 import { CanvasComponent } from './canvas/canvas.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -251,7 +252,7 @@ export class CreateMemorialComponent implements OnInit {
       this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
     } else if ((!this.ValidateFile(e.target.files[0].name))) {
       this.snackBar("Please Upload jpeg, jpg, png file format.", "alert-danger");
-    }else {
+    } else {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
@@ -271,13 +272,13 @@ export class CreateMemorialComponent implements OnInit {
 
   }
 
-  ValidateFile(name:string){
-    var ext=name.substring(name.lastIndexOf('.')+1);
-    if(ext.toLowerCase()=='png' || ext.toLowerCase()=='jpeg' || ext.toLowerCase()=='jpg'){
+  ValidateFile(name: string) {
+    var ext = name.substring(name.lastIndexOf('.') + 1);
+    if (ext.toLowerCase() == 'png' || ext.toLowerCase() == 'jpeg' || ext.toLowerCase() == 'jpg') {
       return true;
     }
     else
-    return false;
+      return false;
   }
 
 
@@ -309,7 +310,7 @@ export class CreateMemorialComponent implements OnInit {
   }
 
 
-  register(regData: any) {
+  register() {
     this.spiner.show();
     this.service.memCreatePostData().subscribe((res: any) => {
       this.spiner.hide();
@@ -845,7 +846,7 @@ export class CreateMemorialComponent implements OnInit {
     } else if (num == 44) {
       this.showNewDiv = 44;
       this.isvalid = true;
-    }else if (num == 45) {
+    } else if (num == 45) {
       this.showNewDiv = 45;
       this.isvalid = true;
     }
@@ -1032,7 +1033,97 @@ export class CreateMemorialComponent implements OnInit {
     return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32);
   }
 
+  createForm = new FormGroup({
 
+    g_firstname: new FormControl('', [Validators.required]),
+    g_lastname: new FormControl('', [Validators.required]),
+    birthplace: new FormControl(''),
+    deathplace: new FormControl(''),
+    birthname: new FormControl(''),
+    DOB: new FormControl('', [Validators.required]),
+    DOD: new FormControl('', [Validators.required]),
+    // firstname:new FormControl('',[Validators.required]),
+
+
+
+
+    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")])
+    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}")])
+
+    // password:new FormControl('',Validators.required)
+
+  })
+  createFormNew = new FormGroup({
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}")]),
+    password1: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
+    streetname: new FormControl('', [Validators.required]),
+    zipcode: new FormControl('', [Validators.required]),
+    hometown: new FormControl('', [Validators.required]),
+    voucher: new FormControl(''),
+    checkbox: new FormControl('', Validators.required)
+  })
+
+  get g_firstnameNew() { return this.createForm.get('g_firstname') }
+  get g_lastnameNew() { return this.createForm.get('g_lastname') }
+  get birthplaceNew() { return this.createForm.get('birthplace') }
+  get deathplaceNew() { return this.createForm.get('deathplace') }
+  get birthnameNew() { return this.createForm.get('birthname') }
+  get DOBNew() { return this.createForm.get('DOB') }
+  get DODNew() { return this.createForm.get('DOD') }
+
+  get firstnameNew() { return this.createFormNew.get('firstname') }
+  get lastnameNew() { return this.createFormNew.get('lastname') }
+  get passwordNew() { return this.createFormNew.get('password') }
+  get password1New() { return this.createFormNew.get('password1') }
+  get emailNew() { return this.createFormNew.get('email') }
+  get streetnameNew() { return this.createFormNew.get('streetname') }
+  get zipcodeNew() { return this.createFormNew.get('zipcode') }
+  get hometownNew() { return this.createFormNew.get('hometown') }
+  get voucherNew() { return this.createFormNew.get('voucher') }
+  get checkedBoxNew() { return this.createFormNew.get('checkbox') }
+
+
+
+
+
+
+  inputValues1(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.g_firstname = e.target.value
+  }
+  inputValues2(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.g_lastname = e.target.value
+  }
+  inputValues3(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.birthplace = e.target.value
+  }
+  inputValues4(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.deathplace = e.target.value
+  }
+  inputValues5(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.birthname = e.target.value
+  }
+  inputValues6(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.DOB = e.target.value
+  }
+  inputValues7(e: any) {
+    console.log(e.target.value);
+    this.service.createMemorial.DOD = e.target.value
+  }
+
+
+  create() {
+    console.log(this.createForm.value)
+    console.log(this.createFormNew.value)
+  }
 
 
 

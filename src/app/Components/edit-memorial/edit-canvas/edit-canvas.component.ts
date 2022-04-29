@@ -93,6 +93,8 @@ export class EditCanvasComponent implements OnInit {
   respo12: any;
   respo13: any;
   imgBack: any[];
+  respo14: any;
+  respo15: any;
 
 
 
@@ -1346,7 +1348,14 @@ openDialogue(num): void {
 } else if (num == 13) {
   this.showNewDiv = 13;
   this.isvalid = true;
+} else if (num == 14) {
+  this.showNewDiv = 14;
+  this.isvalid = true;
+}else if (num == 15) {
+  this.showNewDiv = 15;
+  this.isvalid = true;
 }
+
   }
 
 openDialogue1() {
@@ -1371,6 +1380,10 @@ editData() {
     this.respo11 = this.respo[94];
     this.respo12 = this.respo[95];
     this.respo13 = this.respo[96];
+    this.respo14 = this.respo[261];
+    this.respo15 = this.respo[261];
+
+
   });
 }
 
@@ -1414,8 +1427,8 @@ postGrabId() {
 // Save json from edit memorial
 saveEditMemorial() {
   this.spiner.show();
-  var userId = this.profileService.userDetailUserId;
-  var grabId = this.profileService.userDetail;
+  var userId = this.profileService.userDetail;
+  var grabId = this.recentService.userGrabIdData;
   var json = JSON.stringify(this.canvas);
 
   // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
