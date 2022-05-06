@@ -100,7 +100,7 @@
 
                             <input type="password" autocomplete="off" name="pwd" #pwd="ngModel" ngModel
                                 [(ngModel)]="service2.pwd" class="form-control shadow bg-body rounded"
-                                placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required>
+                                placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&])[A-Za-z\d$#@$!%*?&].{8,}" required>
                             <small class="fireError" *ngIf="pwd.touched && !pwd.valid">Password Must contain at least
                                 one number and one uppercase and lowercase letter and special characters, and at least 8 or more
                                 characters</small>
