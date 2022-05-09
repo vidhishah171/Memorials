@@ -220,7 +220,7 @@ export class EditCanvasComponent implements OnInit {
   userVitaData(data) {
     console.log(data.value);
     this.spiner.show();
-    var vitaData = { "grab_id": this.profileService.userDetail, "vita_html": data.value.vita_html };
+    var vitaData = { "grab_id": this.recentService.userGrabIdData, "vita_html": data.value.vita_html };
 
     // const formData3 = new FormData();
 
@@ -1427,7 +1427,8 @@ postGrabId() {
 // Save json from edit memorial
 saveEditMemorial() {
   this.spiner.show();
-  var userId = this.profileService.userDetail;
+  debugger
+  var userId = this.loginservice.loginAllData;
   var grabId = this.recentService.userGrabIdData;
   var json = JSON.stringify(this.canvas);
 

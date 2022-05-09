@@ -459,7 +459,7 @@
                 <label class="ageLable">AGE</label>
             </div>
             <div class="custom-slider">
-                <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event)"
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event);"
                     [options]="options"></ngx-slider>
             </div>
 
@@ -475,7 +475,7 @@
             </div>
             <div>
                 <div class="custom-slider">
-                    <ngx-slider [(value)]="value1" [(highValue)]="highValue1" (userChange)="getEvent1($event)"
+                    <ngx-slider [(value)]="value1" [(highValue)]="highValue1" (userChange)="getEvent1($event);"
                         [options]="options1"></ngx-slider>
                 </div>
             </div>
@@ -535,7 +535,7 @@
                         (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
                         <!-- {{dataSearch2.length}} -->
                         <div>
-                            <img class="searchImg1" [src]="search.path" alt="">
+                            <img class="searchImg1" [src]="search?.path" alt="">
                         </div>
                         <div class="searchName">
                             <span>{{search.fname}}</span>&nbsp;<span>{{search.lname}}</span>

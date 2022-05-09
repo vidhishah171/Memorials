@@ -152,15 +152,34 @@ export class HeaderComponent implements OnInit {
   // value1: number = 1920;
   // highValue1: number = 2022;
 
-  getEvent(data) {
-    if(data != ''){
-    this.dataSearch2 = this.dataSearch1.filter(ageSearch => ageSearch.age >= data.value && ageSearch.age <= data.highValue);
-    this.value1 = 1880;
-    this.highValue1 = 2022;
+  dataBirtMin:any = 1880;
+  dataBirtmax:any = 2022;
+  dataMin:any = 0;
+  dataMax:any = 150;
+
+  newEvent(){
+    this.dataSearch2 = this.dataSearch1.filter(ageSearch => ageSearch.age >= this.dataMin && ageSearch.age <= this.dataMax && this.dataBirtMin <= Number(ageSearch.birthdate.split('.')[2]) && this.dataBirtmax >= Number(ageSearch.birthdate.split('.')[2]));
     this.dateSlider = '';
     this.dateSlider1 = '';
     this.userBirthLocation = "";
     this.userDeathLocation = "";
+
+
+  }
+
+  getEvent(data) {
+    if(data != ''){
+      this.dataMin = data.value;
+      this.dataMax = data.highValue;
+      this.newEvent();
+
+    // this.dataSearch2 = this.dataSearch1.filter(ageSearch => ageSearch.age >= data.value && ageSearch.age <= data.highValue);
+    // this.value1 = 1880;
+    // this.highValue1 = 2022;
+    // this.dateSlider = '';
+    // this.dateSlider1 = '';
+    // this.userBirthLocation = "";
+    // this.userDeathLocation = "";
   }else{
     this.searchMemorialCity1();
   }
@@ -168,13 +187,17 @@ export class HeaderComponent implements OnInit {
   getEvent1(dataBirt) {
     
     if(dataBirt != ''){
-    this.dataSearch2 = this.dataSearch1.filter(item => dataBirt.value <= Number(item.birthdate.split('.')[2]) && dataBirt.highValue >= Number(item.birthdate.split('.')[2]))
-     this.value = 0;
-    this.highValue = 150;
-    this.dateSlider = '';
-    this.dateSlider1 = '';
-    this.userBirthLocation = "";
-    this.userDeathLocation = "";
+      this.dataBirtMin = dataBirt.value;
+      this.dataBirtmax = dataBirt.highValue;
+      this.newEvent();
+
+    // this.dataSearch2 = this.dataSearch1.filter(item => dataBirt.value <= Number(item.birthdate.split('.')[2]) && dataBirt.highValue >= Number(item.birthdate.split('.')[2]))
+    //  this.value = 0;
+    // this.highValue = 150;
+    // this.dateSlider = '';
+    // this.dateSlider1 = '';
+    // this.userBirthLocation = "";
+    // this.userDeathLocation = "";
   }else{
     this.searchMemorialCity1();
   }
@@ -185,10 +208,10 @@ export class HeaderComponent implements OnInit {
     var birthdate = formatDate(birthDate, 'dd.MM.yyyy', 'en_US');
 
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.birthdate === birthdate);
-    this.value = 0;
-    this.highValue = 150;
-    this.value1 = 1880;
-    this.highValue1 = 2022;
+    // this.value = 0;
+    // this.highValue = 150;
+    // this.value1 = 1880;
+    // this.highValue1 = 2022;
     this.dateSlider1 = '';
     this.userBirthLocation = "";
     this.userDeathLocation = "";
@@ -202,12 +225,12 @@ export class HeaderComponent implements OnInit {
     var deathdate = formatDate(deathDate, 'dd.MM.yyyy', 'en_US');
 
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.deathdate === deathdate);
-    this.value = 0;
-    this.highValue = 150;
-    this.value1 = 1880;
-    this.highValue1 = 2022;
+    // this.value = 0;
+    // this.highValue = 150;
+    // this.value1 = 1880;
+    // this.highValue1 = 2022;
     this.dateSlider = '';
-    // this.dateSlider1 = '';
+    // // this.dateSlider1 = '';
     this.userBirthLocation = "";
     this.userDeathLocation = "";
   }else{
@@ -218,10 +241,10 @@ export class HeaderComponent implements OnInit {
     
     if(birthLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.birthtown === birthLocation);
-    this.value = 0;
-    this.highValue = 150;
-    this.value1 = 1880;
-    this.highValue1 = 2022;
+    // this.value = 0;
+    // this.highValue = 150;
+    // this.value1 = 1880;
+    // this.highValue1 = 2022;
     this.dateSlider = '';
     this.dateSlider1 = '';
     this.userDeathLocation = "";
@@ -233,10 +256,10 @@ export class HeaderComponent implements OnInit {
     
     if(deathLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.starvetown === deathLocation);
-    this.value = 0;
-    this.highValue = 150;
-    this.value1 = 1880;
-    this.highValue1 = 2022;
+    // this.value = 0;
+    // this.highValue = 150;
+    // this.value1 = 1880;
+    // this.highValue1 = 2022;
     this.dateSlider = '';
     this.dateSlider1 = '';
     this.userBirthLocation = "";

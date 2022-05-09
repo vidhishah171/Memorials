@@ -894,7 +894,7 @@
                         placeholder={{respo15?.de}} name="vita_html" [(ngModel)]="vitaData" rows="5"></textarea>
                     <textarea maxlength="250" *ngIf="editservice.numLabel==3" class="form-control"
                         placeholder={{respo15?.fr}} name="vita_html" [(ngModel)]="vitaData" rows="5"></textarea>
-                    <button (click)="openDialogue(15)"
+                    <button (click)="openDialogue(15)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
