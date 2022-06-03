@@ -31,6 +31,35 @@
     opacity: 0.7;
 }
 
+#headerSearchLable{
+    margin-top: 1%;
+    left: 17%;
+}
+#headerSearchLable1{
+    margin-top: 6%;
+    left: 17%;
+}
+#headerSearchLable2{
+    margin-top: 14%;
+    left: 17%;
+}
+#headerSearchLable3{
+    margin-top: 21%;
+    left: 17%;
+}
+#headerSearchLable4{
+    margin-top: 30%;
+    left: 17%;
+}
+#headerSearchLable5{
+    margin-top: 37%;
+    left: 17%;
+}
+#headerSearchLable6{
+    margin-top: 44%;
+    left: 17%;
+}
+
 /* For div css */
 .forDiv{
     position: relative;

@@ -49,21 +49,21 @@
 
                     <div class="row fullDiv">
                         <div class="col-4">
-                            <div class="candleAlign">
+                            <div class="candleAlign" (click)="child.changeCanvas();">
                                 <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 446.png"
                                     alt="">
                                 <p class="candleFontColor">LIGHT A CANDLE</p>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="candleAlign">
+                            <div class="candleAlign" (click)="child.changeCanvas();">
                                 <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 447.png"
                                     alt="">
                                 <p class="candleFontColor">LEAVE A GIFT</p>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="candleAlign">
+                            <div class="candleAlign" (click)="openCondolencePopup()">
                                 <img class="corouseImg" src="../../../assets/StaticAssets/Visitor Mode/Group 448.png"
                                     alt="">
                                 <p class="candleFontColorNew">LEAVE CONDOLONCES</p>
@@ -91,7 +91,7 @@
 
     <!-- Buttons -->
     <div class="container content2">
-        <div class="box1">
+        <div>
             <div class="mt-5">
                 <div class="pt-5">
                     <button class="btn btn-outline-secondary ms-2 btnColor ">Life Story</button>
@@ -106,11 +106,12 @@
             </div>
 
             <!-- Canvas component -->
-            <div style="height: 70vw; width: 100%;" class="container pt-5">
-                <app-visitor-canvas></app-visitor-canvas>
+            <div style="height: 70vw; margin-left: 6%; width: 100%;" class="container pt-5">
+                <!-- <app-visitor-canvas *ngIf="!changeComponent"></app-visitor-canvas> -->
+                <app-visitor-canvas-new #child></app-visitor-canvas-new>
             </div>
         </div>
-        <div class="box2">
+        <!-- <div class="box2">
             <div class="mt-5">
                 <div class="recentCsndleSectionMain">
                     <span class="recentCsndleSection"><img class="recentCsndleSectionImg"
@@ -132,7 +133,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
     <!-- Photo/video gallery -->
@@ -257,7 +258,7 @@
                                             <span class="viewEntire" (click)="condolencesComment(item)">View Entire Memory&nbsp;&nbsp;<img class="rightImg" src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png" alt=""></span>
                                             <span style="float: right;"><img class="deletrImg"
                                                     src="../../../assets/StaticAssets/Visitor Mode/delete.png"
-                                                    alt=""></span>
+                                                    alt="" (click)="deleteCondolence(item.comment_id)" *ngIf="showTrashIcon"></span>
                                         </div>
                                     </div>
                                     

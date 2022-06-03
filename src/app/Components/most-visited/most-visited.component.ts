@@ -123,6 +123,9 @@ export class MostVisitedComponent implements OnInit {
 
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
     }
   }
 
@@ -198,6 +201,9 @@ export class MostVisitedComponent implements OnInit {
 
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
       
     }
   }

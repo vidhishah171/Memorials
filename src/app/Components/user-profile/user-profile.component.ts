@@ -207,7 +207,15 @@ export class UserProfileComponent implements OnInit {
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
         console.log(userRes);
-        this.getUserMemoData = userRes["User Memorials"];
+
+        let tempArray:any[] = userRes["User Memorials"];
+        tempArray = tempArray.sort((a,b)=>
+           a.grab_id - b.grab_id
+        )
+        this.getUserMemoData = tempArray.reverse();
+
+
+        // this.getUserMemoData = userRes["User Memorials"];
         for(let item of this.getUserMemoData){
           item.path= item.path +'?v='+this.service.index++;
         }

@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -8,6 +9,8 @@ import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
+import { VisitorCanvasNewComponent } from './visitor-canvas-new/visitor-canvas-new.component';
+import { VisitorCondolencePopupComponent } from './visitor-condolence-popup/visitor-condolence-popup.component';
 
 @Component({
   selector: 'app-visitor-mode',
@@ -15,6 +18,9 @@ import { UserProfileService } from 'src/services/user-profile.service';
   styleUrls: ['./visitor-mode.component.css']
 })
 export class VisitorModeComponent implements OnInit {
+
+  @ViewChild(VisitorCanvasNewComponent, {static : true}) child : VisitorCanvasNewComponent;
+
 
   lovedPersonData: any;
   Memorials: any;// Recent Memorial Variable
@@ -42,6 +48,7 @@ export class VisitorModeComponent implements OnInit {
   userpic: any;
   memorialDetails: any;
   memorialDetails1: any;
+  showTrashIcon:boolean=false;
 
 
   constructor(
@@ -52,6 +59,8 @@ export class VisitorModeComponent implements OnInit {
     private router: Router,
     public snack: MatSnackBar,
     private spiner: NgxSpinnerService,
+    public dialog: MatDialog,
+
 
 
 
@@ -64,14 +73,32 @@ export class VisitorModeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getrecentMemorials();
+    this.getData2();
     this.getData1();
     this.getData();
     this.postGrabId();
     this.getPhotoVideo();
     this.myProfileData();
     this.getMeorialDetail();
+    this.child.postGrabId();
+
+    if(this.service.userUserIdData == this.loginservice.loginAllData){
+      this.showTrashIcon = true;
+    }
   }
+
+  getData2() {
+    debugger
+    var userLoginDataNew1 = localStorage.getItem('myData2')
+    var loginAfterRefreshNew1 = JSON.parse(userLoginDataNew1);
+
+    this.service.userUserIdData = loginAfterRefreshNew1;
+    // this.getUserMemorial();
+  }
+  
+
   getData1() {
+    debugger
     var userLoginDataNew = localStorage.getItem('myData1')
     var loginAfterRefreshNew = JSON.parse(userLoginDataNew);
 
@@ -178,10 +205,20 @@ export class VisitorModeComponent implements OnInit {
    else
    item.showFull=true;
 }
-
+  deleteCondolence(condoId){
+    debugger
+    var condoIdNew={
+      "comment_id" : `${condoId}`
+    }
+    this.profileService.deleteCondo(condoIdNew).subscribe(condoRes=>{
+      debugger;
+      console.log(condoRes);
+    })
+}
 
   // For user data retrive
   postGrabId() {
+    debugger
     var jsonData = this.service.userGrabIdData2
 
     var formdata = new FormData();
@@ -252,6 +289,23 @@ export class VisitorModeComponent implements OnInit {
   }
   condolenceScroll(el: HTMLElement) {
     el.scrollIntoView();
+  }
+
+  changeComponent : boolean= false;
+  changeCanvas(){
+    this.changeComponent = true;
+    // this.child.postGrabId();
+  }
+
+  openCondolencePopup(){
+    const dialogRef = this.dialog.open(VisitorCondolencePopupComponent,{
+      width:'500px',
+      // height:'500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

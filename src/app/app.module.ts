@@ -64,6 +64,8 @@ import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgo
 import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
 import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas/visitor-canvas.component';
 import { MemoryImagesComponent } from './Components/memory-images/memory-images.component';
+import { VisitorCanvasNewComponent } from './Components/visitor-mode/visitor-canvas-new/visitor-canvas-new.component';
+import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visitor-condolence-popup/visitor-condolence-popup.component';
 
 
 
@@ -107,6 +109,8 @@ import { MemoryImagesComponent } from './Components/memory-images/memory-images.
     VisitorModeComponent,
     VisitorCanvasComponent,
     MemoryImagesComponent,
+    VisitorCanvasNewComponent,
+    VisitorCondolencePopupComponent,
   ],
   imports: [
     BrowserModule,

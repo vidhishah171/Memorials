@@ -135,7 +135,24 @@ export class UserAccountComponent implements OnInit {
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        this.getUserMemoData = userRes["User Memorials"];
+        let tempArray:any[] = userRes["User Memorials"];
+        tempArray = tempArray.sort((a,b)=>
+           a.grab_id - b.grab_id
+        )
+        this.getUserMemoData = tempArray.reverse();
+
+        // let firstElement = tempArray.splice(0,1);
+        // let newArray = tempArray.slice(0,tempArray.length);
+        // newArray.push(firstElement[0]);
+        // this.getUserMemoData = newArray;
+
+
+
+
+        // this.getUserMemoData = userRes["User Memorials"];
+        
+
+        // this.getUserMemoData = this.getUserMemoData.reverse();
         this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
         for(let item of this.getUserMemoData){
           item.path= item.path +'?v='+this.service.index++;

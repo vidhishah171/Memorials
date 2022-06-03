@@ -23,7 +23,14 @@
     "secure": false,
     "changeOrigin": true,
     "pathRewrite":                        {"^/userProfile": ""}
+  },
+  "/delete_kondolenz": {
+    "target": "https://h2913228.stratoserver.net/API/public/delete_kondolenz",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                        {"^/delete_kondolenz": ""}
   }
+
 
 
   }

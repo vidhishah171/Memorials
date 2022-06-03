@@ -16,11 +16,11 @@ import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 
 @Component({
-  selector: 'app-edit-canvas',
-  templateUrl: './edit-canvas.component.html',
-  styleUrls: ['./edit-canvas.component.css']
+  selector: 'app-visitor-canvas-new',
+  templateUrl: './visitor-canvas-new.component.html',
+  styleUrls: ['./visitor-canvas-new.component.css']
 })
-export class EditCanvasComponent implements OnInit {
+export class VisitorCanvasNewComponent implements OnInit {
 
   vitaData: any;
   data: any = {};
@@ -126,7 +126,7 @@ export class EditCanvasComponent implements OnInit {
   //   this.service.saveCanvas = image.src;
   // }
   ngAfterViewInit() {
-    this.showSecMenu(1);
+    // this.showSecMenu(1);
     this.showSubMenuItems(1);
   }
 
@@ -147,6 +147,8 @@ export class EditCanvasComponent implements OnInit {
 
     this.postGrabId();
     this.displayVitaText();
+    this.showSecMenu(1);
+
   }
 
   public textString: string;
@@ -162,12 +164,20 @@ export class EditCanvasComponent implements OnInit {
   DOD1: any;
 
 
+  changeComponent : boolean= false;
+  changeCanvas(){
+    debugger
+    this.changeComponent = true;
+    // this.postGrabId();
+  }
+
+
   // For refresh user
 
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
-
+    debugger
     this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
     this.getUserMemorial();
   }
@@ -194,14 +204,16 @@ export class EditCanvasComponent implements OnInit {
     var fetchData = { "grab_id": this.recentService.userGrabIdData }
     this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
       console.log(response);
-      if (response.details.vita_html !== "undefined") {
-        this.vitaData = response.details.vita_html;
+      if (response?.details?.vita_html !== "undefined") {
+        this.vitaData = response?.details?.vita_html;
         // this.spiner.hide();
-      } else if (response.details.vita_html == "undefined") {
+      } else if (response?.details?.vita_html == "undefined") {
         this.vitaData = '';
       }
     })
   }
+
+  
 
   // Open vita text input
 
@@ -1404,7 +1416,8 @@ export class EditCanvasComponent implements OnInit {
 
 
   postGrabId() {
-    var jsonData = this.recentService.userGrabIdData;
+    debugger
+    var jsonData = this.recentService.userGrabIdData2;
     // this.spiner.show();
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
@@ -1421,7 +1434,7 @@ export class EditCanvasComponent implements OnInit {
           // this.spiner.hide();
 
           // code for hide previous json
-          var dummy = this.canvas.getObjects().forEach(function (key) {
+          this.canvas.getObjects().forEach(function (key) {
             key.lockMovementX = true;
             key.lockMovementY = true;
             key.lockRotation = true;
@@ -1439,8 +1452,8 @@ export class EditCanvasComponent implements OnInit {
   saveEditMemorial() {
     this.spiner.show();
     debugger
-    var userId = this.loginservice.loginAllData;
-    var grabId = this.recentService.userGrabIdData;
+    var userId = this.recentService.userUserIdData;
+    var grabId = this.recentService.userGrabIdData2;
     var json = JSON.stringify(this.canvas);
 
     // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
@@ -1462,7 +1475,7 @@ export class EditCanvasComponent implements OnInit {
 
 
     const formData = new FormData();
-
+debugger;
 
     formData.append('grab_id', grabId);
     formData.append('image', 'Image');
@@ -1481,7 +1494,7 @@ export class EditCanvasComponent implements OnInit {
       if (result.status == "success") {
         this.snackBar('Your memory has been successfully updated', 'alert-green');
         setTimeout(() => {
-          this.router.navigate(['/user-account']);
+          this.router.navigate(['/home']);
         }, 2500);
 
       }
@@ -1503,6 +1516,8 @@ export class EditCanvasComponent implements OnInit {
 
   };
 
+
+  
 }
 
 function movingRotatingWithinBounds(e: fabric.IEvent) {

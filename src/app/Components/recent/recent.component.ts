@@ -41,6 +41,7 @@ export class RecentComponent implements OnInit {
       .subscribe(
         (recentMemorial: any) => {
           if (recentMemorial) {
+            debugger
             this.Memorials = recentMemorial.Memorials;
             for(let item of this.Memorials){
               item.path= item.path+'?v='+this.service.indexNew++;
@@ -132,7 +133,7 @@ export class RecentComponent implements OnInit {
 
   recentMemorialGrabId(data, data1) {
     console.log(data);
-
+debugger
     if (data) {
       this.service.userGrabIdData2 = data;
       this.service.userUserIdData = data1;
@@ -141,6 +142,9 @@ export class RecentComponent implements OnInit {
 
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
 
     }
   }

@@ -75,7 +75,7 @@ export class VisitorCanvasComponent implements OnInit {
   postGrabId() {
     
     var jsonData = this.service.userGrabIdData2;
-
+debugger
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
 
@@ -84,14 +84,23 @@ export class VisitorCanvasComponent implements OnInit {
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
         
-        // var jsonData1 = Response.Details[0].canvas_json;
-        this.jsonData1 = Response.Details[0].path;
+        var jsonData1 = Response.Details[0].canvas_json;
+        // this.jsonData1 = Response.Details[0].path;
         
-        // this.canvas.loadFromJSON(jsonData1, () => {
+        this.canvas.loadFromJSON(jsonData1, () => {
 
-        //   // making sure to render canvas at the end
-        //   this.canvas.renderAll();
-        // })
+          // making sure to render canvas at the end
+          this.canvas.renderAll();
+
+           // code for hide previous json
+            this.canvas.getObjects().forEach(function (key) {
+            key.lockMovementX = true;
+            key.lockMovementY = true;
+            key.lockRotation = true;
+            key.hasBorders = false;
+            key.hasControls = false;
+          })
+        })
       }
     })
   }

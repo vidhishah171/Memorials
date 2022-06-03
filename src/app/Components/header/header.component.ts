@@ -78,6 +78,13 @@ export class HeaderComponent implements OnInit {
 
   maxDate = new Date();
   respo9: any;
+  respo10: any;
+  respo11: any;
+  respo12: any;
+  respo13: any;
+  respo14: any;
+  respo15: any;
+  respo16: any;
 
 
   constructor(
@@ -119,6 +126,7 @@ export class HeaderComponent implements OnInit {
     this.homeservice.get(formData2).subscribe((res: any) => {
       // JSON.parse(res);
       this.spiner.hide();
+      debugger
 
       this.dataSearch = res;
       this.dataSearch1 = res.Memorials;
@@ -238,7 +246,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent4(birthLocation) {
-    
+    debugger
     if(birthLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.birthtown === birthLocation);
     // this.value = 0;
@@ -253,7 +261,7 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent5(deathLocation) {
-    
+    debugger 
     if(deathLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.starvetown === deathLocation);
     // this.value = 0;
@@ -293,6 +301,9 @@ export class HeaderComponent implements OnInit {
 
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
     }
   }
 
@@ -321,6 +332,9 @@ export class HeaderComponent implements OnInit {
 
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
     }
   }
 
@@ -355,9 +369,31 @@ export class HeaderComponent implements OnInit {
     }else if (num == 9) {
       this.showNewDiv = 9;
       this.isvalid = true;
+    }else if (num == 10) {
+      this.showNewDiv = 10;
+      this.isvalid = true;
+    }else if (num == 11) {
+      this.showNewDiv = 11;
+      this.isvalid = true;
+    }else if (num == 12) {
+      this.showNewDiv = 12;
+      this.isvalid = true;
+    }else if (num == 13) {
+      this.showNewDiv = 13;
+      this.isvalid = true;
+    }else if (num == 14) {
+      this.showNewDiv = 14;
+      this.isvalid = true;
+    }else if (num == 15) {
+      this.showNewDiv = 15;
+      this.isvalid = true;
+    }else if (num == 16) {
+      this.showNewDiv = 16;
+      this.isvalid = true;
     }
   }
 
+  // 16
 
   openDialogue1() {
     this.isvalid = false;
@@ -376,9 +412,13 @@ export class HeaderComponent implements OnInit {
       this.respo7 = this.respo[2];
       this.respo8 = this.respo[243];
       this.respo9 = this.respo[255];
-
-
-
+      this.respo10 = this.respo[262];
+      this.respo11 = this.respo[263];
+      this.respo12 = this.respo[264];
+      this.respo13 = this.respo[265];
+      this.respo14 = this.respo[266];
+      this.respo15 = this.respo[267];
+      this.respo16 = this.respo[268];
     });
   }
 

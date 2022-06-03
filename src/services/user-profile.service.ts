@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class UserProfileService {
   userProfileApi="https://h2913228.stratoserver.net/API/public/user_created_memorial";
   myProfile="https://h2913228.stratoserver.net/API/public/user_profile";
   getMemorialDetailsApi="https://h2913228.stratoserver.net/API/public/memorialDetails";
-
+  saveCondoAPI="https://h2913228.stratoserver.net/API/public/create_kondolenz";
+  CondoAPIDelete="https://h2913228.stratoserver.net/API/public/delete_kondolenz";
 
   userDetail:any;
   userDetailUserId:any;
@@ -44,6 +46,20 @@ export class UserProfileService {
   getMemorialDetails(grabId){
     
     return this.http.post(this.getMemorialDetailsApi,grabId)
+  }
+
+  saveCondo(condoData){
+    debugger
+    return this.http.post(this.saveCondoAPI,condoData)
+  }
+
+  deleteCondo(condoId:any){
+    debugger;
+    // for server
+    return this.http.delete(this.CondoAPIDelete,condoId);
+
+    // for local
+    // return this.http.post('/delete_kondolenz',condoId);
   }
 
 }

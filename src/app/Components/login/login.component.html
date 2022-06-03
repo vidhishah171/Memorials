@@ -32,11 +32,11 @@
                             <textarea matInput name="en" [(ngModel)]="respo1.en"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>dutch</mat-label>
+                            <mat-label>German</mat-label>
                             <textarea matInput name="de" [(ngModel)]="respo1.de"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>french</mat-label>
+                            <mat-label>French</mat-label>
                             <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
                         </mat-form-field>
                     </form>
@@ -70,11 +70,11 @@
                             <textarea matInput name="en" [(ngModel)]="respo2.en"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>dutch</mat-label>
+                            <mat-label>German</mat-label>
                             <textarea matInput name="de" [(ngModel)]="respo2.de"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>french</mat-label>
+                            <mat-label>French</mat-label>
                             <textarea matInput name="fr" [(ngModel)]="respo2.fr"></textarea>
                         </mat-form-field>
                     </form>
@@ -107,11 +107,11 @@
                             <textarea matInput name="en" [(ngModel)]="respo3.en"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>dutch</mat-label>
+                            <mat-label>German</mat-label>
                             <textarea matInput name="de" [(ngModel)]="respo3.de"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>french</mat-label>
+                            <mat-label>French</mat-label>
                             <textarea matInput name="fr" [(ngModel)]="respo3.fr"></textarea>
                         </mat-form-field>
                     </form>
@@ -158,9 +158,12 @@
                                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                     alt=""></span></button>
 
-                        <div class="fireError" *ngIf='password.invalid && password?.touched'>Password Must contain at
+                        <!-- <div class="fireError" *ngIf='password.invalid && password?.touched'>Password Must contain at
                             least
-                            one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+                            one number and one uppercase and lowercase letter, and at least 8 or more characters</div> -->
+
+                            <div class="fireError" *ngIf='password?.invalid && password?.touched'>Please enter password</div>
+
                         <br>
 
                         <button id="loginLabel3" (click)="openDialogue(4)" *ngIf="service.isVisible"
@@ -227,11 +230,11 @@
                                 <textarea matInput name="en" [(ngModel)]="respo7.en"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>dutch</mat-label>
+                                <mat-label>German</mat-label>
                                 <textarea matInput name="de" [(ngModel)]="respo7.de"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>french</mat-label>
+                                <mat-label>French</mat-label>
                                 <textarea matInput name="fr" [(ngModel)]="respo7.fr"></textarea>
                             </mat-form-field>
                         </form>
@@ -255,11 +258,11 @@
                                 <textarea matInput name="en" [(ngModel)]="respo8.en"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>dutch</mat-label>
+                                <mat-label>German</mat-label>
                                 <textarea matInput name="de" [(ngModel)]="respo8.de"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>french</mat-label>
+                                <mat-label>French</mat-label>
                                 <textarea matInput name="fr" [(ngModel)]="respo8.fr"></textarea>
                             </mat-form-field>
                         </form>
@@ -284,11 +287,11 @@
                                 <textarea matInput name="en" [(ngModel)]="respo4.en"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>dutch</mat-label>
+                                <mat-label>German</mat-label>
                                 <textarea matInput name="de" [(ngModel)]="respo4.de"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>french</mat-label>
+                                <mat-label>French</mat-label>
                                 <textarea matInput name="fr" [(ngModel)]="respo4.fr"></textarea>
                             </mat-form-field>
                         </form>
@@ -313,11 +316,11 @@
                                 <textarea matInput name="en" [(ngModel)]="respo5.en"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>dutch</mat-label>
+                                <mat-label>German</mat-label>
                                 <textarea matInput name="de" [(ngModel)]="respo5.de"></textarea>
                             </mat-form-field>
                             <mat-form-field class="example-full-width">
-                                <mat-label>french</mat-label>
+                                <mat-label>French</mat-label>
                                 <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
                             </mat-form-field>
                         </form>
@@ -358,11 +361,11 @@
                             <textarea matInput name="en" [(ngModel)]="respo6.en"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>dutch</mat-label>
+                            <mat-label>German</mat-label>
                             <textarea matInput name="de" [(ngModel)]="respo6.de"></textarea>
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <mat-label>french</mat-label>
+                            <mat-label>French</mat-label>
                             <textarea matInput name="fr" [(ngModel)]="respo6.fr"></textarea>
                         </mat-form-field>
                     </form>

@@ -76,6 +76,7 @@
 .candleAlign{
     text-align: center;
     margin-top: 4%;
+    cursor: pointer;
 }
 .candleAlign1{
     width: 84px;
@@ -89,6 +90,7 @@
 .candleFontColor{
     font-size: 0.5rem;
     color: #B5B5B5;
+    cursor: pointer;
 }
 .candleFontColorNew{
     font-size: 0.5rem;
@@ -112,10 +114,11 @@
     height: 70vw;
 }
 .box1{
-    width: 47%;
+    width: 58%;
 }
 .box2{
-   width: 53%;
+   width: 40%;
+   margin-top: 7%;
 }
 .recentCsndleSection{
     color: #CF6363;

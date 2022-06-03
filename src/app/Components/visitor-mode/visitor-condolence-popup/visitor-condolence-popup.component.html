@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <button class="btn btn closeBtn" [mat-dialog-close]=true>X</button>
+    </div>
+    <div class="pt-5">
+        <div>
+            <label class="lableText">Add condolences</label>
+        </div>
+        <form #myCondoForm1="ngForm">
+            <div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Add condolences</mat-label>
+                    <textarea matInput name="condoText" [(ngModel)]="condoText" ngModel
+                        placeholder="Add condolence..."></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div>
+        <button class="btn btn-outline-secondary saveCondolences" [mat-dialog-close]=true
+            (click)="saveCondolence(myCondoForm1)">Save</button>
+        <button class="btn btn-outline-secondary cancelCondolences" [mat-dialog-close]=true>Cancel</button>
+    </div>
+</div>

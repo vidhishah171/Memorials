@@ -1,11 +1,11 @@
-<div class="content2 w-100 p-1 ">
+<div class="content2 p-1 ">
     <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
 
     <div class="box1">
-        <!-- <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"></canvas> -->
-            <!-- (drop)="DropImageToCan($event)" -->
+        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"></canvas>
+        <!-- (drop)="DropImageToCan($event)" -->
 
-        <img [src]="jsonData1" alt="" style="width: 100%; height: auto;">
+        <!-- <img [src]="jsonData1" alt="" style="width: 100%; height: auto;"> -->
 
         <!-- For vita text -->
         <div class="row">
@@ -17,7 +17,34 @@
         </div>
         <!-- Edit memorial page -->
         <div>
-            <button class="btn btn-outline-danger" *ngIf="loginService.isUser" (click)="goesToEditMemo()">Edit Memorial</button>
+            <button class="btn btn-outline-danger" *ngIf="loginService.isUser" (click)="goesToEditMemo()">Edit
+                Memorial</button>
+        </div>
+    </div>
+
+    <div class="box2 p-1">
+        <div class="menu">
+            <div class="menuNew">
+                <div class="recentCsndleSectionMain">
+                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg"
+                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt=""> Recent Candles</span>
+                    <span class="recentCsndleSectionShow">Show All <img class="frontImage"
+                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
+
+                    </div>
+                </div>
+                <div class="recentCsndleSectionMain1">
+                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg1"
+                            src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
+                        Recent Gifts</span>
+                    <span class="recentCsndleSectionShow1">Show All <img class="frontImage"
+                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

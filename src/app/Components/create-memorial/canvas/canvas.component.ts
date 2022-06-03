@@ -216,6 +216,7 @@ public GetData()
       scaleY: 0.4,
       fontWeight: 'bold',
       hasRotatingPoint: true,
+      
     });
 
     this.canvas.add(text);
@@ -266,6 +267,8 @@ public GetData()
 
 
 
+    var that = this;
+
 
     //Delete object
     var Obj = new fabric.Control({
@@ -275,22 +278,43 @@ public GetData()
       y: -0.5,
       // offsetY: 16,
       cursorStyle: 'pointer',
-      mouseUpHandler: this.deleteObject,
+      mouseUpHandler: function deleteObject(eventData, transform): boolean {
+        // this.count--;
+        debugger;
+        var ss= that;
+        var target = transform.target;
+        var canvas = target.canvas;
+        canvas.remove(target);
+        if(that.canddleImages){
+          that.count--;
+          that.service.count1 = that.count;
+        }
+
+        canvas.requestRenderAll();
+        return true;
+      }
+      
       // cornerSize=30
+      
     });
+    
+
     //Obj['cornerSize']=40;
 
     fabric.Object.prototype.controls.deleteControl = Obj;
+
   }
+ 
 
   deleteObject(eventData, transform): boolean {
+    // this.count--;
     var target = transform.target;
     var canvas = target.canvas;
     canvas.remove(target);
     canvas.requestRenderAll();
     return true;
-
   }
+  
   renderIcon(ctx, left, top, styleOverride, fabricObject): boolean {
     // var deleteIcon="../../../../assets/StaticAssets/trash 3.svg";
     var deleteIcon = "../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
@@ -365,7 +389,12 @@ public GetData()
   }
 
 
+count : any = 0;
 
+countImage(){
+  this.count++;
+  this.service.count1 = this.count;
+}
 
 
   //------------------------------
@@ -375,7 +404,8 @@ public GetData()
   }
   addImageToCanvas(decImages: any) {
 
-
+  
+   
     // let self = this;
     // fabric.util.requestAnimFrame(function render() {
     //   self.canvas.renderAll();

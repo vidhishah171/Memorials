@@ -29,6 +29,8 @@ export class CreateMemorialService {
   stepNumber:any;
   vitaData:any;
 
+  count1:any;
+
   createMemorial:createMemorial=<createMemorial>{};
   memorialimage:memorialimage=<memorialimage>{};
   // vita:vita=<vita>{}
