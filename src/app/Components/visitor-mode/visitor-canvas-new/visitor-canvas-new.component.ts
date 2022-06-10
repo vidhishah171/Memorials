@@ -133,6 +133,8 @@ export class VisitorCanvasNewComponent implements OnInit {
 
 
   ngOnInit(): void {
+this.displayVitaText();
+
     this.getCanddleImages();
     this.getURNSImages();
     this.getFlowerImages();
@@ -146,7 +148,6 @@ export class VisitorCanvasNewComponent implements OnInit {
     this.getData();
 
     this.postGrabId();
-    this.displayVitaText();
     this.showSecMenu(1);
 
   }
@@ -166,7 +167,6 @@ export class VisitorCanvasNewComponent implements OnInit {
 
   changeComponent : boolean= false;
   changeCanvas(){
-    debugger
     this.changeComponent = true;
     // this.postGrabId();
   }
@@ -177,7 +177,6 @@ export class VisitorCanvasNewComponent implements OnInit {
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
-    debugger
     this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
     this.getUserMemorial();
   }
@@ -201,7 +200,7 @@ export class VisitorCanvasNewComponent implements OnInit {
   // For display vita text
   displayVitaText() {
     // this.spiner.show();
-    var fetchData = { "grab_id": this.recentService.userGrabIdData }
+    var fetchData = { "grab_id": this.recentService.userGrabIdData2 }
     this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
       console.log(response);
       if (response?.details?.vita_html !== "undefined") {
@@ -232,7 +231,7 @@ export class VisitorCanvasNewComponent implements OnInit {
   userVitaData(data) {
     console.log(data.value);
     this.spiner.show();
-    var vitaData = { "grab_id": this.recentService.userGrabIdData, "vita_html": data.value.vita_html };
+    var vitaData = { "grab_id": this.recentService.userGrabIdData2, "vita_html": data.value.vita_html };
 
     // const formData3 = new FormData();
 
@@ -1416,7 +1415,6 @@ export class VisitorCanvasNewComponent implements OnInit {
 
 
   postGrabId() {
-    debugger
     var jsonData = this.recentService.userGrabIdData2;
     // this.spiner.show();
     var formdata = new FormData();
@@ -1426,7 +1424,6 @@ export class VisitorCanvasNewComponent implements OnInit {
       console.log(Response);
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
-        debugger
         var jsonData1 = Response.Details[0].canvas_json;
         this.canvas.loadFromJSON(jsonData1, () => {
           // making sure to render canvas at the end
@@ -1451,7 +1448,6 @@ export class VisitorCanvasNewComponent implements OnInit {
   // Save json from edit memorial
   saveEditMemorial() {
     this.spiner.show();
-    debugger
     var userId = this.recentService.userUserIdData;
     var grabId = this.recentService.userGrabIdData2;
     var json = JSON.stringify(this.canvas);
@@ -1475,8 +1471,7 @@ export class VisitorCanvasNewComponent implements OnInit {
 
 
     const formData = new FormData();
-debugger;
-
+    
     formData.append('grab_id', grabId);
     formData.append('image', 'Image');
     formData.append('image_type_id', '7');

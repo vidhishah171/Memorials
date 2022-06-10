@@ -9,6 +9,7 @@ import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from '../../../services/login.service';
 import { FormGroup,FormControl,Validator, Validators} from '@angular/forms';
+import { createMemorial } from 'src/app/Model/createMemorial';
 
 @Component({
   selector: 'app-login',
@@ -49,6 +50,9 @@ export class LoginComponent implements OnInit {
   respo8: any;
   // username: any;
   // password:any;
+
+
+
   constructor(
     public service: LoginService,
     private service1: CreateMemorialService,
@@ -80,26 +84,27 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     // For clear create memorial page after goes to another page
-    this.service1.createMemorial.g_firstname = '';
-    this.service1.createMemorial.g_lastname = '';
-    this.service1.createMemorial.birthplace = '';
-    this.service1.createMemorial.deathplace = '';
-    this.service1.createMemorial.DOB = '';
-    this.service1.createMemorial.birthname = '';
-    this.service1.createMemorial.DOD = '';
+    // this.service1.createMemorial.g_firstname = '';
+    // this.service1.createMemorial.g_lastname = '';
+    // this.service1.createMemorial.birthplace = '';
+    // this.service1.createMemorial.deathplace = '';
+    // this.service1.createMemorial.DOB = '';
+    // this.service1.createMemorial.birthname = '';
+    // this.service1.createMemorial.DOD = '';
 
-    this.service1.createMemorial.firstname = '';
-    this.service1.createMemorial.lastname = '';
-    this.service1.createMemorial.password = '';
-    this.service1.createMemorial.password1 = '';
-    this.service1.createMemorial.email = '';
-    this.service1.createMemorial.streetname = '';
-    this.service1.createMemorial.zipcode = '';
-    this.service1.createMemorial.hometown = '';
-    this.service1.createMemorial.voucher = '';
-    this.service1.saveCanvas1 = '';
+    // this.service1.createMemorial.firstname = '';
+    // this.service1.createMemorial.lastname = '';
+    // this.service1.createMemorial.password = '';
+    // this.service1.createMemorial.password1 = '';
+    // this.service1.createMemorial.email = '';
+    // this.service1.createMemorial.streetname = '';
+    // this.service1.createMemorial.zipcode = '';
+    // this.service1.createMemorial.hometown = '';
+    // this.service1.createMemorial.voucher = '';
+    // this.service1.saveCanvas1 = '';
 
     this.editData();
+    
   }
 
  
@@ -153,7 +158,7 @@ export class LoginComponent implements OnInit {
           this.service.loginAllData = this.data.user[0];
           this.service.mapData = this.service.loginAllData.hometown
           this.setData();
-          this.router.navigate(['/user-account']);
+          // this.router.navigate(['/user-account']);
           // /user-account
           this.service.islogin = true;
         } else {
@@ -175,6 +180,13 @@ export class LoginComponent implements OnInit {
           this.service.isUser = false;
         }else{
           this.service.isUser = true;
+        }
+        var userChecking = sessionStorage.getItem('userCheckingData')
+    var userCheckingData = JSON.parse(userChecking);
+        if(userCheckingData == this.data.user[0].email){
+          this.router.navigate(['/create-memorial']);
+        }else{
+          this.router.navigate(['/user-account']);
         }
 
 

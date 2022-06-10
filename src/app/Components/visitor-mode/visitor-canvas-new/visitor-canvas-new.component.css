@@ -8,9 +8,9 @@
 }
 
 .vertical-menu {
-    width: 80%;
+    width: 200%;
     height: 150px;
-    overflow-y: auto;
+    overflow-x: auto;
   }
 
 /* css for labels */
@@ -241,7 +241,7 @@
     font-weight: 600;
     /* opacity: 0.9; */
     color: white;
-    margin-top: -35%;
+    margin-top: -24%;
 }
 /* .textAlign{
     text-align: center;
@@ -306,7 +306,7 @@
 }
 
 .vitaFetch{
-    margin-left: 3%;
+    /* margin-left: 3%; */
     margin-top: 5%;
     font-family: 'Noto Sans KR', sans-serif; 
     font-size: 0.9rem;

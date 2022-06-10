@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
+import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
@@ -61,8 +62,7 @@ export class UserAccountComponent implements OnInit {
     private router: Router,
     public service : RecentMeorialsService,
     public editservice: AdminEditService,
-
-
+    private service1: CreateMemorialService,
 
   ) {
      this.loginservice.otherPage = false;
@@ -82,6 +82,28 @@ export class UserAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // For clear create memorial page after goes to another page
+    this.service1.createMemorial.g_firstname = '';
+    this.service1.createMemorial.g_lastname = '';
+    this.service1.createMemorial.birthplace = '';
+    this.service1.createMemorial.deathplace = '';
+    this.service1.createMemorial.DOB = '';
+    this.service1.createMemorial.birthname = '';
+    this.service1.createMemorial.DOD = '';
+
+    this.service1.createMemorial.firstname = '';
+    this.service1.createMemorial.lastname = '';
+    this.service1.createMemorial.password = '';
+    this.service1.createMemorial.password1 = '';
+    this.service1.createMemorial.email = '';
+    this.service1.createMemorial.streetname = '';
+    this.service1.createMemorial.zipcode = '';
+    this.service1.createMemorial.hometown = '';
+    this.service1.createMemorial.voucher = '';
+    this.service1.saveCanvas1 = '';
+
+
     this.getData()
     this.getUserMemorial();
     this.editData();

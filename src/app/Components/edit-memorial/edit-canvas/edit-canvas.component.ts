@@ -1413,23 +1413,11 @@ export class EditCanvasComponent implements OnInit {
       console.log(Response);
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
-        debugger
         var jsonData1 = Response.Details[0].canvas_json;
         this.canvas.loadFromJSON(jsonData1, () => {
           // making sure to render canvas at the end
           this.canvas.renderAll();
           // this.spiner.hide();
-
-          // code for hide previous json
-          var dummy = this.canvas.getObjects().forEach(function (key) {
-            key.lockMovementX = true;
-            key.lockMovementY = true;
-            key.lockRotation = true;
-            key.hasBorders = false;
-            key.hasControls = false;
-          })
-
-
         })
       }
     })
@@ -1438,7 +1426,6 @@ export class EditCanvasComponent implements OnInit {
   // Save json from edit memorial
   saveEditMemorial() {
     this.spiner.show();
-    debugger
     var userId = this.loginservice.loginAllData;
     var grabId = this.recentService.userGrabIdData;
     var json = JSON.stringify(this.canvas);

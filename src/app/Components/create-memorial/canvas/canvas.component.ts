@@ -135,6 +135,7 @@ public GetData()
     this.name45 = '';
 
     this.service.selectedMainImg = '';
+    this.saveCanvasToJSON();
 
     // this.dialog.open(AdminEditExampleComponent);
     // this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
@@ -154,6 +155,7 @@ public GetData()
   
 
   ngOnInit(): void {
+    debugger;
     this.getCanddleImages();
     this.getURNSImages();
     this.getFlowerImages();
@@ -162,14 +164,15 @@ public GetData()
     this.getTambImage();
     this.addText1();
     this.editData();
-    this.setBackgImage(null);
-
-    // this.service.vita.textString1;
-    
     if (this.service.stepNumber === 2) {
       this.loadCanvasFromJSON();
       this.addText1();
     }
+    this.setBackgImage(null);
+
+
+    // this.service.vita.textString1;
+    
   }
 
   public textString: string;

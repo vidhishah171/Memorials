@@ -17,6 +17,8 @@ export class LoginService {
   eitpo:any;
   mapData:any;
 
+  
+
   otherPage:boolean=false;
   hideMemorialImage:boolean=true;
   goPremiumLabel:boolean=false;

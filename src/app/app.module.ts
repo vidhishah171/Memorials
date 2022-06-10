@@ -66,6 +66,7 @@ import { VisitorCanvasComponent } from './Components/visitor-mode/visitor-canvas
 import { MemoryImagesComponent } from './Components/memory-images/memory-images.component';
 import { VisitorCanvasNewComponent } from './Components/visitor-mode/visitor-canvas-new/visitor-canvas-new.component';
 import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visitor-condolence-popup/visitor-condolence-popup.component';
+import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/invite-popup.component';
 
 
 
@@ -111,6 +112,7 @@ import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visit
     MemoryImagesComponent,
     VisitorCanvasNewComponent,
     VisitorCondolencePopupComponent,
+    InvitePopupComponent,
   ],
   imports: [
     BrowserModule,

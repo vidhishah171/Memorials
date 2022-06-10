@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { memorialimage } from 'src/app/Model/memorialimage';
 import { vita } from 'src/app/Model/vita';
 import { formatDate } from '@angular/common';
+import { LoginService } from './login.service';
 
 
 @Injectable({
@@ -16,6 +17,7 @@ export class CreateMemorialService {
   getCreMemImgAPI="https://h2913228.stratoserver.net/API/public/grab_images";
   createNewMenAPI="http://127.0.0.1:8000/createMemorial";
   newMemorial="https://h2913228.stratoserver.net/API/public/newMemorial";
+  checkUserAPI="https://h2913228.stratoserver.net/API/public/userChecking";
 
   selectedMainImg:any;
   selectedMain:any;
@@ -50,7 +52,8 @@ export class CreateMemorialService {
   
   
   constructor(
-    public http:HttpClient
+    public http:HttpClient,
+    public loginService:LoginService
   ) { }
 
   // step 1 Services
@@ -118,6 +121,9 @@ export class CreateMemorialService {
 
  createMemorialJson(jsonData){
    return this.http.post('https://h2913228.stratoserver.net/API/public/editMemorial',jsonData);
+ }
+ checkUserAvailable(userData){
+   return this.http.post(this.checkUserAPI,userData);
  }
 
 

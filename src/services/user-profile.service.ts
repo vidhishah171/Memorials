@@ -14,6 +14,8 @@ export class UserProfileService {
   getMemorialDetailsApi="https://h2913228.stratoserver.net/API/public/memorialDetails";
   saveCondoAPI="https://h2913228.stratoserver.net/API/public/create_kondolenz";
   CondoAPIDelete="https://h2913228.stratoserver.net/API/public/delete_kondolenz";
+  inviteUser="https://h2913228.stratoserver.net/API/public/getAllUsersList";
+  userInvitationAPI="https://h2913228.stratoserver.net/API/public/invitationSend";
 
   userDetail:any;
   userDetailUserId:any;
@@ -33,6 +35,23 @@ export class UserProfileService {
     return this.http.post(this.userProfileApi,userDetail);
   }
 
+  getMemorialDetails(grabId){
+    
+    return this.http.post(this.getMemorialDetailsApi,grabId)
+  }
+
+  saveCondo(condoData){
+    return this.http.post(this.saveCondoAPI,condoData)
+  }
+
+  inviteUserList(){
+    return this.http.get(this.inviteUser);
+  }
+
+  sendInvitationUser(userEmailId){
+    return this.http.post(this.userInvitationAPI,userEmailId)
+  }
+
   myProfileDetails(profileDetails){
     
     // For server
@@ -43,23 +62,13 @@ export class UserProfileService {
     // return this.http.post('/userProfile',profileDetails);
   }
 
-  getMemorialDetails(grabId){
-    
-    return this.http.post(this.getMemorialDetailsApi,grabId)
-  }
-
-  saveCondo(condoData){
-    debugger
-    return this.http.post(this.saveCondoAPI,condoData)
-  }
-
   deleteCondo(condoId:any){
-    debugger;
     // for server
-    return this.http.delete(this.CondoAPIDelete,condoId);
+    return this.http.post(this.CondoAPIDelete,condoId);
 
     // for local
     // return this.http.post('/delete_kondolenz',condoId);
   }
+
 
 }

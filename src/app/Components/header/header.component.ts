@@ -126,8 +126,6 @@ export class HeaderComponent implements OnInit {
     this.homeservice.get(formData2).subscribe((res: any) => {
       // JSON.parse(res);
       this.spiner.hide();
-      debugger
-
       this.dataSearch = res;
       this.dataSearch1 = res.Memorials;
       this.dataSearch2 = res.Memorials;
@@ -246,7 +244,6 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent4(birthLocation) {
-    debugger
     if(birthLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.birthtown === birthLocation);
     // this.value = 0;
@@ -261,7 +258,6 @@ export class HeaderComponent implements OnInit {
   }
   }
   getEvent5(deathLocation) {
-    debugger 
     if(deathLocation != ''){
     this.dataSearch2 = this.dataSearch1.filter(dateSearch => dateSearch.starvetown === deathLocation);
     // this.value = 0;

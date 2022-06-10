@@ -1,0 +1,29 @@
+
+<div>
+    <div>
+        <span style="font-size: 0.9rem; color:gray">Invite People</span>
+        <span class="inviteInput">
+            <!-- <input type="text" class="form-control shadow bg-body rounded"  placeholder="Search User"> -->
+            <!-- (keyup)="searchInviteUser($event)" -->
+        </span>
+    </div>
+    <div style="margin-top: 10%; margin-left: 10%;" class="vertical-menu">
+      <div class="row mt-4" *ngFor="let data of inviteList">
+        <div class="col-8">
+            <span>{{data.firstname}}</span>&nbsp;<span>{{data.lastname}}</span>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-success" (click)="inviteUser(data.email)">Invite</button>
+        </div>
+        <hr style="margin: 0px; padding:0px; width: 400px; text-align: center;">
+      </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <div *ngFor="let data of inviteList">
+    <p>{{data.firstname}}</p>
+</div> -->

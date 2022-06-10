@@ -100,7 +100,7 @@
                         Gallery</button>
                     <button class="btn btn-outline-secondary ms-2 btnColor"
                         (click)="condolenceScroll(target1)">Condolences</button>
-                    <button class="btn btn-outline-success ms-2 btnColor1"><img
+                    <button class="btn btn-outline-success ms-2 btnColor1"  (click)="openInvitePopup()"><img
                             src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
                 </div>
             </div>
@@ -137,7 +137,7 @@
 
     </div>
     <!-- Photo/video gallery -->
-    <div>
+    <div class="photoVideoGallaryMargin">
         <div class="photoVideoGallary" #target>
             <div class="container">
                 <h6 class="pt-5 photoVideoGalleryText">Photo/Video Gallery</h6>
@@ -231,7 +231,7 @@
                     <div class="condolenceDiv">
                         <h5 class="pt-3 condolencesText">Latest Condolonces</h5>
                         <div class="row pt-5">
-                            <div class="col-6 condolenceMain" id="condolencesMain" [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}" *ngFor="let item of memorialDetails">
+                            <div class="col-6 condolenceMain" id="condolencesMain" [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}" *ngFor="let item of service.memorialDetails">
                                 <div class="condolencesEdit row" id="condolencesEdit" [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
                                     <div class="col-3">
                                         <span>
@@ -256,7 +256,7 @@
                                         </div>
                                         <div class="viewEntireDiv">
                                             <span class="viewEntire" (click)="condolencesComment(item)">View Entire Memory&nbsp;&nbsp;<img class="rightImg" src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png" alt=""></span>
-                                            <span style="float: right;"><img class="deletrImg"
+                                            <span style="float: right; cursor: pointer;"><img class="deletrImg"
                                                     src="../../../assets/StaticAssets/Visitor Mode/delete.png"
                                                     alt="" (click)="deleteCondolence(item.comment_id)" *ngIf="showTrashIcon"></span>
                                         </div>
@@ -266,7 +266,7 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn readAllCondo" (click)="readAllCondo()">READ ALL
+                            <button class="btn readAllCondo" (click)="service.readAllCondo()">READ ALL
                                 CONDOLENCES</button>
                         </div>
                     </div>

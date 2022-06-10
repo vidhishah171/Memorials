@@ -1,0 +1,8 @@
+.inviteInput{
+    float: right;
+}
+.vertical-menu {
+    /* width: 200%;
+    height: 150px; */
+    overflow-x: hidden;
+  }

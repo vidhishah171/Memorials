@@ -16,6 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Console } from 'console';
 import { CanvasComponent } from './canvas/canvas.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { createMemorial } from 'src/app/Model/createMemorial';
 
 
 @Component({
@@ -150,12 +151,17 @@ export class CreateMemorialComponent implements OnInit {
     // alert(point)
 
   }
+  // createMemorial:createMemorial=<createMemorial>{};
+
 
   ngOnInit() {
     this.changeStyle = undefined;
     this.getTambImage();
     this.clickShowStepBtn1();
     this.editData();
+    this.service.createMemorial.DOB = new Date(this.service.createMemorial.DOB);
+    this.service.createMemorial.DOD = new Date(this.service.createMemorial.DOD);
+ 
   }
 
 
@@ -1018,6 +1024,22 @@ export class CreateMemorialComponent implements OnInit {
     })
 
 
+  }
+
+  userChecking:boolean=false
+  checkUser(data){
+  console.log(data.target.value)
+    const jsonData = JSON.stringify(data.target.value)
+    sessionStorage.setItem('userCheckingData', jsonData)
+  var checkData={"email_id":`${data.target.value}`}
+  this.service.checkUserAvailable(checkData).subscribe((resUser:any)=>{
+    console.log(resUser);
+    if(resUser.message == "User is already exist"){
+      this.userChecking = true;
+    }else{
+      this.userChecking = false;
+    }
+  })
   }
 
   returnValue(event) {

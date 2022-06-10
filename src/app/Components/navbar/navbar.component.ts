@@ -125,6 +125,7 @@ export class NavbarComponent implements OnInit {
   userLogout() {
     this.spiner.show();
     localStorage.clear();
+    sessionStorage.clear();
     setTimeout(() => {
       this.router.navigate([''])
         .then(() => {

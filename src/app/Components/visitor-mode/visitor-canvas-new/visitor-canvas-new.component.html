@@ -22,12 +22,10 @@
             (drop)="DropImageToCan($event)"></canvas>
 
         <!-- For vita text -->
-        <div class="row">
-            <span class="col-1 vitaImage1" (click)="openUser(100)"><img
-                    src="../../../../assets/StaticAssets/Visitor Mode/writing (1).png" alt=""></span>
-            <span class="col-11 vertical-menu">
+        <div class="vertical-menu">
+            <!-- <span class="col-1 vitaImage1" (click)="openUser(100)"><img
+                    src="../../../../assets/StaticAssets/Visitor Mode/writing (1).png" alt=""></span> -->
                 <p class="vitaFetch">{{vitaData}}</p>
-            </span>
         </div>
     </div>
 
@@ -62,7 +60,7 @@
     <div *ngIf="changeComponent" class="box2 p-1">
         <!-- menu -->
 
-        <div class="menu">
+        <div class="menu" style="display: none;">
 
             <button type="button" class="ms-2 btnColorHeading" id="Decoration" (click)="showSecMenu(1)"
                 *ngIf="editservice.numLabel==1">
@@ -157,14 +155,9 @@
         </div>
 
 
-
-
-
-
-
         <!-- submenu (Decoration Button) -->
 
-        <div class="submenu mt-3" *ngIf="showMenuItems==1">
+        <div class="submenu mt-3" *ngIf="showMenuItems==1" style="display: none;">
             <div class="candle ms-3" (click)="showSubMenuItems(1)">
                 <div *ngIf="candleSM1" id="imgLogo"
                     class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle bg-light shadow rounded  ">
@@ -571,7 +564,6 @@
             </div>
         </div>
 
-        <!-- -------------------------------- -->
 
         <!-- submenu  Items (TAMBSTONE) -->
         <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
@@ -838,9 +830,6 @@
             </div>
 
         </div>
-
-
-        <!-- -------------------------- -->
 
 
         <!-- menu Items (BACKGROUNG) -->

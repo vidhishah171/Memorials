@@ -75,7 +75,6 @@ export class VisitorCanvasComponent implements OnInit {
   postGrabId() {
     
     var jsonData = this.service.userGrabIdData2;
-debugger
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
 

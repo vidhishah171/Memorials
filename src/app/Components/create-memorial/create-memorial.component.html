@@ -1336,19 +1336,22 @@
 
                     <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==1"
                         formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.en}}
-                        required maxlength="75">
+                        required maxlength="75" (keyup)="checkUser($event)">
                     <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==2"
                         formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.de}}
-                        required maxlength="75">
+                        required maxlength="75" (keyup)="checkUser($event)">
                     <input type="email" [(ngModel)]="service.createMemorial.email" *ngIf="editservice.numLabel==3"
                         formControlName="email" class="form-control shadow bg-body rounded" placeholder={{respo27?.fr}}
-                        required maxlength="75">
+                        required maxlength="75" (keyup)="checkUser($event)">
 
                     <div class="fireError" *ngIf="emailNew?.errors &&(emailNew?.touched || emailNew?.dirty)">
                         Please enter your valid e-mail
                         <div class="fireError" [hidden]="!emailNew.errors?.pattern">
                             Email is invalid
                         </div>
+                    </div>
+                    <div class="fireError" *ngIf="userChecking">
+                        User is already exist, Please login and create Memorial..
                     </div>
                     <button (click)="openDialogue(28)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img

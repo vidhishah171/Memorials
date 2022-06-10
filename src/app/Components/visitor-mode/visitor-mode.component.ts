@@ -9,6 +9,7 @@ import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
+import { InvitePopupComponent } from './invite-popup/invite-popup.component';
 import { VisitorCanvasNewComponent } from './visitor-canvas-new/visitor-canvas-new.component';
 import { VisitorCondolencePopupComponent } from './visitor-condolence-popup/visitor-condolence-popup.component';
 
@@ -79,7 +80,7 @@ export class VisitorModeComponent implements OnInit {
     this.postGrabId();
     this.getPhotoVideo();
     this.myProfileData();
-    this.getMeorialDetail();
+    this.service.getMeorialDetail();
     this.child.postGrabId();
 
     if(this.service.userUserIdData == this.loginservice.loginAllData){
@@ -88,7 +89,6 @@ export class VisitorModeComponent implements OnInit {
   }
 
   getData2() {
-    debugger
     var userLoginDataNew1 = localStorage.getItem('myData2')
     var loginAfterRefreshNew1 = JSON.parse(userLoginDataNew1);
 
@@ -98,7 +98,6 @@ export class VisitorModeComponent implements OnInit {
   
 
   getData1() {
-    debugger
     var userLoginDataNew = localStorage.getItem('myData1')
     var loginAfterRefreshNew = JSON.parse(userLoginDataNew);
 
@@ -164,39 +163,39 @@ export class VisitorModeComponent implements OnInit {
       })
 
   }
+  // This is implemented in recent service(getMeorialDetail)
 
-  getMeorialDetail() {
-    var data = { "grab_id": this.service.userGrabIdData2 }
-    this.profileService.getMemorialDetails(data).subscribe((response: any) => {
-      this.memorialDetails1 = response.Details[0].comments;
-      this.memorialDetails = this.memorialDetails1.slice(0,8);
-      for (let item of this.memorialDetails) {
-        if (item.firstname != null) {
-          item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "");
-        } else {
-          item.firstname = '';
-        } 
-        if (item.lastname != null) {
-          item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "");
-        }else{
-          item.lastname = '';
-        }
-        if(item.created != null){
-          item.created = formatDate(item.created, "M/d/yyyy 'at' h:mm aa", 'en_US');
-        }else{
-          item.created = '';
-        }
-      }
+  // getMeorialDetail() {
+  //   var data = { "grab_id": this.service.userGrabIdData2 }
+  //   this.profileService.getMemorialDetails(data).subscribe((response: any) => {
+  //     this.memorialDetails1 = response.Details[0].comments;
+  //     this.service.memorialDetails = this.memorialDetails1.slice(0,8);
+  //     for (let item of this.service.memorialDetails) {
+  //       if (item.firstname != null) {
+  //         item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "");
+  //       } else {
+  //         item.firstname = '';
+  //       } 
+  //       if (item.lastname != null) {
+  //         item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "");
+  //       }else{
+  //         item.lastname = '';
+  //       }
+  //       if(item.created != null){
+  //         item.created = formatDate(item.created, "M/d/yyyy 'at' h:mm aa", 'en_US');
+  //       }else{
+  //         item.created = '';
+  //       }
+  //     }
 
-      // this.memorialDetails.map(function (item) { return item.fname = item.created.replace(/[^a-zA-Z-.]/g, "") });
-      // this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
+  //   })
+  // }
 
-    })
-  }
-  readAllCondo(){
+  // This is implemented in recent service(readAllCondo)
+  // readAllCondo(){
     
-    this.memorialDetails = this.memorialDetails1.slice();
-  }
+  //   this.service.memorialDetails = this.memorialDetails1.slice();
+  // }
 
   condolencesComment(item:any){
     
@@ -206,19 +205,23 @@ export class VisitorModeComponent implements OnInit {
    item.showFull=true;
 }
   deleteCondolence(condoId){
-    debugger
     var condoIdNew={
       "comment_id" : `${condoId}`
     }
+    this.spiner.show();
     this.profileService.deleteCondo(condoIdNew).subscribe(condoRes=>{
-      debugger;
       console.log(condoRes);
+      this.service.getMeorialDetail();
+      this.spiner.hide();
+      setTimeout(() => {
+        this.snackBar("Condolences has been deleted..", "alert-danger");
+      }, 1000);
+      
     })
 }
 
   // For user data retrive
   postGrabId() {
-    debugger
     var jsonData = this.service.userGrabIdData2
 
     var formdata = new FormData();
@@ -301,8 +304,20 @@ export class VisitorModeComponent implements OnInit {
     const dialogRef = this.dialog.open(VisitorCondolencePopupComponent,{
       width:'500px',
       // height:'500px'
+      
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openInvitePopup(){
+    const dialogRef = this.dialog.open(InvitePopupComponent,{
+      width:'500px',
+      height:'500px'
+      
+    });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
