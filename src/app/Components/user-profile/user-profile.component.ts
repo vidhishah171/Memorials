@@ -11,6 +11,7 @@ import { UserProfileService } from 'src/services/user-profile.service';
 import { UserProfilePopComponent } from './user-profile-pop/user-profile-pop.component';
 import { NgxSpinnerService } from "ngx-spinner";
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
+import { UserSearchPopupComponent } from '../user-account/user-search-popup/user-search-popup.component';
 
 
 @Component({
@@ -632,6 +633,17 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
+
+  openUserSearchPopup(){
+    const dialogRef = this.dialog.open(UserSearchPopupComponent,{
+      width:'500px',
+      height:'500px'
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 
 }

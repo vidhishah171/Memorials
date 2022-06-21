@@ -253,13 +253,13 @@
                 <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==1" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.en}}</span></span>
-                <span *ngIf="editservice.numLabel==2" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==2" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.de}}</span></span>
-                <span *ngIf="editservice.numLabel==3" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==3" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.fr}}</span></span>
 

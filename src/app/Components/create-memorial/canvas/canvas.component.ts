@@ -153,9 +153,54 @@ public GetData()
     this.showSubMenuItems(1);
   }
   
-
+  ctxNew:any;
   ngOnInit(): void {
-    debugger;
+
+
+    // For GIF imges on canvas
+    
+  //   function drawAnimatedImage(arr,x,y,angle,factor,changespeed) {
+     
+
+  //     if (!factor) {
+  //         factor = 1;
+  //     }
+  //     if (!changespeed) {
+  //         changespeed = 1;
+  //     }
+  //     ctx.save();
+  //     ctx.translate(x, y);
+  //     ctx.rotate(angle * Math.PI / 180);
+  //     if (!!arr[Math.round(Date.now()/changespeed) % arr.length]) {
+  //     ctx.drawImage(arr[Math.round(Date.now()/changespeed) % arr.length], -(arr[Math.round(Date.now()/changespeed) % arr.length].width * factor / 2), -(arr[Math.round(Date.now()/changespeed) % arr.length].height * factor / 2), arr[Math.round(Date.now()/changespeed) % arr.length].width * factor, arr[Math.round(Date.now()/changespeed) % arr.length].height * factor);
+  //     }
+  //     ctx.restore();
+  // }
+  
+  //     var canvas = new fabric.Canvas('Mycanvas');
+  //     var ctx = canvas.getContext();
+
+  //     var waitingWolf = [];
+  //     var url:any = ["https://i.imgur.com/k3T7psX.gif","https://i.imgur.com/CTSC8FC.gif","https://i.imgur.com/6NHLWKK.gif","https://i.imgur.com/U1u04sY.gif","https://i.imgur.com/4695vnQ.gif","https://i.imgur.com/oDO0YWT.gif","https://i.imgur.com/LqptRh1.gif","https://i.imgur.com/6gTxvul.gif","https://i.imgur.com/ULN5mqK.gif","https://i.imgur.com/RACB9WM.gif","https://i.imgur.com/4TZ6kNi.gif","https://i.imgur.com/9VvlzhK.gif","https://i.imgur.com/nGUnsfW.gif","https://i.imgur.com/2h8vLjK.gif","https://i.imgur.com/ZCdKkF1.gif","https://i.imgur.com/wZmWrYP.gif","https://i.imgur.com/4lhjVSz.gif","https://i.imgur.com/wVO0PbE.gif","https://i.imgur.com/cgGn5tV.gif","https://i.imgur.com/627gH5Y.gif","https://i.imgur.com/sLDSeS7.gif","https://i.imgur.com/1i1QNAs.gif","https://i.imgur.com/V3vDA1A.gif","https://i.imgur.com/Od2psNo.gif","https://i.imgur.com/WKDXFdh.gif","https://i.imgur.com/RlhIjaM.gif","https://i.imgur.com/293hMnm.gif","https://i.imgur.com/ITm0ukT.gif"]
+  //     function setup () {
+  //                 for (var i = 0; i < 28; i++) {
+  //                     waitingWolf[i] = new Image();
+  //                     waitingWolf[i].src = url[i];
+  //                     waitingWolf[i].hasControls = true;
+  //                     waitingWolf[i].hasBorders = true;
+                      
+  //                 }
+  //     }
+  //     setup();
+  // function yop() {
+  //   ctx.clearRect(0,0,1000,1000)
+  //             if (waitingWolf.length == 28) {
+  //                 drawAnimatedImage(waitingWolf,300,100,0,1,60)
+  //             }
+  // requestAnimationFrame(yop);
+  // }
+  // requestAnimationFrame(yop);
+
     this.getCanddleImages();
     this.getURNSImages();
     this.getFlowerImages();
@@ -170,8 +215,15 @@ public GetData()
     }
     this.setBackgImage(null);
 
+   
 
     // this.service.vita.textString1;
+
+
+    
+
+
+    
     
   }
 
@@ -283,7 +335,6 @@ public GetData()
       cursorStyle: 'pointer',
       mouseUpHandler: function deleteObject(eventData, transform): boolean {
         // this.count--;
-        debugger;
         var ss= that;
         var target = transform.target;
         var canvas = target.canvas;
@@ -414,8 +465,6 @@ countImage(){
     //   self.canvas.renderAll();
     //   fabric.util.requestAnimFrame(render);
     // });
-
-
     fabric.Image.fromURL(decImages.path, (newImg) => {
       // decImages.path
       // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
@@ -428,11 +477,12 @@ countImage(){
       newImg.originY = 'center';
       newImg.hasControls = true;
       newImg.bringToFront();
+      
 
       // newImg.scaleToHeight(300);
       // newImg.scaleToWidth(300);
       this.canvas.setActiveObject(newImg);
-
+     
 
     },
       {

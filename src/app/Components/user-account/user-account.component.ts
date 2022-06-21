@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
+import { UserSearchPopupComponent } from './user-search-popup/user-search-popup.component';
 
 @Component({
   selector: 'app-user-account',
@@ -63,6 +65,8 @@ export class UserAccountComponent implements OnInit {
     public service : RecentMeorialsService,
     public editservice: AdminEditService,
     private service1: CreateMemorialService,
+    public dialog: MatDialog,
+
 
   ) {
      this.loginservice.otherPage = false;
@@ -553,5 +557,15 @@ export class UserAccountComponent implements OnInit {
     }
   }
 
+  openUserSearchPopup(){
+    const dialogRef = this.dialog.open(UserSearchPopupComponent,{
+      width:'500px',
+      height:'500px'
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   
 }

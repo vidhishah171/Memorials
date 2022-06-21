@@ -3,11 +3,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { UserProfileService } from 'src/services/user-profile.service';
 
 @Component({
-  selector: 'app-invite-popup',
-  templateUrl: './invite-popup.component.html',
-  styleUrls: ['./invite-popup.component.css']
+  selector: 'app-user-search-popup',
+  templateUrl: './user-search-popup.component.html',
+  styleUrls: ['./user-search-popup.component.css']
 })
-export class InvitePopupComponent implements OnInit {
+export class UserSearchPopupComponent implements OnInit {
   inviteList: any;
   inviteList1: any;
   totalLength: any;
@@ -27,6 +27,7 @@ export class InvitePopupComponent implements OnInit {
   }
 
   inviteUserList() {
+    
     this.spiner.show();
     this.userProfile.inviteUserList().subscribe((inviteData: any) => {
       console.log(inviteData);
@@ -74,3 +75,4 @@ export class InvitePopupComponent implements OnInit {
   }
 
 }
+

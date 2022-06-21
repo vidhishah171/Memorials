@@ -20,6 +20,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -67,6 +69,7 @@ import { MemoryImagesComponent } from './Components/memory-images/memory-images.
 import { VisitorCanvasNewComponent } from './Components/visitor-mode/visitor-canvas-new/visitor-canvas-new.component';
 import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visitor-condolence-popup/visitor-condolence-popup.component';
 import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/invite-popup.component';
+import { UserSearchPopupComponent } from './Components/user-account/user-search-popup/user-search-popup.component';
 
 
 
@@ -113,6 +116,7 @@ import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/inv
     VisitorCanvasNewComponent,
     VisitorCondolencePopupComponent,
     InvitePopupComponent,
+    UserSearchPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,6 +138,7 @@ import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/inv
     MatInputModule,
     NgxSpinnerModule,
     NgxSliderModule,
+    NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyDs2Vdbr8b2MpY5iV9Ss4iIdV3gbTZcpSs',
       libraries: ['places'],
