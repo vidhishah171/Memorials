@@ -57,6 +57,9 @@
     opacity: 0.9;
 
 }
+.viewportHeight{
+    height: 70vw;
+}
 .userImage{
     /* width: 100%;
     height: auto; */
@@ -207,6 +210,14 @@ deletrImg{
     /* float: right; */
     left: 80%;
     /* z-index: 10; */
+    cursor: pointer;
+}
+.plusButtonDelete{
+    position: absolute;
+    left: 83%;
+    top: 82%;
+    width: 19px;
+    cursor: pointer;
 }
 .shareEdit{
     font-size: 0.6rem;
@@ -378,3 +389,156 @@ deletrImg{
         margin-left: 66px;
     }
 }
+
+@media (min-width:781px) and (max-width:1160px){
+    .viewportHeight{
+        height: 142vw;
+    }
+    .photoVideoGallary{
+        height: 41vw;
+    }
+    .recentName{
+        font-size: 0.6rem;
+    }
+    .recentMemorial{
+        height: 28vw;
+    }
+}
+@media (min-width:1160px)and (max-width:1517px){
+    .viewportHeight{
+        height: 78vw;
+    }
+    .recentMemorial{
+        height: 28vw;
+    }
+    .recentName{
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width:1398px){
+    /* 1398px */
+    .centered {
+        font-size: 1rem;
+    }
+    .centered2{
+        top: 44%;
+        left: 50%;
+    }
+    .fontCenter{
+        font-size: 1rem;
+    }
+    .bottom-left{
+        bottom: 25px;
+        left: 419px;
+        font-size: 1rem;
+    }
+    .bottom-right1{
+        bottom: 25px;
+        right: 422px;
+        font-size: 1rem;
+    }
+    .userText{
+        font-size: 1.5rem;
+    }
+    .personCentric{
+        width: 42%;
+    }
+}
+@media (min-width:1398px)and (max-width:1517px){
+    .viewportHeight{
+        height: 68vw;
+    }
+}
+@media (min-width:1518px)and (max-width:2017px){
+    .viewportHeight{
+        height: 58vw;
+    }
+    .circleImage{
+        margin-top: 1%;
+    }
+    .plusImageOnHeader{
+        margin-left: -1%;
+    }
+    .photoVideoGallary{
+        height: 27vw;
+    }
+    .subscribeImage{
+        background-position: top;
+    }
+    .recentMemorial{
+        height: 21vw;
+    }
+ }
+ @media (min-width:2017px)and (max-width:2049px){
+    .viewportHeight{
+        height: 50vw;
+    }
+    .circleImage{
+        margin-top: 2%;
+    }
+    .plusImageOnHeader{
+        margin-left: -1%;
+    }
+    .photoVideoGallary{
+        height: 24vw;
+    }
+    .subscribeImage{
+        background-position: top;
+    }
+    .recentMemorial{
+        height: 18vw;
+    }
+ }
+ @media (min-width:2050px)and (max-width:3839px){
+    .viewportHeight{
+        height: 40vw;
+    }
+    .circleImage{
+        margin-top: 3%;
+    }
+    .plusImageOnHeader{
+        margin-left: -1%;
+    }
+    .photoVideoGallary{
+        height: 19vw;
+        margin-top: 4%;
+
+    }
+    .subscribeImage{
+        background-position: top;
+    }
+    .recentMemorial{
+        height: 15vw;
+    }
+ }
+ @media (min-width:3840px)and (max-width:4098px){
+    .photoVideoGallary{
+        height: 12vw;
+        margin-top: -40%;
+
+    }
+    .subscribeImage{
+        background-position: top;
+    }
+    .circleImage{
+        margin-top: 4%;
+    }
+ }
+ @media (min-width:4098px){
+    .viewportHeight{
+        height: 34vw;
+    }
+    .photoVideoGallary{
+        height: 13vw;
+    }
+    .subscribeImage{
+        background-position: top;
+    }
+    .circleImage{
+        margin-top: 4%;
+    }
+    .recentMemorial{
+        height: 11vw;
+    }
+ }

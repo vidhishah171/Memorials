@@ -206,15 +206,15 @@
         font-size: 1rem;
     }
     .bottom-left{
-        bottom: 25px;
-        left: 600px;
-        font-size: 1rem;
+        bottom: 15px;
+        left: 558px;
+        font-size: 0.8rem;
     }
     
     .bottom-right1{
-        bottom: 25px;
-        right: 600px;
-        font-size: 1rem;
+        bottom: 15px;
+        right: 552px;
+        font-size: 0.8rem;
     }
     
 }

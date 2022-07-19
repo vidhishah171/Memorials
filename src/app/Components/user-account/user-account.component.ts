@@ -112,7 +112,10 @@ export class UserAccountComponent implements OnInit {
     this.getUserMemorial();
     this.editData();
     this.getrecentMemorials();
+    
   }
+
+ 
 
   clickDiv(){
       
@@ -567,5 +570,25 @@ export class UserAccountComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  recentMemorialGrabId(data, data1) {
+    debugger;
+    console.log(data);
+    if (data) {
+      this.service.userGrabIdData2 = data;
+      this.service.userUserIdData = data1;
+
+      this.router.navigate(['/visitor-mode']);
+
+      const jsonData = JSON.stringify(data)
+      localStorage.setItem('myData1', jsonData)
+
+      const jsonDataNew = JSON.stringify(data1)
+      localStorage.setItem('myData2', jsonDataNew)
+
+    }
+  }
+
+
   
 }

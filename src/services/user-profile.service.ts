@@ -20,6 +20,7 @@ export class UserProfileService {
 
   userDetail:any;
   userDetailUserId:any;
+  userDetailId:any;
 
   constructor(
     private http:HttpClient

@@ -3,18 +3,18 @@
         <span style="font-size: 0.9rem; color:gray">Invite People</span>
         <form #heroForm="ngForm">
         <span class="inviteInput input-group">
-            <input type="text" class="form-control shadow bg-body rounded" name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
+            <input type="text" (keyup)="searchInviteUser($event)" class="form-control shadow bg-body rounded" name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
             <!-- (keyup)="searchInviteUser($event)" -->
-            <div class="input-group-append">
+            <!-- <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2" (click)="searchInviteUser(heroForm)"><img src="../../../../assets/StaticAssets/Home page/search-1.png" alt=""></span>
-              </div>
+              </div> -->
         </span>
     </form>
     </div>
-    <div style="margin-top: 10%; margin-left: 10%;" class="vertical-menu">
+    <div style="margin-top: 10%; margin-left: 10%;" class="vertical-menu" *ngIf="isDisplayBelowDiv">
       <div class="row mt-4" *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
         <div class="col-8">
-            <span>{{data.name}}</span>
+            <span class="userDataPointer" (click)="goToUserDetailPage(data.id)">{{data.name}}</span>
         </div>
         <!-- <div class="col-4">
             <button class="btn btn-success" (click)="inviteUser(data.email)">Invite</button>

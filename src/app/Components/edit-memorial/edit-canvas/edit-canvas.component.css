@@ -53,7 +53,9 @@
     background-color: #F8F8F8;
     /* style="position: absolute; margin-top: 10px;" */
 }
-
+.TombstonSizePlace{
+    padding-left: 67px;
+}
 
 #canvasDivCss1{
     left: 178%;
@@ -782,22 +784,23 @@
 
 }
 
+
 @media (min-width:781px) and (max-width:1160px){
     .box1{
         /* background-color: rebeccapurple; */
          height: auto;
-         width:70%;
-         display: inline-block;
+         width:100%;
+         /* display: inline-block; */
          flex-direction: column;
          align-items: center;
          /* flex-wrap: wrap; */
-     }
-     .forVitaDiv{
-        margin-top: 84%;
-        margin-left: 5%;
+    }
+    .forVitaDiv{
+        margin-top: 58%;
+        margin-left: 16%;
         width: 70%;
     }
-     .box2{
+    .box2{
         /* background-color: #f87171;  */
        height: auto;
        width:100%;
@@ -806,7 +809,28 @@
        /* flex-wrap: wrap; */
        /* align-content: flex-start; */
     
-    }     
+    } 
+    .circleImage{
+        margin-top: -6%;
+    }    
+    .menu{
+        justify-content: center;
+    }
+    .submenu{
+        justify-content: center;
+    }
+    .TombstonSizePlace{
+        padding-left: 0px;
+    }
+    .carousel-control-prev{
+        /* position: fixed; */
+        padding-right: 13%;
+        top: 28%;
+    }
+    .personCentric {
+        width: 35%;
+    }
+
 }
 
 /* for big device */
@@ -815,24 +839,71 @@
         height: 49vw;
     }
 }*/
+@media (min-width:1160px)and (max-width:1516px){
+    .forVitaDiv{
+        margin-top: 44%;
+        margin-left: 2%;
+        width: 36%;
+    }
+}
 
 @media (min-width:1517px)and (max-width:2017px){
     .content2{
         height: 47vw;
     } 
+    .forVitaDiv{
+        margin-top: 40%;
+        width: 35%;
+    }
+    /* .box2{
+        margin-bottom: 18%;
+    } */
+    
  }
  @media (min-width:2017px)and (max-width:2049px){
     .content2{
         height: 38vw;
     }
+    .forVitaDiv{
+        margin-top: 33%;
+    }
  }
- @media (min-width:2732px) and (max-width:4098px){
+ @media (min-width:2500px)and (max-width:2732px){
+    .content2{
+        height: 38vw;
+    }
+    .forVitaDiv{
+        margin-top: 25%;
+    }
+    .box2{
+        margin-bottom: 20%;
+    }
+    
+ }
+ @media (min-width:2732px) and (max-width:3840px){
      .content2{
          height: 25vw;
      }
+     .forVitaDiv{
+        margin-top: 17%;
+    }
+    .box2{
+        margin-bottom: 13%;
+    }
+ }
+ @media (min-width:3841px) and (max-width:4098px){
+    .forVitaDiv{
+        margin-top: 16%;
+    }
  }
  @media (min-width:4098px){
     .content2{
         height: 25vw;
     } 
+    .forVitaDiv{
+        margin-top: 18%;
+    }
+    .box2{
+        margin-bottom: 13%;
+    }
  }

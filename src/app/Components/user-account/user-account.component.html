@@ -961,7 +961,7 @@
                             <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2 mr-3">
-                                    <img src="{{userData.path}}" class="userImage me-2 rounded">
+                                    <img src="{{userData.path}}"(click)="recentMemorialGrabId(userData.grab_id,userData.user_id)"  class="userImage me-2 rounded">
                                     <!-- src="{{memData.path}}" -->
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">

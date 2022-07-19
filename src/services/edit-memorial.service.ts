@@ -12,8 +12,11 @@ export class EditMemorialService {
   editMemorialApi="https://h2913228.stratoserver.net/API/public/editMemorial";
   photoAPI="https://h2913228.stratoserver.net/API/public/imgUpload";
   photoAPI1="https://h2913228.stratoserver.net/API/public/getImages";
+  deleteAPI = "https://h2913228.stratoserver.net/API/public/delete_media";
+  updatePhotoVideoGalleryAPI= "https://h2913228.stratoserver.net/API/public/update_media";
 
   lovedPersonData:any;
+  getPhotoVideoImageId:any[]=[];
 
   constructor(
     private http:HttpClient
@@ -49,6 +52,11 @@ export class EditMemorialService {
     return this.http.post(this.photoAPI,photoData);
   }
 
+  getPhotoVideoDelete(deleteId){
+    return this.http.post(this.deleteAPI,deleteId);
+
+  }
+
   getPhotoVideo(photoData1){
   
     // For server
@@ -56,5 +64,8 @@ export class EditMemorialService {
 
     // For local
     // return this.http.post('/getImage',photoData1);
+  }
+  updatePhotoVideoGallery(photoVideoGalleryDetails){
+    return this.http.post(this.updatePhotoVideoGalleryAPI,photoVideoGalleryDetails);
   }
 }

@@ -10,6 +10,9 @@
     font-size: 0.8rem;
     padding-top: 8%;
 }
+.userDataPointer{
+    cursor: pointer;
+}
 .paginationText /deep/ .ngx-pagination .current {
     background: #CF6363;
   }

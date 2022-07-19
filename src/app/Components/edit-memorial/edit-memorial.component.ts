@@ -47,6 +47,8 @@ export class EditMemorialComponent implements OnInit {
   isDisplayBack1: boolean;
   isDisplayBack: boolean;
   userpicBack: any;
+  getPhotoVideoImageId: any;
+  pp: any;
 
 
 
@@ -261,8 +263,31 @@ export class EditMemorialComponent implements OnInit {
   }
 
   photoUrl: any;
+  photoUrlNew:any;
+  updatePhotoVideoDeta:any;
+  onselectFileNew(data,data1){
+    debugger
+    var reader = new FileReader();
+    reader.readAsDataURL(data.target.files[0]);
+    reader.onload = (event: any) => {
+      this.photoUrlNew = event.target.result;
+      if(this.photoUrlNew != ''){
+      this.updatePhotoVideoDeta={
+        "image_id":data1,
+        "image_data":this.photoUrlNew
+      }
+      this.editMemorial.updatePhotoVideoGallery(this.updatePhotoVideoDeta).subscribe((Response: any) => {
+        debugger
+        this.photoVideoGallery();
+      });
+    }
+    }
+   
+
+  }
 
   onselectFile(e) {
+    debugger
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = (event: any) => {
@@ -369,12 +394,14 @@ export class EditMemorialComponent implements OnInit {
 
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
+    debugger
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.loginService.loginAllData);
 
     this.editMemorial.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-
-      console.log(userRes1);
+debugger
+      this.pp = userRes1.Data;
+      this.getPhotoVideoImageId = userRes1.Data;
 
       this.getPhotoVideoImage1 = userRes1.Data[0]?.image;
       this.getPhotoVideoImage2 = userRes1.Data[1]?.image;
@@ -388,6 +415,21 @@ export class EditMemorialComponent implements OnInit {
       this.getPhotoVideoImage10 = userRes1.Data[9]?.image;
       this.getPhotoVideoImage11 = userRes1.Data[10]?.image;
       this.getPhotoVideoImage12 = userRes1.Data[11]?.image;
+    })
+    }
+
+  deletePhotoVideo(dataId){
+    debugger
+     var deleteData={
+      "image_id" : dataId
+     }
+     this.spiner.show();
+    this.editMemorial.getPhotoVideoDelete(deleteData).subscribe((deleteRes: any) => {
+      console.log(deleteRes)
+      if(deleteRes){
+        this.getPhotoVideo();
+        this.spiner.hide();
+      }
     })
   }
 

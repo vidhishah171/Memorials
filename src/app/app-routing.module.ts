@@ -22,6 +22,7 @@ import { CanvasComponent } from './Components/create-memorial/canvas/canvas.comp
 import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgot-pass-acitve.component';
 import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
 import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
+import { UserProfileDummyComponent } from './Components/user-profile-dummy/user-profile-dummy.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path:"forgot-pass-active",component:ForgotPassAcitveComponent},
   {path:"user-profile-forgot-pass",component:ForgotPassComponent},
   {path:"visitor-mode",component:VisitorModeComponent},
+  {path:"user-profile-details",component:UserProfileDummyComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

@@ -70,6 +70,7 @@ import { VisitorCanvasNewComponent } from './Components/visitor-mode/visitor-can
 import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visitor-condolence-popup/visitor-condolence-popup.component';
 import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/invite-popup.component';
 import { UserSearchPopupComponent } from './Components/user-account/user-search-popup/user-search-popup.component';
+import { UserProfileDummyComponent } from './Components/user-profile-dummy/user-profile-dummy.component';
 
 
 
@@ -117,6 +118,7 @@ import { UserSearchPopupComponent } from './Components/user-account/user-search-
     VisitorCondolencePopupComponent,
     InvitePopupComponent,
     UserSearchPopupComponent,
+    UserProfileDummyComponent,
   ],
   imports: [
     BrowserModule,

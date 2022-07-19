@@ -10,6 +10,7 @@ import { UserProfileService } from 'src/services/user-profile.service';
 export class InvitePopupComponent implements OnInit {
   inviteList: any;
   inviteList1: any;
+
   totalLength: any;
   page: number = 1;
 
@@ -62,15 +63,21 @@ export class InvitePopupComponent implements OnInit {
   }
 
   searchInviteUser(data) {
-    var userSearchFirstname = data.form.value.searchUser;
+    debugger
+    // var userSearchFirstname = data.form.value.searchUser;
+    var userSearchFirstname = data.target.value;
+
+    var userSearchFirstname = userSearchFirstname?.toLowerCase();
     if (userSearchFirstname != '') {
-      this.inviteList = this.inviteList1.filter(dataSearch => dataSearch.name === userSearchFirstname);
-      this.paginationHide = false;
+      
+      this.inviteList = this.inviteList1.filter(dataSearch => dataSearch?.name?.toLowerCase().includes(userSearchFirstname));
+      this.totalLength=this.inviteList.length;
+      // this.paginationHide = false;
     }
-    else if (userSearchFirstname == '') {
-      this.inviteList = this.inviteList1;
-      this.paginationHide = true;
-    }
+    // else if (userSearchFirstname == '') {
+    //   this.inviteList = this.inviteList1;
+    //   this.paginationHide = true;
+    // }
   }
 
 }

@@ -1,3 +1,4 @@
+// import { Component, OnInit } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import { formatDate } from '@angular/common';
 import { Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
@@ -8,18 +9,18 @@ import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 import { UserProfileService } from 'src/services/user-profile.service';
-import { UserProfilePopComponent } from './user-profile-pop/user-profile-pop.component';
+// import { UserProfilePopComponent } from './user-profile-pop/user-profile-pop.component';
 import { NgxSpinnerService } from "ngx-spinner";
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserSearchPopupComponent } from '../user-account/user-search-popup/user-search-popup.component';
 
-
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-user-profile-dummy',
+  templateUrl: './user-profile-dummy.component.html',
+  styleUrls: ['./user-profile-dummy.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileDummyComponent implements OnInit {
+
   isvalid: boolean;
   showNewDiv: number;
   url: any;
@@ -97,26 +98,18 @@ export class UserProfileComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public service: RecentMeorialsService,
 
-
-
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private router: Router,
     public snack: MatSnackBar,
-
-
-
-
-  ) { 
+  ) {
     this.loginservice.otherPage = false; 
     this.loginservice.goPremiumLabel = true;
     this.loginservice.hideMemorialImage = true;
     this.loginservice.isFooterLogin = true;
-    
-  }
+   }
 
-  ngAfterViewInit() {
-    
+   ngAfterViewInit() {
     setTimeout(() => {
       this.codeAddress();
       this.initialize();
@@ -127,17 +120,27 @@ export class UserProfileComponent implements OnInit {
       this.clickDiv();
     }, 1000);
   }
+  
+  
 
   ngOnInit(): void {
+     // this.initAutocomplete();
+     this.getUserData();
+     this.myProfileData();
+     this.initialize();
+     this.getData();
+     this.getUserMemorial();
+     this.editData();
+     this.userProfileDate();
+     // this.userProfile();
+  }
 
-    // this.initAutocomplete();
-    this.getData();
-    this.initialize();
-    this.getUserMemorial();
-    this.editData();
-    this.myProfileData();
-    this.userProfileDate();
-    // this.userProfile();
+
+  getUserData(){
+    debugger
+    var userLoginData = localStorage.getItem('userDataDetail')
+    var userDataDetails = JSON.parse(userLoginData);
+    this.profileService.userDetailId = userDataDetails;
   }
 
   clickDiv(){
@@ -171,7 +174,6 @@ export class UserProfileComponent implements OnInit {
 
   // New code for map
   initialize() {
-    
     const geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(-34.397, 150.644);
     var mapOptions = {
@@ -182,8 +184,7 @@ export class UserProfileComponent implements OnInit {
     // codeAddress() {
     
     this.address = (<HTMLInputElement>document.getElementById('address')).value;
-    geocoder.geocode({ 'address': this?.address }, function (results, status) {
-      debugger
+    geocoder.geocode({ 'address': this.address }, function (results, status) {
       if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
@@ -197,7 +198,6 @@ export class UserProfileComponent implements OnInit {
     // }
   }
   codeAddress() {
-    
     this.address = (<HTMLInputElement>document.getElementById('address')).value;
     this.initialize();
   }
@@ -205,7 +205,7 @@ export class UserProfileComponent implements OnInit {
 
   getUserMemorial() {
     
-    var data = { "user_id": this.loginservice.loginAllData.id }
+    var data = { "user_id": this.profileService.userDetailId}
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
         console.log(userRes);
@@ -367,7 +367,7 @@ export class UserProfileComponent implements OnInit {
 
   userData(data) {
     
-    this.loginservice.mapData = data.value.hometown;
+    // this.loginservice.mapData = data.value.hometown;
     this.spiner.show();
     this.profileService.userProfile(data.form.value).subscribe((responce:any) => {
       this.spiner.hide();
@@ -474,13 +474,13 @@ export class UserProfileComponent implements OnInit {
 
 
 
-  dialogOpen() {
-    const dialogRef = this.dialog.open(UserProfilePopComponent);
+  // dialogOpen() {
+  //   const dialogRef = this.dialog.open(UserProfilePopComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   openDiv(num) {
     if (num == 0) {
@@ -612,10 +612,11 @@ export class UserProfileComponent implements OnInit {
 
 
   myProfileData() {
-    
+    debugger
     // this.spiner.show();
-    var ProfileId = { "user_id": this.loginservice.loginAllData.id }
+    var ProfileId = { "user_id": this.profileService.userDetailId }
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
+      debugger
       console.log(data);
       this.userpic = data.user_data[0].userpic;
       this.birthdate = data.user_data[0].birthdate;
@@ -649,9 +650,3 @@ export class UserProfileComponent implements OnInit {
 
 
 }
-
-
-
-
-
-

@@ -3,11 +3,11 @@
         <span style="font-size: 0.9rem; color:gray">Invite People</span>
         <form #heroForm="ngForm">
         <span class="inviteInput input-group">
-            <input type="text" class="form-control shadow bg-body rounded" name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
+            <input (keyup)="searchInviteUser($event)" type="text" class="form-control shadow bg-body rounded" name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
             <!-- (keyup)="searchInviteUser($event)" -->
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2" (click)="searchInviteUser(heroForm)"><img src="../../../../assets/StaticAssets/Home page/search-1.png" alt=""></span>
-              </div>
+            <!-- <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2" (keypress)="searchInviteUser(heroForm)"><img src="../../../../assets/StaticAssets/Home page/search-1.png" alt=""></span>
+              </div> -->
         </span>
     </form>
     </div>

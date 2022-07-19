@@ -86,7 +86,7 @@
         </div>
     </div>
     <!-- Canvas component -->
-    <div style="height: 70vw;" class="pt-5">
+    <div class="pt-5 viewportHeight">
         <app-edit-canvas></app-edit-canvas>
         <div #target2></div>
     </div>
@@ -97,116 +97,201 @@
                 <h6 class="pt-5 photoVideoGalleryText">Photo/Video Gallery</h6>
                 <div class="row">
                     <div class="col-12">
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage1" *ngIf="getPhotoVideoImage1" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage1"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage2"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage3"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage4"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage5"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
-                        <span class="pVGallery" style="position: relative; left: 0; top: 0;">
-                            <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6"
-                                onerror="this.style.display='none'" alt="" class="imageButton">
-                            <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage6"
-                                class="plusButton"><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
-                                    style="width: 65%; height: auto;"></label>
-                        </span>
+                        <div>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1"
+                                    onerror="this.style.display='none'" alt="" class="image1Button">
+                                <img [src]="getPhotoVideoImage1" *ngIf="getPhotoVideoImage1" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage1" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[0].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[0].id)"
+                                    *ngIf="getPhotoVideoImage1" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+                            </span>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2"
+                                    onerror="this.style.display='none'" alt="" class="imageButton">
+                                <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage2" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[1].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[1].id)"
+                                    *ngIf="getPhotoVideoImage2" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+
+                            </span>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3"
+                                    onerror="this.style.display='none'" alt="" class="imageButton">
+                                <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage3" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[2].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[2].id)"
+                                    *ngIf="getPhotoVideoImage3" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+                            </span>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4"
+                                    onerror="this.style.display='none'" alt="" class="imageButton">
+                                <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage4" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[3].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[3].id)"
+                                    *ngIf="getPhotoVideoImage4" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+                            </span>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5"
+                                    onerror="this.style.display='none'" alt="" class="imageButton">
+                                <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage5" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[4].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[4].id)"
+                                    *ngIf="getPhotoVideoImage5" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+
+                            </span>
+                            <span class="pVGallery" style="position: relative; left: 0; top: 0;">
+                                <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6"
+                                    onerror="this.style.display='none'" alt="" class="imageButton">
+                                <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
+                                <label for="photoNew" title="Add an own image here..." class="plusButton"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <label *ngIf="getPhotoVideoImage6" title="Add an own image here..." class="plusButton">
+                                    <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                        (change)="onselectFileNew($event,getPhotoVideoImageId[5].id)"><img
+                                        src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                        style="width: 65%; height: auto;"></label>
+                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[5].id)"
+                                    *ngIf="getPhotoVideoImage6" src="../../../assets/StaticAssets/delete_icon.png"
+                                    alt="">
+                            </span>
+                        </div>
                     </div>
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage7" *ngIf="getPhotoVideoImage7" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage7"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage7" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[6].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[6].id)"
+                                *ngIf="getPhotoVideoImage7" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage8" *ngIf="getPhotoVideoImage8" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage8"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage8" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[7].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[7].id)"
+                                *ngIf="getPhotoVideoImage8" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage9" *ngIf="getPhotoVideoImage9" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage9"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage9" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[8].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[8].id)"
+                                *ngIf="getPhotoVideoImage9" src="../../../assets/StaticAssets/delete_icon.png" alt="">
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage10" *ngIf="getPhotoVideoImage10" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage10"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage10" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[9].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[9].id)"
+                                *ngIf="getPhotoVideoImage10" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage11" *ngIf="getPhotoVideoImage11" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage11"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage11" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[10].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[10].id)"
+                                *ngIf="getPhotoVideoImage11" src="../../../assets/StaticAssets/delete_icon.png" alt="">
+
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12"
                                 onerror="this.style.display='none'" onerror="this.style.display='none'" alt=""
                                 class="imageButton">
                             <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
-                            <label for="photoNew" title="Add an own image here..." *ngIf="!getPhotoVideoImage12"
-                                class="plusButton"><img
+                            <label for="photoNew" title="Add an own image here..." class="plusButton"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
+                            <label *ngIf="getPhotoVideoImage12" title="Add an own image here..." class="plusButton">
+                                <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
+                                    (change)="onselectFileNew($event,getPhotoVideoImageId[11].id)"><img
+                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
+                                    style="width: 65%; height: auto;"></label>
+                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[11].id)"
+                                *ngIf="getPhotoVideoImage12" src="../../../assets/StaticAssets/delete_icon.png" alt="">
+                            <!-- *ngIf="!getPhotoVideoImage12" -->
                         </span>
                     </div>
                     <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
@@ -311,7 +396,7 @@
                         <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
                         </h6>
-                        
+
 
                         <!-- <h6 style="color: #CF6363;">
                             {{memData.age}}Y Old,
