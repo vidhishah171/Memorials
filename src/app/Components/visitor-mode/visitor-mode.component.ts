@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
+import { AdminEditService } from 'src/services/admin-edit.service';
 import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
@@ -50,6 +51,23 @@ export class VisitorModeComponent implements OnInit {
   memorialDetails: any;
   memorialDetails1: any;
   showTrashIcon:boolean=false;
+  showNewDiv1: number;
+  isvalid1: boolean;
+  respo: any;
+  respo1: any;
+  respo2: any;
+  respo3: any;
+  respo4: any;
+  respo5: any;
+  respo6: any;
+  respo7: any;
+  respo8: any;
+  respo9: any;
+  respo10: any;
+  respo11: any;
+  respo12: any;
+  respo13: any;
+  respo14: any;
 
 
   constructor(
@@ -61,6 +79,8 @@ export class VisitorModeComponent implements OnInit {
     public snack: MatSnackBar,
     private spiner: NgxSpinnerService,
     public dialog: MatDialog,
+    public editservice: AdminEditService,
+
 
 
 
@@ -73,6 +93,7 @@ export class VisitorModeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.editData();
     this.getrecentMemorials();
     this.getData2();
     this.getData1();
@@ -321,6 +342,90 @@ export class VisitorModeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  openDialogue(num): void {
+
+    if (num == 1) {
+      this.showNewDiv1 = 1;
+      this.isvalid1 = true;
+    } else if (num == 2) {
+      this.showNewDiv1 = 2;
+      this.isvalid1 = true;
+    }else if (num == 3) {
+      this.showNewDiv1 = 3;
+      this.isvalid1 = true;
+    }else if (num == 4) {
+      this.showNewDiv1 = 4;
+      this.isvalid1 = true;
+    }else if (num == 5) {
+      this.showNewDiv1 = 5;
+      this.isvalid1 = true;
+    }else if (num == 6) {
+      this.showNewDiv1 = 6;
+      this.isvalid1 = true;
+    }else if (num == 7) {
+      this.showNewDiv1 = 7;
+      this.isvalid1 = true;
+    }else if (num == 8) {
+      this.showNewDiv1 = 8;
+      this.isvalid1 = true;
+    }else if (num == 9) {
+      this.showNewDiv1 = 9;
+      this.isvalid1 = true;
+    }else if (num == 10) {
+      this.showNewDiv1 = 10;
+      this.isvalid1 = true;
+    }else if (num == 11) {
+      this.showNewDiv1 = 11;
+      this.isvalid1 = true;
+    }else if (num == 12) {
+      this.showNewDiv1 = 12;
+      this.isvalid1 = true;
+    }else if (num == 13) {
+      this.showNewDiv1 = 13;
+      this.isvalid1 = true;
+    }else if (num == 14) {
+      this.showNewDiv1 = 14;
+      this.isvalid1 = true;
+    }
+  }
+
+  openDialogue1() {
+    this.isvalid1 = false;
+  }
+
+  editData() {
+    this.editservice.adminEdit().subscribe((res: any) => {
+      console.log(res);
+      this.respo = res.Details;
+      this.respo1 = this.respo[269];
+      this.respo2 = this.respo[270];
+      this.respo3 = this.respo[271];
+      this.respo4 = this.respo[272];
+      this.respo5 = this.respo[273];
+      this.respo6 = this.respo[274];
+      this.respo7 = this.respo[275];
+      this.respo8 = this.respo[280];
+      this.respo9 = this.respo[281];
+      this.respo10 = this.respo[282];
+      this.respo11 = this.respo[283];
+      this.respo12 = this.respo[284];
+      this.respo13 = this.respo[285];
+      this.respo14 = this.respo[286];
+    });
+  }
+
+  postEditData(editDataNew: any) {
+    var formdata = new FormData();
+    formdata.append('id', editDataNew.value.id);
+    formdata.append('en', editDataNew.value.en);
+    formdata.append('de', editDataNew.value.de);
+    formdata.append('fr', editDataNew.value.fr);
+
+    this.editservice.editPostData(formdata).subscribe(response => {
+      console.log(response);
+    })
   }
 
 

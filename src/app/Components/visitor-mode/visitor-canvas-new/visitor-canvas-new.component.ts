@@ -95,6 +95,11 @@ export class VisitorCanvasNewComponent implements OnInit {
   imgBack: any[];
   respo14: any;
   respo15: any;
+  respo17: any;
+  respo16: any;
+  respo18: any;
+  respo19: any;
+  respo20: any;
 
 
 
@@ -1365,6 +1370,21 @@ this.displayVitaText();
     } else if (num == 15) {
       this.showNewDiv = 15;
       this.isvalid = true;
+    }else if (num == 16) {
+      this.showNewDiv = 16;
+      this.isvalid = true;
+    }else if (num == 17) {
+      this.showNewDiv = 17;
+      this.isvalid = true;
+    }else if (num == 18) {
+      this.showNewDiv = 18;
+      this.isvalid = true;
+    }else if (num == 19) {
+      this.showNewDiv = 19;
+      this.isvalid = true;
+    }else if (num == 20) {
+      this.showNewDiv = 20;
+      this.isvalid = true;
     }
 
   }
@@ -1393,6 +1413,14 @@ this.displayVitaText();
       this.respo13 = this.respo[96];
       this.respo14 = this.respo[261];
       this.respo15 = this.respo[261];
+      this.respo16 = this.respo[276];
+      this.respo17 = this.respo[277];
+      this.respo18 = this.respo[278];
+      this.respo19 = this.respo[277];
+      this.respo20 = this.respo[279];
+
+
+
 
 
     });

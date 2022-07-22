@@ -17,6 +17,7 @@ export class UserProfileService {
   CondoAPIDelete="https://h2913228.stratoserver.net/API/public/delete_kondolenz";
   inviteUser="https://h2913228.stratoserver.net/API/public/getAllUsersList";
   userInvitationAPI="https://h2913228.stratoserver.net/API/public/invitationSend";
+  userDetailAPi = "https://h2913228.stratoserver.net/API/public/userDetails";
 
   userDetail:any;
   userDetailUserId:any;
@@ -72,5 +73,8 @@ export class UserProfileService {
     // return this.http.post('/delete_kondolenz',condoId);
   }
 
+  userProfileDetails(userId){
+    return this.http.post(this.userDetailAPi,userId);
+  }
 
 }

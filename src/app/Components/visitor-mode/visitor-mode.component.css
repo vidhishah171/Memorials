@@ -1,3 +1,91 @@
+/* for admin edit */
+.forButton{
+    position: relative;
+    /* z-index: 10; */
+    top: 0px;
+    float: right;
+    right: 0px;
+    background-color: rgba(207,99,99, 0.2);
+    opacity: 0.7;
+}
+.forDiv1{
+    position: relative;
+    z-index: 10;
+    color: black;
+    /* border: 1px dotted tomato; */
+    text-align: center;
+    border-radius: 10px;
+    height: auto;
+    /* margin-top: 10%; */
+    width: 300px;
+    font-size: 1rem;
+    background-color: #F8F8F8;
+}
+.visitorDiv1{
+    margin-top: -13%;
+    left: 48%;
+}
+.visitorDiv4{
+    margin-top: -13%;
+    left: 0%;
+}
+.visitorDiv5{
+    margin-top: -13%;
+    left: 46%;
+}
+.visitorDiv6{
+    margin-top: -13%;
+    left: 115%;
+}
+.visitorDiv7{
+    margin-top: -13%;
+    left: 70%;
+}
+.visitorDiv8{
+    margin-top: -63%;
+    left: 159%;
+}
+.latestCondo{
+    top: -38px;
+    right: 38%;
+}
+.subscribeAdminButton{
+    right: 73%;
+    margin-top: 3%;
+}
+.subscribeAdminButton1{
+    left: 6%;
+}
+.subscribeAdminButton2{
+    left: 52%;
+}
+.recentAdminButton{
+    right: 37%;
+    margin-top: 3%;
+}
+.visitorDiv11{
+    margin-top: -59%;
+    left: 132%;
+}
+.visitorDiv12{
+    margin-top: -26%;
+    left: 72%;
+}
+.visitorDiv13{
+    margin-top: -25%;
+    left: 114%;
+}
+.visitorDiv14{
+    margin-top: -103%;
+    left: 170%;
+}
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+
 .userHeading{
     background-color:#CF6363 ;
     height: 16vw;

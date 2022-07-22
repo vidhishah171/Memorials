@@ -124,6 +124,7 @@ export class UserProfileDummyComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.loginservice.mapDataNew = "";
      // this.initAutocomplete();
      this.getUserData();
      this.myProfileData();
@@ -615,19 +616,19 @@ export class UserProfileDummyComponent implements OnInit {
     debugger
     // this.spiner.show();
     var ProfileId = { "user_id": this.profileService.userDetailId }
-    this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
+    this.profileService.userProfileDetails(ProfileId).subscribe((data: any) => {
       debugger
       console.log(data);
-      this.userpic = data.user_data[0].userpic;
-      this.birthdate = data.user_data[0].birthdate;
+      this.userpic = data.Data[0].userpic;
+      this.birthdate = data.Data[0].birthdate;
       this.birthdate1 = formatDate(this.birthdate,'dd.MM.yyyy', 'en_US');
-      this.comment = data.user_data[0].comment;
-      this.firstname = data.user_data[0].firstname;
-      this.loginservice.loginSaveData = this.firstname;
-      this.hometown = data.user_data[0].hometown;
-      this.loginservice.mapData = this.hometown;
+      this.comment = data.Data[0].comment;
+      this.firstname = data.Data[0].firstname;
+      // this.loginservice.loginSaveData = this.firstname;
+      this.hometown = data.Data[0].hometown;
+      this.loginservice.mapDataNew = this.hometown;
       this.geoMap();
-      this.lastname = data.user_data[0].lastname;
+      this.lastname = data.Data[0].lastname;
       // this.spiner.hide();
       if (this.userpic !== '') {
         this.isDisplay1 = false;

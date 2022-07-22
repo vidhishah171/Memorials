@@ -25,7 +25,7 @@
         <div class="vertical-menu">
             <!-- <span class="col-1 vitaImage1" (click)="openUser(100)"><img
                     src="../../../../assets/StaticAssets/Visitor Mode/writing (1).png" alt=""></span> -->
-                <p class="vitaFetch">{{vitaData}}</p>
+            <p class="vitaFetch">{{vitaData}}</p>
         </div>
     </div>
 
@@ -975,20 +975,76 @@
         <div class="menu">
             <div class="menuNew">
                 <div class="recentCsndleSectionMain">
-                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg"
-                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt=""> Recent Candles</span>
-                    <span class="recentCsndleSectionShow">Show All <img class="frontImage"
-                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==1"><img
+                            class="recentCsndleSectionImg"
+                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt="">
+                        {{respo16?.en}}</span>
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==2"><img
+                            class="recentCsndleSectionImg"
+                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt="">
+                        {{respo16?.de}}</span>
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==3"><img
+                            class="recentCsndleSectionImg"
+                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt="">
+                        {{respo16?.fr}}</span>
+
+                    <button (click)="openDialogue(16)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"
+                        style="right: 65%;"><span><img src="../../../assets/StaticAssets/pencil.svg"
+                                style="width:16px; height:auto;" alt=""></span></button>
+                    <span class="recentCsndleSectionShow" *ngIf="editservice.numLabel==1">{{respo17?.en}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span class="recentCsndleSectionShow" *ngIf="editservice.numLabel==2">{{respo17?.de}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span class="recentCsndleSectionShow" *ngIf="editservice.numLabel==3">{{respo17?.fr}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span>
+                        <button (click)="openDialogue(17)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto;"
+                                    alt=""></span></button>
+                    </span>
+
                     <div class="candleSection">
 
                     </div>
                 </div>
                 <div class="recentCsndleSectionMain1">
-                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg1"
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==1"><img
+                            class="recentCsndleSectionImg1"
                             src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
-                        Recent Gifts</span>
-                    <span class="recentCsndleSectionShow1">Show All <img class="frontImage"
-                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
+                        {{respo18?.en}}</span>
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==2"><img
+                            class="recentCsndleSectionImg1"
+                            src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
+                        {{respo18?.de}}</span>
+                    <span class="recentCsndleSection" *ngIf="editservice.numLabel==3"><img
+                            class="recentCsndleSectionImg1"
+                            src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
+                        {{respo18?.fr}}</span>
+                    <button (click)="openDialogue(18)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"
+                        style="right: 71%;"><span><img src="../../../assets/StaticAssets/pencil.svg"
+                                style="width:16px; height:auto;" alt=""></span></button>
+                    <span class="recentCsndleSectionShow1" *ngIf="editservice.numLabel==1">{{respo19?.en}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span class="recentCsndleSectionShow1" *ngIf="editservice.numLabel==2">{{respo19?.de}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span class="recentCsndleSectionShow1" *ngIf="editservice.numLabel==3">{{respo19?.fr}} <img
+                            class="frontImage" src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt="">
+                    </span>
+                    <span>
+                        <button (click)="openDialogue(19)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto;"
+                                    alt=""></span></button>
+                    </span>
                     <div class="giftSection">
 
                     </div>
@@ -997,9 +1053,145 @@
         </div>
     </div>
 
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==16 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="canvasDivCss16">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo16.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo16.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>German</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo16.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>French</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo16.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==17 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="canvasDivCss17">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo17.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo17.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>German</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo17.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>French</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo17.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==18 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="canvasDivCss18">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo18.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo18.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>German</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo18.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>French</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo18.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==19 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="canvasDivCss19">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo19.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo19.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>German</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo19.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>French</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo19.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
+
     <div class="w-100 mt-4 pt-3" style="text-align: center;">
-        <button (click)="saveEditMemorial()" class="saveBtn btn">SAVE & PUBLISH</button>
+        <button (click)="openDialogue(20)" *ngIf="loginservice.isVisible"
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton saveAndPublish"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto;"
+                    alt=""></span></button>
+        <button (click)="saveEditMemorial()" *ngIf="editservice.numLabel==1"
+            class="saveBtn btn">{{respo20?.en}}</button>
+        <button (click)="saveEditMemorial()" *ngIf="editservice.numLabel==2"
+            class="saveBtn btn">{{respo20?.de}}</button>
+        <button (click)="saveEditMemorial()" *ngIf="editservice.numLabel==3"
+            class="saveBtn btn">{{respo20?.fr}}</button>
     </div>
+
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==20 && isvalid" style="position: absolute; margin-top: 25px;">
+        <div class="forDiv" id="canvasDivCss20">
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
+            <form class="example-form" #regForm2="ngForm">
+                <mat-form-field class="example-full-width" style="display: none;">
+                    <mat-label>id</mat-label>
+                    <textarea matInput name="id" [(ngModel)]="respo20.id"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width englishLng">
+                    <mat-label>English</mat-label>
+                    <textarea matInput name="en" [(ngModel)]="respo20.en"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>German</mat-label>
+                    <textarea matInput name="de" [(ngModel)]="respo20.de"></textarea>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>French</mat-label>
+                    <textarea matInput name="fr" [(ngModel)]="respo20.fr"></textarea>
+                </mat-form-field>
+            </form>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
+        </div>
+    </li>
 
 
     <!-- Extra code for label -->

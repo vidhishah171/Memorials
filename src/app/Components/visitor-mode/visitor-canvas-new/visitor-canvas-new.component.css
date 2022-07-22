@@ -105,6 +105,38 @@
     margin-top: 34%;
     left: 284%;
 }
+#canvasDivCss16{
+    left: 133%;
+    margin-top: -13%;
+}
+#canvasDivCss17{
+    left: 246%;
+    margin-top: -13%;
+}
+#canvasDivCss18{
+    left: 125%;
+    margin-top: 82%;
+}
+#canvasDivCss19{
+    left: 240%;
+    margin-top: 79%;
+}
+#canvasDivCss20{
+    left: 134%;
+    margin-top: 121%;
+}
+.saveAndPublish{
+    top: -140%;
+    right: 33%;
+}
+
+.englishLng{
+    padding-top: 15%; 
+    padding-left: 2%;
+    margin-left: 12%;
+}
+
+
 .btnColorHeading{
     border: none;
     border-radius: 5px;

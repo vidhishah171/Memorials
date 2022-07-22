@@ -16,6 +16,7 @@ export class LoginService {
   isUser:boolean;
   eitpo:any;
   mapData:any;
+  mapDataNew:any
 
   
 
