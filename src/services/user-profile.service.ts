@@ -18,10 +18,18 @@ export class UserProfileService {
   inviteUser="https://h2913228.stratoserver.net/API/public/getAllUsersList";
   userInvitationAPI="https://h2913228.stratoserver.net/API/public/invitationSend";
   userDetailAPi = "https://h2913228.stratoserver.net/API/public/userDetails";
+  insertBackground = "https://h2913228.stratoserver.net/API/public/insert_decoration";
+  updateBackground = "https://h2913228.stratoserver.net/API/public/update_decoration";
+  deleteBackground = "https://h2913228.stratoserver.net/API/public/delete_decoration";
+  fetchBackground = "https://h2913228.stratoserver.net/API/public/fetch_decoration";
+  receiveMessageAPI = "https://h2913228.stratoserver.net/API/public/message_receive_users";
+  receiveMessagesOnlyAPI = "https://h2913228.stratoserver.net/API/public/message_receive"
 
   userDetail:any;
   userDetailUserId:any;
   userDetailId:any;
+  senderUserId:any;
+
 
   constructor(
     private http:HttpClient
@@ -47,7 +55,7 @@ export class UserProfileService {
     return this.http.post(this.saveCondoAPI,condoData)
   }
 
-  inviteUserList(){
+  inviteUserListData(){
     return this.http.get(this.inviteUser);
   }
 
@@ -55,26 +63,62 @@ export class UserProfileService {
     return this.http.post(this.userInvitationAPI,userEmailId)
   }
 
+  uploadMyBackground(uploadBackData){
+    debugger
+    return this.http.post(this.insertBackground,uploadBackData);
+  }
+
+  updateMyBackground(updateBackData){
+    return this.http.post(this.updateBackground,updateBackData);
+  }
+
+  deleteMyBackground(deleteData){
+    return this.http.post(this.deleteBackground,deleteData);
+  }
+
+  fetchMyBackground(fetchData){
+
+    // for server
+    // return this.http.post(this.fetchBackground,fetchData);
+
+    // for local
+    return this.http.post('/insertDecoration',fetchData);
+
+  }
+
   myProfileDetails(profileDetails){
     
     // For server
-    return this.http.post(this.myProfile,profileDetails);
+    // return this.http.post(this.myProfile,profileDetails);
     
 
     // For Local
-    // return this.http.post('/userProfile',profileDetails);
+    return this.http.post('/userProfile',profileDetails);
   }
 
   deleteCondo(condoId:any){
     // for server
-    return this.http.post(this.CondoAPIDelete,condoId);
+    // return this.http.post(this.CondoAPIDelete,condoId);
 
     // for local
-    // return this.http.post('/delete_kondolenz',condoId);
+    return this.http.post('/delete_kondolenz',condoId);
   }
 
   userProfileDetails(userId){
-    return this.http.post(this.userDetailAPi,userId);
+    // for server
+    // return this.http.post(this.userDetailAPi,userId);
+
+    // for local
+    return this.http.post('/userDetail',userId);
   }
 
+  receiveMessageDetails(receiveMessageId){
+    debugger
+    return this.http.post(this.receiveMessageAPI,receiveMessageId);
+  }
+
+  receiveMessagesOnly(receiveMessageData){
+    debugger
+    return this.http.post(this.receiveMessagesOnlyAPI,receiveMessageData)
+  }
 }

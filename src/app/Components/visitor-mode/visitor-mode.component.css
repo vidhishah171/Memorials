@@ -540,7 +540,12 @@
 }
 
 @media (min-width:1518px)and (max-width:2017px){
-   
+    .content2{
+        height: 53vw;
+    }
+    .photoVideoGalleryText{
+        margin-left: 1%;
+    }
 }
 @media (min-width:2017px)and (max-width:2049px){
    
@@ -558,8 +563,14 @@
     .photoVideoGallary{
         height: 18vw;
     }
+    /* .photoVideoGallaryDiv{
+        margin-right: 16%;
+    } */
     .subscribeImage{
         background-position: top;
+    }
+    .photoVideoGalleryText{
+        margin-left: 1%;
     }
 }
 @media (min-width:3840px)and (max-width:4098px){
@@ -567,7 +578,9 @@
         height: 144px;
     }
     .circleImage{
-        margin-top: 6%;
+        margin-top: 7%;
+        width: 8%;
+        height: 50%;
     }
     .content2{
         height: 25vw;
@@ -584,6 +597,9 @@
     }
     .recentMemorial{
         height: 10vw;
+    }
+    .photoVideoGalleryText{
+        margin-left: 1%;
     }
 }
 @media (min-width:4098px){

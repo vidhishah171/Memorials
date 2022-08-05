@@ -1,0 +1,91 @@
+<div class="mb-4">
+    <app-navbar></app-navbar>
+</div>
+<div class="mb-4">
+    <div class="container userMain">
+        <div class="row userMainSub mat-elevation-z8">
+            <div class="col-4 userBoxFirst">
+                <div class="mt-4">
+                    <span *ngIf="imageDisplay"><img src={{userpic}} alt=""
+                            class="rounded-circle userBoxFirstSub"></span>&nbsp;&nbsp;
+                    <span class="userBoxFirstSubText">{{firstname}}&nbsp;{{lastname}}</span>
+                </div>
+                <div class="mt-4">
+                    <input type="text" class="form-control userBoxFirstInput" [(ngModel)]="userSearchFirstnameNew" (keyup)="displaySearchData($event)"
+                        placeholder="Search People" name="" id="search">
+                </div>
+                <div class="forDisplay vertical-menu" *ngIf="toggleDisplay">
+                    <div
+                        *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
+                        <div class="userDataPointerDiv">
+                            <span class="userDataPointer" (click)="goToUserMessage(data.id)">{{data.name}}</span>
+                        </div>
+                        <hr style="margin: 0px; padding:0px; width: 400px; text-align: center;">
+                    </div>
+                    <pagination-controls *ngIf="paginationHide" class="text-center paginationText"
+                        (pageChange)="page = $event"></pagination-controls>
+                </div>
+                <hr>
+                <div class="userActive">
+                    <div class="mt-4 userFirstBoxDiv" style="cursor: pointer;" (click)="messageBox(item.receiver_id,item.sender_id);goToUserMessage(item.sender_id)" *ngFor="let item of msg">
+                        <!-- (click)="goToUserMessage(item.id);receiveMessage()" -->
+                        <div class="userFirstBoxImage">
+                            <img src={{item.userpic}} alt=""
+                                class="rounded-circle userBoxFirstSub1">
+                        </div>&nbsp;&nbsp;
+                        <div class="userBoxFirstSubText">
+                            <p>{{item.firstname}}&nbsp;{{item.lastname}}</p>
+                            <p class="activeText">lorem Ipsum</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-8 userBoxSecond">
+                <div class="secondBoxHeight">
+                    <div class="mt-4">
+                        <span>
+                            <span *ngIf="imageDisplay1"><img src={{userpicSender}} alt=""
+                                    class="rounded-circle userBoxSecondSub"></span>&nbsp;&nbsp;
+                            <span class="userBoxSecondSubText">{{firstnameSender}}&nbsp;{{lastnameSender}}</span>
+                        </span>
+                        <span class="userBoxSecondToggleButton">
+                            <img src="../../../assets/StaticAssets/three-dots-vertical.svg" alt="">
+                        </span>
+                    </div>
+                    <hr>
+                    <div *ngFor="let msgOnly of msgData">
+                        <div class="firstUserDiv pt-3" *ngIf="msgOnly.receiver_id == loginservice.loginAllData.id">
+                            <div class="firstUserDivImage">
+                                <img src="../../../assets/StaticAssets/Create memorial/step1/user.png" alt=""
+                                    class="rounded-circle userFirstUser">
+                            </div>&nbsp;&nbsp;
+                            <div class="FirstUserMessageText">{{msgOnly.msg}}</div>
+                        </div>
+                        <div class="secondUserDiv mt-3" *ngIf="msgOnly.receiver_id != loginservice.loginAllData.id">
+                            <div class="secondUserMessageText">{{msgOnly.msg}}</div>&nbsp;&nbsp;
+                            <div class="firstUserDivImage2">
+                                <img src="../../../assets/StaticAssets/Create memorial/step1/user.png" alt=""
+                                    class="rounded-circle userSecondUser">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="sendBox">
+                    <div class="sendBoxWidth">
+                        <textarea rows="2" class="form-control sendInput" [(ngModel)]="senderMessage" placeholder="Your message here.."></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-sm"><img src="../../../assets/StaticAssets/Send@1x.png" (click)="sendMessage()" class="sendBtn"
+                                alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <app-footer></app-footer>
+</div>

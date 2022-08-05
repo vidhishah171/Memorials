@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { UserProfileService } from 'src/services/user-profile.service';
 
 @Component({
@@ -17,9 +19,13 @@ export class InvitePopupComponent implements OnInit {
   paginationHide: boolean = true;
   fullName: () => void;
 
+  fillEmailId: any;
+
   constructor(
     public userProfile: UserProfileService,
     private spiner: NgxSpinnerService,
+    public snack: MatSnackBar,
+
 
   ) { }
 
@@ -29,7 +35,7 @@ export class InvitePopupComponent implements OnInit {
 
   inviteUserList() {
     this.spiner.show();
-    this.userProfile.inviteUserList().subscribe((inviteData: any) => {
+    this.userProfile.inviteUserListData().subscribe((inviteData: any) => {
       console.log(inviteData);
       this.inviteList = inviteData.Data;
       this.inviteList1 = inviteData.Data;
@@ -54,13 +60,38 @@ export class InvitePopupComponent implements OnInit {
     })
   }
   inviteUser(userEmail) {
-    var userEmailId = {
-      "email_id": userEmail
+    debugger
+    if(userEmail.form.value.userEmail == "" || userEmail.form.value.userName == "" || userEmail.form.value.userMsg == ""){
+      this.snackBar("Please fill all details in the form", "alert-danger");
+    }else{
+    var userDetails = {
+      "email_id": userEmail.form.value.userEmail,
+      "name": userEmail.form.value.userName,
+      "msg": userEmail.form.value.userMsg
     }
-    this.userProfile.sendInvitationUser(userEmailId).subscribe(invitationRes => {
-      console.log(invitationRes);
+    this.spiner.show();
+    this.userProfile.sendInvitationUser(userDetails).subscribe((invitationRes:any) => {
+      if (invitationRes.status == "success") {
+        this.spiner.hide();
+        this.snackBar("Invitation sent successfully, please check your email ID", "alert-green");
+        this.inviteUserData = false;
+      }
     })
   }
+}
+
+  snackBar(message: string, panelClass: string) {
+    this.snack.openFromComponent(SnackbarComponent, {
+      duration: 2500,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      data: message,
+      panelClass: panelClass,
+
+
+    })
+
+  };
 
   searchInviteUser(data) {
     debugger
@@ -69,15 +100,31 @@ export class InvitePopupComponent implements OnInit {
 
     var userSearchFirstname = userSearchFirstname?.toLowerCase();
     if (userSearchFirstname != '') {
-      
+
       this.inviteList = this.inviteList1.filter(dataSearch => dataSearch?.name?.toLowerCase().includes(userSearchFirstname));
-      this.totalLength=this.inviteList.length;
+      this.totalLength = this.inviteList.length;
       // this.paginationHide = false;
     }
-    // else if (userSearchFirstname == '') {
-    //   this.inviteList = this.inviteList1;
-    //   this.paginationHide = true;
-    // }
+    else if (userSearchFirstname == '') {
+      this.inviteList = this.inviteList1;
+      this.totalLength = this.inviteList.length;
+      this.paginationHide = true;
+    }
+  }
+
+  inviteUserData: boolean = false;
+  externalUser() {
+    this.fillEmailId = '';
+    this.inviteUserData = true;
+  }
+  externalUserClose() {
+    this.inviteUserData = false;
+  }
+
+  inviteUserOpenForm(emailId) {
+    debugger
+    this.inviteUserData = true;
+    this.fillEmailId = emailId;
   }
 
 }

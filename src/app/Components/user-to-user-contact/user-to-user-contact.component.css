@@ -1,0 +1,169 @@
+.userMain{
+    margin-left:16%;
+}
+.userMainSub{
+    /* border: 1px solid black; */
+    height:46vw; 
+    width: 80%;
+}
+.userBoxFirst{
+    background-color: #EEE5DC;
+    height: 100%;
+}
+.userBoxFirstSub{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.userBoxFirstSub1{
+    width: 100%;
+}
+.userBoxFirstSubText{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.userBoxFirstInput{
+    border-radius:20px;
+}
+/* .userBoxSecond{
+    background-color: whitesmoke;
+} */
+#search {
+    background-image: url('../../../assets/StaticAssets/Create memorial/step1/search-1.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10%;
+    padding-left: 17%;
+    background-size: 15px;
+}
+::placeholder{
+    font-size: 0.8rem;
+    padding-left: 8%;
+}
+.userActive:active{
+    background-color: white;
+}
+.userBoxSecondSub{
+    /* width: 9%;    */
+    margin-left: 9%;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+.userBoxSecondSubText{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.userBoxSecondToggleButton{
+    float: right;
+    margin-top: 2%;
+    margin-right: 3%;
+}
+
+.userFirstUser{
+     width: 83%; 
+}
+.userSecondUser{
+    width: 70%;
+    float: right;
+    margin-right: 20%;
+}
+.FirstUserMessageText{
+    font-size: 0.9rem;
+    background-color: #EEE5DC;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.secondUserMessageText{
+    font-size: 0.9rem;
+    background-color: #CF6363;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: white;
+}
+.firstUserDiv{
+    display: flex; width: 60%;
+}
+.secondUserDiv{
+    float: right;
+    display: flex; width: 60%;
+}
+.activeText{
+    font-size: 0.7rem;
+}
+.userFirstBoxImage{
+    width: 18%;
+}
+.userFirstBoxDiv{
+    display: flex;
+}
+.secondBoxHeight{
+    height: 72%;
+    overflow-y: scroll;
+}
+.sendInput{
+    border: none;
+    overflow-y: hidden;
+    text-decoration: none;
+    border-color: white;
+}
+.sendBox{
+    display: flex;
+}
+.sendBoxWidth{
+    width: 90%;
+}
+.firstUserDivImage{
+    width: 20%;
+}
+.firstUserDivImage2{
+    width: 36%;
+}
+.btnColor{
+    background-color: #CF6363;
+    color: white;
+}
+.sendBtn{
+    height: 40px;
+    margin-top: -20%;
+}
+.forDisplay{
+    position: absolute;
+    z-index: 5000;
+    color: black;
+    /* border: 1px dotted black; */
+    text-align: center;
+    border-radius: 10px;
+    height: 60%;
+    /* height: 80%; */
+    /* margin-top: 10%; */
+    width: 270px;
+    font-size: 1rem;
+    background-color: white;
+}
+.vertical-menu {
+    /* width: 200%;
+    height: 150px; */
+    overflow-x: hidden;
+  }
+.userDataPointer{
+    cursor: pointer;
+}
+.userDataPointerDiv:hover{
+    background-color: #B5B5B5;
+    color: white;
+}
+.paginationText{
+    font-size: 0.8rem;
+    padding-top: 8%;
+}
+.floatRight{
+    float: left;
+}
+.floatRight1{
+    float: right;
+}

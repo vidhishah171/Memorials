@@ -1,5 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Console } from 'console';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -10,6 +11,7 @@ import { EditMemorialService } from 'src/services/edit-memorial.service';
 import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
+import { InvitePopupComponent } from '../visitor-mode/invite-popup/invite-popup.component';
 
 @Component({
   selector: 'app-edit-memorial',
@@ -61,6 +63,7 @@ export class EditMemorialComponent implements OnInit {
     public editCanvas: EditMemorialService,
     private spiner: NgxSpinnerService,
     public snack: MatSnackBar,
+    public dialog: MatDialog,
 
 
 
@@ -249,8 +252,8 @@ export class EditMemorialComponent implements OnInit {
         (recentMemorial: any) => {
           if (recentMemorial) {
             this.Memorials = recentMemorial.Memorials;
-            for(let item of this.Memorials){
-              item.path= item.path+'?v='+this.service.indexNew++;
+            for (let item of this.Memorials) {
+              item.path = item.path + '?v=' + this.service.indexNew++;
             }
           }
         },
@@ -263,26 +266,31 @@ export class EditMemorialComponent implements OnInit {
   }
 
   photoUrl: any;
-  photoUrlNew:any;
-  updatePhotoVideoDeta:any;
-  onselectFileNew(data,data1){
+  photoUrlNew: any;
+  updatePhotoVideoDeta: any;
+  onselectFileNew(data, data1) {
     debugger
     var reader = new FileReader();
     reader.readAsDataURL(data.target.files[0]);
     reader.onload = (event: any) => {
       this.photoUrlNew = event.target.result;
-      if(this.photoUrlNew != ''){
-      this.updatePhotoVideoDeta={
-        "image_id":data1,
-        "image_data":this.photoUrlNew
+      if (this.photoUrlNew != '') {
+        this.updatePhotoVideoDeta = {
+          "image_id": data1,
+          "image_data": this.photoUrlNew
+        }
+        this.spiner.show();
+        this.editMemorial.updatePhotoVideoGallery(this.updatePhotoVideoDeta).subscribe((Response: any) => {
+          debugger
+          if (Response.status == "success") {
+            this.getPhotoVideo();
+            this.snackBar('Image successfully update...', 'alert-green');
+            this.spiner.hide();
+          }
+        });
       }
-      this.editMemorial.updatePhotoVideoGallery(this.updatePhotoVideoDeta).subscribe((Response: any) => {
-        debugger
-        this.photoVideoGallery();
-      });
     }
-    }
-   
+
 
   }
 
@@ -397,37 +405,43 @@ export class EditMemorialComponent implements OnInit {
     debugger
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.loginService.loginAllData);
-
+    this.spiner.show();
     this.editMemorial.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-debugger
-      this.pp = userRes1.Data;
-      this.getPhotoVideoImageId = userRes1.Data;
+      debugger
+      if(userRes1.status == "success"){
+        this.pp = userRes1.Data;
+        this.getPhotoVideoImageId = userRes1.Data;
 
-      this.getPhotoVideoImage1 = userRes1.Data[0]?.image;
-      this.getPhotoVideoImage2 = userRes1.Data[1]?.image;
-      this.getPhotoVideoImage3 = userRes1.Data[2]?.image;
-      this.getPhotoVideoImage4 = userRes1.Data[3]?.image;
-      this.getPhotoVideoImage5 = userRes1.Data[4]?.image;
-      this.getPhotoVideoImage6 = userRes1.Data[5]?.image;
-      this.getPhotoVideoImage7 = userRes1.Data[6]?.image;
-      this.getPhotoVideoImage8 = userRes1.Data[7]?.image;
-      this.getPhotoVideoImage9 = userRes1.Data[8]?.image;
-      this.getPhotoVideoImage10 = userRes1.Data[9]?.image;
-      this.getPhotoVideoImage11 = userRes1.Data[10]?.image;
-      this.getPhotoVideoImage12 = userRes1.Data[11]?.image;
+        this.getPhotoVideoImage1 = userRes1.Data[0]?.image;
+        this.getPhotoVideoImage2 = userRes1.Data[1]?.image;
+        this.getPhotoVideoImage3 = userRes1.Data[2]?.image;
+        this.getPhotoVideoImage4 = userRes1.Data[3]?.image;
+        this.getPhotoVideoImage5 = userRes1.Data[4]?.image;
+        this.getPhotoVideoImage6 = userRes1.Data[5]?.image;
+        this.getPhotoVideoImage7 = userRes1.Data[6]?.image;
+        this.getPhotoVideoImage8 = userRes1.Data[7]?.image;
+        this.getPhotoVideoImage9 = userRes1.Data[8]?.image;
+        this.getPhotoVideoImage10 = userRes1.Data[9]?.image;
+        this.getPhotoVideoImage11 = userRes1.Data[10]?.image;
+        this.getPhotoVideoImage12 = userRes1.Data[11]?.image;
+        this.spiner.hide();
+      }else{
+        this.getPhotoVideoImage1 = '';
+      }
     })
-    }
+  }
 
-  deletePhotoVideo(dataId){
+  deletePhotoVideo(dataId) {
     debugger
-     var deleteData={
-      "image_id" : dataId
-     }
-     this.spiner.show();
+    var deleteData = {
+      "image_id": dataId
+    }
+    this.spiner.show();
     this.editMemorial.getPhotoVideoDelete(deleteData).subscribe((deleteRes: any) => {
       console.log(deleteRes)
-      if(deleteRes){
+      if (deleteRes) {
         this.getPhotoVideo();
+        this.snackBar('Image successfully deleted...', 'alert-danger');
         this.spiner.hide();
       }
     })
@@ -455,5 +469,16 @@ debugger
   }
   condolenceScroll(el: HTMLElement) {
     el.scrollIntoView();
+  }
+
+  openInvitePopup() {
+    const dialogRef = this.dialog.open(InvitePopupComponent, {
+      width: '500px',
+      height: '500px'
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

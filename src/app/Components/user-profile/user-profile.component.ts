@@ -222,6 +222,7 @@ export class UserProfileComponent implements OnInit {
           item.path= item.path +'?v='+this.service.index++;
         }
         if (this.caroucelCount == 1) {
+          debugger
           this.imagesForCaroucelUser = this.getUserMemoData.slice(0, 5);
         }
         // this.profileService.userDetail=userRes["User Memorials"].grab_id;

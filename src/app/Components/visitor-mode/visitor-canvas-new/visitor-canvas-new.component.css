@@ -917,9 +917,18 @@
     } 
     .content2{
         height: 49vw;
+        margin-left: 8%;
     }
     .giftSection{
-        height: 14vw;
+        height: 16.5vw;
+    }
+    .subscribeImage{
+        background-size: 98%;
+    }
+ }
+ @media (min-width:1517px)and (max-width:2017px){
+    .giftSection{
+        height: 12.5vw;
     }
  }
  @media (min-width:2017px)and (max-width:2049px){
@@ -939,11 +948,13 @@
     }
     .content2{
         height: 35vw;
+        margin-left: 8%;
     }
  }
  @media (min-width:2732px) and (max-width:4098px){
      .content2{
          height: 25vw;
+        margin-left: 8%;
      }
 
      .giftSection{

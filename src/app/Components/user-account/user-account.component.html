@@ -298,13 +298,13 @@
                 <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==1" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.en}}</span></span>
-                <span *ngIf="editservice.numLabel==2" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==2" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.de}}</span></span>
-                <span *ngIf="editservice.numLabel==3" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==3" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.fr}}</span></span>
             </div>
@@ -419,7 +419,7 @@
             </li>
 
 
-            <div class="pt-3">
+            <div class="pt-3" routerLink="/my-backgrounds">
                 <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -463,7 +463,7 @@
 
 
             <hr>
-            <div>
+            <div routerLink="/my-decorations">
                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>

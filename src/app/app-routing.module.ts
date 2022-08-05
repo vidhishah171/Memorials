@@ -23,6 +23,10 @@ import { ForgotPassAcitveComponent } from './Components/forgot-pass-acitve/forgo
 import { ForgotPassComponent } from './Components/user-account/forgot-pass/forgot-pass.component';
 import { VisitorModeComponent } from './Components/visitor-mode/visitor-mode.component';
 import { UserProfileDummyComponent } from './Components/user-profile-dummy/user-profile-dummy.component';
+import { UserToUserContactComponent } from './Components/user-to-user-contact/user-to-user-contact.component';
+import { MyBackgroundsComponent } from './Components/my-backgrounds/my-backgrounds.component';
+import { MyDecorationsComponent } from './Components/my-decorations/my-decorations.component';
+import { DisplayCondolencesComponent } from './Components/user-account/display-condolences/display-condolences.component';
 
 
 const routes: Routes = [
@@ -46,6 +50,10 @@ const routes: Routes = [
   {path:"user-profile-forgot-pass",component:ForgotPassComponent},
   {path:"visitor-mode",component:VisitorModeComponent},
   {path:"user-profile-details",component:UserProfileDummyComponent},
+  {path:"user-to-user-contact",component:UserToUserContactComponent},
+  {path:"my-backgrounds",component:MyBackgroundsComponent},
+  {path:"my-decorations",component:MyDecorationsComponent},
+  {path:"user-condo",component:DisplayCondolencesComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

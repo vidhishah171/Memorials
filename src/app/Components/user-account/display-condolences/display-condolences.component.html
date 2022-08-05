@@ -1,0 +1,184 @@
+
+<app-navbar></app-navbar>
+<div class="row container condolenceMainDiv">
+    <div class="col-3 ml-4 mt-4 mb-4 mat-elevation-z8">
+        <p class="memorialText">Following memorials were created by the current user:</p>
+        <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators" style="display: none;">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
+        
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+        
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+        
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div (click)="readCondolences(userData.grab_id)"
+                        class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                        style="cursor: pointer; margin-left: 14%;"
+                        *ngFor="let userData of imagesForCaroucelUser">
+                        <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                        <div class="ms-2">
+                            <p class="memorialName">
+                                {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;y Old
+                            </p>
+                            <p class="memorialCity">
+                                {{userData.starvetown}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div (click)="readCondolences(userData.grab_id)"
+                        class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                        style="cursor: pointer; margin-left: 14%;"
+                        *ngFor="let userData of imagesForCaroucelUser">
+                        <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                        <div class="ms-2 mt-3">
+                            <p class="memorialName">
+                                {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;y Old
+                            </p>
+                            <p class="memorialCity">
+                                {{userData.starvetown}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div (click)="readCondolences(userData.grab_id)"
+                        class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                        style="cursor: pointer; margin-left: 14%;"
+                        *ngFor="let userData of imagesForCaroucelUser">
+                        <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                        <div class="ms-2 mt-3">
+                            <p class="memorialName">
+                                {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;y Old
+                            </p>
+                            <p class="memorialCity">
+                                {{userData.starvetown}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div (click)="readCondolences(userData.grab_id)"
+                        class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                        style="cursor: pointer; margin-left: 14%;"
+                        *ngFor="let userData of imagesForCaroucelUser">
+                        <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                        <div class="ms-2 mt-3">
+                            <p class="memorialName">
+                                {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;y Old
+                            </p>
+                            <p class="memorialCity">
+                                {{userData.starvetown}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div (click)="readCondolences(userData.grab_id)"
+                        class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                        style="cursor: pointer; margin-left: 14%;"
+                        *ngFor="let userData of imagesForCaroucelUser">
+                        <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
+                        <div class="ms-2 mt-3">
+                            <p class="memorialName">
+                                {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;y Old
+                            </p>
+                            <p class="memorialCity">
+                                {{userData.starvetown}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
+                    <span aria-hidden="true" [hidden]="caroucelCount==1">
+                        <img src="../../../assets/StaticAssets/my account premium/down-arrow (7).png" alt="">
+                    </span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    [disabled]="caroucelCount==5 || imagesForCaroucelUser?.length != 5" (click)="nextCarousel()"
+                    data-bs-slide="next">
+                    <span aria-hidden="true" [hidden]="caroucelCount==5 || imagesForCaroucelUser?.length != 5">
+                        <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
+                    </span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <div>
+            <div class="container">
+                <div class="editCondolences">
+                    <div class="pt-5">
+                        <img class="crossImg" src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
+                    </div>
+                    <div class="condolenceDiv">
+                        <h5 class="pt-3 condolencesText">User Condolonces</h5>
+                        <div class="row pt-5">
+                            <div class="col-6 condolenceMain" id="condolencesMain"
+                                [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}"
+                                *ngFor="let item of service.memorialDetails">
+                                <div class="condolencesEdit row" id="condolencesEdit"
+                                    [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
+                                    <div class="col-3">
+                                        <span>
+                                            <img class="qotesImg"
+                                                src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <div>
+                                            <span>
+                                                <img class="condolenceImg me-2"
+                                                    src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png" alt="">
+                                            </span>
+    
+                                            <span
+                                                class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
+                                        </div>
+                                        <div class="condolencesComment"
+                                            [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}"
+                                            id="condolencesComment">
+                                            {{item.comment}}
+                                        </div>
+                                        <div class="viewEntireDiv">
+                                            <span class="viewEntire" (click)="condolencesComment(item)">View Entire
+                                                Memory&nbsp;&nbsp;<img class="rightImg"
+                                                    src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png"
+                                                    alt=""></span>
+                                            <span style="float: right; cursor: pointer;"><img class="deletrImg"
+                                                    src="../../../assets/StaticAssets/Visitor Mode/delete.png"
+                                                    alt="" (click)="deleteCondolence(item.comment_id)" *ngIf="showTrashIcon"></span>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn readAllCondo" (click)="service.readAllCondo()">READ ALL
+                                CONDOLENCES</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<app-footer></app-footer>

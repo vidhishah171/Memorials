@@ -1,0 +1,38 @@
+.photoVideoGallary{
+    height: 35vw;
+    background-color: #F8F4EF;
+    margin-top: -1%;
+}
+.photoVideoGalleryText{
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 1%;
+}
+.pVGallery{
+    box-sizing: border-box;
+    border: 1px solid black;
+    float: left;
+    width: 14%;
+    height: 150px;
+    margin: 1%;
+    border-radius: 7px;
+}
+.imageButton{
+    position: relative;
+    width: 100%; 
+    height: 100%;
+}
+.plusButton{
+    position: absolute;
+    /* float: right; */
+    left: 80%;
+    /* z-index: 10; */
+    cursor: pointer;
+}
+.plusButtonDelete{
+    position: absolute;
+    left: 83%;
+    top: 82%;
+    width: 19px;
+    cursor: pointer;
+}

@@ -36,7 +36,7 @@ export class UserSearchPopupComponent implements OnInit {
   inviteUserList() {
 
     this.spiner.show();
-    this.userProfile.inviteUserList().subscribe((inviteData: any) => {
+    this.userProfile.inviteUserListData().subscribe((inviteData: any) => {
       console.log(inviteData);
       this.inviteList = inviteData.Data;
       this.inviteList1 = inviteData.Data;

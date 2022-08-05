@@ -60,10 +60,10 @@ export class EditMemorialService {
   getPhotoVideo(photoData1){
   
     // For server
-    return this.http.post(this.photoAPI1,photoData1);
+    // return this.http.post(this.photoAPI1,photoData1);
 
     // For local
-    // return this.http.post('/getImage',photoData1);
+    return this.http.post('/getImage',photoData1);
   }
   updatePhotoVideoGallery(photoVideoGalleryDetails){
     return this.http.post(this.updatePhotoVideoGalleryAPI,photoVideoGalleryDetails);

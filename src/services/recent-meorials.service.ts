@@ -39,6 +39,7 @@ indexNew=1;
 
 
   getMeorialDetail() {
+    debugger
     var data = { "grab_id": this.userGrabIdData2 }
     this.profileService.getMemorialDetails(data).subscribe((response: any) => {
       this.memorialDetails1 = response.Details[0].comments;

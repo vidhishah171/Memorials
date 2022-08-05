@@ -1,100 +1,13 @@
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-
-
 <div>
     <div>
         <app-navbar></app-navbar>
     </div>
-    <div>
-        <div class="userHeading" id="userHeading">
-            <img *ngIf="isDisplayBack" id="backgroundimage" src={{userpicBack}} alt="">
-            <img *ngIf="isDisplayBack1" id="backgroundimage" [src]=urlBackground alt="">
 
-            <h1>{{lovedPersonData?.fname}}&nbsp;{{lovedPersonData?.lname}}</h1>
-            <!-- <h1>welcome</h1> -->
-            <div class="userDate">
-                <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
-            </div>
-            <div class="userBackground">
-                <span class="imgMargin"><img class="photoGalleryImg"
-                        src="../../../assets/StaticAssets/Create memorial/step2/PhotoGAllery.png" alt=""></span>
-                <span class="photoBackText">
-                    <p>ADD BACKGROUND</p>
-                </span>&nbsp;
-                <label for="photoBackground"><img class="photoPlusImage"
-                        src="../../../assets/StaticAssets/Create memorial/step2/add-3.png" alt=""></label>
-
-                <!-- <label for="photoBackground" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label> -->
-                <input id="photoBackground" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                    (change)="onselectFileBackground($event)">
-            </div>
-            <div style="float: right; margin-right: 10%;" class="pt-2" *ngFor="let item of lovedPersonData1">
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt=""
-                        style="width: 8%; opacity: 0.7;">&nbsp;<small class="shareEdit">Share</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt=""
-                        style="width: 8%; opacity: 0.7;">&nbsp;<small class="shareEdit1">view</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt=""
-                        style="width: 8%; opacity: 0.7;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
-                </span>
-                &nbsp;
-                <span>
-                    <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt=""
-                        style="width: 6%; opacity: 0.7;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
-                </span>
-            </div>
-            <div *ngIf="isDisplay" class="steeper rounded-circle circleImage">
-                <img src="{{userpic}}" alt="">
-                <!-- userImage1 -->
-                <!-- class="userImage" -->
-            </div>
-            <div *ngIf="isDisplay1" class="steeper rounded-circle circleImage">
-                <img [src]="url" alt="">
-                <!-- userImage1 -->
-                <!-- class="userImage" -->
-            </div>
-            <!-- <div class="Photo">
-                <label for="photo" title="Add an own image here..."><img class="steeper rounded-circle plusImageOnHeader" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;">
-            </div> -->
-            <label for="photo" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;"
-                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-            <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                (change)="onselectFile1($event)">
-
-
-        </div>
-    </div>
-    <!-- Buttons -->
-    <div class="container">
-        <div class="mt-5">
-            <div class="pt-5">
-                <button class="btn ms-2 btnColor" (click)="vitaScroll(target2)">Life Story</button>
-                <button class="btn ms-2 btnColor" (click)="photoVideoScroll(target)">Photo/Video Gallery</button>
-                <button class="btn ms-2 btnColor" (click)="condolenceScroll(target1)">Condolences</button>
-                <button class="btn btn-outline-success ms-2 btnColor1" (click)="openInvitePopup()"><img
-                        src="../../../assets/StaticAssets/Visitor Mode/relationship.png">&nbsp; Invite</button>
-            </div>
-        </div>
-    </div>
-    <!-- Canvas component -->
-    <div class="pt-5 viewportHeight">
-        <app-edit-canvas></app-edit-canvas>
-        <div #target2></div>
-    </div>
-    <!-- Photo/video gallery -->
-    <div>
+    <!-- Photo/video Gallery -->
+    <div class="mt-3 mb-3">
         <div class="photoVideoGallary" #target>
             <div class="container">
-                <h6 class="pt-5 photoVideoGalleryText">Photo/Video Gallery</h6>
+                <h6 class="pt-5 photoVideoGalleryText">My Decorations</h6>
                 <div class="row">
                     <div class="col-12">
                         <div>
@@ -107,10 +20,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage1" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[0].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[0].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[0].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[0].id)"
                                     *ngIf="getPhotoVideoImage1" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
                             </span>
@@ -123,10 +36,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage2" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[1].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[1].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[1].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[1].id)"
                                     *ngIf="getPhotoVideoImage2" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
 
@@ -140,10 +53,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage3" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[2].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[2].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[2].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[2].id)"
                                     *ngIf="getPhotoVideoImage3" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
                             </span>
@@ -156,10 +69,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage4" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[3].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[3].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[3].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[3].id)"
                                     *ngIf="getPhotoVideoImage4" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
                             </span>
@@ -172,10 +85,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage5" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[4].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[4].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[4].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[4].id)"
                                     *ngIf="getPhotoVideoImage5" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
 
@@ -189,10 +102,10 @@
                                         style="width: 65%; height: auto;"></label>
                                 <label *ngIf="getPhotoVideoImage6" title="Add an own image here..." class="plusButton">
                                     <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                        (change)="onselectFileNew($event,getPhotoVideoImageId[5].id)"><img
+                                        (change)="updateBackgroundImage($event,getPhotoVideoImageId[5].id)"><img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                         style="width: 65%; height: auto;"></label>
-                                <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[5].id)"
+                                <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[5].id)"
                                     *ngIf="getPhotoVideoImage6" src="../../../assets/StaticAssets/delete_icon.png"
                                     alt="">
                             </span>
@@ -208,10 +121,10 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage7" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[6].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[6].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[6].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[6].id)"
                                 *ngIf="getPhotoVideoImage7" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
@@ -223,10 +136,10 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage8" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[7].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[7].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[7].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[7].id)"
                                 *ngIf="getPhotoVideoImage8" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
@@ -238,10 +151,10 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage9" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[8].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[8].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[8].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[8].id)"
                                 *ngIf="getPhotoVideoImage9" src="../../../assets/StaticAssets/delete_icon.png" alt="">
 
                         </span>
@@ -254,10 +167,10 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage10" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[9].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[9].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[9].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[9].id)"
                                 *ngIf="getPhotoVideoImage10" src="../../../assets/StaticAssets/delete_icon.png" alt="">
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
@@ -269,10 +182,10 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage11" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[10].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[10].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[10].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[10].id)"
                                 *ngIf="getPhotoVideoImage11" src="../../../assets/StaticAssets/delete_icon.png" alt="">
 
                         </span>
@@ -286,146 +199,20 @@
                                     style="width: 65%; height: auto;"></label>
                             <label *ngIf="getPhotoVideoImage12" title="Add an own image here..." class="plusButton">
                                 <input type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                                    (change)="onselectFileNew($event,getPhotoVideoImageId[11].id)"><img
+                                    (change)="updateBackgroundImage($event,getPhotoVideoImageId[11].id)"><img
                                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""
                                     style="width: 65%; height: auto;"></label>
-                            <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[11].id)"
+                            <img class="plusButtonDelete" (click)="deletePhoto(getPhotoVideoImageId[11].id)"
                                 *ngIf="getPhotoVideoImage12" src="../../../assets/StaticAssets/delete_icon.png" alt="">
-                            <!-- *ngIf="!getPhotoVideoImage12" -->
                         </span>
                     </div>
                     <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
-                        (change)="onselectFile($event)">
-                    <!-- (change)="onselectFile($event)" -->
+                        (change)="uploadBackgroundImage($event)">
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- condolences -->
-    <div>
-        <div class="container" #target1>
-            <div class="editCondolences">
-                <div class="pt-5">
-                    <img class="crossImg" src="../../../assets/StaticAssets/Visitor Mode/religion.png" alt="">
-                </div>
-                <div class="condolenceDiv">
-                    <h5 class="pt-3 condolencesText">Latest Condolonces</h5>
-                    <div class="row pt-5">
-                        <div class="col-6 condolenceMain" id="condolencesMain"
-                            [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}"
-                            *ngFor="let item of service.memorialDetails">
-                            <div class="condolencesEdit row" id="condolencesEdit"
-                                [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
-                                <div class="col-3">
-                                    <span>
-                                        <img class="qotesImg"
-                                            src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
-                                    </span>
-                                </div>
-                                <div class="col-9">
-                                    <div>
-                                        <span>
-                                            <img class="condolenceImg me-2"
-                                                src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png" alt="">
-                                        </span>
-
-                                        <span
-                                            class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
-                                    </div>
-                                    <div class="condolencesComment"
-                                        [ngClass]="{'condolencesComment':item.showFull == undefined,'condolencesComment1':item.showFull == true}"
-                                        id="condolencesComment">
-                                        {{item.comment}}
-                                    </div>
-                                    <div class="viewEntireDiv">
-                                        <span class="viewEntire" (click)="condolencesComment(item)">View Entire
-                                            Memory&nbsp;&nbsp;<img class="rightImg"
-                                                src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png"
-                                                alt=""></span>
-                                        <span style="float: right;"><img class="deletrImg"
-                                                src="../../../assets/StaticAssets/Visitor Mode/delete.png"
-                                                alt=""></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn readAllCondo" (click)="readAllCondo()">READ ALL
-                            CONDOLENCES</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Subscribe -->
-    <div>
-        <div class="container">
-            <div class="subscribeImage">
-                <div>
-                    <p class="pt-5 ms-5 subscribeText">SUBSCRIBE TO THIS MEMORIAL</p>
-                </div>
-                <div style="display: flex;">
-                    <span class="ms-5 subInputBox">
-                        <input class="form-control subInputBox1" placeholder="Your email address" type="text">
-                    </span>
-                    <span class="ms-3">
-                        <button class="btn btn-dark subscribeBtn">Subscribe</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Recent memorials -->
-    <div class="recentMemorial mt-5">
-        <div class="container">
-            <h4 class="mb-4">
-                <h5 class="recentHeading pt-5">Recent Memorials</h5>
-            </h4>
-            <div class="recentMemo h-100 p-5">
-                <div *ngFor="let memData of Memorials" class="child1">
-                    <!-- <div class="mt-3 mb-2"> -->
-                    <img src="{{memData.path}}" class="me-2 rounded recentImage">
-                    <!-- </div> -->
-                    <div class="mt-2">
-                        <h6 class="recentName">
-                            {{memData.fname}} {{ memData.lname}}
-                        </h6>
-
-
-                        <!-- <h6 style="color: #CF6363;">
-                            {{memData.age}}Y Old,
-                            &nbsp;
-                            {{memData.starvetown}}
-                        </h6> -->
-                    </div>
-                    <div class="viewsCss">
-                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
-                        <span class="me-1 nameSml">0</span>
-
-                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
-                        <span class="me-1 nameSml">{{memData.litCandle}}</span>
-
-                        <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
-                        <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mt-5">
-        <app-memory-image></app-memory-image>
     </div>
     <div>
         <app-footer></app-footer>
     </div>
-
-    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-        <p style="color: white">Please Wait. </p>
-    </ngx-spinner>
 </div>

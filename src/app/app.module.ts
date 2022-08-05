@@ -71,6 +71,10 @@ import { VisitorCondolencePopupComponent } from './Components/visitor-mode/visit
 import { InvitePopupComponent } from './Components/visitor-mode/invite-popup/invite-popup.component';
 import { UserSearchPopupComponent } from './Components/user-account/user-search-popup/user-search-popup.component';
 import { UserProfileDummyComponent } from './Components/user-profile-dummy/user-profile-dummy.component';
+import { UserToUserContactComponent } from './Components/user-to-user-contact/user-to-user-contact.component';
+import { MyDecorationsComponent } from './Components/my-decorations/my-decorations.component';
+import { MyBackgroundsComponent } from './Components/my-backgrounds/my-backgrounds.component';
+import { DisplayCondolencesComponent } from './Components/user-account/display-condolences/display-condolences.component';
 
 
 
@@ -119,6 +123,10 @@ import { UserProfileDummyComponent } from './Components/user-profile-dummy/user-
     InvitePopupComponent,
     UserSearchPopupComponent,
     UserProfileDummyComponent,
+    UserToUserContactComponent,
+    MyDecorationsComponent,
+    MyBackgroundsComponent,
+    DisplayCondolencesComponent,
   ],
   imports: [
     BrowserModule,

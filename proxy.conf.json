@@ -29,7 +29,21 @@
     "secure": false,
     "changeOrigin": true,
     "pathRewrite":                        {"^/delete_kondolenz": ""}
+  },
+  "/insertDecoration": {
+    "target": "https://h2913228.stratoserver.net/API/public/fetch_decoration",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                        {"^/insertDecoration": ""}
+  },
+  "/userDetail": {
+    "target": "https://h2913228.stratoserver.net/API/public/userDetails",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                        {"^/userDetail": ""}
   }
+
+
 
 
 

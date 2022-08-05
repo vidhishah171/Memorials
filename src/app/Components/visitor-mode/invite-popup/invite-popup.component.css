@@ -20,3 +20,26 @@
     cursor: pointer;
     color: white;
 }  
+.exUser{
+  background-color: #CF6363;
+  color: white;
+  float: right;
+}
+.exUser1{
+  background-color: #7E7575;
+  color: black;
+  float: left;
+}
+.InviteBTN{
+  background-color: #4BC252;
+  float: right;
+}
+.invitePeople{
+  margin-top: 23%;
+}
+.openForm{
+  cursor: pointer;
+}
+::placeholder{
+  font-size: 0.7rem;
+}

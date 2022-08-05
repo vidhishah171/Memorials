@@ -225,6 +225,7 @@ agm-map {
     font-size: 0.9rem;
     font-weight: 600;
     opacity: 0.9;
+    cursor: pointer;
 }
 .messageImg{
     height: 22px;
