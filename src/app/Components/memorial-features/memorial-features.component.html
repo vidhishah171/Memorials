@@ -1,4 +1,4 @@
-<button (click)="openDialogue(1)"  style="right: 36%; top: 9%; z-index: 500;" *ngIf="loginservice.isVisible"
+<button (click)="openDialogue(1)" style="right: 36%; top: 9%; z-index: 500;" *ngIf="loginservice.isVisible"
     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton featuredButton"><span><img
             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto" alt=""></span></button>
 <h5 class="ourFeatured">
@@ -6,7 +6,6 @@
     <strong *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
     <strong *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
 </h5>
-
 <!-- Extra code for labels -->
 <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
     <div class="forDiv" id="featureMemorialLabel1">
@@ -185,8 +184,6 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
         <div class=" box d-flex pt-1">
             <img class="ourFeaturedTextImg" src="../../../assets/StaticAssets/Home page/death (1).png">
             <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{respo6?.en}}</span>
@@ -223,16 +220,13 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
     </div>
-
 </div>
 
 <!-- The Vertual Cemetry  -->
 
 <div class="cemetry w-100">
     <div>
-
         <div>
             <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -241,9 +235,7 @@
             <label class="virtualLabel" *ngIf="editservice.numLabel==1">{{respo9?.en}}</label>
             <label class="virtualLabel1" *ngIf="editservice.numLabel==2">{{respo9?.de}}</label>
             <label class="virtualLabel2" *ngIf="editservice.numLabel==3">{{respo9?.fr}}</label>
-
         </div>
-
         <!-- Extra code for label -->
         <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" id="featureMemorialLabel9">
@@ -269,23 +261,17 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
         <div>
             <h5 class="virtualHeading">
                 <button style="right: 18%;" (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-
                 <p *ngIf="editservice.numLabel==1"> {{respo7?.en}}</p>
                 <p *ngIf="editservice.numLabel==2"> {{respo7?.de}}</p>
                 <p *ngIf="editservice.numLabel==3"> {{respo7?.fr}}</p>
             </h5>
-
-
         </div>
-
         <!-- Extra code for label -->
         <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" id="featureMemorialLabel7">
@@ -330,16 +316,13 @@
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                     <small class="mb-1">
-    
+
                         <p class="virtualPara" *ngIf="editservice.numLabel==1">{{respo8?.en}}</p>
                         <p class="virtualParaNew2" *ngIf="editservice.numLabel==2">{{respo8?.de}}</p>
                         <p class="virtualPara" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</p>
-    
                     </small>
                 </div>
             </span>
-
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv==10 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" id="featureMemorialLabel8">
@@ -366,9 +349,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv==8 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" id="featureMemorialLabel8">
@@ -397,9 +377,3 @@
             </li>
         </div>
     </div>
-
-    <!-- Memory -->
-
-    <!-- <div class="memory w-100" >
-
-</div> -->

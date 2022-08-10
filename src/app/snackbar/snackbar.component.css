@@ -1,16 +1,28 @@
-::ng-deep  .alert-success{background-color: #CF6363;color: white;}
-::ng-deep  .alert-danger {background-color: #CF6363; color: white;}
-::ng-deep  .alert-error {background-color: #CF6363; color: white;}
-::ng-deep  .alert-green {background-color: #4BC252; color: white;}
-
-
-
-.data{
-    margin-left: 38px;
-    /* margin-top: 250px; */
-    font-size: 0.85rem;
-    /* font-weight: bold; */
+::ng-deep .alert-success {
+    background-color: #CF6363;
+    color: white;
 }
+
+::ng-deep .alert-danger {
+    background-color: #CF6363;
+    color: white;
+}
+
+::ng-deep .alert-error {
+    background-color: #CF6363;
+    color: white;
+}
+
+::ng-deep .alert-green {
+    background-color: #4BC252;
+    color: white;
+}
+
+.data {
+    margin-left: 38px;
+    font-size: 0.85rem;
+}
+
 .mat-snack-bar-container {
     max-width: 100%;
- }
+}

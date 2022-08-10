@@ -16,35 +16,28 @@ import { VisitorModeComponent } from '../visitor-mode.component';
 export class VisitorCondolencePopupComponent implements OnInit {
   memorialDetails1: any;
 
-
-
   constructor(
     public profileService: UserProfileService,
     public recentService: RecentMeorialsService,
     public loginservice: LoginService,
     public snack: MatSnackBar,
-    private spiner : NgxSpinnerService,
-
+    private spiner: NgxSpinnerService,
   ) { }
 
-  condoText:any;
-
+  condoText: any;
   ngOnInit(): void {
   }
 
-  saveCondolence(data){
-    var condoData={
-    // user_id : this.recentService.userUserIdData,
-    user_id : this.loginservice.loginAllData,
-    grab_id : this.recentService.userGrabIdData2,
-    comment : data.form.value.condoText
-  }
-  this.spiner.show();
-    this.profileService.saveCondo(condoData).subscribe(condoRes=>{
-      console.log(condoRes);
+  saveCondolence(data) {
+    var condoData = {
+      user_id: this.loginservice.loginAllData,
+      grab_id: this.recentService.userGrabIdData2,
+      comment: data.form.value.condoText
+    }
+    this.spiner.show();
+    this.profileService.saveCondo(condoData).subscribe(condoRes => {
       this.snackBar("Condolence successfully added..", "alert-green");
       this.spiner.hide();
-      // this.testEvent.emit();
       this.recentService.getMeorialDetail();
     })
   }
@@ -57,10 +50,6 @@ export class VisitorCondolencePopupComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
 }

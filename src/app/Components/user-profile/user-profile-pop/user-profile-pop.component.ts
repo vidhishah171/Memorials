@@ -14,11 +14,6 @@ export class UserProfilePopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
   }
-
-
-
- 
-
-
 }

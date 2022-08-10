@@ -7,14 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
-  searchApi="https://h2913228.stratoserver.net/API/public/search_memorial";
+  searchApi = "https://h2913228.stratoserver.net/API/public/search_memorial";
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
-  
-   get(result2){
-     return this.http.post("https://h2913228.stratoserver.net/API/public/search_memorial",result2);
-   }
+  get(result2) {
+    return this.http.post("https://h2913228.stratoserver.net/API/public/search_memorial", result2);
+  }
 }

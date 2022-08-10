@@ -41,6 +41,12 @@
     "secure": false,
     "changeOrigin": true,
     "pathRewrite":                        {"^/userDetail": ""}
+  },
+  "/message_receive": {
+    "target": "https://h2913228.stratoserver.net/API/public/message_receive_users",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite":                        {"^/message_receive": ""}
   }
 
 

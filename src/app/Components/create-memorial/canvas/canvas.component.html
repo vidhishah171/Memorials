@@ -1,62 +1,23 @@
 <div class="content2 w-100 p-5">
-
-    <!-- <img [src]="imgUrl" name="test" height="200px" width="200px"/>
-    <div><img src="this.service.saveCanvas" alt=""></div> -->
-
     <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
     <div class="box1">
-
-        <!-- for delete button -->
-        <!-- <div>
-            <button data-toggle="tooltip" data-placement="bottom" title="Delete selected object" type="button"
-                class="btn btn-outline-danger btn-sm mb-1" (click)="removeSelected();">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                Delete
-            </button>
-        </div> -->
-        <!-- {{service.count1}} -->
         <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"
             (drop)="DropImageToCan($event)"></canvas>
-        <!-- height="540" width="335" -->
-        <!-- height="580" width="440" -->
-        <!-- {{textString1}} -->
-
-        <!-- <textarea class="vitaData" [(ngModel)]="service.vita.textString1"></textarea> -->
-        <!-- (drop)="DropImageToCan($event)" ondragenter="dragEnter($event)" (dragover)="dragOver($event)" -->
-
-
-        <!-- <div class="name">
-            <h6><strong>Johnson Dicosta </strong> <small>22-6-1995 - 24-5-2015</small></h6>
-        </div> -->
-
-        <!-- <div class="image p-3">
-            <img src="../../../assets/StaticAssets/Create memorial/step2/portrait.png">
-            <div class="upload-btn-wrapper mt-3 ms-3">
-                <button class="btn"></button>
-                <input type="file" name="myfile" accept="image/gif, image/jpeg, image/png" />
-            </div>
-            <h3 class="mt-2">ADD PICTURE</h3>
-        </div> -->
-
     </div>
     <!-- second box -->
     <div class="box2 p-1">
         <!-- menu -->
-
         <div class="menu">
-
             <button type="button" class="ms-2 btnColorHeading" id="Decoration" (click)="showSecMenu(1)"
                 *ngIf="editservice.numLabel==1">
                 <img class="decorationImg" src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
                 <span class="headerCanvasTxt">&nbsp;{{respo1?.en}}</span>
             </button>
-
             <button type="button" class="ms-2 btnColorHeading" id="Decoration" (click)="showSecMenu(1)"
                 *ngIf="editservice.numLabel==2">
                 <img class="decorationImg" src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
                 <span class="headerCanvasTxt">&nbsp;{{respo1?.de}}</span>
             </button>
-
             <button type="button" class="ms-2 btnColorHeading" id="Decoration" (click)="showSecMenu(1)"
                 *ngIf="editservice.numLabel==3">
                 <img class="decorationImg" src="../../../assets/StaticAssets/Create memorial/step2/candle (-1.png">
@@ -90,8 +51,6 @@
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-
-
             <button type="button" class="ms-2 btnColorHeading" id="Vita" (click)="showSecMenu(3)"
                 *ngIf="editservice.numLabel==1">
                 <img class="decorationImg" src="../../../assets/StaticAssets/Create memorial/step2/text.png">
@@ -131,21 +90,13 @@
                 <img src="../../../assets/StaticAssets/Create memorial/step2/youtube.png">
                 {{respo4?.fr}}
             </button>
-
             <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button> -->
 
         </div>
-
-
-
-
-
-
         <!-- submenu (Decoration Button) -->
-
         <div class="submenu mt-3" *ngIf="showMenuItems==1">
             <div class="candle ms-3" (click)="showSubMenuItems(1)">
                 <div *ngIf="candleSM1" id="imgLogo"
@@ -169,8 +120,6 @@
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
 
-
-
             <div class="candle ms-3" (click)="showSubMenuItems(2)">
                 <div *ngIf="urnSM1" id="imgLogo"
                     class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle shadow rounded">
@@ -184,15 +133,12 @@
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==1">{{respo6?.en}}</P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==2">{{respo6?.de}}</P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</P>
-
                 </small>
             </div>
-
             <button (click)="openDialogue(6)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-
             <div class="candle ms-3" id="tombstoneWidth" (click)="showSubMenuItems(5)">
                 <div *ngIf="changetombSM1" id="imgLogo" (click)="showSubMenuItems(5)"
                     class="image d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle shadow rounded">
@@ -206,15 +152,12 @@
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==1"><strong>{{respo7?.en}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==2"><strong>{{respo7?.de}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==3"><strong>{{respo7?.fr}}</strong></P>
-
                 </small>
             </div>
-
             <button (click)="openDialogue(7)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-
             <div class="candle ms-3" (click)="showSubMenuItems(3)">
                 <div *ngIf="flowerSM1" id="imgLogo"
                     class="d-flex justify-content-center flex-wrap align-items-center mt-2 border border-1 rounded-circle shadow rounded"
@@ -230,10 +173,8 @@
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==1"><strong>{{respo8?.en}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==2"><strong>{{respo8?.de}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==3"><strong>{{respo8?.fr}}</strong></P>
-
                 </small>
             </div>
-
             <button (click)="openDialogue(8)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -252,33 +193,18 @@
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==1"><strong>{{respo9?.en}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==2"><strong>{{respo9?.de}}</strong></P>
                     <P class="headerCanvasTxt2" *ngIf="editservice.numLabel==3"><strong>{{respo9?.fr}}</strong></P>
-
                 </small>
             </div>
-
-
             <button (click)="openDialogue(9)" style="height: 21px; width: 21px;" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                         alt=""></span></button>
-
-
         </div>
-
-
         <!-- submenu  Items (ADD CANDDLE) -->
         <div class="SubmenuContent mt-1 p-2" *ngIf="showMenuItems==1 && showSubMenItem==1">
-
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel" data-bs-interval="0">
                 <div class="carousel-indicators">
-
-                    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button> -->
-
                 </div>
-
                 <div class="carousel-inner itemAlign">
                     <div class="carousel-item active">
                         <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
@@ -289,11 +215,11 @@
                     </div>
                     <div class="carousel-item">
                         <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
-                            (click)="addImageToCanvas(canddImage);countImage()" *ngFor="let canddImage of canddleImages">
+                            (click)="addImageToCanvas(canddImage);countImage()"
+                            *ngFor="let canddImage of canddleImages">
                             <img src="{{canddImage.path}}">
                         </div>
                     </div>
-
                 </div>
                 <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators"
                     [disabled]="canddleCaroucelCount==1" data-bs-slide="prev" (click)="prevCanddle()">
@@ -309,34 +235,21 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
-
-            <!-- <div class="canddles m-2" *ngFor="let memImages of canddleImages">
-                <img src="{{memImages.path}}">
-            </div>  -->
         </div>
-
-
-
         <!-- submenu  Items (ADD URNS) -->
         <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==2">
-
             <div class="URNS ms-3" *ngFor="let URNSimg of URNSImages" (click)="addImageToCanvas(URNSimg)">
                 <img class="w-75 h-75" src="{{URNSimg.path}}">
             </div>
-
         </div>
-
         <!-- submenu  Items (ADD FLOWER) -->
         <div class="SubmenuContent mt-3 p-2" *ngIf=" showMenuItems==1 &&showSubMenItem==3">
-
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
                 <div class="carousel-inner itemAlign1">
                     <div class="carousel-item active">
                         <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
                             (click)="addImageToCanvas(flwImages)">
                             <img src="{{flwImages.path}}" class="flwSize">
-                            <!-- class="w-75 h-75" -->
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -381,9 +294,6 @@
                             <img class="flwSize" src="{{flwImages.path}}">
                         </div>
                     </div>
-
-                    <!-- new -->
-
                     <div class="carousel-item">
                         <div class="flowers m-3" *ngFor="let flwImages of newFlowerImages"
                             (click)="addImageToCanvas(flwImages)">
@@ -423,15 +333,7 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
-
-
-            <!-- <div class="flowers m-3 bg-light" *ngFor="let flwImages of flowerImages"  >
-                <img class="w-75 h-75" src="{{flwImages.path}}">
-            </div> -->
         </div>
-
-
         <!-- submenu  Items (INSCRIPTION) -->
         <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==4">
             <div class="form-group row col-10">
@@ -452,7 +354,6 @@
                         [ngClass]="{'active':textAlign == 'justify' }" (click)="setTextAlign('justify')">
                         <img src="../../../../assets/StaticAssets/justify.svg">
                     </button>
-                    <!-- <div class="pt-2 textAlign"> -->
                     <span class="textAlign1">
                         <button title="Bold" type="button" class="btn btn-outline-dark alignBgcolor btn-sm"
                             [ngClass]="{'active':fontWeight }" (click)="setBold()">
@@ -462,10 +363,6 @@
                             [ngClass]="{'active':fontStyle }" (click)="setFontStyle()">
                             <img src="../../../../assets/StaticAssets/type-italic.svg" alt="">
                         </button>
-                        <!-- <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'active': hasTextDecoration('underline') }" (click)="setTextDecoration('underline')">
-                            <img src="../../../../assets/StaticAssets/type-underline.svg" alt="">
-                        </button> -->
-                        <!-- </div> -->
                     </span>
                 </div>
                 <div>
@@ -479,9 +376,7 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
                 </div>
-
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv==14 && isvalid" style="position: absolute; margin-top: 25px;">
                     <div class="forDiv" id="createMemoDivCssNew1">
@@ -509,23 +404,10 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
-
-
-
                 <div class="pt-4" style="text-align: center;">
-                    <!-- <img src="../../../../assets/StaticAssets/icons8-color-wheel-48.png" alt=""> -->
-
                     <img class="colorPickerImg" (colorPickerChange)="setFill()" [cpPosition]="'bottom'"
                         [(colorPicker)]="fill" src="../../../../assets/StaticAssets/icons8-color-wheel-48.png" alt="">
-
-
-                    <!-- <button class="form-control" style="color: white;" [cpPosition]="'bottom'" [(colorPicker)]="fill"
-                        [style.background]="fill" (colorPickerChange)="setFill()">Add Color</button> -->
                 </div>
-                <!-- <div style="text-align: center;">
-                    <small [style.color]="fill">Add Color</small>
-                </div> -->
-
                 <div class="pt-2">
                     <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -537,19 +419,9 @@
                         *ngIf="editservice.numLabel==2">{{respo10?.de}}</button>
                     <button class="form-control btnAddText" (click)="addText()"
                         *ngIf="editservice.numLabel==3">{{respo10?.fr}}</button>
-
-
-                    <!-- <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="fill" [style.background]="fill"
-                    [value]=fill (colorPickerChange)="setFill()"> -->
                 </div>
-
-
-
             </div>
         </div>
-
-        <!-- -------------------------------- -->
-
         <!-- submenu  Items (TAMBSTONE) -->
         <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 &&showSubMenItem==5">
             <nav class="nav nav-pills flex-column flex-sm-row personNav">
@@ -562,14 +434,11 @@
                     <h6 class="tombstoneText" *ngIf="editservice.numLabel==1">{{respo11?.en}}</h6>
                     <h6 class="tombstoneText" *ngIf="editservice.numLabel==2">{{respo11?.de}}</h6>
                     <h6 class="tombstoneText" *ngIf="editservice.numLabel==3">{{respo11?.fr}}</h6>
-
-
                 </a>
                 <button (click)="openDialogue(11)" id="tombstonMemoCss" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv==11 && isvalid" style="position: absolute; margin-top: 25px;">
                     <div class="forDiv" id="createMemoDivCss10">
@@ -597,7 +466,6 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
-
                 <a class="flex-sm-fill d-flex text-sm-center nav-link" id="person" (click)="showCentric1(2)"
                     style="cursor: pointer;">
                     <img *ngIf="isDisplaySmallImage" class="me-2 mb-3 personCentricMemo"
@@ -609,13 +477,11 @@
                     <h6 class="tombstoneText1" *ngIf="editservice.numLabel==1">{{respo12?.en}}</h6>
                     <h6 class="tombstoneText1" *ngIf="editservice.numLabel==2">{{respo12?.de}}</h6>
                     <h6 class="tombstoneText1" *ngIf="editservice.numLabel==3">{{respo12?.fr}}</h6>
-
                 </a>
                 <button (click)="openDialogue(12)" id="personMemoCss" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
-
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv==12 && isvalid" style="position: absolute; margin-top: 25px;">
                     <div class="forDiv" id="createMemoDivCss11">
@@ -644,13 +510,9 @@
                     </div>
                 </li>
             </nav>
-
             <!-- Show tombstone -->
             <div class="tambstone" *ngIf="showTambstone">
-
-                <!-- <h1>CHANGE TAMBSTONE</h1> -->
                 <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
-
                     <div class="carousel-inner" style="padding-left:67px">
                         <div class="carousel-item active">
                             <div class="m-3" *ngFor="let images of imagesForCaroucel"
@@ -703,11 +565,8 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
             </div>
-
             <!-- For person image -->
-
             <div class="personCentric m-5" *ngIf="!showTambstone">
                 <div *ngIf="!hidePerson" class="personImageSize">
                     <div class="text-center">
@@ -719,10 +578,7 @@
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==1"><b>{{respo13?.en}}</b></p>
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==2"><b>{{respo13?.de}}</b></p>
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==3"><b>{{respo13?.fr}}</b></p>
-
-
                     </div>
-
                     <!-- Extra code for label -->
                     <li *ngIf="showNewDiv==13 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="createMemoDivCss12">
@@ -750,7 +606,6 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
                     <div class="Photo">
                         <label for="photo" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
@@ -758,9 +613,6 @@
                         <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile1($event)">
                     </div>
                 </div>
-
-                <!-- ------------------------------- -->
-
                 <div *ngIf="hidePerson" class="personImageSize">
                     <div class="text-center">
                         <img [src]="url" height="200px" width="200px" id="mobileRes">
@@ -771,11 +623,7 @@
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==1"><b>{{respo13?.en}}</b></p>
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==2"><b>{{respo13?.de}}</b></p>
                         <p class="personImageSizeNew" *ngIf="editservice.numLabel==3"><b>{{respo13?.fr}}</b></p>
-
-
                     </div>
-
-
                     <!-- Extra code for label -->
                     <li *ngIf="showNewDiv==13 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="createMemoDivCss12">
@@ -803,8 +651,6 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
                     <div class="Photo">
                         <label for="photo" title="Add an own image here..."
                             style="text-align: center; align-items: center;"><img
@@ -813,26 +659,18 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-        <!-- -------------------------- -->
-
-
         <!-- menu Items (BACKGROUNG) -->
         <div class="background1 mt-3" *ngIf="showMenuItems==2">
             <p class="backgroundText">Upload of an own background image is possible as premium user only</p>
             <div id="carouselExampleIndicators" class="carousel backWidth" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active backMargin">
-
                         <div *ngFor="let backImage of imgBack" (click)="setBackgImage(backImage)">
                             <img id="tombstoneSizeBack" src="{{backImage.path}}">
                         </div>
                     </div>
                     <div class="carousel-item backMargin">
-
                         <div *ngFor="let backImage of imgBack" (click)="setBackgImage(backImage)">
                             <img id="tombstoneSizeBack" src="{{backImage.path}}">
                         </div>
@@ -853,42 +691,18 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="background mt-3" *ngIf="showMenuItems==2">
-            <div class="showbackground ms-2 mb-2" *ngFor="let backImage of backgroundImages"
-                (click)="setBackgImage(backImage)">
-                <img class="w-100 h-100" src="{{backImage.path}}">
-            </div>
-        </div> -->
-
         <!-- menu Items (VITA) -->
-
         <div class="vita mt-5" *ngIf="showMenuItems==3">
-            <!-- <div class="form-group">
-                <textarea class="form-control" id="vita" maxlength="50"
-                    placeholder="Enter few words (maximum 50 charecters)" ></textarea>
-            </div> -->
-
             <form #myForm="ngForm">
                 <div class="form-group">
                     <textarea class="form-control" #textToCan name="textString1" textString1="ngModel"
                         [(ngModel)]="service.vita.textString1" ngModel rows="5" maxlength="250"></textarea>
                     <div class="pt-4">
-
-
-                        <!-- <button type="submit" class="form-control btnAddText">Add</button> -->
-                        <!-- (click)="addVita(myForm)" -->
                     </div>
-
-                    <!-- (keypress)="addTextToCanvas(textToCan,$event)" -->
                 </div>
             </form>
-
-
-
         </div>
-
         <!-- menu Items (VIDEO) -->
-
         <div class="video mt-5 " *ngIf="showMenuItems==4">
             <small>Upload of video is possible as premium user only</small>
             <div class="addVideo mt-3 rounded d-flex justify-content-center align-items-center flex-column">
@@ -900,14 +714,7 @@
                 <label for="toggleVideo"><img src="../../../../assets/StaticAssets/Create memorial/step2/add-1.png"
                         alt=""></label>
                 <input id="toggleVideo" multiple type="file" (change)="onselectFile($event)"> -->
-
-                <!-- ///////////////////// -->
-
                 <!-- <input #addToVideo type="file" id="video" name="myfile" accept="video/mp4,video/x-m4v,video/*" /> -->
-
-
-
-
 
                 <!-- -----Optional code for displaying videos -->
 
@@ -915,13 +722,6 @@
                     <source [src]="url1">
                 </video>
                 <input multiple type="file" accept="video/*" (change)="onselectFile($event)">
-
-                <!-- ----------------------- -->
-
-                <!-- <div>
-                            <canvas id="Mycanvas" width="500" height="335" style="border: 1px solid black;"></canvas>
-                        </div> -->
-                <!-- </div> -->
             </div>
         </div>
     </div>
@@ -951,8 +751,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="canvasDivCss2">
@@ -1188,6 +986,4 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
 </div>

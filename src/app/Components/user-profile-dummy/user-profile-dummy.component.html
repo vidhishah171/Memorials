@@ -4,23 +4,21 @@
             <app-navbar></app-navbar>
         </div>
     </div>
-    
     <div class="userHeading">
         <button (click)="openDialogue(19)" style="float: left;" *ngIf="loginservice.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonAlign"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forButtonAlign"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
         <h1 class="container">
             <span *ngIf="editservice.numLabel==1">{{respo19?.en}} {{loginservice.loginSaveData}}</span>
             <span *ngIf="editservice.numLabel==2">{{respo19?.de}} {{loginservice.loginSaveData}}</span>
             <span *ngIf="editservice.numLabel==3">{{respo19?.fr}} {{loginservice.loginSaveData}}</span>
-
             <button (click)="openDialogue(20)" style="float: left;" *ngIf="loginservice.isVisible"
-            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                    src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
             <small class="onlineUser2"><img style="width: 49%; cursor: pointer;"
                     src="../../../assets/StaticAssets/profile page/2849832_arrows_navigation_arrow_left_back_icon 1.png"
                     alt=""></small>
-                  
+
             <p class="onlineUser1" routerLink="/user-account" *ngIf="editservice.numLabel==1">{{respo20?.en}}</p>
             <p class="onlineUser1" routerLink="/user-account" *ngIf="editservice.numLabel==2">{{respo20?.de}}</p>
             <p class="onlineUser1" routerLink="/user-account" *ngIf="editservice.numLabel==3">{{respo20?.fr}}</p>
@@ -29,19 +27,19 @@
                     src="../../../assets/StaticAssets/profile page/Ellipse 141.png" class="onlineImg" alt="">&nbsp;
                 <span *ngIf="editservice.numLabel==1">{{respo21?.en}}</span>
                 <span *ngIf="editservice.numLabel==2">{{respo21?.de}}</span>
-                <span *ngIf="editservice.numLabel==3">{{respo21?.fr}}</span></p>
+                <span *ngIf="editservice.numLabel==3">{{respo21?.fr}}</span>
+            </p>
 
-                <button (click)="openDialogue(21)" style="float: right;" *ngIf="loginservice.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+            <button (click)="openDialogue(21)" style="float: right;" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
         </h1>
     </div>
 
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv1==19 && isvalid1" style="position: absolute; margin-top: 25px;">
         <div class="forDiv1 userProfileDivNew1">
-            <button style="float: right;" (click)="openDialogue1()"
-                class="btn btn-outline-danger">X</button>
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
                 <mat-form-field class="example-full-width" style="display: none;">
                     <mat-label>id</mat-label>
@@ -60,16 +58,14 @@
                     <textarea matInput name="fr" [(ngModel)]="respo19.fr"></textarea>
                 </mat-form-field>
             </form>
-            <button (click)="postEditData(regForm2);openDialogue1();"
-                class="btn btn-outline-success">Save</button>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-    
+
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv1==20 && isvalid1" style="position: absolute; margin-top: 25px;">
         <div class="forDiv1 userProfileDivNew">
-            <button style="float: right;" (click)="openDialogue1()"
-                class="btn btn-outline-danger">X</button>
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
                 <mat-form-field class="example-full-width" style="display: none;">
                     <mat-label>id</mat-label>
@@ -88,16 +84,14 @@
                     <textarea matInput name="fr" [(ngModel)]="respo20.fr"></textarea>
                 </mat-form-field>
             </form>
-            <button (click)="postEditData(regForm2);openDialogue1();"
-                class="btn btn-outline-success">Save</button>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
 
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv1==21 && isvalid1" style="position: absolute; margin-top: 25px;">
         <div class="forDiv1 userProfileDivNew2">
-            <button style="float: right;" (click)="openDialogue1()"
-                class="btn btn-outline-danger">X</button>
+            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
                 <mat-form-field class="example-full-width" style="display: none;">
                     <mat-label>id</mat-label>
@@ -116,15 +110,13 @@
                     <textarea matInput name="fr" [(ngModel)]="respo21.fr"></textarea>
                 </mat-form-field>
             </form>
-            <button (click)="postEditData(regForm2);openDialogue1();"
-                class="btn btn-outline-success">Save</button>
+            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
 
     <div class="container">
         <div>
             <div class="userDetail pt-4">
-                <!-- *ngIf="loginservice.isVisible" -->
                 <button (click)="openDialogue(1)" style="float: left;" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -134,8 +126,6 @@
                         src="../../../assets/StaticAssets/profile page/chat.png">&nbsp;&nbsp;{{respo1?.de}}</span>
                 <span class="messageText" *ngIf="editservice.numLabel==3"><img class="messageImg"
                         src="../../../assets/StaticAssets/profile page/chat.png">&nbsp;&nbsp;{{respo1?.fr}}</span>
-
-
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv1==1 && isvalid1" style="position: absolute; margin-top: 25px;">
                     <div class="forDiv1 userProfileDiv1">
@@ -166,15 +156,16 @@
                 <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" class="profileOption" style="display: none;" (click)="openDiv(0)"><img class="profileImg"
+                <span *ngIf="editservice.numLabel==1" class="profileOption" style="display: none;"
+                    (click)="openDiv(0)"><img class="profileImg"
                         src="../../../assets/StaticAssets/profile page/user (2).png">&nbsp;&nbsp;{{respo2?.en}}</span>
-                <span *ngIf="editservice.numLabel==2" class="profileOption" style="display: none;" (click)="openDiv(0)"><img class="profileImg"
+                <span *ngIf="editservice.numLabel==2" class="profileOption" style="display: none;"
+                    (click)="openDiv(0)"><img class="profileImg"
                         src="../../../assets/StaticAssets/profile page/user (2).png">&nbsp;&nbsp;{{respo2?.de}}</span>
-                <span *ngIf="editservice.numLabel==3" class="profileOption" style="display: none;" (click)="openDiv(0)"><img class="profileImg"
+                <span *ngIf="editservice.numLabel==3" class="profileOption" style="display: none;"
+                    (click)="openDiv(0)"><img class="profileImg"
                         src="../../../assets/StaticAssets/profile page/user (2).png">&nbsp;&nbsp;{{respo2?.fr}}</span>
             </div>
-
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==2 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv2">
@@ -232,7 +223,6 @@
                         style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo3?.fr}}</span></span>
-
             </div>
 
             <!-- Extra code for label -->
@@ -261,8 +251,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
@@ -281,7 +269,6 @@
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo4?.fr}}</span></span>
             </div>
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==4 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv4">
@@ -308,8 +295,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <div class="userDetail pt-3">
                 <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -388,23 +373,23 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==1" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.en}}</span></span>
-                <span *ngIf="editservice.numLabel==2" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==2" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.de}}</span></span>
-                <span *ngIf="editservice.numLabel==3" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==3" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.fr}}</span></span>
-
             </div>
 
             <!-- Extra code for label -->
@@ -433,8 +418,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
@@ -477,8 +460,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
@@ -560,8 +541,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <div class="pt-3">
                 <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -603,7 +582,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
             <hr>
             <div>
                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
@@ -646,29 +624,16 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
-
-
         <div class="content1 mt-2">
             <div class="box1">
                 <div class="content2">
                     <div class="box3">
                         <div class="userImage" *ngIf="isDisplay">
-                            <!-- <img style="width: 100%; height: auto;" src="{{loginservice.loginAllData?.userpic}}" alt=""> -->
                             <img style="width: 100%; height: 100%;" src="{{userpic}}" alt="">
                         </div>
                         <div class="userImage" *ngIf="isDisplay1">
                             <img style="width: 100%; height: 100%;" [src]="url" alt="">
                         </div>
-
-                        <!-- <div class="Photo">
-                            <label for="photo" title="Add an own image here..."><img
-                                    src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                            <input id="photo" type="file" accept=".png, .jpeg, .jpg" (change)="onselectFile($event)">
-                        </div> -->
-
-                        <!-- <button (click)="userData2(regForm3)">Click me</button> -->
                     </div>
                     <div class="box4">
                         <div class="content3">
@@ -679,16 +644,10 @@
                                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==1">{{respo13?.en}} &nbsp;
-                                        <!-- <img src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(1)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==2">{{respo13?.de}} &nbsp;
-                                        <!-- <img src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(1)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==3">{{respo13?.fr}} &nbsp;
-                                        <!-- <img src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(1)"> -->
                                     </h6>
                                 </div>
 
@@ -753,10 +712,7 @@
 
 
                                 <div>
-                                    <!-- <h5 *ngIf="!firstnameDisplay" style="font-weight: 700;">{{loginservice.loginSaveData}}</h5> -->
                                     <h5 style="font-weight: 700;">{{firstname}}</h5>
-
-                                    <!-- <h5>padmakar</h5> -->
                                 </div>
                                 <div class="mt-5 userLable">
                                     <button (click)="openDialogue(14)" style="float: left;"
@@ -764,19 +720,10 @@
                                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==1">{{respo14?.en}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(2)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==2">{{respo14?.de}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(2)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==3">{{respo14?.fr}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(2)"> -->
                                     </h6>
                                 </div>
 
@@ -842,7 +789,6 @@
 
                                 <div>
                                     <h5 style="font-weight: 700;">{{lastname}}</h5>
-                                    <!-- <h5>gayake</h5> -->
                                 </div>
                             </div>
                             <div class="box6">
@@ -852,19 +798,10 @@
                                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==1">{{respo15?.en}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(3)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==2">{{respo15?.de}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(3)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==3">{{respo15?.fr}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(3)"> -->
                                     </h6>
                                 </div>
 
@@ -928,7 +865,6 @@
 
                                 <div>
                                     <h5 style="font-weight: 700;">{{hometown}}</h5>
-                                    <!-- <h5>wakadi</h5> -->
                                 </div>
                                 <div class="mt-5 userLable">
                                     <button (click)="openDialogue(16)" style="float: left;"
@@ -936,19 +872,10 @@
                                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==1">{{respo16?.en}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(4)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==2">{{respo16?.de}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(4)"> -->
                                     </h6>
                                     <h6 class="fontColorSize" *ngIf="editservice.numLabel==3">{{respo16?.fr}} &nbsp;
-                                        <!-- <img
-                                            src="../../../assets/StaticAssets/profile page/edit.png"
-                                            style="cursor: pointer;" (click)="openUser(4)"> -->
                                     </h6>
                                 </div>
 
@@ -967,10 +894,6 @@
                                                 [(ngModel)]="loginservice.loginAllData.id" name="id">
                                         </div>
                                         <div style="margin-top: 15%;">
-                                            <!-- <label class="fontColorSize">Birthdate :</label> -->
-                                            <!-- <input type="text" autocomplete="off"
-                                             class="form-control shadow bg-body rounded" placeholder="Birthdate"
-                                             [(ngModel)]="loginservice.loginAllData.birthdate" name="birthdate"> -->
                                         </div>
 
                                         <mat-form-field>
@@ -1020,14 +943,9 @@
                                             class="btn btn-outline-success">Save</button>
                                     </div>
                                 </li>
-
-
-
                                 <div>
-                                    <!-- <h5 *ngIf="isDisplay3">{{loginservice.loginAllData?.birthdate}}</h5> -->
                                     <h5 style="font-weight: 700;" *ngIf="isDisplay3">{{birthdate1}}</h5>
                                     <h5 style="font-weight: 700;" *ngIf="isDisplay4">{{userDate}}</h5>
-                                    <!-- <h5>22/02/1994</h5> -->
                                 </div>
                             </div>
                         </div>
@@ -1038,23 +956,13 @@
                         <button (click)="openDialogue(17)" style="float: left;" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                        <p *ngIf="editservice.numLabel==1" class="userAbout1">{{respo17?.en}} 
-                            <!-- <img
-                                src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
-                                (click)="openUser(5)"> -->
+                        <p *ngIf="editservice.numLabel==1" class="userAbout1">{{respo17?.en}}
                         </p>
-                        <p *ngIf="editservice.numLabel==2" class="userAbout1">{{respo17?.de}} 
-                            <!-- <img
-                                src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
-                                (click)="openUser(5)"> -->
+                        <p *ngIf="editservice.numLabel==2" class="userAbout1">{{respo17?.de}}
                         </p>
-                        <p *ngIf="editservice.numLabel==3" class="userAbout1">{{respo17?.fr}} 
-                            <!-- <img
-                                src="../../../assets/StaticAssets/profile page/edit.png" style="cursor: pointer;"
-                                (click)="openUser(5)"> -->
+                        <p *ngIf="editservice.numLabel==3" class="userAbout1">{{respo17?.fr}}
                         </p>
                     </div>
-
                     <!-- code for div of update data -->
                     <div class="forDiv" *ngIf="showNewDiv==5 && isvalid"
                         style="position: absolute; margin-top: 10px; width: 54%;">
@@ -1110,19 +1018,14 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
                     <div class="vertical-menu">
-                        <!-- <p>{{loginservice.loginAllData?.comment}}</p> -->
                         <p style="font-size: 0.9rem;">{{comment}}</p>
                     </div>
                 </div>
                 <div class="mt-3">
                     <div>
-                        <!-- {{loginservice.loginAllData.hometown}} -->
                         <input id="address" type="textbox" value="" [(ngModel)]="loginservice.mapDataNew"
                             style="display: none;">
-                        <!-- <input type="button" value="Encode" (click)="codeAddress()"> -->
                         <button (click)="codeAddress()" style="display: none;">user</button>
                     </div>
                     <div id="map" style="height: 300px;"></div>
@@ -1184,8 +1087,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div
-                                class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                            <div class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
                                 style="cursor: pointer; margin-left: 14%;"
                                 *ngFor="let userData of imagesForCaroucelUser">
                                 <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
@@ -1200,8 +1102,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div 
-                                class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                            <div class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
                                 style="cursor: pointer; margin-left: 14%;"
                                 *ngFor="let userData of imagesForCaroucelUser">
                                 <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
@@ -1216,8 +1117,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div 
-                                class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                            <div class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
                                 style="cursor: pointer; margin-left: 14%;"
                                 *ngFor="let userData of imagesForCaroucelUser">
                                 <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
@@ -1232,8 +1132,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div 
-                                class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                            <div class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
                                 style="cursor: pointer; margin-left: 14%;"
                                 *ngFor="let userData of imagesForCaroucelUser">
                                 <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
@@ -1248,8 +1147,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div 
-                                class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
+                            <div class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
                                 style="cursor: pointer; margin-left: 14%;"
                                 *ngFor="let userData of imagesForCaroucelUser">
                                 <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
@@ -1280,32 +1178,8 @@
                         </button>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-                <!-- <div (click)="goesToEditMemo(userData.user_id);goesToEditMemo1(userData.grab_id)"
-                    class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1" style="cursor: pointer;"
-                    *ngFor="let userData of getUserMemoData">
-                    <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
-                    <div class="ms-2 mt-3">
-                        <h6>
-                            {{userData.grab_name}} {{ userData.firstname}},&nbsp;{{userData.age}}&nbsp;Y Old
-                        </h6>
-                        <h6>
-                            {{userData.starvetown}}
-                        </h6>
-                    </div>
-                </div> -->
-
             </div>
         </div>
-
     </div>
 
     <!-- For spinner -->

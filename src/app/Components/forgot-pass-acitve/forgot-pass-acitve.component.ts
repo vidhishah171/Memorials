@@ -23,38 +23,27 @@ export class ForgotPassAcitveComponent implements OnInit {
   respo1: any;
   isvalid: boolean;
   showNewDiv: number;
-
-
   public subscription: Subscription;
   token: any;
-
-
   forPassword: any;
   respo2: any;
   respo3: any;
   respo4: any;
   respo5: any;
-
-
   constructor(
     public editservice: AdminEditService,
     private service1: CreateMemorialService,
     public service2: ForgotPasswordService,
     public loginservice: LoginService,
-
     public route: ActivatedRoute,
     public http: HttpClient,
     private router: Router,
     public snack: MatSnackBar,
     public dialog: MatDialog,
     private spiner: NgxSpinnerService,
-
-
-
-
-  ) { this.loginservice.otherPage = false;
+  ) {
+    this.loginservice.otherPage = false;
     this.loginservice.isFooterLogin = false;
-    
   }
   ngAfterViewInit() {
     setTimeout(() => {
@@ -65,44 +54,31 @@ export class ForgotPassAcitveComponent implements OnInit {
   ngOnInit(): void {
     this.forgotPasswordActivation();
     this.editData();
-
   }
-
   clickDiv() {
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
     }
-
   }
-
   forgotPasswordActivation() {
     this.subscription = this.route.queryParamMap.subscribe(queryParams => {
       this.token = queryParams.get('auth_token');
       this.service2.saveAuthToken = this.token;
       let url = environment.baseUrl + "API/public/userAuth/" + this.token;
       this.http.get(url).subscribe((result: any) => {
-        console.log(result);
       });
     });
   }
-
 
   register(data: any) {
     this.spiner.show();
     this.forPassword = data.value;
     var formdata = new FormData();
-    // formdata.append('email_id', this.service.saveEmailId);
     formdata.append('auth_token', this.service2.saveAuthToken);
     formdata.append('pwd', this.forPassword.pwd);
-
     this.service2.forgotPassword(formdata).subscribe(responce => {
-      console.log(responce);
       this.spiner.hide();
-
-      // this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
-      // this.dialog.open(ForgotPassActivePopComponent);
-
       localStorage.clear();
       setTimeout(() => {
         this.router.navigate(['/login'])
@@ -111,12 +87,7 @@ export class ForgotPassAcitveComponent implements OnInit {
           });
       }, 4000);
       this.snackBar("Your password has been reset, Please check your email and login again", "alert-danger");
-
-
-
     })
-    // this.service2.pwd='';
-    // this.service2.pwd1='';
   }
 
   snackBar(message: string, panelClass: string) {
@@ -126,17 +97,10 @@ export class ForgotPassAcitveComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -161,14 +125,12 @@ export class ForgotPassAcitveComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[161];
       this.respo2 = this.respo[162];
       this.respo3 = this.respo[163];
       this.respo4 = this.respo[44];
       this.respo5 = this.respo[193];
-
     });
   }
 
@@ -178,10 +140,8 @@ export class ForgotPassAcitveComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
-
 }

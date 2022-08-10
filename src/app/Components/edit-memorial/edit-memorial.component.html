@@ -1,8 +1,6 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
-
 <div>
     <div>
         <app-navbar></app-navbar>
@@ -13,7 +11,6 @@
             <img *ngIf="isDisplayBack1" id="backgroundimage" [src]=urlBackground alt="">
 
             <h1>{{lovedPersonData?.fname}}&nbsp;{{lovedPersonData?.lname}}</h1>
-            <!-- <h1>welcome</h1> -->
             <div class="userDate">
                 <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
             </div>
@@ -25,8 +22,6 @@
                 </span>&nbsp;
                 <label for="photoBackground"><img class="photoPlusImage"
                         src="../../../assets/StaticAssets/Create memorial/step2/add-3.png" alt=""></label>
-
-                <!-- <label for="photoBackground" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label> -->
                 <input id="photoBackground" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
                     (change)="onselectFileBackground($event)">
             </div>
@@ -53,24 +48,14 @@
             </div>
             <div *ngIf="isDisplay" class="steeper rounded-circle circleImage">
                 <img src="{{userpic}}" alt="">
-                <!-- userImage1 -->
-                <!-- class="userImage" -->
             </div>
             <div *ngIf="isDisplay1" class="steeper rounded-circle circleImage">
                 <img [src]="url" alt="">
-                <!-- userImage1 -->
-                <!-- class="userImage" -->
             </div>
-            <!-- <div class="Photo">
-                <label for="photo" title="Add an own image here..."><img class="steeper rounded-circle plusImageOnHeader" src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
-                <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;">
-            </div> -->
             <label for="photo" class="plusImageOnHeader"><img class="steeper rounded-circle" style="margin-top: 48px;"
                     src="../../../assets/StaticAssets/Create memorial/step2/add-1.png" alt=""></label>
             <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
                 (change)="onselectFile1($event)">
-
-
         </div>
     </div>
     <!-- Buttons -->
@@ -291,17 +276,14 @@
                                     style="width: 65%; height: auto;"></label>
                             <img class="plusButtonDelete" (click)="deletePhotoVideo(getPhotoVideoImageId[11].id)"
                                 *ngIf="getPhotoVideoImage12" src="../../../assets/StaticAssets/delete_icon.png" alt="">
-                            <!-- *ngIf="!getPhotoVideoImage12" -->
                         </span>
                     </div>
                     <input id="photoNew" type="file" accept=".png, .jpeg, .jpg" style="display: none;"
                         (change)="onselectFile($event)">
-                    <!-- (change)="onselectFile($event)" -->
                 </div>
             </div>
         </div>
     </div>
-
     <!-- condolences -->
     <div>
         <div class="container" #target1>
@@ -329,7 +311,6 @@
                                             <img class="condolenceImg me-2"
                                                 src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png" alt="">
                                         </span>
-
                                         <span
                                             class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
                                     </div>
@@ -348,7 +329,6 @@
                                                 alt=""></span>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -357,7 +337,6 @@
                             CONDOLENCES</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -396,13 +375,6 @@
                         <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
                         </h6>
-
-
-                        <!-- <h6 style="color: #CF6363;">
-                            {{memData.age}}Y Old,
-                            &nbsp;
-                            {{memData.starvetown}}
-                        </h6> -->
                     </div>
                     <div class="viewsCss">
                         <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">

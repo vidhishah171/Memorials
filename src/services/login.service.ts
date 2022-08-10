@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { style } from '@angular/animations';
 
@@ -9,58 +9,53 @@ import { style } from '@angular/animations';
 })
 export class LoginService {
 
-  loginAllData:any;
-  loginSaveData:any;
-  public islogin:boolean=false;
-  isVisible:boolean;
-  isUser:boolean;
-  eitpo:any;
-  mapData:any;
-  mapDataNew:any
+  loginAllData: any;
+  loginSaveData: any;
+  public islogin: boolean = false;
+  isVisible: boolean;
+  isUser: boolean;
+  eitpo: any;
+  mapData: any;
+  mapDataNew: any
+  otherPage: boolean = false;
+  hideMemorialImage: boolean = true;
+  goPremiumLabel: boolean = false;
+  divPosition: boolean = false;
+  logoDisplay: boolean = false;
+  isFooterLogin: boolean = true;
 
-  
+  userId: any;
 
-  otherPage:boolean=false;
-  hideMemorialImage:boolean=true;
-  goPremiumLabel:boolean=false;
-  divPosition:boolean=false;
-  logoDisplay:boolean=false;
-  isFooterLogin:boolean=true;
-  
-  userId:any;
-
-  // loginAPI="https://h2913228.stratoserver.net/API/public/login";
-  loginAPI="https://h2913228.stratoserver.net/API/public/login";
-  forgotPassAPI="https://h2913228.stratoserver.net/API/public/forgotPassword";
+  loginAPI = "https://h2913228.stratoserver.net/API/public/login";
+  forgotPassAPI = "https://h2913228.stratoserver.net/API/public/forgotPassword";
 
   httpOptions = {
-    headers: new HttpHeaders({ 
-         'Content-Type': 'application/json',
-         'Access-Control-Allow-Origin':'*',
-         'Access-Control-Allow-Methods':'POST DELETE PUT GET',
-         'Access-Control-Allow-Headers':'*',
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST DELETE PUT GET',
+      'Access-Control-Allow-Headers': '*',
     })
   }
 
-  
+
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
-  
-  
 
-  userLogin(loginData:any){
+
+
+  userLogin(loginData: any) {
     // For server
-    // return this.http.post(this.loginAPI,loginData);
+    return this.http.post(this.loginAPI, loginData);
 
     // For Local    
-    return this.http.post('/loginApi' ,loginData,this.httpOptions);
+    // return this.http.post('/loginApi' ,loginData,this.httpOptions);
   }
 
-  forgotPassword(forgotCredencial:any){
-    return this.http.post(this.forgotPassAPI,forgotCredencial);
+  forgotPassword(forgotCredencial: any) {
+    return this.http.post(this.forgotPassAPI, forgotCredencial);
   }
-
 }

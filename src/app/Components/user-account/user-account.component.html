@@ -1,8 +1,6 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
-
 <div>
     <div>
         <div>
@@ -11,12 +9,10 @@
     </div>
     <div class="userHeading">
         <h1>Welcome {{loginservice.loginSaveData}}</h1>
-        <!-- <h1>welcome</h1> -->
     </div>
     <div class="container">
         <div>
             <div class="userDetail pt-4">
-                <!-- *ngIf="loginservice.isVisible" -->
                 <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -54,11 +50,6 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
-
-
-
         <!-- DropDown div -->
         <div *ngIf="showDiv==0.1 && isShow" class="forProfileDiv">
             <div class="userDetail">
@@ -162,9 +153,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
-
             <div class="userDetail pt-3">
                 <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -203,8 +191,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <div class="pt-3">
                 <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -246,25 +232,24 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==1" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.en}}</span></span>
-                <span *ngIf="editservice.numLabel==2" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==2" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.de}}</span></span>
-                <span *ngIf="editservice.numLabel==3" (click)="openUserSearchPopup()" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==3" (click)="openUserSearchPopup()" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo7?.fr}}</span></span>
-
             </div>
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==7 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv7">
@@ -291,20 +276,21 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div>
                 <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <span *ngIf="editservice.numLabel==1" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==1" routerLink="/user-condo" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.en}}</span></span>
-                <span *ngIf="editservice.numLabel==2" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==2" routerLink="/user-condo" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.de}}</span></span>
-                <span *ngIf="editservice.numLabel==3" routerLink="/user-condo" class="profileName"><img style="width: 4px; height: 9px;"
+                <span *ngIf="editservice.numLabel==3" routerLink="/user-condo" class="profileName"><img
+                        style="width: 4px; height: 9px;"
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo8?.fr}}</span></span>
             </div>
@@ -335,7 +321,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
             <hr>
             <div>
                 <button (click)="openDialogue(9)" *ngIf="loginservice.isVisible"
@@ -417,8 +402,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <div class="pt-3" routerLink="/my-backgrounds">
                 <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -460,8 +443,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <hr>
             <div routerLink="/my-decorations">
                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
@@ -504,11 +485,7 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
         </div>
-
-
-
         <div class="content1 container">
             <div class="box1">
                 <div>
@@ -518,7 +495,6 @@
                     <h5 *ngIf="editservice.numLabel==1" class="userAccountText">{{respo13?.en}}</h5>
                     <h5 *ngIf="editservice.numLabel==2" class="userAccountText">{{respo13?.de}}</h5>
                     <h5 *ngIf="editservice.numLabel==3" class="userAccountText">{{respo13?.fr}}</h5>
-
                 </div>
                 <div>
                     <button (click)="openDialogue(14)" style="float: left;" *ngIf="loginservice.isVisible"
@@ -527,7 +503,6 @@
                     <h3 *ngIf="editservice.numLabel==1" class="userAccountText1">{{respo14?.en}}</h3>
                     <h3 *ngIf="editservice.numLabel==2" class="userAccountText1">{{respo14?.de}}</h3>
                     <h3 *ngIf="editservice.numLabel==3" class="userAccountText1">{{respo14?.fr}}</h3>
-
                 </div>
                 <div>
                     <button (click)="openDialogue(15)" style="float: left;" *ngIf="loginservice.isVisible"
@@ -536,7 +511,6 @@
                     <p *ngIf="editservice.numLabel==1" class="userAccountText2">{{respo15?.en}} </p>
                     <p *ngIf="editservice.numLabel==2" class="userAccountText2">{{respo15?.de}} </p>
                     <p *ngIf="editservice.numLabel==3" class="userAccountText2">{{respo15?.fr}} </p>
-
                 </div>
                 <div>
                     <button (click)="openDialogue(16)" style="float: left;" *ngIf="loginservice.isVisible"
@@ -545,12 +519,10 @@
                     <h4 *ngIf="editservice.numLabel==1" class="userAccountText3">{{respo16?.en}}</h4>
                     <h4 *ngIf="editservice.numLabel==2" class="userAccountText3">{{respo16?.de}}</h4>
                     <h4 *ngIf="editservice.numLabel==3" class="userAccountText3">{{respo16?.fr}}</h4>
-
                 </div>
                 <div>
                     <img src="../../../assets/StaticAssets/My account/coins.png" class="userAccountImg">
                 </div>
-
                 <!-- Extra code for label -->
                 <li *ngIf="showNewDiv1==13 && isvalid1" style="position: absolute; margin-top: 25px;">
                     <div class="forDiv1 userProfileDiv13">
@@ -662,8 +634,6 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
-
-
             </div>
             <div class="box2">
                 <div class="btnDiv">
@@ -751,8 +721,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==18 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv18">
@@ -861,7 +829,6 @@
                 </div>
             </li>
         </div>
-
         <div>
             <div class="myMemorialDiv">
                 <button (click)="openDialogue(22)" style="float: left;" *ngIf="loginservice.isVisible"
@@ -879,7 +846,6 @@
                 <h3 *ngIf="editservice.numLabel==2" class="userAccountText1">{{respo23?.de}}</h3>
                 <h3 *ngIf="editservice.numLabel==3" class="userAccountText1">{{respo23?.fr}}</h3>
             </div>
-
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==22 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv22">
@@ -933,36 +899,16 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
-
             <!-- Corousel -->
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
-                <!-- <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                        aria-label="Slide 4"></button>
-
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-                        aria-label="Slide 5"></button>
-                </div> -->
-
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2 mr-3">
-                                    <img src="{{userData.path}}"(click)="recentMemorialGrabId(userData.grab_id,userData.user_id)"  class="userImage me-2 rounded">
-                                    <!-- src="{{memData.path}}" -->
+                                    <img src="{{userData.path}}"
+                                        (click)="recentMemorialGrabId(userData.grab_id,userData.user_id)"
+                                        class="userImage me-2 rounded">
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">
                                             <span>
@@ -976,7 +922,8 @@
                                         <p class="userMemorialData1">
                                             <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
                                             &nbsp;
-                                            <span style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1069,16 +1016,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="carousel-item">
                         <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
-                                    <!-- src="{{memData.path}}" -->
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">
                                             <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
@@ -1088,7 +1031,8 @@
                                         <p class="userMemorialData1">
                                             <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
                                             &nbsp;
-                                            <span style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1181,15 +1125,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="carousel-item">
                         <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
-                                    <!-- src="{{memData.path}}" -->
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">
                                             <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
@@ -1199,7 +1140,8 @@
                                         <p class="userMemorialData1">
                                             <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
                                             &nbsp;
-                                            <span style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1292,15 +1234,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="carousel-item">
                         <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
-                                    <!-- src="{{memData.path}}" -->
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">
                                             <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
@@ -1310,7 +1249,8 @@
                                         <p class="userMemorialData1">
                                             <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
                                             &nbsp;
-                                            <span style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1403,15 +1343,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="carousel-item">
                         <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <!-- (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.user_id)"  -->
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
-                                    <!-- src="{{memData.path}}" -->
                                     <div class="ms-2 mt-4">
                                         <h6 class="userMemorialData">
                                             <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
@@ -1421,7 +1358,8 @@
                                         <p class="userMemorialData1">
                                             <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
                                             &nbsp;
-                                            <span style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
                                         </p>
                                     </div>
                                 </div>
@@ -1514,9 +1452,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
                         <span aria-hidden="true" [hidden]="caroucelCount==1"><img
@@ -1524,16 +1460,13 @@
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        [disabled]="caroucelCount==5 || getUserMemoDataUser?.length != 3" (click)="nextCarousel()" data-bs-slide="next">
+                        [disabled]="caroucelCount==5 || getUserMemoDataUser?.length != 3" (click)="nextCarousel()"
+                        data-bs-slide="next">
                         <span aria-hidden="true" [hidden]="caroucelCount==5 || getUserMemoDataUser?.length != 3">
                             <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
                         </span>
-                        <!-- || getUserMemoDataUser.length != 3" -->
-                        <!-- || getUserMemoDataUser.length != 3" -->
                         <span class="visually-hidden">Next</span>
                     </button>
-                    <!-- class="carousel-control-next-icon bg-dark" -->
-
                     <!-- Extra code for label -->
                     <li *ngIf="showNewDiv1==24 && isvalid1" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv1 userProfileDiv24">
@@ -1653,7 +1586,6 @@
     <!-- Sent message -->
     <div class="mt-5 mainDiv">
         <div class="container pt-5">
-
             <span class="subDiv1">
                 <button (click)="openDialogue(28)" style="float: left;" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -1664,7 +1596,6 @@
                 <span class="messageText" *ngIf="editservice.numLabel==3">{{respo28?.fr}}</span>
             </span>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
             <span class="subDiv2">
                 <button (click)="openDialogue(29)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton messageCss"><span><img
@@ -1673,11 +1604,9 @@
                 <span class="messageText" *ngIf="editservice.numLabel==1">{{respo29?.en}}</span>
                 <span class="messageText" *ngIf="editservice.numLabel==2">{{respo29?.de}}</span>
                 <span class="messageText" *ngIf="editservice.numLabel==3">{{respo29?.fr}}</span>
-
             </span>
         </div>
     </div>
-
 
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv1==28 && isvalid1" style="position: absolute; margin-top: 25px;">
@@ -1731,73 +1660,63 @@
         </div>
     </li>
 
-
     <!-- other component -->
     <div>
         <app-create-premiun-mem></app-create-premiun-mem>
     </div>
     <div class="mt-1 recentMargin">
-        <!-- <app-recent></app-recent> -->
-
         <div class="recentMemorial">
             <div class="container">
                 <h4 class="mb-4">
-                    <!-- *ngIf="loginservice.isVisible" -->
                     <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton messageCss1"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton messageCss1"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                     <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==1">{{respo30?.en}}</h5>
                     <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==2">{{respo30?.de}}</h5>
                     <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</h5>
-
                 </h4>
-                 <!-- Extra code for label -->
-    <li *ngIf="showNewDiv1==30 && isvalid1" style="position: absolute; margin-top: 281px; right: 87%;">
-        <div class="forDiv1 userProfileDiv29">
-            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
-            <form class="example-form" #regForm2="ngForm">
-                <mat-form-field class="example-full-width" style="display: none;">
-                    <mat-label>id</mat-label>
-                    <textarea matInput name="id" [(ngModel)]="respo30.id"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width englishLng">
-                    <mat-label>English</mat-label>
-                    <textarea matInput name="en" [(ngModel)]="respo30.en"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>German</mat-label>
-                    <textarea matInput name="de" [(ngModel)]="respo30.de"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>French</mat-label>
-                    <textarea matInput name="fr" [(ngModel)]="respo30.fr"></textarea>
-                </mat-form-field>
-            </form>
-            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
-        </div>
-    </li>
+                <!-- Extra code for label -->
+                <li *ngIf="showNewDiv1==30 && isvalid1" style="position: absolute; margin-top: 281px; right: 87%;">
+                    <div class="forDiv1 userProfileDiv29">
+                        <button style="float: right;" (click)="openDialogue1()"
+                            class="btn btn-outline-danger">X</button>
+                        <form class="example-form" #regForm2="ngForm">
+                            <mat-form-field class="example-full-width" style="display: none;">
+                                <mat-label>id</mat-label>
+                                <textarea matInput name="id" [(ngModel)]="respo30.id"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width englishLng">
+                                <mat-label>English</mat-label>
+                                <textarea matInput name="en" [(ngModel)]="respo30.en"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>German</mat-label>
+                                <textarea matInput name="de" [(ngModel)]="respo30.de"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>French</mat-label>
+                                <textarea matInput name="fr" [(ngModel)]="respo30.fr"></textarea>
+                            </mat-form-field>
+                        </form>
+                        <button (click)="postEditData(regForm2);openDialogue1();"
+                            class="btn btn-outline-success">Save</button>
+                    </div>
+                </li>
                 <div class="recentMemo h-100 p-5">
                     <div *ngFor="let memData of Memorials" class="child1">
-                        <!-- <div class="mt-3 mb-2"> -->
                         <img src="{{memData.path}}" class="me-2 rounded recentImage">
-                        <!-- </div> -->
                         <div class="mt-2">
                             <h6 class="recentName">
                                 {{memData.fname}} {{ memData.lname}}
                             </h6>
-                            <!-- <h6 style="color: #CF6363;">
-                                {{memData.age}}Y Old,
-                                &nbsp;
-                                {{memData.starvetown}}
-                            </h6> -->
                         </div>
                         <div class="viewsCss">
                             <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
                             <span class="me-1 nameSml">0</span>
-    
+
                             <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
                             <span class="me-1 nameSml">{{memData.litCandle}}</span>
-    
+
                             <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
                             <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
                         </div>

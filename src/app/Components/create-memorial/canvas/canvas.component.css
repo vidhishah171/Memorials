@@ -1,30 +1,24 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
-
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -34,89 +28,100 @@
     background-color: #F8F8F8;
 }
 
-#canvasDivCss1{
+#canvasDivCss1 {
     left: 178%;
     margin-top: -2%;
 }
-#canvasDivCss2{
+
+#canvasDivCss2 {
     left: 233%;
     margin-top: -2%;
 }
-#canvasDivCss3{
+
+#canvasDivCss3 {
     left: 268%;
     margin-top: -2%;
 }
-#canvasDivCss4{
+
+#canvasDivCss4 {
     left: 305%;
     margin-top: -2%;
 }
-#canvasDivCss5{
+
+#canvasDivCss5 {
     left: 151%;
     margin-top: 42%;
 }
-#canvasDivCss6{
+
+#canvasDivCss6 {
     left: 199%;
     margin-top: 42%;
 }
-#canvasDivCss7{
+
+#canvasDivCss7 {
     left: 245%;
     margin-top: 42%;
 }
-#canvasDivCss8{
+
+#canvasDivCss8 {
     left: 287%;
     margin-top: 42%;
 }
-#canvasDivCss9{
+
+#canvasDivCss9 {
     left: 334%;
     margin-top: 42%;
 }
-#canvasDivCss10{
+
+#canvasDivCss10 {
     margin-top: 34%;
     left: 284%;
 }
 
-.englishLng{
-    padding-top: 15%; 
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-
-
-
-
 /* for person image */
-.tambstone{
+.tambstone {
     height: 100%;
     width: 100%;
     /* background-color: aquamarine */
 }
 
-.tambstone .carousel-item button{
+.tambstone .carousel-item button {
     height: 45%;
     width: 32%;
 }
-.tambstone button img{
+
+.tambstone button img {
     height: 100%;
     width: 100%;
 }
-#tombstoneSizeBack{
+
+#tombstoneSizeBack {
     height: 160px;
     width: 160px;
     padding: 6%;
 }
-.backWidth{
+
+.backWidth {
     width: 90%;
     margin-top: 6%;
     margin-left: 3%;
 }
-.imgCorouselRight{
+
+.imgCorouselRight {
     margin-left: 50%;
 }
-.imgCorouselLeft{
+
+.imgCorouselLeft {
     margin-right: 50%;
 }
-.backgroundText{
+
+.backgroundText {
     font-size: 0.65rem;
     text-align: center;
     margin-bottom: -6%;
@@ -124,31 +129,33 @@
     color: #B5B5B5;
     opacity: 0.9;
 }
-#createMemoDivCssNew1{
+
+#createMemoDivCssNew1 {
     left: 12%;
 }
-.personCentric{
+
+.personCentric {
     height: 320px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /* background-image: url('../../../../assets/StaticAssets/Create memorial/step1/user-portrait.png'); */
     background-repeat: no-repeat;
     background-position: center;
-    /* background-color: #aba4a4; */
-    /* text-align: center; */
-
 }
-.personImageSize{
+
+.personImageSize {
     margin-left: 20%;
 }
-.personNav{
+
+.personNav {
     width: 100%;
 }
-#photo{
+
+#photo {
     display: none;
 }
-.Photo{
+
+.Photo {
     text-align: center;
     align-items: center;
     display: block;
@@ -156,114 +163,118 @@
     margin-right: auto;
     font-size: larger;
 }
-.decorationImg{
+
+.decorationImg {
     width: 14px;
     margin-top: -6%;
 }
-.headerCanvasTxt{
+
+.headerCanvasTxt {
     font-size: 0.7rem;
     color: #6A6A6A;
 }
-.btnColorHeading{
+
+.btnColorHeading {
     border: none;
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 15px;
 }
-.verticalRow{
+
+.verticalRow {
     margin-top: 1%;
     color: #F2F2F2;
     margin-left: -1%;
     margin-right: -2%;
 }
-.headerCanvasTxt2{
+
+.headerCanvasTxt2 {
     font-size: 0.6rem;
     color: #6A6A6A;
     font-weight: 600;
 }
-.candleImgSize{
+
+.candleImgSize {
     width: 23px;
 }
-#tombstoneWidth{
+
+#tombstoneWidth {
     width: 17%;
 }
-.candleImgSize1{
+
+.candleImgSize1 {
     width: 30%;
 }
-.candleImgSize2{
+
+.candleImgSize2 {
     width: 35%;
 }
-.candleImgSize3{
+
+.candleImgSize3 {
     width: 45%;
 }
-.candleImgSize4{
+
+.candleImgSize4 {
     width: 35%;
 }
-.candleDarkImgSize{
+
+.candleDarkImgSize {
     width: 63px;
     margin-bottom: -17%;
 }
 
-
-
-
-
-
-
-
-
-
-.box1{
-   /* background-color: rebeccapurple; */
+.box1 {
     height: auto;
-    width:47%;
+    width: 47%;
     display: flex;
     flex-direction: column;
-    /* left: auto; */
     align-items: center;
-    /* flex-wrap: wrap; */
 }
-/* .textAlign{
-    text-align: center;
-} */
 
-.textAlign1{
+.textAlign1 {
     margin-left: 2%;
 }
-.changeTombstone{
+
+.changeTombstone {
     font-size: 0.52rem;
     font-weight: bold;
 }
-.flwSize{
+
+.flwSize {
     width: 80px;
     height: 105px;
 }
-.alignBgcolor{
- border: 1px solid black;
- background-color: white;
- padding: 8px;
- border-radius: 5px; 
- margin: 2px;  
+
+.alignBgcolor {
+    border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 2px;
 }
-.alignBgcolor:hover{
+
+.alignBgcolor:hover {
     background-color: lightgray;
 }
-.alignBgcolor:focus{
+
+.alignBgcolor:focus {
     background-color: lightgray;
 }
-.colorPickerImg{
+
+.colorPickerImg {
     text-align: center;
     cursor: pointer;
 }
 
-.vitaData{
+.vitaData {
     margin-top: 18px;
     width: 100%;
     height: 10%;
     border: none;
 
 }
-.flowers{
+
+.flowers {
     height: auto;
     width: 6rem;
     display: flex;
@@ -274,50 +285,44 @@
     overflow-block: inherit;
 }
 
-.canvas{
-    /* background-color: red; */
-    border:2px solid black;
-    /* height: auto;
-    width: 100%;
-    object-fit: contain; */
-    /* display: block; */
-    /* height: 500px !important; */
-    /* width: 500px !important;  */
+.canvas {
+    border: 2px solid black;
 }
 
-.box2{
-    /* background-color: #f87171;  */
-   height: auto;
-   width:52%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
-
+.box2 {
+    height: auto;
+    width: 52%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
-.showbackground{
+
+.showbackground {
     height: 100px;
     width: 100px;
 }
 
-.background{
+.background {
     width: 100%;
-    height:auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
-.background1{
+
+.background1 {
     height: 100%;
     width: 100%;
     margin-top: 7%;
-    /* background-color: aquamarine */
 }
-.background1 .carousel-item button{
+
+.background1 .carousel-item button {
     height: 45%;
     width: 32%;
 }
-.menu{
+
+.menu {
     width: 100%;
     height: 2rem;
     display: flex;
@@ -329,18 +334,17 @@
 }
 
 
-.submenu{
+.submenu {
     width: 100%;
     height: 7rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* background-color: aqua; */
 }
 
-.submenu .candle{
+.submenu .candle {
     height: 100%;
-    width:14%;
+    width: 14%;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -348,53 +352,42 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    /* font-size: 0.75rem; */
-    font-size: 0.65rem; 
+    font-size: 0.65rem;
     cursor: pointer;
 }
 
-.SubmenuContent{
+.SubmenuContent {
     height: 65%;
     width: 100%;
-    /* background-color: springgreen; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-   align-content: flex-start;
-   margin-left: 3%;
+    align-content: flex-start;
+    margin-left: 3%;
 }
 
-
-
-
-.carousel-indicators button{
+.carousel-indicators button {
     height: 15px;
     width: 15px;
     border-radius: 50%;
 }
 
-/* .tambstone .carousel-item button{
-    height: 45%;
-    width: 32%;
-} */
-.tombStyle{
+.tombStyle {
     height: 130px;
     width: 130px;
 }
 
-.canddles{
-    /* height: 92px;
-    width: 70px; */
+.canddles {
     height: 95px;
     width: 58px;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    cursor:move;
-
+    cursor: move;
 }
-::placeholder{
+
+::placeholder {
     font-size: 0.75rem;
     color: black;
     opacity: 0.9;
@@ -419,10 +412,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-
 }
 
-.carousel-control-prev{
+.carousel-control-prev {
     position: absolute;
     top: 40%;
     bottom: 0;
@@ -441,60 +433,65 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
 }
+
 .carousel-item.active {
     display: flex;
     flex-direction: row;
-    /* width: 72%;
-    margin-left: 100px; */
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    /* padding-left: 9%; */
-    
 }
-.backMargin{
+
+.backMargin {
     padding-left: 9%;
 }
-#tombstoneSize{
+
+#tombstoneSize {
     height: 147px;
     width: 153px;
 }
-.itemAlign{
+
+.itemAlign {
     width: 72%;
     margin-left: 100px;
 }
-.itemAlign1{
+
+.itemAlign1 {
     width: 85%;
     margin-left: 55px;
 }
-.personImageSizeNew{
+
+.personImageSizeNew {
     margin-left: 0%;
     font-size: 0.7rem;
 }
-.nav-link img{
+
+.nav-link img {
     height: 23px;
     width: 23px;
 }
-.nav-link{
+
+.nav-link {
     padding-top: 1%;
 }
-.tombstoneText{
+
+.tombstoneText {
     margin-top: 3%;
     font-size: 0.9rem;
-    /* color: #4BC252; */
 }
-.tombstoneText1{
+
+.tombstoneText1 {
     margin-top: 0%;
     font-size: 0.9rem;
-    /* color: black; */
 }
-.personCentricMemo{
+
+.personCentricMemo {
     height: 23px;
     width: 23px;
 }
-.URNS{
+
+.URNS {
     height: 6rem;
     width: 6rem;
     display: flex;
@@ -504,7 +501,7 @@
     flex-wrap: wrap;
 }
 
-.vita{
+.vita {
     width: 71%;
     height: 97%;
     font-family: 'Libre Franklin', sans-serif;
@@ -515,9 +512,9 @@
     margin-left: 5%;
 }
 
-.video{
+.video {
     width: 100%;
-    height:75%;
+    height: 75%;
     font-family: 'Libre Franklin', sans-serif;
     display: flex;
     justify-content: center;
@@ -526,14 +523,14 @@
     align-items: center;
 }
 
-.video .addVideo{
+.video .addVideo {
     height: 50%;
     width: 30%;
     border: 2px solid gray;
     display: flex;
 }
 
-.content2{
+.content2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -541,104 +538,94 @@
     height: 49vw;
 }
 
-#toggleVideo{
+#toggleVideo {
     visibility: hidden;
 }
-#divCanvas{
+
+#divCanvas {
     height: 50%;
     width: 80%;
 }
-.btnAddText{
-    background-color:lightgray;
+
+.btnAddText {
+    background-color: lightgray;
     color: white;
 }
 
-#imgLogo{
+#imgLogo {
     width: 51px;
     height: 49px;
 }
 
-@media (max-width:480px){
-    .box1{
-        /* background-color: rebeccapurple; */
-         height: auto;
-         width:100%;
-         display: inline-block;
-         flex-direction: column;
-         position: relative;
-         /* align-items: center; */
-         /* flex-wrap: wrap; */
-     }
-     #tombstoneSize{
+@media (max-width:480px) {
+    .box1 {
+        height: auto;
+        width: 100%;
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+    }
+
+    #tombstoneSize {
         height: 95px;
         width: 74px;
     }
-    /* .changeTombstone{
-        font-size: 0.57rem;
-        font-weight: bold;
-    } */
-    .personCentric{
+
+    .personCentric {
         height: 198px;
         width: 71%;
     }
-     .box2{
-        /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: inline-block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
+
+    .box2 {
+        height: auto;
+        width: 100%;
+        display: inline-block;
+        flex-direction: column;
     }
-    .carousel-control-prev{
-        width: 1rem;
-    }
-    .carousel-control-next{
+
+    .carousel-control-prev {
         width: 1rem;
     }
 
-    .itemAlign{
+    .carousel-control-next {
+        width: 1rem;
+    }
+
+    .itemAlign {
         width: 100%;
         margin-left: 0px;
     }
-    .menu{
+
+    .menu {
         width: 100%;
-        /* height: 4rem;*/
-        /* padding: 20%;  */
         display: block;
-        /* flex-wrap: wrap; */
         flex-direction: column;
-        /* justify-content: flex-start; */
-    
     }
-    .submenu .candle{
+
+    .submenu .candle {
         height: 100%;
-        width:14%;
+        width: 14%;
         display: inline-block;
         text-align: center;
         align-items: center;
         font-size: 0.6rem;
         padding-top: 4%;
     }
-    #imgLogo{
-        /* margin-left: inherit; */
+
+    #imgLogo {
         width: 42px;
         height: 42px;
     }
-    
-    
-     /* .Mycanvas{
-         height: 50%;
-         width: 30%;
-     } */
-     #rect{
+
+    #rect {
         width: 100%;
     }
-    .background{
+
+    .background {
         padding-top: 7%;
     }
-    .video .addVideo{
+
+    .video .addVideo {
         height: 70%;
         align-items: center;
         text-align: center;
@@ -647,196 +634,199 @@
         border: 2px solid gray;
         display: flex;
     }
-    .tombStyle{
+
+    .tombStyle {
         height: 70px;
         width: 70px;
     }
-    
-     
 }
-@media (min-width:481px) and (max-width:780px){
-    .box1{
-        /* background-color: rebeccapurple; */
-         height: auto;
-         width:100%;
-         /* text-align: center; */
-         padding-left: 68px;
-         display: inline-block;
-         flex-direction: column;
-         align-items: center;
-         /* flex-wrap: wrap; */
-     }
-     #mobileRes{
-        height: 170px; 
-        width: 180px; 
+
+@media (min-width:481px) and (max-width:780px) {
+    .box1 {
+        height: auto;
+        width: 100%;
+        padding-left: 68px;
+        display: inline-block;
+        flex-direction: column;
         align-items: center;
-   } 
-   /* .changeTombstone{
-    font-size: 0.57rem;
-    font-weight: bold;
-} */
-     #tombstoneSize{
+    }
+
+    #mobileRes {
+        height: 170px;
+        width: 180px;
+        align-items: center;
+    }
+
+    #tombstoneSize {
         height: 136px;
         width: 110px;
     }
-    .personCentric{
+
+    .personCentric {
         height: 167px;
         width: 100%;
     }
 
-     .box1 button{
+    .box1 button {
         margin-left: 265px;
         margin-bottom: 2%;
-     }
-     .menu{
+    }
+
+    .menu {
         margin-left: 117px;
     }
-    
-     .box2{
-        /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
-    } 
-    .itemAlign{
+
+    .box2 {
+        height: auto;
+        width: 100%;
+        display: block;
+        flex-direction: column;
+    }
+
+    .itemAlign {
         width: 90%;
         margin-left: 35px;
-    } 
-    .carousel-control-prev{
+    }
+
+    .carousel-control-prev {
         width: 1rem;
     }
-    .carousel-control-next{
+
+    .carousel-control-next {
         width: 1rem;
-    } 
-    .tombStyle{
+    }
+
+    .tombStyle {
         height: 120px;
         width: 120px;
     }
-    .submenu .candle{
-        width:13%;
+
+    .submenu .candle {
+        width: 13%;
     }
 
-    #canvasDivCss1{
+    #canvasDivCss1 {
         left: 76%;
         margin-top: 214%;
     }
-    #canvasDivCss2{
+
+    #canvasDivCss2 {
         left: 135%;
         margin-top: 212%;
     }
-    #canvasDivCss3{
+
+    #canvasDivCss3 {
         left: 69%;
         margin-top: 212%;
     }
-    #canvasDivCss4{
+
+    #canvasDivCss4 {
         left: 106%;
         margin-top: 212%;
     }
-    #canvasDivCss5{
+
+    #canvasDivCss5 {
         left: 32%;
         margin-top: 255%;
     }
-    #canvasDivCss6{
+
+    #canvasDivCss6 {
         left: 79%;
         margin-top: 254%;
     }
-    #canvasDivCss7{
+
+    #canvasDivCss7 {
         left: 125%;
         margin-top: 256%;
     }
-    #canvasDivCss8{
+
+    #canvasDivCss8 {
         left: 75%;
         margin-top: 253%;
     }
-    #canvasDivCss9{
+
+    #canvasDivCss9 {
         left: 112%;
         margin-top: 259%;
     }
-    #canvasDivCss10{
+
+    #canvasDivCss10 {
         margin-top: 365%;
         left: 91%;
     }
-    .submenu{
+
+    .submenu {
         margin-left: 66px;
     }
-    .personImageSize{
+
+    .personImageSize {
         margin-left: 23%;
     }
-
-}
-@media (min-width:781px) and (max-width:1160px){
-    .box1{
-        /* background-color: rebeccapurple; */
-         height: auto;
-         width:70%;
-         display: inline-block;
-         flex-direction: column;
-         align-items: center;
-         /* flex-wrap: wrap; */
-     }
-     .box2{
-        /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
-    }     
 }
 
-/* for big device */
-/* @media (min-width:1517px){
-    .content2{
-        height: 49vw;
+@media (min-width:781px) and (max-width:1160px) {
+    .box1 {
+        height: auto;
+        width: 70%;
+        display: inline-block;
+        flex-direction: column;
+        align-items: center;
     }
-}*/
 
-@media (min-width:1398px){
-    .personCentric{
+    .box2 {
+        height: auto;
+        width: 100%;
+        display: block;
+        flex-direction: column;
+    }
+}
+
+@media (min-width:1398px) {
+    .personCentric {
         width: 20%;
     }
 }
 
-@media (min-width:1517px)and (max-width:2017px){
-    .content2{
+@media (min-width:1517px)and (max-width:2017px) {
+    .content2 {
         height: 38vw;
-    } 
-    .personCentric{
+    }
+
+    .personCentric {
         width: 32%;
-    } 
- }
- @media (min-width:2017px)and (max-width:2049px){
-    .content2{
+    }
+}
+
+@media (min-width:2017px)and (max-width:2049px) {
+    .content2 {
         height: 32vw;
     }
-    .personCentric{
+
+    .personCentric {
         width: 27%;
-    } 
- 
- }
- @media (min-width:2050px)and (max-width:2561px){
-    .content2{
+    }
+
+}
+
+@media (min-width:2050px)and (max-width:2561px) {
+    .content2 {
         height: 25vw;
     }
 }
 
- @media (min-width:2732px) and (max-width:4098px){
-     .content2{
-         height: 25vw;
-     }
-     .personCentric{
+@media (min-width:2732px) and (max-width:4098px) {
+    .content2 {
+        height: 25vw;
+    }
+
+    .personCentric {
         width: 13%;
-    } 
- 
- }
- @media (min-width:4098px){
-    .content2{
+    }
+
+}
+
+@media (min-width:4098px) {
+    .content2 {
         height: 14vw;
-    } 
- }
+    }
+}

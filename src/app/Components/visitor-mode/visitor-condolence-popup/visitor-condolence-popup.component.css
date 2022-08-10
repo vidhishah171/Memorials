@@ -1,22 +1,18 @@
-mat-form-field{
+mat-form-field {
     width: 100%;
 }
-.saveCondolences{
+
+.saveCondolences {
     float: right;
     background-color: #4BC252;
-    /* color: white; */
     padding: 1%;
-    /* padding-left: 6%;
-    padding-right: 6%;
-    text-align: center; */
     border: none;
     font-size: 1rem;
-    /* font-weight: 600; */
     color: white;
-    /* margin-top: -35%; */
     margin-left: 2%;
 }
-.cancelCondolences{
+
+.cancelCondolences {
     float: right;
     background-color: #CF6363;
     padding: 1%;
@@ -24,18 +20,22 @@ mat-form-field{
     font-size: 1rem;
     color: white;
 }
-.closeBtn{
+
+.closeBtn {
     background-color: #CF6363;
     float: right;
-    
+
 }
-.lableText{
+
+.lableText {
     font-size: 0.8rem;
     font-weight: 600;
 }
-mat-form-field ::placeholder{
+
+mat-form-field ::placeholder {
     font-size: 0.8rem;
 }
-mat-label{
+
+mat-label {
     font-size: 0.8rem;
 }

@@ -1,144 +1,160 @@
 /* for admin edit */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
-.forDiv1{
+
+.forDiv1 {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
-    /* margin-top: 10%; */
     width: 300px;
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.visitorDiv1{
+
+.visitorDiv1 {
     margin-top: -13%;
     left: 48%;
 }
-.visitorDiv4{
+
+.visitorDiv4 {
     margin-top: -13%;
     left: 0%;
 }
-.visitorDiv5{
+
+.visitorDiv5 {
     margin-top: -13%;
     left: 46%;
 }
-.visitorDiv6{
+
+.visitorDiv6 {
     margin-top: -13%;
     left: 115%;
 }
-.visitorDiv7{
+
+.visitorDiv7 {
     margin-top: -13%;
     left: 70%;
 }
-.visitorDiv8{
+
+.visitorDiv8 {
     margin-top: -63%;
     left: 159%;
 }
-.latestCondo{
+
+.latestCondo {
     top: -38px;
     right: 38%;
 }
-.subscribeAdminButton{
+
+.subscribeAdminButton {
     right: 73%;
     margin-top: 3%;
 }
-.subscribeAdminButton1{
+
+.subscribeAdminButton1 {
     left: 6%;
 }
-.subscribeAdminButton2{
+
+.subscribeAdminButton2 {
     left: 52%;
 }
-.recentAdminButton{
+
+.recentAdminButton {
     right: 37%;
     margin-top: 3%;
 }
-.visitorDiv11{
+
+.visitorDiv11 {
     margin-top: -59%;
     left: 132%;
 }
-.visitorDiv12{
+
+.visitorDiv12 {
     margin-top: -26%;
     left: 72%;
 }
-.visitorDiv13{
+
+.visitorDiv13 {
     margin-top: -25%;
     left: 114%;
 }
-.visitorDiv14{
+
+.visitorDiv14 {
     margin-top: -103%;
     left: 170%;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-
-.userHeading{
-    background-color:#CF6363 ;
+.userHeading {
+    background-color: #CF6363;
     height: 16vw;
 }
-.userHeading h1{
+
+.userHeading h1 {
     text-align: center;
     color: white;
     padding-top: 2%;
     font-size: 2rem;
 }
-.userDate{
+
+.userDate {
     text-align: center;
     color: whitesmoke;
     font-size: 0.85rem;
     opacity: 0.9;
-
 }
-.share{
-    float: right; 
+
+.share {
+    float: right;
     margin-right: 10%;
     padding-top: 7%;
 }
-.share1{
+
+.share1 {
     float: left;
     margin-right: 10%;
-    /* padding-top: 7%; */
     margin-left: 16%;
     margin-top: 7%;
     border: 1px solid white;
     height: 20px;
     width: 90px;
 }
-.userBackground{
+
+.userBackground {
     text-align: center;
     color: white;
     padding-top: 1%;
     font-size: 0.6rem;
 }
-.circleImage{
+
+.circleImage {
     width: 11%;
     height: 66%;
     margin-left: 45%;
     margin-top: 3%;
     border: 5px solid white;
     background-color: #5D5959;
-
     border-radius: 50%;
     overflow: hidden;
-    display:inline-block;
-    vertical-align:middle;
+    display: inline-block;
+    vertical-align: middle;
 }
-.leave{
-    /* border: 1px solid black; */
+
+.leave {
     width: 22%;
     background-color: white;
     height: 74px;
@@ -146,166 +162,191 @@
     margin-top: -3%;
     border-radius: 15px;
 }
-.backCorousel{
+
+.backCorousel {
     margin-top: 7%;
 }
-.corouseImg{
+
+.corouseImg {
     padding-left: 10%;
-    /* height: 21%; */
     padding-top: 2%;
     width: 70%;
 }
-.corouseImg1{
+
+.corouseImg1 {
     padding-left: 10%;
-    /* height: 21%; */
     padding-top: 2%;
     width: 67%;
 }
-.candleAlign{
+
+.candleAlign {
     text-align: center;
     margin-top: 4%;
     cursor: pointer;
 }
-.candleAlign1{
+
+.candleAlign1 {
     width: 84px;
     margin-left: -29%;
 }
-.fullDiv{
+
+.fullDiv {
     width: 90%;
     margin-left: 4%;
     margin-top: 2%;
 }
-.candleFontColor{
+
+.candleFontColor {
     font-size: 0.5rem;
     color: #B5B5B5;
     cursor: pointer;
 }
-.candleFontColorNew{
+
+.candleFontColorNew {
     font-size: 0.5rem;
     color: #B5B5B5;
     margin-left: -30%;
     margin-right: -30%;
 }
-.prevButton{
+
+.prevButton {
     margin-left: -3%;
     margin-top: -6%;
 }
-.nextButton{
+
+.nextButton {
     margin-left: -3%;
     margin-top: -6%;
 }
-.backImg{
+
+.backImg {
     width: 55%;
 }
-.content2{
+
+.content2 {
     display: flex;
     height: 70vw;
 }
-.box1{
+
+.box1 {
     width: 58%;
 }
-.box2{
-   width: 40%;
-   margin-top: 7%;
+
+.box2 {
+    width: 40%;
+    margin-top: 7%;
 }
-.recentCsndleSection{
+
+.recentCsndleSection {
     color: #CF6363;
     font-size: 0.9rem;
     font-weight: 500;
 }
-.recentCsndleSectionMain{
-    margin-top:18%;
+
+.recentCsndleSectionMain {
+    margin-top: 18%;
 }
-.recentCsndleSectionMain1{
-    margin-top:11%;
+
+.recentCsndleSectionMain1 {
+    margin-top: 11%;
 }
-.recentCsndleSectionShow{
+
+.recentCsndleSectionShow {
     float: right;
     font-size: 0.7rem;
     color: #4BC252;
     font-weight: 500;
     margin-top: 2%;
 }
-.recentCsndleSectionShow1{
+
+.recentCsndleSectionShow1 {
     float: right;
     font-size: 0.7rem;
     color: #4BC252;
     font-weight: 500;
-    /* margin-top: 2%; */
 }
-.recentCsndleSectionImg{
+
+.recentCsndleSectionImg {
     margin-top: -3%;
     width: 8%;
 }
-.recentCsndleSectionImg1{
+
+.recentCsndleSectionImg1 {
     margin-top: -3%;
     width: 5%;
 }
-.frontImage{
+
+.frontImage {
     color: green;
     width: 9%;
 }
-.frontCorousel{
+
+.frontCorousel {
     float: right;
     margin-top: 7%;
 
 }
-.circleImage img{
-    width:100%;
-}
-.plusImageOnHeader{
-      /* float: right; */
-      margin-top: 1.5%;
-      /* border: 1px solid white; */
-      z-index: 500;
-      color: white;
-      width: 2%;
-      margin-left: -2%;
+
+.circleImage img {
+    width: 100%;
 }
 
-.photoVideoGallary{
+.plusImageOnHeader {
+    margin-top: 1.5%;
+    z-index: 500;
+    color: white;
+    width: 2%;
+    margin-left: -2%;
+}
+
+.photoVideoGallary {
     height: 35vw;
     background-color: #F8F4EF;
     margin-top: 1%;
 }
-.photoVideoGalleryText{
+
+.photoVideoGalleryText {
     font-size: 0.85rem;
     font-weight: 600;
     margin-left: 10%;
 }
-.editCondolences{
+
+.editCondolences {
     text-align: center;
 }
-.condolenceMain{
-    height: 15vw; 
+
+.condolenceMain {
+    height: 15vw;
     margin-bottom: 2%;
 }
-.condolenceMain1{
-    height: auto; 
+
+.condolenceMain1 {
+    height: auto;
     margin-bottom: 2%;
 }
+
 /* For editCondolences */
-.condolencesEdit{
-    /* border: 1px solid black;  */
+.condolencesEdit {
     background-color: #CF6363;
     border-radius: 20px;
-    width: 100%; 
+    width: 100%;
     height: 13vw;
     display: flex;
     padding-top: 5%;
     padding-bottom: 2%;
     margin-bottom: 5%;
 }
-.visitorCanvasCss{
-    height: 70vw; 
-    margin-left: 6%; 
+
+.visitorCanvasCss {
+    height: 70vw;
+    margin-left: 6%;
     width: 100%;
 }
-.condolencesEdit1{
-      /* border: 1px solid black;  */
+
+.condolencesEdit1 {
     background-color: #CF6363;
     border-radius: 10px;
-    width: 100%; 
+    width: 100%;
     height: auto;
     display: flex;
     padding-top: 5%;
@@ -313,7 +354,7 @@
     margin-bottom: 5%;
 }
 
-.readAllCondo{
+.readAllCondo {
     padding-left: 3%;
     padding-right: 3%;
     border: 2px solid black;
@@ -322,33 +363,39 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
-.readAllCondo:hover{
+
+.readAllCondo:hover {
     background-color: #B5B5B5;
     color: white;
     border: none;
 }
 
-.crossImg{
+.crossImg {
     height: 63px;
 }
-.condolenceDiv{
+
+.condolenceDiv {
     height: auto;
 }
-.condolencesText{
+
+.condolencesText {
     font-weight: 600;
     font-size: 1.3rem;
 }
-.qotesImg{
+
+.qotesImg {
     width: 68px;
     margin-top: 19%;
     opacity: 0.9;
 }
-.condolenceImg{
+
+.condolenceImg {
     width: 6%;
     float: left;
     margin-left: -1%;
 }
-.condolenceText{
+
+.condolenceText {
     font-size: 0.7rem;
     color: #FFFFFF;
     opacity: 0.8;
@@ -356,7 +403,7 @@
     padding-top: 1%;
 }
 
-.condolencesComment{
+.condolencesComment {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -366,10 +413,10 @@
     opacity: 0.9;
     margin-left: -7%;
     height: 6vw;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.condolencesComment1{
+
+.condolencesComment1 {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -379,98 +426,105 @@
     opacity: 0.9;
     margin-left: -7%;
     height: auto;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.rightImg{
+
+.rightImg {
     width: 12%;
 }
-.viewEntire{
+
+.viewEntire {
     float: left;
     font-size: 0.7rem;
     font-weight: 500;
     cursor: pointer;
 }
-.deletrImg{
+
+.deletrImg {
     width: 20px;
 }
-.viewEntireDiv{
+
+.viewEntireDiv {
     padding-top: 20%;
 }
-.subscribeImage{
-    /* background-image: "../../../assets/StaticAssets/Visitor Mode/112.png"; */
+
+.subscribeImage {
     background-image: url('../../../assets/StaticAssets/Visitor Mode/112.png');
     background-size: 100%;
     border-radius: 20px;
     height: 14vw;
     width: 100%;
-    /* display: flex; */
     flex-wrap: wrap;
     background-repeat: no-repeat;
     background-position: center;
 }
-.subscribeText{
+
+.subscribeText {
     font-size: 0.9rem;
     font-weight: 500;
 }
-.subInputBox{
+
+.subInputBox {
     width: 29%;
     height: 45px;
     border-radius: 0px;
 }
-.subInputBox1{
+
+.subInputBox1 {
     height: 45px;
     border-radius: 0px;
 }
-.subscribeBtn{
+
+.subscribeBtn {
     height: 45px;
     font-size: 0.9rem;
     padding-left: 30%;
     padding-right: 30%;
     border-radius: 0;
 }
-::placeholder{
+
+::placeholder {
     font-size: 0.9rem;
     padding-left: 3%;
     color: #B5B5B5;
 }
-.recentMemorial{
+
+.recentMemorial {
     background-color: #F8F4EF;
     height: 25vw;
 }
-.recentHeading{
+
+.recentHeading {
     font-weight: 800;
     text-align: center;
     font-size: 1.1rem;
 }
-.recentMemo{
-    /* width:30%; */
-    /* font-size: 0.5rem; */
+
+.recentMemo {
     display: flex;
-    /* flex-wrap: wrap; */
     align-content: flex-start;
-    /* flex-direction: row; */
     margin-left: 12%;
 }
-.recentMemo .child1{
-    /* height: 20%; */
+
+.recentMemo .child1 {
     font-style: normal;
     margin: 0%;
     padding: 0%;
-   
 }
-.recentImage{
+
+.recentImage {
     width: 50%;
     height: auto;
     border: 2px solid #CF6363;
     text-align: center;
-
 }
-.recentName{
+
+.recentName {
     font-weight: 600;
     font-size: 0.9rem;
 }
-.pVGallery{
+
+.pVGallery {
     box-sizing: border-box;
     border: 1px solid black;
     float: left;
@@ -479,129 +533,119 @@
     margin: 1%;
     border-radius: 7px;
 }
-.imageButton{
+
+.imageButton {
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
-.plusButton{
+
+.plusButton {
     position: absolute;
-    /* float: right; */
     left: 80%;
-    /* z-index: 10; */
 }
 
-.shareEdit{
+.shareEdit {
     font-size: 0.6rem;
     color: whitesmoke;
     cursor: pointer;
     opacity: 0.7;
 }
-.shareEdit1{
-    font-size: 0.7rem; 
+
+.shareEdit1 {
+    font-size: 0.7rem;
     color: white;
 }
 
-.photoVideoCss{
+.photoVideoCss {
     border: 1px solid black;
     width: 12%;
     height: 20%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width:481px) and (max-width:979px){
-    .photoVideoGallary{
+@media (min-width:481px) and (max-width:979px) {
+    .photoVideoGallary {
         margin-top: 140%;
     }
-    .submenu{
+
+    .submenu {
         margin-left: 66px;
     }
 }
 
-@media (min-width:1518px)and (max-width:2017px){
-    .content2{
+@media (min-width:1518px)and (max-width:2017px) {
+    .content2 {
         height: 53vw;
     }
-    .photoVideoGalleryText{
+
+    .photoVideoGalleryText {
         margin-left: 1%;
     }
 }
-@media (min-width:2017px)and (max-width:2049px){
-   
-}
-@media (min-width:2050px)and (max-width:3839px){
-    .leave{
+
+@media (min-width:2017px)and (max-width:2049px) {}
+
+@media (min-width:2050px)and (max-width:3839px) {
+    .leave {
         height: 100px;
     }
-    .content2{
+
+    .content2 {
         height: 36vw;
     }
-    .visitorCanvasCss{
+
+    .visitorCanvasCss {
         height: 36vw;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 18vw;
     }
-    /* .photoVideoGallaryDiv{
-        margin-right: 16%;
-    } */
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .photoVideoGalleryText{
+
+    .photoVideoGalleryText {
         margin-left: 1%;
     }
 }
-@media (min-width:3840px)and (max-width:4098px){
-    .leave{
+
+@media (min-width:3840px)and (max-width:4098px) {
+    .leave {
         height: 144px;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 7%;
         width: 8%;
         height: 50%;
     }
-    .content2{
+
+    .content2 {
         height: 25vw;
     }
-    .visitorCanvasCss{
+
+    .visitorCanvasCss {
         height: 36vw;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 12vw;
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
         height: 6vw;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 10vw;
     }
-    .photoVideoGalleryText{
+
+    .photoVideoGalleryText {
         margin-left: 1%;
     }
 }
-@media (min-width:4098px){
-    
-}
+
+@media (min-width:4098px) {}

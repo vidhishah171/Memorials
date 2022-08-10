@@ -7,43 +7,35 @@
     </div>
 </div>
 
-
 <div class="thank pt-5">
     <h6>
         <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-
         <strong *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
         <strong *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
         <strong *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
-
-
     </h6>
     <h1 *ngIf="!loginservice.islogin">
         <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-
         <strong class="userLoginText" *ngIf="editservice.numLabel==1">{{respo2?.en}}</strong>
         <strong class="userLoginText" *ngIf="editservice.numLabel==2">{{respo2?.de}}</strong>
         <strong class="userLoginText" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</strong>
-
     </h1>
     <h1>
         <button (click)="openDialogue(17)" *ngIf="loginservice.isVisible"
-        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                alt=""></span></button>
+            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                    alt=""></span></button>
         <strong *ngIf="loginservice.islogin && editservice.numLabel==1">{{respo17?.en}}</strong>
         <strong *ngIf="loginservice.islogin && editservice.numLabel==2">{{respo17?.de}}</strong>
         <strong *ngIf="loginservice.islogin && editservice.numLabel==3">{{respo17?.fr}}</strong>
-
     </h1>
     <br>
-    <!-- <br> -->
     <small>
         <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -52,15 +44,11 @@
         <strong class="loginTextFont" *ngIf="editservice.numLabel==1"><u>{{respo3?.en}}</u></strong>
         <strong class="loginTextFont" *ngIf="editservice.numLabel==2"><u>{{respo3?.de}}</u></strong>
         <strong class="loginTextFont" *ngIf="editservice.numLabel==3"><u>{{respo3?.fr}}</u></strong>
-
-
     </small>
-    <!-- <img src="../../../assets/StaticAssets/Create memorial/thank you page/565656565.png"> -->
     <div class="pt-4 thankYouImg">
         <img [src]="service.saveCanvas">
     </div>
 </div>
-
 <!-- Extra code for label -->
 <li *ngIf="showNewDiv==17 && isvalid" style="position: absolute; margin-top: 25px;">
     <div class="forDiv" id="thankCss1">
@@ -86,7 +74,6 @@
         <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
     </div>
 </li>
-
 
 <!-- Extra code for label -->
 <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">

@@ -1,33 +1,37 @@
-.userMain{
-    margin-left:16%;
+.userMain {
+    margin-left: 16%;
 }
-.userMainSub{
-    /* border: 1px solid black; */
-    height:46vw; 
+
+.userMainSub {
+    height: 46vw;
     width: 80%;
 }
-.userBoxFirst{
+
+.userBoxFirst {
     background-color: #EEE5DC;
     height: 100%;
 }
-.userBoxFirstSub{
+
+.userBoxFirstSub {
     width: 65px;
     height: 65px;
     border-radius: 50%;
 }
-.userBoxFirstSub1{
+
+.userBoxFirstSub1 {
     width: 100%;
+    height: 70%;
 }
-.userBoxFirstSubText{
+
+.userBoxFirstSubText {
     font-weight: 600;
     font-size: 1rem;
 }
-.userBoxFirstInput{
-    border-radius:20px;
+
+.userBoxFirstInput {
+    border-radius: 20px;
 }
-/* .userBoxSecond{
-    background-color: whitesmoke;
-} */
+
 #search {
     background-image: url('../../../assets/StaticAssets/Create memorial/step1/search-1.png');
     background-repeat: no-repeat;
@@ -36,39 +40,41 @@
     padding-left: 17%;
     background-size: 15px;
 }
-::placeholder{
+
+::placeholder {
     font-size: 0.8rem;
     padding-left: 8%;
 }
-.userActive:active{
-    background-color: white;
-}
-.userBoxSecondSub{
-    /* width: 9%;    */
+
+.userBoxSecondSub {
     margin-left: 9%;
     width: 65px;
     height: 65px;
     border-radius: 50%;
 }
-.userBoxSecondSubText{
+
+.userBoxSecondSubText {
     font-weight: 600;
     font-size: 1rem;
 }
-.userBoxSecondToggleButton{
+
+.userBoxSecondToggleButton {
     float: right;
     margin-top: 2%;
     margin-right: 3%;
 }
 
-.userFirstUser{
-     width: 83%; 
+.userFirstUser {
+    width: 83%;
 }
-.userSecondUser{
+
+.userSecondUser {
     width: 70%;
     float: right;
     margin-right: 20%;
 }
-.FirstUserMessageText{
+
+.FirstUserMessageText {
     font-size: 0.9rem;
     background-color: #EEE5DC;
     border-bottom-left-radius: 30px;
@@ -76,7 +82,8 @@
     padding-left: 5%;
     padding-right: 5%;
 }
-.secondUserMessageText{
+
+.secondUserMessageText {
     font-size: 0.9rem;
     background-color: #CF6363;
     border-bottom-left-radius: 30px;
@@ -85,85 +92,102 @@
     padding-right: 5%;
     color: white;
 }
-.firstUserDiv{
-    display: flex; width: 60%;
+
+.firstUserDiv {
+    display: flex;
+    width: 60%;
 }
-.secondUserDiv{
+
+.secondUserDiv {
     float: right;
-    display: flex; width: 60%;
+    display: flex;
+    width: 60%;
 }
-.activeText{
+
+.activeText {
     font-size: 0.7rem;
 }
-.userFirstBoxImage{
+
+.userFirstBoxImage {
     width: 18%;
 }
-.userFirstBoxDiv{
+
+.userFirstBoxDiv {
     display: flex;
 }
-.secondBoxHeight{
+
+.secondBoxHeight {
     height: 72%;
     overflow-y: scroll;
 }
-.sendInput{
+
+.sendInput {
     border: none;
     overflow-y: hidden;
     text-decoration: none;
     border-color: white;
 }
-.sendBox{
+
+.sendBox {
     display: flex;
 }
-.sendBoxWidth{
+
+.sendBoxWidth {
     width: 90%;
 }
-.firstUserDivImage{
+
+.firstUserDivImage {
     width: 20%;
 }
-.firstUserDivImage2{
+
+.firstUserDivImage2 {
     width: 36%;
 }
-.btnColor{
+
+.btnColor {
     background-color: #CF6363;
     color: white;
 }
-.sendBtn{
+
+.sendBtn {
     height: 40px;
     margin-top: -20%;
 }
-.forDisplay{
+
+.forDisplay {
     position: absolute;
     z-index: 5000;
     color: black;
-    /* border: 1px dotted black; */
     text-align: center;
     border-radius: 10px;
     height: 60%;
-    /* height: 80%; */
-    /* margin-top: 10%; */
     width: 270px;
     font-size: 1rem;
     background-color: white;
 }
+
 .vertical-menu {
-    /* width: 200%;
-    height: 150px; */
     overflow-x: hidden;
-  }
-.userDataPointer{
+}
+
+.userDataPointer {
     cursor: pointer;
 }
-.userDataPointerDiv:hover{
+
+.userDataPointerDiv:hover {
     background-color: #B5B5B5;
     color: white;
 }
-.paginationText{
+
+.paginationText {
     font-size: 0.8rem;
     padding-top: 8%;
 }
-.floatRight{
+
+.floatRight {
     float: left;
 }
-.floatRight1{
+
+.floatRight1 {
     float: right;
 }

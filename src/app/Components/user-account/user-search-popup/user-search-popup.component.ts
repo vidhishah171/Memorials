@@ -14,7 +14,6 @@ export class UserSearchPopupComponent implements OnInit {
   inviteList1: any;
   totalLength: any;
   page: number = 1;
-
   paginationHide: boolean = true;
   isDisplayBelowDiv: boolean = false;
   fullName: () => void;
@@ -24,7 +23,6 @@ export class UserSearchPopupComponent implements OnInit {
     private spiner: NgxSpinnerService,
     private router: Router,
     public dialogRef: MatDialogRef<UserSearchPopupComponent>
-
   ) { }
 
   ngOnInit(): void {
@@ -34,30 +32,12 @@ export class UserSearchPopupComponent implements OnInit {
   }
 
   inviteUserList() {
-
     this.spiner.show();
     this.userProfile.inviteUserListData().subscribe((inviteData: any) => {
-      console.log(inviteData);
       this.inviteList = inviteData.Data;
       this.inviteList1 = inviteData.Data;
       this.totalLength = this.inviteList.length;
       this.spiner.hide();
-
-      // for (let item of this.inviteList1) {
-      //   var person = {
-      //     firstname: item.firstname,
-      //     lastname: item.lastname,
-      //     fullname: function () {
-      //       this.fullname = person.firstname + ' ' + person.lastname
-      //     }
-      //   }
-      //   person.fullname();
-      //   console.log(person.fullname)
-      //   this.fullName = person.fullname;
-      // }
-
-
-
     })
   }
   inviteUser(userEmail) {
@@ -65,24 +45,19 @@ export class UserSearchPopupComponent implements OnInit {
       "email_id": userEmail
     }
     this.userProfile.sendInvitationUser(userEmailId).subscribe(invitationRes => {
-      console.log(invitationRes);
+
     })
   }
 
   searchInviteUser(data) {
-    // var userSearchFirstname = data.form.value.searchUser;
     var userSearchFirstname = data.target.value;
     var userSearchFirstname = userSearchFirstname?.toLowerCase();
-
     if (userSearchFirstname == '') {
       this.isDisplayBelowDiv = false;
       this.dialogRef.updateSize('500px', '200px');
       this.paginationHide = false;
-
-
     } else if (userSearchFirstname != '') {
       this.inviteList = this.inviteList1.filter(dataSearch => dataSearch?.name?.toLowerCase().includes(userSearchFirstname));
-      debugger
       this.dialogRef.updateSize('500px', '500px');
       this.totalLength = this.inviteList.length;
       this.paginationHide = true;
@@ -94,18 +69,13 @@ export class UserSearchPopupComponent implements OnInit {
     }
   }
 
-
   goToUserDetailPage(userDataId) {
     if (userDataId != '') {
-      debugger
       this.userProfile.userDetailId = userDataId;
       this.router.navigate(['/user-profile-details']);
       this.dialogRef.close();
-
       const jsonDataUserDetail = JSON.stringify(userDataId)
       localStorage.setItem('userDataDetail', jsonDataUserDetail)
-
     }
   }
 }
-

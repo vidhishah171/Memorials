@@ -36,7 +36,6 @@ export class CanvasComponent implements OnInit, OnDestroy {
   backgroundImages = [];
   canvas: fabric.Canvas;
   canvas1: fabric.Canvas;
-  // canvas:any;
   showMenuItems: Number = 1;
   showSubMenItem: Number = 1;
   ctx: any;
@@ -47,13 +46,9 @@ export class CanvasComponent implements OnInit, OnDestroy {
   canvasImg: any;
   canvasURL: any;
   imgUrl: any;
-  // video1: any;
   public fill = '#000000';
-
   public selected: any;
-
   removeId: any;
-
   showTambstone: boolean = true;
   imagespath = [];
   caroucelCount: number = 1;
@@ -86,8 +81,6 @@ export class CanvasComponent implements OnInit, OnDestroy {
   respo12: any;
   respo11: any;
   respo13: any;
-
-
   json: any;
   person: HTMLElement;
   tomb: HTMLElement;
@@ -102,13 +95,10 @@ export class CanvasComponent implements OnInit, OnDestroy {
     public loginservice: LoginService,
     public dialog: MatDialog,
     public snack: MatSnackBar,
+  ) { this.loginservice.otherPage = false; }
 
-
-  ) { this.loginservice.otherPage = false;}
-
-public GetData()
-{
-  const image = new Image();
+  public GetData() {
+    const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });
     this.service.saveCanvas = image.src;
@@ -116,13 +106,9 @@ public GetData()
     this.service.saveVitaText = this.service.vita.textString1;
     this.service.vita.textString1;
     this.name45 = '';
-
     this.service.selectedMainImg = '';
-
     this.saveCanvasToJSON();
-
-
-}
+  }
 
   ngOnDestroy() {
     const image = new Image();
@@ -136,10 +122,6 @@ public GetData()
 
     this.service.selectedMainImg = '';
     this.saveCanvasToJSON();
-
-    // this.dialog.open(AdminEditExampleComponent);
-    // this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
-
     if (this.service.stepNumber === 3) {
       this.saveCanvasToJSON();
     } else if (this.service.stepNumber === 1) {
@@ -147,60 +129,14 @@ public GetData()
       this.saveCanvasToJSON();
     }
   }
-  
+
   ngAfterViewInit() {
     this.showSecMenu(1);
     this.showSubMenuItems(1);
   }
-  
-  ctxNew:any;
+
+  ctxNew: any;
   ngOnInit(): void {
-
-
-    // For GIF imges on canvas
-    
-  //   function drawAnimatedImage(arr,x,y,angle,factor,changespeed) {
-     
-
-  //     if (!factor) {
-  //         factor = 1;
-  //     }
-  //     if (!changespeed) {
-  //         changespeed = 1;
-  //     }
-  //     ctx.save();
-  //     ctx.translate(x, y);
-  //     ctx.rotate(angle * Math.PI / 180);
-  //     if (!!arr[Math.round(Date.now()/changespeed) % arr.length]) {
-  //     ctx.drawImage(arr[Math.round(Date.now()/changespeed) % arr.length], -(arr[Math.round(Date.now()/changespeed) % arr.length].width * factor / 2), -(arr[Math.round(Date.now()/changespeed) % arr.length].height * factor / 2), arr[Math.round(Date.now()/changespeed) % arr.length].width * factor, arr[Math.round(Date.now()/changespeed) % arr.length].height * factor);
-  //     }
-  //     ctx.restore();
-  // }
-  
-  //     var canvas = new fabric.Canvas('Mycanvas');
-  //     var ctx = canvas.getContext();
-
-  //     var waitingWolf = [];
-  //     var url:any = ["https://i.imgur.com/k3T7psX.gif","https://i.imgur.com/CTSC8FC.gif","https://i.imgur.com/6NHLWKK.gif","https://i.imgur.com/U1u04sY.gif","https://i.imgur.com/4695vnQ.gif","https://i.imgur.com/oDO0YWT.gif","https://i.imgur.com/LqptRh1.gif","https://i.imgur.com/6gTxvul.gif","https://i.imgur.com/ULN5mqK.gif","https://i.imgur.com/RACB9WM.gif","https://i.imgur.com/4TZ6kNi.gif","https://i.imgur.com/9VvlzhK.gif","https://i.imgur.com/nGUnsfW.gif","https://i.imgur.com/2h8vLjK.gif","https://i.imgur.com/ZCdKkF1.gif","https://i.imgur.com/wZmWrYP.gif","https://i.imgur.com/4lhjVSz.gif","https://i.imgur.com/wVO0PbE.gif","https://i.imgur.com/cgGn5tV.gif","https://i.imgur.com/627gH5Y.gif","https://i.imgur.com/sLDSeS7.gif","https://i.imgur.com/1i1QNAs.gif","https://i.imgur.com/V3vDA1A.gif","https://i.imgur.com/Od2psNo.gif","https://i.imgur.com/WKDXFdh.gif","https://i.imgur.com/RlhIjaM.gif","https://i.imgur.com/293hMnm.gif","https://i.imgur.com/ITm0ukT.gif"]
-  //     function setup () {
-  //                 for (var i = 0; i < 28; i++) {
-  //                     waitingWolf[i] = new Image();
-  //                     waitingWolf[i].src = url[i];
-  //                     waitingWolf[i].hasControls = true;
-  //                     waitingWolf[i].hasBorders = true;
-                      
-  //                 }
-  //     }
-  //     setup();
-  // function yop() {
-  //   ctx.clearRect(0,0,1000,1000)
-  //             if (waitingWolf.length == 28) {
-  //                 drawAnimatedImage(waitingWolf,300,100,0,1,60)
-  //             }
-  // requestAnimationFrame(yop);
-  // }
-  // requestAnimationFrame(yop);
-
     this.getCanddleImages();
     this.getURNSImages();
     this.getFlowerImages();
@@ -214,32 +150,13 @@ public GetData()
       this.addText1();
     }
     this.setBackgImage(null);
-
-   
-
-    // this.service.vita.textString1;
-
-
-    
-
-
-    
-    
   }
-
   public textString: string;
   public textString1: string;
-
-
-  // public selected: any;
-
-
   coloro: any = 'tomato';
   name45: any;
   DOB1: any;
   DOD1: any;
-
-  
 
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
@@ -248,13 +165,8 @@ public GetData()
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
-
 
   addText1() {
     this.DOB1 = formatDate(this.service.createMemorial.DOB, 'M.d.yyyy', 'en_US');
@@ -266,117 +178,69 @@ public GetData()
       fontFamily: 'helvetica',
       angle: 0,
       scaleX: 0.4,
-      // fill:this.coloro,
-      fill:"#CF6363",
+      fill: "#CF6363",
       scaleY: 0.4,
       fontWeight: 'bold',
       hasRotatingPoint: true,
-      
     });
-
     this.canvas.add(text);
   }
-
-
   canvasadd() {
     this.canvas = new fabric.Canvas('Mycanvas');
-
-
     this.removeSelected1();
     fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
-      // this.service.selectedMainImg || this.service.selectedMain
       this.canvas.add(newImg);
       newImg.toCanvasElement;
       newImg.top = 150;
       newImg.left = 135;
-
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
-
-
-
-
-      // this.removeSelected1();
-
-
       this.extend(newImg, this.ImgRandomId);
-
-      // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-      // this.canvas.setActiveObject(newImg);
     });
     this.canvas.renderAll();
-
-
-
     this.canvas.on('object:moving', function (e) {
       movingRotatingWithinBounds(e);
     });
-
     this.canvas.on('object:scaling', function (e) {
       scalling(e);
     })
-
-
-
     var that = this;
-
-
     //Delete object
     var Obj = new fabric.Control({
-
       render: this.renderIcon,
       x: 0.5,
       y: -0.5,
-      // offsetY: 16,
       cursorStyle: 'pointer',
       mouseUpHandler: function deleteObject(eventData, transform): boolean {
-        // this.count--;
-        var ss= that;
+        var ss = that;
         var target = transform.target;
         var canvas = target.canvas;
         canvas.remove(target);
-        if(that.canddleImages){
+        if (that.canddleImages) {
           that.count--;
           that.service.count1 = that.count;
         }
-
         canvas.requestRenderAll();
         return true;
       }
-      
-      // cornerSize=30
-      
     });
-    
-
-    //Obj['cornerSize']=40;
-
     fabric.Object.prototype.controls.deleteControl = Obj;
-
   }
- 
-
   deleteObject(eventData, transform): boolean {
-    // this.count--;
     var target = transform.target;
     var canvas = target.canvas;
     canvas.remove(target);
     canvas.requestRenderAll();
     return true;
   }
-  
+
   renderIcon(ctx, left, top, styleOverride, fabricObject): boolean {
-    // var deleteIcon="../../../../assets/StaticAssets/trash 3.svg";
     var deleteIcon = "../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
     var img = document.createElement('img');
     img.src = deleteIcon;
-
     var size = 20;
-    // this.cornerSize
     ctx.save();
     ctx.translate(left, top);
     ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
@@ -385,40 +249,22 @@ public GetData()
     ctx.restore();
     return true;
   }
-
-
   saveCanvasToJSON() {
-    // const json = JSON.stringify(this.canvas);
     this.json = JSON.stringify(this.canvas);
-
-
-    // localStorage.setItem('Kanvas',json);
-
-    // save canvas json to the service
     this.service.saveCanvas1 = this.json;
   }
 
   loadCanvasFromJSON() {
-    // const CANVAS=localStorage.getItem('Kanvas');
     const CANVAS = this.service.saveCanvas1;
-
-    // and load everything from the same json
     this.canvas.loadFromJSON(CANVAS, () => {
-
-      // making sure to render canvas at the end
       this.canvas.renderAll();
     })
   }
-
-
-
   removeSelected() {
     const activeObject = this.canvas.getActiveObject();
     const activeGroup = this.canvas.getActiveObjects();
-
     if (activeObject) {
       this.canvas.remove(activeObject);
-      // this.textString = '';
     } else if (activeGroup) {
       this.canvas.discardActiveObject();
       const self = this;
@@ -427,106 +273,61 @@ public GetData()
       });
     }
   }
-
   removeSelected1() {
     var activeObject = this.canvas.getObjects();
-
-    // alert("created random id is:-"+this.service.ImgRandomId);
-
     activeObject.forEach(element => {
       if (element.toObject().id == this.ImgRandomId) {
         this.canvas.remove(element);
-        // alert("remove id:-"+this.service.ImgRandomId);
       }
     });
-
   }
-
-
-count : any = 0;
-
-countImage(){
-  this.count++;
-  this.service.count1 = this.count;
-}
-
-
-  //------------------------------
+  count: any = 0;
+  countImage() {
+    this.count++;
+    this.service.count1 = this.count;
+  }
   DropImageToCan(dragImage: any) {
-
     this.addImageToCanvas(dragImage);
   }
   addImageToCanvas(decImages: any) {
-
-  
-   
-    // let self = this;
-    // fabric.util.requestAnimFrame(function render() {
-    //   self.canvas.renderAll();
-    //   fabric.util.requestAnimFrame(render);
-    // });
     fabric.Image.fromURL(decImages.path, (newImg) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
-
       this.canvas.add(newImg);
       let self = this;
-
       newImg.toCanvasElement;
       newImg.originX = 'center';
       newImg.originY = 'center';
       newImg.hasControls = true;
       newImg.bringToFront();
-      
-
-      // newImg.scaleToHeight(300);
-      // newImg.scaleToWidth(300);
       this.canvas.setActiveObject(newImg);
-     
-
     },
       {
-        // left: 180,
-        // top: 280
-
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
       })
   }
-
   addImageToCanvas1(decImages1: any) {
     this.removeSelected1();
-
     fabric.Image.fromURL(decImages1.path, (newImg1) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
       this.canvas.add(newImg1);
       newImg1.toCanvasElement;
       newImg1.originX = 'center';
       newImg1.originY = 'center';
       newImg1.hasControls = true;
-      //  newImg1.bringToFront();
       newImg1.scaleToHeight(300);
       newImg1.scaleToWidth(300);
       newImg1.sendToBack();
-
-      //  this.removeSelected1();
       this.ImgRandomId = this.randomId();
-
       this.extend(newImg1, this.ImgRandomId);
-
     },
       {
         left: 280,
         top: 280
       })
   }
-
   showSecMenu(num) {
     var decoration = document.getElementById('Decoration');
     var background = document.getElementById('Background');
     var vita = document.getElementById('Vita');
-
     if (num == 1) {
       this.showMenuItems = 1;
       decoration.style.backgroundColor = '#F2F2F2';
@@ -545,26 +346,24 @@ countImage(){
     } else if (num == 4) {
       this.showMenuItems = 4;
     }
-
   }
 
-
-  urnSM1:boolean;
-  urnSM2:boolean;
-  candleSM1:boolean;
-  candleSM2:boolean;
-  changetombSM1:boolean;
-  changetombSM2:boolean;
-  flowerSM1:boolean;
-  flowerSM2:boolean;
-  incriptionSM1:boolean;
-  incriptionSM2:boolean;
+  urnSM1: boolean;
+  urnSM2: boolean;
+  candleSM1: boolean;
+  candleSM2: boolean;
+  changetombSM1: boolean;
+  changetombSM2: boolean;
+  flowerSM1: boolean;
+  flowerSM2: boolean;
+  incriptionSM1: boolean;
+  incriptionSM2: boolean;
 
   showSubMenuItems(num) {
     if (num == 1) {
       this.showSubMenItem = 1;
       this.candleSM1 = false;
-      this.candleSM2 =true;
+      this.candleSM2 = true;
       this.urnSM1 = true;
       this.urnSM2 = false;
       this.changetombSM1 = true;
@@ -573,7 +372,6 @@ countImage(){
       this.flowerSM2 = false;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 2) {
       this.showSubMenItem = 2;
       this.candleSM1 = true;
@@ -586,7 +384,6 @@ countImage(){
       this.flowerSM2 = false;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 3) {
       this.showSubMenItem = 3;
       this.candleSM1 = true;
@@ -599,7 +396,6 @@ countImage(){
       this.flowerSM2 = true;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 4) {
       this.showSubMenItem = 4;
       this.candleSM1 = true;
@@ -612,7 +408,6 @@ countImage(){
       this.flowerSM2 = false;
       this.incriptionSM1 = false;
       this.incriptionSM2 = true;
-
     } else if (num == 5) {
       this.showSubMenItem = 5;
       this.candleSM1 = true;
@@ -626,7 +421,6 @@ countImage(){
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
       this.showCentric1(1);
-
     }
   }
 
@@ -634,16 +428,11 @@ countImage(){
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData("decImage", event.target.getAttribute("src"));
     return true;
-
   };
 
   addText() {
     if (this.textString) {
-      // this.canvas1=new fabric.Canvas("Mycanvas");
-      // this.context=this.canvas.getContext();
       const text = new fabric.IText(this.textString, {
-        // left: 100,
-        // top: 20,
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
         fontFamily: 'helvetica',
@@ -653,26 +442,13 @@ countImage(){
         scaleY: 0.4,
         fontWeight: '',
         hasRotatingPoint: true,
-        // textAlign:this.textAlign,
       });
-
-      // this.context.textAlign='center';
-
-
-
       this.extend(text, this.randomId());
       this.canvas.add(text);
       this.selectItemAfterAdded(text);
       this.textString = '';
-
-
-
-
     }
-
   }
-
-
   extend(obj, id) {
     obj.toObject = ((toObject) => {
       return function () {
@@ -713,12 +489,9 @@ countImage(){
     this.textAlign = value;
     this.setActiveProp('textAlign', this.textAlign);
   }
-
-
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
     if (!object) { return ''; }
-
     return object[name] || '';
   }
 
@@ -729,29 +502,6 @@ countImage(){
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-  // setTextDecoration(value) {
-  //   let iclass = this.TextDecoration;
-  //   if (iclass.includes(value)) {
-  //     iclass = iclass.replace(RegExp(value, 'g'), '');
-  //   // } else {
-  //     iclass += ` ${value}`;
-  //   }
-  //   this.TextDecoration = iclass;
-  //   this.setActiveStyle('textDecoration', this.TextDecoration, null);
-  // }
-  // hasTextDecoration(value) {
-  //   return this.TextDecoration.includes(value);
-  // }
-
-  //Code for add color picker
-
-
-
-
   getFill() {
     this.fill = this.getActiveStyle('fill', null);
   }
@@ -822,32 +572,22 @@ countImage(){
           object.set('linethrough', false);
         }
       }
-
       object.set(styleName, value);
     }
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-
-
-
   setBackgImage(backImage: any) {
-    // this.canvas.setBackgroundImage(backImage.path, this.canvas.renderAll.bind(this.canvas));
-    if(backImage == null){
+    if (backImage == null) {
       fabric.Image.fromURL(backImage.path, (img) => {
         img.set({
-          backgroundColor:"grey",
+          backgroundColor: "grey",
           scaleX: this.canvas.width / img.width,
           scaleY: this.canvas.height / img.height
         });
         this.canvas.setBackgroundImage(img, this.canvas.renderAll.bind(this.canvas));
       });
-    this.canvas.renderAll();
-
+      this.canvas.renderAll();
     }
     fabric.Image.fromURL(backImage.path, (img) => {
       img.set({
@@ -858,13 +598,6 @@ countImage(){
     });
     this.canvas.renderAll();
   }
-
-
-  //---------------------
-
-
-
-
   getCanddleImages() {
     this.service.getCanddleImages(2)
       .subscribe(
@@ -877,11 +610,9 @@ countImage(){
         },
         error => {
           console.log(error);
-
         }
       )
   }
-
   nextCanddle() {
     this.canddleCaroucelCount++;
     if (this.canddleCaroucelCount >= 2) {
@@ -895,8 +626,6 @@ countImage(){
       this.canddleImages = this.newCanddleImages.slice(0, 20);
     }
   }
-
-
   getURNSImages() {
     this.service.getURNSImages(5)
       .subscribe(
@@ -905,7 +634,6 @@ countImage(){
         },
         error => {
           console.log(error);
-
         }
       )
   }
@@ -917,17 +645,13 @@ countImage(){
           this.flowerImages = flowerImages.images;
           if (this.flowerCaroucelCount == 1) {
             this.newFlowerImages = this.flowerImages.slice(0, 10);
-
           }
         },
         (error: any) => {
           console.log(error);
-
         }
       )
   }
-
-  //show tombstone
   // for person centric images
   showCentric1(point) {
     this.tomb = document.getElementById("tomb");
@@ -945,13 +669,6 @@ countImage(){
       this.isDisplaySmallImage = false;
     }
   }
-
-  // checked(data) {
-  //   this.changeStyle = undefined;
-  //   this.changeStyle = data;
-  //   this.service.selectedMainImg = data;
-  // }
-
   checked(data) {
     this.service.selectedMainImg = "";
     this.changeStyle = undefined;
@@ -971,7 +688,6 @@ countImage(){
         },
         err => {
           console.log(err);
-
         }
       )
   }
@@ -1014,11 +730,7 @@ countImage(){
     if (this.caroucelCount == 1 || null) {
       this.imagesForCaroucel = this.imagespath.slice(0, 6);
     }
-
   }
-
-
-
   nextFlowers() {
     this.flowerCaroucelCount++;
 
@@ -1026,7 +738,6 @@ countImage(){
       this.newFlowerImages = this.flowerImages.slice(0, 7);
 
     }
-
     if (this.flowerCaroucelCount == 2) {
       this.newFlowerImages = this.flowerImages.slice(7, 14);
 
@@ -1057,11 +768,7 @@ countImage(){
     }
     if (this.flowerCaroucelCount == 8) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
-
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(63, 70);
 
@@ -1078,10 +785,7 @@ countImage(){
       this.newFlowerImages = this.flowerImages.slice(84, 91);
 
     }
-
   }
-
-
   prevFlower() {
     this.flowerCaroucelCount--;
     if (this.flowerCaroucelCount == 1) {
@@ -1116,9 +820,6 @@ countImage(){
       this.newFlowerImages = this.flowerImages.slice(49, 56);
 
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
 
@@ -1136,15 +837,6 @@ countImage(){
 
     }
   }
-
-  // addVita(redata:any){
-  //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
-
-  //   })
-  // }
-
-
-
   getbackgImages() {
     this.service.getBackgImages(4)
       .subscribe(
@@ -1156,8 +848,6 @@ countImage(){
         },
         error => {
           console.log(error);
-
-
         }
       )
   }
@@ -1169,7 +859,7 @@ countImage(){
     }
     if (this.caroucelCount == 3) {
       this.imgBack = this.backgroundImages.slice(13, 19);
-    }if (this.caroucelCount == 4) {
+    } if (this.caroucelCount == 4) {
       this.imgBack = this.backgroundImages.slice(19, 25);
     }
   }
@@ -1222,14 +912,8 @@ countImage(){
         } else {
           this.hidePerson = true;
         }
-
-        // this.service.selectedMainImg = this.url;
-
-
-
         this.removeSelected1();
         fabric.Image.fromURL(this.url, newImg => {
-          // this.service.selectedMainImg || this.service.selectedMain
           this.canvas.add(newImg);
           newImg.toCanvasElement;
           newImg.top = 150;
@@ -1241,21 +925,10 @@ countImage(){
           newImg.scaleToHeight(250);
           newImg.scaleToWidth(250);
           newImg.sendToBack();
-
-
-          // this.removeSelected1();
-
-
           this.extend(newImg, this.ImgRandomId);
-
-          // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-          // this.canvas.setActiveObject(newImg);
         });
         this.canvas.renderAll();
       }
-
     }
   }
 
@@ -1268,7 +941,6 @@ countImage(){
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url1 = event.target.result;
-        // this.service.selectedMain=this.url;
 
         //-------Optional code for displaying videos---------
 
@@ -1305,33 +977,12 @@ countImage(){
 
           fabric.util.requestAnimFrame(render);
         });
-
-
-
-
-
-        // --------------------------------------
-
         // this.canvas.add(video1)
         // ctx.drawImage(video1E1 ,5,5,100,30)
         // this.canvas.renderAll();
-
-
-
-
-
-
-
         // }, 2);
-
         // }
         // }
-
-
-
-        //-----------------------------------------------------
-
-
         // var c = <HTMLCanvasElement>document.getElementById("Mycanvas");
         // var ctx = c.getContext("2d");
         // var v = <HTMLVideoElement>document.getElementById("video1");
@@ -1352,21 +1003,13 @@ countImage(){
         //     window.setInterval(function () {
 
         //       ctx.drawImage(v, 190, 420, 200, 120)
-
-
         //     }, 20);
         // }, false);
-
       }
     }
-
   }
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -1406,7 +1049,7 @@ countImage(){
     } else if (num == 13) {
       this.showNewDiv = 13;
       this.isvalid = true;
-    }else if (num == 14) {
+    } else if (num == 14) {
       this.showNewDiv = 14;
       this.isvalid = true;
     }
@@ -1434,34 +1077,18 @@ countImage(){
       this.respo12 = this.respo[95];
       this.respo13 = this.respo[96];
       this.respo14 = this.respo[261];
-
-
-
     });
   }
-
   postEditData(editDataNew: any) {
     var formdata = new FormData();
     formdata.append('id', editDataNew.value.id);
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
     })
   }
-
-
-
-
-
-
-
-
-
-
 }
-
 function movingRotatingWithinBounds(e: fabric.IEvent) {
   const obj = e.target;
   // if object is too big ignore
@@ -1480,15 +1107,12 @@ function movingRotatingWithinBounds(e: fabric.IEvent) {
     obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
   }
 }
-
 var left1 = 0;
 var top1 = 0;
 var scale1x = 0;
 var scale1y = 0;
 var width1 = 0;
 var height1 = 0;
-
-
 function scalling(e: fabric.IEvent) {
   var obj = e.target;
   obj.setCoords();

@@ -1,22 +1,17 @@
-
 <app-navbar></app-navbar>
 <div class="row container condolenceMainDiv">
     <div class="col-3 ml-4 mt-4 mb-4 mat-elevation-z8">
         <p class="memorialText">Following memorials were created by the current user:</p>
         <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
             <div class="carousel-indicators" style="display: none;">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                    class="active" aria-current="true" aria-label="Slide 1"></button>
-        
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
-        
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
-        
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
                     aria-label="Slide 4"></button>
-        
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
                     aria-label="Slide 5"></button>
             </div>
@@ -24,8 +19,7 @@
                 <div class="carousel-item active">
                     <div (click)="readCondolences(userData.grab_id)"
                         class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
-                        style="cursor: pointer; margin-left: 14%;"
-                        *ngFor="let userData of imagesForCaroucelUser">
+                        style="cursor: pointer; margin-left: 14%;" *ngFor="let userData of imagesForCaroucelUser">
                         <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
                         <div class="ms-2">
                             <p class="memorialName">
@@ -40,8 +34,7 @@
                 <div class="carousel-item">
                     <div (click)="readCondolences(userData.grab_id)"
                         class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
-                        style="cursor: pointer; margin-left: 14%;"
-                        *ngFor="let userData of imagesForCaroucelUser">
+                        style="cursor: pointer; margin-left: 14%;" *ngFor="let userData of imagesForCaroucelUser">
                         <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
                         <div class="ms-2 mt-3">
                             <p class="memorialName">
@@ -56,8 +49,7 @@
                 <div class="carousel-item">
                     <div (click)="readCondolences(userData.grab_id)"
                         class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
-                        style="cursor: pointer; margin-left: 14%;"
-                        *ngFor="let userData of imagesForCaroucelUser">
+                        style="cursor: pointer; margin-left: 14%;" *ngFor="let userData of imagesForCaroucelUser">
                         <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
                         <div class="ms-2 mt-3">
                             <p class="memorialName">
@@ -72,8 +64,7 @@
                 <div class="carousel-item">
                     <div (click)="readCondolences(userData.grab_id)"
                         class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
-                        style="cursor: pointer; margin-left: 14%;"
-                        *ngFor="let userData of imagesForCaroucelUser">
+                        style="cursor: pointer; margin-left: 14%;" *ngFor="let userData of imagesForCaroucelUser">
                         <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
                         <div class="ms-2 mt-3">
                             <p class="memorialName">
@@ -88,8 +79,7 @@
                 <div class="carousel-item">
                     <div (click)="readCondolences(userData.grab_id)"
                         class="d-flex child1 w-100 p-1 mt-3 mb-2 vertical-menu1"
-                        style="cursor: pointer; margin-left: 14%;"
-                        *ngFor="let userData of imagesForCaroucelUser">
+                        style="cursor: pointer; margin-left: 14%;" *ngFor="let userData of imagesForCaroucelUser">
                         <img src="{{userData.path}}" class="w-25 h-25 me-2 rounded">
                         <div class="ms-2 mt-3">
                             <p class="memorialName">
@@ -137,16 +127,17 @@
                                     <div class="col-3">
                                         <span>
                                             <img class="qotesImg"
-                                                src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png" alt="">
+                                                src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png"
+                                                alt="">
                                         </span>
                                     </div>
                                     <div class="col-9">
                                         <div>
                                             <span>
                                                 <img class="condolenceImg me-2"
-                                                    src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png" alt="">
+                                                    src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
+                                                    alt="">
                                             </span>
-    
                                             <span
                                                 class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
                                         </div>
@@ -161,11 +152,11 @@
                                                     src="../../../assets/StaticAssets/Visitor Mode/download (1)_1.png"
                                                     alt=""></span>
                                             <span style="float: right; cursor: pointer;"><img class="deletrImg"
-                                                    src="../../../assets/StaticAssets/Visitor Mode/delete.png"
-                                                    alt="" (click)="deleteCondolence(item.comment_id)" *ngIf="showTrashIcon"></span>
+                                                    src="../../../assets/StaticAssets/Visitor Mode/delete.png" alt=""
+                                                    (click)="deleteCondolence(item.comment_id)"
+                                                    *ngIf="showTrashIcon"></span>
                                         </div>
                                     </div>
-    
                                 </div>
                             </div>
                         </div>
@@ -174,11 +165,9 @@
                                 CONDOLENCES</button>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
-    
     </div>
 </div>
 <app-footer></app-footer>

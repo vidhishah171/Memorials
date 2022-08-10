@@ -1,31 +1,23 @@
 <span *ngIf="!inviteUserData" class="btn exUser mb-3" (click)="externalUser()">External User</span>
 <span *ngIf="inviteUserData" class="btn exUser1 mb-5" (click)="externalUserClose()">Back</span>
-
-
 <div *ngIf="!inviteUserData">
     <div>
         <span style="font-size: 0.9rem; color:gray">Invite People</span>
-        <!-- <span class="btn exUser mb-3">External User</span> -->
         <form #heroForm="ngForm">
             <span class="inviteInput input-group">
                 <input (keyup)="searchInviteUser($event)" type="text" class="form-control shadow bg-body rounded"
                     name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
-                <!-- (keyup)="searchInviteUser($event)" -->
-                <!-- <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2" (keypress)="searchInviteUser(heroForm)"><img src="../../../../assets/StaticAssets/Home page/search-1.png" alt=""></span>
-              </div> -->
+
             </span>
         </form>
     </div>
-    <!-- {{inviteList | json}} -->
-    <div style="margin-top: 5%; margin-left: 10%;" class="vertical-menu" *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
+    <div style="margin-top: 5%; margin-left: 10%;" class="vertical-menu"
+        *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
         <div class="row">
             <div class="col-8 openForm" (click)="inviteUserOpenForm(data.email)">
                 <span>{{data.name}}</span>
             </div>
-            <!-- <div class="col-4">
-                <button class="btn btn-success" >Invite</button>
-            </div> -->
+
             <hr style="margin: 0px; padding:0px; width: 400px; text-align: center;">
         </div>
     </div>
@@ -47,24 +39,18 @@
         </div>
         <div class="mb-3">
             <div>
-                <input type="text" name="userEmail" ngModel [(ngModel)]="fillEmailId" class="form-control" placeholder="Please enter the email address of the receiver">
+                <input type="text" name="userEmail" ngModel [(ngModel)]="fillEmailId" class="form-control"
+                    placeholder="Please enter the email address of the receiver">
             </div>
         </div>
         <div class="mb-3">
             <div>
-                <textarea class="form-control" name="userMsg" ngModel cols="30" rows="4" placeholder="Your optional comment"></textarea>
+                <textarea class="form-control" name="userMsg" ngModel cols="30" rows="4"
+                    placeholder="Your optional comment"></textarea>
             </div>
         </div>
         <div class="mb-3">
             <button class="btn InviteBTN" (click)="inviteUser(inviteForm)">Invite</button>
         </div>
-    </form>    
+    </form>
 </div>
-
-
-
-
-
-<!-- <div *ngFor="let data of inviteList">
-    <p>{{data.firstname}}</p>
-</div> -->

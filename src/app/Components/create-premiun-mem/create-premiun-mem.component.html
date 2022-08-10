@@ -12,14 +12,11 @@
                 <strong *ngIf="editservice.numLabel==1">{{respo4?.en}}</strong>
                 <strong *ngIf="editservice.numLabel==2">{{respo4?.de}}</strong>
                 <strong *ngIf="editservice.numLabel==3">{{respo4?.fr}}</strong>
-
             </h1>
             <div>
                 <span class="premiumText" *ngIf="editservice.numLabel==1">{{respo5?.en}}</span>
                 <span class="premiumText" *ngIf="editservice.numLabel==2">{{respo5?.de}}</span>
                 <span class="premiumText" *ngIf="editservice.numLabel==3">{{respo5?.fr}}</span>
-                
-
                 <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"

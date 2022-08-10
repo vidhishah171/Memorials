@@ -21,7 +21,6 @@ import { InvitePopupComponent } from '../visitor-mode/invite-popup/invite-popup.
 export class EditMemorialComponent implements OnInit {
 
   Memorials: any;// Recent Memorial Variable
-
   canvas: fabric.Canvas;
   lovedPersonData: any;
   getUserMemoData: any;
@@ -51,9 +50,6 @@ export class EditMemorialComponent implements OnInit {
   userpicBack: any;
   getPhotoVideoImageId: any;
   pp: any;
-
-
-
   constructor(
     public service: RecentMeorialsService,
     public createService: CreateMemorialService,
@@ -64,16 +60,10 @@ export class EditMemorialComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public snack: MatSnackBar,
     public dialog: MatDialog,
-
-
-
-
   ) {
     this.loginService.otherPage = false;
     this.loginService.hideMemorialImage = false;
     this.loginService.isFooterLogin = true;
-
-
   }
 
   ngAfterViewInit() {
@@ -85,27 +75,17 @@ export class EditMemorialComponent implements OnInit {
     this.getData1()
     this.getData();
     this.myProfileData();
-    // this.getUserMemorial();
     this.getrecentMemorials();
     this.postGrabId();
     this.getPhotoVideo();
   }
 
-  // ngOnDestroy() {
-  //   window.location.reload();
-  // }
-
-
-
   clickDiv() {
-
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
     }
-
   }
-
   // Get user profile image
   myProfileData() {
     var pic = document.getElementById('userHeading');
@@ -114,11 +94,8 @@ export class EditMemorialComponent implements OnInit {
     this.loginService.userId = this.loginService.loginAllData;
     this.spiner.show();
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
-
-      console.log(data);
       this.userpic = data.user_data[0].userpic;
       this.userpicBack = data.user_data[0].userbackground_image;
-
       if (this.userpic !== '') {
         this.isDisplay1 = false;
         this.isDisplay = true;
@@ -130,7 +107,6 @@ export class EditMemorialComponent implements OnInit {
         this.isDisplayBack1 = false;
         this.isDisplayBack = false;
         this.spiner.hide();
-
       }
       if (this.userpicBack !== '') {
         var pic = document.getElementById('userHeading');
@@ -139,15 +115,12 @@ export class EditMemorialComponent implements OnInit {
         this.isDisplayBack = true;
         this.spiner.hide();
       }
-
     });
   }
 
   getMeorialDetail() {
-
     var data = { "grab_id": this.service.userGrabIdData2 }
     this.profileService.getMemorialDetails(data).subscribe((response: any) => {
-      console.log(response);
       this.memorialDetails1 = response.Details[0].comments;
       this.memorialDetails = this.memorialDetails1.slice(0, 8);
       for (let item of this.memorialDetails) {
@@ -167,27 +140,18 @@ export class EditMemorialComponent implements OnInit {
           item.created = '';
         }
       }
-
-      // this.memorialDetails.map(function (item) { return item.fname = item.created.replace(/[^a-zA-Z-.]/g, "") });
-      // this.service.createMemorial.DOB = formatDate(this.service.createMemorial.DOB, 'yyyy-M-d h:mm:ss', 'en_US');
-
     })
   }
   readAllCondo() {
-
     this.memorialDetails = this.memorialDetails1.slice();
   }
 
   condolencesComment(item: any) {
-
     if (item.showFull)
       item.showFull = undefined;
     else
       item.showFull = true;
   }
-
-
-
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
@@ -201,50 +165,29 @@ export class EditMemorialComponent implements OnInit {
     var loginAfterRefreshNew = JSON.parse(userLoginDataNew);
 
     this.service.userGrabIdData = loginAfterRefreshNew;
-    // this.getUserMemorial();
   }
   // Get user Memorials for refresh user
   getUserMemorial() {
-
     this.spiner.show();
     var data = { "user_id": this.loginService.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
         this.spiner.hide();
-        // this.service.userGrabIdData = userRes["User Memorials"][0].grab_id;
-        // this.service.userGrabIdData1 = userRes["User Memorials"][0].grab_id;
-
-
         this.getrecentMemorials();
         this.postGrabId();
-        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
   }
 
   postGrabId() {
     var jsonData = this.service.userGrabIdData
-
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
-
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
-
-      // if(Response){
-      //   
-      //   var jsonData1=Response.Details[0].canvas_json;
-      //   this.canvas.loadFromJSON(jsonData1, () => {
-
-      //     // making sure to render canvas at the end
-      //     this.canvas.renderAll();
-      //   })
-      // }
     })
   }
-
 
   getrecentMemorials() {
     this.service.getRecentmemorials()
@@ -261,7 +204,6 @@ export class EditMemorialComponent implements OnInit {
           if (error) {
             console.log(error);
           }
-
         })
   }
 
@@ -269,7 +211,6 @@ export class EditMemorialComponent implements OnInit {
   photoUrlNew: any;
   updatePhotoVideoDeta: any;
   onselectFileNew(data, data1) {
-    debugger
     var reader = new FileReader();
     reader.readAsDataURL(data.target.files[0]);
     reader.onload = (event: any) => {
@@ -281,7 +222,6 @@ export class EditMemorialComponent implements OnInit {
         }
         this.spiner.show();
         this.editMemorial.updatePhotoVideoGallery(this.updatePhotoVideoDeta).subscribe((Response: any) => {
-          debugger
           if (Response.status == "success") {
             this.getPhotoVideo();
             this.snackBar('Image successfully update...', 'alert-green');
@@ -290,12 +230,9 @@ export class EditMemorialComponent implements OnInit {
         });
       }
     }
-
-
   }
 
   onselectFile(e) {
-    debugger
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = (event: any) => {
@@ -321,7 +258,6 @@ export class EditMemorialComponent implements OnInit {
         this.isDisplay = false;
         this.isDisplay1 = true;
         this.userData2();
-
       }
     }
   }
@@ -334,18 +270,12 @@ export class EditMemorialComponent implements OnInit {
       return false;
   }
   userData2() {
-
     this.spiner.show();
     var userData = { id: this.loginService?.userId, userpic: this.url }
-
     this.profileService.userProfile(userData).subscribe((responce: any) => {
       this.spiner.hide();
-      console.log(responce);
-
     })
   }
-
-
   onselectFileBackground(e) {
     if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
       this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
@@ -369,16 +299,10 @@ export class EditMemorialComponent implements OnInit {
   userDataBack() {
     this.spiner.show();
     var userData = { id: this.loginService?.userId, userbackground_image: this.urlBackground }
-
     this.profileService.userProfile(userData).subscribe((responce: any) => {
       this.spiner.hide();
-      console.log(responce);
     })
   }
-
-
-
-
 
   // For photo/gallery image 
   photoVideoGallery() {
@@ -389,26 +313,20 @@ export class EditMemorialComponent implements OnInit {
     this.spiner.show();
     this.editMemorial.photoVideo(photoFormData)
       .subscribe((userRes: any) => {
-        console.log(userRes);
         if (userRes.status == "success") {
           this.getPhotoVideo();
           this.spiner.hide();
           this.snackBar('Image successfully add...', 'alert-green');
-
         }
       });
   }
-
-
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
-    debugger
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.loginService.loginAllData);
     this.spiner.show();
     this.editMemorial.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
-      debugger
-      if(userRes1.status == "success"){
+      if (userRes1.status == "success") {
         this.pp = userRes1.Data;
         this.getPhotoVideoImageId = userRes1.Data;
 
@@ -425,20 +343,18 @@ export class EditMemorialComponent implements OnInit {
         this.getPhotoVideoImage11 = userRes1.Data[10]?.image;
         this.getPhotoVideoImage12 = userRes1.Data[11]?.image;
         this.spiner.hide();
-      }else{
+      } else {
         this.getPhotoVideoImage1 = '';
       }
     })
   }
 
   deletePhotoVideo(dataId) {
-    debugger
     var deleteData = {
       "image_id": dataId
     }
     this.spiner.show();
     this.editMemorial.getPhotoVideoDelete(deleteData).subscribe((deleteRes: any) => {
-      console.log(deleteRes)
       if (deleteRes) {
         this.getPhotoVideo();
         this.snackBar('Image successfully deleted...', 'alert-danger');
@@ -455,10 +371,7 @@ export class EditMemorialComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
 
   vitaScroll(el: HTMLElement) {

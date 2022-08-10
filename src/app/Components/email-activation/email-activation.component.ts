@@ -14,11 +14,9 @@ import { LoginService } from 'src/services/login.service';
   styleUrls: ['./email-activation.component.css']
 })
 export class EmailActivationComponent implements OnInit {
-
-
-  public subscription: Subscription ;
+  public subscription: Subscription;
   token: any;
-  emailActivationStatus:boolean=false;
+  emailActivationStatus: boolean = false;
   showNewDiv: number;
   isvalid: boolean;
   respo1: any;
@@ -29,44 +27,31 @@ export class EmailActivationComponent implements OnInit {
   respo5: any;
   respo6: any;
 
-  constructor(private route:ActivatedRoute,
-    public http:HttpClient,
+  constructor(private route: ActivatedRoute,
+    public http: HttpClient,
     public editservice: AdminEditService,
-    public loginservice:LoginService,
-    
-    ) {  this.loginservice.otherPage = false; }
+    public loginservice: LoginService,
+  ) { this.loginservice.otherPage = false; }
 
   ngOnInit(): void {
     this.emailActivation();
     this.editData();
-
   }
-
-  emailActivation(){
-      this.subscription =this.route.queryParamMap.subscribe(queryParams=>{
-         this.token=queryParams.get('authToken');
-        //  this.service.ju=queryParams;
-        let url= environment.baseUrl+"API/public/userAuth/" + this.token;
-        this.http.get(url).subscribe((result:any)=>
-          {
-                 if(result.status === 'success'){
-                   this.emailActivationStatus=true;
-                 }else{
-                   this.emailActivationStatus=false;
-                 }
-               });
-      
-            //    s = JSON.stringify(s,null,4).replace(/[{}]/g, '');
-            // alert(s);
-       });
-     }
-
-
-
-      // Code for labels
-
+  emailActivation() {
+    this.subscription = this.route.queryParamMap.subscribe(queryParams => {
+      this.token = queryParams.get('authToken');
+      let url = environment.baseUrl + "API/public/userAuth/" + this.token;
+      this.http.get(url).subscribe((result: any) => {
+        if (result.status === 'success') {
+          this.emailActivationStatus = true;
+        } else {
+          this.emailActivationStatus = false;
+        }
+      });
+    });
+  }
+  // Code for labels
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -94,7 +79,6 @@ export class EmailActivationComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       // For step-2 label
       this.respo1 = this.respo[170];
@@ -115,11 +99,7 @@ export class EmailActivationComponent implements OnInit {
     formdata.append('fr', editDataNew.value.fr);
 
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+      
     })
   }
-
-
-
-
 }

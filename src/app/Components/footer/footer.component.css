@@ -1,22 +1,18 @@
-
-
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -25,67 +21,71 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-#homeId{
+#homeId {
     right: 83%;
     margin-top: -108%;
 }
-#premiumId{
+
+#premiumId {
     right: 57%;
     margin-top: -108%;
 }
-#comemorateId{
+
+#comemorateId {
     right: 12%;
     margin-top: -108%;
 }
-#griefId{
+
+#griefId {
     left: 16%;
     margin-top: -108%;
 }
 
-.footerText{
+.footerText {
     font-size: 0.8rem;
 }
-.Tearms{
+
+.Tearms {
     background-color: #4E4E4E;
     width: 100%;
     text-align: center;
     color: #7E7575;
-    /* color: #FFFFFF; */
     font-size: 0.7rem;
     padding-top: 0.6%;
     height: 35px;
-    /* padding-bottom: 0.7%; */
 }
 
-.footer{
-    height:10vw;
+.footer {
+    height: 10vw;
     width: 100%;
     background-color: #373737;
 
 }
-.nav{
+
+.nav {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: end; */
-    
 }
-.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show .nav-link {
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show .nav-link {
     color: rgb(255 255 255);
 }
 
-@media (max-width:480px){
-    .footer{
-        height:30vw;
+@media (max-width:480px) {
+    .footer {
+        height: 30vw;
         width: 100%;
-    
     }
-    .logo{
+
+    .logo {
         height: 50%;
         text-align: center;
         align-items: center;
@@ -93,51 +93,47 @@
         float: left;
     }
 
-    
+
 }
-@media(min-width:481px) and (max-width:768px){
-    .footer{
-        height:20vw;
+
+@media(min-width:481px) and (max-width:768px) {
+    .footer {
+        height: 20vw;
         width: 92%;
     }
-    .logo{
+
+    .logo {
         height: 50%;
         text-align: center;
         align-items: center;
         width: 50%;
         float: left;
     }
-   
 
-    #homeId{
+    #homeId {
         left: 113%;
-    margin-top: 6%;
+        margin-top: 6%;
     }
-    #premiumId{
+
+    #premiumId {
         left: 112%;
         margin-top: 25%;
     }
-    #comemorateId{
-        /* right: 12%; */
+
+    #comemorateId {
         left: 113%;
         margin-top: 46%;
     }
-    #griefId{
+
+    #griefId {
         left: 116%;
         margin-top: 66%;
     }
 }
 
-@media(min-width:769px){
-    .footer{
-        height:10vw;
+@media(min-width:769px) {
+    .footer {
+        height: 10vw;
         width: 90%;
     }
-    /* .logo{
-        height: 50%;
-        text-align: center;
-        align-items: center;
-        width: 50%;
-        float: left;
-    } */
 }

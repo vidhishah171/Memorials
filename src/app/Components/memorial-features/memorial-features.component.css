@@ -1,13 +1,10 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
 
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
-
-.ourFeatured{
+.ourFeatured {
     text-align: center;
     margin: 0;
     padding-top: 32px;
@@ -16,40 +13,41 @@
     font-size: 1.4rem;
     opacity: 0.9;
 }
-.ourFeaturedText{
+
+.ourFeaturedText {
     font-size: 0.9rem;
     font-weight: 500;
 }
-.ourFeaturedText1{
+
+.ourFeaturedText1 {
     font-size: 0.78rem;
     font-weight: 500;
 }
-.ourFeaturedText2{
+
+.ourFeaturedText2 {
     font-size: 0.8rem;
     font-weight: 500;
 }
-.ourFeaturedTextImg{
+
+.ourFeaturedTextImg {
     height: 71px;
     width: auto;
 }
 
-
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -57,60 +55,66 @@
     width: 300px;
     background-color: #F8F8F8;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-#featureMemorialLabel1{
+#featureMemorialLabel1 {
     margin-top: -17%;
     left: 160%;
 }
-#featureMemorialLabel2{
+
+#featureMemorialLabel2 {
     right: 130%;
     margin-top: 112%;
-}#featureMemorialLabel3{
+}
+
+#featureMemorialLabel3 {
     right: 78%;
     margin-top: 112%;
-}#featureMemorialLabel4{
-    right: 29%; 
-    margin-top: 112%;
-}#featureMemorialLabel5{
-    left: 20%; 
-    margin-top: 112%;
-}#featureMemorialLabel6{
-    left: 73%; 
+}
+
+#featureMemorialLabel4 {
+    right: 29%;
     margin-top: 112%;
 }
-#featureMemorialLabel7{
-    left: 167%; 
+
+#featureMemorialLabel5 {
+    left: 20%;
+    margin-top: 112%;
+}
+
+#featureMemorialLabel6 {
+    left: 73%;
+    margin-top: 112%;
+}
+
+#featureMemorialLabel7 {
+    left: 167%;
     margin-top: -21%;
-}#featureMemorialLabel8{
-    left: 326%; 
+}
+
+#featureMemorialLabel8 {
+    left: 326%;
     margin-top: -11%;
 }
-#featureMemorialLabel9{
+
+#featureMemorialLabel9 {
     left: 318%;
-    margin-top:0%; 
+    margin-top: 0%;
 }
 
-
-
-
-
-
-
-.flex-main{
+.flex-main {
     display: flex;
     align-items: flex-start;
     max-height: auto;
     padding: 60px;
 }
 
-
-.box{
-    /* margin-left: 90px; */
+.box {
     margin-left: 44px;
     margin-right: 33px;
     width: 144px;
@@ -124,32 +128,26 @@
     flex-direction: column;
 }
 
-img{
+img {
     width: auto;
     height: 54px;
     margin-bottom: 10px;
 }
 
-span{
+span {
     font-size: .75rem;
     text-align: center;
 }
 
-
-
-/* css promerties of next tab */
-
-.cemetry{
-    /* background-image: url('https://h2913228.stratoserver.net/static/media/desktop.c844d5cf.png'); */
+.cemetry {
     background-image: url('../../../assets/StaticAssets/Home page/41729.png');
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 30px;    
-    height:53vw;
-    
+    margin-bottom: 30px;
+    height: 53vw;
 }
 
-.memory{
+.memory {
     background-image: url('https://h2913228.stratoserver.net/static/media/testimonial.eb559490.png');
     height: 16.6vw;
     background-size: contain;
@@ -157,62 +155,62 @@ span{
     margin-bottom: 30px;
     background-position: center;
 }
-/* .vertualCemetry{
-    width: 100%;
-    height: auto;
-} */
- .vertualCemetry{
+
+.vertualCemetry {
     background-image: url("../../../assets/StaticAssets/Home page/41729.png");
-    /* height:40vw;
-    display: flex; */
-    /* justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap; */
-} 
-.virtualHeading{
+}
+
+.virtualHeading {
     padding-top: 4%;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 800;
     padding-left: 21%;
 }
-.virtualText{
+
+.virtualText {
     text-align: center;
 }
-.virtualBtn{
+
+.virtualBtn {
     text-align: right;
 }
-.virtualPara{
+
+.virtualPara {
     margin-bottom: 0rem;
     font-size: 1rem;
     font-weight: 400;
 }
-.virtualParaNew2{
+
+.virtualParaNew2 {
     margin-bottom: 0rem;
     font-size: 0.92rem;
     font-weight: 400;
 }
-.virtualPara1{
+
+.virtualPara1 {
     margin-bottom: 0rem;
     font-size: 1rem;
     font-weight: 400;
     padding-left: 21%;
 }
-.virtualPara2{
+
+.virtualPara2 {
     margin-bottom: 0rem;
     font-size: 0.92rem;
     font-weight: 400;
     padding-left: 21%;
 }
-.virtualLabel{
+
+.virtualLabel {
     float: right;
     color: #C16869;
     font-weight: 600;
-    background-color: white; 
-    border: 1px solid white; 
+    background-color: white;
+    border: 1px solid white;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
-    margin-top: 57px; 
+    margin-top: 57px;
     margin-right: 20px;
     padding: 0.4%;
     padding-right: 5%;
@@ -221,15 +219,16 @@ span{
     padding-bottom: 10px;
     font-size: 1.2rem;
 }
-.virtualLabel1{
+
+.virtualLabel1 {
     float: right;
     color: #C16869;
     font-weight: 600;
-    background-color: white; 
-    border: 1px solid white; 
+    background-color: white;
+    border: 1px solid white;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
-    margin-top: 57px; 
+    margin-top: 57px;
     margin-right: 20px;
     padding: 0.4%;
     padding-right: 5%;
@@ -238,15 +237,16 @@ span{
     padding-bottom: 10px;
     font-size: 0.86rem;
 }
-.virtualLabel2{
+
+.virtualLabel2 {
     float: right;
     color: #C16869;
     font-weight: 600;
-    background-color: white; 
-    border: 1px solid white; 
+    background-color: white;
+    border: 1px solid white;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
-    margin-top: 57px; 
+    margin-top: 57px;
     margin-right: 20px;
     padding: 0.4%;
     padding-right: 5%;
@@ -256,137 +256,87 @@ span{
     font-size: 1rem;
 }
 
-
-
-
-
 /* -----CSS for dummy images------ */
-
-.cemetryPhoto1{
+.cemetryPhoto1 {
     width: auto;
     height: auto;
     margin-top: 21%;
 }
-.cemetryPhoto2{
+
+.cemetryPhoto2 {
     width: auto;
     height: 54px;
     margin-top: 184px;
     margin-left: -44px;
 }
-/* .cemetryPhoto3{
-    width: auto;
-    height: auto;
-    margin-left: 43%;
-}
-.cemetryPhoto4{
-    width: auto;
-    height: 54px;
-    margin-top: -100px;
-    margin-left: -44px;
-}
-.cemetryPhoto5{
-    width: auto;
-    height: auto;
-    margin-top: -8%;
-    margin-left: 311px;
-}
-.cemetryPhoto6{
-    width: auto;
-    height: 54px;
-    margin-top: -210px;
-    margin-left: -30px;
-} */
-/* .cemetryPhoto5{
-    width: auto;
-    height: auto;
-    margin-top: 11%;
-}
-.cemetryPhoto6{
-    width: auto;
-    height: 54px;
-    margin-top: 62px;
-    margin-left: -44px;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ************  Responsive Content*********** */
-
-@media (max-width:992px){
-    .cemetry{
+@media (max-width:992px) {
+    .cemetry {
         background-position: 40%;
     }
 
     /* css for labels */
-
-    #featureMemorialLabel1{
+    #featureMemorialLabel1 {
         margin-top: -17%;
         left: 47%;
     }
-    #featureMemorialLabel2{
+
+    #featureMemorialLabel2 {
         right: 76%;
         margin-top: 80%;
-    }#featureMemorialLabel3{
+    }
+
+    #featureMemorialLabel3 {
         right: 26%;
         margin-top: 78%;
-    }#featureMemorialLabel4{
-        left: 22%; 
+    }
+
+    #featureMemorialLabel4 {
+        left: 22%;
         margin-top: 78%;
-    }#featureMemorialLabel5{
-        left: -55%; 
-        margin-top: 140%;
-    }#featureMemorialLabel6{
-        left: -3%; 
+    }
+
+    #featureMemorialLabel5 {
+        left: -55%;
         margin-top: 140%;
     }
-    #featureMemorialLabel7{
-        left: 7%; 
+
+    #featureMemorialLabel6 {
+        left: -3%;
+        margin-top: 140%;
+    }
+
+    #featureMemorialLabel7 {
+        left: 7%;
         margin-top: -21%;
-    }#featureMemorialLabel8{
-        left: 144%; 
+    }
+
+    #featureMemorialLabel8 {
+        left: 144%;
         margin-top: -11%;
     }
-    #featureMemorialLabel9{
+
+    #featureMemorialLabel9 {
         left: 136%;
-        margin-top:0%; 
+        margin-top: 0%;
     }
-    
-    
 }
 
-
-@media (max-width:700px){
-    .cemetry{
+@media (max-width:700px) {
+    .cemetry {
         background-position: 25%;
     }
 }
 
-@media (max-width:450px){
-    .cemetry{
+@media (max-width:450px) {
+    .cemetry {
         background-position: 15%;
     }
 }
-@media (min-width:1398px){
-    .virtualPara1{
+
+@media (min-width:1398px) {
+    .virtualPara1 {
         margin-bottom: 0rem;
         font-size: 0.95rem;
         font-weight: 400;

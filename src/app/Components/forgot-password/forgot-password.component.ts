@@ -38,10 +38,8 @@ export class ForgotPasswordComponent implements OnInit {
     public editservice: AdminEditService,
     private router: Router,
     private spiner: NgxSpinnerService,
-
-
-  ) { this.service.otherPage = true; 
-  
+  ) {
+    this.service.otherPage = true;
     this.service.isFooterLogin = false;
   }
 
@@ -51,17 +49,15 @@ export class ForgotPasswordComponent implements OnInit {
     }, 1000);
   }
 
-
   ngOnInit(): void {
     this.editData();
   }
 
-  clickDiv(){
+  clickDiv() {
     var test = document.getElementById("navDiv");
-      if (test != null) {
-        test.style.position = 'absolute';
-      }
-
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
   }
 
   forgotPassword(forgotData: any) {
@@ -70,14 +66,10 @@ export class ForgotPasswordComponent implements OnInit {
     this.service.forgotPassword(forgotData.value)
       .subscribe(
         responce => {
-          console.log(responce);
           this.data1 = responce;
           this.spiner.hide();
           if (this.data1.status === "success") {
             this.condition = false;
-            // this.dialog.open(ForgotPassPopupComponent);
-            // this.openDialogue()
-
             localStorage.clear();
             setTimeout(() => {
               this.router.navigate(['/login'])
@@ -86,16 +78,12 @@ export class ForgotPasswordComponent implements OnInit {
                 });
             }, 4000);
             this.snackBar("Your password has been reset, Please check your email and login again", "alert-danger");
-
           } else {
             this.condition = true;
           }
-
-
         },
         error => {
           console.log(error);
-
         }
       )
   }
@@ -107,25 +95,10 @@ export class ForgotPasswordComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
   }
-
-
-  // openDialogue(){
-  //   const dialogRef = this.dialog.open(ForgotPassPopupComponent);
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -151,16 +124,12 @@ export class ForgotPasswordComponent implements OnInit {
       this.showNewDiv = 8;
       this.isvalid = true;
     }
-
   }
-
   openDialogue1() {
     this.isvalid = false;
   }
-
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[149];
       this.respo2 = this.respo[151];
@@ -179,14 +148,10 @@ export class ForgotPasswordComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
-
-
-
 }
 
 

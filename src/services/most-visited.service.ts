@@ -6,16 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MostVisitedService {
 
-  getMostVisMemorialAPI="https://h2913228.stratoserver.net/API/public/mostVisited_memorial";
+  getMostVisMemorialAPI = "https://h2913228.stratoserver.net/API/public/mostVisited_memorial";
 
   constructor(
-    private http : HttpClient
-  ){ }
+    private http: HttpClient
+  ) { }
 
-
-  getMostVisMemorial=()=>{
+  getMostVisMemorial = () => {
     return this.http.get(this.getMostVisMemorialAPI);
   }
-
-
 }

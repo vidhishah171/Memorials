@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
@@ -11,31 +9,32 @@
     width: 200%;
     height: 150px;
     overflow-x: auto;
-  }
-.candleSection{
-    border: 1px solid black; 
-    width: 100%; 
+}
+
+.candleSection {
+    border: 1px solid black;
+    width: 100%;
     height: 14vw;
 }
-.giftSection{
-    border: 1px solid black; 
-    width: 100%; 
+
+.giftSection {
+    border: 1px solid black;
+    width: 100%;
     height: 17.2vw;
 }
 
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
@@ -48,12 +47,12 @@
     font-size: 1rem;
     background-color: white;
 }
-.forVitaDiv{
+
+.forVitaDiv {
     position: absolute;
     z-index: 10;
     color: black;
     border: 1px dotted tomato;
-    /* text-align: center; */
     border-radius: 10px;
     height: auto;
     margin-top: 50%;
@@ -61,175 +60,207 @@
     width: 39%;
     font-size: 1rem;
     background-color: #F8F8F8;
-    /* style="position: absolute; margin-top: 10px;" */
 }
 
-
-#canvasDivCss1{
+#canvasDivCss1 {
     left: 178%;
     margin-top: -2%;
 }
-#canvasDivCss2{
+
+#canvasDivCss2 {
     left: 233%;
     margin-top: -2%;
 }
-#canvasDivCss3{
+
+#canvasDivCss3 {
     left: 268%;
     margin-top: -2%;
 }
-#canvasDivCss4{
+
+#canvasDivCss4 {
     left: 305%;
     margin-top: -2%;
 }
-#canvasDivCss5{
+
+#canvasDivCss5 {
     left: 151%;
     margin-top: 42%;
 }
-#canvasDivCss6{
+
+#canvasDivCss6 {
     left: 199%;
     margin-top: 42%;
 }
-#canvasDivCss7{
+
+#canvasDivCss7 {
     left: 245%;
     margin-top: 42%;
 }
-#canvasDivCss8{
+
+#canvasDivCss8 {
     left: 287%;
     margin-top: 42%;
 }
-#canvasDivCss9{
+
+#canvasDivCss9 {
     left: 334%;
     margin-top: 42%;
 }
-#canvasDivCss10{
+
+#canvasDivCss10 {
     margin-top: 34%;
     left: 284%;
 }
-#canvasDivCss16{
+
+#canvasDivCss16 {
     left: 133%;
     margin-top: -13%;
 }
-#canvasDivCss17{
+
+#canvasDivCss17 {
     left: 246%;
     margin-top: -13%;
 }
-#canvasDivCss18{
+
+#canvasDivCss18 {
     left: 125%;
     margin-top: 82%;
 }
-#canvasDivCss19{
+
+#canvasDivCss19 {
     left: 240%;
     margin-top: 79%;
 }
-#canvasDivCss20{
+
+#canvasDivCss20 {
     left: 134%;
     margin-top: 121%;
 }
-.saveAndPublish{
+
+.saveAndPublish {
     top: -140%;
     right: 33%;
 }
 
-.englishLng{
-    padding-top: 15%; 
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-
-.btnColorHeading{
+.btnColorHeading {
     border: none;
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 15px;
 }
-.headerCanvasTxt{
+
+.headerCanvasTxt {
     font-size: 0.7rem;
     color: #6A6A6A;
 }
-.decorationImg{
+
+.decorationImg {
     width: 14px;
     margin-top: -6%;
 }
-.verticalRow{
+
+.verticalRow {
     margin-top: 1%;
     color: #F2F2F2;
     margin-left: -1%;
     margin-right: -2%;
 }
-.btnColorHeading{
+
+.btnColorHeading {
     border: none;
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 15px;
 }
-.candleImgSize{
+
+.candleImgSize {
     width: 23px;
 }
-.candleDarkImgSize{
+
+.candleDarkImgSize {
     width: 63px;
     margin-bottom: -17%;
 }
-.headerCanvasTxt2{
+
+.headerCanvasTxt2 {
     font-size: 0.6rem;
     color: #6A6A6A;
     font-weight: 600;
 }
-.candleImgSize1{
+
+.candleImgSize1 {
     width: 30%;
 }
-.candleImgSize2{
+
+.candleImgSize2 {
     width: 35%;
 }
-.candleImgSize3{
+
+.candleImgSize3 {
     width: 45%;
 }
-.candleImgSize4{
+
+.candleImgSize4 {
     width: 35%;
 }
-#tombstoneWidth{
+
+#tombstoneWidth {
     width: 17%;
 }
-.personNav{
+
+.personNav {
     width: 100%;
 }
-.tombstoneText{
+
+.tombstoneText {
     margin-top: 3%;
     font-size: 0.9rem;
     /* color: #4BC252; */
 }
-.tombstoneText1{
+
+.tombstoneText1 {
     margin-top: 0%;
     font-size: 0.9rem;
     /* color: black; */
 }
-.personCentricMemo{
+
+.personCentricMemo {
     height: 23px;
     width: 23px;
 }
-.tambstone{
+
+.tambstone {
     height: 100%;
     width: 100%;
-    /* background-color: aquamarine */
 }
 
-.tambstone .carousel-item button{
+.tambstone .carousel-item button {
     height: 45%;
     width: 32%;
 }
-.tambstone button img{
+
+.tambstone button img {
     height: 100%;
     width: 100%;
 }
-.personImageSize{
+
+.personImageSize {
     width: 100%;
     margin-left: 67%;
 }
-.personImageSizeNew{
+
+.personImageSizeNew {
     margin-left: 0%;
     font-size: 0.7rem;
 }
-.Photo{
+
+.Photo {
     text-align: center;
     align-items: center;
     display: block;
@@ -237,33 +268,29 @@
     margin-right: auto;
     font-size: larger;
 }
-#photoNew{
+
+#photoNew {
     display: none;
 }
-#createMemoDivCssNew1{
+
+#createMemoDivCssNew1 {
     left: 12%;
 }
-#createMemoDivCssNew12{
+
+#createMemoDivCssNew12 {
     left: 79%;
     margin-top: 40%;
 }
 
-
-
-
-
-
-.box1{
-   /* background-color: rebeccapurple; */
+.box1 {
     height: auto;
-    width:27%;
+    width: 27%;
     display: flex;
     flex-direction: column;
-    /* left: auto; */
     align-items: center;
-    /* flex-wrap: wrap; */
 }
-.backgroundText{
+
+.backgroundText {
     font-size: 0.65rem;
     text-align: center;
     margin-bottom: -6%;
@@ -271,7 +298,8 @@
     color: #B5B5B5;
     opacity: 0.9;
 }
-.saveBtn{
+
+.saveBtn {
     background-color: #4BC252;
     color: white;
     padding: 1%;
@@ -281,51 +309,53 @@
     border: none;
     font-size: 1.2rem;
     font-weight: 600;
-    /* opacity: 0.9; */
     color: white;
     margin-top: -24%;
 }
-/* .textAlign{
-    text-align: center;
-} */
 
-.textAlign1{
+.textAlign1 {
     margin-left: 2%;
 }
-.changeTombstone{
+
+.changeTombstone {
     font-size: 0.52rem;
     font-weight: bold;
 }
-.flwSize{
+
+.flwSize {
     width: 80px;
     height: 105px;
 }
-.alignBgcolor{
- border: 1px solid black;
- background-color: white;
- padding: 8px;
- border-radius: 5px; 
- margin: 2px;  
+
+.alignBgcolor {
+    border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 2px;
 }
-.alignBgcolor:hover{
+
+.alignBgcolor:hover {
     background-color: lightgray;
 }
-.alignBgcolor:focus{
+
+.alignBgcolor:focus {
     background-color: lightgray;
 }
-.colorPickerImg{
+
+.colorPickerImg {
     text-align: center;
     cursor: pointer;
 }
 
-.vitaData{
+.vitaData {
     margin-top: 18px;
     width: 100%;
     height: 10%;
     border: none;
-
 }
-.flowers{
+
+.flowers {
     height: auto;
     width: 6rem;
     display: flex;
@@ -336,66 +366,59 @@
     overflow-block: inherit;
 }
 
-.canvas{
-    /* background-color: red; */
-    border:2px solid black;
-    /* height: auto;
-    width: 100%;
-    object-fit: contain; */
-    /* display: block; */
-    /* height: 500px !important; */
-    /* width: 500px !important;  */
+.canvas {
+    border: 2px solid black;
 }
 
-.vitaFetch{
-    /* margin-left: 3%; */
+.vitaFetch {
     margin-top: 5%;
-    font-family: 'Noto Sans KR', sans-serif; 
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 0.9rem;
 }
-.vitaImage{
+
+.vitaImage {
     width: 79.666667%;
 }
-.vitaImage1{
+
+.vitaImage1 {
     margin-left: 5%;
     margin-top: auto;
     margin-bottom: auto;
     cursor: pointer;
 }
 
-.box2{
-    /* background-color: #f87171;  */
-   height: auto;
-   width:60%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
-
-}
-.box3{
-     /* background-color: #f87171;  */
+.box2 {
     height: auto;
-    width:56%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    /* margin-left: 14%; */
+
 }
-.showbackground{
+
+.box3 {
+    height: auto;
+    width: 56%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.showbackground {
     height: 100px;
     width: 100px;
 }
 
-.background{
+.background {
     width: 100%;
-    height:auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.menu{
+.menu {
     width: 100%;
     height: 2rem;
     display: flex;
@@ -403,65 +426,69 @@
     margin-left: 15px;
     flex-direction: row;
     justify-content: flex-start;
-
 }
-.menuNew{
+
+.menuNew {
     width: 100%;
     margin-top: -25%;
 }
 
-.recentCsndleSection{
+.recentCsndleSection {
     color: #CF6363;
     font-size: 0.9rem;
     font-weight: 500;
 }
-.recentCsndleSectionMain{
-    margin-top:18%;
+
+.recentCsndleSectionMain {
+    margin-top: 18%;
 }
-.recentCsndleSectionMain1{
-    margin-top:11%;
+
+.recentCsndleSectionMain1 {
+    margin-top: 11%;
 }
-.recentCsndleSectionShow{
+
+.recentCsndleSectionShow {
     float: right;
     font-size: 0.7rem;
     color: #4BC252;
     font-weight: 500;
     margin-top: 2%;
 }
-.recentCsndleSectionShow1{
+
+.recentCsndleSectionShow1 {
     float: right;
     font-size: 0.7rem;
     color: #4BC252;
     font-weight: 500;
-    /* margin-top: 2%; */
 }
-.recentCsndleSectionImg{
+
+.recentCsndleSectionImg {
     margin-top: -3%;
     width: 8%;
 }
-.recentCsndleSectionImg1{
+
+.recentCsndleSectionImg1 {
     margin-top: -3%;
     width: 5%;
 }
- 
-.frontImage{
+
+.frontImage {
     color: green;
     width: 9%;
 }
 
 
-.submenu{
+.submenu {
     width: 100%;
     height: 7rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* background-color: aqua; */
 }
 
-.submenu .candle{
+.submenu .candle {
     height: 100%;
-    width:14%;
+    width: 14%;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -473,44 +500,35 @@
     cursor: pointer;
 }
 
-.SubmenuContent{
+.SubmenuContent {
     height: 65%;
     width: 100%;
-    /* background-color: springgreen; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-   align-content: flex-start;
-   margin-left: 4%;
+    align-content: flex-start;
+    margin-left: 4%;
 }
 
-
-
-
-.carousel-indicators button{
+.carousel-indicators button {
     height: 15px;
     width: 15px;
     border-radius: 50%;
 }
 
-/* .tambstone .carousel-item button{
-    height: 45%;
-    width: 32%;
-} */
-.tombStyle{
+.tombStyle {
     height: 130px;
     width: 130px;
 }
 
-.canddles{
+.canddles {
     height: 92px;
     width: 70px;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    cursor:move;
-
+    cursor: move;
 }
 
 .carousel-control-next {
@@ -532,10 +550,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-
 }
 
-.carousel-control-prev{
+.carousel-control-prev {
     position: absolute;
     top: 40%;
     bottom: 0;
@@ -554,57 +571,62 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
 }
+
 .carousel-item.active {
     display: flex;
     flex-direction: row;
-    /* width: 72%;
-    margin-left: 100px; */
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    
 }
-.background1{
+
+.background1 {
     height: 100%;
     width: 100%;
     margin-top: 7%;
-    /* background-color: aquamarine */
 }
-.background1 .carousel-item button{
+
+.background1 .carousel-item button {
     height: 45%;
     width: 32%;
 }
-.backWidth{
+
+.backWidth {
     width: 90%;
     margin-top: 6%;
     margin-left: 3%;
 }
-.backMargin{
+
+.backMargin {
     padding-left: 9%;
 }
-#tombstoneSizeBack{
+
+#tombstoneSizeBack {
     height: 160px;
     width: 160px;
     padding: 6%;
 }
-.imgCorouselRight{
+
+.imgCorouselRight {
     margin-left: 50%;
 }
-.imgCorouselLeft{
+
+.imgCorouselLeft {
     margin-right: 50%;
 }
-.itemAlign{
+
+.itemAlign {
     width: 72%;
     margin-left: 100px;
 }
-.itemAlign1{
+
+.itemAlign1 {
     width: 85%;
     margin-left: 76px;
 }
 
-.URNS{
+.URNS {
     height: 6rem;
     width: 6rem;
     display: flex;
@@ -614,7 +636,7 @@
     flex-wrap: wrap;
 }
 
-.vita{
+.vita {
     width: 80%;
     height: 75%;
     font-family: 'Libre Franklin', sans-serif;
@@ -624,20 +646,22 @@
     justify-content: flex-start;
     margin-left: 5%;
 }
-.vitaBtnColor{
+
+.vitaBtnColor {
     border: 1px solid black;
     background-color: #4BC252;
     color: white;
 }
-.vitaBtnColor:hover{
+
+.vitaBtnColor:hover {
     border: none;
     background-color: #4BC252;
     color: white;
 }
 
-.video{
+.video {
     width: 100%;
-    height:75%;
+    height: 75%;
     font-family: 'Libre Franklin', sans-serif;
     display: flex;
     justify-content: center;
@@ -646,14 +670,14 @@
     align-items: center;
 }
 
-.video .addVideo{
+.video .addVideo {
     height: 50%;
     width: 30%;
     border: 2px solid gray;
     display: flex;
 }
 
-.content2{
+.content2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -661,100 +685,95 @@
     height: 70vw;
 }
 
-#toggleVideo{
+#toggleVideo {
     visibility: hidden;
 }
-#divCanvas{
+
+#divCanvas {
     height: 50%;
     width: 80%;
 }
-.btnAddText{
-    background-color:lightgray;
+
+.btnAddText {
+    background-color: lightgray;
     color: white;
 }
-::placeholder{
+
+::placeholder {
     font-size: 0.8rem;
     padding-left: 3%;
 }
 
-#imgLogo{
+#imgLogo {
     width: 51px;
     height: 49px;
 }
 
-@media (max-width:480px){
-    .box1{
-        /* background-color: rebeccapurple; */
-         height: auto;
-         width:100%;
-         display: inline-block;
-         flex-direction: column;
-         position: relative;
-         /* align-items: center; */
-         /* flex-wrap: wrap; */
-     }
-     .personCentric{
+@media (max-width:480px) {
+    .box1 {
+        height: auto;
+        width: 100%;
+        display: inline-block;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .personCentric {
         height: 198px;
         width: 71%;
     }
-     .box2{
-        /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: inline-block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
+
+    .box2 {
+        height: auto;
+        width: 100%;
+        display: inline-block;
+        flex-direction: column;
     }
-    .carousel-control-prev{
-        width: 1rem;
-    }
-    .carousel-control-next{
+
+    .carousel-control-prev {
         width: 1rem;
     }
 
-    .itemAlign{
+    .carousel-control-next {
+        width: 1rem;
+    }
+
+    .itemAlign {
         width: 100%;
         margin-left: 0px;
     }
-    .menu{
+
+    .menu {
         width: 100%;
-        /* height: 4rem;*/
-        /* padding: 20%;  */
         display: block;
-        /* flex-wrap: wrap; */
         flex-direction: column;
-        /* justify-content: flex-start; */
-    
     }
-    .submenu .candle{
+
+    .submenu .candle {
         height: 100%;
-        width:14%;
+        width: 14%;
         display: inline-block;
         text-align: center;
         align-items: center;
         font-size: 0.6rem;
         padding-top: 4%;
     }
-    #imgLogo{
+
+    #imgLogo {
         /* margin-left: inherit; */
         width: 42px;
         height: 42px;
     }
-    
-    
-     /* .Mycanvas{
-         height: 50%;
-         width: 30%;
-     } */
-     #rect{
+
+    #rect {
         width: 100%;
     }
-    .background{
+
+    .background {
         padding-top: 7%;
     }
-    .video .addVideo{
+
+    .video .addVideo {
         height: 70%;
         align-items: center;
         text-align: center;
@@ -763,145 +782,169 @@
         border: 2px solid gray;
         display: flex;
     }
-    .tombStyle{
+
+    .tombStyle {
         height: 70px;
         width: 70px;
     }
-    
-     
+
+
 }
-@media (min-width:481px) and (max-width:780px){
-    .box1{
+
+@media (min-width:481px) and (max-width:780px) {
+    .box1 {
         /* background-color: rebeccapurple; */
-         height: auto;
-         width:100%;
-         /* text-align: center; */
-         padding-left: 68px;
-         display: inline-block;
-         flex-direction: column;
-         align-items: center;
-         /* flex-wrap: wrap; */
-     }
-     #mobileRes{
-        height: 170px; 
-        width: 180px; 
+        height: auto;
+        width: 100%;
+        /* text-align: center; */
+        padding-left: 68px;
+        display: inline-block;
+        flex-direction: column;
         align-items: center;
-    } 
-     .personImageSize{
+        /* flex-wrap: wrap; */
+    }
+
+    #mobileRes {
+        height: 170px;
+        width: 180px;
+        align-items: center;
+    }
+
+    .personImageSize {
         margin-left: 23%;
     }
-     .forVitaDiv{
+
+    .forVitaDiv {
         margin-top: 90%;
         margin-left: 13%;
         width: 74%;
     }
 
-     .box1 button{
+    .box1 button {
         margin-left: 265px;
         margin-bottom: 2%;
-     }
-     .menu{
+    }
+
+    .menu {
         margin-left: 117px;
     }
-     .box2{
+
+    .box2 {
         /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
-    } 
-    .itemAlign{
+        height: auto;
+        width: 100%;
+        display: block;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+        /* align-content: flex-start; */
+
+    }
+
+    .itemAlign {
         width: 90%;
         margin-left: 35px;
-    } 
-    .carousel-control-prev{
+    }
+
+    .carousel-control-prev {
         width: 1rem;
     }
-    .carousel-control-next{
+
+    .carousel-control-next {
         width: 1rem;
-    } 
-    .tombStyle{
+    }
+
+    .tombStyle {
         height: 120px;
         width: 120px;
     }
-    .submenu{
+
+    .submenu {
         margin-left: 66px;
     }
-    .submenu .candle{
-        width:13%;
+
+    .submenu .candle {
+        width: 13%;
     }
 
-    #canvasDivCss1{
+    #canvasDivCss1 {
         left: 76%;
         margin-top: 214%;
     }
-    #canvasDivCss2{
+
+    #canvasDivCss2 {
         left: 135%;
         margin-top: 212%;
     }
-    #canvasDivCss3{
+
+    #canvasDivCss3 {
         left: 69%;
         margin-top: 212%;
     }
-    #canvasDivCss4{
+
+    #canvasDivCss4 {
         left: 106%;
         margin-top: 212%;
     }
-    #canvasDivCss5{
+
+    #canvasDivCss5 {
         left: 32%;
         margin-top: 255%;
     }
-    #canvasDivCss6{
+
+    #canvasDivCss6 {
         left: 79%;
         margin-top: 254%;
     }
-    #canvasDivCss7{
+
+    #canvasDivCss7 {
         left: 125%;
         margin-top: 256%;
     }
-    #canvasDivCss8{
+
+    #canvasDivCss8 {
         left: 75%;
         margin-top: 253%;
     }
-    #canvasDivCss9{
+
+    #canvasDivCss9 {
         left: 112%;
         margin-top: 259%;
     }
-    #canvasDivCss10{
+
+    #canvasDivCss10 {
         margin-top: 365%;
         left: 91%;
     }
 
 }
 
-@media (min-width:781px) and (max-width:1160px){
-    .box1{
+@media (min-width:781px) and (max-width:1160px) {
+    .box1 {
         /* background-color: rebeccapurple; */
-         height: auto;
-         width:70%;
-         display: inline-block;
-         flex-direction: column;
-         align-items: center;
-         /* flex-wrap: wrap; */
-     }
-     .forVitaDiv{
+        height: auto;
+        width: 70%;
+        display: inline-block;
+        flex-direction: column;
+        align-items: center;
+        /* flex-wrap: wrap; */
+    }
+
+    .forVitaDiv {
         margin-top: 84%;
         margin-left: 5%;
         width: 70%;
     }
-     .box2{
+
+    .box2 {
         /* background-color: #f87171;  */
-       height: auto;
-       width:100%;
-       display: block;
-       flex-direction: column;
-       /* flex-wrap: wrap; */
-       /* align-content: flex-start; */
-    
-    }     
+        height: auto;
+        width: 100%;
+        display: block;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+        /* align-content: flex-start; */
+
+    }
 }
 
 /* for big device */
@@ -911,62 +954,74 @@
     }
 }*/
 
-@media (min-width:1517px)and (max-width:2017px){
-    .content2{
+@media (min-width:1517px)and (max-width:2017px) {
+    .content2 {
         height: 47vw;
-    } 
-    .content2{
+    }
+
+    .content2 {
         height: 49vw;
         margin-left: 8%;
     }
-    .giftSection{
+
+    .giftSection {
         height: 16.5vw;
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-size: 98%;
     }
- }
- @media (min-width:1517px)and (max-width:2017px){
-    .giftSection{
+}
+
+@media (min-width:1517px)and (max-width:2017px) {
+    .giftSection {
         height: 12.5vw;
     }
- }
- @media (min-width:2017px)and (max-width:2049px){
-    .content2{
+}
+
+@media (min-width:2017px)and (max-width:2049px) {
+    .content2 {
         height: 38vw;
     }
- }
- @media (min-width:2050px)and (max-width:2731px){
-    .leave{
+}
+
+@media (min-width:2050px)and (max-width:2731px) {
+    .leave {
         height: 100px;
     }
-    .giftSection{
+
+    .giftSection {
         height: 10vw;
     }
-    .candleSection{
+
+    .candleSection {
         height: 10vw;
     }
-    .content2{
+
+    .content2 {
         height: 35vw;
         margin-left: 8%;
     }
- }
- @media (min-width:2732px) and (max-width:4098px){
-     .content2{
-         height: 25vw;
-        margin-left: 8%;
-     }
+}
 
-     .giftSection{
+@media (min-width:2732px) and (max-width:4098px) {
+    .content2 {
+        height: 25vw;
+        margin-left: 8%;
+    }
+
+    .giftSection {
         height: 6.5vw;
     }
-    .candleSection{
+
+    .candleSection {
         height: 7vw;
     }
-    
- }
- @media (min-width:4098px){
-    .content2{
+
+}
+
+@media (min-width:4098px) {
+    .content2 {
         height: 25vw;
-    } 
- }
+    }
+}

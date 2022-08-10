@@ -2,26 +2,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
 
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
-
 }
 
-
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
     /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
@@ -34,47 +31,46 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.ImageSection{
+
+.ImageSection {
     width: 80%;
     height: 80%;
     margin-top: 9%;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
-#griefCss1{
+
+#griefCss1 {
     left: 59%;
     margin-bottom: -5%;
 }
-#griefCss2{
-    right: 14%; 
-    margin-bottom: -11%;
 
+#griefCss2 {
+    right: 14%;
+    margin-bottom: -11%;
 }
-#griefCss3{
-    margin-bottom: -37%; 
+
+#griefCss3 {
+    margin-bottom: -37%;
     right: 6%;
 }
-#griefCss4{
-    margin-bottom: -45%; 
+
+#griefCss4 {
+    margin-bottom: -45%;
     left: 155%;
 }
 
-.lineHeight{
+.lineHeight {
     color: white;
     letter-spacing: 0.1rem;
     padding-top: 14%;
 }
 
-
-
-
-
-
-
-.grief{
+.grief {
     height: 32vw;
     background-image: url('../../../assets/StaticAssets/Home page/Group 332.png');
     background-repeat: no-repeat;
@@ -87,9 +83,9 @@
     align-items: center;
     font-family: 'Libre Franklin', sans-serif;
     width: 100%;
-    /* margin-left: 3%; */
 }
-.griefBtn{
+
+.griefBtn {
     background-color: #CF6363;
     color: white;
     font-size: 0.9rem;
@@ -99,61 +95,55 @@
     opacity: 0.9;
     padding-top: 4%;
     padding-bottom: 4%
-
 }
 
-.giftImage{
+.giftImage {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 3rem;
-    z-index:1;
+    z-index: 1;
     height: 10vw;
     margin-bottom: -3%;
-    /* justify-content: space-evenly; */
     margin-left: 17%;
-    
 }
-.trendingText{
+
+.trendingText {
     font-weight: 900;
     font-size: 1.1rem;
     opacity: 0.9;
-
 }
 
-.img{
+.img {
     border-radius: 50%;
-    border:1px solid gray;
+    border: 1px solid gray;
     height: 100%;
     width: 11%;
     margin-left: 2%;
 }
 
-
-/* new  tab  css*/
-
-.trendingDiscuss{
+.trendingDiscuss {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    height:30vw;
+    height: 30vw;
     width: 100%;
-   }
+}
 
-.discuss{
+.discuss {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.griefImg{
-    /* width: 10px; */
+
+.griefImg {
     height: 16px;
 }
 
-.discuss2{
+.discuss2 {
     height: 35%;
     width: 95%;
     display: flex;
@@ -162,99 +152,115 @@
     align-content: space-between;
 }
 
-
-.discussSub{
-    /* border: 0.4px solid green; */
-    height:100%;
-    width:19%;
+.discussSub {
+    height: 100%;
+    width: 19%;
     border: 1px solid lightgray;
 }
+
 .discussSub p {
     color: #C0C0C0;
     font-size: 0.8rem;
-    /* text-shadow: 0 0 5px rgba(27, 24, 24, 0.5); */
 }
 
-@media (max-width:480px){
-    .grief{
+@media (max-width:480px) {
+    .grief {
         height: 100%;
         width: 100%;
     }
-    .discuss2{
+
+    .discuss2 {
         height: 48%;
         width: 100%;
     }
-    .trendingDiscuss{
+
+    .trendingDiscuss {
         height: 100vw;
-        
+
     }
-    .discussSub{
+
+    .discussSub {
         width: 23%;
     }
-    .griefImg{
+
+    .griefImg {
         width: 10px;
         height: 10px;
     }
-    .discussSub h6{
+
+    .discussSub h6 {
         margin-top: -3px;
         font-size: 0.35rem;
     }
+
     .discussSub p {
         font-size: 0.8rem;
     }
-    .lineHeight{
+
+    .lineHeight {
         font-size: 0.5rem;
         padding-top: 10px;
     }
 }
-@media (min-width:481px) and (max-width:780px){
-    .discussSub h6{
+
+@media (min-width:481px) and (max-width:780px) {
+    .discussSub h6 {
         margin-top: -3px;
         font-size: 0.7rem;
     }
-    
-    .discussSub p{
+
+    .discussSub p {
         font-size: 0.8rem;
     }
-    .trendingDiscuss{
-        height:45vw;
+
+    .trendingDiscuss {
+        height: 45vw;
     }
-    .discuss2{
+
+    .discuss2 {
         height: 50%;
         width: 85%;
     }
-    .grief{
+
+    .grief {
         width: 90%;
-        height:52%;
+        height: 52%;
     }
-    .lineHeight{
+
+    .lineHeight {
         font-size: 0.8rem;
     }
-    #griefCss1{
-        left:7%; 
-        margin-bottom:-6%;
+
+    #griefCss1 {
+        left: 7%;
+        margin-bottom: -6%;
     }
-    #griefCss2{
-        right: 14%; 
+
+    #griefCss2 {
+        right: 14%;
         margin-bottom: -31%;
-    
     }
-    #griefCss3{
-        margin-bottom: -58%; 
+
+    #griefCss3 {
+        margin-bottom: -58%;
         right: 6%;
     }
-    #griefCss4{
-        margin-bottom: -41%; 
+
+    #griefCss4 {
+        margin-bottom: -41%;
         left: 62%;
     }
 
 }
-@media (min-width:781px) and (max-width:1160px){}
-@media (min-width:1398px){
-    .griefBtn{
+
+@media (min-width:781px) and (max-width:1160px) {}
+
+@media (min-width:1398px) {
+    .griefBtn {
         font-size: 1.2rem;
     }
-    .lineHeight{
+
+    .lineHeight {
         font-size: 2rem;
     }
 }

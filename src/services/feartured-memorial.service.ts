@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 
 @Injectable({
@@ -7,19 +7,11 @@ import { HttpClient,HttpHeaders} from "@angular/common/http";
 })
 export class FearturedMemorialService {
 
-  constructor( private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  featureMemorialAPI="https://h2913228.stratoserver.net/API/public/featuredMemorial";
+  featureMemorialAPI = "https://h2913228.stratoserver.net/API/public/featuredMemorial";
 
-  // const httpOptionsPlain = {
-  //   headers: new HttpHeaders({
-  //     'Accept': 'text/plain',
-  //     'Content-Type': 'text/plain'
-  //   }),
-  //   'responseType': 'text'
-  // };
-
-  getMemorials=()=>{
+  getMemorials = () => {
     return this.http.get(this.featureMemorialAPI);
   }
 

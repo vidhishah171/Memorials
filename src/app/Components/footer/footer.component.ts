@@ -19,16 +19,12 @@ export class FooterComponent implements OnInit {
   constructor(
     public editservice: AdminEditService,
     public loginservice:LoginService,
-
-
   ) { }
 
   ngOnInit(): void {
     this.editData();
   }
-
    // Code for labels
-
    openDialogue(num): void{
    
    if(num==1){
@@ -47,26 +43,20 @@ export class FooterComponent implements OnInit {
     this.showNewDiv=5;
     this.isvalid=true;
   }
-
   }
-
   openDialogue1(){
     this.isvalid=false;
   }
-
   editData(){
     this.editservice.adminEdit().subscribe((res:any)=>{
-      console.log(res);
       this.respo=res.Details;
       this.respo1=this.respo[29];
       this.respo2=this.respo[30];
       this.respo3=this.respo[42];
       this.respo4=this.respo[32];
       this.respo5=this.respo[250];
-
     });
   }
-
   postEditData(editDataNew:any){
     var formdata=new FormData();
     formdata.append('id',editDataNew.value.id);
@@ -75,9 +65,7 @@ export class FooterComponent implements OnInit {
     formdata.append('fr',editDataNew.value.fr);
   
     this.editservice.editPostData(formdata).subscribe(response=>{
-      console.log(response);
+
     })
   }
-
-
 }

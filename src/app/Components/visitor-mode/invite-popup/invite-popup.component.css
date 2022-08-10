@@ -1,45 +1,53 @@
-.inviteInput{
-    float: right;
+.inviteInput {
+  float: right;
 }
+
 .vertical-menu {
-    /* width: 200%;
-    height: 150px; */
-    overflow-x: hidden;
-  }
-.paginationText{
-    font-size: 0.8rem;
-    padding-top: 8%;
+  overflow-x: hidden;
 }
+
+.paginationText {
+  font-size: 0.8rem;
+  padding-top: 8%;
+}
+
 .paginationText /deep/ .ngx-pagination .current {
-    background: #CF6363;
-  }
-.closeBtn{
-    background-color: #CF6363;
-    float: right;
-    margin-top: 3%;
-    cursor: pointer;
-    color: white;
-}  
-.exUser{
+  background: #CF6363;
+}
+
+.closeBtn {
+  background-color: #CF6363;
+  float: right;
+  margin-top: 3%;
+  cursor: pointer;
+  color: white;
+}
+
+.exUser {
   background-color: #CF6363;
   color: white;
   float: right;
 }
-.exUser1{
+
+.exUser1 {
   background-color: #7E7575;
   color: black;
   float: left;
 }
-.InviteBTN{
+
+.InviteBTN {
   background-color: #4BC252;
   float: right;
 }
-.invitePeople{
+
+.invitePeople {
   margin-top: 23%;
 }
-.openForm{
+
+.openForm {
   cursor: pointer;
 }
-::placeholder{
+
+::placeholder {
   font-size: 0.7rem;
 }

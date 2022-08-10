@@ -53,7 +53,7 @@ const routes: Routes = [
   {path:"user-to-user-contact",component:UserToUserContactComponent},
   {path:"my-backgrounds",component:MyBackgroundsComponent},
   {path:"my-decorations",component:MyDecorationsComponent},
-  {path:"user-condo",component:DisplayCondolencesComponent},
+  {path:"user-condolences",component:DisplayCondolencesComponent},
   {path:"**" ,component:HomeComponent}
 ];
 

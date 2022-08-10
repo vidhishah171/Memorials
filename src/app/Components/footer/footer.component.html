@@ -1,6 +1,5 @@
 <div class="w-100 footer">
     <nav class="container navbar navbar-expand-lg navbar-light bg-transprant">
-
         <div class="container-fluid ms-5">
             <a *ngIf="!loginservice.isFooterLogin" class="navbar-brand logo" href="#">
                 <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
@@ -15,7 +14,6 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -23,21 +21,19 @@
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
-
-                            <!-- routerLink="/home" -->
-                            <!-- *ngIf="showLabel==1" -->
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==1">
                             <strong>{{respo1?.en}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==2">
                             <strong>{{respo1?.de}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==3">
                             <strong>{{respo1?.fr}}</strong>
                         </a>
-
                     </li>
-
                     <!-- extra code for label -->
                     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="homeId">
@@ -65,24 +61,24 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
                     <li class="nav-item">
                         <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==1">
                             <strong>{{respo2?.en}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==2">
                             <strong>{{respo2?.de}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==3">
                             <strong>{{respo2?.fr}}</strong>
                         </a>
                     </li>
-
                     <!-- extra code for label -->
                     <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="premiumId">
@@ -110,22 +106,21 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
-
-
                     <li class="nav-item">
                         <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==1">
                             <strong>{{respo3?.en}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==2">
                             <strong>{{respo3?.de}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==3">
                             <strong>{{respo3?.fr}}</strong>
                         </a>
                     </li>
@@ -157,22 +152,21 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
-
-
                     <li class="nav-item">
                         <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==1">
                             <strong>{{respo4?.en}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==2">
                             <strong>{{respo4?.de}}</strong>
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <a class="nav-link active footerText" aria-current="page" href="#"
+                            *ngIf="editservice.numLabel==3">
                             <strong>{{respo4?.fr}}</strong>
                         </a>
                     </li>
@@ -204,20 +198,15 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
-
-
         </div>
     </nav>
 </div>
 
 <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: -38px; left: 31%;">
     <div class="forDiv" id="griefId">
-        <button style="float: right;" (click)="openDialogue1()"
-            class="btn btn-outline-danger">X</button>
+        <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
         <form class="example-form" #regForm2="ngForm">
             <mat-form-field class="example-full-width" style="display: none;">
                 <mat-label>id</mat-label>
@@ -236,17 +225,15 @@
                 <textarea matInput name="fr" [(ngModel)]="respo5.fr"></textarea>
             </mat-form-field>
         </form>
-        <button (click)="postEditData(regForm2);openDialogue1();"
-            class="btn btn-outline-success">Save</button>
+        <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
     </div>
 </li>
 
 <div class="Tearms">
-    <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible" 
-                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton" style="right: 42%;"><span><img
-                                    src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+    <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
+        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"
+        style="right: 42%;"><span><img src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
     <p *ngIf="editservice.numLabel==1">{{respo5?.en}}</p>
     <p *ngIf="editservice.numLabel==2">{{respo5?.de}}</p>
     <p *ngIf="editservice.numLabel==3">{{respo5?.fr}}</p>
-
 </div>

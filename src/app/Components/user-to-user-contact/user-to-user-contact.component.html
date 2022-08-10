@@ -11,8 +11,8 @@
                     <span class="userBoxFirstSubText">{{firstname}}&nbsp;{{lastname}}</span>
                 </div>
                 <div class="mt-4">
-                    <input type="text" class="form-control userBoxFirstInput" [(ngModel)]="userSearchFirstnameNew" (keyup)="displaySearchData($event)"
-                        placeholder="Search People" name="" id="search">
+                    <input type="text" class="form-control userBoxFirstInput" [(ngModel)]="userSearchFirstnameNew"
+                        (keyup)="displaySearchData($event)" placeholder="Search People" name="" id="search">
                 </div>
                 <div class="forDisplay vertical-menu" *ngIf="toggleDisplay">
                     <div
@@ -27,19 +27,17 @@
                 </div>
                 <hr>
                 <div class="userActive">
-                    <div class="mt-4 userFirstBoxDiv" style="cursor: pointer;" (click)="messageBox(item.receiver_id,item.sender_id);goToUserMessage(item.sender_id)" *ngFor="let item of msg">
-                        <!-- (click)="goToUserMessage(item.id);receiveMessage()" -->
-                        <div class="userFirstBoxImage">
-                            <img src={{item.userpic}} alt=""
-                                class="rounded-circle userBoxFirstSub1">
+                    <div class="mt-4 userFirstBoxDiv" style="cursor: pointer;" *ngFor="let item of msg | keyvalue">
+                        <div class="userFirstBoxImage"
+                            (click)="messageBox(item.value.receiver_id,item.value.sender_id);goToUserMessage(item.value.sender_id)">
+                            <img src={{item.value.userpic}} alt="" class="rounded-circle userBoxFirstSub1">
                         </div>&nbsp;&nbsp;
                         <div class="userBoxFirstSubText">
-                            <p>{{item.firstname}}&nbsp;{{item.lastname}}</p>
+                            <p>{{item.value.firstname}}&nbsp;{{item.value.lastname}}</p>
                             <p class="activeText">lorem Ipsum</p>
+                            <hr>
                         </div>
-
                     </div>
-                    <hr>
                 </div>
             </div>
             <div class="col-8 userBoxSecond">
@@ -75,11 +73,12 @@
                 <hr>
                 <div class="sendBox">
                     <div class="sendBoxWidth">
-                        <textarea rows="2" class="form-control sendInput" [(ngModel)]="senderMessage" placeholder="Your message here.."></textarea>
+                        <textarea rows="2" class="form-control sendInput" [(ngModel)]="senderMessage"
+                            placeholder="Your message here.."></textarea>
                     </div>
                     <div class="mt-4">
-                        <button class="btn btn-sm"><img src="../../../assets/StaticAssets/Send@1x.png" (click)="sendMessage()" class="sendBtn"
-                                alt=""></button>
+                        <button class="btn btn-sm"><img src="../../../assets/StaticAssets/Send@1x.png"
+                                (click)="sendMessage()" class="sendBtn" alt=""></button>
                     </div>
                 </div>
             </div>

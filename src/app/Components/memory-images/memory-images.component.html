@@ -5,7 +5,6 @@
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-
         <p *ngIf="editservice.numLabel==1">{{respo20?.en}}</p>
         <p *ngIf="editservice.numLabel==2">{{respo20?.de}}</p>
         <p *ngIf="editservice.numLabel==3">{{respo20?.fr}}</p>
@@ -15,12 +14,10 @@
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-
         <p class="userText" *ngIf="editservice.numLabel==1">{{respo15?.en}}</p>
         <p class="userText" *ngIf="editservice.numLabel==2">{{respo15?.de}}</p>
         <p class="userText" *ngIf="editservice.numLabel==3">{{respo15?.fr}}</p>
     </div>
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==15 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="createMemoDivCss15">
@@ -46,8 +43,8 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-     <!-- Extra code for label -->
-     <li *ngIf="showNewDiv==20 && isvalid" style="position: absolute; margin-top: 25px;">
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==20 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="createMemoDivCss15">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
@@ -71,20 +68,15 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
-
     <div class="bottom-right">
         <button (click)="openDialogue(16)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-
         <p *ngIf="editservice.numLabel==1">{{respo16?.en}}</p>
         <p *ngIf="editservice.numLabel==2">{{respo16?.de}}</p>
         <p *ngIf="editservice.numLabel==3">{{respo16?.fr}}</p>
     </div>
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==16 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="createMemoDivCss16">

@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserProfileService {
-
   userApi="https://h2913228.stratoserver.net/API/public/update_profile";
   userProfileApi="https://h2913228.stratoserver.net/API/public/user_created_memorial";
   myProfile="https://h2913228.stratoserver.net/API/public/user_profile";
@@ -30,24 +29,19 @@ export class UserProfileService {
   userDetailId:any;
   senderUserId:any;
 
-
   constructor(
     private http:HttpClient
   ) { }
-
-
 
   userProfile(profileData:any){
     return this.http.post(this.userApi,profileData);
   }
 
   userCreatedMemorial=(userDetail:any)=>{
-    
     return this.http.post(this.userProfileApi,userDetail);
   }
 
   getMemorialDetails(grabId){
-    
     return this.http.post(this.getMemorialDetailsApi,grabId)
   }
 
@@ -64,7 +58,6 @@ export class UserProfileService {
   }
 
   uploadMyBackground(uploadBackData){
-    debugger
     return this.http.post(this.insertBackground,uploadBackData);
   }
 
@@ -79,46 +72,47 @@ export class UserProfileService {
   fetchMyBackground(fetchData){
 
     // for server
-    // return this.http.post(this.fetchBackground,fetchData);
+    return this.http.post(this.fetchBackground,fetchData);
 
     // for local
-    return this.http.post('/insertDecoration',fetchData);
-
+    // return this.http.post('/insertDecoration',fetchData);
   }
 
   myProfileDetails(profileDetails){
     
     // For server
-    // return this.http.post(this.myProfile,profileDetails);
+    return this.http.post(this.myProfile,profileDetails);
     
 
     // For Local
-    return this.http.post('/userProfile',profileDetails);
+    // return this.http.post('/userProfile',profileDetails);
   }
 
   deleteCondo(condoId:any){
     // for server
-    // return this.http.post(this.CondoAPIDelete,condoId);
+    return this.http.post(this.CondoAPIDelete,condoId);
 
     // for local
-    return this.http.post('/delete_kondolenz',condoId);
+    // return this.http.post('/delete_kondolenz',condoId);
   }
 
   userProfileDetails(userId){
     // for server
-    // return this.http.post(this.userDetailAPi,userId);
+    return this.http.post(this.userDetailAPi,userId);
 
     // for local
-    return this.http.post('/userDetail',userId);
+    // return this.http.post('/userDetail',userId);
   }
 
   receiveMessageDetails(receiveMessageId){
-    debugger
+    // for server
     return this.http.post(this.receiveMessageAPI,receiveMessageId);
+
+    // for local
+    // return this.http.post('/message_receive',receiveMessageId)
   }
 
   receiveMessagesOnly(receiveMessageData){
-    debugger
     return this.http.post(this.receiveMessagesOnlyAPI,receiveMessageData)
   }
 }

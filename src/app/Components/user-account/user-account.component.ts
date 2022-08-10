@@ -50,43 +50,34 @@ export class UserAccountComponent implements OnInit {
   respo27: any;
   respo28: any;
   respo29: any;
-
-
   caroucelCount: number = 1;
   getUserMemoDataUser: any;
   Memorials: any;
   respo30: any;
 
-
   constructor(
     public loginservice: LoginService,
     public profileService: UserProfileService,
     private router: Router,
-    public service : RecentMeorialsService,
+    public service: RecentMeorialsService,
     public editservice: AdminEditService,
     private service1: CreateMemorialService,
     public dialog: MatDialog,
-
-
   ) {
-     this.loginservice.otherPage = false;
-     this.loginservice.hideMemorialImage = false;
-     this.loginservice.goPremiumLabel = true;
+    this.loginservice.otherPage = false;
+    this.loginservice.hideMemorialImage = false;
+    this.loginservice.goPremiumLabel = true;
     this.loginservice.isFooterLogin = true;
-    
-
   }
-  ngAfterViewInit():void{
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.clickDiv();
     }, 1000);
     this.clickShowStepBtn1();
     this.getUserMemorial();
-
   }
 
   ngOnInit(): void {
-
     // For clear create memorial page after goes to another page
     this.service1.createMemorial.g_firstname = '';
     this.service1.createMemorial.g_lastname = '';
@@ -106,32 +97,23 @@ export class UserAccountComponent implements OnInit {
     this.service1.createMemorial.hometown = '';
     this.service1.createMemorial.voucher = '';
     this.service1.saveCanvas1 = '';
-
-
     this.getData()
     this.getUserMemorial();
     this.editData();
     this.getrecentMemorials();
-    
   }
 
- 
-
-  clickDiv(){
-      
-      var test = document.getElementById("navDiv");
-        if (test != null) {
-          test.style.position = 'absolute';
-        }
-  
+  clickDiv() {
+    var test = document.getElementById("navDiv");
+    if (test != null) {
+      test.style.position = 'absolute';
     }
+  }
   // for user after the login
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
-
     if (loginAfterRefresh) {
-      
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginservice.loginSaveData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
@@ -139,7 +121,6 @@ export class UserAccountComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
       this.condition = true;
-      // this.snackBar("Please check Email and password", "alert-danger");
     }
   }
 
@@ -147,51 +128,30 @@ export class UserAccountComponent implements OnInit {
     this.profileService.userDetail = data;
     this.profileService.userDetailUserId = data;
     this.router.navigate(['/edit-memorial']);
-
   }
   goesToEditMemo1(data1) {
-    // this.profileService.userDetailUserId = data1;
     this.service.userGrabIdData = data1;
-
-      const jsonData = JSON.stringify(data1)
-      localStorage.setItem('myData1', jsonData)
+    const jsonData = JSON.stringify(data1)
+    localStorage.setItem('myData1', jsonData)
   }
 
-
-
-  poi:any;
+  poi: any;
   getUserMemorial() {
     var data = { "user_id": this.loginservice.loginAllData?.id }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        let tempArray:any[] = userRes["User Memorials"];
-        tempArray = tempArray.sort((a,b)=>
-           a.grab_id - b.grab_id
+        let tempArray: any[] = userRes["User Memorials"];
+        tempArray = tempArray.sort((a, b) =>
+          a.grab_id - b.grab_id
         )
         this.getUserMemoData = tempArray.reverse();
-
-        // let firstElement = tempArray.splice(0,1);
-        // let newArray = tempArray.slice(0,tempArray.length);
-        // newArray.push(firstElement[0]);
-        // this.getUserMemoData = newArray;
-
-
-
-
-        // this.getUserMemoData = userRes["User Memorials"];
-        
-
-        // this.getUserMemoData = this.getUserMemoData.reverse();
-        this.service.userGrabIdData=userRes["User Memorials"][0].grab_id;
-        for(let item of this.getUserMemoData){
-          item.path= item.path +'?v='+this.service.index++;
+        this.service.userGrabIdData = userRes["User Memorials"][0].grab_id;
+        for (let item of this.getUserMemoData) {
+          item.path = item.path + '?v=' + this.service.index++;
         }
         if (this.caroucelCount == 1) {
           this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
-          // this.getUserMemoDataUser.map(function(item){return item.path});
         }
-
-        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
   }
 
@@ -201,8 +161,8 @@ export class UserAccountComponent implements OnInit {
         (recentMemorial: any) => {
           if (recentMemorial) {
             this.Memorials = recentMemorial.Memorials;
-            for(let item of this.Memorials){
-              item.path= item.path+'?v='+this.service.indexNew++;
+            for (let item of this.Memorials) {
+              item.path = item.path + '?v=' + this.service.indexNew++;
             }
           }
         },
@@ -210,15 +170,11 @@ export class UserAccountComponent implements OnInit {
           if (error) {
             console.log(error);
           }
-
         })
   }
 
-
-
-
   nextCarousel() {
-    
+
     this.caroucelCount++;
 
     if (this.caroucelCount == 2) {
@@ -241,7 +197,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   prevCarousel() {
-    
+
     this.caroucelCount = this.caroucelCount - 1;
 
     if (this.caroucelCount == 2) {
@@ -262,11 +218,6 @@ export class UserAccountComponent implements OnInit {
 
   }
 
-
-
-
-
-
   openDiv(num) {
     if (num == 0) {
       this.showDiv = 0.1;
@@ -277,115 +228,107 @@ export class UserAccountComponent implements OnInit {
     this.isShow = false;
   }
 
-
-
-
   // Code for labels
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv1 = 1;
       this.isvalid1 = true;
     } else if (num == 2) {
       this.showNewDiv1 = 2;
       this.isvalid1 = true;
-    }else if (num == 3) {
+    } else if (num == 3) {
       this.showNewDiv1 = 3;
       this.isvalid1 = true;
-    }else if (num == 4) {
+    } else if (num == 4) {
       this.showNewDiv1 = 4;
       this.isvalid1 = true;
-    }else if (num == 5) {
+    } else if (num == 5) {
       this.showNewDiv1 = 5;
       this.isvalid1 = true;
-    }else if (num == 6) {
+    } else if (num == 6) {
       this.showNewDiv1 = 6;
       this.isvalid1 = true;
-    }else if (num == 7) {
+    } else if (num == 7) {
       this.showNewDiv1 = 7;
       this.isvalid1 = true;
-    }else if (num == 8) {
+    } else if (num == 8) {
       this.showNewDiv1 = 8;
       this.isvalid1 = true;
-    }else if (num == 9) {
+    } else if (num == 9) {
       this.showNewDiv1 = 9;
       this.isvalid1 = true;
-    }else if (num == 10) {
+    } else if (num == 10) {
       this.showNewDiv1 = 10;
       this.isvalid1 = true;
-    }else if (num == 11) {
+    } else if (num == 11) {
       this.showNewDiv1 = 11;
       this.isvalid1 = true;
-    }else if (num == 12) {
+    } else if (num == 12) {
       this.showNewDiv1 = 12;
       this.isvalid1 = true;
-    }else if (num == 13) {
+    } else if (num == 13) {
       this.showNewDiv1 = 13;
       this.isvalid1 = true;
-    }else if (num == 14) {
+    } else if (num == 14) {
       this.showNewDiv1 = 14;
       this.isvalid1 = true;
-    }else if (num == 15) {
+    } else if (num == 15) {
       this.showNewDiv1 = 15;
       this.isvalid1 = true;
-    }else if (num == 16) {
+    } else if (num == 16) {
       this.showNewDiv1 = 16;
       this.isvalid1 = true;
-    }else if (num == 17) {
+    } else if (num == 17) {
       this.showNewDiv1 = 17;
       this.isvalid1 = true;
-    }else if (num == 18) {
+    } else if (num == 18) {
       this.showNewDiv1 = 18;
       this.isvalid1 = true;
-    }else if (num == 19) {
+    } else if (num == 19) {
       this.showNewDiv1 = 19;
       this.isvalid1 = true;
-    }else if (num == 20) {
+    } else if (num == 20) {
       this.showNewDiv1 = 20;
       this.isvalid1 = true;
-    }else if (num == 21) {
+    } else if (num == 21) {
       this.showNewDiv1 = 21;
       this.isvalid1 = true;
-    }else if (num == 22) {
+    } else if (num == 22) {
       this.showNewDiv1 = 22;
       this.isvalid1 = true;
-    }else if (num == 23) {
+    } else if (num == 23) {
       this.showNewDiv1 = 23;
       this.isvalid1 = true;
-    }else if (num == 24) {
+    } else if (num == 24) {
       this.showNewDiv1 = 24;
       this.isvalid1 = true;
-    }else if (num == 25) {
+    } else if (num == 25) {
       this.showNewDiv1 = 25;
       this.isvalid1 = true;
-    }else if (num == 26) {
+    } else if (num == 26) {
       this.showNewDiv1 = 26;
       this.isvalid1 = true;
-    }else if (num == 27) {
+    } else if (num == 27) {
       this.showNewDiv1 = 27;
       this.isvalid1 = true;
-    }else if (num == 28) {
+    } else if (num == 28) {
       this.showNewDiv1 = 28;
       this.isvalid1 = true;
-    }else if (num == 29) {
+    } else if (num == 29) {
       this.showNewDiv1 = 29;
       this.isvalid1 = true;
-    }else if (num == 30) {
+    } else if (num == 30) {
       this.showNewDiv1 = 30;
       this.isvalid1 = true;
     }
-    
   }
-
 
   openDialogue1() {
     this.isvalid1 = false;
   }
 
-
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       // this.respo1 = this.respo[195];
       this.respo2 = this.respo[196];
@@ -417,8 +360,6 @@ export class UserAccountComponent implements OnInit {
       this.respo28 = this.respo[228];
       this.respo29 = this.respo[229];
       this.respo30 = this.respo[17];
-
-      // 231
     });
   }
 
@@ -428,38 +369,31 @@ export class UserAccountComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-  
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
 
-
-
   clickShowStepBtn1() {
-    
+
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
       if (test != null) {
         test.style.backgroundColor = '#CF6363';
         test.style.color = 'white';
-        
       }
-
       // btn class
       var test = document.getElementById("btn2");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn3");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn4");
       if (test != null) {
         test.style.backgroundColor = '';
@@ -468,28 +402,24 @@ export class UserAccountComponent implements OnInit {
     }
   }
   clickShowStepBtn2() {
-    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
       if (test != null) {
         test.style.backgroundColor = '';
-        test.style.color = '#5D5959'; 
+        test.style.color = '#5D5959';
       }
-
       // btn class
       var test = document.getElementById("btn2");
       if (test != null) {
         test.style.backgroundColor = '#CF6363';
         test.style.color = 'white';
       }
-
       var test = document.getElementById("btn3");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn4");
       if (test != null) {
         test.style.backgroundColor = '';
@@ -497,9 +427,8 @@ export class UserAccountComponent implements OnInit {
       }
     }
   }
-  
+
   clickShowStepBtn3() {
-    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
@@ -507,20 +436,17 @@ export class UserAccountComponent implements OnInit {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       // btn class
       var test = document.getElementById("btn2");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn3");
       if (test != null) {
         test.style.backgroundColor = '#CF6363';
         test.style.color = 'white';
       }
-
       var test = document.getElementById("btn4");
       if (test != null) {
         test.style.backgroundColor = '';
@@ -530,7 +456,6 @@ export class UserAccountComponent implements OnInit {
   }
 
   clickShowStepBtn4() {
-    
     if (1) {
       // btn class
       var test = document.getElementById("btn1");
@@ -538,20 +463,17 @@ export class UserAccountComponent implements OnInit {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       // btn class
       var test = document.getElementById("btn2");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn3");
       if (test != null) {
         test.style.backgroundColor = '';
         test.style.color = '#5D5959';
       }
-
       var test = document.getElementById("btn4");
       if (test != null) {
         test.style.backgroundColor = '#CF6363';
@@ -560,11 +482,10 @@ export class UserAccountComponent implements OnInit {
     }
   }
 
-  openUserSearchPopup(){
-    const dialogRef = this.dialog.open(UserSearchPopupComponent,{
-      width:'500px',
-      height:'500px'
-      
+  openUserSearchPopup() {
+    const dialogRef = this.dialog.open(UserSearchPopupComponent, {
+      width: '500px',
+      height: '500px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -572,23 +493,14 @@ export class UserAccountComponent implements OnInit {
   }
 
   recentMemorialGrabId(data, data1) {
-    debugger;
-    console.log(data);
     if (data) {
       this.service.userGrabIdData2 = data;
       this.service.userUserIdData = data1;
-
       this.router.navigate(['/visitor-mode']);
-
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
-
       const jsonDataNew = JSON.stringify(data1)
       localStorage.setItem('myData2', jsonDataNew)
-
     }
   }
-
-
-  
 }

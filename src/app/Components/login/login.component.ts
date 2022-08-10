@@ -8,7 +8,7 @@ import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { LoginService } from '../../../services/login.service';
-import { FormGroup,FormControl,Validator, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
 import { createMemorial } from 'src/app/Model/createMemorial';
 
 @Component({
@@ -17,21 +17,12 @@ import { createMemorial } from 'src/app/Model/createMemorial';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginForm = new FormGroup({
-    username:new FormControl('',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")]),
-    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")])
-    password:new FormControl('',Validators.required)
-
-    // ('',[Validators.required,Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&])[A-Za-z\d$@$#!%*?&].{7,}")])
-
-    // password:new FormControl('',Validators.required)
-    
+    username: new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")]),
+    password: new FormControl('', Validators.required)
   })
-
-  get email(){return this.loginForm.get('username')}
-  get password(){return this.loginForm.get('password')}
-
+  get email() { return this.loginForm.get('username') }
+  get password() { return this.loginForm.get('password') }
 
   public userName: string;
   ol: any;
@@ -48,29 +39,19 @@ export class LoginComponent implements OnInit {
   respo6: any;
   respo7: any;
   respo8: any;
-  // username: any;
-  // password:any;
-
-
 
   constructor(
     public service: LoginService,
     private service1: CreateMemorialService,
     public editservice: AdminEditService,
-
-
     private route: ActivatedRoute,
     private router: Router,
     public snack: MatSnackBar,
-    private spiner : NgxSpinnerService,
-
-
-  ) { this.service.otherPage = true;
+    private spiner: NgxSpinnerService,
+  ) {
+    this.service.otherPage = true;
     this.service.isFooterLogin = false;
-    
   }
-
-  
 
   data: any = [];
 
@@ -79,138 +60,75 @@ export class LoginComponent implements OnInit {
       this.clickDiv();
     }, 1000);
   }
-  
 
   ngOnInit(): void {
-
-    // For clear create memorial page after goes to another page
-    // this.service1.createMemorial.g_firstname = '';
-    // this.service1.createMemorial.g_lastname = '';
-    // this.service1.createMemorial.birthplace = '';
-    // this.service1.createMemorial.deathplace = '';
-    // this.service1.createMemorial.DOB = '';
-    // this.service1.createMemorial.birthname = '';
-    // this.service1.createMemorial.DOD = '';
-
-    // this.service1.createMemorial.firstname = '';
-    // this.service1.createMemorial.lastname = '';
-    // this.service1.createMemorial.password = '';
-    // this.service1.createMemorial.password1 = '';
-    // this.service1.createMemorial.email = '';
-    // this.service1.createMemorial.streetname = '';
-    // this.service1.createMemorial.zipcode = '';
-    // this.service1.createMemorial.hometown = '';
-    // this.service1.createMemorial.voucher = '';
-    // this.service1.saveCanvas1 = '';
-
     this.editData();
-    
   }
-
- 
-  errorDisplay:boolean=false;
-   errorValue(event){
-    // if(event.target.value.length <= 0){
-    //   this.errorDisplay = false;
-    // }
-    if(event.target.value.length < 0){
+  errorDisplay: boolean = false;
+  errorValue(event) {
+    if (event.target.value.length < 0) {
       this.errorDisplay = true;
     }
-    else if(event.target.value != "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"){
+    else if (event.target.value != "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$") {
       this.errorDisplay = true;
-
     }
-    else{
-      this.errorDisplay=false;
+    else {
+      this.errorDisplay = false;
     }
   }
-  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-  clickDiv(){
-    
+  clickDiv() {
     var test = document.getElementById("navDiv");
-      if (test != null) {
-        test.style.position = 'absolute';
-      }
-
+    if (test != null) {
+      test.style.position = 'absolute';
+    }
   }
-
 
   login() {
     this.spiner.show();
     this.service.userLogin(this.loginForm.value)
-      // logData.value
       .subscribe(responce => {
-      this.spiner.hide();
-
+        this.spiner.hide();
         this.data = responce;
-        console.log(this.data);
-
-        // console.log(this.data.user[0].firstname);
-        // console.log(JSON.stringify(this.data));
-        // this.ol=JSON.stringify(this.data);
-
-        // this.service.sendUserData(true,this.data.firstname);        
-
         if (this.data.status === "success") {
-          
           this.loginData = this.data.user[0].firstname;
           this.service.loginSaveData = this.loginData;
           this.service.loginAllData = this.data.user[0];
           this.service.mapData = this.service.loginAllData.hometown
           this.setData();
-          // this.router.navigate(['/user-account']);
-          // /user-account
           this.service.islogin = true;
         } else {
           this.router.navigate(['/login']);
           this.condition = true;
-          // this.snackBar("Please check Email and password", "alert-danger");
         }
-
-
-        // For is-admin Login
         if (this.data.user[0].is_admin == 0) {
           this.service.isVisible = false;
         } else {
           this.service.isVisible = true;
         }
-
         // For user login
-        if(this.data.user[0].status == 0){
+        if (this.data.user[0].status == 0) {
           this.service.isUser = false;
-        }else{
+        } else {
           this.service.isUser = true;
         }
         var userChecking = sessionStorage.getItem('userCheckingData')
-    var userCheckingData = JSON.parse(userChecking);
-        if(userCheckingData == this.data.user[0].email){
+        var userCheckingData = JSON.parse(userChecking);
+        if (userCheckingData == this.data.user[0].email) {
           this.router.navigate(['/create-memorial']);
-        }else{
+        } else {
           this.router.navigate(['/user-account']);
         }
-
-
-        // const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        // this.router.navigateByUrl(returnUrl);
-
       },
         error => {
           console.log(error);
-
-        }
-      )
-
-
+        })
   }
-
   // for logout
   setData() {
-    
     const jsonData = JSON.stringify(this.data)
     localStorage.setItem('myData', jsonData)
   }
- 
- 
+
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2000,
@@ -218,17 +136,10 @@ export class LoginComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
   }
-
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -247,23 +158,19 @@ export class LoginComponent implements OnInit {
     } else if (num == 6) {
       this.showNewDiv = 6;
       this.isvalid = true;
-    }else if (num == 7) {
+    } else if (num == 7) {
       this.showNewDiv = 7;
       this.isvalid = true;
-    }else if (num == 8) {
+    } else if (num == 8) {
       this.showNewDiv = 8;
       this.isvalid = true;
     }
-
   }
-
   openDialogue1() {
     this.isvalid = false;
   }
-
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[44];
       this.respo2 = this.respo[45];
@@ -273,7 +180,6 @@ export class LoginComponent implements OnInit {
       this.respo6 = this.respo[192];
       this.respo7 = this.respo[257];
       this.respo8 = this.respo[258];
-
     });
   }
 
@@ -283,9 +189,7 @@ export class LoginComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
     })
   }
 }

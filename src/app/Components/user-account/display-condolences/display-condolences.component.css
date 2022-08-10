@@ -1,16 +1,18 @@
-.condolenceMainDiv{
+.condolenceMainDiv {
     margin-left: 9%;
 }
+
 .carousel-indicators {
     top: 100%;
 }
-.carousel-indicators button{
+
+.carousel-indicators button {
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    /* color: black; */
     background-color: black;
 }
+
 .carousel-control-next {
     position: absolute;
     top: 40%;
@@ -30,9 +32,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-
 }
-.carousel-control-prev{
+
+.carousel-control-prev {
     position: absolute;
     top: 40%;
     bottom: 0;
@@ -51,102 +53,113 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
+
 }
-.carousel-item button{
+
+.carousel-item button {
     height: 45%;
     width: 32%;
 }
-.box2{
-    /* background-color: #f87171;  */
-   height: 80vw;
-   width:35%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
-   /* font-size: 0.5rem; */
-   flex-direction: row;
-   margin-top: 2.2%;
+
+.box2 {
+    height: 80vw;
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-direction: row;
+    margin-top: 2.2%;
 }
 
-.box2 .child1{
-    /* background-color: yellow; */
+.box2 .child1 {
     height: 17%;
     font-style: normal;
 }
+
 .vertical-menu1 {
     width: 80%;
     height: 150px;
     overflow-y: auto;
 }
-.memorialName{
-    font-size: 0.8rem; 
+
+.memorialName {
+    font-size: 0.8rem;
     font-weight: 800;
 }
-.memorialCity{
+
+.memorialCity {
     color: #989898;
     font-size: 0.8rem;
 }
-.memorialText{
+
+.memorialText {
     color: #B7B7B7;
     font-size: 0.777rem;
     font-weight: 600;
-    /* margin-left: 12%; */
 }
-.editCondolences{
+
+.editCondolences {
     text-align: center;
 }
-.crossImg{
+
+.crossImg {
     height: 63px;
 }
-.condolenceDiv{
+
+.condolenceDiv {
     height: auto;
 }
-.condolencesText{
+
+.condolencesText {
     font-weight: 600;
     font-size: 1.3rem;
 }
-.condolenceMain{
-    height: 15vw; 
+
+.condolenceMain {
+    height: 15vw;
     margin-bottom: 2%;
 }
-.condolenceMain1{
-    height: auto; 
+
+.condolenceMain1 {
+    height: auto;
     margin-bottom: 2%;
 }
-.condolencesEdit{
-    /* border: 1px solid black;  */
+
+.condolencesEdit {
     background-color: #CF6363;
     border-radius: 20px;
-    width: 100%; 
+    width: 100%;
     height: 13vw;
     display: flex;
     padding-top: 5%;
     padding-bottom: 2%;
     margin-bottom: 5%;
 }
-.condolencesEdit1{
-    /* border: 1px solid black;  */
-  background-color: #CF6363;
-  border-radius: 10px;
-  width: 100%; 
-  height: auto;
-  display: flex;
-  padding-top: 5%;
-  padding-bottom: 2%;
-  margin-bottom: 5%;
+
+.condolencesEdit1 {
+    background-color: #CF6363;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
 }
-.qotesImg{
+
+.qotesImg {
     width: 68px;
     margin-top: 19%;
     opacity: 0.9;
 }
-.condolenceImg{
+
+.condolenceImg {
     width: 6%;
     float: left;
     margin-left: -1%;
 }
-.condolenceText{
+
+.condolenceText {
     font-size: 0.7rem;
     color: #FFFFFF;
     opacity: 0.8;
@@ -154,7 +167,7 @@
     padding-top: 1%;
 }
 
-.condolencesComment{
+.condolencesComment {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -164,10 +177,10 @@
     opacity: 0.9;
     margin-left: -7%;
     height: 6vw;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.condolencesComment1{
+
+.condolencesComment1 {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -177,21 +190,24 @@
     opacity: 0.9;
     margin-left: -7%;
     height: auto;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.viewEntireDiv{
+
+.viewEntireDiv {
     padding-top: 20%;
 }
-.viewEntire{
+
+.viewEntire {
     float: left;
     font-size: 0.7rem;
     font-weight: 500;
     cursor: pointer;
 }
-.rightImg{
+
+.rightImg {
     width: 12%;
 }
-.deletrImg{
+
+.deletrImg {
     width: 20px;
 }

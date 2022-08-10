@@ -1,80 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
-.photoGalleryImg{
+.photoGalleryImg {
     height: 45%;
     opacity: 0.6;
 }
-.photoPlusImage{
+
+.photoPlusImage {
     height: 32%;
     opacity: 0.6;
     cursor: pointer;
 }
-.photoBackText{
+
+.photoBackText {
     padding-top: 0.5%;
     opacity: 0.6;
 }
-.imgMargin{
+
+.imgMargin {
     margin-right: -13px;
 }
-.userHeading{
-    background-color:#CF6363 ;
+
+.userHeading {
+    background-color: #CF6363;
     height: 16vw;
-    /* margin-top: 16%; */
 }
-.nameSml{
+
+.nameSml {
     font-size: 0.55rem;
     color: #CF6363;
     padding-top: 2%;
 }
-.viewsCss{
+
+.viewsCss {
     margin-top: -4%;
 }
-.userHeading h1{
+
+.userHeading h1 {
     text-align: center;
     color: white;
     margin-top: -14%;
     font-size: 2rem;
 }
-.userBackground{
+
+.userBackground {
     color: white;
     padding-top: 2%;
     font-size: 0.6rem;
     display: flex;
     text-align: center;
-    /* align-items: center; */
     justify-content: center;
 }
-.userDate{
+
+.userDate {
     text-align: center;
     color: whitesmoke;
     font-size: 0.85rem;
     opacity: 0.9;
 
 }
-.viewportHeight{
+
+.viewportHeight {
     height: 70vw;
 }
-.userImage{
-    /* width: 100%;
-    height: auto; */
+
+.userImage {
     text-align: center;
     width: 5%;
     height: auto;
-    /* border: 2px solid black; */
 }
-.userImage1{
+
+.userImage1 {
     border: 2px solid black;
     width: 5%;
     text-align: center;
     height: auto;
 }
-.circleImage{
+
+.circleImage {
     width: 11%;
     height: 66%;
     margin-left: 45%;
@@ -84,61 +90,74 @@
 
     border-radius: 50%;
     overflow: hidden;
-    display:inline-block;
-    vertical-align:middle;
+    display: inline-block;
+    vertical-align: middle;
 }
-.circleImage img{
-    width:100%;
-  }
-.btnColor{
+
+.circleImage img {
+    width: 100%;
+}
+
+.btnColor {
     color: black;
     font-size: 0.85rem;
     border: 1.5px solid black;
     font-weight: 590;
 }
-.btnColor:hover{
+
+.btnColor:hover {
     color: white;
     background-color: #B5B5B5;
 }
-.btnColor1{
+
+.btnColor1 {
     color: #4Bc252;
     border: 1px solid #4Bc252;
 }
-.btnColor1:hover{
+
+.btnColor1:hover {
     color: #4Bc252;
     background-color: #B5B5B5;
 }
-.photoVideoGallary{
+
+.photoVideoGallary {
     height: 35vw;
     background-color: #F8F4EF;
     margin-top: -1%;
 }
-.photoVideoGalleryText{
+
+.photoVideoGalleryText {
     font-size: 0.85rem;
     font-weight: 500;
     margin-left: 1%;
 }
-.crossImg{
+
+.crossImg {
     height: 63px;
 }
-.condolencesText{
+
+.condolencesText {
     font-weight: 600;
     font-size: 1.3rem;
 }
-.qotesImg{
+
+.qotesImg {
     width: 68px;
     margin-top: 19%;
     opacity: 0.9;
 }
-.condolenceMain{
-    height: 15vw; 
+
+.condolenceMain {
+    height: 15vw;
     margin-bottom: 2%;
 }
-.condolenceMain1{
-    height: auto; 
+
+.condolenceMain1 {
+    height: auto;
     margin-bottom: 2%;
 }
-.pVGallery{
+
+.pVGallery {
     box-sizing: border-box;
     border: 1px solid black;
     float: left;
@@ -147,24 +166,28 @@
     margin: 1%;
     border-radius: 7px;
 }
-.condolenceImg{
+
+.condolenceImg {
     width: 6%;
     float: left;
     margin-left: -1%;
 }
-.imageButton{
+
+.imageButton {
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
-.condolenceText{
+
+.condolenceText {
     font-size: 0.7rem;
     color: #FFFFFF;
     opacity: 0.8;
     float: left;
     padding-top: 1%;
 }
-.condolencesComment{
+
+.condolencesComment {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -174,10 +197,10 @@
     opacity: 0.9;
     margin-left: -7%;
     height: 8vw;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.condolencesComment1{
+
+.condolencesComment1 {
     font-size: 0.9rem;
     color: #FFFFFF;
     text-align: justify;
@@ -187,153 +210,163 @@
     opacity: 0.9;
     margin-left: -7%;
     height: auto;
-    /* border: 1px solid black; */
     overflow: hidden;
 }
-.viewEntireDiv{
+
+.viewEntireDiv {
     padding-top: 20%;
 }
-.viewEntire{
+
+.viewEntire {
     float: left;
     font-size: 0.7rem;
     font-weight: 500;
     cursor: pointer;
 }
-.rightImg{
+
+.rightImg {
     width: 12%;
 }
-deletrImg{
+
+deletrImg {
     width: 20px;
 }
-.plusButton{
+
+.plusButton {
     position: absolute;
-    /* float: right; */
     left: 80%;
-    /* z-index: 10; */
     cursor: pointer;
 }
-.plusButtonDelete{
+
+.plusButtonDelete {
     position: absolute;
     left: 83%;
     top: 82%;
     width: 19px;
     cursor: pointer;
 }
-.shareEdit{
+
+.shareEdit {
     font-size: 0.6rem;
     color: whitesmoke;
     cursor: pointer;
     opacity: 0.7;
 }
-.shareEdit1{
-    font-size: 0.7rem; 
+
+.shareEdit1 {
+    font-size: 0.7rem;
     color: white;
     opacity: 0.7;
 }
 
 
-.editCondolences{
+.editCondolences {
     text-align: center;
 }
-.subscribeImage{
-    /* background-image: "../../../assets/StaticAssets/Visitor Mode/112.png"; */
+
+.subscribeImage {
     background-image: url('../../../assets/StaticAssets/Visitor Mode/112.png');
     background-size: 100%;
     border-radius: 20px;
     height: 14vw;
     width: 100%;
-    /* display: flex; */
     flex-wrap: wrap;
     background-repeat: no-repeat;
     background-position: center;
 }
-.subscribeText{
+
+.subscribeText {
     font-size: 0.9rem;
     font-weight: 500;
 }
-.subInputBox{
+
+.subInputBox {
     width: 29%;
     height: 45px;
     border-radius: 0px;
 }
-.subInputBox1{
+
+.subInputBox1 {
     height: 45px;
     border-radius: 0px;
 }
-.subscribeBtn{
+
+.subscribeBtn {
     height: 45px;
     font-size: 0.9rem;
     padding-left: 30%;
     padding-right: 30%;
     border-radius: 0;
 }
-::placeholder{
+
+::placeholder {
     font-size: 0.9rem;
     padding-left: 3%;
     color: #B5B5B5;
 }
-.recentMemorial{
+
+.recentMemorial {
     background-color: #F8F4EF;
     height: 25vw;
 }
-.recentHeading{
+
+.recentHeading {
     font-weight: 800;
     text-align: center;
     font-size: 1.1rem;
 }
-.recentMemo{
-    /* width:30%; */
-    /* font-size: 0.5rem; */
+
+.recentMemo {
     display: flex;
-    /* flex-wrap: wrap; */
     align-content: flex-start;
-    /* flex-direction: row; */
     margin-left: 12%;
 }
-.recentMemo .child1{
-    /* height: 20%; */
+
+.recentMemo .child1 {
     font-style: normal;
     margin: 0%;
     padding: 0%;
-   
+
 }
-.recentHeading{
+
+.recentHeading {
     font-weight: bold;
     text-align: center;
 }
-.recentImage{
+
+.recentImage {
     width: 50%;
     height: auto;
     border: 2px solid #CF6363;
     text-align: center;
 
 }
-.recentName{
+
+.recentName {
     font-weight: 600;
     font-size: 0.9rem;
 }
-.condolenceDiv{
+
+.condolenceDiv {
     height: auto;
 }
 
-
 /* For editCondolences */
-.condolencesEdit{
-    /* border: 1px solid black;  */
+.condolencesEdit {
     background-color: #CF6363;
     border-radius: 20px;
-    width: 100%; 
+    width: 100%;
     height: 15vw;
     display: flex;
     padding-top: 5%;
     padding-bottom: 2%;
     margin-bottom: 5%;
 }
-.condolencesEdit1{
-      /* border: 1px solid black;  */
+
+.condolencesEdit1 {
     background-color: #CF6363;
     border-radius: 10px;
-    width: 100%; 
+    width: 100%;
     height: auto;
     display: flex;
     padding-top: 5%;
@@ -341,7 +374,7 @@ deletrImg{
     margin-bottom: 5%;
 }
 
-.readAllCondo{
+.readAllCondo {
     padding-left: 3%;
     padding-right: 3%;
     border: 2px solid black;
@@ -350,195 +383,232 @@ deletrImg{
     padding-top: 1%;
     padding-bottom: 1%;
 }
-#backgroundimage
-{
-   height: auto;
-   left: 0;
-   margin: 0;
-   /* min-height: 100%; */
-   /* min-width: 674px; */
-   height: 100%;
-   width: 100%;
-   padding: 0;
-   /* position: fixed; */
-   top: 0;
-   width: 100%;
-   z-index: -1;
+
+#backgroundimage {
+    height: auto;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
-.readAllCondo:hover{
+
+.readAllCondo:hover {
     background-color: #B5B5B5;
     color: white;
     border: none;
 }
 
-.plusImageOnHeader{
-      /* float: right; */
-      margin-top: 1.5%;
-      /* border: 1px solid white; */
-      z-index: 500;
-      color: white;
-      width: 2%;
-      margin-left: -2%;
+.plusImageOnHeader {
+    margin-top: 1.5%;
+    z-index: 500;
+    color: white;
+    width: 2%;
+    margin-left: -2%;
 }
 
-@media (min-width:481px) and (max-width:979px){
-    .photoVideoGallary{
+@media (min-width:481px) and (max-width:979px) {
+    .photoVideoGallary {
         margin-top: 140%;
     }
-    .submenu{
+
+    .submenu {
         margin-left: 66px;
     }
 }
 
-@media (min-width:781px) and (max-width:1160px){
-    .viewportHeight{
+@media (min-width:781px) and (max-width:1160px) {
+    .viewportHeight {
         height: 142vw;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 41vw;
     }
-    .recentName{
+
+    .recentName {
         font-size: 0.6rem;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 28vw;
     }
 }
-@media (min-width:1160px)and (max-width:1517px){
-    .viewportHeight{
+
+@media (min-width:1160px)and (max-width:1517px) {
+    .viewportHeight {
         height: 78vw;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 28vw;
     }
-    .recentName{
+
+    .recentName {
         font-size: 0.7rem;
     }
 }
 
-@media (min-width:1398px){
+@media (min-width:1398px) {
+
     /* 1398px */
     .centered {
         font-size: 1rem;
     }
-    .centered2{
+
+    .centered2 {
         top: 44%;
         left: 50%;
     }
-    .fontCenter{
+
+    .fontCenter {
         font-size: 1rem;
     }
-    .bottom-left{
+
+    .bottom-left {
         bottom: 25px;
         left: 419px;
         font-size: 1rem;
     }
-    .bottom-right1{
+
+    .bottom-right1 {
         bottom: 25px;
         right: 422px;
         font-size: 1rem;
     }
-    .userText{
+
+    .userText {
         font-size: 1.5rem;
     }
-    .personCentric{
+
+    .personCentric {
         width: 42%;
     }
 }
-@media (min-width:1398px)and (max-width:1517px){
-    .viewportHeight{
+
+@media (min-width:1398px)and (max-width:1517px) {
+    .viewportHeight {
         height: 68vw;
     }
 }
-@media (min-width:1518px)and (max-width:2017px){
-    .viewportHeight{
+
+@media (min-width:1518px)and (max-width:2017px) {
+    .viewportHeight {
         height: 58vw;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 1%;
     }
-    .plusImageOnHeader{
+
+    .plusImageOnHeader {
         margin-left: -1%;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 27vw;
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 21vw;
     }
- }
- @media (min-width:2017px)and (max-width:2049px){
-    .viewportHeight{
+}
+
+@media (min-width:2017px)and (max-width:2049px) {
+    .viewportHeight {
         height: 50vw;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 2%;
     }
-    .plusImageOnHeader{
+
+    .plusImageOnHeader {
         margin-left: -1%;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 24vw;
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 18vw;
     }
- }
- @media (min-width:2050px)and (max-width:3839px){
-    .viewportHeight{
+}
+
+@media (min-width:2050px)and (max-width:3839px) {
+    .viewportHeight {
         height: 40vw;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 3%;
     }
-    .plusImageOnHeader{
+
+    .plusImageOnHeader {
         margin-left: -1%;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 19vw;
         margin-top: 4%;
 
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 15vw;
     }
- }
- @media (min-width:3840px)and (max-width:4098px){
-    .photoVideoGallary{
+}
+
+@media (min-width:3840px)and (max-width:4098px) {
+    .photoVideoGallary {
         height: 12vw;
         margin-top: -40%;
 
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 4%;
     }
- }
- @media (min-width:4098px){
-    .viewportHeight{
+}
+
+@media (min-width:4098px) {
+    .viewportHeight {
         height: 34vw;
     }
-    .photoVideoGallary{
+
+    .photoVideoGallary {
         height: 13vw;
     }
-    .subscribeImage{
+
+    .subscribeImage {
         background-position: top;
     }
-    .circleImage{
+
+    .circleImage {
         margin-top: 4%;
     }
-    .recentMemorial{
+
+    .recentMemorial {
         height: 11vw;
     }
- }
+}

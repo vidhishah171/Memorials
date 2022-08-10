@@ -21,12 +21,9 @@ import { VisitorCondolencePopupComponent } from './visitor-condolence-popup/visi
 })
 export class VisitorModeComponent implements OnInit {
 
-  @ViewChild(VisitorCanvasNewComponent, {static : true}) child : VisitorCanvasNewComponent;
-
-
+  @ViewChild(VisitorCanvasNewComponent, { static: true }) child: VisitorCanvasNewComponent;
   lovedPersonData: any;
   Memorials: any;// Recent Memorial Variable
-
   canvas: fabric.Canvas;
   getUserMemoData: any;
   loginData: any;
@@ -50,7 +47,7 @@ export class VisitorModeComponent implements OnInit {
   userpic: any;
   memorialDetails: any;
   memorialDetails1: any;
-  showTrashIcon:boolean=false;
+  showTrashIcon: boolean = false;
   showNewDiv1: number;
   isvalid1: boolean;
   respo: any;
@@ -69,7 +66,6 @@ export class VisitorModeComponent implements OnInit {
   respo13: any;
   respo14: any;
 
-
   constructor(
     public profileService: UserProfileService,
     public editCanvas: EditMemorialService,
@@ -80,16 +76,10 @@ export class VisitorModeComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public dialog: MatDialog,
     public editservice: AdminEditService,
-
-
-
-
-
-
-  ) { this.loginservice.otherPage = false;
+  ) {
+    this.loginservice.otherPage = false;
     this.loginservice.isFooterLogin = true;
     this.loginservice.hideMemorialImage = false;
-    
   }
 
   ngOnInit(): void {
@@ -103,8 +93,7 @@ export class VisitorModeComponent implements OnInit {
     this.myProfileData();
     this.service.getMeorialDetail();
     this.child.postGrabId();
-
-    if(this.service.userUserIdData == this.loginservice.loginAllData){
+    if (this.service.userUserIdData == this.loginservice.loginAllData) {
       this.showTrashIcon = true;
     }
   }
@@ -112,47 +101,33 @@ export class VisitorModeComponent implements OnInit {
   getData2() {
     var userLoginDataNew1 = localStorage.getItem('myData2')
     var loginAfterRefreshNew1 = JSON.parse(userLoginDataNew1);
-
     this.service.userUserIdData = loginAfterRefreshNew1;
-    // this.getUserMemorial();
   }
-  
-
   getData1() {
     var userLoginDataNew = localStorage.getItem('myData1')
     var loginAfterRefreshNew = JSON.parse(userLoginDataNew);
-
     this.service.userGrabIdData2 = loginAfterRefreshNew;
-    // this.getUserMemorial();
   }
 
   // for user after the login
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
-
     if (loginAfterRefresh) {
-      
       this.loginData = loginAfterRefresh.user[0].firstname;
       this.loginservice.loginSaveData = this.loginData;
       this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
       this.loginservice.islogin = true;
     } else {
-      // this.router.navigate(['/login']);
       this.condition = true;
-      // this.snackBar("Please check Email and password", "alert-danger");
     }
   }
 
-
   // Get user profile image
   myProfileData() {
-    // this.spiner.show();
     var ProfileId = { "user_id": this.service.userUserIdData }
-    // this.loginservice.userId = this.loginservice.loginAllData?.id;
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
       this.userpic = data.user_data[0].userpic;
-
     });
   }
 
@@ -163,104 +138,46 @@ export class VisitorModeComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
-
-
-
-
   // for user details
   getUserMemorial() {
-    var data = { "user_id": this.loginservice.loginAllData}
+    var data = { "user_id": this.loginservice.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
         this.getUserMemoData = userRes["User Memorials"];
         this.service.userGrabIdData2 = userRes["User Memorials"][0].grab_id;
-        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
-
   }
-  // This is implemented in recent service(getMeorialDetail)
 
-  // getMeorialDetail() {
-  //   var data = { "grab_id": this.service.userGrabIdData2 }
-  //   this.profileService.getMemorialDetails(data).subscribe((response: any) => {
-  //     this.memorialDetails1 = response.Details[0].comments;
-  //     this.service.memorialDetails = this.memorialDetails1.slice(0,8);
-  //     for (let item of this.service.memorialDetails) {
-  //       if (item.firstname != null) {
-  //         item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "");
-  //       } else {
-  //         item.firstname = '';
-  //       } 
-  //       if (item.lastname != null) {
-  //         item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "");
-  //       }else{
-  //         item.lastname = '';
-  //       }
-  //       if(item.created != null){
-  //         item.created = formatDate(item.created, "M/d/yyyy 'at' h:mm aa", 'en_US');
-  //       }else{
-  //         item.created = '';
-  //       }
-  //     }
-
-  //   })
-  // }
-
-  // This is implemented in recent service(readAllCondo)
-  // readAllCondo(){
-    
-  //   this.service.memorialDetails = this.memorialDetails1.slice();
-  // }
-
-  condolencesComment(item:any){
-    
-   if(item.showFull)
-   item.showFull=undefined;
-   else
-   item.showFull=true;
-}
-  deleteCondolence(condoId){
-    var condoIdNew={
-      "comment_id" : `${condoId}`
+  condolencesComment(item: any) {
+    if (item.showFull)
+      item.showFull = undefined;
+    else
+      item.showFull = true;
+  }
+  deleteCondolence(condoId) {
+    var condoIdNew = {
+      "comment_id": `${condoId}`
     }
     this.spiner.show();
-    this.profileService.deleteCondo(condoIdNew).subscribe(condoRes=>{
-      console.log(condoRes);
+    this.profileService.deleteCondo(condoIdNew).subscribe(condoRes => {
       this.service.getMeorialDetail();
       this.spiner.hide();
       setTimeout(() => {
         this.snackBar("Condolences has been deleted..", "alert-danger");
       }, 1000);
-      
     })
-}
+  }
 
   // For user data retrive
   postGrabId() {
     var jsonData = this.service.userGrabIdData2
-
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
-
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      
       this.lovedPersonData = Response.Details[0];
       this.lovedPersonData1 = Response.Details;
-      // if(Response){
-      //   
-      //   var jsonData1=Response.Details[0].canvas_json;
-      //   this.canvas.loadFromJSON(jsonData1, () => {
-
-      //     // making sure to render canvas at the end
-      //     this.canvas.renderAll();
-      //   })
-      // }
     })
   }
 
@@ -276,19 +193,13 @@ export class VisitorModeComponent implements OnInit {
           if (error) {
             console.log(error);
           }
-
         })
   }
 
-
-
-
   //  For Get Photo/Video gallery image
   getPhotoVideo() {
-
     var photoFormData1 = new FormData();
     photoFormData1.append('user_id', this.service.userUserIdData);
-
     this.editCanvas.getPhotoVideo(photoFormData1).subscribe((userRes1: any) => {
       this.getPhotoVideoImage1 = userRes1.Data[0].image;
       this.getPhotoVideoImage2 = userRes1.Data[1].image;
@@ -302,11 +213,8 @@ export class VisitorModeComponent implements OnInit {
       this.getPhotoVideoImage10 = userRes1.Data[9].image;
       this.getPhotoVideoImage11 = userRes1.Data[10].image;
       this.getPhotoVideoImage12 = userRes1.Data[11].image;
-
-      // var photoData = userRes1
     })
   }
-
 
   photoVideoScroll(el: HTMLElement) {
     el.scrollIntoView();
@@ -315,17 +223,14 @@ export class VisitorModeComponent implements OnInit {
     el.scrollIntoView();
   }
 
-  changeComponent : boolean= false;
-  changeCanvas(){
+  changeComponent: boolean = false;
+  changeCanvas() {
     this.changeComponent = true;
-    // this.child.postGrabId();
   }
 
-  openCondolencePopup(){
-    const dialogRef = this.dialog.open(VisitorCondolencePopupComponent,{
-      width:'500px',
-      // height:'500px'
-      
+  openCondolencePopup() {
+    const dialogRef = this.dialog.open(VisitorCondolencePopupComponent, {
+      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -333,11 +238,10 @@ export class VisitorModeComponent implements OnInit {
     });
   }
 
-  openInvitePopup(){
-    const dialogRef = this.dialog.open(InvitePopupComponent,{
-      width:'500px',
-      height:'500px'
-      
+  openInvitePopup() {
+    const dialogRef = this.dialog.open(InvitePopupComponent, {
+      width: '500px',
+      height: '500px'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -345,59 +249,56 @@ export class VisitorModeComponent implements OnInit {
   }
 
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv1 = 1;
       this.isvalid1 = true;
     } else if (num == 2) {
       this.showNewDiv1 = 2;
       this.isvalid1 = true;
-    }else if (num == 3) {
+    } else if (num == 3) {
       this.showNewDiv1 = 3;
       this.isvalid1 = true;
-    }else if (num == 4) {
+    } else if (num == 4) {
       this.showNewDiv1 = 4;
       this.isvalid1 = true;
-    }else if (num == 5) {
+    } else if (num == 5) {
       this.showNewDiv1 = 5;
       this.isvalid1 = true;
-    }else if (num == 6) {
+    } else if (num == 6) {
       this.showNewDiv1 = 6;
       this.isvalid1 = true;
-    }else if (num == 7) {
+    } else if (num == 7) {
       this.showNewDiv1 = 7;
       this.isvalid1 = true;
-    }else if (num == 8) {
+    } else if (num == 8) {
       this.showNewDiv1 = 8;
       this.isvalid1 = true;
-    }else if (num == 9) {
+    } else if (num == 9) {
       this.showNewDiv1 = 9;
       this.isvalid1 = true;
-    }else if (num == 10) {
+    } else if (num == 10) {
       this.showNewDiv1 = 10;
       this.isvalid1 = true;
-    }else if (num == 11) {
+    } else if (num == 11) {
       this.showNewDiv1 = 11;
       this.isvalid1 = true;
-    }else if (num == 12) {
+    } else if (num == 12) {
       this.showNewDiv1 = 12;
       this.isvalid1 = true;
-    }else if (num == 13) {
+    } else if (num == 13) {
       this.showNewDiv1 = 13;
       this.isvalid1 = true;
-    }else if (num == 14) {
+    } else if (num == 14) {
       this.showNewDiv1 = 14;
       this.isvalid1 = true;
     }
   }
-
   openDialogue1() {
     this.isvalid1 = false;
   }
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[269];
       this.respo2 = this.respo[270];
@@ -422,13 +323,8 @@ export class VisitorModeComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
-
-
 }
-
-

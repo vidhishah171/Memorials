@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
 
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
-
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
     border: 1px dotted tomato;
-    /* text-align: center; */
     border-radius: 10px;
     height: auto;
     margin-top: 10%;
@@ -18,129 +16,144 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
+
 /* For div css */
-.forDiv1{
+.forDiv1 {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
-    /* margin-top: 10%; */
     width: 300px;
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
 /* user Div css */
-.userProfileDiv1{
+.userProfileDiv1 {
     margin-top: -13%;
     left: 3%;
 }
-.userProfileDiv2{
+
+.userProfileDiv2 {
     left: 268%;
     margin-top: -14%;
 }
-.userProfileDiv3{
+
+.userProfileDiv3 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv4{
+
+.userProfileDiv4 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv5{
+
+.userProfileDiv5 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv6{
+
+.userProfileDiv6 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv7{
+
+.userProfileDiv7 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv8{
+
+.userProfileDiv8 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv9{
+
+.userProfileDiv9 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv10{
+
+.userProfileDiv10 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv11{
+
+.userProfileDiv11 {
     right: 27%;
     margin-top: -15%;
 }
-.userProfileDiv12{
+
+.userProfileDiv12 {
     margin-top: 124%;
     left: 293%;
 }
-.userProfileDiv13{
+
+.userProfileDiv13 {
     margin-top: -15%;
 }
-.userProfileDiv14{
+
+.userProfileDiv14 {
     margin-top: -15%;
 }
-.userProfileDiv15{
+
+.userProfileDiv15 {
     margin-top: -15%;
 }
-.userProfileDiv16{
+
+.userProfileDiv16 {
     margin-top: -15%;
 }
-.userProfileDiv17{
+
+.userProfileDiv17 {
     margin-top: -15%;
 }
-.userProfileDiv18{
+
+.userProfileDiv18 {
     margin-top: -2%;
 }
+
 .vertical-menu1 {
     width: 80%;
     height: 150px;
     overflow-y: auto;
 }
-.userDetailPopupSave{
+
+.userDetailPopupSave {
     font-size: 0.9rem;
     border: 1px solid #4BC252;
 }
-.userDetailPopupSave:hover{
+
+.userDetailPopupSave:hover {
     background-color: #4BC252;
     color: white;
 }
-.userDetailPopupCancel{
+
+.userDetailPopupCancel {
     font-size: 0.9rem;
     border: 1px solid #CF6363;
     color: black;
 }
-.userDetailPopupCancel:hover{
+
+.userDetailPopupCancel:hover {
     background-color: #CF6363;
     color: white;
 }
 
-
-
-
-
-
-
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
@@ -149,7 +162,7 @@
     width: 100%;
     height: 150px;
     overflow-y: auto;
-  }
+}
 
 
 /* For map key */
@@ -159,61 +172,65 @@ agm-map {
 
 #map {
     height: 300px;
-  }
+}
 
 /* For profile div */
 
-.forProfileDiv{
+.forProfileDiv {
     position: absolute;
     /* float: right; */
     margin-left: 71%;
     cursor: pointer;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
-    /* text-align: center; */
     border-radius: 10px;
     height: auto;
-    /* margin-top: 10%; */
     width: 260px;
     font-size: 0.8rem;
     margin-top: -29px;
     background-color: #F8F8F8;
 }
-.userDetail{
-    color:#CF6363;
+
+.userDetail {
+    color: #CF6363;
 }
-.profileName{
+
+.profileName {
     margin-left: 15%;
-   cursor: pointer;
+    cursor: pointer;
 }
-.profileUserName{
-    font-size:0.9; 
+
+.profileUserName {
+    font-size: 0.9;
     font-weight: 600;
     opacity: 0.9;
 }
-.imgWidth{
+
+.imgWidth {
     width: 9%;
 }
-.divText{
+
+.divText {
     font-size: 0.7rem;
     font-weight: 600;
     opacity: 0.9;
 }
 
-.userHeading{
-    background-color:#CF6363 ;
+.userHeading {
+    background-color: #CF6363;
     height: 6vw;
 }
-.userHeading h1{
+
+.userHeading h1 {
     text-align: center;
     color: white;
     padding-top: 1.3%;
     font-weight: 600;
     font-size: 2.4rem;
-    font-family:'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
-.profileOption{
+
+.profileOption {
     float: right;
     cursor: pointer;
     font-size: 0.9rem;
@@ -221,28 +238,34 @@ agm-map {
     opacity: 0.9;
     cursor: pointer;
 }
-.messageText{
+
+.messageText {
     font-size: 0.9rem;
     font-weight: 600;
     opacity: 0.9;
     cursor: pointer;
 }
-.messageImg{
+
+.messageImg {
     height: 22px;
 }
-.profileImg{
+
+.profileImg {
     height: 22px;
 }
+
 .carousel-indicators {
     top: 100%;
 }
-.carousel-indicators button{
+
+.carousel-indicators button {
     height: 15px;
     width: 15px;
     border-radius: 50%;
     /* color: black; */
     background-color: black;
 }
+
 .carousel-control-next {
     position: absolute;
     top: 40%;
@@ -262,9 +285,9 @@ agm-map {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-
 }
-.carousel-control-prev{
+
+.carousel-control-prev {
     position: absolute;
     top: 40%;
     bottom: 0;
@@ -283,45 +306,53 @@ agm-map {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    
 }
-.carousel-item button{
+
+.carousel-item button {
     height: 45%;
     width: 32%;
 }
-.fontColorSize{
+
+.fontColorSize {
     font-size: 0.75rem;
     color: #B5B5B5;
     font-weight: 600;
 }
-.memorialName{
-    font-size: 0.8rem; 
+
+.memorialName {
+    font-size: 0.8rem;
     font-weight: 800;
 }
-.memorialCity{
+
+.memorialCity {
     color: #989898;
     font-size: 0.8rem;
 }
-.memorialText{
+
+.memorialText {
     color: #B7B7B7;
     font-size: 0.777rem;
     font-weight: 600;
     margin-left: 12%;
 }
-.forProfileMemory{
+
+.forProfileMemory {
     top: 24px;
     left: 3%;
 }
-.onlineImg{
+
+.onlineImg {
     height: 16px;
 }
-.onlineUser{
+
+.onlineUser {
     float: right;
     font-size: 0.7rem;
     margin-top: 1%;
     opacity: 0.9;
 }
-.onlineUser1{
+
+.onlineUser1 {
     float: left;
     font-size: 0.7rem;
     margin-top: 1.3%;
@@ -329,220 +360,241 @@ agm-map {
     opacity: 0.9;
     cursor: pointer;
 }
-.onlineUser2{
-    font-size: 2rem; 
-    font-weight: 100; 
+
+.onlineUser2 {
+    font-size: 2rem;
+    font-weight: 100;
     float: left;
     opacity: 0.9;
 }
-.userDetail{
-    color:#CF6363;
+
+.userDetail {
+    color: #CF6363;
 }
-.content1{
+
+.content1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* height: 20vw; */
-}
-.box1{
-    /* background-color: yellow; */
-     height: auto;
-     width:65%;
-     display: flex;
-     flex-direction: column;
-     margin-top: -1%;
-     /* left: auto; */
-     /* align-items: center; */
-     /* flex-wrap: wrap; */
- }
- .box2{
-    /* background-color: #f87171;  */
-   height: 80vw;
-   width:35%;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
-   /* font-size: 0.5rem; */
-   flex-direction: row;
-   margin-top: 2.2%;
 }
 
-.box2 .child1{
-    /* background-color: yellow; */
+.box1 {
+    height: auto;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -1%;
+}
+
+.box2 {
+    height: 80vw;
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-direction: row;
+    margin-top: 2.2%;
+}
+
+.box2 .child1 {
     height: 17%;
     font-style: normal;
 }
 
 
-.content2{
+.content2 {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     flex-wrap: wrap;
-    /* height: 20vw; */
 }
-.box3{
+
+.box3 {
     height: auto;
     width: 25%;
     margin-top: 6%;
-    
+
 }
-.box4{
-   width: 72%; 
-   height: auto;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
+
+.box4 {
+    width: 72%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
-.content3{
+
+.content3 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* height: 20vw; */
     width: 100%;
 }
-.box5{
+
+.box5 {
     width: 45%;
     height: auto;
     margin-left: 9%;
     padding-left: 13%;
 }
-.userName{
+
+.userName {
     margin: 5%;
 }
-.userLable{
+
+.userLable {
     color: gray;
 }
-.box6{
+
+.box6 {
     width: 45%;
     height: auto;
     padding-left: 15%;
 }
-.userImage{
+
+.userImage {
     width: 233px;
     height: 180px;
     border: 1px solid black;
     object-fit: fill;
 }
-.Photo{
+
+.Photo {
     text-align: center;
-    /* align-items: center; */
     display: block;
     font-size: larger;
     margin-left: 24%;
 }
-.userAbout{
-    /* background-color: yellow; */
+
+.userAbout {
     height: 8vw;
 }
-.userAbout1{
+
+.userAbout1 {
     font-size: 0.7rem;
     color: #CF6363;
     font-weight: 800;
     opacity: 0.9;
 }
-#photo{
+
+#photo {
     display: none;
 }
-.userProfileDivNew{
+
+.userProfileDivNew {
     margin-top: -18%;
     left: 42%;
 }
-.userProfileDivNew1{
+
+.userProfileDivNew1 {
     margin-top: -19%;
     left: 156%;
 }
-.userProfileDivNew2{
+
+.userProfileDivNew2 {
     margin-top: -19%;
     left: 288%;
 }
-.forButtonAlign{
+
+.forButtonAlign {
     float: left;
     left: 34%;
     top: 30%;
 }
 
-
-
-
-@media (min-width:481px) and (max-width:780px){
-    
-    .forProfileDiv{
+@media (min-width:481px) and (max-width:780px) {
+    .forProfileDiv {
         margin-left: 60%;
     }
 
-
     /* user Div css */
-  .userProfileDiv1{
-    margin-top: -13%;
-    left: 3%;
-  }
-  .userProfileDiv2{
-    left: 123%;
-    margin-top: -14%;
-  }
-  .userProfileDiv3{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv4{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv5{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv6{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv7{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv8{
-    right: 41%;
-    margin-top: -15%;
-  }
-  .userProfileDiv9{
-    right: 41%;
-    margin-top: -15%;
-}
-.userProfileDiv10{
-    right: 41%;
-    margin-top: -15%;
-}
-.userProfileDiv11{
-    right: 41%;
-    margin-top: -15%;
-}
-.userProfileDiv12{
-    margin-top: 123%;
-    left: 125%;
-}
-.userProfileDiv13{
-    margin-top: -15%;
-}
-.userProfileDiv14{
-    margin-top: -15%;
-}
-.userProfileDiv15{
-    margin-top: -15%;
-}
-.userProfileDiv16{
-    margin-top: -15%;
-}
-.userProfileDiv17{
-    margin-top: -15%;
-}
-.userProfileDiv18{
-    margin-top: -2%;
-}
+    .userProfileDiv1 {
+        margin-top: -13%;
+        left: 3%;
+    }
+
+    .userProfileDiv2 {
+        left: 123%;
+        margin-top: -14%;
+    }
+
+    .userProfileDiv3 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv4 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv5 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv6 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv7 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv8 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv9 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv10 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv11 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv12 {
+        margin-top: 123%;
+        left: 125%;
+    }
+
+    .userProfileDiv13 {
+        margin-top: -15%;
+    }
+
+    .userProfileDiv14 {
+        margin-top: -15%;
+    }
+
+    .userProfileDiv15 {
+        margin-top: -15%;
+    }
+
+    .userProfileDiv16 {
+        margin-top: -15%;
+    }
+
+    .userProfileDiv17 {
+        margin-top: -15%;
+    }
+
+    .userProfileDiv18 {
+        margin-top: -2%;
+    }
 
 }
+
 /* @media (min-width:780px) and (max-width:1197px){
     .forProfileDiv{
         margin-left: 67%;
@@ -558,101 +610,121 @@ agm-map {
         margin-left: 60%;
     }
 } */
-@media (min-width:781px) and (max-width:821px){
-    .forProfileDiv{
+@media (min-width:781px) and (max-width:821px) {
+    .forProfileDiv {
         margin-left: 66%;
         width: 216px;
     }
 
-    .userProfileDiv2{
+    .userProfileDiv2 {
         left: 123%;
         margin-top: -14%;
-      }
-      .userProfileDiv3{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv4{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv5{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv6{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv7{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv8{
-        right: 41%;
-        margin-top: -15%;
-      }
-      .userProfileDiv9{
+    }
+
+    .userProfileDiv3 {
         right: 41%;
         margin-top: -15%;
     }
-    .userProfileDiv10{
+
+    .userProfileDiv4 {
         right: 41%;
         margin-top: -15%;
     }
-    .userProfileDiv11{
+
+    .userProfileDiv5 {
         right: 41%;
         margin-top: -15%;
     }
-    .userProfileDiv12{
+
+    .userProfileDiv6 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv7 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv8 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv9 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv10 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv11 {
+        right: 41%;
+        margin-top: -15%;
+    }
+
+    .userProfileDiv12 {
         margin-top: 123%;
         left: 125%;
     }
-    .userProfileDiv13{
+
+    .userProfileDiv13 {
         margin-top: -15%;
     }
-    .userProfileDiv14{
+
+    .userProfileDiv14 {
         margin-top: -15%;
     }
 
 }
-@media (min-width:1398px) and (max-width:1520px){
-    .forProfileDiv{
+
+@media (min-width:1398px) and (max-width:1520px) {
+    .forProfileDiv {
         margin-left: 76%;
     }
 }
-@media (min-width:1520px)and (max-width:1820px){
-    .forProfileDiv{
+
+@media (min-width:1520px)and (max-width:1820px) {
+    .forProfileDiv {
         margin-left: 70%;
     }
 }
-@media (min-width:1820px)and (max-width:2048px){
-    .forProfileDiv{
+
+@media (min-width:1820px)and (max-width:2048px) {
+    .forProfileDiv {
         margin-left: 60%;
     }
 }
-@media (min-width:2049px)and (max-width:2560px){
-    .forProfileDiv{
+
+@media (min-width:2049px)and (max-width:2560px) {
+    .forProfileDiv {
         margin-left: 57%;
     }
 }
-@media (min-width:2560px)and (max-width:2732px){
-    .forProfileDiv{
+
+@media (min-width:2560px)and (max-width:2732px) {
+    .forProfileDiv {
         margin-left: 45%;
     }
 }
-@media (min-width:2732px)and (max-width:3098px){
-    .forProfileDiv{
+
+@media (min-width:2732px)and (max-width:3098px) {
+    .forProfileDiv {
         margin-left: 42%;
     }
 }
-@media (min-width:4000px){
-    .forProfileDiv{
+
+@media (min-width:4000px) {
+    .forProfileDiv {
         margin-left: 28%;
     }
 }
-@media (min-width:5464px){
-    .forProfileDiv{
+
+@media (min-width:5464px) {
+    .forProfileDiv {
         margin-left: 21%;
     }
 }

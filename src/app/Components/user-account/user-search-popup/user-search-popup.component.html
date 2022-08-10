@@ -2,36 +2,24 @@
     <div>
         <span style="font-size: 0.9rem; color:gray">Invite People</span>
         <form #heroForm="ngForm">
-        <span class="inviteInput input-group">
-            <input type="text" (keyup)="searchInviteUser($event)" class="form-control shadow bg-body rounded" name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
-            <!-- (keyup)="searchInviteUser($event)" -->
-            <!-- <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2" (click)="searchInviteUser(heroForm)"><img src="../../../../assets/StaticAssets/Home page/search-1.png" alt=""></span>
-              </div> -->
-        </span>
-    </form>
+            <span class="inviteInput input-group">
+                <input type="text" (keyup)="searchInviteUser($event)" class="form-control shadow bg-body rounded"
+                    name="searchUser" ngModel aria-describedby="basic-addon2" placeholder="Search User">
+            </span>
+        </form>
     </div>
     <div style="margin-top: 10%; margin-left: 10%;" class="vertical-menu" *ngIf="isDisplayBelowDiv">
-      <div class="row mt-4" *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
-        <div class="col-8">
-            <span class="userDataPointer" (click)="goToUserDetailPage(data.id)">{{data.name}}</span>
+        <div class="row mt-4"
+            *ngFor="let data of inviteList | paginate: { itemsPerPage: 20, currentPage: page, totalItems:totalLength }">
+            <div class="col-8">
+                <span class="userDataPointer" (click)="goToUserDetailPage(data.id)">{{data.name}}</span>
+            </div>
+            <hr style="margin: 0px; padding:0px; width: 400px; text-align: center;">
         </div>
-        <!-- <div class="col-4">
-            <button class="btn btn-success" (click)="inviteUser(data.email)">Invite</button>
-        </div> -->
-        <hr style="margin: 0px; padding:0px; width: 400px; text-align: center;">
-      </div>
     </div>
-    <pagination-controls *ngIf="paginationHide" class="text-center paginationText" (pageChange)="page = $event"></pagination-controls>
+    <pagination-controls *ngIf="paginationHide" class="text-center paginationText" (pageChange)="page = $event">
+    </pagination-controls>
     <div>
         <button class="btn btn closeBtn" [mat-dialog-close]=true>Cancel</button>
     </div>
 </div>
-
-
-
-
-
-<!-- <div *ngFor="let data of inviteList">
-    <p>{{data.firstname}}</p>
-</div> -->

@@ -7,15 +7,12 @@ import { LoginService } from 'src/services/login.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-edit-popup.component';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-
   p = this.loginservice.loginSaveData;
   isvalid: boolean = false;
   respo: any;
@@ -44,58 +41,28 @@ export class NavbarComponent implements OnInit {
     public router: Router,
     private spiner: NgxSpinnerService,
     public profileService: UserProfileService,
-
-
   ) { }
 
-  ngAfterViewInit(): void {
-    // this.clickDiv();
-  }
-
   ngOnInit(): void {
-    // this.p=this.loginservice.loginSaveData;
-    // this.p=this.loginservice.loginSaveData
-    // var username=this.loginservice.loginSaveData.user
-    
     this.getData();
     this.editData();
     this.buttonLanguage(this.editservice.numLabel);
-
-
-    // this.userColor();
-
   }
-  //  otherPage:boolean =false;
-  //  userColor(){
-  //    if(!this.router.navigate(['/home'])){
-  //     this.otherPage = true;
-  //    }
-  //  }
 
   getData() {
-    
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
-
     if (loginAfterRefresh) {
-      
       if (loginAfterRefresh.user[0].is_admin == 1) {
         this.loginservice.isVisible = true;
       }
-      // this.loginservice.isVisible = loginAfterRefresh.user[0].is_admin == 1;
       this.loginData = loginAfterRefresh.user[0].firstname;
-      // this.loginservice.loginSaveData = this.loginData;
-
       this.loginservice.loginAllData = loginAfterRefresh.user[0];
       this.loginservice.islogin = true;
       this.myProfileData();
-
     } else {
-      // this.router.navigate(['/login']);
       this.condition = true;
-      // this.snackBar("Please check Email and password", "alert-danger");
     }
-
 
     if (loginAfterRefresh == null) {
       this.loginservice.isUser = false;
@@ -106,21 +73,15 @@ export class NavbarComponent implements OnInit {
         this.loginservice.isUser = true;
 
       }
-
-
   }
 
   myProfileData() {
-    
-    // this.spiner.show();
     var ProfileId = { "user_id": this.loginservice.loginAllData.id }
     this.profileService.myProfileDetails(ProfileId).subscribe((data: any) => {
       this.firstname = data.user_data[0].firstname;
       this.loginservice.loginSaveData = this.firstname;
-      console.log(data);
     });
   }
-
   //  For logout
   userLogout() {
     this.spiner.show();
@@ -135,26 +96,8 @@ export class NavbarComponent implements OnInit {
     }, 1);
   }
 
-  // clickDiv(){
-  //   
-  //   var test = document.getElementById("navDiv");
-  //     if (test != null && this.loginservice.divPosition == true) {
-  //       test.style.position = 'fixed';
-  //     }else{
-  //       test.style.position = '';
-  //     }
-
-  // }
 
   openDialogue(num): void {
-    // const dialogRef = this.dialog.open(AdminEditPopupComponent);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
-    // if(this.isvalid == true){
-    //   this.respo;
-    // }
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -192,7 +135,6 @@ export class NavbarComponent implements OnInit {
       this.showNewDiv = 12;
       this.isvalid = true;
     }
-
   }
 
   buttonLanguage(num) {
@@ -213,7 +155,6 @@ export class NavbarComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[29];
       this.respo2 = this.respo[30];
@@ -227,21 +168,8 @@ export class NavbarComponent implements OnInit {
       this.respo10 = this.respo[247];
       this.respo11 = this.respo[248];
       this.respo12 = this.respo[259];
-
-
-
-
     });
   }
-
-  // loginServiceData(){
-  //   if(this.loginservice.loginSaveData==undefined){
-  //     this.isVisible=false;
-  //   }else{
-  //     this.isVisible=true;
-  //   }
-  // }
-
 
   postEditData(editDataNew: any) {
     var formdata = new FormData();
@@ -249,12 +177,8 @@ export class NavbarComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+      
     })
   }
-
 }
-
-

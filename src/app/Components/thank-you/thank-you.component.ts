@@ -34,12 +34,10 @@ export class ThankYouComponent implements OnInit {
     public service: CreateMemorialService,
     public editservice: AdminEditService,
     public loginservice: LoginService,
-
   ) {
     this.loginservice.otherPage = false;
     this.loginservice.isFooterLogin = true;
     this.loginservice.logoDisplay = true;
-
   }
 
   ngAfterViewInit() {
@@ -50,7 +48,6 @@ export class ThankYouComponent implements OnInit {
 
   ngOnInit(): void {
     this.editData();
-
   }
 
   clickDiv() {
@@ -58,13 +55,9 @@ export class ThankYouComponent implements OnInit {
     if (test != null) {
       test.style.position = 'absolute';
     }
-
   }
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -113,7 +106,7 @@ export class ThankYouComponent implements OnInit {
     } else if (num == 16) {
       this.showNewDiv = 16;
       this.isvalid = true;
-    }else if (num == 17) {
+    } else if (num == 17) {
       this.showNewDiv = 17;
       this.isvalid = true;
     }
@@ -125,7 +118,6 @@ export class ThankYouComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
       this.respo1 = this.respo[176];
       this.respo2 = this.respo[177];
@@ -153,9 +145,8 @@ export class ThankYouComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
 

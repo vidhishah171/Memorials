@@ -1,25 +1,28 @@
-.inviteInput{
+.inviteInput {
     float: right;
 }
+
 .vertical-menu {
-    /* width: 200%;
-    height: 150px; */
     overflow-x: hidden;
-  }
-.paginationText{
+}
+
+.paginationText {
     font-size: 0.8rem;
     padding-top: 8%;
 }
-.userDataPointer{
+
+.userDataPointer {
     cursor: pointer;
 }
+
 .paginationText /deep/ .ngx-pagination .current {
     background: #CF6363;
-  }
-.closeBtn{
+}
+
+.closeBtn {
     background-color: #CF6363;
     float: right;
     margin-top: 3%;
     cursor: pointer;
     color: white;
-}  
+}

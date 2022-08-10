@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-// import * as fabric from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
@@ -35,7 +34,6 @@ export class VisitorCanvasNewComponent implements OnInit {
   backgroundImages = [];
   canvas: fabric.Canvas;
   canvas1: fabric.Canvas;
-  // canvas:any;
   showMenuItems: Number = 1;
   showSubMenItem: Number = 1;
   ctx: any;
@@ -46,18 +44,13 @@ export class VisitorCanvasNewComponent implements OnInit {
   canvasImg: any;
   canvasURL: any;
   imgUrl: any;
-  // video1: any;
   public fill = '#000000';
-
   public selected: any;
-
   removeId: any;
-
   showTambstone: boolean = true;
   imagespath = [];
   caroucelCount: number = 1;
   imagesForCaroucel = [];
-
   changeStyle: string;
   cornerSize: any;
   fontWeight: any;
@@ -101,9 +94,6 @@ export class VisitorCanvasNewComponent implements OnInit {
   respo19: any;
   respo20: any;
 
-
-
-
   constructor(
     public service: CreateMemorialService,
     private _sanitizer: DomSanitizer,
@@ -116,30 +106,14 @@ export class VisitorCanvasNewComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public snack: MatSnackBar,
     private router: Router,
-
-
-
-
-
   ) { this.loginservice.otherPage = true; }
 
-
-  // ngOnDestroy() {
-  //   const image = new Image();
-  //   image.crossOrigin = "anonymous";
-  //   image.src = this.canvas.toDataURL({ format: 'png' });
-  //   this.service.saveCanvas = image.src;
-  // }
   ngAfterViewInit() {
-    // this.showSecMenu(1);
     this.showSubMenuItems(1);
   }
 
-
-
   ngOnInit(): void {
-this.displayVitaText();
-
+    this.displayVitaText();
     this.getCanddleImages();
     this.getURNSImages();
     this.getFlowerImages();
@@ -147,82 +121,54 @@ this.displayVitaText();
     this.canvasadd();
     this.loadCanvasFromJSON();
     this.getTambImage();
-    // this.addText1();
     this.editData();
-
     this.getData();
-
     this.postGrabId();
     this.showSecMenu(1);
-
   }
-
   public textString: string;
   public textString1: string;
-
-
-  // public selected: any;
-
-
   coloro: any = 'tomato';
   name45: any;
   DOB1: any;
   DOD1: any;
-
-
-  changeComponent : boolean= false;
-  changeCanvas(){
+  changeComponent: boolean = false;
+  changeCanvas() {
     this.changeComponent = true;
-    // this.postGrabId();
   }
-
-
   // For refresh user
-
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
     this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
     this.getUserMemorial();
   }
-
   // Get user Memorials for refresh user
   getUserMemorial() {
     var data = { "user_id": this.loginservice.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
-        // this.recentService.userGrabIdData = userRes["User Memorials"][0].grab_id;
-
         this.displayVitaText();
         this.postGrabId();
-        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
   }
 
 
   // For display vita text
   displayVitaText() {
-    // this.spiner.show();
     var fetchData = { "grab_id": this.recentService.userGrabIdData2 }
     this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
-      console.log(response);
       if (response?.details?.vita_html !== "undefined") {
         this.vitaData = response?.details?.vita_html;
-        // this.spiner.hide();
       } else if (response?.details?.vita_html == "undefined") {
         this.vitaData = '';
       }
     })
   }
 
-  
-
   // Open vita text input
-
   openUser(num): void {
-
     if (num == 100) {
       this.showNewDiv = 100;
       this.isvalid = true;
@@ -234,17 +180,9 @@ this.displayVitaText();
   }
 
   userVitaData(data) {
-    console.log(data.value);
     this.spiner.show();
     var vitaData = { "grab_id": this.recentService.userGrabIdData2, "vita_html": data.value.vita_html };
-
-    // const formData3 = new FormData();
-
-    //     formData3.append('grab_id', this.profileService.userDetail);
-    //     formData3.append('vita_html', data.value.vita_html);
-
     this.editCanvas.vitaUpload(vitaData).subscribe((response: any) => {
-      console.log(response);
       this.spiner.hide();
       this.displayVitaText();
     });
@@ -260,65 +198,37 @@ this.displayVitaText();
       fontFamily: 'helvetica',
       angle: 0,
       scaleX: 0.4,
-      // fill:this.coloro,
       scaleY: 0.4,
       fontWeight: 'bold',
       hasRotatingPoint: true,
     });
-
     this.canvas.add(text);
   }
 
 
   canvasadd() {
     this.canvas = new fabric.Canvas('Mycanvas');
-
-
     this.removeSelected1();
     fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
-      // this.service.selectedMainImg || this.service.selectedMain
       this.canvas.add(newImg);
       newImg.toCanvasElement;
       newImg.top = 150;
       newImg.left = 135;
-
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
-
-      // this.removeSelected1();
-
-
       this.extend(newImg, this.ImgRandomId);
-
-      // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-      // this.canvas.setActiveObject(newImg);
     });
     this.canvas.renderAll();
-
-
     this.canvas.on('object:moving', function (e) {
       movingRotatingWithinBounds(e);
     });
-
     this.canvas.on('object:scaling', function (e) {
       scalling(e);
     })
-
-
-
-
-
-
-
     //Delete object
-
-
     var Obj = new fabric.Control({
-
       render: this.renderIcon,
       x: 0.5,
       y: -0.5,
@@ -339,15 +249,11 @@ this.displayVitaText();
     canvas.remove(target);
     canvas.requestRenderAll();
     return true;
-
   }
   renderIcon(ctx, left, top, styleOverride, fabricObject): boolean {
-    // var deleteIcon="../../../../assets/StaticAssets/trash 3.svg";
     var deleteIcon = "../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
     var img = document.createElement('img');
     img.src = deleteIcon;
-
-
     var size = 20;
     ctx.translate(left, top);
     ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
@@ -360,32 +266,21 @@ this.displayVitaText();
 
   saveCanvasToJSON() {
     const json = JSON.stringify(this.canvas);
-    // localStorage.setItem('Kanvas',json);
-    // console.log(json);
     this.service.saveCanvas1 = json;
   }
 
   loadCanvasFromJSON() {
-    // const CANVAS=localStorage.getItem('Kanvas');
     const CANVAS = this.service.saveCanvas1;
-
-    // and load everything from the same json
     this.canvas.loadFromJSON(CANVAS, () => {
-
-      // making sure to render canvas at the end
       this.canvas.renderAll();
     })
   }
 
-
-
   removeSelected() {
     const activeObject = this.canvas.getActiveObject();
     const activeGroup = this.canvas.getActiveObjects();
-
     if (activeObject) {
       this.canvas.remove(activeObject);
-      // this.textString = '';
     } else if (activeGroup) {
       this.canvas.discardActiveObject();
       const self = this;
@@ -397,59 +292,29 @@ this.displayVitaText();
 
   removeSelected1() {
     var activeObject = this.canvas.getObjects();
-
-    // alert("created random id is:-"+this.service.ImgRandomId);
-
     activeObject.forEach(element => {
       if (element.toObject().id == this.ImgRandomId) {
         this.canvas.remove(element);
-        // alert("remove id:-"+this.service.ImgRandomId);
       }
     });
-
   }
-
-
-
-
 
   //------------------------------
   DropImageToCan(dragImage: any) {
-
     this.addImageToCanvas(dragImage);
   }
   addImageToCanvas(decImages: any) {
-
-
-    // let self = this;
-    // fabric.util.requestAnimFrame(function render() {
-    //   self.canvas.renderAll();
-    //   fabric.util.requestAnimFrame(render);
-    // });
-
-
     fabric.Image.fromURL(decImages.path, (newImg) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
-
       this.canvas.add(newImg);
       let self = this;
-
       newImg.toCanvasElement;
       newImg.originX = 'center';
       newImg.originY = 'center';
       newImg.hasControls = true;
       newImg.bringToFront();
-      // newImg.scaleToHeight(300);
-      // newImg.scaleToWidth(300);
       this.canvas.setActiveObject(newImg);
-
-
     },
       {
-        // left: 180,
-        // top: 280
-
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
       })
@@ -457,25 +322,17 @@ this.displayVitaText();
 
   addImageToCanvas1(decImages1: any) {
     this.removeSelected1();
-
     fabric.Image.fromURL(decImages1.path, (newImg1) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
       this.canvas.add(newImg1);
       newImg1.toCanvasElement;
       newImg1.originX = 'center';
       newImg1.originY = 'center';
       newImg1.hasControls = true;
-      //  newImg1.bringToFront();
       newImg1.scaleToHeight(300);
       newImg1.scaleToWidth(300);
       newImg1.sendToBack();
-
-      //  this.removeSelected1();
       this.ImgRandomId = this.randomId();
-
       this.extend(newImg1, this.ImgRandomId);
-
     },
       {
         left: 280,
@@ -506,7 +363,6 @@ this.displayVitaText();
     } else if (num == 4) {
       this.showMenuItems = 4;
     }
-
   }
 
   urnSM1: boolean;
@@ -519,7 +375,6 @@ this.displayVitaText();
   flowerSM2: boolean;
   incriptionSM1: boolean;
   incriptionSM2: boolean;
-
 
   showSubMenuItems(num) {
     if (num == 1) {
@@ -534,7 +389,6 @@ this.displayVitaText();
       this.flowerSM2 = false;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 2) {
       this.showSubMenItem = 2;
       this.candleSM1 = true;
@@ -547,7 +401,6 @@ this.displayVitaText();
       this.flowerSM2 = false;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 3) {
       this.showSubMenItem = 3;
       this.candleSM1 = true;
@@ -560,7 +413,6 @@ this.displayVitaText();
       this.flowerSM2 = true;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 4) {
       this.showSubMenItem = 4;
       this.candleSM1 = true;
@@ -573,7 +425,6 @@ this.displayVitaText();
       this.flowerSM2 = false;
       this.incriptionSM1 = false;
       this.incriptionSM2 = true;
-
     } else if (num == 5) {
       this.showSubMenItem = 5;
       this.candleSM1 = true;
@@ -587,7 +438,6 @@ this.displayVitaText();
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
       this.showCentric1(1);
-
     }
   }
 
@@ -595,16 +445,11 @@ this.displayVitaText();
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData("decImage", event.target.getAttribute("src"));
     return true;
-
   };
 
   addText() {
     if (this.textString) {
-      // this.canvas1=new fabric.Canvas("Mycanvas");
-      // this.context=this.canvas.getContext();
       const text = new fabric.IText(this.textString, {
-        // left: 100,
-        // top: 20,
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
         fontFamily: 'helvetica',
@@ -614,25 +459,13 @@ this.displayVitaText();
         scaleY: 0.4,
         fontWeight: '',
         hasRotatingPoint: true,
-        // textAlign:this.textAlign,
       });
-
-      // this.context.textAlign='center';
-
-
-
       this.extend(text, this.randomId());
       this.canvas.add(text);
       this.selectItemAfterAdded(text);
       this.textString = '';
-
-
-
-
     }
-
   }
-
 
   extend(obj, id) {
     obj.toObject = ((toObject) => {
@@ -675,11 +508,9 @@ this.displayVitaText();
     this.setActiveProp('textAlign', this.textAlign);
   }
 
-
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
     if (!object) { return ''; }
-
     return object[name] || '';
   }
 
@@ -690,36 +521,13 @@ this.displayVitaText();
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-  // setTextDecoration(value) {
-  //   let iclass = this.TextDecoration;
-  //   if (iclass.includes(value)) {
-  //     iclass = iclass.replace(RegExp(value, 'g'), '');
-  //   // } else {
-  //     iclass += ` ${value}`;
-  //   }
-  //   this.TextDecoration = iclass;
-  //   this.setActiveStyle('textDecoration', this.TextDecoration, null);
-  // }
-  // hasTextDecoration(value) {
-  //   return this.TextDecoration.includes(value);
-  // }
-
   //Code for add color picker
-
-
-
-
   getFill() {
     this.fill = this.getActiveStyle('fill', null);
   }
   setFill() {
     this.setActiveStyle('fill', this.fill, null);
   }
-
 
   getActiveStyle(styleName, object) {
     object = object || this.canvas.getActiveObject();
@@ -789,16 +597,7 @@ this.displayVitaText();
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-
-
-
   setBackgImage(backImage: any) {
-    // this.canvas.setBackgroundImage(backImage.path, this.canvas.renderAll.bind(this.canvas));
-
     fabric.Image.fromURL(backImage.path, (img) => {
       img.set({
         scaleX: this.canvas.width / img.width,
@@ -808,12 +607,6 @@ this.displayVitaText();
     });
     this.canvas.renderAll();
   }
-
-
-  //---------------------
-
-
-
 
   getCanddleImages() {
     this.service.getCanddleImages(2)
@@ -827,7 +620,6 @@ this.displayVitaText();
         },
         error => {
           console.log(error);
-
         }
       )
   }
@@ -855,9 +647,7 @@ this.displayVitaText();
         },
         error => {
           console.log(error);
-
-        }
-      )
+        })
   }
 
   getFlowerImages() {
@@ -867,16 +657,12 @@ this.displayVitaText();
           this.flowerImages = flowerImages.images;
           if (this.flowerCaroucelCount == 1) {
             this.newFlowerImages = this.flowerImages.slice(0, 10);
-
           }
         },
         (error: any) => {
           console.log(error);
-
-        }
-      )
+        })
   }
-
   //show tombstone
   showCentric1(point) {
     this.tomb = document.getElementById("tomb");
@@ -912,14 +698,12 @@ this.displayVitaText();
         },
         err => {
           console.log(err);
-
         }
       )
   }
 
   nextCarousel() {
     this.caroucelCount++;
-
     if (this.caroucelCount == 2) {
       this.imagesForCaroucel = this.imagespath.slice(7, 13);
     }
@@ -939,7 +723,6 @@ this.displayVitaText();
 
   prevCarousel() {
     this.caroucelCount = this.caroucelCount - 1;
-
     if (this.caroucelCount == 2) {
       this.imagesForCaroucel = this.imagespath.slice(7, 13);
     }
@@ -955,138 +738,91 @@ this.displayVitaText();
     if (this.caroucelCount == 1 || null) {
       this.imagesForCaroucel = this.imagespath.slice(0, 6);
     }
-
   }
-
-
 
   nextFlowers() {
     this.flowerCaroucelCount++;
-
     if (this.flowerCaroucelCount == 1) {
       this.newFlowerImages = this.flowerImages.slice(0, 7);
-
     }
 
     if (this.flowerCaroucelCount == 2) {
       this.newFlowerImages = this.flowerImages.slice(7, 14);
-
     }
     if (this.flowerCaroucelCount == 3) {
       this.newFlowerImages = this.flowerImages.slice(14, 21);
-
     }
     if (this.flowerCaroucelCount == 4) {
       this.newFlowerImages = this.flowerImages.slice(21, 28);
-
     }
     if (this.flowerCaroucelCount == 5) {
       this.newFlowerImages = this.flowerImages.slice(28, 35);
-
     }
     if (this.flowerCaroucelCount == 6) {
       this.newFlowerImages = this.flowerImages.slice(35, 42);
-
     }
     if (this.flowerCaroucelCount == 7) {
       this.newFlowerImages = this.flowerImages.slice(42, 49);
-
     }
     if (this.flowerCaroucelCount == 8) {
       this.newFlowerImages = this.flowerImages.slice(49, 56);
-
     }
     if (this.flowerCaroucelCount == 8) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
-
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(63, 70);
-
     }
     if (this.flowerCaroucelCount == 10) {
       this.newFlowerImages = this.flowerImages.slice(70, 77);
-
     }
     if (this.flowerCaroucelCount == 11) {
       this.newFlowerImages = this.flowerImages.slice(77, 84);
-
     }
     if (this.flowerCaroucelCount >= 12) {
       this.newFlowerImages = this.flowerImages.slice(84, 91);
-
     }
-
   }
-
 
   prevFlower() {
     this.flowerCaroucelCount--;
     if (this.flowerCaroucelCount == 1) {
       this.newFlowerImages = this.flowerImages.slice(0, 10);
-
     }
     if (this.flowerCaroucelCount == 2) {
       this.newFlowerImages = this.flowerImages.slice(7, 14);
-
     }
     if (this.flowerCaroucelCount == 3) {
       this.newFlowerImages = this.flowerImages.slice(14, 21);
-
     }
     if (this.flowerCaroucelCount == 4) {
       this.newFlowerImages = this.flowerImages.slice(21, 28);
-
     }
     if (this.flowerCaroucelCount == 5) {
       this.newFlowerImages = this.flowerImages.slice(28, 35);
-
     }
     if (this.flowerCaroucelCount == 6) {
       this.newFlowerImages = this.flowerImages.slice(35, 42);
-
     }
     if (this.flowerCaroucelCount == 7) {
       this.newFlowerImages = this.flowerImages.slice(42, 49);
-
     }
     if (this.flowerCaroucelCount == 8) {
       this.newFlowerImages = this.flowerImages.slice(49, 56);
-
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
-
     }
     if (this.flowerCaroucelCount == 10) {
       this.newFlowerImages = this.flowerImages.slice(63, 70);
-
     }
     if (this.flowerCaroucelCount == 11) {
       this.newFlowerImages = this.flowerImages.slice(70, 77);
-
     }
     if (this.flowerCaroucelCount == 12) {
       this.newFlowerImages = this.flowerImages.slice(77, 84);
-
     }
   }
-
-  // addVita(redata:any){
-  // console.log(redata);
-  //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
-
-  //   })
-  // }
-
-
-
   getbackgImages() {
     this.service.getBackgImages(4)
       .subscribe(
@@ -1095,19 +831,14 @@ this.displayVitaText();
           if (this.caroucelCount == 1) {
             this.imgBack = this.backgroundImages.slice(0, 6);
           }
-
         },
         error => {
           console.log(error);
-
-
-        }
-      )
+        })
   }
 
   nextCarousel1() {
     this.caroucelCount++;
-
     if (this.caroucelCount == 2) {
       this.imgBack = this.backgroundImages.slice(7, 13);
     }
@@ -1120,7 +851,6 @@ this.displayVitaText();
 
   prevCarousel1() {
     this.caroucelCount = this.caroucelCount - 1;
-
     if (this.caroucelCount == 2) {
       this.imgBack = this.backgroundImages.slice(7, 13);
     }
@@ -1133,123 +863,48 @@ this.displayVitaText();
     if (this.caroucelCount == 1 || null) {
       this.imgBack = this.backgroundImages.slice(0, 6);
     }
-
   }
-
 
   play() {
     var $this = this; //cache
     (function loop() {
       if (!$this.paused && !$this.ended) {
-        // ctx.drawImage($this, 0, 0);
         setTimeout(loop, 1000 / 30); // drawing at 30fps
       }
     })();
   };
 
-
-
-
   url1 = "";
   onselectFile(e: any) {
-
     if (e.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url1 = event.target.result;
-        // this.service.selectedMain=this.url;
-
         //-------Optional code for displaying videos---------
-
-        // setTimeout(() => {
-
         var canvas = <HTMLCanvasElement>document.getElementById('Mycanvas');
         var ctx = canvas.getContext("2d");
         var video1E1 = <HTMLImageElement>document.getElementById('video1');
-
         var video2 = new fabric.Image(video1E1, {
           left: 200,
           top: 300,
-          // scaleX: this.canvas.width / this.video1.width,
-          // scaleY: this.canvas.height / this.video1.height,
           statefullCache: false,
           originX: 'center',
           originY: 'center',
           objectCaching: false,
           hasControls: true,
-
-
         })
         this.canvas.setActiveObject(video2);
         video2.scaleToHeight(200);
         video2.scaleToWidth(200);
-
         video2.bringToFront();
         this.canvas.add(video2);
-        // video2.getElement().play();
-
-
         fabric.util.requestAnimFrame(function render() {
           this.canvas.renderAll();
-
           fabric.util.requestAnimFrame(render);
         });
-
-
-
-
-
-        // --------------------------------------
-
-        // this.canvas.add(video1)
-        // ctx.drawImage(video1E1 ,5,5,100,30)
-        // this.canvas.renderAll();
-
-
-
-
-
-
-
-        // }, 2);
-
-        // }
-        // }
-
-
-
-        //-----------------------------------------------------
-
-
-        // var c = <HTMLCanvasElement>document.getElementById("Mycanvas");
-        // var ctx = c.getContext("2d");
-        // var v = <HTMLVideoElement>document.getElementById("video1");
-        // var i;
-
-        // var video1 = new fabric.Image(v, {
-        //   left: 20,
-        //   top: 30,
-        //   statefullCache: true,
-        //   originX: 'center',
-        //   originY: 'center',
-        //   objectCaching: false,
-        //   hasControls: true,
-        // })
-
-        // v.addEventListener("play", function () {
-        //   i =
-        //     window.setInterval(function () {
-
-        //       ctx.drawImage(v, 190, 420, 200, 120)
-
-
-        //     }, 20);
-        // }, false);
-
       }
     }
-
   }
 
   url = '';
@@ -1257,7 +912,6 @@ this.displayVitaText();
   onselectFile3(e) {
     this.service.selectedMainImg = "";
     this.changeStyle = null;
-    // if (e.target.files) {
     if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
       this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
     } else if ((!this.ValidateFile(e.target.files[0].name))) {
@@ -1267,21 +921,13 @@ this.displayVitaText();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
-
-
         if (this.url == '') {
           this.hidePerson = true;
         } else {
           this.hidePerson = true;
         }
-        // }
-        // this.service.selectedMainImg = this.url;
-
-
-
         this.removeSelected1();
         fabric.Image.fromURL(this.url, newImg => {
-          // this.service.selectedMainImg || this.service.selectedMain
           this.canvas.add(newImg);
           newImg.toCanvasElement;
           newImg.top = 150;
@@ -1293,21 +939,10 @@ this.displayVitaText();
           newImg.scaleToHeight(250);
           newImg.scaleToWidth(250);
           newImg.sendToBack();
-
-
-          // this.removeSelected1();
-
-
           this.extend(newImg, this.ImgRandomId);
-
-          // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-          // this.canvas.setActiveObject(newImg);
         });
         this.canvas.renderAll();
       }
-
     }
   }
 
@@ -1319,12 +954,7 @@ this.displayVitaText();
     else
       return false;
   }
-
-
-  // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -1370,23 +1000,22 @@ this.displayVitaText();
     } else if (num == 15) {
       this.showNewDiv = 15;
       this.isvalid = true;
-    }else if (num == 16) {
+    } else if (num == 16) {
       this.showNewDiv = 16;
       this.isvalid = true;
-    }else if (num == 17) {
+    } else if (num == 17) {
       this.showNewDiv = 17;
       this.isvalid = true;
-    }else if (num == 18) {
+    } else if (num == 18) {
       this.showNewDiv = 18;
       this.isvalid = true;
-    }else if (num == 19) {
+    } else if (num == 19) {
       this.showNewDiv = 19;
       this.isvalid = true;
-    }else if (num == 20) {
+    } else if (num == 20) {
       this.showNewDiv = 20;
       this.isvalid = true;
     }
-
   }
 
   openDialogue1() {
@@ -1395,9 +1024,7 @@ this.displayVitaText();
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
-      // For step-2 label
       this.respo1 = this.respo[101];
       this.respo2 = this.respo[102];
       this.respo3 = this.respo[103];
@@ -1418,11 +1045,6 @@ this.displayVitaText();
       this.respo18 = this.respo[278];
       this.respo19 = this.respo[277];
       this.respo20 = this.respo[279];
-
-
-
-
-
     });
   }
 
@@ -1432,33 +1054,22 @@ this.displayVitaText();
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
+
     })
   }
 
-
-
-
-
   postGrabId() {
     var jsonData = this.recentService.userGrabIdData2;
-    // this.spiner.show();
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
-
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      console.log(Response);
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
         var jsonData1 = Response.Details[0].canvas_json;
         this.canvas.loadFromJSON(jsonData1, () => {
           // making sure to render canvas at the end
           this.canvas.renderAll();
-          // this.spiner.hide();
-
-          // code for hide previous json
           this.canvas.getObjects().forEach(function (key) {
             key.lockMovementX = true;
             key.lockMovementY = true;
@@ -1466,8 +1077,6 @@ this.displayVitaText();
             key.hasBorders = false;
             key.hasControls = false;
           })
-
-
         })
       }
     })
@@ -1479,27 +1088,12 @@ this.displayVitaText();
     var userId = this.recentService.userUserIdData;
     var grabId = this.recentService.userGrabIdData2;
     var json = JSON.stringify(this.canvas);
-
-    // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
-
-    // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
-    //   console.log(Response);
-    // });
-
-
-    // For preview Image
-
     const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });
     this.service.saveCanvas = image.src;
-
     var test = this.service.saveCanvas;
-
-
-
     const formData = new FormData();
-    
     formData.append('grab_id', grabId);
     formData.append('image', 'Image');
     formData.append('image_type_id', '7');
@@ -1512,19 +1106,15 @@ this.displayVitaText();
     formData.append('canvas_preview_base64', test);
 
     this.service.memCreateImageData(formData).subscribe((result: any) => {
-      console.log(result);
       this.spiner.hide();
       if (result.status == "success") {
         this.snackBar('Your memory has been successfully updated', 'alert-green');
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 2500);
-
       }
     })
-
   }
-
 
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
@@ -1533,19 +1123,12 @@ this.displayVitaText();
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
-
-  
 }
 
 function movingRotatingWithinBounds(e: fabric.IEvent) {
   const obj = e.target;
-  // if object is too big ignore
   if (obj.height == obj.canvas.height || obj.width == obj.canvas.width) {
     return;
   }
@@ -1561,14 +1144,12 @@ function movingRotatingWithinBounds(e: fabric.IEvent) {
     obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
   }
 }
-
 var left1 = 0;
 var top1 = 0;
 var scale1x = 0;
 var scale1y = 0;
 var width1 = 0;
 var height1 = 0;
-
 
 function scalling(e: fabric.IEvent) {
   var obj = e.target;
@@ -1591,9 +1172,4 @@ function scalling(e: fabric.IEvent) {
     width1 = obj.width;
     height1 = obj.height;
   }
-
-
-
-
-
 }

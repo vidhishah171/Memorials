@@ -1,6 +1,5 @@
 <header class="flex flex-col my-auto items-center bgimg bg-cover py-20">
     <app-navbar></app-navbar>
-
     <div class="container">
         <div class="child h-auto" style="margin-bottom: -23px;">
             <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible" style="float: right;"
@@ -10,9 +9,7 @@
                 <p *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
                 <p *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
                 <p *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>
-
             </h3>
-
             <!-- Extra code for div -->
             <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" style="margin-top: 90%; right: 86%;">
@@ -39,12 +36,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
-
-
-
-
         </div>
         <div class="child text-center text-secondary mt-0">
             <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
@@ -53,9 +44,7 @@
             <h1 class="keepingAlive" *ngIf="editservice.numLabel==1"><strong>{{respo2?.en}}</strong></h1>
             <h1 class="keepingAlive" *ngIf="editservice.numLabel==2"><strong>{{respo2?.de}}</strong></h1>
             <h1 class="keepingAlive" *ngIf="editservice.numLabel==3"><strong>{{respo2?.fr}}</strong></h1>
-
         </div>
-
         <!-- Extra code for div -->
         <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" style="margin-top: 60%; left: 9%;">
@@ -81,45 +70,22 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
         <div class="child text-center" id="box3">
             <p>
-                <!-- <button (click)="openDialogue(8)" *ngIf="loginservice.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton5"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button> -->
                 <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                <!-- <small *ngIf="editservice.numLabel==1"><strong style="font-weight: bolder;">{{respo8?.en}}</strong></small> -->
-                <!-- <span>
-                                <strong style="font-weight: bolder;" *ngIf="editservice.numLabel==1">{{respo8?.en}}</strong>
-                            </span> -->
-
                 <span>
                     <small class="headerText" *ngIf="editservice.numLabel==1">{{respo3?.en}}</small>
                 </span>
-                <!-- <span>
-                                <small style="font-weight: bolder;" *ngIf="editservice.numLabel==2">{{respo8?.de}}</small>
-                            </span>
-                            &nbsp; -->
                 <span>
                     <small class="headerText" *ngIf="editservice.numLabel==2">{{respo3?.de}}</small>
                 </span>
-                <!-- <span>
-                                <small style="font-weight: bolder;" *ngIf="editservice.numLabel==3">{{respo8?.fr}}</small>
-                            </span>
-                            &nbsp; -->
                 <span>
                     <small class="headerText" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</small>
                 </span>
             </p>
-            <!-- soulium.com the virtual cemetery. Here, you can create memorable sites for your
-                    loved ones free of charge, which will continue to live in your memory forever. You can also mourn
-                    together with us and exchange with other people -->
-            <!-- <h6>soulium.com the virtual cemetery. Here, you can create memorable sites for your loved ones free of charge, which will continue to live in your memory forever. You can also mourn together with us and  exchange with other people</h6> -->
         </div>
-
         <!-- Extra code for div -->
         <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" id="longTextId">
@@ -170,10 +136,6 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
-
-
         <div class="child" id="box4">
             <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -186,7 +148,6 @@
                 <strong *ngIf="editservice.numLabel==3"><a id="color"
                         routerLink="create-memorial">{{respo4?.fr}}</a></strong>
             </button>
-
             <!-- Extra code for div -->
             <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" style="margin-top: 96%; right: 23%;">
@@ -213,9 +174,6 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
-
-
             <button type="button" class="btn btn-lg ml-2 viewText1">
                 <strong *ngIf="editservice.numLabel==1"><a id="color">{{respo5?.en}}</a></strong>
                 <strong *ngIf="editservice.numLabel==2"><a id="color">{{respo5?.de}}</a></strong>
@@ -224,8 +182,6 @@
             <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-
-
             <!-- Extra code for div -->
             <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" style="left: 25%; margin-top: 98%;">
@@ -253,10 +209,6 @@
                 </div>
             </li>
         </div>
-
-
-
-
     </div>
     <form #myForm1="ngForm">
         <div class="find d-flex justify-content-center">
@@ -277,10 +229,8 @@
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
             </div>
-
         </div>
     </form>
-
     <!-- Extra code for div -->
     <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="headerLabelNew">
@@ -306,55 +256,7 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="flex flex-col my-auto items-center bgimg bg-cover homepage-banner py-20">
-        <div class="w-10/12 md:w-4/12 grid grid-cols-1 md:mt-20 mt-40 text-center">
-            <h5 class="font-medium my-3 md:text-lg text-md">USE FOR FREE 24h/day</h5>
-            <h2 class="text-gray-600 md:text-4xl text-2xl uppercase font-extrabold"><strong>KEEPING MEMORIES ALIVE</strong></h2>
-            <div>
-                <h6 class="font-light text-sm text-black my-4">soulium.com the virtual cemetery. Here, you can create memorable sites for your loved ones free of charge, which will continue to live in your memory forever. You can also mourn together with us and exchange with other people</h6>
-                <div class="flex flex-col my-5">
-                    <div class="grid grid-cols-2">
-                            <a href="/create-memorial"
-                            class="font-bold md:text-md text-sm bg-red-400 text-white px-1 py-2 rounded md:mx-5 mx:2 uppercase">
-                            create memorial
-                            </a>
-                            <a href="/create-memorial"
-                            class="font-bold md:text-md text-sm bg-green-600 text-white px-1 py-2 rounded md:mx-5 mx-2 uppercase">
-                            view an example
-                            </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
 </header>
-
 <br>
 <br>
 <br>
@@ -366,10 +268,7 @@
         <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==1">{{respo6?.en}}</strong>
         <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==2">{{respo6?.de}}</strong>
         <strong class="featuredMemorialFont" *ngIf="editservice.numLabel==3">{{respo6?.fr}}</strong>
-
     </h5>
-
-
     <!-- Extra code for div -->
     <li *ngIf="showNewDiv==6 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="headerLabel1">
@@ -405,9 +304,7 @@
                 </h6>
             </div>
         </div>
-
         <div class="second text-align-center w-100">
-
             <button type="button" class="btn btn-lg mb-5 createBtnNew">
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==1">{{respo7?.en}}</strong>
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==2">{{respo7?.de}}</strong>
@@ -416,8 +313,6 @@
             <button (click)="openDialogue(7)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-
-
             <!-- Extra code for div -->
             <li *ngIf="showNewDiv==7 && isvalid" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv" style="right: 25%; margin-top: 100%;">
@@ -444,15 +339,12 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
         </div>
-
     </div>
 </div>
 <div *ngIf="searchResult" class="searchHgt mb-5 container-fluid">
     <!-- <div style="float: right;"  class="btn btn-outline-danger align-self-end mb-1">X</div> -->
     <div class="row mb-5 searchMemories">
-
         <div class="col-3 filterDiv">
             <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -460,8 +352,6 @@
             <div class="filterText" *ngIf="editservice.numLabel==1">{{respo10?.en}}</div>
             <div class="filterText" *ngIf="editservice.numLabel==2">{{respo10?.de}}</div>
             <div class="filterText" *ngIf="editservice.numLabel==3">{{respo10?.fr}}</div>
-
-
             <div class="pt-4">
                 <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -469,20 +359,11 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo11?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo11?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo11?.fr}}</label>
-
             </div>
             <div class="custom-slider">
                 <ngx-slider [(value)]="value" [(highValue)]="highValue" (userChange)="getEvent($event);"
                     [options]="options"></ngx-slider>
             </div>
-
-
-            <!-- original slider -->
-            <!-- <div class="ageLableSlider">
-                <span style="color: #CF6363;">0</span>&nbsp;
-                <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />&nbsp;
-                <span style="color: #CF6363;">100</span>
-            </div> -->
             <div class="pt-4">
                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -490,7 +371,6 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo12?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo12?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo12?.fr}}</label>
-
             </div>
             <div>
                 <div class="custom-slider">
@@ -505,7 +385,6 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo13?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo13?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo13?.fr}}</label>
-
             </div>
             <div class="datePickerCss">
                 <mat-form-field class="tabWidth">
@@ -524,7 +403,6 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo14?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo14?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo14?.fr}}</label>
-
             </div>
             <div class="datePickerCss">
                 <mat-form-field class="tabWidth">
@@ -543,7 +421,6 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo15?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo15?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo15?.fr}}</label>
-
             </div>
             <div class="inputWidth">
                 <input type="text" *ngIf="editservice.numLabel==1" maxlength="25" [(ngModel)]="userBirthLocation"
@@ -563,7 +440,6 @@
                 <label class="ageLable" *ngIf="editservice.numLabel==1">{{respo16?.en}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==2">{{respo16?.de}}</label>
                 <label class="ageLable" *ngIf="editservice.numLabel==3">{{respo16?.fr}}</label>
-
             </div>
             <div class="inputWidth">
                 <input type="text" *ngIf="editservice.numLabel==1" maxlength="25" [(ngModel)]="userDeathLocation"
@@ -576,14 +452,7 @@
                     (ngModelChange)="getEvent5($event)" class="form-control shadow bg-body rounded"
                     placeholder={{respo16?.fr}} ngModel>
             </div>
-            <!-- 
-            <mat-slider thumbLabel [displayWith]="formatLabel" [(ngModel)]="sliderValue" tickInterval="1000" step="1000" min="0" max="100000"
-                aria-label="units"></mat-slider> -->
-
-
-
         </div>
-
         <!-- Extra code for div -->
         <li *ngIf="showNewDiv==10 && isvalid" style="position: absolute; margin-top: 25px;">
             <div class="forDiv" id="headerSearchLable">
@@ -760,12 +629,6 @@
                 <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
             </div>
         </li>
-
-
-
-
-
-
         <div class="col-9 example-viewport1">
             <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg"
                     src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
@@ -773,7 +636,6 @@
                 <div class="searchImg">
                     <div *cdkVirtualFor="let search of dataSearch2"
                         (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
-                        <!-- {{dataSearch2.length}} -->
                         <div>
                             <img class="searchImg1" [src]="search?.path" alt="">
                         </div>
@@ -797,20 +659,11 @@
                             </span>
                         </div>
                     </div>
-
                 </div>
             </cdk-virtual-scroll-viewport>
         </div>
     </div>
-
-
-
     <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
         <p style="color: white">Please Wait. </p>
     </ngx-spinner>
-
 </div>
-
-
-<!-- 
-<app-navbar></app-navbar> -->

@@ -1,25 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-
-
-
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -28,187 +23,169 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
-
 
 .container {
     position: relative;
     text-align: center;
     color: white;
-    /* background-color: yellow; */
     margin: 2% auto;
-    /* margin-right: 0; */
-  }
-.userText{
+}
+
+.userText {
     padding-left: 4.5%;
     width: 108%;
 }
-  
-  .centered {
+
+.centered {
     position: absolute;
     top: 53%;
     left: 51%;
     transform: translate(-50%, -50%);
     color: #4A4A4B;
-    /* background-color: red; */
     font-size: 1.35rem;
     font-family: 'Satisfy', cursive;
     width: 100%;
-  }
-  .centered1 {
+}
+
+.centered1 {
     position: absolute;
     top: 29%;
     left: 56%;
     transform: translate(-50%, -50%);
     color: #4A4A4B;
-    /* background-color: red; */
     font-size: 1.5rem;
     font-family: 'Satisfy', cursive;
     width: 100%;
-  }
- 
+}
 
-  
+
+
 .bottom-right {
     position: absolute;
     bottom: 11px;
     right: 328px;
     color: grey;
     width: 14%;
-    /* background-color: green; */
     font-family: 'Rubik', sans-serif;
-
-}  
-
-/* .visitors{
-    position: relative;
-    text-align: center;
-    margin-bottom: 2% auto;
-} */
+}
 
 .bottom-left {
     position: absolute;
     bottom: 20px;
     left: 310px;
     color: black;
-    /* background-color: purple; */
-}    
+}
+
 .bottom-right1 {
     position: absolute;
     bottom: 20px;
     right: 320px;
     color: black;
-    /* background-color: green; */
 }
 
-
-#createMemoDivCss15{
+#createMemoDivCss15 {
     margin-top: -47%;
     left: 177%;
 }
-#createMemoDivCss16{
+
+#createMemoDivCss16 {
     margin-top: -31%;
     left: 113%;
 }
-#createMemoDivCss17{
+
+#createMemoDivCss17 {
     left: 49%;
     margin-top: -131%;
 }
-#createMemoDivCss18{
+
+#createMemoDivCss18 {
     left: 111%;
     margin-top: -131%;
 }
-#createMemoDivCss19{
+
+#createMemoDivCss19 {
     left: 166%;
     margin-top: -131%;
 }
 
-
-@media (min-width:481px) and (max-width:979px){
-    /* .centered {
-        font-size: 1rem;
-    } */
-    .bottom-left{
+@media (min-width:481px) and (max-width:979px) {
+    .bottom-left {
         bottom: 25px;
         left: 540px;
         font-size: 1rem;
     }
-    #rect{
+
+    #rect {
         width: 100%;
     }
-    .bottom-right1{
+
+    .bottom-right1 {
         bottom: 25px;
         right: 550px;
         font-size: 1rem;
     }
-    #imageMemorial{
+
+    #imageMemorial {
         font-size: 0.7rem;
-       
     }
-    
 }
 
-@media (min-width:980px) and (max-width:1197px){
-    .nextBtn1{
-         /* padding-top: 500px;  */
+@media (min-width:980px) and (max-width:1197px) {
+    .nextBtn1 {
         padding-top: 900px;
     }
-    /* .centered {
-        font-size: 1rem;
-    } */
-    .bottom-left{
+
+    .bottom-left {
         bottom: 25px;
         left: 480px;
         font-size: 1rem;
     }
-    .bottom-right1{
+
+    .bottom-right1 {
         bottom: 25px;
         right: 480px;
         font-size: 1rem;
     }
 }
 
-@media (min-width:992px) and (max-width:1197px){
-    /* .centered {
-        font-size: 1rem;
-    } */
-    .bottom-left{
+@media (min-width:992px) and (max-width:1197px) {
+    .bottom-left {
         bottom: 25px;
         left: 600px;
         font-size: 1rem;
     }
-    
-    .bottom-right1{
+
+    .bottom-right1 {
         bottom: 25px;
         right: 600px;
         font-size: 1rem;
     }
-    
 }
-@media (min-width:1398px){
-    /* 1398px */
-    /* .centered {
-        font-size: 1rem;
-    } */
-    .fontCenter{
+
+@media (min-width:1398px) {
+    .fontCenter {
         font-size: 1rem;
     }
-    .bottom-left{
+
+    .bottom-left {
         bottom: 25px;
         left: 419px;
         font-size: 1rem;
     }
-    .bottom-right1{
+
+    .bottom-right1 {
         bottom: 25px;
         right: 422px;
         font-size: 1rem;
     }
-    .userText{
+
+    .userText {
         font-size: 1.5rem;
     }
-    
 }

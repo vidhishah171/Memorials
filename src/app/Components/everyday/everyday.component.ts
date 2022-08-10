@@ -31,40 +31,26 @@ export class EverydayComponent implements OnInit {
     .subscribe(
       (evrydayMem:any)=>{
         this.allData = evrydayMem.Commemorate;
-
         this.allData.map(function (item) { return item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "") });
         this.allData.map(function (item) { return item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "") });
-
         this.boxOneData.push(this.allData.pop());      
         this.boxTwoData  = this.allData.splice(0,6);
-
-       
       },
       error=>{
         console.log(error);
-        
       }
     )
   }
-
-
   // For visitor-mode page
   recentMemorialGrabId(data,data1){
-    console.log(data);
-
     if(data){
       this.recentService.userGrabIdData2=data;
       this.recentService.userUserIdData = data1;
-
       this.router.navigate(['/visitor-mode']);
-
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
-
       const jsonDataNew = JSON.stringify(data1)
       localStorage.setItem('myData2', jsonDataNew)
     }
   }
-
-
 }

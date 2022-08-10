@@ -25,15 +25,12 @@ export class RecentComponent implements OnInit {
     public editservice: AdminEditService,
     public loginservice: LoginService,
     private router: Router,
-
   ) { }
-
 
   ngOnInit(): void {
     this.getrecentMemorials();
     this.getPremiumMemorial();
     this.editData();
-
   }
 
   getrecentMemorials() {
@@ -42,39 +39,32 @@ export class RecentComponent implements OnInit {
         (recentMemorial: any) => {
           if (recentMemorial) {
             this.Memorials = recentMemorial.Memorials;
-            for(let item of this.Memorials){
-              item.path= item.path+'?v='+this.service.indexNew++;
+            for (let item of this.Memorials) {
+              item.path = item.path + '?v=' + this.service.indexNew++;
             }
-
             this.Memorials.map(function (item) { return item.fname = item.fname.replace(/[^a-zA-Z-.]/g, "") });
             this.Memorials.map(function (item) { return item.lname = item.lname.replace(/[^a-zA-Z-.]/g, "") });
-
           }
         },
         error => {
           if (error) {
             console.log(error);
           }
-
         }
       )
   }
-
-
   getPremiumMemorial() {
     this.service.getPremiumMemorials()
       .subscribe(
         (premiumMemorials: any) => {
           if (premiumMemorials) {
             this.PremiumMemorials = premiumMemorials.Memorials;
-
             this.PremiumMemorials.map(function (item) { return item.firstname = item.firstname.replace(/[^a-zA-Z-.]/g, "") });
             this.PremiumMemorials.map(function (item) { return item.lastname = item.lastname.replace(/[^a-zA-Z-.]/g, "") });
           }
         },
         error => {
           console.log(error);
-
         }
       )
   }
@@ -97,7 +87,6 @@ export class RecentComponent implements OnInit {
     this.isvalid = false;
   }
 
-
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
       console.log(res);
@@ -105,13 +94,8 @@ export class RecentComponent implements OnInit {
       this.respo1 = this.respo[17];
       this.respo2 = this.respo[18];
       this.respo3 = this.respo[249];
-
-
-
-
     });
   }
-
 
   postEditData(editDataNew: any) {
     var formdata = new FormData();
@@ -119,31 +103,20 @@ export class RecentComponent implements OnInit {
     formdata.append('en', editDataNew.value.en);
     formdata.append('de', editDataNew.value.de);
     formdata.append('fr', editDataNew.value.fr);
-
     this.editservice.editPostData(formdata).subscribe(response => {
       console.log(response);
     })
   }
 
-  // recentMemorialUserId(data1){
-  //   this.service.userUserIdData = data1;
-  //   this.router.navigate(['/visitor-mode']);
-  // }
-
   recentMemorialGrabId(data, data1) {
-    console.log(data);
     if (data) {
       this.service.userGrabIdData2 = data;
       this.service.userUserIdData = data1;
-
       this.router.navigate(['/visitor-mode']);
-
       const jsonData = JSON.stringify(data)
       localStorage.setItem('myData1', jsonData)
-
       const jsonDataNew = JSON.stringify(data1)
       localStorage.setItem('myData2', jsonDataNew)
-
     }
   }
 }

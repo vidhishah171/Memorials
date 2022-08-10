@@ -1,29 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap');
 
-
-*{
+* {
     font-family: 'Rubik', sans-serif;
 }
 
 /* css for labels */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
     color: black;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -32,69 +28,67 @@
     font-size: 1rem;
     background-color: #F8F8F8;
 }
-.platformText{
-    font-weight: 800; 
+
+.platformText {
+    font-weight: 800;
     line-height: 0%;
     font-size: 1rem;
     color: whitesmoke;
-    /* opacity: 0.8; */
 }
-.platformText1{
-    font-weight: 800; 
+
+.platformText1 {
+    font-weight: 800;
     font-size: 1rem;
     color: whitesmoke;
-    /* opacity: 0.8; */
 }
-.platformText2{
+
+.platformText2 {
     font-size: 0.8rem;
     color: whitesmoke;
     opacity: 0.8;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
-#platformCss1{
+
+#platformCss1 {
     left: 45%;
     margin-top: -20%;
 }
-#platformCss2{
+
+#platformCss2 {
     left: 62%;
     margin-top: -24%;
 }
-#platformCss3{
+
+#platformCss3 {
     left: 54%;
     margin-top: -15%;
 }
 
-
-
-
-
-
-
-.platform{
+.platform {
     background-image: url('../../../assets/StaticAssets/Home page/Rectangle 21.png');
-    height:32vw;
+    height: 32vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-.box1{
-    /* font-family: 'Libre Franklin', sans-serif; */
+.box1 {
     height: 100%;
     width: 38%;
-    /* display: flex; */
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
     color: white;
     margin-top: 12%;
 }
-.createBtnPlatform{
+
+.createBtnPlatform {
     background-color: #4CC252;
     color: white;
     font-size: 0.7rem;
@@ -103,17 +97,18 @@
     padding-left: 4%;
     padding-right: 4%;
 }
-.imgBox2{
+
+.imgBox2 {
     margin-top: 10.2%;
     width: 73%;
     margin-left: 8%;
 }
 
-.box1 h5{
+.box1 h5 {
     line-height: 200%;
 }
 
-.box2{
+.box2 {
     background-image: url('https://h2913228.stratoserver.net/images/ipad.png');
     height: 100%;
     width: 50%;
@@ -122,27 +117,25 @@
     background-position-x: right;
 }
 
-
-
-
-@media (max-width:992px){
-
-    #platformCss1{
+@media (max-width:992px) {
+    #platformCss1 {
         left: -8%;
         margin-top: 0%;
     }
-    #platformCss2{
+
+    #platformCss2 {
         left: -7%;
         margin-top: 31%;
     }
-    #platformCss3{
+
+    #platformCss3 {
         left: 53%;
         margin-top: 69%;
     }
-
 }
-@media (min-width:1398px){
-    .imgBox2{
+
+@media (min-width:1398px) {
+    .imgBox2 {
         margin-top: 8.2%;
         width: 73%;
         margin-left: 8%;

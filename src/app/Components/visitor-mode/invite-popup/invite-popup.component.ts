@@ -36,7 +36,6 @@ export class InvitePopupComponent implements OnInit {
   inviteUserList() {
     this.spiner.show();
     this.userProfile.inviteUserListData().subscribe((inviteData: any) => {
-      console.log(inviteData);
       this.inviteList = inviteData.Data;
       this.inviteList1 = inviteData.Data;
       this.totalLength = this.inviteList.length;
@@ -60,7 +59,6 @@ export class InvitePopupComponent implements OnInit {
     })
   }
   inviteUser(userEmail) {
-    debugger
     if(userEmail.form.value.userEmail == "" || userEmail.form.value.userName == "" || userEmail.form.value.userMsg == ""){
       this.snackBar("Please fill all details in the form", "alert-danger");
     }else{
@@ -94,8 +92,6 @@ export class InvitePopupComponent implements OnInit {
   };
 
   searchInviteUser(data) {
-    debugger
-    // var userSearchFirstname = data.form.value.searchUser;
     var userSearchFirstname = data.target.value;
 
     var userSearchFirstname = userSearchFirstname?.toLowerCase();
@@ -122,7 +118,6 @@ export class InvitePopupComponent implements OnInit {
   }
 
   inviteUserOpenForm(emailId) {
-    debugger
     this.inviteUserData = true;
     this.fillEmailId = emailId;
   }

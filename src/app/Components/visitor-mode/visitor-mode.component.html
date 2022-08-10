@@ -3,15 +3,12 @@
     <div>
         <app-navbar></app-navbar>
     </div>
-    <!-- Heading -->
     <div>
         <div class="userHeading">
             <h1>{{lovedPersonData?.fname}}&nbsp;{{lovedPersonData?.lname}}</h1>
-            <!-- <h1>welcome</h1> -->
             <div class="userDate">
                 <span>{{lovedPersonData?.birthdate}}</span>&nbsp;<span>-</span>&nbsp;<span>{{lovedPersonData?.starvedate}}</span>
             </div>
-
             <div class="share" *ngFor="let item of lovedPersonData1">
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt=""
@@ -33,10 +30,6 @@
                         style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
                 </span>
             </div>
-            <!-- 
-            <div class="share1">
-               
-            </div> -->
             <div class="steeper rounded-circle circleImage">
                 <img src="{{userpic}}" alt="">
             </div>
@@ -46,10 +39,8 @@
         <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-
                     <div class="row fullDiv">
                         <div class="col-4">
-
                             <button (click)="openDialogue(1)" style="float: left;" *ngIf="loginservice.isVisible"
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -86,7 +77,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <button class="carousel-control-prev prevButton" type="button"
                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -105,7 +95,6 @@
             </div>
         </div>
     </div>
-
     <li *ngIf="showNewDiv1==1 && isvalid1" style="position: absolute; margin-top: 25px;">
         <div class="forDiv1 visitorDiv1">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
@@ -178,7 +167,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
     <!-- Buttons -->
     <div class="container content2">
         <div>
@@ -341,37 +329,11 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
             <!-- Canvas component -->
             <div class="container pt-5 visitorCanvasCss">
-                <!-- <app-visitor-canvas *ngIf="!changeComponent"></app-visitor-canvas> -->
                 <app-visitor-canvas-new #child></app-visitor-canvas-new>
             </div>
         </div>
-        <!-- <div class="box2">
-            <div class="mt-5">
-                <div class="recentCsndleSectionMain">
-                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg"
-                            src="../../../assets/StaticAssets/Visitor Mode/CandleIcon.png" alt=""> Recent Candles</span>
-                    <span class="recentCsndleSectionShow">Show All <img class="frontImage"
-                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
-                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
-
-                    </div>
-                </div>
-                <div class="recentCsndleSectionMain1">
-                    <span class="recentCsndleSection"><img class="recentCsndleSectionImg1"
-                            src="../../../assets/StaticAssets/Visitor Mode/image_2022_03_30T05_00_23_857Z.png" alt="">
-                        Recent Gifts</span>
-                    <span class="recentCsndleSectionShow1">Show All <img class="frontImage"
-                            src="../../../assets/StaticAssets/Visitor Mode/thick_arrow.png" alt=""></span>
-                    <div style="border: 1px solid black; width: 100%; height: 20vw;">
-
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
     </div>
     <!-- Photo/video gallery -->
     <div class="photoVideoGallaryMargin">
@@ -389,7 +351,6 @@
                         </h6>
                     </span>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
@@ -401,31 +362,26 @@
                             <img [src]="getPhotoVideoImage2" *ngIf="!getPhotoVideoImage2"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage2" *ngIf="getPhotoVideoImage2" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage3" *ngIf="!getPhotoVideoImage3"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage3" *ngIf="getPhotoVideoImage3" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage4" *ngIf="!getPhotoVideoImage4"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage4" *ngIf="getPhotoVideoImage4" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage5" *ngIf="!getPhotoVideoImage5"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage5" *ngIf="getPhotoVideoImage5" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage6" *ngIf="!getPhotoVideoImage6"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
-
                         </span>
                     </div>
                     <div class="col-12">
@@ -433,31 +389,26 @@
                             <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage7" *ngIf="getPhotoVideoImage7" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage8" *ngIf="!getPhotoVideoImage8"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage8" *ngIf="getPhotoVideoImage8" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage9" *ngIf="!getPhotoVideoImage9"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage9" *ngIf="getPhotoVideoImage9" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage10" *ngIf="!getPhotoVideoImage10"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage10" *ngIf="getPhotoVideoImage10" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage11" *ngIf="!getPhotoVideoImage11"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage11" *ngIf="getPhotoVideoImage11" alt="" class="imageButton">
-
                         </span>
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage12" *ngIf="!getPhotoVideoImage12"
@@ -465,9 +416,6 @@
                             <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
                         </span>
                     </div>
-                    <!-- <input id="photo" type="file" accept=".png, .jpeg, .jpg" style="display: none;"> -->
-                    <!-- (change)="onselectFile($event)" -->
-                    <!--  </div> -->
                 </div>
             </div>
         </div>
@@ -506,7 +454,6 @@
                                                     src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
                                                     alt="">
                                             </span>
-
                                             <span
                                                 class="condolenceText">{{item.firstname}}&nbsp;{{item.lastname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}}</span>
                                         </div>
@@ -526,7 +473,6 @@
                                                     *ngIf="showTrashIcon"></span>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -595,8 +541,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
     <li *ngIf="showNewDiv1==8 && isvalid1" style="position: absolute; margin-top: 25px;">
         <div class="forDiv1 visitorDiv8">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
@@ -621,13 +565,10 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
     <!-- Subscribe -->
     <div>
         <div class="container">
             <div class="subscribeImage">
-
                 <div>
                     <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton subscribeAdminButton"><span><img
@@ -635,8 +576,6 @@
                     <p *ngIf="editservice.numLabel==1" class="pt-5 ms-5 subscribeText">{{respo11?.en}}</p>
                     <p *ngIf="editservice.numLabel==2" class="pt-5 ms-5 subscribeText">{{respo11?.de}}</p>
                     <p *ngIf="editservice.numLabel==3" class="pt-5 ms-5 subscribeText">{{respo11?.fr}}</p>
-
-
                 </div>
                 <div style="display: flex;">
                     <span class="ms-5 subInputBox">
@@ -742,8 +681,6 @@
         </div>
     </li>
 
-
-
     <!-- Recent memorials -->
     <div class="recentMemorial mt-5">
         <div class="container">
@@ -754,13 +691,10 @@
                 <h5 *ngIf="editservice.numLabel==1" class="recentHeading pt-5">{{respo14?.en}}</h5>
                 <h5 *ngIf="editservice.numLabel==2" class="recentHeading pt-5">{{respo14?.de}}</h5>
                 <h5 *ngIf="editservice.numLabel==3" class="recentHeading pt-5">{{respo14?.fr}}</h5>
-
             </h4>
             <div class="recentMemo h-100 p-2">
                 <div *ngFor="let memData of Memorials" class="child1">
-                    <!-- <div class="mt-3 mb-2"> -->
                     <img src="{{memData.path}}" class="me-2 rounded recentImage">
-                    <!-- </div> -->
                     <div class="ms-2 mt-3">
                         <h6 class="recentName">
                             {{memData.fname}} {{ memData.lname}}
@@ -799,12 +733,10 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
     <!-- For memorial Image -->
     <div class="mt-5">
         <app-memory-image></app-memory-image>
     </div>
-
     <!-- For footer -->
     <div>
         <app-footer></app-footer>

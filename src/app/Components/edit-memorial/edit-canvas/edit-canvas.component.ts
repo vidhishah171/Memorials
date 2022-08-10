@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-// import * as fabric from 'fabric/fabric-impl';
 import { fabric } from 'fabric';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
@@ -35,7 +34,6 @@ export class EditCanvasComponent implements OnInit {
   backgroundImages = [];
   canvas: fabric.Canvas;
   canvas1: fabric.Canvas;
-  // canvas:any;
   showMenuItems: Number = 1;
   showSubMenItem: Number = 1;
   ctx: any;
@@ -46,7 +44,6 @@ export class EditCanvasComponent implements OnInit {
   canvasImg: any;
   canvasURL: any;
   imgUrl: any;
-  // video1: any;
   public fill = '#000000';
 
   public selected: any;
@@ -96,9 +93,6 @@ export class EditCanvasComponent implements OnInit {
   respo14: any;
   respo15: any;
 
-
-
-
   constructor(
     public service: CreateMemorialService,
     private _sanitizer: DomSanitizer,
@@ -111,26 +105,11 @@ export class EditCanvasComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public snack: MatSnackBar,
     private router: Router,
-
-
-
-
-
   ) { this.loginservice.otherPage = true; }
-
-
-  // ngOnDestroy() {
-  //   const image = new Image();
-  //   image.crossOrigin = "anonymous";
-  //   image.src = this.canvas.toDataURL({ format: 'png' });
-  //   this.service.saveCanvas = image.src;
-  // }
   ngAfterViewInit() {
     this.showSecMenu(1);
     this.showSubMenuItems(1);
   }
-
-
 
   ngOnInit(): void {
     this.getCanddleImages();
@@ -140,30 +119,18 @@ export class EditCanvasComponent implements OnInit {
     this.canvasadd();
     this.loadCanvasFromJSON();
     this.getTambImage();
-    // this.addText1();
     this.editData();
-
     this.getData();
-
     this.postGrabId();
     this.displayVitaText();
   }
-
   public textString: string;
   public textString1: string;
-
-
-  // public selected: any;
-
-
   coloro: any = 'tomato';
   name45: any;
   DOB1: any;
   DOD1: any;
-
-
   // For refresh user
-
   getData() {
     var userLoginData = localStorage.getItem('myData')
     var loginAfterRefresh = JSON.parse(userLoginData);
@@ -171,40 +138,28 @@ export class EditCanvasComponent implements OnInit {
     this.loginservice.loginAllData = loginAfterRefresh.user[0].id;
     this.getUserMemorial();
   }
-
   // Get user Memorials for refresh user
   getUserMemorial() {
     var data = { "user_id": this.loginservice.loginAllData }
     this.profileService.userCreatedMemorial(data)
       .subscribe(userRes => {
-        console.log(userRes);
         this.getUserMemoData = userRes["User Memorials"];
-        // this.recentService.userGrabIdData = userRes["User Memorials"][0].grab_id;
-
         this.displayVitaText();
         this.postGrabId();
-        // this.profileService.userDetail=userRes["User Memorials"].grab_id;
       })
   }
-
-
   // For display vita text
   displayVitaText() {
-    // this.spiner.show();
     var fetchData = { "grab_id": this.recentService.userGrabIdData }
     this.editCanvas.fetchVita(fetchData).subscribe((response: any) => {
-      console.log(response);
       if (response.details.vita_html !== "undefined") {
         this.vitaData = response.details.vita_html;
-        // this.spiner.hide();
       } else if (response.details.vita_html == "undefined") {
         this.vitaData = '';
       }
     })
   }
-
   // Open vita text input
-
   openUser(num): void {
 
     if (num == 100) {
@@ -218,17 +173,9 @@ export class EditCanvasComponent implements OnInit {
   }
 
   userVitaData(data) {
-    console.log(data.value);
     this.spiner.show();
     var vitaData = { "grab_id": this.recentService.userGrabIdData, "vita_html": data.value.vita_html };
-
-    // const formData3 = new FormData();
-
-    //     formData3.append('grab_id', this.profileService.userDetail);
-    //     formData3.append('vita_html', data.value.vita_html);
-
     this.editCanvas.vitaUpload(vitaData).subscribe((response: any) => {
-      console.log(response);
       this.spiner.hide();
       this.displayVitaText();
     });
@@ -244,46 +191,27 @@ export class EditCanvasComponent implements OnInit {
       fontFamily: 'helvetica',
       angle: 0,
       scaleX: 0.4,
-      // fill:this.coloro,
       scaleY: 0.4,
       fontWeight: 'bold',
       hasRotatingPoint: true,
     });
-
     this.canvas.add(text);
   }
-
-
   canvasadd() {
     this.canvas = new fabric.Canvas('Mycanvas');
-
-
     this.removeSelected1();
     fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
-      // this.service.selectedMainImg || this.service.selectedMain
       this.canvas.add(newImg);
       newImg.toCanvasElement;
       newImg.top = 150;
       newImg.left = 135;
-
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
-
-      // this.removeSelected1();
-
-
       this.extend(newImg, this.ImgRandomId);
-
-      // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-      // this.canvas.setActiveObject(newImg);
     });
     this.canvas.renderAll();
-
-
     this.canvas.on('object:moving', function (e) {
       movingRotatingWithinBounds(e);
     });
@@ -291,47 +219,28 @@ export class EditCanvasComponent implements OnInit {
     this.canvas.on('object:scaling', function (e) {
       scalling(e);
     })
-
-
-
-
-
-
-
     //Delete object
-
-
     var Obj = new fabric.Control({
-
       render: this.renderIcon,
       x: 0.5,
       y: -0.5,
-      // offsetY: 16,
       cursorStyle: 'pointer',
-
       mouseUpHandler: this.deleteObject,
-      // cornerSize:30
     });
-
     Obj['cornerSize'] = 36;
     fabric.Object.prototype.controls.deleteControl = Obj;
   }
-
   deleteObject(eventData, transform): boolean {
     var target = transform.target;
     var canvas = target.canvas;
     canvas.remove(target);
     canvas.requestRenderAll();
     return true;
-
   }
   renderIcon(ctx, left, top, styleOverride, fabricObject): boolean {
-    // var deleteIcon="../../../../assets/StaticAssets/trash 3.svg";
     var deleteIcon = "../../../../assets/StaticAssets/Flat_cross_icon.svg.png";
     var img = document.createElement('img');
     img.src = deleteIcon;
-
-
     var size = 20;
     ctx.translate(left, top);
     ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
@@ -344,24 +253,15 @@ export class EditCanvasComponent implements OnInit {
 
   saveCanvasToJSON() {
     const json = JSON.stringify(this.canvas);
-    // localStorage.setItem('Kanvas',json);
-    // console.log(json);
     this.service.saveCanvas1 = json;
   }
 
   loadCanvasFromJSON() {
-    // const CANVAS=localStorage.getItem('Kanvas');
     const CANVAS = this.service.saveCanvas1;
-
-    // and load everything from the same json
     this.canvas.loadFromJSON(CANVAS, () => {
-
-      // making sure to render canvas at the end
       this.canvas.renderAll();
     })
   }
-
-
 
   removeSelected() {
     const activeObject = this.canvas.getActiveObject();
@@ -369,7 +269,6 @@ export class EditCanvasComponent implements OnInit {
 
     if (activeObject) {
       this.canvas.remove(activeObject);
-      // this.textString = '';
     } else if (activeGroup) {
       this.canvas.discardActiveObject();
       const self = this;
@@ -381,59 +280,29 @@ export class EditCanvasComponent implements OnInit {
 
   removeSelected1() {
     var activeObject = this.canvas.getObjects();
-
-    // alert("created random id is:-"+this.service.ImgRandomId);
-
     activeObject.forEach(element => {
       if (element.toObject().id == this.ImgRandomId) {
         this.canvas.remove(element);
-        // alert("remove id:-"+this.service.ImgRandomId);
       }
     });
-
   }
-
-
-
-
-
   //------------------------------
   DropImageToCan(dragImage: any) {
 
     this.addImageToCanvas(dragImage);
   }
   addImageToCanvas(decImages: any) {
-
-
-    // let self = this;
-    // fabric.util.requestAnimFrame(function render() {
-    //   self.canvas.renderAll();
-    //   fabric.util.requestAnimFrame(render);
-    // });
-
-
     fabric.Image.fromURL(decImages.path, (newImg) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
-
       this.canvas.add(newImg);
       let self = this;
-
       newImg.toCanvasElement;
       newImg.originX = 'center';
       newImg.originY = 'center';
       newImg.hasControls = true;
       newImg.bringToFront();
-      // newImg.scaleToHeight(300);
-      // newImg.scaleToWidth(300);
       this.canvas.setActiveObject(newImg);
-
-
     },
       {
-        // left: 180,
-        // top: 280
-
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
       })
@@ -443,35 +312,26 @@ export class EditCanvasComponent implements OnInit {
     this.removeSelected1();
 
     fabric.Image.fromURL(decImages1.path, (newImg1) => {
-      // decImages.path
-      // 'http://localhost:4200/assets/StaticAssets/ganesh-3692779_1920.jpg'
       this.canvas.add(newImg1);
       newImg1.toCanvasElement;
       newImg1.originX = 'center';
       newImg1.originY = 'center';
       newImg1.hasControls = true;
-      //  newImg1.bringToFront();
       newImg1.scaleToHeight(300);
       newImg1.scaleToWidth(300);
       newImg1.sendToBack();
-
-      //  this.removeSelected1();
       this.ImgRandomId = this.randomId();
-
       this.extend(newImg1, this.ImgRandomId);
-
     },
       {
         left: 280,
         top: 280
       })
   }
-
   showSecMenu(num) {
     var decoration = document.getElementById('Decoration');
     var background = document.getElementById('Background');
     var vita = document.getElementById('Vita');
-
     if (num == 1) {
       this.showMenuItems = 1;
       decoration.style.backgroundColor = '#F2F2F2';
@@ -490,9 +350,7 @@ export class EditCanvasComponent implements OnInit {
     } else if (num == 4) {
       this.showMenuItems = 4;
     }
-
   }
-
   urnSM1: boolean;
   urnSM2: boolean;
   candleSM1: boolean;
@@ -503,8 +361,6 @@ export class EditCanvasComponent implements OnInit {
   flowerSM2: boolean;
   incriptionSM1: boolean;
   incriptionSM2: boolean;
-
-
   showSubMenuItems(num) {
     if (num == 1) {
       this.showSubMenItem = 1;
@@ -518,7 +374,6 @@ export class EditCanvasComponent implements OnInit {
       this.flowerSM2 = false;
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
-
     } else if (num == 2) {
       this.showSubMenItem = 2;
       this.candleSM1 = true;
@@ -571,24 +426,16 @@ export class EditCanvasComponent implements OnInit {
       this.incriptionSM1 = true;
       this.incriptionSM2 = false;
       this.showCentric1(1);
-
     }
   }
-
   startImgDrag(event) {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData("decImage", event.target.getAttribute("src"));
     return true;
-
   };
-
   addText() {
     if (this.textString) {
-      // this.canvas1=new fabric.Canvas("Mycanvas");
-      // this.context=this.canvas.getContext();
       const text = new fabric.IText(this.textString, {
-        // left: 100,
-        // top: 20,
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
         fontFamily: 'helvetica',
@@ -598,25 +445,13 @@ export class EditCanvasComponent implements OnInit {
         scaleY: 0.4,
         fontWeight: '',
         hasRotatingPoint: true,
-        // textAlign:this.textAlign,
       });
-
-      // this.context.textAlign='center';
-
-
-
       this.extend(text, this.randomId());
       this.canvas.add(text);
       this.selectItemAfterAdded(text);
       this.textString = '';
-
-
-
-
     }
-
   }
-
 
   extend(obj, id) {
     obj.toObject = ((toObject) => {
@@ -658,8 +493,6 @@ export class EditCanvasComponent implements OnInit {
     this.textAlign = value;
     this.setActiveProp('textAlign', this.textAlign);
   }
-
-
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
     if (!object) { return ''; }
@@ -674,37 +507,13 @@ export class EditCanvasComponent implements OnInit {
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-  // setTextDecoration(value) {
-  //   let iclass = this.TextDecoration;
-  //   if (iclass.includes(value)) {
-  //     iclass = iclass.replace(RegExp(value, 'g'), '');
-  //   // } else {
-  //     iclass += ` ${value}`;
-  //   }
-  //   this.TextDecoration = iclass;
-  //   this.setActiveStyle('textDecoration', this.TextDecoration, null);
-  // }
-  // hasTextDecoration(value) {
-  //   return this.TextDecoration.includes(value);
-  // }
-
   //Code for add color picker
-
-
-
-
   getFill() {
     this.fill = this.getActiveStyle('fill', null);
   }
   setFill() {
     this.setActiveStyle('fill', this.fill, null);
   }
-
-
   getActiveStyle(styleName, object) {
     object = object || this.canvas.getActiveObject();
     if (!object) { return ''; }
@@ -719,34 +528,28 @@ export class EditCanvasComponent implements OnInit {
   setActiveStyle(styleName, value: string | number, object: fabric.IText) {
     object = object || this.canvas.getActiveObject() as fabric.IText;
     if (!object) { return; }
-
     if (object.setSelectionStyles && object.isEditing) {
       const style = {};
       style[styleName] = value;
-
       if (typeof value === 'string') {
         if (value.includes('underline')) {
           object.setSelectionStyles({ underline: true });
         } else {
           object.setSelectionStyles({ underline: false });
         }
-
         if (value.includes('overline')) {
           object.setSelectionStyles({ overline: true });
         } else {
           object.setSelectionStyles({ overline: false });
         }
-
         if (value.includes('line-through')) {
           object.setSelectionStyles({ linethrough: true });
         } else {
           object.setSelectionStyles({ linethrough: false });
         }
       }
-
       object.setSelectionStyles(style);
       object.setCoords();
-
     } else {
       if (typeof value === 'string') {
         if (value.includes('underline')) {
@@ -767,22 +570,12 @@ export class EditCanvasComponent implements OnInit {
           object.set('linethrough', false);
         }
       }
-
       object.set(styleName, value);
     }
     object.setCoords();
     this.canvas.renderAll();
   }
-
-
-
-
-
-
-
   setBackgImage(backImage: any) {
-    // this.canvas.setBackgroundImage(backImage.path, this.canvas.renderAll.bind(this.canvas));
-
     fabric.Image.fromURL(backImage.path, (img) => {
       img.set({
         scaleX: this.canvas.width / img.width,
@@ -792,13 +585,6 @@ export class EditCanvasComponent implements OnInit {
     });
     this.canvas.renderAll();
   }
-
-
-  //---------------------
-
-
-
-
   getCanddleImages() {
     this.service.getCanddleImages(2)
       .subscribe(
@@ -811,26 +597,21 @@ export class EditCanvasComponent implements OnInit {
         },
         error => {
           console.log(error);
-
         }
       )
   }
-
   nextCanddle() {
     this.canddleCaroucelCount++;
     if (this.canddleCaroucelCount >= 2) {
       this.canddleImages = this.newCanddleImages.slice(20, 37);
     }
   }
-
   prevCanddle() {
     this.canddleCaroucelCount--;
     if (this.canddleCaroucelCount <= 1) {
       this.canddleImages = this.newCanddleImages.slice(0, 20);
     }
   }
-
-
   getURNSImages() {
     this.service.getURNSImages(5)
       .subscribe(
@@ -839,11 +620,9 @@ export class EditCanvasComponent implements OnInit {
         },
         error => {
           console.log(error);
-
         }
       )
   }
-
   getFlowerImages() {
     this.service.getFlowerImages(3)
       .subscribe(
@@ -851,16 +630,13 @@ export class EditCanvasComponent implements OnInit {
           this.flowerImages = flowerImages.images;
           if (this.flowerCaroucelCount == 1) {
             this.newFlowerImages = this.flowerImages.slice(0, 10);
-
           }
         },
         (error: any) => {
           console.log(error);
-
         }
       )
   }
-
   //show tombstone
   showCentric1(point) {
     this.tomb = document.getElementById("tomb");
@@ -896,7 +672,6 @@ export class EditCanvasComponent implements OnInit {
         },
         err => {
           console.log(err);
-
         }
       )
   }
@@ -939,10 +714,7 @@ export class EditCanvasComponent implements OnInit {
     if (this.caroucelCount == 1 || null) {
       this.imagesForCaroucel = this.imagespath.slice(0, 6);
     }
-
   }
-
-
 
   nextFlowers() {
     this.flowerCaroucelCount++;
@@ -984,9 +756,6 @@ export class EditCanvasComponent implements OnInit {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
 
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(63, 70);
 
@@ -1005,7 +774,6 @@ export class EditCanvasComponent implements OnInit {
     }
 
   }
-
 
   prevFlower() {
     this.flowerCaroucelCount--;
@@ -1041,9 +809,6 @@ export class EditCanvasComponent implements OnInit {
       this.newFlowerImages = this.flowerImages.slice(49, 56);
 
     }
-
-    //new
-
     if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
 
@@ -1061,16 +826,6 @@ export class EditCanvasComponent implements OnInit {
 
     }
   }
-
-  // addVita(redata:any){
-  // console.log(redata);
-  //   this.service.createvitaMemorial(6,this.textString1).subscribe(resp=>{
-
-  //   })
-  // }
-
-
-
   getbackgImages() {
     this.service.getBackgImages(4)
       .subscribe(
@@ -1079,12 +834,9 @@ export class EditCanvasComponent implements OnInit {
           if (this.caroucelCount == 1) {
             this.imgBack = this.backgroundImages.slice(0, 6);
           }
-
         },
         error => {
           console.log(error);
-
-
         }
       )
   }
@@ -1117,10 +869,7 @@ export class EditCanvasComponent implements OnInit {
     if (this.caroucelCount == 1 || null) {
       this.imgBack = this.backgroundImages.slice(0, 6);
     }
-
   }
-
-
   play() {
     var $this = this; //cache
     (function loop() {
@@ -1130,24 +879,15 @@ export class EditCanvasComponent implements OnInit {
       }
     })();
   };
-
-
-
-
   url1 = "";
   onselectFile(e: any) {
-
     if (e.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url1 = event.target.result;
-        // this.service.selectedMain=this.url;
-
         //-------Optional code for displaying videos---------
-
         // setTimeout(() => {
-
         var canvas = <HTMLCanvasElement>document.getElementById('Mycanvas');
         var ctx = canvas.getContext("2d");
         var video1E1 = <HTMLImageElement>document.getElementById('video1');
@@ -1162,50 +902,27 @@ export class EditCanvasComponent implements OnInit {
           originY: 'center',
           objectCaching: false,
           hasControls: true,
-
-
         })
         this.canvas.setActiveObject(video2);
         video2.scaleToHeight(200);
         video2.scaleToWidth(200);
-
         video2.bringToFront();
         this.canvas.add(video2);
         // video2.getElement().play();
-
-
         fabric.util.requestAnimFrame(function render() {
           this.canvas.renderAll();
-
           fabric.util.requestAnimFrame(render);
         });
-
-
-
-
 
         // --------------------------------------
 
         // this.canvas.add(video1)
         // ctx.drawImage(video1E1 ,5,5,100,30)
         // this.canvas.renderAll();
-
-
-
-
-
-
-
         // }, 2);
-
         // }
         // }
-
-
-
         //-----------------------------------------------------
-
-
         // var c = <HTMLCanvasElement>document.getElementById("Mycanvas");
         // var ctx = c.getContext("2d");
         // var v = <HTMLVideoElement>document.getElementById("video1");
@@ -1226,22 +943,16 @@ export class EditCanvasComponent implements OnInit {
         //     window.setInterval(function () {
 
         //       ctx.drawImage(v, 190, 420, 200, 120)
-
-
         //     }, 20);
         // }, false);
-
       }
     }
-
   }
-
   url = '';
   hidePerson: boolean = false;
   onselectFile3(e) {
     this.service.selectedMainImg = "";
     this.changeStyle = null;
-    // if (e.target.files) {
     if (e.target.files[0].size < 1000 || e.target.files[0].size > 5242880) {
       this.snackBar("Please check your image size (Size should be 1KB to 5MB)", "alert-danger");
     } else if ((!this.ValidateFile(e.target.files[0].name))) {
@@ -1251,21 +962,13 @@ export class EditCanvasComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.url = event.target.result;
-
-
         if (this.url == '') {
           this.hidePerson = true;
         } else {
           this.hidePerson = true;
         }
-        // }
-        // this.service.selectedMainImg = this.url;
-
-
-
         this.removeSelected1();
         fabric.Image.fromURL(this.url, newImg => {
-          // this.service.selectedMainImg || this.service.selectedMain
           this.canvas.add(newImg);
           newImg.toCanvasElement;
           newImg.top = 150;
@@ -1277,21 +980,10 @@ export class EditCanvasComponent implements OnInit {
           newImg.scaleToHeight(250);
           newImg.scaleToWidth(250);
           newImg.sendToBack();
-
-
-          // this.removeSelected1();
-
-
           this.extend(newImg, this.ImgRandomId);
-
-          // alert("created random id is:-"+this.service.ImgRandomId);
-
-
-          // this.canvas.setActiveObject(newImg);
         });
         this.canvas.renderAll();
       }
-
     }
   }
 
@@ -1303,12 +995,8 @@ export class EditCanvasComponent implements OnInit {
     else
       return false;
   }
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -1364,9 +1052,7 @@ export class EditCanvasComponent implements OnInit {
 
   editData() {
     this.editservice.adminEdit().subscribe((res: any) => {
-      console.log(res);
       this.respo = res.Details;
-      // For step-2 label
       this.respo1 = this.respo[101];
       this.respo2 = this.respo[102];
       this.respo3 = this.respo[103];
@@ -1382,8 +1068,6 @@ export class EditCanvasComponent implements OnInit {
       this.respo13 = this.respo[96];
       this.respo14 = this.respo[261];
       this.respo15 = this.respo[261];
-
-
     });
   }
 
@@ -1395,62 +1079,36 @@ export class EditCanvasComponent implements OnInit {
     formdata.append('fr', editDataNew.value.fr);
 
     this.editservice.editPostData(formdata).subscribe(response => {
-      console.log(response);
     })
   }
 
-
-
-
-
   postGrabId() {
     var jsonData = this.recentService.userGrabIdData;
-    // this.spiner.show();
     var formdata = new FormData();
     formdata.append('grab_id', jsonData);
-
     this.editCanvas.fetchJson(formdata).subscribe((Response: any) => {
-      console.log(Response);
       this.editCanvas.lovedPersonData = Response;
       if (Response) {
         var jsonData1 = Response.Details[0].canvas_json;
         this.canvas.loadFromJSON(jsonData1, () => {
-          // making sure to render canvas at the end
           this.canvas.renderAll();
-          // this.spiner.hide();
         })
       }
     })
   }
-
   // Save json from edit memorial
   saveEditMemorial() {
     this.spiner.show();
     var userId = this.loginservice.loginAllData;
     var grabId = this.recentService.userGrabIdData;
     var json = JSON.stringify(this.canvas);
-
-    // const editMemorialData={"user_id":userId,"grab_id":grabId,"canvas_json":json};
-
-    // this.editCanvas.SaveJsonFromEditMemorial(editMemorialData).subscribe((Response:any)=>{
-    //   console.log(Response);
-    // });
-
-
     // For preview Image
-
     const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = this.canvas.toDataURL({ format: 'png' });
     this.service.saveCanvas = image.src;
-
     var test = this.service.saveCanvas;
-
-
-
     const formData = new FormData();
-
-
     formData.append('grab_id', grabId);
     formData.append('image', 'Image');
     formData.append('image_type_id', '7');
@@ -1461,22 +1119,16 @@ export class EditCanvasComponent implements OnInit {
     formData.append('user_id', userId);
     formData.append('canvas_json', json);
     formData.append('canvas_preview_base64', test);
-
     this.service.memCreateImageData(formData).subscribe((result: any) => {
-      console.log(result);
       this.spiner.hide();
       if (result.status == "success") {
         this.snackBar('Your memory has been successfully updated', 'alert-green');
         setTimeout(() => {
           this.router.navigate(['/user-account']);
         }, 2500);
-
       }
     })
-
   }
-
-
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2500,
@@ -1484,14 +1136,9 @@ export class EditCanvasComponent implements OnInit {
       horizontalPosition: 'center',
       data: message,
       panelClass: panelClass,
-
-
     })
-
   };
-
 }
-
 function movingRotatingWithinBounds(e: fabric.IEvent) {
   const obj = e.target;
   // if object is too big ignore
@@ -1510,14 +1157,12 @@ function movingRotatingWithinBounds(e: fabric.IEvent) {
     obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
   }
 }
-
 var left1 = 0;
 var top1 = 0;
 var scale1x = 0;
 var scale1y = 0;
 var width1 = 0;
 var height1 = 0;
-
 
 function scalling(e: fabric.IEvent) {
   var obj = e.target;
@@ -1540,9 +1185,4 @@ function scalling(e: fabric.IEvent) {
     width1 = obj.width;
     height1 = obj.height;
   }
-
-
-
-
-
 }

@@ -20,64 +20,66 @@ nav{
     justify-content: right;
     flex-wrap: wrap;
 } */
-nav{
-   margin-top: -11px;
+nav {
+    margin-top: -11px;
 }
-#navDiv{
-   background-color: #424347; 
-   position: fixed; 
-   width: 100%; 
-   margin-top: 0.7%; 
-   padding-top: 0.5%;
-   z-index: 500;
+
+#navDiv {
+    background-color: #424347;
+    position: fixed;
+    width: 100%;
+    margin-top: 0.7%;
+    padding-top: 0.5%;
+    z-index: 500;
 }
-.navbar-brand{
-    margin-left:3rem; 
+
+.navbar-brand {
+    margin-left: 3rem;
     display: block;
-    top:0px;
+    top: 0px;
 
 }
-.fontNav{
+
+.fontNav {
     font-size: 0.8rem;
     font-weight: 600;
 }
-.fontNav1{
+
+.fontNav1 {
     font-size: 0.8rem;
     font-weight: 600;
     color: #CF6363;
 }
-.lablePage{
+
+.lablePage {
     color: #CF6363;
     opacity: 0.9;
 }
-a{
+
+a {
     font-size: medium;
 }
-.userName{
+
+.userName {
     margin-top: 32px;
     margin-left: 6px;
     color: red;
 }
 
-
-/* Edit label css */
-
 /* For button css */
-.forButton{
+.forButton {
     position: relative;
-    /* z-index: 10; */
     top: 0px;
     float: right;
     right: 0px;
-    background-color: rgba(207,99,99, 0.2);
+    background-color: rgba(207, 99, 99, 0.2);
     opacity: 0.7;
 }
 
 /* For div css */
-.forDiv{
+.forDiv {
     position: relative;
     z-index: 10;
-    /* border: 1px dotted tomato; */
     text-align: center;
     border-radius: 10px;
     height: auto;
@@ -85,209 +87,211 @@ a{
     width: 300px;
     background-color: #F8F8F8;
 }
-.labelPage{
+
+.labelPage {
     color: #CF6363;
 }
 
-.navbarButtons{
+.navbarButtons {
     margin-left: 40px;
     margin-top: 20px;
 }
-.navbarButtons1{
-    margin-left: 25px;
-    margin-top: 24px;
-    cursor: pointer;
-    color: blue;
-}
-.navbarButtons2{
+
+.navbarButtons1 {
     margin-left: 25px;
     margin-top: 24px;
     cursor: pointer;
     color: blue;
 }
 
-.registerButtonNav{
-    float: right; 
+.navbarButtons2 {
+    margin-left: 25px;
+    margin-top: 24px;
+    cursor: pointer;
+    color: blue;
+}
+
+.registerButtonNav {
+    float: right;
     color: white;
     cursor: pointer;
     font-size: 0.8rem;
     margin-top: 0.3%;
 }
-.onlineUser{
+
+.onlineUser {
     font-size: 0.8rem;
-    /* margin-top: 0.7rem; */
 }
-.registerImage{
+
+.registerImage {
     width: 85%;
 }
-.registerImage1{
+
+.registerImage1 {
     width: 18px;
     height: 18px;
 }
-#homeIdNew{
+
+#homeIdNew {
     left: 244%;
 }
-#premiumId{
+
+#premiumId {
     right: 57%;
 }
-#comemorateId{
+
+#comemorateId {
     right: 12%;
 }
-#griefId{
+
+#griefId {
     left: 16%;
 }
-#searchId{
+
+#searchId {
     right: 82%;
 }
-#loginId{
+
+#loginId {
     right: 58%;
 }
-#loginId1{
+
+#loginId1 {
     right: -7%;
 }
-#logoutId{
+
+#logoutId {
     left: 28%;
 }
-.englishLng{
-    padding-top: 15%; 
+
+.englishLng {
+    padding-top: 15%;
     padding-left: 2%;
     margin-left: 12%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 514px){
-    .logo{
+@media (max-width: 514px) {
+    .logo {
         width: 8.5rem;
         height: 5.8rem;
         margin-left: 1rem;
-    
     }
 }
-@media (max-width:480px){
-    #search{
-        /* visibility: hidden; */
+
+@media (max-width:480px) {
+    #search {
         display: none;
     }
-   
-    small{
+
+    small {
         border: 0.5px solid gainsboro;
         background-color: gray;
         border-radius: 5px;
         font-size: 1.5rem;
     }
 
-    #login{
-        /* visibility: hidden; */
+    #login {
         display: none;
     }
-} 
+}
 
-@media (min-width:481px) and (max-width:780px){
-    #search{
-        /* visibility: hidden; */
+@media (min-width:481px) and (max-width:780px) {
+    #search {
         display: none;
     }
-    small{
+
+    small {
         border: 0.5px solid gainsboro;
         background-color: gray;
         border-radius: 5px;
         font-size: 1.5rem;
     }
-    .englishLng{
-        padding-top: 6%; 
+
+    .englishLng {
+        padding-top: 6%;
         margin-left: 0%;
         padding-left: 0%;
     }
-    #loginId1{
+
+    #loginId1 {
         left: 139%;
         margin-top: 66%;
     }
-    #logoutId{
+
+    #logoutId {
         left: 139%;
         margin-top: 85%;
     }
 
     .example-form {
-        /* min-width: 150px;
-        max-width: 500px; */
         width: 100%;
-      }
-      
-      .example-full-width {
-        width: 100%;
-      }
+    }
 
-    #login{
-        /* visibility: hidden; */
+    .example-full-width {
+        width: 100%;
+    }
+
+    #login {
         display: none;
     }
-    .navBtn{
+
+    .navBtn {
         margin-right: 58px;
     }
 
     /* Label id's */
 
-    #homeId{
+    #homeId {
         left: 142%;
     }
-    #premiumId{
-        /* right: 57%; */
+
+    #premiumId {
         left: 142%;
         margin-top: 23%;
     }
-    #comemorateId{
-        /* right: 12%; */
+
+    #comemorateId {
         left: 142%;
         margin-top: 46%;
     }
-    #griefId{
-        /* left: 16%; */
+
+    #griefId {
         left: 142%;
         margin-top: 66%;
     }
-    #searchId{
-        /* right: 82%; */
+
+    #searchId {
         left: 142%;
         margin-top: 4%;
     }
-    #loginId{
-        /* right: 58%; */
+
+    #loginId {
         left: 142%;
         margin-top: 26%;
     }
 }
 
 
-@media (min-width:1518px)and (max-width:2017px){
-    #navDiv{
-        margin-top: 0.3%;
-    }
-}
-@media (min-width:2017px)and (max-width:2049px){
-    #navDiv{
-        margin-top: 0.3%;
-    }
-}
-@media (min-width:2050px)and (max-width:3839px){
-    #navDiv{
-        margin-top: 0.4%;
-    }
-}
-@media (min-width:3840px)and (max-width:4098px){
-    #navDiv{
+@media (min-width:1518px)and (max-width:2017px) {
+    #navDiv {
         margin-top: 0.3%;
     }
 }
 
+@media (min-width:2017px)and (max-width:2049px) {
+    #navDiv {
+        margin-top: 0.3%;
+    }
+}
+
+@media (min-width:2050px)and (max-width:3839px) {
+    #navDiv {
+        margin-top: 0.4%;
+    }
+}
+
+@media (min-width:3840px)and (max-width:4098px) {
+    #navDiv {
+        margin-top: 0.3%;
+    }
+}

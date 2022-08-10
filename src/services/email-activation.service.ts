@@ -7,13 +7,13 @@ import { environment } from 'src/environments/environment';
 })
 export class EmailActivationService {
 
-  baseUrl:"https://h2913228.stratoserver.net/";
+  baseUrl: "https://h2913228.stratoserver.net/";
 
-  ju:any;
-  constructor(public http:HttpClient) { }
+  ju: any;
+  constructor(public http: HttpClient) { }
 
-  emailActivation1(emailData){
+  emailActivation1(emailData) {
     environment.baseUrl
-    this.http.get(this.baseUrl,emailData);
+    this.http.get(this.baseUrl, emailData);
   }
 }

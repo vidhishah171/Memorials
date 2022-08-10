@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
-.container{
+.container {
     margin-top: 30px;
-    margin-bottom:50px;
+    margin-bottom: 50px;
     width: 100%;
     height: auto;
     display: flex;
@@ -10,7 +10,7 @@
     justify-content: flex-start;
 }
 
-.memorial{
+.memorial {
     margin-top: 20px;
     margin-left: 20px;
     height: 180px;
@@ -20,10 +20,10 @@
     border-radius: 20px;
     justify-content: center;
     align-items: flex-end;
-    
+
 }
 
-.year{
+.year {
     width: 30%;
     height: 25%;
     background-color: #eee5dc;
@@ -36,20 +36,20 @@
     padding-top: 7px;
     text-align: center;
     border-radius: 5px;
-    
+
 }
 
-.year p{
+.year p {
     font-size: 14px;
 }
 
-h5{
+h5 {
     margin-top: 30px;
-    font-family: 'Noto Sans KR', sans-serif; 
+    font-family: 'Noto Sans KR', sans-serif;
     font-weight: bold;
 }
 
-.second{
+.second {
     height: 5vw;
     display: flex;
     justify-content: center;
@@ -59,26 +59,26 @@ h5{
 /* 
 Responsive content */
 
-@media (max-width:992px){
-    .memorial{
+@media (max-width:992px) {
+    .memorial {
         justify-content: center;
     }
 }
 
 
-@media (max-width:700px){
-    .memorial{
+@media (max-width:700px) {
+    .memorial {
         justify-content: center;
     }
 }
 
 
-@media (max-width:450px){
-    .container{
+@media (max-width:450px) {
+    .container {
         justify-content: space-around;
     }
 
-    .memorial{
+    .memorial {
         justify-content: center;
     }
 }

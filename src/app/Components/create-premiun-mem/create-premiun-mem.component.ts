@@ -28,17 +28,12 @@ export class CreatePremiunMemComponent implements OnInit {
   constructor(
     public loginservice:LoginService,
     public editservice: AdminEditService,
-
-
   ) { }
 
   ngOnInit(): void {
     this.editData();
-
   }
-
   // Code for labels
-
   openDialogue(num): void {
 
     if (num == 4) {
@@ -116,5 +111,4 @@ export class CreatePremiunMemComponent implements OnInit {
     this.editservice.editPostData(formdata).subscribe(response => {
     })
   }
-
 }

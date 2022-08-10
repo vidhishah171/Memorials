@@ -7,7 +7,6 @@
         <small class="textPop" *ngIf="editservice.numLabel==2">{{respo1.de}}</small>
         <small class="textPop" *ngIf="editservice.numLabel==3">{{respo1.fr}}</small>
     </div>
-
     <!-- extra code for label -->
     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="forgotPPopcss1">
@@ -33,7 +32,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
     <div>
         <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -41,10 +39,7 @@
         <small class="textPop1" *ngIf="editservice.numLabel==1">{{respo2.en}}</small>
         <small class="textPop1" *ngIf="editservice.numLabel==2">{{respo2.de}}</small>
         <small class="textPop1" *ngIf="editservice.numLabel==3">{{respo2.fr}}</small>
-
-
     </div>
-
     <!-- extra code for label -->
     <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="forgotPPopcss2">
@@ -70,21 +65,17 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
-
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2" *ngIf="editservice.numLabel==1" >{{respo3.en}}</button>
-    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2" *ngIf="editservice.numLabel==2">{{respo3.de}}</button>
-    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2" *ngIf="editservice.numLabel==3">{{respo3.fr}}</button>
-
-
-
-
+    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2"
+        *ngIf="editservice.numLabel==1">{{respo3.en}}</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2"
+        *ngIf="editservice.numLabel==2">{{respo3.de}}</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-dark m-2"
+        *ngIf="editservice.numLabel==3">{{respo3.fr}}</button>
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial *ngIf="editservice.numLabel==1"
         class="btn btn-outline-dark m-2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>{{respo4.en}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </button>
@@ -94,12 +85,10 @@
     <button mat-button [mat-dialog-close]="true" cdkFocusInitial *ngIf="editservice.numLabel==3"
         class="btn btn-outline-dark m-2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>{{respo4.fr}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </button>
-
     <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 </mat-dialog-actions>
-
 <!-- extra code for label -->
 <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
     <div class="forDiv" id="forgotPPopcss3">

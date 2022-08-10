@@ -25,11 +25,6 @@ import { createMemorial } from 'src/app/Model/createMemorial';
   styleUrls: ['./create-memorial.component.css']
 })
 export class CreateMemorialComponent implements OnInit {
-
-  // @ViewChild('canvas', { static: true }) Canvas: ElementRef<HTMLCanvasElement>;
-
-
-
   @ViewChild(CanvasComponent) child: CanvasComponent;
 
   ImgRandomId = 0;
@@ -124,7 +119,6 @@ export class CreateMemorialComponent implements OnInit {
   isDisplaySmallImage: boolean;
   respo45: any;
 
-
   constructor(
     public service: CreateMemorialService,
     public snack: MatSnackBar,
@@ -133,27 +127,18 @@ export class CreateMemorialComponent implements OnInit {
     public loginservice: LoginService,
     private router: Router,
     private spiner: NgxSpinnerService,
-
-
   ) {
     this.loginservice.otherPage = false;
     this.loginservice.logoDisplay = true;
     this.loginservice.isFooterLogin = true;
     this.loginservice.hideMemorialImage = true;
   }
-
   ngAfterViewInit() {
     setTimeout(() => {
       this.clickDiv();
     }, 1000);
-
     this.showCentric(1)
-    // alert(point)
-
   }
-  // createMemorial:createMemorial=<createMemorial>{};
-
-
   ngOnInit() {
     this.changeStyle = undefined;
     this.getTambImage();
@@ -161,25 +146,17 @@ export class CreateMemorialComponent implements OnInit {
     this.editData();
     this.service.createMemorial.DOB = new Date(this.service.createMemorial.DOB);
     this.service.createMemorial.DOD = new Date(this.service.createMemorial.DOD);
- 
   }
-
-
   clickDiv() {
     var test = document.getElementById("navDiv");
     if (test != null) {
       test.style.position = 'absolute';
     }
-
   }
-
   personNavColor() {
 
   }
-
-
   /// --------------------------------------------------
-
   // Canvas Render
   loadCanvasFromJSON() {
     // const CANVAS=localStorage.getItem('Kanvas');
@@ -192,10 +169,7 @@ export class CreateMemorialComponent implements OnInit {
       this.canvas.renderAll();
     })
   }
-
-
   addImageToCanvas(decImages: any) {
-
     fabric.Image.fromURL(decImages.path, (newImg) => {
       this.canvas.add(newImg);
       newImg.toCanvasElement;
@@ -287,17 +261,6 @@ export class CreateMemorialComponent implements OnInit {
       return false;
   }
 
-
-
-  //  memorialDetails(memDetails: any) {
-  //   
-  //    this.service.memCreatePostData(memDetails.value).subscribe(res=>{
-  //    })
-
-
-
-
-
   dataURItoBlob(dataURI) {
     // convert base64/URLEncoded data component to raw binary data held in a string
     var byteString;
@@ -360,38 +323,11 @@ export class CreateMemorialComponent implements OnInit {
         this.spiner.hide();
       })
 
-
-      // for jsondata Save
-      // const json = JSON.stringify(this.canvas);
-      // var dataJson = { user_id: res.user_id, grab_id: res.grab_id, canvas_json: this.service.saveCanvas1 }
-
-      // this.service.createMemorialJson(dataJson).subscribe(result1 => {
-      // })
-
-
-      // this.result = {
-      //   'grab_id': res.grab_id,
-      //   'image': this.files,
-      //   'image_type_id': 3,
-      //   'x': 100,
-      //   'y': 120,
-      //   'height': 200,
-      //   'width': 300,
-      //   'user_id': res.user_id,
-      //   'canvas_json': 'canvas_json',
-      //   'canvas_preview_base64': 'canvas_base_64'
-      // }
       this.service.memCreateImageData(formData).subscribe(result => {
         this.spiner.hide();
       })
       // }
     })
-
-
-
-
-
-
 
     this.service.createMemorial.g_firstname
     this.service.createMemorial.g_lastname
@@ -410,28 +346,7 @@ export class CreateMemorialComponent implements OnInit {
     this.service.createMemorial.zipcode
     this.service.createMemorial.hometown
     this.service.createMemorial.voucher
-
-    // this.service.saveFormData=memDetails.value;
-
-
-
-
   }
-
-
-  // selectTab(e){
-  //   e.preventDefault();
-
-  //   let activeTab=document.querySelector('.tab > button.active');
-  //   if(activeTab){
-  //      activeTab.classList.remove('active');
-  //     }
-  //   e.target.element.classList.add('active');
-
-  // }
-
-
-
 
   // step 1 functions
   showStep(num) {
@@ -549,11 +464,6 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
 
-
-
-
-
-
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 2500,
@@ -580,35 +490,12 @@ export class CreateMemorialComponent implements OnInit {
 
   };
 
-
-
-
-  // isActive:any;
-  // showActive(){
-  //   var header=document.getElementById("myDiv");
-  //   var btns=header.getElementsByClassName("steeper");
-
-  //   for(var i=0; i < btns.length; i++){
-  //     btns[i].addEventListener("click", function(){
-  //       var current=document.getElementsByClassName("activep");
-  //       current[0].className=current[0].className.replace("activep","");
-  //       this.className +="activep";
-  //     });
-  //   }
-  // }
-
-
   checked(data) {
     this.service.selectedMainImg = "";
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;
-
   }
-
-
-
-
 
   showCentric(point) {
     // alert(point)
@@ -666,7 +553,6 @@ export class CreateMemorialComponent implements OnInit {
         },
         err => {
           console.log(err);
-
         }
       )
   }
@@ -712,14 +598,8 @@ export class CreateMemorialComponent implements OnInit {
 
   }
 
-
-
-
-
   // Code for labels
-
   openDialogue(num): void {
-
     if (num == 1) {
       this.showNewDiv = 1;
       this.isvalid = true;
@@ -918,15 +798,6 @@ export class CreateMemorialComponent implements OnInit {
       this.respo43 = this.respo[143];
       this.respo44 = this.respo[144];
       this.respo45 = this.respo[254];
-
-
-
-
-
-
-      // 121
-
-
     });
   }
 
@@ -944,15 +815,9 @@ export class CreateMemorialComponent implements OnInit {
   saveCanvasToJSON() {
     // const json = JSON.stringify(this.canvas);
     this.json = JSON.stringify(this.canvas);
-
-
-    // localStorage.setItem('Kanvas',json);
-
     // save canvas json to the service
     this.service.saveCanvas1 = this.json;
   }
-
-
 
   createMemorialAgain() {
     this.child.GetData();
@@ -974,14 +839,9 @@ export class CreateMemorialComponent implements OnInit {
     this.service.newMemorialAgain(formDataAgain).subscribe((res: any) => {
       this.spiner.hide();
 
-
-
       var test = this.service.saveCanvas;
 
-
-
       const formData = new FormData();
-
 
       formData.append('grab_id', res.grab_id);
       formData.append('image', 'Image');
@@ -1009,37 +869,24 @@ export class CreateMemorialComponent implements OnInit {
           this.router.navigate(['/thank-you']);
         }
       })
-
-
       this.service.memCreateImageData(formData).subscribe(result => {
         this.spiner.hide();
-
       })
-
-
-
-
-
-
     })
-
-
   }
 
-  userChecking:boolean=false
-  checkUser(data){
-  console.log(data.target.value)
+  userChecking: boolean = false
+  checkUser(data) {
     const jsonData = JSON.stringify(data.target.value)
     sessionStorage.setItem('userCheckingData', jsonData)
-  var checkData={"email_id":`${data.target.value}`}
-  this.service.checkUserAvailable(checkData).subscribe((resUser:any)=>{
-    console.log(resUser);
-    if(resUser.message == "User is already exist"){
-      this.userChecking = true;
-    }else{
-      this.userChecking = false;
-    }
-  })
+    var checkData = { "email_id": `${data.target.value}` }
+    this.service.checkUserAvailable(checkData).subscribe((resUser: any) => {
+      if (resUser.message == "User is already exist") {
+        this.userChecking = true;
+      } else {
+        this.userChecking = false;
+      }
+    })
   }
 
   returnValue(event) {
@@ -1056,7 +903,6 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   createForm = new FormGroup({
-
     g_firstname: new FormControl('', [Validators.required]),
     g_lastname: new FormControl('', [Validators.required]),
     birthplace: new FormControl(''),
@@ -1064,16 +910,6 @@ export class CreateMemorialComponent implements OnInit {
     birthname: new FormControl(''),
     DOB: new FormControl('', [Validators.required]),
     DOD: new FormControl('', [Validators.required]),
-    // firstname:new FormControl('',[Validators.required]),
-
-
-
-
-    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")])
-    // password:new FormControl('',[Validators.required,Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}")])
-
-    // password:new FormControl('',Validators.required)
-
   })
   createFormNew = new FormGroup({
     firstname: new FormControl('', [Validators.required]),
@@ -1107,75 +943,32 @@ export class CreateMemorialComponent implements OnInit {
   get voucherNew() { return this.createFormNew.get('voucher') }
   get checkedBoxNew() { return this.createFormNew.get('checkbox') }
 
-
-
-
-
-
   inputValues1(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.g_firstname = e.target.value
   }
   inputValues2(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.g_lastname = e.target.value
   }
   inputValues3(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.birthplace = e.target.value
   }
   inputValues4(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.deathplace = e.target.value
   }
   inputValues5(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.birthname = e.target.value
   }
   inputValues6(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.DOB = e.target.value
   }
   inputValues7(e: any) {
-    console.log(e.target.value);
     this.service.createMemorial.DOD = e.target.value
   }
 
 
   create() {
-    console.log(this.createForm.value)
-    console.log(this.createFormNew.value)
+
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // imagespath = [
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome1.png" },
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome2.png" },
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome4.png" },
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome5.png" },
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome6.png" },
-  //   { path: "../../../assets/StaticAssets/Create memorial/step1/tome3.png" }
-  // ]
 
   memorialImage = [
     { path: "../../../assets/StaticAssets/Create memorial/step2/33k.png" },
@@ -1201,26 +994,5 @@ export class CreateMemorialComponent implements OnInit {
     { path: "../../../assets/StaticAssets/Create memorial/step2/334.png" },
     { path: "../../../assets/StaticAssets/Create memorial/step2/33125.png" },
     { path: "../../../assets/StaticAssets/Create memorial/step2/33125.png" }
-
   ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

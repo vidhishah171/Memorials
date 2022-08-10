@@ -7,12 +7,9 @@
         <h3 class="lineHeight" *ngIf="editservice.numLabel==1">{{respo1?.en}}</h3>
         <h3 class="lineHeight" *ngIf="editservice.numLabel==2">{{respo1?.de}}</h3>
         <h3 class="lineHeight" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</h3>
-
     </div>
-
-
-     <!-- Extra code for label -->
-     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
+    <!-- Extra code for label -->
+    <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="griefCss1">
             <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
             <form class="example-form" #regForm2="ngForm">
@@ -36,17 +33,18 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
     <br>
     <div>
         <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                     alt=""></span></button>
-        <button class="btn griefBtn" routerLink="/create-memorial" *ngIf="editservice.numLabel==1">{{respo2?.en}}</button>
-        <button class="btn griefBtn" routerLink="/create-memorial" *ngIf="editservice.numLabel==2">{{respo2?.de}}</button>
-        <button class="btn griefBtn" routerLink="/create-memorial" *ngIf="editservice.numLabel==3">{{respo2?.fr}}</button>
+        <button class="btn griefBtn" routerLink="/create-memorial"
+            *ngIf="editservice.numLabel==1">{{respo2?.en}}</button>
+        <button class="btn griefBtn" routerLink="/create-memorial"
+            *ngIf="editservice.numLabel==2">{{respo2?.de}}</button>
+        <button class="btn griefBtn" routerLink="/create-memorial"
+            *ngIf="editservice.numLabel==3">{{respo2?.fr}}</button>
     </div>
 
     <!-- Extra code for label -->
@@ -74,8 +72,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
     <br>
     <br>
     <div>
@@ -86,9 +82,7 @@
         <small style="font-weight: 600;" *ngIf="editservice.numLabel==1">{{respo3?.en}}</small>
         <small style="font-weight: 600;" *ngIf="editservice.numLabel==2">{{respo3?.de}}</small>
         <small style="font-weight: 600;" *ngIf="editservice.numLabel==3">{{respo3?.fr}}</small>
-
     </div>
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="griefCss3">
@@ -114,9 +108,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
-
     <div class="giftImage w-75 p-3">
         <div class="d-flex justify-content-center img bg-light ">
             <img class="ImageSection" src="../../../assets/StaticAssets/Home page/asset-1.png">
@@ -135,14 +126,10 @@
         </div>
         <div class="d-flex justify-content-center img bg-light ">
             <img class="ImageSection" src="../../../assets/StaticAssets/Home page/asset-5.png">
-            <!-- <img src="../../../assets/StaticAssets/Home page/asset-6.png"> -->
         </div>
     </div>
-
 </div>
-
 <!-- TrendingDiscussion -->
-
 <div class="trendingDiscuss mb-5">
     <div class="discuss">
         <img src="../../../assets/StaticAssets/Home page/forum.png" class="h-75">
@@ -155,11 +142,8 @@
             <strong class="trendingText" *ngIf="editservice.numLabel==1">{{respo4?.en}}</strong>
             <strong class="trendingText" *ngIf="editservice.numLabel==2">{{respo4?.de}}</strong>
             <strong class="trendingText" *ngIf="editservice.numLabel==3">{{respo4?.fr}}</strong>
-
-
         </h5>
     </div>
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==4 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="griefCss4">
@@ -185,7 +169,6 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
     <div class="discuss2 container mt-5">
         <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
             <h6>
@@ -194,7 +177,6 @@
             </h6>
             <p>How to get good custom dissertation writing service</p>
         </div>
-
         <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
             <h6>
                 <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
@@ -202,7 +184,6 @@
             </h6>
             <p>How to get good custom dissertation writing service</p>
         </div>
-
         <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
             <h6>
                 <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
@@ -210,7 +191,6 @@
             </h6>
             <p>How to get good custom dissertation writing service</p>
         </div>
-
         <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
             <h6>
                 <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
@@ -218,6 +198,5 @@
             </h6>
             <p>How to get good custom dissertation writing service</p>
         </div>
-
     </div>
 </div>

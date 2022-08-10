@@ -7,10 +7,7 @@
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==1">{{respo1?.en}}</strong>
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
         <strong class="mostVisitedMemo" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
-
-
     </h4>
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" style="margin-top: -3%; left: 21%;">
@@ -36,21 +33,13 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-
-
-
     <div class="child container w-100 h-100 p-3">
-
         <div class="box mb-3 ms-1 p-2" style="cursor: pointer;"
             (click)="recentMemorialGrabId(mostVisMem.grab_id,mostVisMem.user_id)"
             *ngFor="let mostVisMem of mostVisitMemorial ">
-
             <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
-
             <div class="name w-auto p-2" id="info">
-
                 <h6>{{mostVisMem.firstname}},{{mostVisMem.lastname}}</h6>
-
                 <div class="info">
                     <img class="me-1" src="../../../assets/StaticAssets/Home page/eye.png">
                     <span class="me-2 viewColors"><strong>{{mostVisMem.grablog}}</strong></span>
@@ -61,24 +50,9 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <!-- next DIv of webside  -->
-
 <div class="findByName w-100">
     <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton1"><span><img
@@ -87,10 +61,7 @@
         <p class="findByLabel" *ngIf="editservice.numLabel==1"> {{respo2?.en}}</p>
         <p class="findByLabel" *ngIf="editservice.numLabel==2"> {{respo2?.de}}</p>
         <p class="findByLabel" *ngIf="editservice.numLabel==3"> {{respo2?.fr}}</p>
-
     </h5>
-
-
     <!-- Extra code for label -->
     <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" style="margin-top: 65%;">
@@ -117,7 +88,6 @@
         </div>
     </li>
     <form #myForm1="ngForm" style="width: 38%;">
-
         <div class="input-group mb-3">
             <input type="text" id="search" class="form-control input-lg" style="color: white;"
                 *ngIf="editservice.numLabel==1" placeholder={{respo3?.en}} name="searchText" ngModel
@@ -136,7 +106,6 @@
                     type="submit">
                     <img src="https://img.icons8.com/offices/20/000000/long-arrow-right.png" />
                 </button>
-
             </div>
             <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -144,7 +113,6 @@
         </div>
     </form>
 </div>
-
 <!-- Extra code for label -->
 <li *ngIf="showNewDiv==3 && isvalid" style="position: absolute; margin-top: 25px;">
     <div class="forDiv" style="margin-top: -46%; left: 207%;">
@@ -170,12 +138,8 @@
         <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
     </div>
 </li>
-
-
-
 <div *ngIf="searchResult" class="searchHgt mb-5 container-fluid">
     <div class="row mb-5 searchMemories">
-
         <div class="col-9 example-viewport1">
             <button (click)="divHide()" class="btn btn-sm mb-1 closeBtn"><img class="crossImg"
                     src="../../../assets/StaticAssets/Home page/211650_close_circled_icon 1 (1).png" alt=""></button>
@@ -183,7 +147,6 @@
                 <div class="searchImg">
                     <div *cdkVirtualFor="let search of dataSearch2"
                         (click)="seachByCityMemorial(search.grab_id,search.user_id)" class="inputHeightWidth">
-                        <!-- {{dataSearch2.length}} -->
                         <div>
                             <img class="searchImg1" [src]="search.path" alt="">
                         </div>
@@ -207,7 +170,6 @@
                             </span>
                         </div>
                     </div>
-
                 </div>
             </cdk-virtual-scroll-viewport>
         </div>

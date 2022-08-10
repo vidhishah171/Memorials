@@ -7,25 +7,25 @@ import { Injectable } from '@angular/core';
 export class ForgotPasswordService {
 
   forgotAPI = "https://h2913228.stratoserver.net/API/public/updatePassword";
-  changePasswordAPI="https://h2913228.stratoserver.net/API/public/changePassword"
+  changePasswordAPI = "https://h2913228.stratoserver.net/API/public/changePassword"
 
-  saveEmailId:any;
-  saveAuthToken:any;
+  saveEmailId: any;
+  saveAuthToken: any;
 
-  pwd:any='';
-  pwd1:any='';
+  pwd: any = '';
+  pwd1: any = '';
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
 
 
-  forgotPassword(forgotData:any){
-    return this.http.post(this.forgotAPI,forgotData);
+  forgotPassword(forgotData: any) {
+    return this.http.post(this.forgotAPI, forgotData);
   }
-  ChangePassword(forgotData1:any){
-    return this.http.post(this.changePasswordAPI,forgotData1)
+  ChangePassword(forgotData1: any) {
+    return this.http.post(this.changePasswordAPI, forgotData1)
   }
 }
 
