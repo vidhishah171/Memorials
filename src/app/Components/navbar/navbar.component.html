@@ -96,7 +96,7 @@
         <a class="navbar-brand" href="#" style="margin-top: 2%;" *ngIf="loginservice.logoDisplay">
             <img src="../../../assets/StaticAssets/Create memorial/step1/LogoSoulium_com.png" alt="soulium-logo"
                 class="mt-0 top-0"
-                style='height:"80px"; width: 100%; margin-left: 10%; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;' />
+                style='height:"80px"; width: 100%; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;' />
         </a>
 
         <button class="navbar-toggler navBtn" type="button" data-bs-toggle="collapse"
@@ -106,7 +106,7 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0" style="margin-top: 5%;">
+            <ul class="navbar-nav ml-auto mb-lg-0" style="margin-top: 5%;">
                 <li class="nav-item" style="position:relative; display:inline-block">
                     <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -375,22 +375,23 @@
             </ul>
         </div>
 
-        <div class="collapse navbar-collapse justify-content-center align-self-end" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <button (click)="openDialogue(5)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
-                    <a class="nav-link active" aria-current="page" href="#">
-                        <div>
-                            <img id="search" style="margin: auto;margin-bottom:5px"
-                                src="../../../assets/StaticAssets/Home page/search.png" alt="Search">
-                            <p *ngIf="editservice.numLabel==1"><small>{{respo5?.en}}</small></p>
-                            <p *ngIf="editservice.numLabel==2"><small>{{respo5?.de}} &nbsp;</small></p>
-                            <p *ngIf="editservice.numLabel==3"><small>{{respo5?.fr}}</small></p>
-
-                        </div>
+                    <img id="search" style="margin: auto;margin-bottom:5px"
+                        src="../../../assets/StaticAssets/Home page/search.png" alt="Search">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <strong>{{respo5?.en}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <strong>{{respo5?.de}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <strong>{{respo5?.fr}}</strong>
                     </a>
                 </li>
 
@@ -421,19 +422,21 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
+                
                 <li class="nav-item" *ngIf="!loginservice.islogin">
                     <button (click)="openDialogue(6)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
-                    <a class="nav-link active" aria-current="page" routerLink="/login">
-                        <div>
-                            <img id="login" style="margin: auto" src="../../../assets/StaticAssets/Home page/login.png">
-                            <p *ngIf="editservice.numLabel==1"><small>{{respo6?.en}}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small></p>
-                            <p *ngIf="editservice.numLabel==2"><small>{{respo6?.de}}</small></p>
-                            <p *ngIf="editservice.numLabel==3"><small>{{respo6?.fr}}</small></p>
-                        </div>
+                    <img id="login" style="margin: auto" src="../../../assets/StaticAssets/Home page/login.png">
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                        <strong>{{respo6?.en}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                        <strong>{{respo6?.de}}</strong>
+                    </a>
+                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                        <strong>{{respo6?.fr}}</strong>
                     </a>
                 </li>
 
@@ -464,9 +467,11 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
+
                 <li *ngIf="loginservice.islogin" class="userName">
                     <span routerLink="/user-account" style="cursor: pointer;">Hi {{loginservice.loginSaveData}}</span>
                 </li>
+
                 <li class="navbarButtons">
                     <!-- *ngIf="isVisible" -->
                     <button (click)="buttonLanguage(1)" title="English"

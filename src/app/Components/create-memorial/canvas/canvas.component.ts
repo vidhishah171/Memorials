@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { CreateMemorialService } from 'src/services/create-memorial.service';
 import { debug, trace } from 'console';
-import { animate, style } from '@angular/animations';
+import { animate, style, trigger } from '@angular/animations';
 import { formatDate } from '@angular/common';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
@@ -133,6 +133,31 @@ export class CanvasComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     this.showSecMenu(1);
     this.showSubMenuItems(1);
+    if (window.innerWidth >= 1400) {
+      this.canvas.setHeight(600);
+      this.canvas.setWidth(600);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(500);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      this.canvas.setHeight(400);
+      this.canvas.setWidth(400);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth <= 768) {
+      this.canvas.setHeight(350);
+      this.canvas.setWidth(300);
+      this.canvas.renderAll();
+    }
+    // else if (window.innerWidth < 500) {
+    //   this.canvas.setHeight(200);
+    //   this.canvas.setWidth(200);
+    //   this.canvas.renderAll();
+    // }
   }
 
   ctxNew: any;
@@ -158,6 +183,48 @@ export class CanvasComponent implements OnInit, OnDestroy {
   DOB1: any;
   DOD1: any;
 
+  showFirstCandleIcon: boolean = true;
+  showLastCandleIcon: boolean = false;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    if (window.innerWidth >= 1400) {
+      this.canvas.setHeight(600);
+      this.canvas.setWidth(600);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(500);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      this.canvas.setHeight(400);
+      this.canvas.setWidth(400);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth <= 768) {
+      this.canvas.setHeight(350);
+      this.canvas.setWidth(300);
+      this.canvas.renderAll();
+    }
+    // else if (window.innerWidth < 500) {
+    //   this.canvas.setHeight(200);
+    //   this.canvas.setWidth(200);
+    //   this.canvas.renderAll();
+    // }
+  }
+
+  showHideFirstCandleIcon() {
+    this.showFirstCandleIcon = true;
+    this.showLastCandleIcon = false;
+  }
+
+  showHideLastCandleIcon() {
+    this.showFirstCandleIcon = false;
+    this.showLastCandleIcon = true;
+  }
+
   snackBar(message: string, panelClass: string) {
     this.snack.openFromComponent(SnackbarComponent, {
       duration: 3000,
@@ -173,8 +240,8 @@ export class CanvasComponent implements OnInit, OnDestroy {
     this.DOD1 = formatDate(this.service.createMemorial.DOD, 'M.d.yyyy', 'en_US');
     this.name45 = this.service.createMemorial.g_firstname + " " + this.service.createMemorial.g_lastname + " " + "(" + this.DOB1 + " " + "-" + " " + this.DOD1 + ")"
     const text = new fabric.IText(this.name45, {
-      left: 172,
-      top: 20,
+      left: 15,
+      top: 1,
       fontFamily: 'helvetica',
       angle: 0,
       scaleX: 0.4,
@@ -191,8 +258,8 @@ export class CanvasComponent implements OnInit, OnDestroy {
     fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
       this.canvas.add(newImg);
       newImg.toCanvasElement;
-      newImg.top = 150;
-      newImg.left = 135;
+      newImg.top = 15;
+      newImg.left = 10;
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
@@ -328,23 +395,31 @@ export class CanvasComponent implements OnInit, OnDestroy {
     var decoration = document.getElementById('Decoration');
     var background = document.getElementById('Background');
     var vita = document.getElementById('Vita');
+    var Video = document.getElementById('Video');
     if (num == 1) {
       this.showMenuItems = 1;
-      decoration.style.backgroundColor = '#F2F2F2';
-      background.style.backgroundColor = 'white';
-      vita.style.backgroundColor = 'white';
+      decoration.style.backgroundColor = '#c9c9c9';
+      background.style.backgroundColor = '#F2F2F2';
+      vita.style.backgroundColor = '#F2F2F2';
+      Video.style.backgroundColor = '#F2F2F2';
     } else if (num == 2) {
       this.showMenuItems = 2;
-      decoration.style.backgroundColor = 'white';
-      background.style.backgroundColor = '#F2F2F2';
-      vita.style.backgroundColor = 'white';
+      decoration.style.backgroundColor = '#F2F2F2';
+      background.style.backgroundColor = '#c9c9c9';
+      vita.style.backgroundColor = '#F2F2F2';
+      Video.style.backgroundColor = '#F2F2F2';
     } else if (num == 3) {
       this.showMenuItems = 3;
-      decoration.style.backgroundColor = 'white';
-      background.style.backgroundColor = 'white';
-      vita.style.backgroundColor = '#F2F2F2';
+      decoration.style.backgroundColor = '#F2F2F2';
+      background.style.backgroundColor = '#F2F2F2';
+      vita.style.backgroundColor = '#c9c9c9';
+      Video.style.backgroundColor = '#F2F2F2';
     } else if (num == 4) {
       this.showMenuItems = 4;
+      decoration.style.backgroundColor = '#F2F2F2';
+      background.style.backgroundColor = '#F2F2F2';
+      vita.style.backgroundColor = '#F2F2F2';
+      Video.style.backgroundColor = '#c9c9c9';
     }
   }
 
@@ -626,6 +701,15 @@ export class CanvasComponent implements OnInit, OnDestroy {
       this.canddleImages = this.newCanddleImages.slice(0, 20);
     }
   }
+
+  nextCandelMenu() {
+
+  }
+
+  prevCandleMenu() {
+
+  }
+  
   getURNSImages() {
     this.service.getURNSImages(5)
       .subscribe(

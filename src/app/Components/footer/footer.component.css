@@ -66,7 +66,27 @@
     height: 10vw;
     width: 100%;
     background-color: #373737;
+}
 
+.footer-box {
+    padding: 25px 90px;
+    background-color: #373737;
+}
+
+.footer-box ul {
+    text-decoration: none;
+}
+
+.footer-box ul li {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.footer-box ul li a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
 
 .nav {
@@ -79,36 +99,7 @@
     color: rgb(255 255 255);
 }
 
-@media (max-width:480px) {
-    .footer {
-        height: 30vw;
-        width: 100%;
-    }
-
-    .logo {
-        height: 50%;
-        text-align: center;
-        align-items: center;
-        width: 50%;
-        float: left;
-    }
-
-
-}
-
 @media(min-width:481px) and (max-width:768px) {
-    .footer {
-        height: 20vw;
-        width: 92%;
-    }
-
-    .logo {
-        height: 50%;
-        text-align: center;
-        align-items: center;
-        width: 50%;
-        float: left;
-    }
 
     #homeId {
         left: 113%;
@@ -131,9 +122,31 @@
     }
 }
 
-@media(min-width:769px) {
-    .footer {
-        height: 10vw;
-        width: 90%;
+@media(max-width:990px) {
+
+    .footer-box {
+        padding: 20px 0px;
+    }
+
+    .footer-logo {
+        display: block;
+        text-align: center;
+    }
+
+    .footer-box ul li {
+        list-style: none;
+    }
+
+    .footer-box ul li a {
+        color: #FFF;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.7rem;
+    }
+}
+
+@media(max-width:504px) {
+    .footer-box ul {
+        padding-left: 0px !important;
     }
 }

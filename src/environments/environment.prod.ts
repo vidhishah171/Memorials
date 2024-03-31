@@ -1,5 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl:"https://h2913228.stratoserver.net/"
 };
-
-

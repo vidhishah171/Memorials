@@ -1,39 +1,37 @@
-<div class="w-100 footer">
-    <nav class="container navbar navbar-expand-lg navbar-light bg-transprant">
-        <div class="container-fluid ms-5">
-            <a *ngIf="!loginservice.isFooterLogin" class="navbar-brand logo" href="#">
-                <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
-                    class="mt-0 top-0" style='height:"80px";' />
-            </a>
-            <a *ngIf="loginservice.isFooterLogin" class="navbar-brand logo" href="#">
-                <img src="../../../assets/StaticAssets/Home page/LogoSoulium_com-1.png" alt="soulium-logo"
-                    class="mt-0 top-0" style='height:"80px";' />
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end pe-5" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+<div class="footer-box">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <a *ngIf="!loginservice.isFooterLogin" class="footer-logo" href="#">
+                    <img src="https://www.soulium.com/onlinefriedhof/images/hires/LogoSoulium_com.png" alt="soulium-logo"
+                        class="mt-0 top-0" style='height:"80px";' />
+                </a>
+                <a *ngIf="loginservice.isFooterLogin" class="footer-logo" href="#">
+                    <img src="../../../assets/StaticAssets/Home page/LogoSoulium_com-1.png" alt="soulium-logo"
+                        class="mt-0 top-0" style='height:"80px";' />
+                </a>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                <ul class="d-flex justify-content-center align-items-center">
+                    <li class="">
                         <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==1">
-                            <strong>{{respo1?.en}}</strong>
+                            {{respo1?.en}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==2">
-                            <strong>{{respo1?.de}}</strong>
+                            {{respo1?.de}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==3">
-                            <strong>{{respo1?.fr}}</strong>
+                            {{respo1?.fr}}
                         </a>
                     </li>
+                    
                     <!-- extra code for label -->
                     <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="homeId">
@@ -61,24 +59,26 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    
+                    <li class="">
                         <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==1">
-                            <strong>{{respo2?.en}}</strong>
+                            {{respo2?.en}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==2">
-                            <strong>{{respo2?.de}}</strong>
+                            {{respo2?.de}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==3">
-                            <strong>{{respo2?.fr}}</strong>
+                            {{respo2?.fr}}
                         </a>
                     </li>
+
                     <!-- extra code for label -->
                     <li *ngIf="showNewDiv==2 && isvalid" style="position: absolute; margin-top: 25px;">
                         <div class="forDiv" id="premiumId">
@@ -106,22 +106,23 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-                    <li class="nav-item">
+
+                    <li class="">
                         <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==1">
-                            <strong>{{respo3?.en}}</strong>
+                            {{respo3?.en}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==2">
-                            <strong>{{respo3?.de}}</strong>
+                            {{respo3?.de}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==3">
-                            <strong>{{respo3?.fr}}</strong>
+                            {{respo3?.fr}}
                         </a>
                     </li>
 
@@ -152,22 +153,23 @@
                                 class="btn btn-outline-success">Save</button>
                         </div>
                     </li>
-                    <li class="nav-item">
+
+                    <li class="">
                         <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                     src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         &nbsp;
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==1">
-                            <strong>{{respo4?.en}}</strong>
+                            {{respo4?.en}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==2">
-                            <strong>{{respo4?.de}}</strong>
+                            {{respo4?.de}}
                         </a>
-                        <a class="nav-link active footerText" aria-current="page" href="#"
+                        <a class="" aria-current="page" href="#"
                             *ngIf="editservice.numLabel==3">
-                            <strong>{{respo4?.fr}}</strong>
+                            {{respo4?.fr}}
                         </a>
                     </li>
 
@@ -201,7 +203,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
 </div>
 
 <li *ngIf="showNewDiv==5 && isvalid" style="position: absolute; margin-top: -38px; left: 31%;">

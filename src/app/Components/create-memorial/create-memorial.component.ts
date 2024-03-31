@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { CreateMemorialService } from '../../../services/create-memorial.service';
 import { memorialimage } from 'src/app/Model/memorialimage';
 import { fabric } from 'fabric';
@@ -26,6 +26,7 @@ import { createMemorial } from 'src/app/Model/createMemorial';
 })
 export class CreateMemorialComponent implements OnInit {
   @ViewChild(CanvasComponent) child: CanvasComponent;
+  showActiveClass = false;
 
   ImgRandomId = 0;
   imagespath = [];
@@ -138,6 +139,21 @@ export class CreateMemorialComponent implements OnInit {
       this.clickDiv();
     }, 1000);
     this.showCentric(1)
+    if (window.innerWidth < 768) {
+      this.showActiveClass = true;
+      this.tomb.style.color = '';
+      this.person.style.color = '';
+    }
+    else {
+      this.showActiveClass = false;
+      if (this.showTambstone) {
+        this.tomb.style.color = '#09AA13';
+        this.person.style.color = 'black';
+      } else {
+        this.tomb.style.color = 'black';
+        this.person.style.color = '#09AA13black';
+      }
+    }
   }
   ngOnInit() {
     this.changeStyle = undefined;
@@ -147,10 +163,30 @@ export class CreateMemorialComponent implements OnInit {
     this.service.createMemorial.DOB = new Date(this.service.createMemorial.DOB);
     this.service.createMemorial.DOD = new Date(this.service.createMemorial.DOD);
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    if (window.innerWidth < 768) {
+      this.showActiveClass = true;
+      this.tomb.style.color = '';
+      this.person.style.color = '';
+    }
+    else {
+      this.showActiveClass = false;
+      if (this.showTambstone) {
+        this.tomb.style.color = '#09AA13';
+        this.person.style.color = 'black';
+      } else {
+        this.tomb.style.color = 'black';
+        this.person.style.color = '#09AA13black';
+      }
+    }
+  }
+
   clickDiv() {
     var test = document.getElementById("navDiv");
     if (test != null) {
-      test.style.position = 'absolute';
+      // test.style.position = 'absolute';
     }
   }
   personNavColor() {
@@ -503,14 +539,24 @@ export class CreateMemorialComponent implements OnInit {
     this.person = document.getElementById("person");
     if (point == 1) {
       this.showTambstone = true;
-      this.tomb.style.color = '#09AA13';
-      this.person.style.color = 'black';
+      if (!this.showActiveClass) {
+        this.tomb.style.color = '#09AA13';
+        this.person.style.color = 'black';
+      } else {
+        this.tomb.style.color = '';
+        this.person.style.color = '';
+      }
       this.isDisplaySmallImage = true;
     }
     if (point == 2) {
       this.showTambstone = false;
-      this.tomb.style.color = 'black';
-      this.person.style.color = '#09AA13'
+      if (!this.showActiveClass) {
+        this.tomb.style.color = 'black';
+        this.person.style.color = '#09AA13'
+      } else {
+        this.tomb.style.color = '';
+        this.person.style.color = '';
+      }
       this.isDisplaySmallImage = false;
     }
   }

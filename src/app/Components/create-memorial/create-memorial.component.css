@@ -284,23 +284,17 @@
 
 .navPadding {
     background-color: #F8F8F8;
-    height: 21%;
+    max-height: 21%;
 }
 
 .createMemorialText {
-    font-size: 2.4rem;
-    margin-top: 1.5%;
+    font-size: 2rem;
     font-weight: 600;
-    text-align: center;
-    align-items: center;
 }
 
 .freeAndDigni {
-    float: right;
-    margin-top: -4%;
-    margin-right: 18%;
     color: #5D5959;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .freeAndDignified {
@@ -332,11 +326,10 @@
 }
 
 .tab {
-    height: 5rem;
-    float: left;
+    padding: 20px 0px;
     color: #CF6363;
     background-color: #EEE6DD;
-    padding-bottom: 1%;
+    text-align: center;
 }
 
 .tab2 {
@@ -368,18 +361,15 @@
 }
 
 .child img {
-    height: 27px;
-    width: 18px;
+    height: 31px;
+    width: 30px;
 }
 
-.child .heading {
+.form-one .heading {
     width: 100%;
     height: 40px;
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    align-content: center;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
 .child2 {
@@ -491,10 +481,8 @@
 }
 
 .personCentric {
-    height: 320px;
-    width: 49%;
-    display: flex;
-    flex-wrap: wrap;
+    height: 340px;
+    width: 100%;
     background-image: url('../../../assets/StaticAssets/Create memorial/step1/user-portrait.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -513,7 +501,7 @@
 }
 
 .userHeadingLogo {
-    margin-bottom: 2.7%;
+    margin-top: 15px;
 }
 
 ::placeholder {
@@ -854,10 +842,7 @@
     background-color: #09AA13;
     color: white;
     font-size: 0.8rem;
-    padding-top: 1.5%;
-    padding-bottom: 1%;
-    padding-left: 5%;
-    padding-right: 3%;
+    padding: 6px 30px;
 }
 
 .nextBtn1 {
@@ -963,10 +948,6 @@ input.ng-touched.ng-invalid {
     margin-left: 26%;
 }
 
-.buttonNoneDiv {
-    width: 14%;
-}
-
 .stepThreeName {
     font-size: 0.85rem;
     color: #CF6363;
@@ -1002,26 +983,43 @@ input.ng-touched.ng-invalid {
 }
 
 .previewImage {
-    width: 92%;
+    width: 100%;
     height: 40%;
 }
 
+.rowTomb {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.colTomb {
+    width: 40%;
+}
+
+.colTomb a {
+    padding: 8%;
+}
+
+.colPerson {
+    width: 40%;
+}
+
+.colPerson a {
+    padding: 8%;
+}
+
+.colButton {
+    width: 20%;
+}
+
+.tombText {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 480px) {
-    #mobileRes {
-        height: 200px;
-        width: 200px;
-        align-items: center;
-    }
-
-    .personCentric {
-        height: 198px;
-        width: 71%;
-    }
-
-    #tombstoneSize {
-        height: 95px;
-        width: 74px;
-    }
 
     .content1 {
         flex-direction: column;
@@ -1072,10 +1070,6 @@ input.ng-touched.ng-invalid {
         float: right;
     }
 
-    .nextBtn1 {
-        padding-top: 1530px;
-    }
-
     .regForm {
         height: 100%;
         width: 100%;
@@ -1086,16 +1080,21 @@ input.ng-touched.ng-invalid {
         width: 100%;
         display: flex;
     }
+
+    #tombstoneSize {
+        height: 125px;
+        width: 125px;
+    }
 }
 
-@media (min-width:481px) and (max-width:979px) {
+@media (min-width:481px) and (max-width:1024px) {
     #rect {
         width: 100%;
     }
 
     #tombstoneSize {
-        height: 136px;
-        width: 110px;
+        height: 125px;
+        width: 125px;
     }
 
     .tabWidth {
@@ -1108,11 +1107,6 @@ input.ng-touched.ng-invalid {
         height: auto;
     }
 
-    .personCentric {
-        height: 167px;
-        width: 50%;
-    }
-
     .child2 {
         width: 100%;
         height: 300px;
@@ -1123,7 +1117,7 @@ input.ng-touched.ng-invalid {
     }
 
     .nextBtn1 {
-        padding-top: 950px;
+        /* padding-top: 950px; */
     }
 
     #imageMemorial {
@@ -1137,12 +1131,6 @@ input.ng-touched.ng-invalid {
 
     .bottom-right {
         position: relative;
-    }
-
-    #mobileRes {
-        height: 170px;
-        width: 180px;
-        align-items: center;
     }
 
     .centered {
@@ -1398,7 +1386,7 @@ input.ng-touched.ng-invalid {
 
 @media (min-width:980px) and (max-width:1197px) {
     .nextBtn1 {
-        padding-top: 900px;
+        /* padding-top: 900px; */
     }
 
     .centered {
@@ -1466,26 +1454,94 @@ input.ng-touched.ng-invalid {
     .userText {
         font-size: 1.5rem;
     }
+}
 
-    .personCentric {
-        width: 42%;
+@media (max-width:1199px) {
+    .order2 {
+        order: 2;
+    }
+
+    .order1 {
+        order: 1;
+    }
+
+    .previewImage {
+        height: 400px;
+        width: 400px;
     }
 }
 
-@media (min-width:1517px)and (max-width:2017px) {
-    .personCentric {
-        width: 42%;
-    }
-}
+@media (max-width:767px) {
 
-@media (min-width:2017px)and (max-width:2049px) {
-    .personCentric {
-        width: 42%;
+    .carousel-inner {
+        height: 157px !important;
     }
-}
 
-@media (min-width:4098px) {
-    .personCentric {
-        width: 42%;
+    .tambstone .carousel-item button {
+        height: 45%;
+        width: 50%;
+    }
+
+    .buttonNoneDiv {
+        width: 23%;
+        margin: 0px auto;
+    }
+
+    .colButton {
+        width: 25%;
+    }
+
+    .colTomb {
+        width: 44%;
+    }
+
+    .colTomb a {
+        /* background-color: #09AA13; */
+        text-align: center;
+        padding: 25px 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        /* color: #fff; */
+        margin-right: 10px;
+        min-height: 150px;
+    }
+
+    .activeTomb {
+        background-color: #09AA13;
+        color: #fff;
+    }
+
+    .colPerson {
+        width: 44%;
+    }
+
+    .colPerson a {
+        text-align: center;
+        padding: 25px 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        /* border: 1px solid gray; */
+        /* color: gray; */
+        min-height: 150px;
+    }
+
+    .activePerson {
+        color: gray;
+        border: 1px solid gray;
+    }
+
+    .tombImage {
+        margin: 0px auto;
+        display: block;
+    }
+
+    .nextBtn1 {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .previewImage {
+        height: 300px;
+        width: 300px;
     }
 }

@@ -33,21 +33,31 @@
 
 .userText {
     padding-left: 4.5%;
-    width: 108%;
+    width: 100%;
 }
 
 .container {
-    position: relative;
     text-align: center;
     color: white;
     margin: 2% auto;
 }
 
+.footer-banner {
+    background-image: url("../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    padding: 90px 0px;
+    position: relative;
+}
 
 .centered {
     position: absolute;
     top: 53%;
-    left: 51%;
+    left: 55%;
     transform: translate(-50%, -50%);
     color: #4A4A4B;
     font-size: 1.35rem;
@@ -91,26 +101,20 @@
     font-family: 'Rubik', sans-serif;
 }
 
+.main-container-box {
+    background-color: #f8f7f6;
+    padding: 13px 13px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    width: 50%;
+}
+
 .fontCenter {
-    font-size: 0.85rem;
-}
-
-.bottom-left {
-    position: absolute;
-    bottom: 20px;
-    left: 356px;
+    font-size: 0.9rem;
     color: black;
-    font-weight: 500;
-    font-size: 0.85rem;
-}
-
-.bottom-right1 {
-    position: absolute;
-    bottom: 20px;
-    right: 359px;
-    color: black;
-    font-weight: 500;
-    font-size: 0.85rem;
+    font-family: 'Rubik', sans-serif;
 }
 
 .memoImg {
@@ -142,25 +146,101 @@
     margin-top: -131%;
 }
 
-@media (min-width:481px) and (max-width:979px) {
+@media (max-width:481px) {
     .centered {
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
-    .bottom-left {
-        bottom: 25px;
-        left: 540px;
-        font-size: 1rem;
+    .centered1 {
+        position: absolute;
+        top: 29%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        color: #4A4A4B;
+        font-size: 0.5rem;
+        font-family: 'Satisfy', cursive;
+        width: 100%;
+    }
+
+    .bottom-right {
+        position: absolute;
+        bottom: -12px;
+        right: 90px;
+        color: grey;
+        width: 30%;
+        font-family: 'Rubik', sans-serif;
     }
 
     #rect {
         width: 100%;
     }
 
-    .bottom-right1 {
-        bottom: 25px;
-        right: 550px;
-        font-size: 1rem;
+    #imageMemorial {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width:481px) and (max-width:750px) {
+    .centered {
+        font-size: 0.6rem;
+    }
+
+    .centered1 {
+        position: absolute;
+        top: 29%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        color: #4A4A4B;
+        font-size: 0.6rem;
+        font-family: 'Satisfy', cursive;
+        width: 100%;
+    }
+
+    .bottom-right {
+        position: absolute;
+        bottom: -12px;
+        right: 172px;
+        color: grey;
+        width: 30%;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    #rect {
+        width: 100%;
+    }
+
+    #imageMemorial {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width:750px) and (max-width:980px) {
+    .centered {
+        font-size: 0.7rem;
+    }
+
+    .centered1 {
+        position: absolute;
+        top: 29%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        color: #4A4A4B;
+        font-size: 0.7rem;
+        font-family: 'Satisfy', cursive;
+        width: 100%;
+    }
+
+    .bottom-right {
+        position: absolute;
+        bottom: -12px;
+        right: 172px;
+        color: grey;
+        width: 30%;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    #rect {
+        width: 100%;
     }
 
     #imageMemorial {
@@ -174,64 +254,118 @@
     }
 
     .centered {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
-    .bottom-left {
-        bottom: 25px;
-        left: 480px;
-        font-size: 1rem;
+    .centered1 {
+        position: absolute;
+        top: 29%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        color: #4A4A4B;
+        font-size: 0.9rem;
+        font-family: 'Satisfy', cursive;
+        width: 100%;
     }
 
-    .bottom-right1 {
-        bottom: 25px;
-        right: 480px;
-        font-size: 1rem;
-    }
-}
-
-@media (min-width:992px) and (max-width:1197px) {
-    .centered {
-        font-size: 1rem;
-    }
-
-    .bottom-left {
-        bottom: 15px;
-        left: 558px;
-        font-size: 0.8rem;
-    }
-
-    .bottom-right1 {
-        bottom: 15px;
-        right: 552px;
-        font-size: 0.8rem;
+    .bottom-right {
+        position: absolute;
+        bottom: -12px;
+        right: 172px;
+        color: grey;
+        width: 30%;
+        font-family: 'Rubik', sans-serif;
     }
 }
 
-@media (min-width:1398px) {
-    .centered {
-        font-size: 1rem;
+@media (max-width:497px) {
+    .main-container-box {
+        background-color: #f8f7f6;
+        padding: 10px 9px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        width: 100%;
     }
 
     .fontCenter {
-        font-size: 1rem;
-        margin-top: -4px;
-        left: 50%;
+        font-size: 0.7rem;
+        color: black;
+        font-family: 'Rubik', sans-serif;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:497px) and (max-width:768px) {
+    .main-container-box {
+        background-color: #f8f7f6;
+        padding: 13px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        width: 100%;
     }
 
-    .bottom-left {
-        bottom: 25px;
-        left: 419px;
-        font-size: 1rem;
+    .fontCenter {
+        font-size: 0.7rem;
+        color: black;
+        font-family: 'Rubik', sans-serif;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:769px) and (max-width:1215px) {
+    .main-container-box {
+        background-color: #f8f7f6;
+        padding: 13px 13px;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        width: 80%;
     }
 
-    .bottom-right1 {
-        bottom: 25px;
-        right: 422px;
-        font-size: 1rem;
+    .fontCenter {
+        font-size: 0.9rem;
+        color: black;
+        font-family: 'Rubik', sans-serif;
     }
+}
 
-    .userText {
-        font-size: 1.5rem;
+@media (max-width:1201px) {
+    .footer-banner {
+        padding: 70px 0px;
+    }
+}
+
+@media (max-width:1001px) {
+    .footer-banner {
+        padding: 60px 0px;
+    }
+}
+
+@media (max-width:801px) {
+    .footer-banner {
+        padding: 50px 0px;
+    }
+}
+
+@media (max-width:651px) {
+    .footer-banner {
+        padding: 40px 0px;
+    }
+}
+
+@media (max-width:501px) {
+    .footer-banner {
+        padding: 30px 0px;
+    }
+}
+
+@media (max-width:351px) {
+    .footer-banner {
+        padding: 20px 0px;
     }
 }
