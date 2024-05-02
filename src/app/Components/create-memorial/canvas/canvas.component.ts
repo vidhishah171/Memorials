@@ -1,5 +1,5 @@
 import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
-import { AfterViewInit, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { fabric } from 'fabric';
 import { Canvas, Control } from 'fabric/fabric-impl';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -14,6 +14,8 @@ import { AdminEditExampleComponent } from '../../admin-edit-example/admin-edit-e
 import { MatDialog } from '@angular/material/dialog';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { fabricGif } from "./fabricGif";
+import { GifLoaderService } from './gif-loader.service';
 
 @Component({
   selector: 'app-canvas',
@@ -52,6 +54,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
   showTambstone: boolean = true;
   imagespath = [];
   caroucelCount: number = 1;
+  bgCaroucelCount: number = 1;
   imagesForCaroucel = [];
 
   changeStyle: string;
@@ -87,6 +90,13 @@ export class CanvasComponent implements OnInit, OnDestroy {
   isDisplaySmallImage: boolean;
   imgBack: any[];
   respo14: any;
+  existBackImage: any;
+  selectedTombstoneImage: any;
+  respo15: any = {
+    de: "DEKORATION HINZUFÜGEN",
+    en: "ADD DECORATION",
+    fr: "AJOUTER UNE DÉCORATION"
+  };
 
   constructor(
     public service: CreateMemorialService,
@@ -95,6 +105,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
     public loginservice: LoginService,
     public dialog: MatDialog,
     public snack: MatSnackBar,
+    private gifLoaderService: GifLoaderService
   ) { this.loginservice.otherPage = false; }
 
   public GetData() {
@@ -120,7 +131,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
     this.service.vita.textString1;
     this.name45 = '';
 
-    this.service.selectedMainImg = '';
+    // this.service.selectedMainImg = '';
     this.saveCanvasToJSON();
     if (this.service.stepNumber === 3) {
       this.saveCanvasToJSON();
@@ -133,26 +144,56 @@ export class CanvasComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     this.showSecMenu(1);
     this.showSubMenuItems(1);
-    if (window.innerWidth >= 1400) {
+    this.isMobile = false;
+    this.isTablet = false;
+    if (window.innerWidth >= 1500) {
       this.canvas.setHeight(600);
       this.canvas.setWidth(600);
       this.canvas.renderAll();
     }
-    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+    else if(window.innerWidth > 1400 && window.innerWidth < 1500){
       this.canvas.setHeight(500);
       this.canvas.setWidth(500);
       this.canvas.renderAll();
     }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(380);
+      // this.canvas.setWidth(380);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1200 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(470);
+      this.canvas.renderAll();
+    }
     else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      this.isTablet = true;
       this.canvas.setHeight(400);
       this.canvas.setWidth(400);
       this.canvas.renderAll();
     }
     else if (window.innerWidth <= 768) {
+      this.isMobile = true;
       this.canvas.setHeight(350);
       this.canvas.setWidth(300);
       this.canvas.renderAll();
     }
+
+    if (this.canddleCaroucelCount == 1) {
+      this.canddleImages = this.isMobile
+        ? this.newCanddleImages
+        : this.newCanddleImages.slice(0, 20);
+    }
+
+    this.imagesForCaroucel = this.isMobile
+      ? this.imagespath
+      : this.imagespath.slice(0, 6);
+
+    this.imgBack = this.isMobile
+      ? this.backgroundImages
+      : this.backgroundImages.slice(0, 6);
+
     // else if (window.innerWidth < 500) {
     //   this.canvas.setHeight(200);
     //   this.canvas.setWidth(200);
@@ -164,17 +205,18 @@ export class CanvasComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getCanddleImages();
     this.getURNSImages();
-    this.getFlowerImages();
+    // this.getFlowerImages();
     this.getbackgImages();
     this.canvasadd();
     this.getTambImage();
+    this.onResize();
     this.addText1();
     this.editData();
     if (this.service.stepNumber === 2) {
       this.loadCanvasFromJSON();
-      this.addText1();
+      // this.addText1();
     }
-    this.setBackgImage(null);
+    // this.setBackgImage(null);
   }
   public textString: string;
   public textString1: string;
@@ -185,34 +227,87 @@ export class CanvasComponent implements OnInit, OnDestroy {
 
   showFirstCandleIcon: boolean = true;
   showLastCandleIcon: boolean = false;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+  textObject: any;
+  tombstomeMainOjbectToCenter: any;
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any): void {
-    if (window.innerWidth >= 1400) {
+  onResize(): void {
+    this.isMobile = false;
+    this.isTablet = false;
+    this.showFirstCandleIcon = true;
+    this.showLastCandleIcon = true;
+    if (window.innerWidth >= 1500) {
       this.canvas.setHeight(600);
       this.canvas.setWidth(600);
       this.canvas.renderAll();
     }
-    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+    else if(window.innerWidth > 1400 && window.innerWidth < 1500){
       this.canvas.setHeight(500);
       this.canvas.setWidth(500);
       this.canvas.renderAll();
     }
+    else if (window.innerWidth > 1200 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(470);
+      this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+      // this.canvas.setHeight(500);
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(380);
+      // this.canvas.setWidth(380);
+      this.canvas.renderAll();
+    }
     else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      this.isTablet = true;
       this.canvas.setHeight(400);
       this.canvas.setWidth(400);
       this.canvas.renderAll();
     }
     else if (window.innerWidth <= 768) {
+      this.isMobile = true;
+      this.showFirstCandleIcon = true;
+      // this.showLastCandleIcon = false;
       this.canvas.setHeight(350);
       this.canvas.setWidth(300);
       this.canvas.renderAll();
     }
+    if (this.canddleCaroucelCount == 1) {
+      this.canddleImages = this.isMobile
+        ? this.newCanddleImages
+        : this.newCanddleImages.slice(0, 20);
+      // this.canddleImages = this.newCanddleImages;
+    }
+    
+    this.imagesForCaroucel = this.isMobile
+      ? this.imagespath
+      : this.imagespath.slice(0, 6);
+
+    this.imgBack = this.isMobile
+      ? this.backgroundImages
+      : this.backgroundImages.slice(0, 6);
+    if(this.existBackImage){
+      this.setBackgImage(this.existBackImage);
+    }
+
+    if (this.flowerCaroucelCount == 1) {
+      this.newFlowerImages = this.isMobile
+        ? this.flowerImages
+        : this.flowerImages.slice(0, 10);
+    }
+
     // else if (window.innerWidth < 500) {
     //   this.canvas.setHeight(200);
     //   this.canvas.setWidth(200);
     //   this.canvas.renderAll();
     // }
+    setTimeout(() => {
+      this.canvas.centerObjectH(this.textObject);
+      // this.addImageToCanvas1(this.selectedTombstoneImage);
+      this.canvas.centerObjectH(this.tombstomeMainOjbectToCenter);
+    }, 200);
   }
 
   showHideFirstCandleIcon() {
@@ -238,9 +333,10 @@ export class CanvasComponent implements OnInit, OnDestroy {
   addText1() {
     this.DOB1 = formatDate(this.service.createMemorial.DOB, 'M.d.yyyy', 'en_US');
     this.DOD1 = formatDate(this.service.createMemorial.DOD, 'M.d.yyyy', 'en_US');
+    let left = (this.canvas.width >= 470) ? 175 : ((this.canvas.width - 150) / 2 );
     this.name45 = this.service.createMemorial.g_firstname + " " + this.service.createMemorial.g_lastname + " " + "(" + this.DOB1 + " " + "-" + " " + this.DOD1 + ")"
     const text = new fabric.IText(this.name45, {
-      left: 15,
+      left: left,
       top: 1,
       fontFamily: 'helvetica',
       angle: 0,
@@ -250,21 +346,32 @@ export class CanvasComponent implements OnInit, OnDestroy {
       fontWeight: 'bold',
       hasRotatingPoint: true,
     });
+    this.textObject = text;
     this.canvas.add(text);
   }
   canvasadd() {
-    this.canvas = new fabric.Canvas('Mycanvas');
+    this.canvas = new fabric.Canvas("Mycanvas");
+    this.canvas.preserveObjectStacking = true;
     this.removeSelected1();
-    fabric.Image.fromURL(this.service.selectedMainImg, newImg => {
+    this.selectedTombstoneImage = {path: this.service.selectedMainImg};
+    fabric.Image.fromURL(this.service.selectedMainImg, (newImg) => {
       this.canvas.add(newImg);
       newImg.toCanvasElement;
-      newImg.top = 15;
-      newImg.left = 10;
+      newImg.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2) : 15;
+      newImg.left = ((this.canvas.width - 300) / 2);
       newImg.originX = 'left';
       newImg.originY = 'top';
       newImg.scaleToHeight(300);
       newImg.scaleToWidth(300);
+      newImg.name = "tombStoneImage";
+      // newImg.lockMovementX = true;
+      // newImg.lockMovementY = true;
+      // newImg.set({
+      //   evented: false,
+      //   selectable: true,
+      // });
       this.extend(newImg, this.ImgRandomId);
+      this.tombstomeMainOjbectToCenter = newImg;
     });
     this.canvas.renderAll();
     this.canvas.on('object:moving', function (e) {
@@ -277,13 +384,17 @@ export class CanvasComponent implements OnInit, OnDestroy {
     //Delete object
     var Obj = new fabric.Control({
       render: this.renderIcon,
-      x: 0.5,
+      x: 0.0,
       y: -0.5,
       cursorStyle: 'pointer',
-      mouseUpHandler: function deleteObject(eventData, transform): boolean {
+      actionName:"delete",
+      mouseUpHandler: (eventData, transform) => {
         var ss = that;
         var target = transform.target;
         var canvas = target.canvas;
+        if(target.name == "tombStoneImage"){
+          this.service.selectedMainImg = "";
+        }
         canvas.remove(target);
         if (that.canddleImages) {
           that.count--;
@@ -356,40 +467,108 @@ export class CanvasComponent implements OnInit, OnDestroy {
   DropImageToCan(dragImage: any) {
     this.addImageToCanvas(dragImage);
   }
+
+  checkIfGif(url: string){
+    return url.split(".").pop() === "gif";
+  }
+
+  onParentClick(event: MouseEvent) {
+    if (event.target instanceof HTMLImageElement) {
+      // Access the child image information using event.target
+      console.log((event.target as HTMLImageElement).src); // Example usage
+
+      this.gifLoaderService.loadGifFromUrl((event.target as HTMLImageElement).src).subscribe(async (gif) => {
+        const gif1 = await fabricGif(
+          gif
+        );
+        gif1.set({ left: Math.floor(Math.random() * (this.canvas.width - 50)),
+          top: Math.floor(Math.random() * (this.canvas.height - 50)),});
+        this.canvas.add(gif1);
+  
+        let render = () => {
+          this.canvas.renderAll();
+          fabric.util.requestAnimFrame(render);
+        }
+        fabric.util.requestAnimFrame(render);
+  
+      })
+
+    }
+  }
+
+
   addImageToCanvas(decImages: any) {
-    fabric.Image.fromURL(decImages.path, (newImg) => {
-      this.canvas.add(newImg);
-      let self = this;
-      newImg.toCanvasElement;
-      newImg.originX = 'center';
-      newImg.originY = 'center';
-      newImg.hasControls = true;
-      newImg.bringToFront();
-      this.canvas.setActiveObject(newImg);
-    },
+    fabric.Image.fromURL(
+      decImages.path,
+      (newImg) => {
+        this.canvas.add(newImg);
+        let self = this;
+        newImg.toCanvasElement;
+        newImg.originX = 'center';
+        newImg.originY = 'center';
+        newImg.hasControls = true;
+        newImg.cornerSize = 15;
+        this.canvas.setActiveObject(newImg);
+        // this.canvas.bringToFront(newImg);
+      },
       {
         left: Math.floor(Math.random() * (this.canvas.width - 50)),
         top: Math.floor(Math.random() * (this.canvas.height - 50)),
       })
   }
   addImageToCanvas1(decImages1: any) {
+    this.selectedTombstoneImage = decImages1;
     this.removeSelected1();
-    fabric.Image.fromURL(decImages1.path, (newImg1) => {
-      this.canvas.add(newImg1);
-      newImg1.toCanvasElement;
-      newImg1.originX = 'center';
-      newImg1.originY = 'center';
-      newImg1.hasControls = true;
-      newImg1.scaleToHeight(300);
-      newImg1.scaleToWidth(300);
-      newImg1.sendToBack();
-      this.ImgRandomId = this.randomId();
-      this.extend(newImg1, this.ImgRandomId);
-    },
-      {
-        left: 280,
-        top: 280
-      })
+    fabric.Image.fromURL(
+      decImages1.path,
+      (newImg1) => {
+        this.canvas.add(newImg1);
+        this.service.selectedMainImg = decImages1.path;
+        newImg1.toCanvasElement;
+        newImg1.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2) : 15;
+        newImg1.left = ((this.canvas.width - 300) / 2);
+        newImg1.originX = "left";
+        newImg1.originY = "top";
+        newImg1.hasControls = true;
+        newImg1.scaleToHeight(300);
+        newImg1.scaleToWidth(300);
+        newImg1.sendToBack();
+        // newImg1.lockMovementX = true;
+        // newImg1.lockMovementY = true;
+        newImg1.name = "tombStoneImage";
+        // newImg1.set({
+        //   selectable: true,
+        //   evented: false,
+        // });
+        this.ImgRandomId = this.randomId();
+        this.extend(newImg1, this.ImgRandomId);
+        this.tombstomeMainOjbectToCenter = newImg1;
+      }
+      // {
+      //   left: 280,
+      //   top: 280,
+      // }
+    );
+  }
+
+  addVitaTextString() {
+    if (this.service.vita.textString1) {
+      // const text = new fabric.IText(this.service.vita.textString1, {
+      //   left: Math.floor(Math.random() * (this.canvas.width - 50)),
+      //   top: Math.floor(Math.random() * (this.canvas.height - 50)),
+      //   fontFamily: "helvetica",
+      //   angle: 0,
+      //   fill: this.fill,
+      //   scaleX: 0.4,
+      //   scaleY: 0.4,
+      //   fontWeight: "",
+      //   hasRotatingPoint: true,
+      // });
+      // this.extend(text, this.randomId());
+      // this.canvas.add(text);
+      // this.selectItemAfterAdded(text);
+      // this.service.vita.textString1 = "";
+    }
   }
   showSecMenu(num) {
     var decoration = document.getElementById('Decoration');
@@ -653,7 +832,8 @@ export class CanvasComponent implements OnInit, OnDestroy {
     this.canvas.renderAll();
   }
   setBackgImage(backImage: any) {
-    if (backImage == null) {
+    if (backImage !== null) {
+      this.existBackImage = backImage;
       fabric.Image.fromURL(backImage.path, (img) => {
         img.set({
           backgroundColor: "grey",
@@ -675,18 +855,21 @@ export class CanvasComponent implements OnInit, OnDestroy {
   }
   getCanddleImages() {
     this.service.getCanddleImages(2)
-      .subscribe(
-        (cImages: any) => {
-          this.newCanddleImages = cImages.images;
+    .subscribe(
+      (cImages: any) => {
+        this.newCanddleImages = cImages.images;
 
-          if (this.canddleCaroucelCount == 1) {
-            this.canddleImages = this.newCanddleImages.slice(0, 20);
-          }
-        },
-        error => {
-          console.log(error);
+        if (this.canddleCaroucelCount == 1) {
+          this.canddleImages = this.isMobile
+            ? this.newCanddleImages
+            : this.newCanddleImages.slice(0, 20);
+          // this.canddleImages = this.newCanddleImages;
         }
-      )
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
   nextCanddle() {
     this.canddleCaroucelCount++;
@@ -715,6 +898,7 @@ export class CanvasComponent implements OnInit, OnDestroy {
       .subscribe(
         (URImages: any) => {
           this.URNSImages = URImages.images;
+          this.getFlowerImages();
         },
         error => {
           console.log(error);
@@ -724,17 +908,19 @@ export class CanvasComponent implements OnInit, OnDestroy {
 
   getFlowerImages() {
     this.service.getFlowerImages(3)
-      .subscribe(
-        (flowerImages: any) => {
-          this.flowerImages = flowerImages.images;
-          if (this.flowerCaroucelCount == 1) {
-            this.newFlowerImages = this.flowerImages.slice(0, 10);
-          }
-        },
-        (error: any) => {
-          console.log(error);
+    .subscribe(
+      (flowerImages: any) => {
+        this.flowerImages = [...this.URNSImages, ...flowerImages.images];
+        if (this.flowerCaroucelCount == 1) {
+          this.newFlowerImages = this.isMobile
+            ? this.flowerImages
+            : this.flowerImages.slice(0, 10);
         }
-      )
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
   // for person centric images
   showCentric1(point) {
@@ -758,22 +944,24 @@ export class CanvasComponent implements OnInit, OnDestroy {
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;
-
+    this.selectedTombstoneImage = {path: data};
   }
 
   getTambImage() {
     this.service.getTambstoneImages(1)
-      .subscribe(
-        (tambImags: any) => {
-          this.imagespath = tambImags.images;
-          if (this.caroucelCount == 1) {
-            this.imagesForCaroucel = this.imagespath.slice(0, 6);
-          }
-        },
-        err => {
-          console.log(err);
+    .subscribe(
+      (tambImags: any) => {
+        this.imagespath = tambImags.images;
+        if (this.caroucelCount == 1) {
+          this.imagesForCaroucel = this.isMobile
+            ? this.imagespath
+            : this.imagespath.slice(0, 6);
         }
-      )
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   nextCarousel() {
@@ -850,26 +1038,27 @@ export class CanvasComponent implements OnInit, OnDestroy {
       this.newFlowerImages = this.flowerImages.slice(49, 56);
 
     }
-    if (this.flowerCaroucelCount == 8) {
+    if (this.flowerCaroucelCount == 9) {
       this.newFlowerImages = this.flowerImages.slice(56, 63);
     }
-    if (this.flowerCaroucelCount == 9) {
+    if (this.flowerCaroucelCount == 10) {
       this.newFlowerImages = this.flowerImages.slice(63, 70);
 
     }
-    if (this.flowerCaroucelCount == 10) {
+    if (this.flowerCaroucelCount == 11) {
       this.newFlowerImages = this.flowerImages.slice(70, 77);
 
     }
-    if (this.flowerCaroucelCount == 11) {
+    if (this.flowerCaroucelCount == 12) {
       this.newFlowerImages = this.flowerImages.slice(77, 84);
 
     }
-    if (this.flowerCaroucelCount >= 12) {
+    if (this.flowerCaroucelCount >= 13) {
       this.newFlowerImages = this.flowerImages.slice(84, 91);
 
     }
   }
+
   prevFlower() {
     this.flowerCaroucelCount--;
     if (this.flowerCaroucelCount == 1) {
@@ -920,47 +1109,54 @@ export class CanvasComponent implements OnInit, OnDestroy {
       this.newFlowerImages = this.flowerImages.slice(77, 84);
 
     }
+    if (this.flowerCaroucelCount >= 13) {
+      this.newFlowerImages = this.flowerImages.slice(84, 91);
+
+    }
   }
+
   getbackgImages() {
     this.service.getBackgImages(4)
-      .subscribe(
-        (backImages: any) => {
-          this.backgroundImages = backImages.images;
-          if (this.caroucelCount == 1) {
-            this.imgBack = this.backgroundImages.slice(0, 6);
-          }
-        },
-        error => {
-          console.log(error);
+    .subscribe(
+      (backImages: any) => {
+        this.backgroundImages = backImages.images;
+        if (this.bgCaroucelCount == 1) {
+          this.imgBack = this.isMobile
+            ? this.backgroundImages
+            : this.backgroundImages.slice(0, 6);
         }
-      )
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
   nextCarousel1() {
-    this.caroucelCount++;
+    this.bgCaroucelCount++;
 
-    if (this.caroucelCount == 2) {
+    if (this.bgCaroucelCount == 2) {
       this.imgBack = this.backgroundImages.slice(7, 13);
     }
-    if (this.caroucelCount == 3) {
+    if (this.bgCaroucelCount == 3) {
       this.imgBack = this.backgroundImages.slice(13, 19);
-    } if (this.caroucelCount == 4) {
+    } if (this.bgCaroucelCount == 4) {
       this.imgBack = this.backgroundImages.slice(19, 25);
     }
   }
 
   prevCarousel1() {
-    this.caroucelCount = this.caroucelCount - 1;
+    this.bgCaroucelCount = this.bgCaroucelCount - 1;
 
-    if (this.caroucelCount == 2) {
+    if (this.bgCaroucelCount == 2) {
       this.imgBack = this.backgroundImages.slice(7, 13);
     }
-    if (this.caroucelCount == 3) {
+    if (this.bgCaroucelCount == 3) {
       this.imgBack = this.backgroundImages.slice(13, 19);
     }
-    if (this.caroucelCount == 4) {
+    if (this.bgCaroucelCount == 4) {
       this.imgBack = this.backgroundImages.slice(19, 25);
     }
-    if (this.caroucelCount == 1 || null) {
+    if (this.bgCaroucelCount == 1 || null) {
       this.imgBack = this.backgroundImages.slice(0, 6);
     }
 

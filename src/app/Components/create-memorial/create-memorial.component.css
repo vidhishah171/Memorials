@@ -288,8 +288,9 @@
 }
 
 .createMemorialText {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 600;
+    margin-bottom: 0px;
 }
 
 .freeAndDigni {
@@ -326,7 +327,8 @@
 }
 
 .tab {
-    padding: 20px 0px;
+    /* padding: 10px 0px; */
+    padding: 5px 0px;
     color: #CF6363;
     background-color: #EEE6DD;
     text-align: center;
@@ -920,10 +922,18 @@ input.ng-touched.ng-invalid {
     font-size: small;
 }
 
-#logo {
-    width: "100px" !important;
-    height: "100px" !important;
+.logo {
     margin-top: 3%;
+    text-align: center;
+}
+
+.fs-11{
+    font-size: 14px;
+}
+
+.form-check-input{
+    width: 1.3em;
+    height: 1.3em;
 }
 
 .datePickerCss {
@@ -1544,4 +1554,19 @@ input.ng-touched.ng-invalid {
         height: 300px;
         width: 300px;
     }
+
+    .p-4 {
+      padding: 1rem !important;
+    }
+  
+    .createMemorialText {
+      font-size: 1.4rem;
+      margin-bottom: 0px;
+    }
+
+    .carousel-item.active{
+        overflow-x: scroll;
+        flex-wrap: nowrap !important;
+    }
+    
 }

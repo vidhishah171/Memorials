@@ -5,7 +5,7 @@
             <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible" style="float: right;"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-            <h3 class="headerLabel">
+            <h3 class="headerLabel"  (click)="openDialogue(1)">
                 <p *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
                 <p *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
                 <p *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>

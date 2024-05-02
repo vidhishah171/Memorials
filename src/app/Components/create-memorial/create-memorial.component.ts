@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { CreateMemorialService } from '../../../services/create-memorial.service';
 import { memorialimage } from 'src/app/Model/memorialimage';
 import { fabric } from 'fabric';
@@ -26,6 +26,8 @@ import { createMemorial } from 'src/app/Model/createMemorial';
 })
 export class CreateMemorialComponent implements OnInit {
   @ViewChild(CanvasComponent) child: CanvasComponent;
+  // @ViewChild("openSelectFile") openSelectFile: ElementRef;
+
   showActiveClass = false;
 
   ImgRandomId = 0;
@@ -119,6 +121,7 @@ export class CreateMemorialComponent implements OnInit {
   json: string;
   isDisplaySmallImage: boolean;
   respo45: any;
+  isMobile: boolean = false;
 
   constructor(
     public service: CreateMemorialService,
@@ -128,6 +131,7 @@ export class CreateMemorialComponent implements OnInit {
     public loginservice: LoginService,
     private router: Router,
     private spiner: NgxSpinnerService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.loginservice.otherPage = false;
     this.loginservice.logoDisplay = true;
@@ -157,6 +161,12 @@ export class CreateMemorialComponent implements OnInit {
   }
   ngOnInit() {
     this.changeStyle = undefined;
+    if (window.innerWidth < 768) {
+      this.isMobile = true;
+    }
+    else {
+      this.isMobile = false;
+    }
     this.getTambImage();
     this.clickShowStepBtn1();
     this.editData();
@@ -165,13 +175,15 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event: any): void {
+  onResize(): void {
     if (window.innerWidth < 768) {
       this.showActiveClass = true;
       this.tomb.style.color = '';
       this.person.style.color = '';
+      this.isMobile = true;
     }
     else {
+      this.isMobile = false;
       this.showActiveClass = false;
       if (this.showTambstone) {
         this.tomb.style.color = '#09AA13';
@@ -181,6 +193,7 @@ export class CreateMemorialComponent implements OnInit {
         this.person.style.color = '#09AA13black';
       }
     }
+    this.imagesForCaroucel = this.isMobile ? this.imagespath : this.imagespath.slice(0, 6);
   }
 
   clickDiv() {
@@ -282,6 +295,7 @@ export class CreateMemorialComponent implements OnInit {
         }
 
         this.service.selectedMainImg = this.url;
+        // this.service.saveCanvas = this.url;
       }
 
     }
@@ -386,6 +400,15 @@ export class CreateMemorialComponent implements OnInit {
 
   // step 1 functions
   showStep(num) {
+  
+      this.g_firstnameNew.markAsTouched();
+      this.g_lastnameNew.markAsTouched();
+      this.DOBNew.markAsTouched();
+      this.DODNew.markAsTouched();
+   
+    if(!this.createForm.valid){
+      return;
+    }
     this.service.stepNumber = num;
     if (num == 1) {
       this.snackBar('You need to re-arrange the decoration items...', 'alert-danger');
@@ -403,7 +426,9 @@ export class CreateMemorialComponent implements OnInit {
       // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
       && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null && this.service.createMemorial.DOD != "")
     ) {
-      this.showMemSteps = 2;
+      this.service.selectedMainImg ? this.showMemSteps = 2 :
+      this.snackBar('Please select a tombstone or person-centric image', 'alert-success');
+      
     }
     else if (num == 2) {
       this.snackBar('Please fill all details on step-1', 'alert-success');
@@ -418,7 +443,8 @@ export class CreateMemorialComponent implements OnInit {
       // && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD?.length > 0)
       && (this.service.createMemorial.DOD != undefined && this.service.createMemorial.DOD != null && this.service.createMemorial.DOB != "")
     ) {
-      this.showMemSteps = 3;
+      this.service.selectedMainImg ? this.showMemSteps = 3 :
+      this.snackBar('Please select a tombstone or person-centric image', 'alert-success');
     }
     else if (num == 3) {
       this.snackBar('Please fill all details on step-1', 'alert-success')
@@ -446,6 +472,12 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
   clickShowStepBtn2() {
+    if(!this.createForm.valid){
+      return;
+    }
+    if(!this.service.selectedMainImg){
+      return;
+    }
     if (2) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -473,6 +505,9 @@ export class CreateMemorialComponent implements OnInit {
     }
   }
   clickShowStepBtn3() {
+    if(!this.service.selectedMainImg){
+      return;
+    }
     if (3) {
       // btn class
       var test = document.getElementById("showStepBtn1");
@@ -531,6 +566,7 @@ export class CreateMemorialComponent implements OnInit {
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;
+    // this.service.saveCanvas = data;
   }
 
   showCentric(point) {
@@ -594,7 +630,7 @@ export class CreateMemorialComponent implements OnInit {
         (tambImags: any) => {
           this.imagespath = tambImags.images;
           if (this.caroucelCount == 1) {
-            this.imagesForCaroucel = this.imagespath.slice(0, 6);
+            this.imagesForCaroucel = this.isMobile ? this.imagespath : this.imagespath.slice(0, 6);
           }
         },
         err => {

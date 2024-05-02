@@ -109,7 +109,7 @@
 
 .backWidth {
     width: 90%;
-    margin-top: 6%;
+    /* margin-top: 6%; */
     margin-left: 3%;
 }
 
@@ -124,8 +124,8 @@
 .backgroundText {
     font-size: 0.65rem;
     text-align: center;
-    margin-bottom: -6%;
-    margin-top: 5%;
+    /* margin-bottom: -6%;
+    margin-top: 5%; */
     color: #B5B5B5;
     opacity: 0.9;
 }
@@ -224,6 +224,10 @@
     /* margin-bottom: -17%; */
 }
 
+.lightDecorationImage{
+    width: 62px;
+    height: 62px;
+}
 .box1 {
     height: auto;
     /* width: 47%; */
@@ -287,8 +291,8 @@
 }
 
 .canvas {
-    border: 2px solid black;
-    padding: 40px 20px !important;
+  border: 1px solid black;
+  /* padding: 5px 5px !important; */
 }
 
 .box2 {
@@ -316,7 +320,7 @@
 .background1 {
     height: 100%;
     width: 100%;
-    margin-top: 7%;
+    /* margin-top: 7%; */
 }
 
 .background1 .carousel-item button {
@@ -365,7 +369,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-content: flex-start;
-    margin-left: 3%;
+    /* margin-left: 3%; */
 }
 
 .carousel-indicators button {
@@ -380,7 +384,7 @@
 }
 
 .canddles {
-    height: 95px;
+    /* height: 95px; */
     width: 58px;
     display: flex;
     align-content: center;
@@ -413,7 +417,7 @@
     transition: opacity .15s ease;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
 }
 
 .carousel-control-prev {
@@ -434,7 +438,7 @@
     transition: opacity .15s ease;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
 }
 
 .carousel-item.active {
@@ -443,11 +447,10 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-.backMargin {
-    padding-left: 9%;
-}
 
 #tombstoneSize {
     height: 147px;
@@ -455,13 +458,15 @@
 }
 
 .itemAlign {
-    width: 72%;
-    margin-left: 100px;
+    /* width: 72%;
+    margin-left: 100px; */
+    width: 80%;
+    margin-left: 40px;
 }
 
 .itemAlign1 {
-    width: 85%;
-    margin-left: 55px;
+    width: 90%;
+    /* margin-left: 55px; */
 }
 
 .personImageSizeNew {
@@ -504,14 +509,14 @@
 }
 
 .vita {
-    width: 71%;
+    /* width: 71%; */
     height: 97%;
     font-family: 'Libre Franklin', sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
     justify-content: flex-start;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .video {
@@ -549,8 +554,9 @@
 }
 
 .btnAddText {
-    background-color: lightgray;
-    color: white;
+    /* background-color: lightgray; */
+  background-color: #544f4f;
+  color: white;
 }
 
 #imgLogo {
@@ -635,7 +641,7 @@
     }
 
     .itemAlign1 {
-        width: 99%;
+        width: 90%;
         height: 120px;
     }
 }
@@ -755,6 +761,20 @@
     }
 }
 
+@media (min-width:1100px) and (max-width:1250px) {
+
+    .carousel-inner{
+        overflow: visible;
+    }
+    .bg-next-btn{
+        margin-right: -20px;
+    }
+
+    .bg-prev-btn{
+        margin-left: -20px;
+    }
+}
+
 @media (max-width:1160px) {
 
     .nextBtn1 {
@@ -826,7 +846,7 @@
 
 @media (max-width:600px) {
     .itemAlign1 {
-        width: 99%;
+        width: 90%;
         margin-left: 37px;
         height: 120px;
     }
@@ -851,6 +871,10 @@
         width: 83%;
         margin-left: 25px;
     }
+}
+
+.pad-6{
+    padding: 6px !important;
 }
 
 .right-menu {
@@ -891,11 +915,51 @@
         justify-content: center !important;
         margin-left: 0%;
     }
+
+    .candle-nowrap {
+      flex-wrap: nowrap !important;
+    }
+  
+    .carousel-item.active {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  
+    .background1{
+        margin-top: 7%;
+    }
+
+    .decorationImg{
+        width: 25px !important;
+    }
+    
+}
+
+@media only screen and (max-width: 999px) {
+    .product{
+        padding: 15px 0px;
+    }
+   
+}
+
+@media (min-width:780px) and (max-width:999px) {
+    .itemAlign{
+        margin-left: 100px;
+    }
+    .backMargin {
+        /* padding-left: 9%; */
+    }
 }
 
 .canvas-box {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: end;
 }
 
 .canddles {
@@ -903,7 +967,7 @@
 }
 
 .candle p {
-    margin-top: 8px !important;
+    /* margin-top: 8px !important; */
     margin-bottom: 0 !important;
     text-align: center;
 }
@@ -914,12 +978,14 @@
     height: 100px;
     display: flex;
     /* align-items: center; */
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .slider-main {
     position: absolute;
-    width: 200%;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
 }
 
 .item {
@@ -938,38 +1004,41 @@
     height: 100%;
 }
 
-.product {
-    padding: 15px 0px;
-}
 .cand-1{
     margin-top: 5px;
 }
-.cand-1 p{
-    margin-top: -2px !important;
+
+p.candle-title-text{
+    margin-top: -4px !important;
 }
+
+.candle-tt-4{
+    /* margin-top: -1px !important; */
+}
+
 @media (max-width:414px){
     .slider-wrap{
-        padding-left: 40px;
+        /* padding-left: 40px; */
     }
 }
 @media (max-width:390px){
     .slider-wrap{
-        padding-left: 30px;
+        /* padding-left: 30px; */
     }
 }
 @media (max-width:430px){
     .slider-wrap{
-        padding-left: 50px;
+        /* padding-left: 50px; */
     }
 }
 @media (max-width:412px){
     .slider-wrap{
-        padding-left: 40px;
+        /* padding-left: 40px; */
     }
 }
 @media (max-width:360px){
     .slider-wrap{
-        padding-left: 15px;
+        /* padding-left: 15px; */
     }
     .canvas-container{
         width: 280px;

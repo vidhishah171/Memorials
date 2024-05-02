@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,6 +30,7 @@
     "ccapture.js": "^1.1.0",
     "fabric": "4.5.1",
     "gif-encoder": "^0.7.2",
+    "gifuct-js": "^2.1.2",
     "igniteui-angular": "^13.1.6",
     "jquery": "^3.6.0",
     "ng-validate-equal": "^6.0.1",

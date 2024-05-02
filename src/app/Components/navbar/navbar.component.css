@@ -21,346 +21,347 @@ nav{
     flex-wrap: wrap;
 } */
 nav {
-    margin-top: -11px;
+  margin-top: -11px;
+  padding-bottom: 0px !important;
 }
 
 #navDiv {
-    background-color: #424347;
-    position: fixed;
-    width: 100%;
-    margin-top: 0.7%;
-    padding-top: 0.5%;
-    z-index: 500;
+  background-color: #424347;
+  position: fixed;
+  width: 100%;
+  margin-top: 0.7%;
+  padding-top: 0.5%;
+  z-index: 500;
 }
 
 .navbar-brand {
-    margin-left: 3rem;
-    display: block;
-    top: 0px;
+  margin-left: 3rem;
+  display: block;
+  top: 0px;
 }
 
 .fontNav {
-    font-size: 0.8rem;
-    font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .fontNav1 {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #CF6363;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #CF6363;
 }
 
 .lablePage {
-    color: #CF6363;
-    opacity: 0.9;
+  color: #CF6363;
+  opacity: 0.9;
 }
 
 a {
-    font-size: medium;
+  font-size: medium;
 }
 
 .userName {
-    margin-top: 32px;
-    margin-left: 6px;
-    color: red;
+  margin-top: 32px;
+  margin-left: 6px;
+  color: red;
 }
 
 /* For button css */
 .forButton {
-    position: relative;
-    top: 0px;
-    float: right;
-    right: 0px;
-    background-color: rgba(207, 99, 99, 0.2);
-    opacity: 0.7;
+  position: relative;
+  top: 0px;
+  float: right;
+  right: 0px;
+  background-color: rgba(207, 99, 99, 0.2);
+  opacity: 0.7;
 }
 
 /* For div css */
 .forDiv {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    border-radius: 10px;
-    height: auto;
-    margin-top: 10%;
-    width: 300px;
-    background-color: #F8F8F8;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  border-radius: 10px;
+  height: auto;
+  margin-top: 10%;
+  width: 300px;
+  background-color: #F8F8F8;
 }
 
 .labelPage {
-    color: #CF6363;
+  color: #CF6363;
 }
 
 .navbarButtons {
-    margin-left: 40px;
-    margin-top: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
 .navbarButtons1 {
-    margin-left: 25px;
-    margin-top: 24px;
-    cursor: pointer;
-    color: blue;
+  margin-left: 25px;
+  margin-top: 24px;
+  cursor: pointer;
+  color: blue;
 }
 
 .navbarButtons2 {
-    margin-left: 25px;
-    margin-top: 24px;
-    cursor: pointer;
-    color: blue;
+  margin-left: 25px;
+  margin-top: 24px;
+  cursor: pointer;
+  color: blue;
 }
 
 .registerButtonNav {
-    float: right;
-    color: white;
-    cursor: pointer;
-    font-size: 0.8rem;
-    margin-top: 0.3%;
+  float: right;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.3%;
 }
 
 .onlineUser {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .registerImage {
-    width: 85%;
+  width: 85%;
 }
 
 .registerImage1 {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 #homeIdNew {
-    left: 244%;
+  left: 244%;
 }
 
 #premiumId {
-    right: 57%;
+  right: 57%;
 }
 
 #comemorateId {
-    right: 12%;
+  right: 12%;
 }
 
 #griefId {
-    left: 16%;
+  left: 16%;
 }
 
 #searchId {
-    right: 82%;
+  right: 82%;
 }
 
 #loginId {
-    right: 58%;
+  right: 58%;
 }
 
 #loginId1 {
-    right: -7%;
+  right: -7%;
 }
 
 #logoutId {
-    left: 28%;
+  left: 28%;
 }
 
 .englishLng {
-    padding-top: 15%;
-    padding-left: 2%;
-    margin-left: 12%;
+  padding-top: 15%;
+  padding-left: 2%;
+  margin-left: 12%;
 }
 
 @media (max-width: 514px) {
-    .logo {
-        width: 8.5rem;
-        height: 5.8rem;
-        margin-left: 1rem;
-    }
+  .logo {
+    width: 8.5rem;
+    height: 5.8rem;
+    margin-left: 1rem;
+  }
 }
 
 @media (max-width:480px) {
-    #search {
-        display: none;
-    }
+  #search {
+    display: none;
+  }
 
-    small {
-        border: 0.5px solid gainsboro;
-        background-color: gray;
-        border-radius: 5px;
-        font-size: 1.5rem;
-    }
+  small {
+    border: 0.5px solid gainsboro;
+    background-color: gray;
+    border-radius: 5px;
+    font-size: 1.5rem;
+  }
 
-    #login {
-        display: none;
-    }
+  #login {
+    display: none;
+  }
 }
 
 @media (min-width:481px) and (max-width:992px) {
-    #search {
-        display: none;
-    }
+  #search {
+    display: none;
+  }
 
-    small {
-        border: 0.5px solid gainsboro;
-        background-color: gray;
-        border-radius: 5px;
-        font-size: 1.5rem;
-    }
+  small {
+    border: 0.5px solid gainsboro;
+    background-color: gray;
+    border-radius: 5px;
+    font-size: 1.5rem;
+  }
 
-    .englishLng {
-        padding-top: 6%;
-        margin-left: 0%;
-        padding-left: 0%;
-    }
+  .englishLng {
+    padding-top: 6%;
+    margin-left: 0%;
+    padding-left: 0%;
+  }
 
-    #loginId1 {
-        left: 139%;
-        margin-top: 66%;
-    }
+  #loginId1 {
+    left: 139%;
+    margin-top: 66%;
+  }
 
-    #logoutId {
-        left: 139%;
-        margin-top: 85%;
-    }
+  #logoutId {
+    left: 139%;
+    margin-top: 85%;
+  }
 
-    .example-form {
-        width: 100%;
-    }
+  .example-form {
+    width: 100%;
+  }
 
-    .example-full-width {
-        width: 100%;
-    }
+  .example-full-width {
+    width: 100%;
+  }
 
-    #login {
-        display: none;
-    }
+  #login {
+    display: none;
+  }
 
-    .navBtn {
-        margin-right: 58px;
-    }
+  .navBtn {
+    margin-right: 58px;
+  }
 
-    /* Label id's */
+  /* Label id's */
 
-    #homeId {
-        left: 142%;
-    }
+  #homeId {
+    left: 142%;
+  }
 
-    #premiumId {
-        left: 142%;
-        margin-top: 23%;
-    }
+  #premiumId {
+    left: 142%;
+    margin-top: 23%;
+  }
 
-    #comemorateId {
-        left: 142%;
-        margin-top: 46%;
-    }
+  #comemorateId {
+    left: 142%;
+    margin-top: 46%;
+  }
 
-    #griefId {
-        left: 142%;
-        margin-top: 66%;
-    }
+  #griefId {
+    left: 142%;
+    margin-top: 66%;
+  }
 
-    #searchId {
-        left: 142%;
-        margin-top: 4%;
-    }
+  #searchId {
+    left: 142%;
+    margin-top: 4%;
+  }
 
-    #loginId {
-        left: 142%;
-        margin-top: 26%;
-    }
+  #loginId {
+    left: 142%;
+    margin-top: 26%;
+  }
 }
 
 
 @media (min-width:1518px)and (max-width:2017px) {
-    #navDiv {
-        margin-top: 0.3%;
-    }
+  #navDiv {
+    margin-top: 0.3%;
+  }
 }
 
 @media (min-width:2017px)and (max-width:2049px) {
-    #navDiv {
-        margin-top: 0.3%;
-    }
+  #navDiv {
+    margin-top: 0.3%;
+  }
 }
 
 @media (min-width:2050px)and (max-width:3839px) {
-    #navDiv {
-        margin-top: 0.4%;
-    }
+  #navDiv {
+    margin-top: 0.4%;
+  }
 }
 
 @media (min-width:3840px)and (max-width:4098px) {
-    #navDiv {
-        margin-top: 0.3%;
-    }
+  #navDiv {
+    margin-top: 0.3%;
+  }
 }
 
 ul.navbar-nav {
-    margin-top: 5%;
-    margin-bottom: 0.5rem;
+  margin-top: 5%;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width:992px) {
 
-    .navbar {
-        padding-top: 1.5rem;
-    }
+  .navbar {
+    padding-top: 1.5rem;
+  }
 
-    .navbar-brand {
-        margin-left: 0rem;
-    }
+  .navbar-brand {
+    margin-left: 0rem;
+  }
 
-    ul.navbar-nav {
-        background-color: #424347;
-        padding-left: 10px;
-        font-size: 0px;
-        margin-top: 0%;
-        margin-bottom: 0rem !important;
-    }
+  ul.navbar-nav {
+    background-color: #424347;
+    padding-left: 10px;
+    font-size: 0px;
+    margin-top: 0%;
+    margin-bottom: 0rem !important;
+  }
 
-    ul li.nav-item {
-        margin: 5px 0px;
-    }
+  ul li.nav-item {
+    margin: 5px 0px;
+  }
 
-    .navbar-light .navbar-nav .nav-link.active,
-    .navbar-light .navbar-nav .show>.nav-link {
-        color: #fff;
-    }
+  .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .show>.nav-link {
+    color: #fff;
+  }
 
-    a.nav-link.active.fontNav {
-        color: #fff;
-    }
+  a.nav-link.active.fontNav {
+    color: #fff;
+  }
 
-    nav.navbar.navbar-expand-lg.navbar-light.bg-transprant {
-        z-index: 999;
-    }
+  nav.navbar.navbar-expand-lg.navbar-light.bg-transprant {
+    z-index: 999;
+  }
 
-    a.nav-link.active.fontNav {
-        text-align: start;
-    }
+  a.nav-link.active.fontNav {
+    text-align: start;
+  }
 
-    li.nav-item img {
-        display: none;
-    }
+  li.nav-item img {
+    display: none;
+  }
 
-    ul.navbar-nav.ml-auto.mb-2.mb-lg-0 {
-        margin-bottom: 0px;
-    }
+  ul.navbar-nav.ml-auto.mb-2.mb-lg-0 {
+    margin-bottom: 0px;
+  }
 
-    .navbarButtons {
-        margin-left: 5px;
-        margin-bottom: 20px;
-    }
+  .navbarButtons {
+    margin-left: 5px;
+    margin-bottom: 20px;
+  }
 
-    button.btn.btn-sm.btn-outline-danger {
-        color: #fff;
-        margin-right: 15px;
-    }
+  button.btn.btn-sm.btn-outline-danger {
+    color: #fff;
+    margin-right: 15px;
+  }
 }
 
 @media (max-width:400px) {
-    .navbar-brand {
-        margin-right: 0rem;
-        width: 80%;
-    }
+  .navbar-brand {
+    margin-right: 0rem;
+    width: 80%;
+  }
 }

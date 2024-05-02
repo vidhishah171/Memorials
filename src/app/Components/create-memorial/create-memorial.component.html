@@ -252,7 +252,8 @@
                                         <mat-form-field class="tabWidth" style="display: block !important;">
                                             <input matInput [matDatepicker]="picker"
                                                 [(ngModel)]="service.createMemorial.DOB" formControl [max]="maxDate"
-                                                formControlName="DOB" placeholder="MM/DD/YYYY" required readonly>
+                                                formControlName="DOB" placeholder="MM/DD/YYYY" required readonly
+                                                (click)="picker.open()">
                                             <mat-datepicker-toggle matSuffix [for]="picker" style="color: #CF6363;">
                                             </mat-datepicker-toggle>
                                             <mat-datepicker #picker></mat-datepicker>
@@ -279,7 +280,8 @@
                                             <input matInput [matDatepicker]="picker1"
                                                 [(ngModel)]="service.createMemorial.DOD" [max]="maxDate"
                                                 [min]="service.createMemorial.DOB" placeholder="  MM/DD/YYYY" required
-                                                readonly formControlName="DOD">
+                                                readonly formControlName="DOD"
+                                                (click)="picker1.open()">
                                             <mat-datepicker-toggle matSuffix [for]="picker1" style="color:#CF6363;">
                                             </mat-datepicker-toggle>
                                             <mat-datepicker #picker1></mat-datepicker>
@@ -569,7 +571,7 @@
                         </div>
 
                         <div class="colButton buttonNoneDiv">
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center" *ngIf="!isMobile && showTambstone">
                                 <button class="buttonNone" type="button" data-bs-target="#carouselExampleIndicators"
                                     data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
                                     <span aria-hidden="true"><img
@@ -723,7 +725,7 @@
                     <div class="personCentric mt-3" style="margin-bottom: 20px;" *ngIf="!showTambstone">
                         <div *ngIf="!hidePerson">
                             <div class="text-center">
-                                <img height="300px" width="300px" id="mobileRes">
+                                <img height="300px" width="300px" id="mobileRes" (click)="openSelectFile.click()">
                                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
                                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                             src="../../../assets/StaticAssets/pencil.svg"
@@ -763,10 +765,14 @@
 
                             <div class="Photo">
                                 <label for="photo" title="Add an own image here..."
-                                    style="text-align: center; align-items: center;"><img
+                                    style="text-align: center; align-items: center;"
+                                    >
+                                    <img 
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png"
-                                        alt=""></label>
-                                <input id="photo" type="file" accept=".png, .jpeg, .jpg"
+                                        alt=""
+                                        >
+                                </label>
+                                <input #openSelectFile id="photo" type="file" accept=".png, .jpeg, .jpg"
                                     (change)="onselectFile($event)">
                             </div>
                         </div>
@@ -775,7 +781,7 @@
 
                         <div *ngIf="hidePerson">
                             <div class="text-center">
-                                <img [src]="url" height="300px" width="300px" id="mobileRes">
+                                <img [src]="url" height="300px" width="300px" id="mobileRes" (click)="changeFile.click()">
                                 <button (click)="openDialogue(12)" *ngIf="loginservice.isVisible"
                                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                             src="../../../assets/StaticAssets/pencil.svg"
@@ -817,10 +823,14 @@
                             </li>
                             <div class="Photo">
                                 <label for="photo" title="Add an own image here..."
-                                    style="text-align: center; align-items: center;"><img
+                                    style="text-align: center; align-items: center;"
+                                    >
+                                    <img
                                         src="../../../assets/StaticAssets/Create memorial/step2/add-1.png"
-                                        alt=""></label>
-                                <input id="photo" type="file" accept=".png, .jpeg, .jpg"
+                                        alt=""
+                                        >
+                                    </label>
+                                <input #changeFile id="photo" type="file" accept=".png, .jpeg, .jpg"
                                     (change)="onselectFile($event)">
                             </div>
                         </div>
@@ -859,7 +869,7 @@
         <div class="row" style="margin-top: 15px;">
             <div class="col-12 text-center">
                 <div class="">
-                    <button class="btn btn-lg nextBtnStepFirst" [disabled]="!createForm.valid"
+                    <button class="btn btn-lg nextBtnStepFirst" 
                         (click)="showStep(2);clickShowStepBtn2(); " *ngIf="editservice.numLabel==1">{{respo14?.en}}
                         <span>&nbsp;<img src="../../../assets/StaticAssets/Create memorial/step2/diagonal-arrow.png"
                                 style="width: 25%;"></span>
@@ -1246,9 +1256,9 @@
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
-                    <p class="emailText1" *ngIf="editservice.numLabel==1">*{{respo33?.en}}</p>
-                    <p class="emailText1" *ngIf="editservice.numLabel==2">*{{respo33?.de}}</p>
-                    <p class="emailText1" *ngIf="editservice.numLabel==3">*{{respo33?.fr}}</p>
+                    <p class="emailText1 fs-11" *ngIf="editservice.numLabel==1">*{{respo33?.en}}</p>
+                    <p class="emailText1 fs-11" *ngIf="editservice.numLabel==2">*{{respo33?.de}}</p>
+                    <p class="emailText1 fs-11" *ngIf="editservice.numLabel==3">*{{respo33?.fr}}</p>
 
                 </small>
                 <div class="col-12 tearmMargin">
@@ -1260,9 +1270,9 @@
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                         alt=""></span></button>
-                            <small class="emailText2" *ngIf="editservice.numLabel==1">{{respo34?.en}}</small>
-                            <small class="emailText2" *ngIf="editservice.numLabel==2">{{respo34?.de}}</small>
-                            <small class="emailText2" *ngIf="editservice.numLabel==3">{{respo34?.fr}}</small>
+                            <small class="emailText2 fs-11 p-1" *ngIf="editservice.numLabel==1">{{respo34?.en}}</small>
+                            <small class="emailText2 fs-11 p-1" *ngIf="editservice.numLabel==2">{{respo34?.de}}</small>
+                            <small class="emailText2 fs-11 p-1" *ngIf="editservice.numLabel==3">{{respo34?.fr}}</small>
 
                         </label>
                     </div>

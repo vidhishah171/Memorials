@@ -429,13 +429,13 @@
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
 
                     <img id="login" style="margin: auto" src="../../../assets/StaticAssets/Home page/login.png">
-                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==1">
+                    <a class="nav-link active fontNav" aria-current="page" routerLink="/login" *ngIf="editservice.numLabel==1">
                         <strong>{{respo6?.en}}</strong>
                     </a>
-                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==2">
+                    <a class="nav-link active fontNav" aria-current="page" routerLink="/login" *ngIf="editservice.numLabel==2">
                         <strong>{{respo6?.de}}</strong>
                     </a>
-                    <a class="nav-link active fontNav" aria-current="page" href="#" *ngIf="editservice.numLabel==3">
+                    <a class="nav-link active fontNav" aria-current="page" routerLink="/login" *ngIf="editservice.numLabel==3">
                         <strong>{{respo6?.fr}}</strong>
                     </a>
                 </li>
