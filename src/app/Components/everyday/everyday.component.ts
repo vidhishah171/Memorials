@@ -14,13 +14,16 @@ export class EverydayComponent implements OnInit {
   boxOneData=[];
   boxTwoData:Array<6>;
   allData:any;
+  today: any;
 
   constructor(
     private evrydayMemService: EveryDayMeorialsService,
     private recentService : RecentMeorialsService,
     private router: Router,
     private loginservice:LoginService
-  ) {  }
+  ) { 
+    this.today = new Date();
+   }
 
   ngOnInit(): void {
     this.getMemorials();

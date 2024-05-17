@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 
@@ -15,13 +15,75 @@ export class GriefComponent implements OnInit {
   respo2: any;
   respo3: any;
   respo4: any;
+
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+  featuredMemorialCaoruselLoop: any[] = [];
+  memorialData: any[] = [
+    {date: '17-01-2019', text: 'How to get good custom dissertation writing service'},
+    {date: '18-02-2020', text: 'What to get worst custom dome service'},
+    {date: '19-03-2021', text: 'Why to get best custom noveling service'},
+    {date: '20-04-2022', text: 'How to get normal custom reading service'}
+  ];
+
+
   constructor(
     public editservice: AdminEditService,
     public loginservice: LoginService,
   ) { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isMobile ? 3 : this.isTablet ? 1 : 0;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 1 : this.isTablet ? 2 : 4;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
+  }
+  
   ngOnInit(): void {
     this.editData();
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isMobile ? (this.memorialData.length/1) : this.isTablet ? this.memorialData.length/2 : 0;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 1 : this.isTablet ? 2 : 4;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
   }
   // Code for labels
   openDialogue(num): void {

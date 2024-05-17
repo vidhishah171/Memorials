@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminEditService } from 'src/services/admin-edit.service';
@@ -51,9 +51,15 @@ export class UserAccountComponent implements OnInit {
   respo28: any;
   respo29: any;
   caroucelCount: number = 1;
+  caroucelCountRm: number = 1;
   getUserMemoDataUser: any;
   Memorials: any;
+  selectedMemorials: any;
   respo30: any;
+  isMobile: boolean = false;
+  isIpad: boolean = false;
+  isSmallMobile: boolean = false;
+  featuredMemorialCaoruselLoop: any[] = [];
 
   constructor(
     public loginservice: LoginService,
@@ -98,11 +104,72 @@ export class UserAccountComponent implements OnInit {
     this.service1.createMemorial.voucher = '';
     this.service1.saveCanvas1 = '';
     this.getData()
-    this.getUserMemorial();
+   this.Memorials = this.getUserMemorial();
     this.editData();
     this.getrecentMemorials();
+    if(window.innerWidth < 768){
+      this.isSmallMobile = true;
+    } else {
+      this.isSmallMobile = false;
+    }
+    if (window.innerWidth < 1000) {
+      this.isMobile = true;
+     }
+     else if(window.innerWidth > 1000 && window.innerWidth < 1200){
+      this.isMobile = false;
+      this.isIpad = true;
+    } else {
+      this.isIpad = false;
+      this.isMobile = false;
+    }
+    if(this.Memorials.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isSmallMobile ? (this.Memorials.length/1) : this.isMobile ? (this.Memorials.length/2) : this.isIpad ? this.Memorials.length/4 : 1;
+      for(let i=0;i<Math.floor(count);i++){
+        let tc = this.isSmallMobile ? 1 : this.isMobile ? 2 : this.isIpad ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.Memorials.slice(i*tc,(i*tc + tc)));
+      }
+    }
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.caroucelCount = 1;
+    this.caroucelCountRm = 1;
+    if(window.innerWidth < 768){
+      this.isSmallMobile = true;
+    } else {
+      this.isSmallMobile = false;
+    }
+    if (window.innerWidth < 1000) {
+      this.isIpad = false;
+      this.isMobile = true;
+      this.getUserMemoDataUser = this.getUserMemoData.slice(this.caroucelCount, this.caroucelCount+1);
+      this.selectedMemorials = this.Memorials.slice(this.caroucelCountRm, this.caroucelCountRm+1);
+    }
+    else if(window.innerWidth > 1000 && window.innerWidth < 1200){
+      this.isMobile = false;
+      this.isIpad = true;
+      this.getUserMemoDataUser = this.getUserMemoData.slice(0, 2);
+      this.selectedMemorials = this.Memorials.slice(0, 3);
+    } else {
+      this.isMobile = false;
+      this.isIpad = false;
+      this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
+      this.selectedMemorials =  this.Memorials.slice(0, 4);
+    }
+
+    if(this.Memorials.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isSmallMobile ? (this.Memorials.length/1) : this.isMobile ? (this.Memorials.length/2) : this.isIpad ? this.Memorials.length/4 : 1;
+      for(let i=0;i<Math.floor(count);i++){
+        let tc = this.isSmallMobile ? 1 : this.isMobile ? 2 : this.isIpad ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.Memorials.slice(i*tc,(i*tc + tc)));
+      }
+    }
+
+  }
+  
   clickDiv() {
     var test = document.getElementById("navDiv");
     if (test != null) {
@@ -150,7 +217,7 @@ export class UserAccountComponent implements OnInit {
           item.path = item.path + '?v=' + this.service.index++;
         }
         if (this.caroucelCount == 1) {
-          this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
+          this.getUserMemoDataUser = this.isMobile ? this.getUserMemoData.slice(0, 1) : this.isIpad ? this.getUserMemoData.slice(0, 2) : this.getUserMemoData.slice(0, 3);
         }
       })
   }
@@ -163,6 +230,17 @@ export class UserAccountComponent implements OnInit {
             this.Memorials = recentMemorial.Memorials;
             for (let item of this.Memorials) {
               item.path = item.path + '?v=' + this.service.indexNew++;
+            }
+            if (this.caroucelCountRm == 1) {
+              this.selectedMemorials = this.isMobile ? this.Memorials.slice(0, 1) : this.isIpad ? this.Memorials.slice(0, 3) : this.Memorials.slice(0, 4);
+            }
+            if(this.Memorials.length){
+              this.featuredMemorialCaoruselLoop = [];
+              let count = this.isSmallMobile ? (this.Memorials.length/1) : this.isMobile ? (this.Memorials.length/2) : this.isIpad ? this.Memorials.length/4 : 1;
+              for(let i=0;i<Math.floor(count);i++){
+                let tc = this.isSmallMobile ? 1 : this.isMobile ? 2 : this.isIpad ? 4 : 5;
+                this.featuredMemorialCaoruselLoop.push(this.Memorials.slice(i*tc,(i*tc + tc)));
+              }
             }
           }
         },
@@ -177,45 +255,107 @@ export class UserAccountComponent implements OnInit {
 
     this.caroucelCount++;
 
-    if (this.caroucelCount == 2) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(3, 6);
-
+    if(this.isMobile){
+      this.getUserMemoDataUser = this.getUserMemoData.slice(this.caroucelCount-1, this.caroucelCount);
+    } else {
+      if (this.caroucelCount == 2) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(2, 4) : this.getUserMemoData.slice(3, 6);
+      }
+      if (this.caroucelCount == 3) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(4, 6) : this.getUserMemoData.slice(6, 9);
+      }
+      if (this.caroucelCount == 4) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(6, 8) : this.getUserMemoData.slice(9, 12);
+      }
+      if (this.caroucelCount == 5) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(8, 10) : this.getUserMemoData.slice(12, 15);
+      }
+      if (this.caroucelCount == null) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(10, 12) : this.getUserMemoData.slice(15, 18);
+      }
+  
     }
-    if (this.caroucelCount == 3) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(6, 9);
-    }
-    if (this.caroucelCount == 4) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(9, 12);
-    }
-    if (this.caroucelCount == 5) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(12, 15);
-    }
-    if (this.caroucelCount == null) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(15, 18);
-    }
-
+   
   }
 
   prevCarousel() {
 
     this.caroucelCount = this.caroucelCount - 1;
 
-    if (this.caroucelCount == 2) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(3, 6);
+    if(this.isMobile){
+      this.getUserMemoDataUser = this.getUserMemoData.slice(this.caroucelCount-1, this.caroucelCount);
+    } else {
+      if (this.caroucelCount == 2) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(2, 4) : this.getUserMemoData.slice(3, 6);
+      }
+      if (this.caroucelCount == 3) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(4, 6) : this.getUserMemoData.slice(6, 9);
+      }
+      if (this.caroucelCount == 4) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(6, 8) : this.getUserMemoData.slice(9, 12);
+      }
+      if (this.caroucelCount == 5) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(8, 10) : this.getUserMemoData.slice(12, 15);
+      }
+      if (this.caroucelCount == 1 || null) {
+        this.getUserMemoDataUser = this.isIpad ? this.getUserMemoData.slice(0, 2) : this.getUserMemoData.slice(0, 3);
+      }
     }
-    if (this.caroucelCount == 3) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(6, 9);
-    }
-    if (this.caroucelCount == 4) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(9, 12);
-    }
-    if (this.caroucelCount == 5) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(12, 15);
-    }
-    if (this.caroucelCount == 1 || null) {
-      this.getUserMemoDataUser = this.getUserMemoData.slice(0, 3);
-    }
+    
 
+  }
+
+
+  nextCarouselRm() {
+
+    this.caroucelCountRm++;
+
+    if(this.isMobile){
+      this.selectedMemorials = this.Memorials.slice(this.caroucelCountRm-1, this.caroucelCountRm);
+    } else {
+      if (this.caroucelCountRm == 2) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(3, 6) : this.Memorials.slice(4, 8);
+      }
+      if (this.caroucelCountRm == 3) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(6, 9) : this.Memorials.slice(8, 12);
+      }
+      if (this.caroucelCountRm == 4) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(9, 12) : this.Memorials.slice(12, 16);
+      }
+      if (this.caroucelCountRm == 5) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(12, 15) : this.Memorials.slice(16, 20);
+      }
+      if (this.caroucelCountRm == null) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(15, 18) : this.Memorials.slice(20, 24);
+      }
+  
+    }
+   
+  }
+
+  prevCarouselRm() {
+
+    this.caroucelCountRm = this.caroucelCountRm - 1;
+
+    if(this.isMobile){
+      this.selectedMemorials = this.Memorials.slice(this.caroucelCountRm-1, this.caroucelCountRm);
+    } else {
+      if (this.caroucelCountRm == 2) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(3, 6) : this.Memorials.slice(4, 8);
+      }
+      if (this.caroucelCountRm == 3) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(6, 9) : this.Memorials.slice(8, 12);
+      }
+      if (this.caroucelCountRm == 4) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(9, 12) : this.Memorials.slice(12, 16);
+      }
+      if (this.caroucelCountRm == 5) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(12, 15) : this.Memorials.slice(16, 20);
+      }
+      if (this.caroucelCountRm == 1 || null) {
+        this.selectedMemorials = this.isIpad ? this.Memorials.slice(0, 3) : this.Memorials.slice(0, 4);
+      }
+    }
   }
 
   openDiv(num) {

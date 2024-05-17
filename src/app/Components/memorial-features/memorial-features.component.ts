@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AdminEditService } from 'src/services/admin-edit.service';
 import { LoginService } from 'src/services/login.service';
 
@@ -21,6 +21,16 @@ export class MemorialFeaturesComponent implements OnInit {
   respo8: any;
   respo9: any;
   respo10: any;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+  featuredMemorialCaoruselLoop: any[] = [];
+  memorialData: any[] = [
+    {imgSrc: '../../../assets/StaticAssets/Home page/death.png', resp: this.respo2},
+    {imgSrc: '../../../assets/StaticAssets/Home page/mesage.png', resp: this.respo3},
+    {imgSrc: '../../../assets/StaticAssets/Home page/funeral (2).png', resp: this.respo4},
+    {imgSrc: '../../../assets/StaticAssets/Home page/funeral (3).png', resp: this.respo5},
+    {imgSrc: '../../../assets/StaticAssets/Home page/death (1).png', resp: this.respo6}
+  ];
 
   constructor(
     public editservice: AdminEditService,
@@ -29,7 +39,77 @@ export class MemorialFeaturesComponent implements OnInit {
 
   ngOnInit(): void {
     this.editData();
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
   }
+
+  ngAfterViewInit(){
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : 0;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+
+    // this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : 0;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
+
+  }
+  
   openDialogue(num): void {
     if (num == 1) {
       this.showNewDiv = 1;
@@ -79,7 +159,22 @@ export class MemorialFeaturesComponent implements OnInit {
       this.respo7 = this.respo[13]
       this.respo8 = this.respo[14]
       this.respo9 = this.respo[15]
-      this.respo10 = this.respo[244]
+      this.respo10 = this.respo[244];
+      this.memorialData = [
+        {imgSrc: '../../../assets/StaticAssets/Home page/death.png', resp: this.respo2},
+        {imgSrc: '../../../assets/StaticAssets/Home page/mesage.png', resp: this.respo3},
+        {imgSrc: '../../../assets/StaticAssets/Home page/funeral (2).png', resp: this.respo4},
+        {imgSrc: '../../../assets/StaticAssets/Home page/funeral (3).png', resp: this.respo5},
+        {imgSrc: '../../../assets/StaticAssets/Home page/death (1).png', resp: this.respo6}
+      ];
+      if(this.memorialData.length){
+        this.featuredMemorialCaoruselLoop = [];
+        let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : 0;
+        for(let i=0;i<=Math.floor(count);i++){
+          let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+          this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+        }
+      }
     });
   }
 

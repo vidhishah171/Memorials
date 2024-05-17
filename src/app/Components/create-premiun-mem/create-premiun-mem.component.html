@@ -1,18 +1,21 @@
 <!-- second part -->
 
-<div class="createPreMem p-2">
+<div class="createPreMem p-2 pt-5">
     <div class="container">
         <div class="box1">
-            <img src="../../../assets/StaticAssets/Create memorial/thank you page/diamond.png">
-            <h1>
-                <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
-                    class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                            src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
-                            alt=""></span></button>
-                <strong *ngIf="editservice.numLabel==1">{{respo4?.en}}</strong>
-                <strong *ngIf="editservice.numLabel==2">{{respo4?.de}}</strong>
-                <strong *ngIf="editservice.numLabel==3">{{respo4?.fr}}</strong>
-            </h1>
+            <!-- <div> -->
+                <img src="../../../assets/StaticAssets/Create memorial/thank you page/diamond.png">
+                <h1>
+                    <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                alt=""></span></button>
+                    <strong *ngIf="editservice.numLabel==1">{{respo4?.en}}</strong>
+                    <strong *ngIf="editservice.numLabel==2">{{respo4?.de}}</strong>
+                    <strong *ngIf="editservice.numLabel==3">{{respo4?.fr}}</strong>
+                </h1>
+            <!-- </div> -->
+            <!-- <br> -->
             <div>
                 <span class="premiumText" *ngIf="editservice.numLabel==1">{{respo5?.en}}</span>
                 <span class="premiumText" *ngIf="editservice.numLabel==2">{{respo5?.de}}</span>
@@ -24,7 +27,7 @@
             </div>
         </div>
 
-        <div class="box2">
+        <div class="box2 mb-2">
             <div class="specification">
                 <img class="me-2 specificationMargin" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
                 <span id="m" class="premiumText1" *ngIf="editservice.numLabel==1">{{respo6?.en}}</span>
@@ -36,7 +39,7 @@
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
             </div>
-            <div class="specification divPadding" style="margin-top: 1%;">
+            <div class="specification divPadding">
                 <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
                 <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo7?.en}}</span>
                 <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo7?.de}}</span>
@@ -113,7 +116,7 @@
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                             alt=""></span></button>
             </div>
-            <div class="specification">
+            <!-- <div class="specification">
                 <div style="display: none;">
                     <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
                     <span *ngIf="editservice.numLabel==1">{{respo14?.en}}</span>
@@ -125,8 +128,8 @@
                                 src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
                                 alt=""></span></button>
                 </div>
-            </div>
-            <div class="specification divPadding">
+            </div> -->
+            <div class="specification">
                 <img class="me-2" style="width: 21px;" src="../../../assets/StaticAssets/Create memorial/thank you page/check (1).png">
                 <span class="premiumText1" *ngIf="editservice.numLabel==1">{{respo14?.en}}</span>
                 <span class="premiumText1" *ngIf="editservice.numLabel==2">{{respo14?.de}}</span>

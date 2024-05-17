@@ -231,6 +231,7 @@
             </div>
         </div>
     </form>
+    
     <!-- Extra code for div -->
     <li *ngIf="showNewDiv==9 && isvalid" style="position: absolute; margin-top: 25px;">
         <div class="forDiv" id="headerLabelNew">
@@ -257,6 +258,9 @@
         </div>
     </li>
 </header>
+<div class="d-flex justify-content-center mt-5 advanced-search">
+    Advanced Search
+</div>
 <br>
 <br>
 <br>
@@ -295,7 +299,7 @@
         </div>
     </li>
     <div class="container2">
-        <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
+        <!-- <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
             *ngFor="let data of memorialData "
             [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
             <div class="year">
@@ -303,9 +307,85 @@
                     <p><small>{{data.age}} Y<br> old</small></p>
                 </h6>
             </div>
-        </div>
-        <div class="second text-align-center w-100">
-            <button type="button" class="btn btn-lg mb-5 createBtnNew">
+        </div> -->
+
+
+                            <div id="carouselExampleIndicators" class="carousel row col-12" data-bs-ride="carousel"
+                                    data-bs-interval="0">
+                                    <ol class="carousel-indicators" style="list-style: disc;" *ngIf="featuredMemorialCaoruselLoop.length > 1">
+                                        <!-- data-bs-slide-to="0"  -->
+                                        <!-- <li data-bs-target="#carouselExampleIndicators" class="active" data-bs-slide-to="0"></li> -->
+                                        <li data-bs-target="#carouselExampleIndicators" *ngFor="let sc of featuredMemorialCaoruselLoop; let index = index" [attr.data-bs-slide-to]="index"
+                                        [class.active]="index == 0"></li>
+                                    
+                                    </ol>
+                                    <div class="carousel-inner itemAlign">
+                                       
+                                        <!-- <div class="carousel-item active candle-nowrap justify-content-center" style="gap: 20px;">
+                                            <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
+                                                *ngFor="let data of userMemorialData"
+                                                [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
+                                            <div class="year">
+                                                    <h6>
+                                                        <p><small>{{data.age}} Y<br> old</small></p>
+                                                    </h6>
+                                            </div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="carousel-item candle-nowrap " *ngFor="let slide of featuredMemorialCaoruselLoop; let index = index"
+                                        [class.active]="index == 0">
+                                        <div class="d-flex justify-content-center" style="gap: 20px;">
+                                            <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
+                                                *ngFor="let data of slide"
+                                                [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
+                                            <div class="year">
+                                                    <h6>
+                                                        <p><small>{{data.age}} Y<br> old</small></p>
+                                                    </h6>
+                                            </div>
+                                            </div>
+                                        </div>
+                                            
+                                        </div>
+
+                                        <!-- <div class="carousel-item candle-nowrap justify-content-center" style="gap: 20px;">
+                                            <div class="memorial" style="cursor: pointer;" (click)="recentMemorialGrabId(data.grab_id,data.user_id)"
+                                                *ngFor="let data of memorialData"
+                                                [ngStyle]="{'background-image': 'url(' + data.grab_image + ')','background-size':'cover'}">
+                                            <div class="year">
+                                                    <h6>
+                                                        <p><small>{{data.age}} Y<br> old</small></p>
+                                                    </h6>
+                                            </div>
+                                            </div>
+                                        </div> -->
+
+                                    </div>
+
+
+                                    <!-- <button class="carousel-control-prev " type="button" *ngIf="!isMobile"
+                                        data-bs-target="#carouselExampleIndicators" [disabled]="featuredMemorialCount==1"
+                                        data-bs-slide="prev" (click)="prevFeaturedMemorial()">
+                                        <span [hidden]="featuredMemorialCount==1" aria-hidden="true"><img
+                                                src="../../../../assets/StaticAssets/Create memorial/step2/down-arrow (7).png"
+                                                alt=""></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" *ngIf="!isMobile"
+                                        data-bs-target="#carouselExampleIndicators" data-bs-slide="next" (click)="nextFeaturedMemorial()"
+                                        [disabled]="featuredMemorialCount==2">
+                                        <span [hidden]="featuredMemorialCount==2" aria-hidden="true"><img
+                                                src="../../../../assets/StaticAssets/My account/down-arrow (7).png"
+                                                alt=""></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button> -->
+                                </div>
+
+
+
+        <div class="second mt-2 text-align-center w-100">
+            <button type="button" class="btn btn-lg createBtnNew">
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==1">{{respo7?.en}}</strong>
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==2">{{respo7?.de}}</strong>
                 <strong routerLink="/create-memorial" *ngIf="editservice.numLabel==3">{{respo7?.fr}}</strong>

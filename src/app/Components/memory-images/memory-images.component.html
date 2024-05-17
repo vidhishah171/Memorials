@@ -1,5 +1,11 @@
-<div class="container mb-5" id="imageMemorial">
-    <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="width: 110.4%;">
+<div class="container mb-5 row" id="imageMemorial" style="background-color: #80808021;">
+    <div class="col-4">
+        <img src="../../../assets/StaticAssets/Create memorial/step1/Untitled-1.png" style="height: 7rem;">
+
+    </div>
+    <div class="col-8">
+
+    
     <div class="centered1">
         <button (click)="openDialogue(20)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -102,6 +108,7 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
+    </div>
 </div>
 <!-- <div class="container">
     <img id="rect" src="../../../assets/StaticAssets/Create memorial/step1/Rectangle 375.png">

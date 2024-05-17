@@ -37,7 +37,7 @@
         <div class="box mb-3 ms-1 p-2" style="cursor: pointer;"
             (click)="recentMemorialGrabId(mostVisMem.grab_id,mostVisMem.user_id)"
             *ngFor="let mostVisMem of mostVisitMemorial ">
-            <img class=" mainIMG w-100 h-75" src="{{mostVisMem.grab_image}}">
+            <img class=" mainIMG" src="{{mostVisMem.grab_image}}">
             <div class="name w-auto p-2" id="info">
                 <h6>{{mostVisMem.firstname}},{{mostVisMem.lastname}}</h6>
                 <div class="info">
@@ -87,7 +87,7 @@
             <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
         </div>
     </li>
-    <form #myForm1="ngForm" style="width: 38%;">
+    <form #myForm1="ngForm">
         <div class="input-group mb-3">
             <input type="text" id="search" class="form-control input-lg" style="color: white;"
                 *ngIf="editservice.numLabel==1" placeholder={{respo3?.en}} name="searchText" ngModel

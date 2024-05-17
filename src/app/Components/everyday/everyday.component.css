@@ -5,28 +5,29 @@
 }
 
 .mainDiv {
-    height: 60vw;
+    /* height: 60vw; */
     background-color: #F8F4EF;
 }
 
 .parent {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    height: 50vw;
+    /* height: 50vw; */
+    justify-content: center;
     width: 100%;
-    padding-top: 15%;
+    padding: 5%;
 }
 
 .parentImg {
     height: auto;
-    width: 100%;
+    width: 20rem;
     border: 2px solid #CF6363;
 }
 
 .parentImg1 {
-    height: 74%;
-    width: 100%;
+    /* height: 74%; */
+    width: 10rem;
     border: 2px solid #4CC252;
 
 }
@@ -49,11 +50,12 @@
 }
 
 .box1 {
-    width: 40%;
-    height: 100%;
+    /* width: 40%; */
+    /* height: 100%; */
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    /* flex-direction: column; */
+    align-self: start;
 }
 
 .candleViewsEveryDay {
@@ -62,11 +64,11 @@
 }
 
 .name {
-    width: 100%;
-    height: 5%;
+    /* width: 100%;
+    height: 5%; */
     display: flex;
-    justify-content: flex-end;
-    margin-top: 3%;
+    /* justify-content: flex-end; */
+    /* margin-top: 3%; */
 }
 
 .name h5 {
@@ -89,7 +91,7 @@
 }
 
 .box2 {
-    width: 55%;
+    /* width: 55%; */
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -97,24 +99,42 @@
 }
 
 .child {
-    height: 51%;
-    width: 30%;
+    /* height: 51%;
+    width: 30%; */
     display: flex;
     flex-direction: column;
 }
 
+.today{
+    color: red;
+    font-weight: 800;
+}
+
 @media (min-width:481px) and (max-width:780px) {
     .parentImg {
-        height: 60%;
-        width: 70%;
+        /* height: 60%;
+        width: 70%; */
     }
 
     .parentImg1 {
-        height: 50%;
-        width: 90%;
+        /* height: 50%;
+        width: 90%; */
     }
 
     .box2 {
-        height: 68%;
+        /* height: 68%; */
+    }
+
+}
+
+@media (max-width: 990px){
+    .box1{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 575px){
+    .todayDate{
+        justify-content: center;
     }
 }

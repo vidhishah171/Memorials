@@ -12,6 +12,7 @@ import { LoginService } from 'src/services/login.service';
 import { RecentMeorialsService } from 'src/services/recent-meorials.service';
 import { UserProfileService } from 'src/services/user-profile.service';
 import { InvitePopupComponent } from '../visitor-mode/invite-popup/invite-popup.component';
+import { AdminEditService } from 'src/services/admin-edit.service';
 
 @Component({
   selector: 'app-edit-memorial',
@@ -50,6 +51,24 @@ export class EditMemorialComponent implements OnInit {
   userpicBack: any;
   getPhotoVideoImageId: any;
   pp: any;
+
+  respo: any;
+  respo1: any;
+  respo2: any;
+  respo3: any;
+  respo4: any;
+  respo5: any;
+  respo6: any;
+  respo7: any;
+  respo8: any;
+  respo9: any;
+  respo10: any;
+  respo11: any;
+  respo12: any;
+  respo13: any;
+  respo14: any;
+
+
   constructor(
     public service: RecentMeorialsService,
     public createService: CreateMemorialService,
@@ -60,6 +79,7 @@ export class EditMemorialComponent implements OnInit {
     private spiner: NgxSpinnerService,
     public snack: MatSnackBar,
     public dialog: MatDialog,
+    public editservice: AdminEditService,
   ) {
     this.loginService.otherPage = false;
     this.loginService.hideMemorialImage = false;
@@ -72,12 +92,33 @@ export class EditMemorialComponent implements OnInit {
     }, 1000);
   }
   ngOnInit(): void {
+    this.editData();
     this.getData1()
     this.getData();
     this.myProfileData();
     this.getrecentMemorials();
     this.postGrabId();
     this.getPhotoVideo();
+  }
+
+  editData() {
+    this.editservice.adminEdit().subscribe((res: any) => {
+      this.respo = res.Details;
+      this.respo1 = this.respo[269];
+      this.respo2 = this.respo[270];
+      this.respo3 = this.respo[271];
+      this.respo4 = this.respo[272];
+      this.respo5 = this.respo[273];
+      this.respo6 = this.respo[274];
+      this.respo7 = this.respo[275];
+      this.respo8 = this.respo[280];
+      this.respo9 = this.respo[281];
+      this.respo10 = this.respo[282];
+      this.respo11 = this.respo[283];
+      this.respo12 = this.respo[284];
+      this.respo13 = this.respo[285];
+      this.respo14 = this.respo[286];
+    });
   }
 
   clickDiv() {
@@ -178,6 +219,8 @@ export class EditMemorialComponent implements OnInit {
         this.postGrabId();
       })
   }
+
+ 
 
   postGrabId() {
     var jsonData = this.service.userGrabIdData

@@ -170,7 +170,33 @@
         </div>
     </li>
     <div class="discuss2 container mt-5">
-        <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
+
+        <div id="griefCarousel" class="carousel row col-12" data-bs-ride="carousel"
+            data-bs-interval="0">
+            <ol class="carousel-indicators" style="list-style: disc;" *ngIf="featuredMemorialCaoruselLoop.length > 1">
+                <li data-bs-target="#griefCarousel" *ngFor="let sc of featuredMemorialCaoruselLoop; let index = index" [attr.data-bs-slide-to]="index"
+                    [class.active]="index == 0">
+                </li>
+            </ol>
+            <div class="carousel-inner itemAlign">
+                <div class="carousel-item candle-nowrap " *ngFor="let slide of featuredMemorialCaoruselLoop; let index = index"
+                [class.active]="index == 0">
+                <div class="d-flex justify-content-center" style="gap: 20px;">
+                    <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1" *ngFor="let data of slide">
+                        <h6>
+                            <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
+                            {{data.date}}
+                        </h6>
+                        <p>{{data.text}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+        <!-- <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
             <h6>
                 <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
                 17-01-2019
@@ -190,13 +216,6 @@
                 17-01-2019
             </h6>
             <p>How to get good custom dissertation writing service</p>
-        </div>
-        <div class="discussSub p-3 mb-5 bg-white rounded p-3 ps-4 pb-1">
-            <h6>
-                <img class="griefImg" src="../../../assets/StaticAssets/Forgot password/Group 9.png">
-                17-01-2019
-            </h6>
-            <p>How to get good custom dissertation writing service</p>
-        </div>
+        </div> -->
     </div>
 </div>

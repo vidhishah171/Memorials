@@ -1,6 +1,6 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ import { AdminEditPopupComponent } from '../admin-edit/admin-edit-popup/admin-ed
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   value: number = 0;
   highValue: number = 150;
   options: Options = {
@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   searchText: any;
   dataSearch: any;
   memorialData: any;
+  userMemorialData: any;
   searchResult: boolean = false;
   dataSearch1: any;
   respo: any;
@@ -67,6 +68,9 @@ export class HeaderComponent implements OnInit {
   respo14: any;
   respo15: any;
   respo16: any;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+  featuredMemorialCaoruselLoop: any[] = [];
 
   constructor(
     public homeservice: HomeService,
@@ -83,10 +87,93 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getMemorials();
     this.editData();
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
   }
+
+  ngAfterViewInit(){
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+
+    // this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+      let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : this.memorialData.length/5;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
+    
+    
+  }
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(){
+    this.isMobile = false;
+    this.isTablet = false;
+    if(window.innerWidth > 1400){
+      this.isMobile = false;
+      this.isTablet = false;
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      this.isMobile = false;
+      this.isTablet = true;
+    }
+    else if (window.innerWidth <= 1000) {
+      this.isTablet = false;
+      this.isMobile = true;
+    }
+
+    // this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+    if(this.memorialData.length){
+      this.featuredMemorialCaoruselLoop = [];
+      this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+      let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : this.memorialData.length/5;
+      for(let i=0;i<=Math.floor(count);i++){
+        let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+        this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+      }
+    }
+
+  }
+
   divHide() {
     this.searchText = "";
     this.searchResult = false;
+  }
+
+  prevFeaturedMemorial(){
+
+  }
+
+  nextFeaturedMemorial(){
+
   }
 
   searchMemorialCity(searchText: any) {
@@ -212,6 +299,13 @@ export class HeaderComponent implements OnInit {
     this.featureService.getMemorials().subscribe(
       (memorial: any) => {
         this.memorialData = memorial.Memorials;
+        this.featuredMemorialCaoruselLoop = [];
+        this.userMemorialData = this.isMobile ? this.memorialData.slice(0,2) : this.isTablet ? this.memorialData.slice(0,4) : this.memorialData.slice(0,5);
+        let count = this.isMobile ? (this.memorialData.length/2) : this.isTablet ? this.memorialData.length/4 : this.memorialData.length/5;
+        for(let i=0;i<=Math.floor(count);i++){
+          let tc = this.isMobile ? 2 : this.isTablet ? 4 : 5;
+          this.featuredMemorialCaoruselLoop.push(this.memorialData.slice(i*tc,(i*tc + tc)));
+        }
       },
       error => {
         return error;

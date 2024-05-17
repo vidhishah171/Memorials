@@ -1,7 +1,8 @@
-<div class="main container flex-wrap p-3 mb-5">
-    <!-- Recent memorials -->
-    <div class="box1 h-100 p-2">
-        <h4 class="mb-4">
+<div class="main flex-wrap p-3 row">
+   
+     <!-- Recent memorials -->
+     <div class="box1 h-100 p-2 col-lg-4 col-sm-12 col-md-12">
+        <h4 class="mb-4 w-100">
             <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                         src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -10,9 +11,9 @@
             <strong class="recentMem" *ngIf="editservice.numLabel==2">{{respo1?.de}}</strong>
             <strong class="recentMem" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</strong>
         </h4>
-        <div class="d-flex child1 w-100 p-1 mt-3 mb-2" style="cursor: pointer;"
+        <div class="d-flex child1 p-1 mt-3 mb-2" style="cursor: pointer;"
             (click)="recentMemorialGrabId(memData.grab_id,memData.user_id)" *ngFor="let memData of Memorials">
-            <img src="{{memData.path}}" class="w-auto h-auto me-2 rounded">
+            <img src="{{memData.path}}" class="w-auto h-auto me-2 rounded recentMemImg">
             <div class="ms-2 mt-3">
                 <h6 class="userName">
                     {{memData.fname}} {{ memData.lname}}, {{memData.age}}Y Old
@@ -22,34 +23,8 @@
         </div>
     </div>
 
-    <!-- Extra code for label -->
-    <li *ngIf="showNewDiv==1 && isvalid" style="position: absolute; margin-top: 25px;">
-        <div class="forDiv">
-            <button style="float: right;" (click)="openDialogue1()" class="btn btn-outline-danger">X</button>
-            <form class="example-form" #regForm2="ngForm">
-                <mat-form-field class="example-full-width" style="display: none;">
-                    <mat-label>id</mat-label>
-                    <textarea matInput name="id" [(ngModel)]="respo1.id"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width englishLng">
-                    <mat-label>English</mat-label>
-                    <textarea matInput name="en" [(ngModel)]="respo1.en"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>German</mat-label>
-                    <textarea matInput name="de" [(ngModel)]="respo1.de"></textarea>
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <mat-label>French</mat-label>
-                    <textarea matInput name="fr" [(ngModel)]="respo1.fr"></textarea>
-                </mat-form-field>
-            </form>
-            <button (click)="postEditData(regForm2);openDialogue1();" class="btn btn-outline-success">Save</button>
-        </div>
-    </li>
-
     <!-- Premium Memorials -->
-    <div class="box2 ms-3 h-100 " style="background-color: white">
+    <div class="box2 h-100 col-lg-8 col-sm-12 col-md-12" style="background-color: white">
         <div class="w-auto h-auto">
             <h4>
                 <button style="right: 57%;" (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
@@ -58,18 +33,52 @@
                             alt=""></span></button>
                 <strong class="recentPmem">
                     <span>
-                        <p style="margin-left: 3%;" *ngIf="editservice.numLabel==1"><img
-                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.en}} <button
-                                class="btn btn-lg premiumButton" *ngIf="editservice.numLabel==1">{{respo3?.en}}</button>
-                        </p>
-                        <p style="margin-left: 3%;" *ngIf="editservice.numLabel==2"><img
-                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.de}} <button
-                                class="btn btn-lg  premiumButton"
-                                *ngIf="editservice.numLabel==2">{{respo3?.de}}</button></p>
-                        <p style="margin-left: 3%;" *ngIf="editservice.numLabel==3"><img
-                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.fr}} <button
-                                class="btn btn-lg  premiumButton"
-                                *ngIf="editservice.numLabel==3">{{respo3?.fr}}</button></p>
+                        <div style="display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 10px;" *ngIf="editservice.numLabel==1" class="premium-text">
+                            <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                                <img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.en}} 
+                            </div>
+                           <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                            <button
+                            class="btn btn-lg premiumButton">{{respo3?.en}}</button>
+                           </div>
+                               
+                           </div>
+
+                           <div style="display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 10px;" *ngIf="editservice.numLabel==2" class="premium-text">
+                            <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                                <img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.de}} 
+                            </div>
+                           <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                            <button
+                            class="btn btn-lg premiumButton">{{respo3?.de}}</button>
+                           </div>
+                               
+                           </div>
+
+
+                           <div style="display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 10px;" *ngIf="editservice.numLabel==3" class="premium-text">
+                            <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                                <img
+                                src="../../../assets/StaticAssets/Home page/diamond (1).png"> {{respo2?.fr}} 
+                            </div>
+                           <div class="col-lg-5 col-md-5 col-sm-12 text-center">
+                            <button
+                            class="btn btn-lg premiumButton" *ngIf="editservice.numLabel==1">{{respo3?.fr}}</button>
+                           </div>
+                               
+                           </div>
+
                     </span>
                 </strong>
                 <button (click)="openDialogue(3)" *ngIf="loginservice.isVisible"
@@ -128,7 +137,7 @@
             </div>
         </li>
         <div class="premium p-1">
-            <div class="premium-child mb-3 ms-4" style="cursor: pointer;"
+            <div class="premium-child mb-3" style="cursor: pointer;"
                 (click)="recentMemorialGrabId(prememData.grab_id,prememData.user_id)"
                 *ngFor="let prememData of PremiumMemorials">
                 <img class="mainIMG  rounded" src="{{prememData.name}}">
@@ -144,4 +153,6 @@
             </div>
         </div>
     </div>
+
+
 </div>

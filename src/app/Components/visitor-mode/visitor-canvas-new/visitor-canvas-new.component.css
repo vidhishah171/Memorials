@@ -7,7 +7,7 @@
 
 .vertical-menu {
     width: 200%;
-    height: 150px;
+    /* height: 150px; */
     overflow-x: auto;
 }
 
@@ -420,7 +420,7 @@
 
 .menu {
     width: 100%;
-    height: 2rem;
+    height: max-content;
     display: flex;
     flex-wrap: wrap;
     margin-left: 15px;
@@ -430,7 +430,7 @@
 
 .menuNew {
     width: 100%;
-    margin-top: -25%;
+    /* margin-top: -25%; */
 }
 
 .recentCsndleSection {
@@ -440,7 +440,7 @@
 }
 
 .recentCsndleSectionMain {
-    margin-top: 18%;
+    /* margin-top: 18%; */
 }
 
 .recentCsndleSectionMain1 {
@@ -501,13 +501,14 @@
 }
 
 .SubmenuContent {
-    height: 65%;
-    width: 100%;
+    /* height: 65%; */
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-content: flex-start;
-    margin-left: 4%;
+    background: #d3d3d359;
+    /* margin-left: 4%; */
 }
 
 .carousel-indicators button {
@@ -522,13 +523,14 @@
 }
 
 .canddles {
-    height: 92px;
+    height: 70px;
     width: 70px;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
     cursor: move;
+    overflow: hidden;
 }
 
 .carousel-control-next {
@@ -677,12 +679,23 @@
     display: flex;
 }
 
+@media (min-width:768px) {
+    .content2 {
+        /* height: 70vw; */
+    }
+    
+}
+
+@media (max-width: 768px){
+    .box3{
+        width: 100%;
+    }
+}
 .content2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    height: 70vw;
 }
 
 #toggleVideo {
@@ -826,7 +839,7 @@
     }
 
     .menu {
-        margin-left: 117px;
+        /* margin-left: 117px; */
     }
 
     .box2 {

@@ -297,18 +297,21 @@
 .recentMemo {
     display: flex;
     align-content: flex-start;
-    margin-left: 12%;
+    /* margin-left: 12%; */
 }
 
 .recentMemo .child1 {
     font-style: normal;
     margin: 0%;
     padding: 0%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .recentImage {
-    width: 50%;
-    height: auto;
+    width: 10rem;
+    height: 10rem;
     border: 2px solid #CF6363;
     text-align: center;
 }
@@ -316,16 +319,17 @@
 
 .userHeading {
     background-color: #CF6363;
-    height: 6vw;
+    /* height: 6vw; */
 }
 
 .userHeading h1 {
     text-align: center;
     color: white;
-    padding-top: 1.3%;
+    padding: 1.3%;
     font-weight: 600;
     font-size: 2.4rem;
     font-family: 'Rubik', sans-serif;
+    letter-spacing: 2px;
 }
 
 hr {
@@ -336,6 +340,7 @@ hr {
     font-size: 0.7rem;
     font-weight: 600;
     opacity: 0.9;
+    padding-left: 3px;
 }
 
 .imgWidth {
@@ -348,7 +353,7 @@ hr {
 
 .forProfileDiv {
     position: absolute;
-    margin-left: 71%;
+    margin-left: 30%;
     cursor: pointer;
     z-index: 10;
     color: black;
@@ -388,7 +393,7 @@ hr {
 
 .recentMemorial {
     background-color: #F8F4EF;
-    height: 25vw;
+    /* height: 25vw; */
 }
 
 .recentMargin {
@@ -434,17 +439,17 @@ hr {
 
 .box1 {
     height: auto;
-    width: 30%;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
 }
 
 .box2 {
     height: auto;
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: flex-end;
 }
 
 .userAccountText {
@@ -473,8 +478,23 @@ hr {
     margin-top: 0%;
 }
 
+.carousel-indicators li{
+    font-size: 1.5rem;
+}
+
+.carousel-indicators{
+    bottom: -1rem;
+    margin-left: 4%;
+    background-color: unset;
+}
+
+.carousel-indicators [data-bs-target]{
+    background-color: unset;
+}
+
+
 .userAccountImg {
-    width: 65%;
+    /* width: 65%; */
     height: auto;
 }
 
@@ -504,10 +524,12 @@ hr {
     border-radius: 6px;
     background-color: white;
     cursor: pointer;
+    flex-grow: 1;
+    width: 48%;
 }
 
 .btn4 {
-    width: 84%;
+    width: 100%;
     border: 1px solid #5D5959;
     cursor: pointer;
     background-color: white;
@@ -524,7 +546,7 @@ hr {
 
 .userAccountBtn {
     width: 25%;
-    margin-left: 0.7%;
+    /* margin-left: 0.7%; */
 }
 
 .viewsCss {
@@ -537,14 +559,24 @@ hr {
     padding-top: 2%;
 }
 
+@media (max-width:481px){
+    .subDiv2 .messageText{
+        visibility: hidden;
+    }
+}
+
 @media (min-width:481px) and (max-width:780px) {
+
+    .subDiv2 .messageText{
+        visibility: hidden;
+    }
     .recentDiv {
         margin-bottom: 15%;
     }
 
-    .box2 {
+    /* .box2 {
         width: 55%;
-    }
+    } */
 
     .btnDiv {
         display: inline-block;

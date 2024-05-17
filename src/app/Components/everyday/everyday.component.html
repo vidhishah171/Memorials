@@ -1,6 +1,15 @@
 <div class="mainDiv">
     <div class="parent container">
-        <div class="box1 m-2 p-2" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id,mem.user_id)"
+        <div class="d-flex w-100 flex-wrap todayDate" style="height: max-content;">
+            <div class="today">
+                {{today | date: "EEEE d.M.y"}}
+            </div>
+            &nbsp;&nbsp;
+            <div style="font-weight: 800;">
+                Starve date today
+            </div>
+        </div>
+        <div class="box1 p-2 col-lg-4 col-md-12 col-sm-12" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id,mem.user_id)"
             *ngFor="let mem of boxOneData">
             <img class="parentImg" src="{{mem.grab_image}}">
             <div class="name">
@@ -21,7 +30,7 @@
 
             </div>
         </div>
-        <div class="box2 p-1">
+        <div class="box2 p-1 col-lg-8 col-md-12 col-sm-12">
             <div class="child m-2 p-1" style="cursor: pointer;" (click)="recentMemorialGrabId(mem.grab_id,mem.user_id)"
                 *ngFor="let mem of boxTwoData">
                 <img src="{{mem.grab_image}}" class="mt-1" class="parentImg1">

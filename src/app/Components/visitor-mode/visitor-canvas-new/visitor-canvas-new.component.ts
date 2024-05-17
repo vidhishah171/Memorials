@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -108,8 +108,83 @@ export class VisitorCanvasNewComponent implements OnInit {
     private router: Router,
   ) { this.loginservice.otherPage = true; }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    if (window.innerWidth >= 1500) {
+      this.canvas.setHeight(600);
+      this.canvas.setWidth(600);
+      // this.canvas.renderAll();
+    }
+    else if(window.innerWidth > 1400 && window.innerWidth < 1500){
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(500);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1200 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(470);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+      // this.canvas.setHeight(500);
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(380);
+      // this.canvas.setWidth(380);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      // this.isTablet = true;
+      this.canvas.setHeight(400);
+      this.canvas.setWidth(400);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth <= 768) {
+      // this.isMobile = true;
+      // this.showFirstCandleIcon = true;
+      // this.showLastCandleIcon = false;
+      this.canvas.setHeight(300);
+      this.canvas.setWidth(300);
+      // this.canvas.renderAll();
+    }
+  }
   ngAfterViewInit() {
     this.showSubMenuItems(1);
+    if (window.innerWidth >= 1500) {
+      this.canvas.setHeight(600);
+      this.canvas.setWidth(600);
+      // this.canvas.renderAll();
+    }
+    else if(window.innerWidth > 1400 && window.innerWidth < 1500){
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(500);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1200 && window.innerWidth < 1400) {
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(470);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 1000 && window.innerWidth < 1200) {
+      // this.canvas.setHeight(500);
+      this.canvas.setHeight(500);
+      this.canvas.setWidth(380);
+      // this.canvas.setWidth(380);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth > 768 && window.innerWidth <= 1000) {
+      // this.isTablet = true;
+      this.canvas.setHeight(400);
+      this.canvas.setWidth(400);
+      // this.canvas.renderAll();
+    }
+    else if (window.innerWidth <= 768) {
+      // this.isMobile = true;
+      // this.showFirstCandleIcon = true;
+      // this.showLastCandleIcon = false;
+      this.canvas.setHeight(300);
+      this.canvas.setWidth(300);
+      // this.canvas.renderAll();
+    }
   }
 
   ngOnInit(): void {
@@ -615,7 +690,7 @@ export class VisitorCanvasNewComponent implements OnInit {
           this.newCanddleImages = cImages.images;
 
           if (this.canddleCaroucelCount == 1) {
-            this.canddleImages = this.newCanddleImages.slice(0, 20);
+            this.canddleImages = this.newCanddleImages.slice(0, 12);
           }
         },
         error => {
@@ -626,15 +701,19 @@ export class VisitorCanvasNewComponent implements OnInit {
 
   nextCanddle() {
     this.canddleCaroucelCount++;
-    if (this.canddleCaroucelCount >= 2) {
-      this.canddleImages = this.newCanddleImages.slice(20, 37);
+    if (this.canddleCaroucelCount == 2) {
+      this.canddleImages = this.newCanddleImages.slice(12, 24);
+    } else if (this.canddleCaroucelCount == 3) {
+      this.canddleImages = this.newCanddleImages.slice(24, 36);
     }
   }
 
   prevCanddle() {
     this.canddleCaroucelCount--;
-    if (this.canddleCaroucelCount <= 1) {
-      this.canddleImages = this.newCanddleImages.slice(0, 20);
+    if (this.canddleCaroucelCount == 1) {
+      this.canddleImages = this.newCanddleImages.slice(0, 12);
+    } else if (this.canddleCaroucelCount == 2) {
+      this.canddleImages = this.newCanddleImages.slice(12, 24);
     }
   }
 

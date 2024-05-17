@@ -26,7 +26,8 @@
 
 .userHeading {
     background-color: #CF6363;
-    height: 16vw;
+    height: 17vw;
+    text-align: center;
 }
 
 .nameSml {
@@ -64,7 +65,7 @@
 }
 
 .viewportHeight {
-    height: 70vw;
+    /* height: 70vw; */
 }
 
 .userImage {
@@ -83,7 +84,7 @@
 .circleImage {
     width: 11%;
     height: 66%;
-    margin-left: 45%;
+    /* margin-left: 45%; */
     margin-top: -2%;
     border: 5px solid white;
     background-color: #5D5959;
@@ -121,14 +122,14 @@
 }
 
 .photoVideoGallary {
-    height: 35vw;
+    /* height: 35vw; */
     background-color: #F8F4EF;
     margin-top: -1%;
 }
 
 .photoVideoGalleryText {
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-left: 1%;
 }
 
@@ -266,11 +267,11 @@ deletrImg {
 
 .subscribeImage {
     background-image: url('../../../assets/StaticAssets/Visitor Mode/112.png');
-    background-size: 100%;
+    /* background-size: 100%; */
     border-radius: 20px;
-    height: 14vw;
-    width: 100%;
-    flex-wrap: wrap;
+    /* height: 14vw; */
+    /* width: 100%; */
+    /* flex-wrap: wrap; */
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -307,7 +308,7 @@ deletrImg {
 
 .recentMemorial {
     background-color: #F8F4EF;
-    height: 25vw;
+    /* height: 25vw; */
 }
 
 .recentHeading {
@@ -319,7 +320,10 @@ deletrImg {
 .recentMemo {
     display: flex;
     align-content: flex-start;
-    margin-left: 12%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    /* margin-left: 12%; */
 }
 
 .recentMemo .child1 {
@@ -335,7 +339,7 @@ deletrImg {
 }
 
 .recentImage {
-    width: 50%;
+    width: 15rem;
     height: auto;
     border: 2px solid #CF6363;
     text-align: center;
@@ -412,7 +416,7 @@ deletrImg {
 
 @media (min-width:481px) and (max-width:979px) {
     .photoVideoGallary {
-        margin-top: 140%;
+        /* margin-top: 140%; */
     }
 
     .submenu {
@@ -421,12 +425,15 @@ deletrImg {
 }
 
 @media (min-width:781px) and (max-width:1160px) {
+    .life-story-buttons{
+        text-align: center;
+    }
     .viewportHeight {
         height: 142vw;
     }
 
     .photoVideoGallary {
-        height: 41vw;
+        /* height: 41vw; */
     }
 
     .recentName {
@@ -434,7 +441,7 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 28vw;
+        /* height: 28vw; */
     }
 }
 
@@ -444,7 +451,7 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 28vw;
+        /* height: 28vw; */
     }
 
     .recentName {
@@ -517,7 +524,7 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 21vw;
+        /* height: 21vw; */
     }
 }
 
@@ -543,7 +550,7 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 18vw;
+        /* height: 18vw; */
     }
 }
 
@@ -571,7 +578,7 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 15vw;
+        /* height: 15vw; */
     }
 }
 
@@ -609,6 +616,117 @@ deletrImg {
     }
 
     .recentMemorial {
-        height: 11vw;
+        /* height: 11vw; */
+    }
+}
+
+@media (max-width:768px) {
+    .life-story-buttons{
+        text-align: center;
+    }
+    .userHeading{
+        height: 50vw;
+        text-align: center;
+    }
+    .share{
+        padding-top: 10px;
+        text-align: center;
+    }
+    .circleImage {
+        width: 25%;
+        height: 50%;
+        margin-top: 3%;
+        border: 5px solid white;
+        background-color: #5D5959;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .fullDiv {
+        width: 90%;
+        margin-left: 4%;
+        margin-top: 15%;
+    }
+
+    
+    .prevButton {
+        margin-left: -3%;
+        margin-top: 10%;
+    }
+
+    .nextButton {
+        margin-left: -3%;
+        margin-top: 10%;
+    }
+
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+    .circleImage{
+        /* margin-top: 10%; */
+        width: 16%;
+    }
+    .userHeading{
+        height: 30vw;
+        text-align: center;
+    }
+}
+
+@media (min-width:768px) {
+    .content2 {
+        /* height: 70vw; */
+    }
+    .visitorCanvasCss {
+        /* height: 70vw; */
+    }
+    .corouseImg {
+        width: 70%;
+    }
+    .share {
+        float: right;
+        margin-right: 10%;
+        position: sticky;
+        top: 100%;
+    }
+    .share span img{
+        width: 8%;
+    }
+    .leave {
+        width: 22%;
+        background-color: white;
+        height: 74px;
+        margin-left: 9%;
+        margin-top: -3%;
+        border-radius: 15px;
+    }
+    .circleImage {
+        width: 11%;
+        height: 66%;
+        /* margin-left: 45%; */
+        /* margin-top: 3%; */
+        border: 5px solid white;
+        background-color: #5D5959;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .fullDiv {
+        width: 90%;
+        margin-left: 4%;
+        margin-top: 2%;
+    }
+
+    
+    .prevButton {
+        margin-left: -3%;
+        margin-top: -6%;
+    }
+
+    .nextButton {
+        margin-left: -3%;
+        margin-top: -6%;
     }
 }

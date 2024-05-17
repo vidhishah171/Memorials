@@ -4,7 +4,7 @@
 <div class="content2 w-100 p-1 ">
     <img style="display: none;" src="../../../../assets/StaticAssets/Home page/asset-1.png" id="igh" alt="">
     <div class="box1">
-        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous" height="600" width="600"
+        <canvas id="Mycanvas" class="canvas" crossorigin="anonymous"
             (drop)="DropImageToCan($event)"></canvas>
         <div class="vertical-menu">
             <p class="vitaFetch">{{vitaData}}</p>
@@ -204,20 +204,20 @@
         </div>
 
         <!-- submenu  Items (ADD CANDDLE) -->
-        <div class="SubmenuContent mt-3 p-2" *ngIf="showMenuItems==1 && showSubMenItem==1">
+        <div class="SubmenuContent" *ngIf="showMenuItems==1 && showSubMenItem==1">
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel" data-bs-interval="0">
                 <div class="carousel-indicators">
                 </div>
                 <div class="carousel-inner itemAlign">
                     <div class="carousel-item active">
-                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                        <div class="canddles m-1" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
                             (click)="addImageToCanvas(canddImage)" (dragend)="DropImageToCan(canddImage)"
                             *ngFor="let canddImage of canddleImages">
                             <img src="{{canddImage.path}}" id="myimage">
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="canddles m-2" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
+                        <div class="canddles m-1" id="draggable" draggable="true" (dragstart)="startImgDrag($event)"
                             (click)="addImageToCanvas(canddImage)" *ngFor="let canddImage of canddleImages">
                             <img src="{{canddImage.path}}">
                         </div>
@@ -231,11 +231,35 @@
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next" (click)="nextCanddle()" [disabled]="canddleCaroucelCount==2">
-                    <span [hidden]="canddleCaroucelCount==2" aria-hidden="true"><img
+                    data-bs-slide="next" (click)="nextCanddle()" [disabled]="canddleCaroucelCount==3">
+                    <span [hidden]="canddleCaroucelCount==3" aria-hidden="true"><img
                             src="../../../../assets/StaticAssets/My account/down-arrow (7).png" alt=""></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+            </div>
+            <div style="color: gray;" class="p-4">
+                <div class="w-100">Candle Comment</div>
+                <div class="w-100">
+                    <textarea matInput name="candlecomment" class="w-100" rows="5" style="border-radius: 10px;"></textarea>
+                </div>
+                <div class="d-flex">
+                    <div class="col-md-8 col-sm-12">
+                    <div style="font-size: 11px;">
+                        Please enter your email address 
+                        <input>
+                        <div>
+                            If you want to get a message once the candle stops burning
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn" style="background: #4BC252;color: white;">
+                        LIGHT CANDLE
+                    </button>
+                </div>
+                </div>
+                
             </div>
         </div>
         <!-- submenu  Items (ADD URNS) -->
@@ -955,7 +979,7 @@
         </div>
     </li>
 
-    <div class="w-100 mt-4 pt-3" style="text-align: center;">
+    <div class="w-100" style="text-align: center;visibility: hidden; height: 0px;">
         <button (click)="openDialogue(20)" *ngIf="loginservice.isVisible"
             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton saveAndPublish"><span><img
                     src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto;"

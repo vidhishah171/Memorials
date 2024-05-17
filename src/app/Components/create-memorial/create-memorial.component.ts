@@ -566,6 +566,8 @@ export class CreateMemorialComponent implements OnInit {
     this.changeStyle = undefined;
     this.changeStyle = data;
     this.service.selectedMainImg = data;
+    this.url = "";
+    this.hidePerson = false;
     // this.service.saveCanvas = data;
   }
 
@@ -902,6 +904,10 @@ export class CreateMemorialComponent implements OnInit {
   }
 
   createMemorialAgain() {
+    if(!this.service.selectedMainImg){
+      this.snackBar('Please select a tombstone or person-centric image', 'alert-success');
+      return;
+    }
     this.child.GetData();
 
     this.spiner.show()

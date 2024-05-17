@@ -357,12 +357,12 @@ export class CanvasComponent implements OnInit, OnDestroy {
     fabric.Image.fromURL(this.service.selectedMainImg, (newImg) => {
       this.canvas.add(newImg);
       newImg.toCanvasElement;
-      newImg.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2) : 15;
+      newImg.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2)+5 : 20;
       newImg.left = ((this.canvas.width - 300) / 2);
       newImg.originX = 'left';
       newImg.originY = 'top';
-      newImg.scaleToHeight(300);
-      newImg.scaleToWidth(300);
+      newImg.scaleToHeight(260);
+      newImg.scaleToWidth(260);
       newImg.name = "tombStoneImage";
       // newImg.lockMovementX = true;
       // newImg.lockMovementY = true;
@@ -370,8 +370,9 @@ export class CanvasComponent implements OnInit, OnDestroy {
       //   evented: false,
       //   selectable: true,
       // });
-      this.extend(newImg, this.ImgRandomId);
       this.tombstomeMainOjbectToCenter = newImg;
+      this.canvas.centerObjectH(this.tombstomeMainOjbectToCenter);
+      this.extend(newImg, this.ImgRandomId);
     });
     this.canvas.renderAll();
     this.canvas.on('object:moving', function (e) {
@@ -384,10 +385,9 @@ export class CanvasComponent implements OnInit, OnDestroy {
     //Delete object
     var Obj = new fabric.Control({
       render: this.renderIcon,
-      x: 0.0,
+      x: 0.5,
       y: -0.5,
       cursorStyle: 'pointer',
-      actionName:"delete",
       mouseUpHandler: (eventData, transform) => {
         var ss = that;
         var target = transform.target;
@@ -404,7 +404,9 @@ export class CanvasComponent implements OnInit, OnDestroy {
         return true;
       }
     });
+    setTimeout(() => {
     fabric.Object.prototype.controls.deleteControl = Obj;
+    }, 200);
   }
   deleteObject(eventData, transform): boolean {
     var target = transform.target;
@@ -525,13 +527,13 @@ export class CanvasComponent implements OnInit, OnDestroy {
         this.canvas.add(newImg1);
         this.service.selectedMainImg = decImages1.path;
         newImg1.toCanvasElement;
-        newImg1.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2) : 15;
+        newImg1.top = (this.canvas.height >= 500) ? ((this.canvas.height - 400) / 2)+5 : 20;
         newImg1.left = ((this.canvas.width - 300) / 2);
         newImg1.originX = "left";
         newImg1.originY = "top";
         newImg1.hasControls = true;
-        newImg1.scaleToHeight(300);
-        newImg1.scaleToWidth(300);
+        newImg1.scaleToHeight(260);
+        newImg1.scaleToWidth(260);
         newImg1.sendToBack();
         // newImg1.lockMovementX = true;
         // newImg1.lockMovementY = true;
@@ -541,8 +543,9 @@ export class CanvasComponent implements OnInit, OnDestroy {
         //   evented: false,
         // });
         this.ImgRandomId = this.randomId();
-        this.extend(newImg1, this.ImgRandomId);
         this.tombstomeMainOjbectToCenter = newImg1;
+        this.canvas.centerObjectH(this.tombstomeMainOjbectToCenter);
+        this.extend(newImg1, this.ImgRandomId);
       }
       // {
       //   left: 280,

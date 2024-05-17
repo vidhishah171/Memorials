@@ -12,22 +12,22 @@
             <div class="share" *ngFor="let item of lovedPersonData1">
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/share.png" alt=""
-                        style="width: 8%;">&nbsp;<small class="shareEdit">Share</small>
+                        >&nbsp;<small class="shareEdit">Share</small>
                 </span>
                 &nbsp;
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/eye-1.png" alt=""
-                        style="width: 8%;">&nbsp;<small class="shareEdit1">view</small>
+                        >&nbsp;<small class="shareEdit1">view</small>
                 </span>
                 &nbsp;
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/candle-2.png" alt=""
-                        style="width: 8%;">&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
+                        >&nbsp;<small class="shareEdit1">{{item.litCandle}}</small>
                 </span>
                 &nbsp;
                 <span>
                     <img src="../../../assets/StaticAssets/Visitor Mode/google-docs-1.png" alt=""
-                        style="width: 6%;">&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
+                        >&nbsp;<small class="shareEdit1">{{item.kondolenz}}</small>
                 </span>
             </div>
             <div class="steeper rounded-circle circleImage">
@@ -170,7 +170,7 @@
     <!-- Buttons -->
     <div class="container content2">
         <div>
-            <div class="mt-5">
+            <div class="mt-5 life-story-buttons">
                 <div class="pt-5" style="display: flex;">
                     <div>
                         <button class="btn btn-outline-secondary ms-2 btnColor"
@@ -351,8 +351,8 @@
                         </h6>
                     </span>
                 </div>
-                <div class="row">
-                    <div class="col-12">
+                <div class="row flex-wrap">
+                    <!-- <div class="col-12"> -->
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage1" *ngIf="!getPhotoVideoImage1"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
@@ -383,8 +383,8 @@
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage6" *ngIf="getPhotoVideoImage6" alt="" class="imageButton">
                         </span>
-                    </div>
-                    <div class="col-12">
+                    <!-- </div> -->
+                    <!-- <div class="col-12"> -->
                         <span class="pVGallery" style="position: relative; left: 0; top: 0;">
                             <img [src]="getPhotoVideoImage7" *ngIf="!getPhotoVideoImage7"
                                 onerror="this.style.display='none'" alt="" class="imageButton">
@@ -415,7 +415,7 @@
                                 onerror="this.style.display='none'" alt="" class="imageButton">
                             <img [src]="getPhotoVideoImage12" *ngIf="getPhotoVideoImage12" alt="" class="imageButton">
                         </span>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -435,12 +435,12 @@
                                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
                         </h5>
                         <div class="row pt-5">
-                            <div class="col-6 condolenceMain" id="condolencesMain"
+                            <div class="col-md-6 col-12 condolenceMain" id="condolencesMain"
                                 [ngClass]="{'condolenceMain':item.showFull == undefined,'condolenceMain1':item.showFull == true}"
                                 *ngFor="let item of service.memorialDetails">
                                 <div class="condolencesEdit row" id="condolencesEdit"
                                     [ngClass]="{'condolencesEdit':item.showFull == undefined,'condolencesEdit1':item.showFull == true}">
-                                    <div class="col-3">
+                                    <div class="col-3 d-flex align-items-center">
                                         <span>
                                             <img class="qotesImg"
                                                 src="../../../assets/StaticAssets/Visitor Mode/invertedCommas.png"
@@ -448,7 +448,7 @@
                                         </span>
                                     </div>
                                     <div class="col-9">
-                                        <div>
+                                        <div style="padding-top: 20px;">
                                             <span>
                                                 <img class="condolenceImg me-2"
                                                     src="../../../assets/StaticAssets/Visitor Mode/user (2)9.png"
@@ -476,7 +476,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="p-3">
                             <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
                                 class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton latestCondo"><span><img
                                         src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
@@ -568,7 +568,7 @@
     <!-- Subscribe -->
     <div>
         <div class="container">
-            <div class="subscribeImage">
+            <div class="subscribeImage p-4">
                 <div>
                     <button (click)="openDialogue(11)" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton subscribeAdminButton"><span><img

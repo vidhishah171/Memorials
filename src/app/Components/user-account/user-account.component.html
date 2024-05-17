@@ -1,7 +1,7 @@
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<div>
+<meta http-equiv="Expires" content="0"> -->
+<!-- <div> -->
     <div class="navPadding">
         <div>
             <app-navbar></app-navbar>
@@ -51,7 +51,7 @@
             </div>
         </li>
         <!-- DropDown div -->
-        <div *ngIf="showDiv==0.1 && isShow" class="forProfileDiv">
+        <div *ngIf="showDiv==0.1 && isShow" class="forProfileDiv pt-2">
             <div class="userDetail">
                 <span *ngIf="editservice.numLabel==1" (click)="openDiv1()" class="profileName profileUserName"><img
                         class="profileImg"
@@ -126,7 +126,7 @@
                         src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">&nbsp;<span
                         class="divText">{{respo4?.fr}}</span></span>
             </div>
-
+            <hr>
             <!-- Extra code for label -->
             <li *ngIf="showNewDiv1==4 && isvalid1" style="position: absolute; margin-top: 25px;">
                 <div class="forDiv1 userProfileDiv4">
@@ -363,7 +363,7 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
-
+            <hr>
             <div class="userDetail pt-3">
                 <button (click)="openDialogue(10)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -485,9 +485,10 @@
                         class="btn btn-outline-success">Save</button>
                 </div>
             </li>
+            <hr>
         </div>
         <div class="content1 container">
-            <div class="box1">
+            <div class="box1 col-xxl-5 col-xl-5 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div>
                     <button (click)="openDialogue(13)" style="float: left;" *ngIf="loginservice.isVisible"
                         class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -520,7 +521,7 @@
                     <h4 *ngIf="editservice.numLabel==2" class="userAccountText3">{{respo16?.de}}</h4>
                     <h4 *ngIf="editservice.numLabel==3" class="userAccountText3">{{respo16?.fr}}</h4>
                 </div>
-                <div>
+                <div class="d-flex justify-content-center">
                     <img src="../../../assets/StaticAssets/My account/coins.png" class="userAccountImg">
                 </div>
                 <!-- Extra code for label -->
@@ -635,52 +636,56 @@
                     </div>
                 </li>
             </div>
-            <div class="box2">
-                <div class="btnDiv">
-                    <button (click)="openDialogue(17)" *ngIf="loginservice.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton creditButton1"><span><img
+            <div class="box2 col-xxl-7 col-xl-7 col-lg-6 col-md-6 col-sm-12" >
+                <div class="btnDiv d-flex flex-wrap justify-content-center" style="gap: 5px;">
+                    <!-- <div> -->
+                        <button (click)="openDialogue(17)" *ngIf="loginservice.isVisible"
+                        class="border border-1 rounded-circle shadow rounded forButton creditButton1"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <span style="width: 18%;">
+                    <!-- <span class="userAccountBtn"> -->
                         <button (click)="clickShowStepBtn1()" class="btn1 active" *ngIf="editservice.numLabel==1"
                             id="btn1">{{respo17?.en}}</button>
                         <button (click)="clickShowStepBtn1()" class="btn1 active" *ngIf="editservice.numLabel==2"
                             id="btn1">{{respo17?.de}}</button>
                         <button (click)="clickShowStepBtn1()" class="btn1 active" *ngIf="editservice.numLabel==3"
                             id="btn1">{{respo17?.fr}}</button>
-                    </span>
+                    <!-- </span> -->
                     <button (click)="openDialogue(18)" *ngIf="loginservice.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton creditButton2"><span><img
+                        class="border border-1 rounded-circle shadow rounded forButton creditButton2"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <span class="userAccountBtn">
+                    <!-- <span class="userAccountBtn"> -->
                         <button (click)="clickShowStepBtn2()" *ngIf="editservice.numLabel==1" id="btn2"
                             class="btn1">{{respo18?.en}}</button>
                         <button (click)="clickShowStepBtn2()" *ngIf="editservice.numLabel==2" id="btn2"
                             class="btn1">{{respo18?.de}}</button>
                         <button (click)="clickShowStepBtn2()" *ngIf="editservice.numLabel==3" id="btn2"
                             class="btn1">{{respo18?.fr}}</button>
-                    </span>
+                    <!-- </span> -->
+                    <!-- </div> -->
+                    <!-- <div> -->
                     <button (click)="openDialogue(19)" *ngIf="loginservice.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton creditButton3"><span><img
+                        class="border border-1 rounded-circle shadow rounded forButton creditButton3"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <span class="userAccountBtn">
+                    <!-- <span class="userAccountBtn"> -->
                         <button (click)="clickShowStepBtn3()" *ngIf="editservice.numLabel==1" id="btn3"
                             class="btn1">{{respo19?.en}}</button>
                         <button (click)="clickShowStepBtn3()" *ngIf="editservice.numLabel==2" id="btn3"
                             class="btn1">{{respo19?.de}}</button>
                         <button (click)="clickShowStepBtn3()" *ngIf="editservice.numLabel==3" id="btn3"
                             class="btn1">{{respo19?.fr}}</button>
-                    </span>
+                    <!-- </span> -->
                     <button (click)="openDialogue(20)" *ngIf="loginservice.isVisible"
-                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton creditButton4"><span><img
+                        class="border border-1 rounded-circle shadow rounded forButton creditButton4"><span><img
                                 src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
-                    <span class="userAccountBtn">
+                    <!-- <span class="userAccountBtn text-center"> -->
                         <button (click)="clickShowStepBtn4()" *ngIf="editservice.numLabel==1" id="btn4"
                             class="btn1">{{respo20?.en}}</button>
                         <button (click)="clickShowStepBtn4()" *ngIf="editservice.numLabel==2" id="btn4"
                             class="btn1">{{respo20?.de}}</button>
                         <button (click)="clickShowStepBtn4()" *ngIf="editservice.numLabel==3" id="btn4"
                             class="btn1">{{respo20?.fr}}</button>
-                    </span>
+                    <!-- </span> -->
+                    <!-- </div> -->
                 </div>
                 <div class="mt-3 btnDiv1">
                     <button (click)="openDialogue(21)" *ngIf="loginservice.isVisible" style="right:10%"
@@ -903,7 +908,7 @@
             <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
+                        <div style="width: 100%; display: flex; justify-content: center;">
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2 mr-3">
                                     <img src="{{userData.path}}"
@@ -927,7 +932,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div style="width: 120%;">
+                                <div class="p-1" style="margin-left: 1rem;">
                                     <div>
                                         <button (click)="openDialogue(24)" style="float: left;"
                                             *ngIf="loginservice.isVisible"
@@ -969,7 +974,7 @@
                                             {{respo25?.fr}}
                                         </span>
                                     </div>
-                                    <div>
+                                    <div class="pt-1">
                                         <button (click)="openDialogue(26)" style="float: left;"
                                             *ngIf="loginservice.isVisible"
                                             class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
@@ -1017,8 +1022,117 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
+                    <!-- <div class="carousel-item">
+                        <div style="width: 100%; padding-left: 12%; display: flex;">
+                            <div *ngFor="let userData of getUserMemoDataUser">
+                                <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
+                                    <img src="{{userData.path}}" class="userImage me-2 rounded">
+                                    <div class="ms-2 mt-4">
+                                        <h6 class="userMemorialData">
+                                            <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
+                                                alt="">
+                                            {{userData.grab_name}} {{ userData.firstname}}
+                                        </h6>
+                                        <p class="userMemorialData1">
+                                            <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
+                                            &nbsp;
+                                            <span
+                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <button (click)="openDialogue(24)" style="float: left;"
+                                            *ngIf="loginservice.isVisible"
+                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                                    src="../../../assets/StaticAssets/pencil.svg"
+                                                    alt=""></span></button>
+                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo24?.en}} &nbsp; | &nbsp;
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo24?.de}} &nbsp; | &nbsp;
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo24?.fr}} &nbsp; | &nbsp;
+                                        </span>
+                                        <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
+                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forUserCreatedMemo1"><span><img
+                                                    src="../../../assets/StaticAssets/pencil.svg"
+                                                    alt=""></span></button>
+                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo25?.en}}
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo25?.de}}
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo25?.fr}}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <button (click)="openDialogue(26)" style="float: left;"
+                                            *ngIf="loginservice.isVisible"
+                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
+                                                    src="../../../assets/StaticAssets/pencil.svg"
+                                                    alt=""></span></button>
+                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare"
+                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo26?.en}} &nbsp; | &nbsp;
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare"
+                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo26?.de}} &nbsp; | &nbsp;
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare"
+                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo26?.fr}} &nbsp; | &nbsp;
+                                        </span>
+                                        <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
+                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forUserCreatedMemo2"><span><img
+                                                    src="../../../assets/StaticAssets/pencil.svg"
+                                                    alt=""></span></button>
+                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo27?.en}}
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo27?.de}}
+                                        </span>
+                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
+                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
+                                                class="myMemorialImg" alt="">&nbsp;
+                                            {{respo27?.fr}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="carousel-item">
+                        <div style="width: 100%; padding-left: 12%; display: flex;">
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
@@ -1127,7 +1241,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
+                        <div style="width: 100%; padding-left: 12%; display: flex;">
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
@@ -1236,7 +1350,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
+                        <div style="width: 100%; padding-left: 12%; display: flex;">
                             <div *ngFor="let userData of getUserMemoDataUser">
                                 <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
                                     <img src="{{userData.path}}" class="userImage me-2 rounded">
@@ -1343,116 +1457,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div style="width: 100%; padding-left: 12%; height: 15vw; display: flex;">
-                            <div *ngFor="let userData of getUserMemoDataUser">
-                                <div class="d-flex child1 w-100 p-1 mt-3 mb-2">
-                                    <img src="{{userData.path}}" class="userImage me-2 rounded">
-                                    <div class="ms-2 mt-4">
-                                        <h6 class="userMemorialData">
-                                            <img src="../../../assets/StaticAssets/my account premium/grave-1.png"
-                                                alt="">
-                                            {{userData.grab_name}} {{ userData.firstname}}
-                                        </h6>
-                                        <p class="userMemorialData1">
-                                            <span>{{userData.birthdate}} - {{userData.starvedate}}</span>
-                                            &nbsp;
-                                            <span
-                                                style="color: #B5B5B5; font-size: 0.75rem;">({{userData.age}}&nbsp;old)</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div style="width: 120%;">
-                                    <div>
-                                        <button (click)="openDialogue(24)" style="float: left;"
-                                            *ngIf="loginservice.isVisible"
-                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                                    src="../../../assets/StaticAssets/pencil.svg"
-                                                    alt=""></span></button>
-                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo24?.en}} &nbsp; | &nbsp;
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo24?.de}} &nbsp; | &nbsp;
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/settings.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo24?.fr}} &nbsp; | &nbsp;
-                                        </span>
-                                        <button (click)="openDialogue(25)" *ngIf="loginservice.isVisible"
-                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forUserCreatedMemo1"><span><img
-                                                    src="../../../assets/StaticAssets/pencil.svg"
-                                                    alt=""></span></button>
-                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo25?.en}}
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo25?.de}}
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/email (1).png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo25?.fr}}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <button (click)="openDialogue(26)" style="float: left;"
-                                            *ngIf="loginservice.isVisible"
-                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
-                                                    src="../../../assets/StaticAssets/pencil.svg"
-                                                    alt=""></span></button>
-                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare"
-                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo26?.en}} &nbsp; | &nbsp;
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare"
-                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo26?.de}} &nbsp; | &nbsp;
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare"
-                                            (click)="goesToEditMemo(userData.grab_id);goesToEditMemo1(userData.grab_id)">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo26?.fr}} &nbsp; | &nbsp;
-                                        </span>
-                                        <button (click)="openDialogue(27)" *ngIf="loginservice.isVisible"
-                                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton forUserCreatedMemo2"><span><img
-                                                    src="../../../assets/StaticAssets/pencil.svg"
-                                                    alt=""></span></button>
-                                        <span *ngIf="editservice.numLabel==1" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo27?.en}}
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==2" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo27?.de}}
-                                        </span>
-                                        <span *ngIf="editservice.numLabel==3" class="fontAppeare">
-                                            <img src="../../../assets/StaticAssets/my account premium/stats.png"
-                                                class="myMemorialImg" alt="">&nbsp;
-                                            {{respo27?.fr}}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev" (click)="prevCarousel()" [disabled]="caroucelCount==1">
                         <span aria-hidden="true" [hidden]="caroucelCount==1"><img
@@ -1460,9 +1465,9 @@
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        [disabled]="caroucelCount==5 || getUserMemoDataUser?.length != 3" (click)="nextCarousel()"
+                        [disabled]="isMobile ? (caroucelCount != 1 &&  caroucelCount >= getUserMemoData?.length) : (caroucelCount==5 || (isIpad ? getUserMemoDataUser?.length != 2 : getUserMemoDataUser?.length != 3))" (click)="nextCarousel()"
                         data-bs-slide="next">
-                        <span aria-hidden="true" [hidden]="caroucelCount==5 || getUserMemoDataUser?.length != 3">
+                        <span aria-hidden="true" [hidden]="isMobile ? (caroucelCount != 1 || caroucelCount >= getUserMemoData?.length) : (caroucelCount==5 || (isIpad ? getUserMemoDataUser?.length != 2 : getUserMemoDataUser?.length != 3))">
                             <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
                         </span>
                         <span class="visually-hidden">Next</span>
@@ -1580,7 +1585,7 @@
                     </li>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 
     <!-- Sent message -->
@@ -1664,7 +1669,7 @@
     <div>
         <app-create-premiun-mem></app-create-premiun-mem>
     </div>
-    <div class="mt-1 recentMargin">
+    <!-- <div class="mt-1 recentMargin">
         <div class="recentMemorial">
             <div class="container">
                 <h4 class="mb-4">
@@ -1675,7 +1680,7 @@
                     <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==2">{{respo30?.de}}</h5>
                     <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</h5>
                 </h4>
-                <!-- Extra code for label -->
+             
                 <li *ngIf="showNewDiv1==30 && isvalid1" style="position: absolute; margin-top: 281px; right: 87%;">
                     <div class="forDiv1 userProfileDiv29">
                         <button style="float: right;" (click)="openDialogue1()"
@@ -1702,7 +1707,7 @@
                             class="btn btn-outline-success">Save</button>
                     </div>
                 </li>
-                <div class="recentMemo h-100 p-5">
+                <div class="recentMemo h-100">
                     <div *ngFor="let memData of Memorials" class="child1">
                         <img src="{{memData.path}}" class="me-2 rounded recentImage">
                         <div class="mt-2">
@@ -1724,11 +1729,124 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+
+
+    <!-- <div id="carouselExampleIndicatorsRm" class="carousel mt-1 recentMargin" data-bs-ride="carousel">
+        <div class="carousel-inner recentMemorial">
+            <div class="carousel-item active">
+                <h4 class="mb-4">
+                    <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
+                        class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton messageCss1"><span><img
+                                src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+                    <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==1">{{respo30?.en}}</h5>
+                    <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==2">{{respo30?.de}}</h5>
+                    <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</h5>
+                </h4>
+                <div style="width: 100%; display: flex; justify-content: center;gap: 20px;" class="container recentMemo h-100">
+                    
+                    <div *ngFor="let memData of selectedMemorials" class="child1">
+                        <img src="{{memData.path}}" class="me-2 rounded recentImage">
+                        <div class="mt-2">
+                            <h6 class="recentName">
+                                {{memData.fname}} {{ memData.lname}}
+                            </h6>
+                        </div>
+                        <div class="viewsCss">
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
+                            <span class="me-1 nameSml">0</span>
+
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
+                            <span class="me-1 nameSml">{{memData.litCandle}}</span>
+
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                            <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsRm"
+                data-bs-slide="prev" (click)="prevCarouselRm()" [disabled]="caroucelCountRm==1">
+                <span aria-hidden="true" [hidden]="caroucelCountRm==1"><img
+                        src="../../../assets/StaticAssets/my account premium/down-arrow (7).png" alt=""></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsRm"
+                [disabled]="isMobile ? (caroucelCountRm != 1 &&  caroucelCountRm >= Memorials?.length) : (caroucelCountRm==5 || (isIpad ? selectedMemorials?.length != 3: selectedMemorials?.length != 4))" (click)="nextCarouselRm()"
+                data-bs-slide="next">
+                <span aria-hidden="true" [hidden]="isMobile ? (caroucelCountRm != 1 && caroucelCountRm >= Memorials?.length) : (caroucelCountRm==5 || (isIpad ? selectedMemorials?.length != 3 : selectedMemorials?.length != 4))">
+                    <img src="../../../assets/StaticAssets/My account/down-arrow (7).png" alt="">
+                </span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+        </div>
+    </div> -->
+
+
+    <div id="carouselMemorialFeatures" class="carousel row col-12 mt-1 recentMargin" data-bs-ride="carousel"
+    data-bs-interval="0">
+        <h4 class="mb-4">
+            <button (click)="openDialogue(30)" *ngIf="loginservice.isVisible"
+                class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton messageCss1"><span><img
+                        src="../../../assets/StaticAssets/pencil.svg" alt=""></span></button>
+            <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==1">{{respo30?.en}}</h5>
+            <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==2">{{respo30?.de}}</h5>
+            <h5 class="recentHeading pt-5" *ngIf="editservice.numLabel==3">{{respo30?.fr}}</h5>
+        </h4>
+        <ol class="carousel-indicators" style="list-style: disc;" *ngIf="featuredMemorialCaoruselLoop.length > 1">
+            <li data-bs-target="#carouselMemorialFeatures" *ngFor="let sc of featuredMemorialCaoruselLoop; let index = index" [attr.data-bs-slide-to]="index"
+            [class.active]="index == 0"></li>
+        </ol>
+        <div class="carousel-inner itemAlign">
+            <div class="carousel-item candle-nowrap " *ngFor="let slide of featuredMemorialCaoruselLoop; let index = index"
+                [class.active]="index == 0">
+                <!-- <div class="d-flex justify-content-center" style="gap: 20px;"> -->
+                <div style="width: 100%; display: flex; justify-content: center;gap: 20px;" class="container h-100">
+                    <!-- <div class="box d-flex pt-1" *ngFor="let data of slide; let i = index">
+                        <img class="ourFeaturedTextImg" [src]="data.imgSrc">
+                        <span class="ourFeaturedText" *ngIf="editservice.numLabel==1">{{data?.resp?.en}}</span>
+                        <span class="ourFeaturedText1" *ngIf="editservice.numLabel==2">{{data?.resp?.de}}</span>
+                        <span class="ourFeaturedText2" *ngIf="editservice.numLabel==3">{{data?.resp?.fr}}</span>
+
+                        <button (click)="openDialogue(2)" *ngIf="loginservice.isVisible"
+                            class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton">
+                            <span><img
+                                    src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
+                                    alt="">
+                            </span>
+                        </button>
+                    </div> -->
+                    <div *ngFor="let memData of slide" class="child1" (click)="recentMemorialGrabId(memData.grab_id,memData.user_id)">
+                        <img src="{{memData.path}}" class="me-2 rounded recentImage">
+                        <div class="mt-2">
+                            <h6 class="recentName">
+                                {{memData.fname}} {{ memData.lname}}
+                            </h6>
+                        </div>
+                        <div class="viewsCss">
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/eye.png">
+                            <span class="me-1 nameSml">0</span>
+
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/candle.png">
+                            <span class="me-1 nameSml">{{memData.litCandle}}</span>
+
+                            <img class="imgSml" src="../../../assets/StaticAssets/Home page/google-docs.png">
+                            <span class="me-1 nameSml">{{memData.Kondolenz}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
     <div class="mt-5">
         <app-memory-image></app-memory-image>
     </div>
     <div>
         <app-footer></app-footer>
     </div>
-</div>
+<!-- </div> -->

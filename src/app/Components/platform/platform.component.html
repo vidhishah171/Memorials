@@ -1,7 +1,8 @@
-<div class="platform w-100 ps-5">
-    <div class="box1 container mb-5">
+<div class="platform w-100" style="display: flex; flex-direction: row; padding-left:16%; padding-right:10%">
+    <div class="box1 container col-md-6 col-lg-6 col-sm-12">
         <div>
             <h5>
+                <br>
                 <button (click)="openDialogue(1)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -9,10 +10,10 @@
                 <p class="platformText" *ngIf="editservice.numLabel==1">{{respo1?.en}}</p>
                 <p class="platformText" *ngIf="editservice.numLabel==2">{{respo1?.de}}</p>
                 <p class="platformText" *ngIf="editservice.numLabel==3">{{respo1?.fr}}</p>
-            </h5>
+            <!-- </h5>
         </div>
         <div>
-            <h5>
+            <h5> -->
                 <button (click)="openDialogue(4)" *ngIf="loginservice.isVisible"
                     class="d-flex justify-content-center flex-wrap align-items-center border border-1 rounded-circle shadow rounded forButton"><span><img
                             src="../../../assets/StaticAssets/pencil.svg" style="width:16px; height:auto"
@@ -146,7 +147,7 @@
             </div>
         </li>
     </div>
-    <div class="box2 ps-5 ">
+    <div class="box2 col-md-6 col-lg-6 col-sm-12">
         <img src="../../../assets/StaticAssets/Home page/ipad.png" class="imgBox2" alt="">
     </div>
 </div>

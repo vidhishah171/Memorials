@@ -222,12 +222,13 @@ header {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .memorial {
     margin-top: 20px;
-    margin-left: 16%;
+    /* margin-left: 16%; */
     margin-bottom: 6%;
     height: 180px;
     width: 180px;
@@ -269,7 +270,7 @@ h5 {
 }
 
 .second {
-    height: 5vw;
+    /* height: 5vw; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -400,6 +401,14 @@ h5 {
     width: 85%;
 }
 
+.search{
+    height: 31px; width: 42%;
+}
+
+.w-2{
+    width: 42%
+}
+
 ::ng-deep .custom-slider .ngx-slider .ngx-slider-bar {
     background: #CF6363 !important;
     height: 30%;
@@ -435,7 +444,7 @@ mat-slider {
 @media (max-width: 992px) {
     header {
         background-position: 50%;
-        background-size: auto;
+        /* background-size: auto; */
     }
 
     #box3 {
@@ -455,12 +464,17 @@ mat-slider {
         margin-top: -15%;
         left: 49%;
     }
+
+    .w-2{
+        width: 65%;
+        /* height: 25px; */
+    }
 }
 
 @media (max-width: 700px) {
     header {
         background-position: 35%;
-        background-size: auto;
+        /* background-size: auto; */
     }
 
     #box3 {
@@ -468,15 +482,34 @@ mat-slider {
     }
 
     #box4 {
-        margin-top: 70px;
+        margin-top: 96px;
     }
 }
 
+.carousel-indicators li{
+    font-size: 1.5rem;
+}
+
+.carousel-indicators{
+    bottom: -1rem;
+    margin-left: 4%;
+}
+
+.advanced-search{
+    color: lightgray;
+    text-decoration: underline;
+}
 
 @media (max-width: 450px) {
+    
+    .find .input-group {
+        margin-top: 50px;
+        width: 80%;
+    }
+
     header {
-        background-position: 20%;
-        background-size: auto;
+        background-position: 50%;
+        /* background-size: auto; */
     }
 
     .container {

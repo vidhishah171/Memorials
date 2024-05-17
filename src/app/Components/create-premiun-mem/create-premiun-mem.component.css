@@ -93,7 +93,7 @@
 }
 .createPreMem{
     width: 100%;
-    height: 36vw;
+    height: auto;
     background-image: url('../../../assets/StaticAssets/Create memorial/thank you page/Rectangle 267.png');
     display: flex;
     flex-wrap: wrap;
@@ -107,15 +107,16 @@
     flex-direction: column;
     height: 27%;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     color: white;
     overflow-wrap: break-word;
     text-justify: newspaper;
 }
 .box1 h1{
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-weight: 500;
-    letter-spacing: 0.05cm
+    letter-spacing: 0.05cm;
+    text-align: center;
 }
 .premiumText{
     font-size: 0.95rem;
@@ -130,15 +131,13 @@
     flex-wrap: wrap;
     width: 100%;
     height: 33%;
-    padding-top: 6%;
-    margin-left: 6%;
+    padding-top: 2%;
+    /* margin-left: 6%; */
     flex-direction: row;
     justify-content: flex-start;
    
 }
-.divPadding{
-    padding-left: 2%;
-}
+
 .specification{
 
     color: white;
@@ -151,11 +150,16 @@
     height: 18%;
     width: 50%;
     margin-top: 18px;
-    
+
 }
 .specificationMargin{
-    margin-top: -4%;
+    margin-top: -1%;
 }
+
+/* .specification img {
+    vertical-align: sub;
+} */
+
 .buyPremium{
     background-color: #4BC252;
     color: white;
@@ -174,13 +178,103 @@
     color: white;
     height: 60%;
     width: 100%;
-    padding: 2%;
+    padding: 5%;
     background-color: #A45B5B;
 }
 .price h1{
-    font-size: 3rem;
+    font-size: 2rem;
     opacity: 0.9;
     padding-top: 1%;
+}
+
+@media (max-width:481px){
+    .subDiv2 .messageText{
+        visibility: hidden;
+    }
+
+    .createPreMem{
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        flex-wrap: wrap;
+    }
+    .box1{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 40%;
+        width: 100%;
+        flex-wrap: wrap;
+        color: white;
+        overflow-wrap: break-word;
+        text-justify: newspaper;
+    }
+    
+    .box1 h1{
+        font-size: 1rem;
+        letter-spacing: 0.05cm;
+        justify-content: center;
+    }
+    .box1 span{
+        font-size: 0.9rem;
+        text-align: center;
+        display: flex;
+        justify-content:center;
+    }
+
+    .box2{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 33%;
+        padding-top: 5%;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .specification{
+        color: white;
+        display: block;
+        flex-direction: column;
+        justify-content: left;
+        align-content: flex-start;
+        overflow-wrap:inherit;
+        flex-wrap: wrap;
+        text-align: justify;
+        height: 78%;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+}
+
+@media (min-width: 1000px){
+    .divPadding{
+        padding-left: 2%;
+        }
+
+        .box2{
+            margin-left: 7%;
+        }
+}
+
+@media (min-width: 780px) and (max-width: 1000px){
+    .specification{
+        width: 100%;
+        flex-direction: row;
+        justify-content: start;
+    }
+   
+        .box2{
+            
+            height: auto;
+        }
+}
+
+.box1 span{
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    justify-content:center;
 }
 
 @media (min-width:481px) and (max-width:780px){
@@ -223,13 +317,13 @@
         justify-content: center;
     }
     .box1 span{
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         text-align: center;
+        display: flex;
         justify-content:center;
     }
 
     .box2{
-        margin-left: 7%;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -252,10 +346,10 @@
         margin-top: 20px;
     }
     #m{
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
     .specification span{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .price{
         height: 30%;
